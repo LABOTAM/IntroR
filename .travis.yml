@@ -12,5 +12,6 @@ deploy:
   local_dir: _book
   skip_cleanup: true
   github-token: $GITHUB_PAT
+  target_branch: gh-pages
   on:
     branch: master
