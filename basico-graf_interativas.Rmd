@@ -1,0 +1,57 @@
+## Funções gráficas interativas
+
+### `locator()`
+
+Esta função extrai coordenadas de um gráfico.  
+
+```{r, opts.label='evalF'}
+?locator #veja o help
+
+#fazemos um gráfico
+?trees #se quiser entender esses dados
+data("trees")
+class(trees)
+colnames(trees)
+Circunferencia=trees$Girth
+Altura=trees$Height
+plot(Circunferencia,Altura,type='p',pch=21,bg='red')
+locator(n=1) 
+#clique na figura dentro do gráfico
+#veja que no console há uma lista com os valores das coordenadas x e y
+
+#pode fazer a mesma coisa já salvando as coordendas num ojbeto. Colete 2 pontos agora, traçando uma linha entre eles
+cds = locator(n=2,type='l') 
+cds #dois valores para cada coordenada
+#posso usar os valores obtidos, por exemplo para plotar uma flexa
+x0 = cds$x[1]
+x1 = cds$x[2]
+y0 = cds$y[1]
+y1 = cds$y[2]
+arrows(x0,y0,x1,y1,lwd=2,col="red")
+```
+
+### `identify()`
+
+Esta função identifica os pontos de um gráfico.  
+
+```{r, opts.label='evalF'}
+?identify #veja o help
+
+#fazemos um gráfico
+data("trees")
+Circunferencia=trees$Girth
+Altura=trees$Height
+#plotamos vazio
+plot(Circunferencia,Altura,type='n')
+ss = sample(1:nrow(trees),1) #um valor de indice aleatorio
+#um  ponto qualquer em vermelho 
+points(Circunferencia[ss],Altura[ss],pch=21,cex=1.5,bg='red')
+#o resto dos pontos em branco
+points(Circunferencia[-ss],Altura[-ss],pch=21,cex=1.5,bg='white')
+#identificar pontos. Execute a funçào e selecione no ponto vermelho
+identify(Circunferencia,Altura,n=1,tolerance=1)
+#o numero que aparece no gráfico é o indice
+#portanto, deve ser igual ao valor de
+ss
+trees[ss,]
+```

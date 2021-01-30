@@ -1,0 +1,50 @@
+## Tabelas dinâmicas {#tabela-dinamica}
+
+A função `tapply()` calcula alguma funcão sobre um vetor numérico para cada categoria de um fator.
+Já a função `aggregate()` faz o mesmo, mas permite múltiplos fatores e sempre retorna um `data.frame`.  
+
+Vamos usar dados de parcelas em [caixetais](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2015:caixeta.csv), formações dominadas por *Tabebuia cassinoides* (Lam.) D.C. (Bignoniaceae), espécie comum da Mata Atlântica nos estados de São Paulo, Minas Gerais, Rio de Janeiro e Espírito Santo.
+Baixe o arquivo para seu computador e instale-o na sua pasta de trabalho antes de seguir com os comandos abaixo.  
+
+```{r, opts.label='evalF'}
+dir(pattern="caixeta")
+caixeta = read.table("caixeta.csv",sep=',',header=T)
+names(caixeta)
+
+## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores
+?tapply #veja o help dessa função
+
+#altura máxima de cada especie
+tapply(caixeta$h,INDEX=caixeta$especie, FUN=max)
+
+#circunferencia media por localidade
+tapply(caixeta$cap,INDEX=caixeta$local, FUN=mean)
+
+##"Tabelas dinamicas": funcao aggregate
+## Criar data.frame com altura media dos fustes por especie e por local
+?aggregate #veja o help dessa função
+names(caixeta)
+
+#circunferencia máxima por especie
+ob1 = aggregate(caixeta$cap, by=list(especie=caixeta$especie), FUN=max)
+class(ob1) #obtenho um data frame
+head(ob1)
+
+#neste caso também poderia fazer assim
+ob2 = tapply(caixeta$h,caixeta$especie, max)
+class(ob2) #mas neste caso nos temos um array (um vetor unidimensional)
+ob2[1:10]
+
+#mas se eu quiser por localidade e por especie, preciso usar aggregate
+caixeta.alt <- aggregate(caixeta$h, by=list(local=caixeta$local,especie=caixeta$especie), FUN=max)
+head(caixeta.alt)
+
+##Vamos calcular a area basal (soma da area de todo os fustes)
+
+## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:
+caixeta$ab <- caixeta$cap^2/4*pi 
+## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes
+caixeta.2 <- aggregate(caixeta$ab, by=list(local=caixeta$local,parcela=caixeta$parcela,especie=caixeta$especie), FUN=sum)
+class(caixeta.2)
+head(caixeta.2)
+```

@@ -1,0 +1,46 @@
+--- 
+title: "Curso básico de introdução ao R"
+author:
+  - Alberto Vicentini (INPA)
+  - Ricardo de Oliveira Perdiz (Sem filiação acadêmica)
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: 
+  # bookdown::html_document2
+  bookdown::gitbook
+
+lang: pt-br
+
+
+documentclass: book
+bibliography: bib.bib
+biblio-style: apalike
+link-citations: yes
+github-repo: LABOTAM/BOT89-introR
+description: "Este livro é um guia básico para conhecer a sintaxe básica desta linguagem de programação e o potencial de usar o R como ferramenta científica."
+---
+
+```{r, setup, include = FALSE}
+knitr::opts_template$set(evalF = list(echo = TRUE,
+                                      eval = FALSE))
+
+knitr::opts_template$set(executa = list(echo = FALSE,
+                                        eval = TRUE))
+
+knitr::opts_template$set(executa_mostra = list(echo = TRUE,
+                                               eval = TRUE))
+```
+
+```{r load_packages, include = FALSE, echo = FALSE, message = FALSE}
+library("printr")
+```
+
+# Introdução
+
+Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina [Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89)](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio) do [Programa de Pós-Graduação em Ciências Biológicas (Botânica)](http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/) do INPA.
+Porém, devido ao seu conteúdo abrangente, pode ser utilizado por qualquer pessoa que escolha conhecer esta linguagem para utilizá-la no dia a dia.  
+
+Nosso meta é prover uma introdução básica 
+<!-- (a) passar uma noção geral sobre dados e metadados e como criar e manter um banco de dados de forma simples e organizada e que facilite seu uso posterior; -->
+da linguagem de programação R, que é extremamente poderosa para manipulação de dados, análises estatísticas, produção de gráficos e de documentos dinâmicos, e cujo domínio oferece um grande ganho de produtividade a todo cientista e facilita o entendimento de métodos analíticos.
+Ressaltamos que **isto não é um curso de estatística**.

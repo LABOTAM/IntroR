@@ -1,0 +1,139 @@
+## O R como calculadora
+
+O R é uma calculadora potente. Os exemplos abaixo mostram a informação básica necessária ao uso da ferramenta.
+
+
+### Operadores
+
++ Operadores de atribuição 
+  * use `=` ou `<-` ou `->` para atribuir __valor__ a __objeto__ ou objeto a objeto
+
++ Operadores matemáticos
+  * `+` e `-` são respectivamente adição e subtração;
+  * `*` e `/` são respectivamente multiplicação e divisão;
+  * `^` equivale à exponenciação 
+  
+```{r, opts.label='evalF'}
+# teste aqui, linha a linha
+3+3
+3-3
+3*3
+3/3
+3^3
+```
+
+Objetos numéricos podem ser usados nas fórmulas aritméticas:
+
+```{r, opts.label='evalF'}
+#atribua um valor a um ou mais objetos
+obj = 3
+obj2 = 3
+#utilize o objeto para fazer contas
+obj+obj2
+obj-obj2
+obj*obj2
+obj/obj2
+obj^obj2
+```
+
+### Precedência de parênteses
+
+O uso de parênteses permite construir qualquer lógica de precedência no cálculo:
+
+```{r, opts.label='evalF'}
+#atribua valores a três objetos
+o1 = 2
+o2 = 4
+o3 = 3
+
+#os resultados não serão os mesmos para:
+o1*o2^o3-1 #=127
+o1*o2^(o3-1) #=32
+(o1*o2)^o3-1 #=511
+(o1*o2)^(o3-1) #=64
+```
+
+### Funções & constantes matemáticas
+
+Algumas operações aritméticas podem ser realizadas com algumas funções genéricas que apresentamos no exemplo de código abaixo.
+Veja o help para qualquer uma das funções abaixo e siga os links relacionados para ver todas as possibilidades dessas funções genéricas de uso genérico.
+Veremos adiante que essas funções e operações matemáticas são aplicáveis à vetores.
+
+```{r, opts.label='evalF'}
+#Raiz quadrada
+sqrt(9) 
+```
+
+
+```{r, opts.label='evalF'}
+#valor absoluto
+abs(-12) 
+abs(-66)
+abs(66) 
+```
+
+```{r, opts.label='evalF'}
+#logaritmo
+log(10) #Logaritmo natural
+log( 10, base = 10) #Logbase 10
+log10(10) #Também log de base 10
+```
+
+```{r, opts.label='evalF'}
+#funções trigonométricas
+pi # é uma constante do R, um objeto chamado "pi" que tem o valor de 3.141593
+sin(0.5*pi) #Seno
+cos(2*pi) # Coseno
+asin(1) # Arco seno (radianos)
+asin(1)/pi * 180
+```
+
+```{r, opts.label='evalF'}
+#arredondamentos
+#dois valores
+a = 3.51
+b = 3.49
+
+#para o valor mais alto (ceiling = teto)
+ceiling(a)
+ceiling(b)
+
+#para o valor mais baixo (floor = chão)
+floor(a)
+floor(b)
+
+#arredonda dependendo se casa decimal é maior ou menor que 0.5
+round(a)
+round(b)
+```
+
+### NA e valores afins {#valor-na}
+
+Frequentemente no R, quando você realiza uma operação errada ou inválida, o R retorna um dos seguintes códigos (constantes lógicas), que **são entendidos pelo R como esses valores** e portanto podem ser usados na atribuição à objetos:
+  
++  `NA` = valores ausentes (faltando);
++  `NAN` ou not a number = valores inválidos
++  `Inf` = infinito
++ `-Inf` = infinito negativo
+
+```{r, opts.label='evalF'}
+?NA #veja o help sobre isso
+#um valor infinito negativo
+ -5/0
+#um valor infinito positivo
+10/0
+
+#note que o simbolo Inf vale como valor
+500000000000000000/Inf
+
+#e que posso atribui-lo a um objeto
+mf = Inf
+500/mf
+
+#valor inválido/inexistente
+sqrt(-1)
+
+#valores ausentes entram na matemática 
+2 * NA
+2 * NaN
+```

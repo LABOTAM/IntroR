@@ -1,0 +1,71 @@
+## Indexação {#indexacao}
+
+Já vimos que vetores são conjuntos de valores da mesma classe (seção \@ref(vetores)).
+Esses valores tem uma posição dentro do vetor, ou seja, possuem um **índice**.  
+Já vimos também que podemos alterar a ordem dos valores, utilizando a função `sort()`, ou seja, alterar a posição dos elementos no vetor.  
+
+O índice identifica os elementos do vetor individualmente:
+
+* pode ser um número equivalente à posição do elemento no vetor,
+
+* ou pode ser um nome, quando os elementos do vetor tiverem um nome.
+
+Entender indexação é fundamental para escrever bons códigos no R, pois isso se aplica também às matrizes e às outras classes de objetos do R. 
+
+Aqui vamos ver indexação de vetores, que é dada pelo operador `[]`.  
+
+### Usando índices numéricos
+
+```{r, opts.label='evalF'}
+#um vetor simples
+v1 = 1:10
+v1[1] #valor na posição/índice 1
+v1[8] #valor na posição/índice 8
+
+#em outra ordem
+v1 = 1:10
+v1 = sort(v1,decreasing=TRUE) #ordena decrescente
+v1[1] #valor na posição/índice 1
+v1[8] #valor na posição/índice 8
+```
+
+### Usando índices de nomes
+
+Índices de nomes são elementos essenciais na manipulação de dados reais, pois nomes de linhas (seus registros) e nomes de colunas (suas variáveis) são nomes dos elementos que compõem a sua matriz.
+Índice de nomes preservam o identificador dos seus objetos (registros).
+Podemos atribuir nomes aos elementos do vetor usando a função `names()`.
+Uma outra função útil se chama `paste()`, muito utilizada na manipulação de textos.  
+
+```{r, opts.label='evalF'}
+?paste #veja o help da função paste
+?names #veja o help da função names
+
+#um vetor simples
+v1 = 1:10
+#criando um vetor para usar como nomes
+v2 = paste("nome",v1,sep="") #significa = use a regra da reciclagem e cole (paste) a palavra 'nome' com cada valor do vetor v1, sem separador
+v2 #é portanto um conjunto de textos
+#note que é muito mais rápido fazer isso do que escrever nome1, nome2 ... nome10, certo?
+
+#agora vamos atribuir v2 como nome dos elementos de v1 
+#para isso é importante que v1 e v2 tenham o mesmo comprimento
+length(v1)
+length(v2)
+
+names(v1) #deve ser nulo, pois os elementos não tem nome
+names(v1) = v2 #atribuimos os nomes
+v2 #pronto agora os elementos tem nome
+
+#posso usar o nome como índice para pegar elementos
+v1['nome8'] #valor do elemento que tem nome = nome8
+v1[8] #isso deve ser equivalente, pois criamos os nomes assim
+
+#mas note a diferença quando reordenamos o vetor e mudamos os valores de posição
+v3 = sort(v1, decreasing=T)
+v3[8] #o índice numérico pega outro valor
+v3['nome8'] #o indice de nome pega o mesmo valor (PRESERVA)
+```
+
+## Para saber mais: {#sabermais-indexacao}
+
+(@) [Indexação](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:5vetores:video01_bot89-2020-04-07_07.38.30.mp4) - veja esta vídeoaula com o conteúdo desta seção.

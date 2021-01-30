@@ -1,0 +1,15 @@
+# Objeto III - Listas e objetos complexos
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-listas.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-objetos_complexos.Rmd",
+    quiet = TRUE))
+```

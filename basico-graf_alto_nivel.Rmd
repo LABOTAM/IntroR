@@ -1,0 +1,241 @@
+## Funções gráficas de alto nível {#graf-alto-nivel}
+
+Funções gráficas de alto-nível (*highlevel plots*) são as funções que usamos para gerar os gráficos.
+Além da função genérica `plot()`, veremos apenas alguns poucos exemplos, mas existem diversas funções gráficas de alto nível, muitas das quais dependem de pacotes específicos.
+Existem inúmeras outras funções de alto-nível, algumas do R-base, outras geradas por colaboradores na forma de [pacotes do R](https://cran.r-project.org/web/packages/).
+A função `plot()` entende algumas dessas outras funções dos pacotes automaticamente, dependendo da classe do objeto, e você sequer  precisa usar o nome específico (veja o exemplo em plot.phylo(), abaixo).
+
+No `?` do pacote graphics, você encontra ajuda para funções gráficas em geral:  
+
+```{r, opts.label='evalF'}
+demo("graphics") #execute este demostrativo - lembre-se de interagir no console do R para as figuras
+?graphics #veja o help dessa função para alguns gráficos
+```
+
+### `plot()` - uma função genérica
+
+A função `plot()` é a principal para produção de gráficos porque é uma **função genérica** que irá gerar um gráfico dependendo da [classe do objeto](#classes). Em muitos casos, não precisamos usar outras funções, porque a depender da classe do objeto, esta função  automaticamente entenderá o que você precisa.  
+
+```{r, opts.label='evalF'}
+?plot #veja o help dessa função
+
+#suponha um vetor simples e numérico
+vv = 1:10
+class(vv)
+#plotamos ele
+plot(vv)
+#mudamos alguns argumentos
+plot(vv,pch=21,bg='red',xlab='índice do vetor',ylab='valor do vetor',main='Plotando um vetor')
+
+#agora suponha uma matriz com duas colunas
+xx = 1:10 #um vetor
+yy = 10:1 #o mesmo vetor invertido
+mm = cbind(xx,yy) #junta em uma matrix
+class(mm)
+plot(mm,xlab='Eixo X',ylab='Eixo Y',main='Plotando uma matriz de 2 colunas')
+
+#ou poderia especificar diretamente os eixos xx e yy sem usar a matriz
+plot(xx,yy,xlab='Eixo X',ylab='Eixo Y',main='Plotando uma matriz de 2 colunas',pch=21,bg='purple')
+
+
+#se temos um conjunto de dados e queremos ver a relação de todos as colunas, podemos simplesmente usar:
+class(iris) #um conjunto de dados no formato data.frame
+plot(iris)
+#o nome dos eixos está na diagonal dessa figura
+```
+
+### `hist()`
+
+Esta importante função serve para visualizar a variação de uma variável apenas.  
+
+```{r, opts.label='evalF'}
+?hist #veja o help
+
+#vamos usar o objeto iris
+class(iris$Sepal.Length) #é um vetor
+hist(iris$Sepal.Length, xlab="Comprimento de sépala (cm)",main="Variação em Iris")
+
+#diminuindo os espaçamentos entre as barras e colorindo
+hist(iris$Sepal.Length, xlab="Comprimento de sépala (cm)",main="Variação em Iris",breaks=20,col='red')
+
+#note que o eixo y é a frequencia que o valor ocorre, ou seja, corresponde ao número de linhas em iris que tem valor
+```
+
+### `boxplot()`
+
+Esta função é importante por mostrar a variação em uma variável qualquer em relação às categorias de um fator.
+É uma das melhores formas gráficas para mostrar a distribuição de valores de uma variável em relação às categorias.  
+
+```{r, opts.label='evalF'}
+?boxplot
+
+#vamos usar o objeto iris
+class(iris$Sepal.Length) #é um vetor
+class(iris$Species) #é um fator
+boxplot(iris$Sepal.Length~iris$Species, ylab="Comprimento da sépala")
+
+#você pode fazer a mesma coisa com a função plot() porque ela é genérica que irá reconhecer que sua fórmula 'valores~fator' pede por um boxplot
+plot(iris$Sepal.Length~iris$Species, ylab="Comprimento da sépala",xlab='') #note que especificamos aqui que o eixo x não tem título (lab)
+```
+
+### `barplot()`
+
+Esta função gera um gráfico de barras simples.  
+
+```{r, opts.label='evalF'}
+?barplot #veja o help dessa função
+?VADeaths #veja o help desse conjunto de dados
+class(VADeaths)
+VADeaths #taxas de mortalidade/1000 habitantes no estado da Virgínia em 1940
+rownames(VADeaths) #cada linha é uma classe de idade
+colnames(VADeaths) #cada coluna é sexo e cidade ou rural
+
+#com as informações padrão
+barplot(VADeaths) #cada cor é uma linha
+barplot(VADeaths, beside = TRUE) #lado a lado (cada barra é uma linha)
+
+#vamos colorir diferente, uma para cada linha
+rownames(VADeaths)
+cores = rainbow(n= nrow(VADeaths))
+cores  #uma cor por linha
+#essa é a correspondencia:
+cbind(rownames(VADeaths),cores) 
+
+#plota com essas cores
+barplot(VADeaths, beside = TRUE, col= cores)
+```
+
+### `plot.phylo()`
+
+O pacote [Ape (Analyses of Phylogenetics and Evolution)](https://cran.r-project.org/web/packages/ape/index.html) possui uma função para desenhar uma filogenia.
+Caso você não tenha instalado o pacote `ape` ainda, faça-o assim:
+
+```{r, opts.label='evalF'}
+install.packages("ape")
+```
+
+Depois, siga o exemplo abaixo:  
+
+```{r, opts.label='evalF'}
+library(ape) #chama o pacote
+
+#uma filogenia hipotética para exemplo
+arv = "(((A:1,B:1):2,C:3):0.5,((D:0.5,E:0.5):1,F:1.5):2);" 
+
+#lê essa filogenia para um objeto de classe phylo, que é uma classe para dendrogramas.
+phy = read.tree(text=arv) 
+class(phy)
+
+#podemos plotar essa filogenia com
+plot(phy)
+#porque a função plot reconhece 
+#que objetos de classe "phylo" são árvores 
+#de fato ela usa a função plot.phylo() para gerar essa figura, que contém argumentos específicos para objetos dessa classe
+?plot.phylo #veja o help e os argumentos
+
+#portanto posso incluir argumentos de plot.phylo() quando uso a função plot() para plotar um objeto de classe phylo
+plot(phy,no.margin = TRUE, tip.color = c(rep("red",3),rep("blue",3)))
+
+#seria o mesmo que dizer
+plot.phylo(phy,no.margin = TRUE, tip.color = c(rep("red",3),rep("blue",3)))
+```
+
+### `image()` e `countour()`
+
+```{r, opts.label='evalF'}
+#existe um conjunto de dados topográficos na base do R que vamos usar como exemplo
+class(volcano) #é uma matriz
+dim(volcano) #com 87 linhas e 61 uma colnas
+volcano[1:5,1:5] #os valores são altitude
+hist(volcano,breaks=20) #essa é a distribuição de valores de elevacao
+range(volcano) #amplitude de variação
+
+#podemos usar algumas funções para visualizar um conjunto de dados que tem essa estrutura (matrix)
+?image #veja o help
+image(volcano,col = heat.colors(12)) 
+
+?heat.colors #veja opções de gradientes continuos de cores
+
+#vamos mudar isso,
+cores = terrain.colors(12) #12 categorias de cores
+cores #o código é uma cor em HTML
+image(volcano,col=cores)
+#notem a cratera
+
+#outra opção é fazermos os contornos (ou curvas de nível neste caso do vulcão)
+contour(volcano)
+?contour #veja o help
+#vamos mudar o número de níveis para o mesmo usado para as cores
+contour(volcano, nlevels=12)
+
+#vamos juntar essas figuras em uma só
+image(volcano, col=cores)
+contour(volcano, nlevels=12,add=TRUE)
+#note o argumento add=TRUE que indica para a função de alto-nível
+#que ela não deve começar uma nova figura, 
+#apenas adiciona à uma já criada por outra função de alto-nível
+#muitas funções de alto-nível tem esse argumento add, que, portanto, mimetiza o que função gráfica de baixo-nível faz
+```
+
+### `map()`
+
+O pacote [maps](https://cran.r-project.org/web/packages/maps/index.html) fornece funções para desenhar mapas com divisões administrativas.
+A função `map()` é uma de alto-nível.
+Veremos depois como adicionar sobre esses mapas informação através de funções de baixo-nível.  
+
+Caso você não tenha instalado o pacote `maps` ainda, faça-o assim:
+
+```{r, opts.label='evalF'}
+install.packages("maps")
+```
+
+Agora, siga o exemplo abaixo:
+
+```{r, opts.label='evalF'}
+library(maps) #instalar se não tiver instalado
+?map #veja o help
+map() #mapa do mundo
+
+map(region='Brazil') #Brazil
+#dev.off() #pode precisar fechar o dispositivo se estiver avisar que a figura é muito grande
+
+dev.off()
+sa = c("Brazil","Guyana","French Guiana","Suriname","Venezuela","Colombia","Ecuador","Trinidad-Tobago","Peru","Bolivia","Paraguay","Chile","Argentina","Uruguay","Panama")
+map(region=sa, col='red',lty='dashed')
+```
+
+### xlim e ylim
+
+Esses dois parâmetros gráficos permitem ajustar o tamanho dos eixos de um gráfico, impondo limites.  
+
+```{r, opts.label='evalF'}
+#CONTROLANDO UM XLIM
+plot(iris$Sepal.Length,iris$Sepal.Width,pch=21,col='red')
+#vamos aumentar um pouco o eixo X
+rg = range(iris$Sepal.Length) #variacao atual
+rg
+#aumentar 
+rg2 = rg+c(-1,+1) #adicionamos 1 unidade de cada lado
+rg2
+plot(iris$Sepal.Length,iris$Sepal.Width,pch=21,col='red',xlim=rg2)
+
+
+#LIMITANDO UM MAPA POR SUAS COORDENADAS
+dev.off()
+library(maps) #instalar se não tiver instalado
+map() #mapa do mundo
+#alguns limites em latitude e longitude
+lat0=-22
+lat1=5
+long0 = -80
+long1=-30
+dev.off()
+map(xlim=c(long0,long1),ylim=c(lat0,lat1))
+```
+
+## Para saber mais: {#sabermais-graf-alto-nivel}
+
+(@) [Funções gráficas de alto nível](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2plot:video01_bot89-2020-04-13_11.26.19.mp4) - vídeoaula com o conteúdo desta seção;
+
+(@) [R Gallery](http://www.r-graph-gallery.com/) - página que tem exemplos de gráficos do R e os códigos correspondentes.
+

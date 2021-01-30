@@ -1,0 +1,43 @@
+# Funções gráficas
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-dispositivo_grafico.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-parametros_graficos.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-parametros_graficos_p2.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-graf_alto_nivel.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-graf_baixo_nivel.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-graf_interativas.Rmd",
+    quiet = TRUE))
+```

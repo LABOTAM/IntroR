@@ -1,0 +1,8 @@
+# Amostragens aleatórias
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-amostragem.Rmd",
+    quiet = TRUE))
+```

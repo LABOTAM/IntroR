@@ -1,0 +1,152 @@
+## Iterações {#iteracoes}
+
+Vocês usaram várias funções da família `apply`, especialmente `apply()` e `tapply()`, que são funções especiais que repetem uma mesma função `FUN` para cada objeto de um conjunto (vetores, matrizes, valores atômicos).
+Essas funções utilizam portanto a lógica de iterações (em inglês, *loops*), ou seja, fazem a mesma ação repetidas vezes; em outras palavras, fazem *LOOPs*, dão voltas, realizam o mesmo percurso várias vezes, percorrem um circuito.  
+
+As expressões `for(){}` e `while(){}` permitem fazer *LOOPs*, e *LOOPs* dentro de *LOOPS* com muita liberdade.
+Aprendê-las é o mesmo que aprender todas as funções da família `apply` juntas (`apply()`, `tapply()`, `sapply()`, `lapply()`, `mapply()` etc).
+Se você compreende os *LOOPS*, pode fazer o que essas funções fazem sem precisar delas (embora elas possam executar a tarefa mais rapidamente).  
+
+### Iteração com `for(){}`
+
+#### Exemplo 1
+
+Um exemplo simples do que seria uma iteração com o comando `for(){}`:  
+
+```{r, opts.label='evalF'}
+#vamos imprimir na tela as letras do objeto LETTERS
+for(let in 1:length(LETTERS)) {
+  paraimprimir = paste(LETTERS[let]," é a letra de índice ",let)
+  print(paraimprimir)
+}
+``` 
+
+Ou seja, para cada elemento do objeto `let`, assumindo os valores na sequência do elemento 1 ao elemento corresponden ao comprimento (== `length(LETTERS)`) do objeto LETTERS, execute o que está dentro de `{}`.  
+
+#### Exemplo 2
+
+```{r, opts.label='evalF'}
+#Fazendo um loop com for(){} replicando o que a função apply() faz
+#criamos uma matriz
+vetn = rnorm(100,30,1)
+mvetn = matrix(vetn,ncol=10,dimnames=list(paste('linha',1:10),paste('coluna',1:10)))
+head(mvetn)
+#Fazendo algo == apply(mvetn,2,mean)
+#cria um objeto para salvar o resultado
+resultado = NULL
+for(coluna in 1:ncol(mvetn)) {
+  #pega a coluna
+  cl = mvetn[,coluna]
+  #calcula a media
+  mcl = mean(cl)
+  print(paste("Média da coluna",colnames(mvetn)[cl],"=",round(mcl,2)))
+  #salva o resultado com a media do item anterior
+  resultado = c(resultado,mcl)
+}
+#adicona o nome das colunas
+names(resultado) = colnames(mvetn)
+#ver o resultado
+resultado
+#identico ao apply, maior controle de como a média é aplicada
+resultado==apply(mvetn,2,mean)
+```
+
+#### Exemplo 3
+
+Agora usando `for(){}` para fazer algo como o `tapply()`.  
+
+```{r, opts.label='evalF'}
+#Fazendo algo == tapply(mvetn[,2],mvetn$classe,sum)
+#criamos uma matriz
+vetn = rnorm(100,30,1)
+mvetn = matrix(vetn,ncol=10,dimnames=list(paste('linha',1:10),paste('coluna',1:10)))
+#transformamos num data.frame adicionando uma coluna categorica
+mvetn = data.frame(classe=sample(paste("categ",1:3,sep=''),size=nrow(mvetn),replace=T),mvetn)
+head(mvetn[,1:5])
+#cria um objeto para salvar o resultado
+resultado = NULL
+#para cada categoria
+for(ct in 1:length(levels(mvetn$classe))) {
+  #pega a categoria
+  cl = levels(mvetn$classe)[ct]
+  #filtra os dados (vetor logico)
+  vl = mvetn$classe==cl
+  #calcula a soma dos dados da categoria
+  soma = sum(mvetn[vl,2],na.rm=T)
+  #imprime o passo
+  print(paste("A soma da categoria",cl," é igual a ",soma))
+  #junta os resultados
+  resultado = c(resultado,soma)
+}
+#atribui nomes aos elementos do vetor de somas
+names(resultado) = levels(mvetn$classe)
+#confere
+resultado==tapply(mvetn[,2],mvetn$classe,sum)
+```
+
+#### Exemplo 4
+
+Calculando somas e médias de linhas, similar ao que podemos fazer com a função `apply()`:  
+
+```{r, opts.label='evalF'}
+somas = NULL #objeto vazio para salvar soma de cada linha
+medias = NULL #objeto vazio para salvar medias de cada linha
+for(i in 1:nrow(X)) { #para cada linha
+  somai = sum(X[i,])  #soma dos valores na linha i
+  somas = c(somas,somai) #junta a somai com o resto (que estará vazio na primeira vez)
+  mediai = mean(X[i,]) #média  dos valores na linha i
+  medias = c(medias,mediai) #junta as medias
+}
+#como a matriz tem nomes, acrescenta esses nomes aos vetores com resultados
+names(medias) = rownames(X)
+medias
+names(somas) = rownames(X)
+somas
+```
+
+### Iteração com `while(){}`
+
+O comando `while(){}` funciona de forma parecida, mas faz algo `r toupper("enquanto")` (em inglês, *while*) a condição em `while(){}` seja verdadeira.
+Um exemplo simples:
+
+#### Exemplo 1
+
+```{r, opts.label='evalF'}
+#cria um vetor de valores aleatorizados
+vet = sample(10:100)
+#amostra um valor do vetor até que este valor seja 10
+conta = 1
+valor =0
+while(valor!=10) {
+  valor = sample(vet,1)
+  print(paste("o valor selecionado na iteração",conta,"foi de ",valor))
+  conta = conta+1
+} 
+```
+
+
+### Iteração com `for(){}` e a condicional `if(){}`
+
+#### Exemplo 1
+
+```{r, opts.label='evalF'}
+#cria um vetor de valores aleatorizados
+vet = sample(10:100,60,replace=T)
+#amostra um valor do vetor até que este valor seja 10
+for(v in 1:10000) {
+  valor = sample(vet,1)
+  if (valor==10) {
+    #se o valor selecionado aleatoriamente for 10, ou seja se a expressão valor==10 for TRUE execute:
+    #imprima isso
+    print(paste("A primeira vez que o valor 10 foi selecionado aleatoriamente foi quando o objeto v assumiu o valor de",v))
+    #interrompa (quebre) o loop 
+    break #note este argumento
+  } else {  
+    #caso contrario, valor!=10, imprime o valor selecionado e continua o loop
+    print(paste("O valor selecionado foi ",valor,"no indice",v))
+  }
+}
+```
+
+É possível que o script acima repita as 10000 vezes do `for(){}` sem encontrar o valor 10, até porque o 10 pode não estar em vet se não for amostrado.  
+<!-- A expressão `if(){}` não precisa necessariamente estar dentro de um loop, ela é independente.   -->

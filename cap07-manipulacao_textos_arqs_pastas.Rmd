@@ -1,0 +1,16 @@
+# Manipulação de textos, arquivos e pastas
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-manipulacao_textos.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-manipulacao_pastas_arquivos.Rmd",
+    quiet = TRUE))
+```
+

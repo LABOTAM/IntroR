@@ -1,0 +1,105 @@
+## Indexação de matriz e `data.frame`
+
+Entender indexação é fundamental para manipular dados no R.
+Em indexação de vetores (seção \@ref(indexacao)), vimos que é possível usar números, códigos/nomes ou valores de verdadeiro ou falso (lógico), como elementos para visualizar, filtrar e mudar dados em vetores unidimensionais.  
+
+O mesmo operador, `[]`, pode ser usado para indexação de uma matriz ou um `data.frame`.
+A única diferença é que, por matrizes e `data.frames` serem bidimensionais, precisamos indicar a qual dimensão estamos nos referindo.
+Portanto o operador de indexação para matrizes e data.frame tem a seguinte estrutura, `[indiceDeLinha , indiceDeColuna]`, em que a vírgula separa os índices de linha e coluna.  
+
+### Matrizes
+
+```{r, opts.label='evalF'}
+#vamos criar uma matriz
+mm = matrix(1:9,nrow=3,ncol=3,dimnames=list(paste("linha",1:3,sep=""),paste("coluna",1:3,sep="")))
+#veja a matriz criada
+mm
+ 
+#USANDO INDICE NUMÉRICO
+mm[1,2] #mostra o elemento da linha 1 e coluna 2
+mm[1,ncol(mm)] #mostra o elemento da linha 1 e última coluna
+mm[nrow(mm),ncol(mm)] #mostra o elemento da última linha e última coluna
+mm[,1] #mostra a coluna 1
+# eu posso juntar indices de matrizes e vetores na mesma linha
+mm[,1][2] #mostra o segundo elemento do vetor correspondente a primeira coluna
+mm[1,] #mostra a linha 1
+mm[nrow(mm),] #mostra a ultima linha
+ 
+mm[ ,1:2] #mostra as duas primeiras colunas
+mm[1:2,1:3] #mostra as duas primeiras linhas e duas primeiras colunas
+mm[3:nrow(mm),] #mostra da linha tres a ultima linha
+ 
+mm[c(3,1),c(3,2)] #mostra as linhas 3 e 1 e colunas 3 e 2 (nessa ordem)
+ 
+#USANDO INDICES DE NOMES
+mm["linha1",] #mostra a linha 1 - note que poderia ser outro nome, poderia ter chamado no inicio do script a linha 1 de "banana"
+mm[,"coluna1"] #mostra a coluna 1
+mm[c("linha3","linha1"),c("coluna3","coluna1")] #mostra a linhas 3 e 1 e colunas 3 e 1. NOTE QUE POSSO ASSIM INVERTER AS COLUNAS E LINHAS
+ 
+#SE EU POSSO VER EU POSSO MUDAR
+mm
+mm[1,3] #elemento da linha 1 coluna 3
+mm[1,3] = 33 #mudei o elemento
+mm[2,2:3]
+mm[2,2:3] = mm[2,2:3]*10  #mudei os valores das colunas 2 e 3 para a linha 2, multiplicando o original por 10
+mm[2,2:3]
+mm
+```
+
+### `data.frame`
+
+O operador `[indiceDeLinha , indiceDeColuna]` também funciona para `data.frames`.
+Outro operador útil na manipulação de `data.frames` é o `$`.
+Ele permite a visualização e atribuição de valores a qualquer coluna.  
+
+```{r, opts.label='evalF'}
+#vamos criar uma matriz com nomes de linhas e colunas 
+mm = matrix(1:9,nrow=3,ncol=3,dimnames=list(paste("linha",1:3,sep=""),paste("coluna",1:3,sep="")))
+#veja a matriz criada
+mm
+ 
+#convertemos para um data.frame
+dd = as.data.frame(mm)
+dd$coluna1 #pego a coluna 1 (note que o nome da coluna vai sem "aspas")
+mm$coluna1 #veja como não funciona para o objeto matrix
+dd$coluna1[2] #vejo o segundo elemento da coluna1
+#isso é o mesmo que 
+dd[2,"coluna1"] 
+#se eu vejo eu posso mudar
+dd[2,"coluna1"] = 10
+dd$coluna1[3] = 20
+dd$coluna3 #pego a coluna tres
+ 
+#também posso adicionar uma nova coluna 
+dd$novacoluna = LETTERS[1:nrow(dd)]
+dd #agora tenho uma nova coluna
+ 
+#ou poderia usar outra forma
+dd[,"nova2"] = LETTERS #nao vai funcionar por estou atribuindo um vetor muito mais longo do que tenho linhas
+length(LETTERS)>nrow(dd) #essa expressão é verdadeira
+dd[,"nova2"] = LETTERS[1:nrow(dd)] #isso tem o mesmo comprimento e funciona
+dd
+ 
+#posso adicionar uma coluna vazia
+dd$outracoluna = NA
+dd
+ 
+#e ainda outra (lógica)
+dd$maisuma = TRUE
+dd
+ 
+#NO CASO DE MATRIZES ISSO ADICIONAR NOVAS COLUNAS É UM POUCO DIFERENTE
+#primeiro nao posso usar $ porque matrix não entende isso
+class(mm) #é uma matrix
+mm$colun3 #isso nao funciona
+mm[,"coluna3"] #isso funciona
+#adicionando uma coluna
+mm[,4] #isso nao existe
+mm[,4] = log(mm[,"coluna3"])  #isso não funciona
+#poderia usar a função cbind que vimos anteriormente
+mm = cbind(mm, LOGCOLUNA3 =log(mm[,"coluna3"]) ) #assim eu posso
+```
+
+## Para saber mais: {#sabermais-indexacao-matrizes-dframes}
+
+(@) [Indexação de matrizes e `data.frames`](https://youtu.be/CJILnDzVviQ) - vídeoaula com o conteúdo desta seção.

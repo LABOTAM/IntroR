@@ -1,0 +1,151 @@
+## Condicionais
+
+Condicionais são expressões que permitem a um programa a tomada de decisões.
+Vamos tratar aqui das condicionais `if ()`, `if () else {}`, e `ifelse ()` (veja a seção [Para saber mais](#sabermais-condic) para mais informações).
+
+### Condicional `if ()`
+
+A expressão `if ()` avalia um vetor atômico (ou de índice 1) lógico e executa o que estiver entre `{}` se o valor do vetor for verdadeiro (TRUE).
+
+A estrutura básica de um `if ()` é:
+
+```
+if (condicao) {
+  
+  ação a ser realizada caso a condição seja VERDADEIRA
+}
+```
+
+Dentro do par de parênteses, deve haver uma **condição.**
+Condições em R são feitas com operadores lógicos: `==`, `!=`, `>`, `<` etc (veja a seção \@ref(#vetor-operador-logico) para relembrar; veja também a seção [Para saber mais](#sabermais-condic) pois apresenta *links* para vídeoaulas importantes).  
+
+#### Exemplo 01
+
+```{r, opts.label='evalF'}
+perdiz_estuda_breu <- TRUE
+perdiz_estuda_grama <- FALSE
+perdiz_estuda_breu
+perdiz_estuda_grama
+if (perdiz_estuda_breu) {
+  
+  print("Breu pode ser Protium, Dacryodes, Trattinnickia, e é da família Burseraceae")
+}
+
+if (perdiz_estuda_grama) {
+  
+  print("Isso não vai dar imprimir")
+  
+}
+```
+
+Reparem na condição que deve ser satisfeita dentro dos parênteses: `TRUE`, para efetuar a ação; se `FALSE`, não executa a função:
+
+```{r, opts.label='evalF'}
+if (TRUE) {
+  
+  print("Eu executo!")
+  
+}
+
+if (FALSE) {
+  
+  print("Eu não executo")
+  
+}
+```
+
+### Condicional `if ()` com o `else` 
+
+A condicional `if ()` pode ser expandida para `if () { } else {}`: execute em `{}` se `if ()` for VERDADEIRO, caso contrário (== else), execute o que estiver entre o segundo par `{}`.
+
+#### Exemplo 01
+
+```{r, opts.label='evalF'}
+meunumero <- 77
+meunumero
+if (meunumero == 76) {
+  
+  print("Meu número é o 3")
+  
+} else {
+  
+  #meu_else <- paste0("Mas pode ser o ", meunumero)
+  #print(meu_else)
+  #1+1
+  print(paste("Se eu somar o meu número ", meunumero, "com 3, eu vou obter ", meunumero+3))
+  
+}
+```
+
+#### Exemplo 02
+
+```{r, opts.label='evalF'}
+familia <- c("Burseraceae", "Solanaceae","Sapindaceae", "Rubiaceae")
+clado <- c("Malvids", "Lamiids", "Malvids", "Lamiids")
+apg <- data.frame(familia = familia, clado = clado, stringsAsFactors = FALSE)
+apg
+str(apg)
+dim(apg)
+
+malvids <- c("Burseraceae", "Sapindaceae")
+
+meunumero = 4
+apg$familia[meunumero]
+apg$familia[meunumero] %in% malvids
+if (apg$familia[meunumero] %in% malvids) {
+  
+  malv_fam <- paste(malvids, collapse = " e ")
+  malv_fam
+  clado <- "Malvids"
+  frase <- paste(malv_fam, clado, sep = " pertencem ao clado das ")
+  frase
+  print(frase)
+  
+} else {
+  
+  paste("A família", apg$familia[meunumero], "pertence ao clado das", apg$clado[meunumero])
+  
+}
+```
+
+
+### Condicional `ifelse()`
+
+```
+ifelse(condicao, executa se VERDADEIRO, executa se FALSO)
+```
+
+```{r, opts.label='evalF'}
+set.seed(333)
+familia
+familias <- sample(familia, 100, replace = TRUE)
+familias
+table(familias)
+familias
+ifelse(familias == "Burseraceae", TRUE, FALSE)
+ifelse(familias == "Sapindaceae", "Sapindaceae é a família do guaraná", "Não é Sapindaceae")
+familias[3]
+
+familias[1:10]
+ifelse(familias == "Sapindaceae", "Sapindaceae da ordem Sapindales", 
+       ifelse(familias == "Burseraceae", "Burseraceae também é da ordem Sapindales", "Nenhuma dessas famílias é uma Sapindales")
+       )
+
+
+sei_qual_ordem <- ifelse(familias == "Sapindaceae", "Sapindaceae da ordem Sapindales", 
+       ifelse(familias == "Burseraceae", "Burseraceae também é da ordem Sapindales", "Nenhuma dessas famílias é uma Sapindales")
+       )
+
+meudf <- data.frame(familias, sei_qual_ordem)
+meudf
+```
+
+## Para saber mais: {#sabermais-condic}
+
+(@) Vídeoaula - temos duas vídeoaulas disponíveis com parte do conteúdo desta aula. Acesse-as no *links* abaixo:
+
+  * [Vetores e Operadores Lógicos](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:6vetores:video01_bot89-2020-04-07_07.52.00.mp4);
+  
+  * [Condicionais no R](https://youtu.be/8Z_k02PwQZc)
+
+(@) Auxílio do R - executem a expressão `?Control` no R e vejam a explicação sobre condicionais.  

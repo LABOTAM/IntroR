@@ -1,0 +1,22 @@
+# Sumarização de dados
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-tabela_dinamica.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-tabela_contagem.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-juncao_tabelas.Rmd",
+    quiet = TRUE))
+```

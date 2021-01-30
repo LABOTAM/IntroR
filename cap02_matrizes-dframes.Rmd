@@ -1,0 +1,27 @@
+# Objeto II - Matrizes e `data.frames`
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-matrizes_vs_dataframes.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-indexacao-matrizes-dataframes.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-filtragem_ordenacao_matrizes_dataframes.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label = 'executa', results='asis'}
+res <- knitr::knit_child("basico-importando_dados.Rmd", quiet = TRUE)
+cat(res, sep = '\n')
+```

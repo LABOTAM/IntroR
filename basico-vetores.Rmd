@@ -1,0 +1,155 @@
+## Vetores & Operações Vetoriais I {#vetores}
+
+Vetor no R é um tipo de objeto que concatena múltiplos valores de uma mesma classe.
+É fundamental que você entenda vetores para poder entender objetos mais complexos.  
+
+
+### Criação de Vetores
+
+A função `c()` é usada na criação de vetores, ela combina ou concatena elementos:
+
+```{r, opts.label='evalF'}
+# um vetor de números
+v1 <- c(3, 3.14, pi, 37.5, 38)
+v1
+
+# um vetor de texto
+v2 <- c("a", "banana", "maça", "pera", "jabuticaba")
+v2
+
+# essas constantes do R são vetores de texto
+LETTERS # letras maiusculas
+letters # letras minusculuas
+month.abb # meses abreviados
+month.name # meses por extenso
+
+# vetor lógico (veremos adiante como isso é importante)
+v3 <- c(TRUE, TRUE, FALSE, FALSE)
+v3
+# é o mesmo que
+v3 <- c(T, T, F, F)
+
+# note que TRUE e FALSE são valores lógicos e essas palavras são entendidas apenas quando em maiúsculas pelo R
+v4 <- c(true, true, false, false) # o R não entende isso como valor lógico e o R procura por objetos com esses nomes
+```
+
+
+### Sequências Numéricas & Repetições
+
+É possível criar vetores numéricos usando a função `seq()` ou o operador `:`.
+
+```{r, opts.label='evalF'}
+# usando o :
+1:10 # cria uma sequencia de números inteiros 1 a 10
+20:0 # cria uma sequencia de números inteiros 20 a 0
+0:-20 # cria uma sequencia de números inteiros 0 a -20
+
+# usando a função seq() temos maior controle das sequencias
+?seq # veja o help da função
+seq(from = 1, to = 10, by = 0.5) # de 1 a 0 a cada 0.5
+seq(from = 10, to = 0, by = -0.5) # de 10 a 0 a cada 0.5
+seq(from = 100, to = 0, length.out = 10) # 10 valores igualmente espaçados de 100 a 0
+```
+
+É possível criar vetores repetindo valores através da função `rep()`:
+
+```{r, opts.label='evalF'}
+# para números
+rep(5, times = 3) # cria um vetor com três elementos de valor 5
+rep(1:5, times = 3) # cria um vetor com três repetições da sequência de 1 a 5
+rep(1:5, each = 3) # cria um vetor repetindo três vezes cada elemento da sequência de 1 a 5
+
+# para textos
+obj <- c("banana", "maça", "pera")
+rep(obj, times = 3)
+rep(obj, each = 3)
+```
+
+## Operações Matemáticas com Vetores
+
+Todas as operações aplicadas a um vetor são aplicadas a cada um de seus elementos:
+
+```{r, opts.label='evalF'}
+meuvetor <- 1:5 # uma sequencia de 1 a 5
+mv2 <- meuvetor * 3 # uma sequencia onde cada valor de meuvetor foi multiplicado por 3
+mv2
+mv2 <- meuvetor / 3 # uma sequencia onde cada valor de meuvetor foi divido por 3
+
+# se usar uma função matemática com um vetor ela afetará cada elemento indivualmente
+meuvetor <- c(49, 25, 16, 4, 1)
+sqrt(meuvetor) # raiz quadrada de cada elemento em meuvetor
+```
+
+Operações com dois ou mais vetores são pareadas.
+Se os vetores têm o mesmo comprimento (mesmo número de elementos), então a operação é feita par a par, na ordem em que os elementos aparecem no vetor:
+
+```{r, opts.label='evalF'}
+v1 <- c(1, 5, 10, 15)
+v2 <- c(2, 4, 8, 16)
+v1 + v2 # soma dos valores individuais e pareados
+v1 * v2
+v1^v2
+```
+
+> **REGRA DA RECICLAGEM** - se os vetores não têm o mesmo comprimento (mesmo número de elementos), então a operação é feita par a par, mas o vetor mais curto é reciclado, i.e. os elementos do vetor mais curto são repetidos sequencialmente até que a operação seja aplicada a todos os elementos do vetor mais longo (o R dará uma aviso quando a operação envolver vetores de tamanhos diferentes, pois às vezes não é isso que queremos).  
+
+```{r, opts.label='evalF'}
+# o mais simples para entender a regra da reciclagem é operação entre um vetor longo e um vetor atômico de um único valor
+v1 <- c(1, 5, 10, 15) # vetor com 4 elementos
+v2 <- 2 # vetor com 1 elemento
+v1 * v2 # cada elemento de v1 é multiplicado pelo único valor do vetor2
+
+# mas a reciclagem se aplica em todos os casos de operação entre vetores de tamanhos diferentes
+v1 <- c(1, 5, 10, 15) # vetor com 4 elementos
+v2 <- c(3, 2) # vetor com 2 elemento
+v1 * v2 # os valores de v1 são multiplicados par a par pelos valores de v2. Como v2 tem apenas 2 elementos, eles são repetidos 1 vez
+
+ob <- rep(c(0, 1), each = 5)
+oc <- 1:3
+ob * oc
+```
+
+## Funções com Vetores
+
+Algumas funções operam sobre todo o vetor e não sobre cada elemento individualmente.
+Essas funções são utilizadas constantemente no R e, portanto, devemos conhecer as principais:
+
+* `length()` e `sort()` - comprimento e ordenação de vetores
+
+```{r, opts.label='evalF'}
+meuvetor <- 10:1
+mv2 <- seq(30, 99, by = 3)
+length(meuvetor) # quantos elementos tem meu vetor1
+length(mv2) # quantos elementos tem meu vetor2
+length(meuvetor) / length(mv2) # operação com os resultados
+
+mvord <- sort(meuvetor) # ordena os elementos em ordem crescente
+mvord
+sort(mvord, decreasing = TRUE) # ordena os elementos em ordem decrescentes
+```
+
+* `mean()`, `sd()`, `min()`, `sum()` etc. - funções de estatística descritiva:
+
+```{r, opts.label='evalF'}
+?mean # veja ajuda de uma dessas funções e navegue por outras
+v1 <- c(2, 4, 6, 8, 4, 3, 5, 7)
+sum(v1) # soma de todos os valores
+mean(v1) # média aritimética dos valores
+median(v1) # valor da mediana
+sd(v1) # desvio padrão
+var(v1) # variância
+sqrt(var(v1)) # desvio padrão, pois este é a raíz quadrada da variância
+min(v1) # valor mínimo
+max(v1) # valor máximo
+range(v1) # mínimo e máximo
+diff(v1) # intervalos (diferenças entre valores consecutivos) entre os valores do vetor
+cumsum(v1) # soma cumulativa dos valores
+```
+
+## Para saber mais: {#sabermais-vetores}
+
+(@) Veja nossas vídeoaulas com parte do conteúdo desta seção:
+
+  * [Criação de vetores](https://youtu.be/qXSZkGoDk1Y);
+  
+  * [Sequências numéricas e repetições](https://youtu.be/PJ02yj0gnWc).

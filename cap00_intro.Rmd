@@ -1,0 +1,15 @@
+# Conceitos introdutórios
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-visual.Rmd",
+    quiet = TRUE))
+```
+
+```{r, opts.label='executa'}
+knitr::asis_output(
+  knitr::knit_child(
+    "basico-calculadora.Rmd",
+    quiet = TRUE))
+```
