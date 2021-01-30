@@ -28,6 +28,8 @@ rmd_files:
     "cap05_iteracoes-controleFluxo.Rmd",
     # Sumarizacao de dados
     "cap06-sumarizacao_dados.Rmd",
+    # Manipulacao textos
+    # "cap07-manipulacao_textos_arqs_pastas.Rmd",
     # Amostragens aleatorias
     "cap08-amostragens_aleatorias.Rmd",
     # Outros

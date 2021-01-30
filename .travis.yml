@@ -5,7 +5,7 @@ cache:                          # optional
 pandoc_version: 2.3.1
 
 script:
-- Rscript -e 'bookdown::render_book("index.Rmd")'
+- Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
 
 deploy:
   provider: pages

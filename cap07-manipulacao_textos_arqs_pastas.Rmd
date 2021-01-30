@@ -13,4 +13,3 @@ knitr::asis_output(
     "basico-manipulacao_pastas_arquivos.Rmd",
     quiet = TRUE))
 ```
-

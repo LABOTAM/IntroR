@@ -1,4 +1,4 @@
-## Baixar e descomprimir um arquivo zip usando o R
+# Baixar e descomprimir um arquivo zip usando o R
 
 Caso você queira baixar e descomprimir um arquivo `.zip` no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
 Utilizaremos um arquivo utilizado na seção \@ref(#obj-complexos).  

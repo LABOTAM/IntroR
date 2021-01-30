@@ -6,7 +6,10 @@ A função `paste()` concatena textos.
 
 ```{r, opts.label='evalF'}
 ?paste # veja o help dessa funcao
+```
 
+
+```{r, eval = TRUE}
 # um vetor de texto
 txt <- c("banana", "maça", "pera")
 # outro vetor
@@ -27,7 +30,10 @@ A função `strsplit()` quebra um texto segundo um separador.
 
 ```{r, opts.label='evalF'}
 ?strsplit
+```
 
+
+```{r, eval = TRUE}
 txt <- "Este é um texto com várias palavras"
 strsplit(txt, split = " ")
 # note que este é um objeto de classe lista
@@ -82,7 +88,7 @@ As funções `toupper()` e `tolower()` mudam a caixa do texto, isto é, converte
 A função `str_trim()` remove espaços em branco no início e final do texto. Esta função pertence ao pacote `[stringr](https://stringr.tidyverse.org/)`.  
 
 
-```{r, opts.label='evalF'}
+```{r, eval = TRUE}
 txt <- "Um texto QUALQUER"
 # transforma para caixa baixa
 tolower(txt)
@@ -104,6 +110,10 @@ mudatexto(txt)
 
 txt2 <- "   Outro texto com espacos em branco no inicio e fim     "
 # note que há espaços em branco no início e final do texto
+```
+
+
+```{r, opts.label='evalF'}
 # remove isso
 library(stringr) # precisa desse pacote para essa funcao apenas
 str_trim(txt2)
@@ -139,7 +149,7 @@ substr(txt, nchar(txt) - 10, nchar(txt)) # dez ultimos caracteres
 É uma ferramenta muito poderosa usada em computação. Não é fácil entender e usar expressões regulares, mas é muito poderoso e importante conhecer os recursos.
 Aqui apresentamos apenas um exemplo muito simples do uso de expressões regulares.  
 
-```{r, opts.label='evalF'}
+```{r, eval = TRUE}
 txt <- "Um texto com varios numeros 1 2 9 no meio e 5 7 8 20 3456"
 txt
 # imagine que eu queira apagar todos os números desse texto
@@ -168,7 +178,7 @@ Remover acentos e padronizar textos podem ser importantes quando estamos compara
 Por exemplo, quando queremos verificar se os nomes que aparecem em uma coluna estão padronizados, devemos checar se há duplicidade de palavras devido à presença de um acento em uma palavra e ausência em outra (e.g., odores "cítrico" e "citrico" são computados como duas palavras diferentes).
 Não há uma função específica, mas como tudo pode ser feito no R, uma solução é mostrada aqui.  
 
-```{r, opts.label='evalF'}
+```{r, eval = TRUE}
 txt <- "Palavrão ou bobalhão têm acentos"
 # convertemos quebrando acentos
 xx <- iconv(txt, to = "ASCII//TRANSLIT")
@@ -205,7 +215,7 @@ Alguns metacaracteres são:
 
 * `^` encontra qualquer espaço vazio no início da linha. Quando usado numa expressão de classe de caractere (veja abaixo), encontra qualquer caractere exceto aqueles que seguem esse metacaractere;
 
-* `$` encontra qualquer espaço vazio no final da linha;
+* `\$` encontra qualquer espaço vazio no final da linha;
 
 * `|` operador que significa `OU` e é utilizado em buscas do tipo  `busque isso OU aquilo`;
 
@@ -217,7 +227,7 @@ Suponha que você importe ao R um conjunto de dados de uma planilha usando, por 
 Como o R não aceita espaços em branco, ele substitui espaços por pontos ao utilizar esta função, então os nomes das colunas do `data.frame` dos dados terão muitos pontos, algumas vezes em sequência.
 Suponha também que isso acontece toda vez que você importa dados ao R e já está cansado desse comportamento e você quer colocar no seu script um comando que elimina esses pontos, de forma a não se preocupar com isso no editor de planilhas onde estão os seus dados.  
 
-```{r, opts.label='evalF'}
+```{r, eval = TRUE}
 # vamos criar um data.frame que simule esta situação
 Número.....da.......árvore <- c(1, 10, 15)
 Diâmetro..cm. <- c(10, 15, 20)
@@ -229,6 +239,7 @@ colnames(dados)
 # nome de colunas, que também neste caso pode ser obtido com
 names(dados)
 
+nn <- names(dados)
 # então digamos que eu queira substituir pontos multiplos por apenas 1 ponto. como eu quero manter 1 ponto eu poderia repetir várias vezes um substituicao de dois pontos por um ponto:
 gsub(pattern = "..", replacement = ".", nn)
 # estranho né? tudo virou ponto
@@ -280,7 +291,7 @@ Algumas classes de caracteres podem ser utilizadas em buscas com expressões reg
 
 * [ \t\n\r\f\v] - busca espaçamentos no vetor de caracteres. Espaçamentos podem ser quebras de linha, tabulações etc;
 
-* []$*+.?[^{|(\\#%&~_/⇔✬!,:;❵\")}@-] - busca caracteres de pontuação no vetor de caracteres.
+* []$*+.?[^{|(#%&~_/⇔✬!,:;❵\")}@-] - busca caracteres de pontuação no vetor de caracteres.
 
 Perceb-se que estas classes permitem fazer buscas complexas.
 Suponha que você precisa substituir todos os valores que não contenham letras ou números por `NA`:
@@ -315,8 +326,8 @@ O uso do *backslash* `\` (barra invertida) indica ao R que a expressão regular 
 Isso é fundamental se você quer incluir/buscar num texto por aspas, parênteses, colchetes, barras, metacaracteres, etc.
 
 ```{r, opts.label='evalF'}
-?Quotes #leia atentamente esse help
-#criar um texto com aspas
+?Quotes # leia atentamente esse help
+# criar um texto com aspas
 ```
 
 Se você tentar executar o comando abaixo, perceberá que ele não funciona, porque as aspas são utilizadas para abrir e fechar textos.  
@@ -348,10 +359,14 @@ grep("\\\\", txt) # isso é mais complicado, veja o número de barras que precis
 
 # parentesis
 txt <- c("sem parenteses", "com ()")
+```
+
+
+```r
 grep("(", txt) # isso não funciona por parentesis é usado para abrir e fechar funcoes, o R se atrapalha
 grep("\\(", txt) # assim funciona
 grep("\\)", txt)
-``` 
+```
 
 
 ## Para saber mais: {#sabermais-manip-texto}

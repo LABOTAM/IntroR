@@ -1,4 +1,4 @@
-## Base R vs. Tidyverse
+# Base R vs. Tidyverse
 
 ```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE}
 suppressMessages(library("tidyverse"))
