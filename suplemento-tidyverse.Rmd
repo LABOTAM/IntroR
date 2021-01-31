@@ -1,7 +1,10 @@
 ## Base R vs. Tidyverse
 
 ```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE}
-suppressMessages(library("tidyverse"))
+suppressMessages(library("dplyr"))
+suppressMessages(library("ggplot2"))
+suppressMessages(library("tidyr"))
+suppressMessages(library("tibble"))
 ```
 
 <!-- summary: 'Comenta o conjunto de pacotes de R conhecido como Tidyverse, e como eles mudaram a forma de analisar dados usando o ambiente R.' -->
