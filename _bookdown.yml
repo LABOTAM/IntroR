@@ -1,5 +1,5 @@
 book_filename: "VicentiniPerdiz2021_IntroR"
-output_dir: _books
+# output_dir: _book
 delete_merged_file: true
 edit: https://github.com/LABOTAM/LABOTAM.github.io/blob/main/%s
 view: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s
