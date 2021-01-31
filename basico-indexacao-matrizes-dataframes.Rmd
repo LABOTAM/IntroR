@@ -100,6 +100,6 @@ mm[,4] = log(mm[,"coluna3"])  #isso não funciona
 mm = cbind(mm, LOGCOLUNA3 =log(mm[,"coluna3"]) ) #assim eu posso
 ```
 
-## Para saber mais: {#sabermais-indexacao-matrizes-dframes}
+### Para saber mais: {#sabermais-indexacao-matrizes-dframes}
 
 (@) [Indexação de matrizes e `data.frames`](https://youtu.be/CJILnDzVviQ) - vídeoaula com o conteúdo desta seção.

@@ -217,7 +217,7 @@ v5 = v4[!is.na(v4)]
 v5
 ```
 
-## Para saber mais: {#sabermais-manip-texto}
+### Para saber mais: {#sabermais-manip-texto}
 
 (@) Vídeoaula - temos uma vídeoaula disponível com o conteúdo desta aula. Acesse-a no *link* abaixo:
 

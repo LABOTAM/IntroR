@@ -146,7 +146,7 @@ diff(v1) # intervalos (diferenças entre valores consecutivos) entre os valores 
 cumsum(v1) # soma cumulativa dos valores
 ```
 
-## Para saber mais: {#sabermais-vetores}
+### Para saber mais: {#sabermais-vetores}
 
 (@) Veja nossas vídeoaulas com parte do conteúdo desta seção:
 

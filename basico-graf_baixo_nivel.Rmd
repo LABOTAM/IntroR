@@ -281,7 +281,7 @@ v2 = matrix(c(1,1,0.8),nrow=1,ncol=3) #80% cheio
 symbols(xx[2],yy[2],thermometers=v2, add=T, inches=FALSE)
 ```
 
-## Para saber mais: {#sabermais-graf-baixo-nivel}
+### Para saber mais: {#sabermais-graf-baixo-nivel}
 
 (@) Vídeoaulas com o conteúdo desta seção:
 

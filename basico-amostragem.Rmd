@@ -180,7 +180,7 @@ segments(0,dq12,12,dq12,lty='dotted',col='blue',lwd=2)
 axis(side=2,at=dq12,labels=paste(round(dq12*100,0),"%",sep=''), line=NULL,las=2,col='blue')
 ```
 
-## Para saber mais: {#sabermais-distribuicoes}
+### Para saber mais: {#sabermais-distribuicoes}
 
 (@) [Probability distributions](http://www.r-tutor.com/elementary-statistics/probability-distributions)
   

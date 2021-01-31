@@ -1,14 +1,14 @@
 --- 
-title: "Curso básico de introdução ao R"
+title: "Curso básico de introdução à linguagem R"
 author:
   - Alberto Vicentini (INPA)
-  - Ricardo de Oliveira Perdiz (Sem filiação acadêmica)
+  - "[Ricardo de Oliveira Perdiz](https://ricardoperdiz.com)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
-  # bookdown::html_document2
-  bookdown::gitbook
-
+  bookdown::gitbook: default
+  # bookdown::pdf_book
+  # bookdown::epub_book
 lang: pt-br
 
 
@@ -16,8 +16,8 @@ documentclass: book
 bibliography: bib.bib
 biblio-style: apalike
 link-citations: yes
-github-repo: LABOTAM/BOT89-introR
-description: "Este livro é um guia básico para conhecer a sintaxe básica desta linguagem de programação e o potencial de usar o R como ferramenta científica."
+github-repo: LABOTAM/LABOTAM.github.io 
+description: "Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica."
 ---
 
 ```{r, setup, include = FALSE}

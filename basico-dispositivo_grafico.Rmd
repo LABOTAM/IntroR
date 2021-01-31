@@ -191,6 +191,6 @@ dev.off()
 Note que em um `pdf` você nunca verá o pixel.
 Por isso, recomendamos que vocÊ trabalhe sempre com a função `pdf()`.  
 
-## Para saber mais: {#sabermais-disp-grafico}
+### Para saber mais: {#sabermais-disp-grafico}
 
 (@) [Dispositivos gráficos](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:1plot:video01_bot89-2020-04-09_18.22.40.mp4) - vídeoaula com o conteúdo desta seção.

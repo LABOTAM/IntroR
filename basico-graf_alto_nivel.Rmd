@@ -233,7 +233,7 @@ dev.off()
 map(xlim=c(long0,long1),ylim=c(lat0,lat1))
 ```
 
-## Para saber mais: {#sabermais-graf-alto-nivel}
+### Para saber mais: {#sabermais-graf-alto-nivel}
 
 (@) [Funções gráficas de alto nível](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2plot:video01_bot89-2020-04-13_11.26.19.mp4) - vídeoaula com o conteúdo desta seção;
 

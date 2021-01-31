@@ -1,7 +1,8 @@
-book_filename: "bot89-introR.Rmd"
+book_filename: "VicentiniPerdiz2021_IntroR"
+output_dir: _books
 delete_merged_file: true
-edit: https://github.com/LABOTAM/LABOTAM.github.io/edit/master/%s
-view: https://github.com/LABOTAM/LABOTAM.github.io/edit/master/%s
+edit: https://github.com/LABOTAM/LABOTAM.github.io/blob/main/%s
+view: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s
 language:
   label:
     fig: 'Figura '
@@ -10,8 +11,35 @@ language:
     chapter_name: ""
 # clean: ["bot89-introR.bbl"]
 rmd_files:
-  html: [
-    "index.Rmd",
+  html: ["index.Rmd",
+    # instalacao
+    "prerequisitos.Rmd",
+    # conceitos introdutorios
+    "cap00_intro.Rmd",
+    # Objetos I
+    "cap01_vetores.Rmd",
+    # Objetos II
+    "cap02_matrizes-dframes.Rmd",
+    # Objetos III
+    "cap03_listas-objComplexos.Rmd",
+    # Funcoes graficas
+    "cap04_funcoes-graficas.Rmd",
+    # Iteracoes e controle de fluxo
+    "cap05_iteracoes-controleFluxo.Rmd",
+    # Sumarizacao de dados
+    "cap06-sumarizacao_dados.Rmd",
+    # Manipulacao textos
+    # "cap07-manipulacao_textos_arqs_pastas.Rmd",
+    # Amostragens aleatorias
+    "cap08-amostragens_aleatorias.Rmd",
+    # Outros
+    "aplicado-extrai_dados_colunas_descritivas.Rmd",
+    # Suplementos
+    "cap10-suplementos.Rmd",
+    # Info da sessao para reprodutibilidade
+    "info_sessao.Rmd",
+    "referencias.Rmd"]
+  pdf: ["index.Rmd",
     # instalacao
     "prerequisitos.Rmd",
     # conceitos introdutorios
@@ -37,5 +65,31 @@ rmd_files:
     "suplemento-videos.Rmd",
     "suplemento-tidyverse.Rmd",
     "suplemento-descomprimir_zip.Rmd",
-    "referencias.Rmd"
-    ]
+    "referencias.Rmd"]
+  epub : ["index.Rmd",
+    # instalacao
+    "prerequisitos.Rmd",
+    # conceitos introdutorios
+    "cap00_intro.Rmd",
+    # Objetos I
+    "cap01_vetores.Rmd",
+    # Objetos II
+    "cap02_matrizes-dframes.Rmd",
+    # Objetos III
+    "cap03_listas-objComplexos.Rmd",
+    # Funcoes graficas
+    "cap04_funcoes-graficas.Rmd",
+    # Iteracoes e controle de fluxo
+    "cap05_iteracoes-controleFluxo.Rmd",
+    # Sumarizacao de dados
+    "cap06-sumarizacao_dados.Rmd",
+    # Manipulacao textos
+    # "cap07-manipulacao_textos_arqs_pastas.Rmd",
+    # Amostragens aleatorias
+    "cap08-amostragens_aleatorias.Rmd",
+    # Outros
+    "aplicado-extrai_dados_colunas_descritivas.Rmd",
+    "suplemento-videos.Rmd",
+    "suplemento-tidyverse.Rmd",
+    "suplemento-descomprimir_zip.Rmd",
+    "referencias.Rmd"]

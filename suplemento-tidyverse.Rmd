@@ -1,4 +1,4 @@
-# Base R vs. Tidyverse
+## Base R vs. Tidyverse
 
 ```{r, eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE}
 suppressMessages(library("tidyverse"))
@@ -597,7 +597,7 @@ O que podemos afirmar é que qualquer pacote de R, com exceção do pacote `base
 Quisemos aqui apresentar funcionalidades básicas de alguns pacotes que podem ser adotadas ou não pelos alunos, e mostrar como podem ser incorporadas no fluxo diário das manipulações de dados.
 Caso queiram ver manipulações mais complexas em tabelas utilizando as ferramentas do tidyverse, convido-os a checarem estas duas postagens: [importando e manipulando dados no R](https://ricardoperdiz.com/post/2020_03_29_r-obtendo-plotando-dados/obtendo-dados-e-plotando-mapas-no-r-versao-3/), e um [tutorial para gerar o mapa de distribuição de Macrolobium aracaense Farroñay](https://ricardoperdiz.com/post/2020_03_29_r-map-farronayetal-2018/mapa-macrolobium/).
 
-## Para saber mais: {#sabermais-tidyverse}
+### Para saber mais: {#sabermais-tidyverse}
 
 As postagens abaixo variam entre posições favoráveis ou desfavoráveis ao Tidyverse.
 Abrangem desde opiniões pessoais sobre o porquê de não ensinar essas ferramentas aos iniciantes na linguagem a questões de performance computacional desse universo quando comparado com o base R.

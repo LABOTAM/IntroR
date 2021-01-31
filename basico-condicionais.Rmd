@@ -140,7 +140,7 @@ meudf <- data.frame(familias, sei_qual_ordem)
 meudf
 ```
 
-## Para saber mais: {#sabermais-condic}
+### Para saber mais: {#sabermais-condic}
 
 (@) Vídeoaula - temos duas vídeoaulas disponíveis com parte do conteúdo desta aula. Acesse-as no *links* abaixo:
 
