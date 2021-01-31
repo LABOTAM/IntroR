@@ -1,0 +1,3217 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 Sumarização de dados | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 Sumarização de dados | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/LABOTAM.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 Sumarização de dados | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini (INPA)" />
+<meta name="author" content="Ricardo de Oliveira Perdiz" />
+
+
+<meta name="date" content="2021-01-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="iteração-e-controle-de-fluxo.html"/>
+<link rel="next" href="amostragens-aleatórias.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="2" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i><b>2</b> Pré-requisitos</a><ul>
+<li class="chapter" data-level="2.1" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-possua-um-computador"><i class="fa fa-check"></i><b>2.1</b> Caso você possua um computador</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-o-r"><i class="fa fa-check"></i><b>2.1.1</b> Instale o R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-um-ambiente-de-desenvolvimento-integrado"><i class="fa fa-check"></i><b>2.1.2</b> Instale um ambiente de desenvolvimento integrado</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i><b>2.2</b> Caso você não possua um computador</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html"><i class="fa fa-check"></i><b>3</b> Conceitos introdutórios</a><ul>
+<li class="chapter" data-level="3.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#console-e-scripts"><i class="fa fa-check"></i><b>3.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="3.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>3.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="3.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>3.3</b> R-Base e pacotes</a></li>
+<li class="chapter" data-level="3.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#ajuda-no-r"><i class="fa fa-check"></i><b>3.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="3.5" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>3.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="3.6" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>3.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="3.7" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>3.7</b> O R como calculadora</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#operadores"><i class="fa fa-check"></i><b>3.7.1</b> Operadores</a></li>
+<li class="chapter" data-level="3.7.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>3.7.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="3.7.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#funções-constantes-matemáticas"><i class="fa fa-check"></i><b>3.7.3</b> Funções &amp; constantes matemáticas</a></li>
+<li class="chapter" data-level="3.7.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#valor-na"><i class="fa fa-check"></i><b>3.7.4</b> NA e valores afins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html"><i class="fa fa-check"></i><b>4</b> Objeto I - Vetores</a><ul>
+<li class="chapter" data-level="4.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetores"><i class="fa fa-check"></i><b>4.1</b> Vetores &amp; Operações Vetoriais I</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>4.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>4.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>4.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="4.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>4.3</b> Funções com Vetores</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>4.3.1</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#classes"><i class="fa fa-check"></i><b>4.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="4.5" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#indexacao"><i class="fa fa-check"></i><b>4.5</b> Indexação</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>4.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="4.5.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>4.5.2</b> Usando índices de nomes</a></li>
+<li class="chapter" data-level="4.5.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-indexacao"><i class="fa fa-check"></i><b>4.5.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>4.6</b> Vetores e operadores lógicos</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#perg-vetores"><i class="fa fa-check"></i><b>4.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="4.6.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>4.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="4.6.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>4.6.3</b> Perguntando por valores ausentes - NA</a></li>
+<li class="chapter" data-level="4.6.4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-manip-texto"><i class="fa fa-check"></i><b>4.6.4</b> Para saber mais:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html"><i class="fa fa-check"></i><b>5</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="5.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>5.1</b> Matriz vs. <code>data.frame</code></a><ul>
+<li class="chapter" data-level="5.1.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-matrizes"><i class="fa fa-check"></i><b>5.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="5.1.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-data.frames"><i class="fa fa-check"></i><b>5.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>5.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>5.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matrizes"><i class="fa fa-check"></i><b>5.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="5.2.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#data.frame"><i class="fa fa-check"></i><b>5.2.2</b> <code>data.frame</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>5.2.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>5.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="5.3.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtragem-de-dados"><i class="fa fa-check"></i><b>5.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="5.3.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#ordenação-de-dados"><i class="fa fa-check"></i><b>5.3.2</b> Ordenação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>5.4</b> Importanto e exportando dados no R</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>5.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="5.4.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importando-dados"><i class="fa fa-check"></i><b>5.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="5.4.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#exportando-dados"><i class="fa fa-check"></i><b>5.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="5.4.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#outras-funções-úteis"><i class="fa fa-check"></i><b>5.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html"><i class="fa fa-check"></i><b>6</b> Objeto III - Listas e objetos complexos</a><ul>
+<li class="chapter" data-level="6.1" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#listas"><i class="fa fa-check"></i><b>6.1</b> Listas</a></li>
+<li class="chapter" data-level="6.2" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#obj-complexos"><i class="fa fa-check"></i><b>6.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="funções-gráficas.html"><a href="funções-gráficas.html"><i class="fa fa-check"></i><b>7</b> Funções gráficas</a><ul>
+<li class="chapter" data-level="7.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>7.1</b> Dispositivos Gráficos</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#função-plot"><i class="fa fa-check"></i><b>7.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="7.1.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>7.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="7.1.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>7.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="7.1.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>7.1.4</b> Dispositivos de Arquivos</a></li>
+<li class="chapter" data-level="7.1.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-vetoriais-pdf-ou-postscript"><i class="fa fa-check"></i><b>7.1.5</b> Figuras Vetoriais PDF ou POSTSCRIPT</a></li>
+<li class="chapter" data-level="7.1.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-raster"><i class="fa fa-check"></i><b>7.1.6</b> Figuras raster</a></li>
+<li class="chapter" data-level="7.1.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>7.1.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#par-graficos"><i class="fa fa-check"></i><b>7.2</b> Parâmetros gráficos dos dispositivos</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#conhecendo-os-parâmetros"><i class="fa fa-check"></i><b>7.2.1</b> Conhecendo os parâmetros</a></li>
+<li class="chapter" data-level="7.2.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-par-graficos"><i class="fa fa-check"></i><b>7.2.2</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#parâmetros-gráficos-parte-ii---símbolos-e-cores"><i class="fa fa-check"></i><b>7.3</b> Parâmetros gráficos parte II - Símbolos e cores</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>7.3.1</b> Tipo de símbolo - pch</a></li>
+<li class="chapter" data-level="7.3.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>7.3.2</b> Tamanho dos pontos - cex</a></li>
+<li class="chapter" data-level="7.3.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#linhas"><i class="fa fa-check"></i><b>7.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="7.3.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>7.3.4</b> Cores de símbolos - col e bg</a></li>
+<li class="chapter" data-level="7.3.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>7.3.5</b> Funções que definem cores</a></li>
+<li class="chapter" data-level="7.3.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-par-graficos-p2"><i class="fa fa-check"></i><b>7.3.6</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-alto-nivel"><i class="fa fa-check"></i><b>7.4</b> Funções gráficas de alto nível</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>7.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="7.4.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#hist"><i class="fa fa-check"></i><b>7.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#boxplot"><i class="fa fa-check"></i><b>7.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#barplot"><i class="fa fa-check"></i><b>7.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot.phylo"><i class="fa fa-check"></i><b>7.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#image-e-countour"><i class="fa fa-check"></i><b>7.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="7.4.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#map"><i class="fa fa-check"></i><b>7.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="7.4.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#xlim-e-ylim"><i class="fa fa-check"></i><b>7.4.8</b> xlim e ylim</a></li>
+<li class="chapter" data-level="7.4.9" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-graf-alto-nivel"><i class="fa fa-check"></i><b>7.4.9</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>7.5</b> Funções gráficas de baixo nível</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#legend"><i class="fa fa-check"></i><b>7.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#points"><i class="fa fa-check"></i><b>7.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#text-e-mtext"><i class="fa fa-check"></i><b>7.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#axis"><i class="fa fa-check"></i><b>7.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="7.5.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#abline"><i class="fa fa-check"></i><b>7.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="7.5.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>7.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="7.5.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#symbols"><i class="fa fa-check"></i><b>7.5.7</b> <code>symbols()</code></a></li>
+<li class="chapter" data-level="7.5.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-graf-baixo-nivel"><i class="fa fa-check"></i><b>7.5.8</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>7.6</b> Funções gráficas interativas</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#locator"><i class="fa fa-check"></i><b>7.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="7.6.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#identify"><i class="fa fa-check"></i><b>7.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html"><i class="fa fa-check"></i><b>8</b> Iteração e controle de fluxo</a><ul>
+<li class="chapter" data-level="8.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#funções-da-família-apply"><i class="fa fa-check"></i><b>8.1</b> Funções da família apply()</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-uma-matriz"><i class="fa fa-check"></i><b>8.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="8.1.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>8.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="8.1.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>8.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicionais"><i class="fa fa-check"></i><b>8.2</b> Condicionais</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if"><i class="fa fa-check"></i><b>8.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="8.2.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>8.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-ifelse"><i class="fa fa-check"></i><b>8.2.3</b> Condicional <code>ifelse()</code></a></li>
+<li class="chapter" data-level="8.2.4" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#sabermais-condic"><i class="fa fa-check"></i><b>8.2.4</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteracoes"><i class="fa fa-check"></i><b>8.3</b> Iterações</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for"><i class="fa fa-check"></i><b>8.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="8.3.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-while"><i class="fa fa-check"></i><b>8.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="8.3.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>8.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>8.4</b> Criando ou modificando funções</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-i"><i class="fa fa-check"></i><b>8.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="8.4.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-ii"><i class="fa fa-check"></i><b>8.4.2</b> Exemplo II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html"><i class="fa fa-check"></i><b>9</b> Sumarização de dados</a><ul>
+<li class="chapter" data-level="9.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>9.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="9.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>9.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="9.3" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>9.3</b> Lógica da junção de tabelas</a></li>
+<li class="chapter" data-level="9.4" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>9.4</b> Junção de tabelas utilizando funções</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>9.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="9.4.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#unindo-tabelas-com-merge"><i class="fa fa-check"></i><b>9.4.2</b> Unindo tabelas com <code>merge()</code></a></li>
+<li class="chapter" data-level="9.4.3" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>9.4.3</b> Para saber mais</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html"><i class="fa fa-check"></i><b>10</b> Amostragens aleatórias</a><ul>
+<li class="chapter" data-level="10.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>10.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="10.2" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>10.2</b> Distribuições aleatórias</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuição-normal"><i class="fa fa-check"></i><b>10.2.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="10.2.2" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>10.2.2</b> Para saber mais:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html"><i class="fa fa-check"></i><b>11</b> Extraindo dados de colunas descritivas</a><ul>
+<li class="chapter" data-level="11.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dados-categóricos"><i class="fa fa-check"></i><b>11.1</b> Dados categóricos</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>11.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="11.1.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>11.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="11.1.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>11.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#listas-ref"><i class="fa fa-check"></i><b>11.2</b> Listas de referência</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#hábito-da-planta"><i class="fa fa-check"></i><b>11.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="11.2.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>11.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="11.2.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#classes-de-hábitat"><i class="fa fa-check"></i><b>11.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="11.2.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#textura-do-solo"><i class="fa fa-check"></i><b>11.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="11.2.5" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#exsudato"><i class="fa fa-check"></i><b>11.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>11.3</b> Extraindo altura e dap</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#altura"><i class="fa fa-check"></i><b>11.3.1</b> Altura</a></li>
+<li class="chapter" data-level="11.3.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dap"><i class="fa fa-check"></i><b>11.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#usando-essas-funções"><i class="fa fa-check"></i><b>11.4</b> Usando essas funções</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="suplementos.html"><a href="suplementos.html"><i class="fa fa-check"></i><b>12</b> Suplementos</a><ul>
+<li class="chapter" data-level="12.1" data-path="suplementos.html"><a href="suplementos.html#base-r-vs.-tidyverse"><i class="fa fa-check"></i><b>12.1</b> Base R vs. Tidyverse</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="suplementos.html"><a href="suplementos.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>12.1.1</b> O que é o Tidyverse?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="suplementos.html"><a href="suplementos.html#usando-o-dplyr"><i class="fa fa-check"></i><b>12.1.2</b> Usando o <code>dplyr</code></a></li>
+<li class="chapter" data-level="12.1.3" data-path="suplementos.html"><a href="suplementos.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>12.1.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a></li>
+<li class="chapter" data-level="12.1.4" data-path="suplementos.html"><a href="suplementos.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>12.1.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="12.1.5" data-path="suplementos.html"><a href="suplementos.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>12.1.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a></li>
+<li class="chapter" data-level="12.1.6" data-path="suplementos.html"><a href="suplementos.html#baser"><i class="fa fa-check"></i><b>12.1.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a></li>
+<li class="chapter" data-level="12.1.7" data-path="suplementos.html"><a href="suplementos.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>12.1.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="12.1.8" data-path="suplementos.html"><a href="suplementos.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>12.1.8</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="suplementos.html"><a href="suplementos.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r"><i class="fa fa-check"></i><b>12.2</b> Baixar e descomprimir um arquivo zip usando o R</a></li>
+<li class="chapter" data-level="12.3" data-path="suplementos.html"><a href="suplementos.html#aulas-em-vídeo"><i class="fa fa-check"></i><b>12.3</b> Aulas em vídeo</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="suplementos.html"><a href="suplementos.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>12.3.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="12.3.2" data-path="suplementos.html"><a href="suplementos.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>12.3.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="12.3.3" data-path="suplementos.html"><a href="suplementos.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>12.3.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="12.3.4" data-path="suplementos.html"><a href="suplementos.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>12.3.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="12.3.5" data-path="suplementos.html"><a href="suplementos.html#listas-1"><i class="fa fa-check"></i><b>12.3.5</b> Listas</a></li>
+<li class="chapter" data-level="12.3.6" data-path="suplementos.html"><a href="suplementos.html#criando-matrizes-1"><i class="fa fa-check"></i><b>12.3.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="12.3.7" data-path="suplementos.html"><a href="suplementos.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>12.3.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="12.3.8" data-path="suplementos.html"><a href="suplementos.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>12.3.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="12.3.9" data-path="suplementos.html"><a href="suplementos.html#condicionais-1"><i class="fa fa-check"></i><b>12.3.9</b> Condicionais</a></li>
+<li class="chapter" data-level="12.3.10" data-path="suplementos.html"><a href="suplementos.html#funções-da-família-apply-1"><i class="fa fa-check"></i><b>12.3.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="12.3.11" data-path="suplementos.html"><a href="suplementos.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>12.3.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="12.3.12" data-path="suplementos.html"><a href="suplementos.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>12.3.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="12.3.13" data-path="suplementos.html"><a href="suplementos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>12.3.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="12.3.14" data-path="suplementos.html"><a href="suplementos.html#objetos-complexos"><i class="fa fa-check"></i><b>12.3.14</b> Objetos complexos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="informação-da-sessão.html"><a href="informação-da-sessão.html"><i class="fa fa-check"></i><b>13</b> Informação da sessão</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sumarização-de-dados" class="section level1">
+<h1><span class="header-section-number">9</span> Sumarização de dados</h1>
+<div id="tabela-dinamica" class="section level2">
+<h2><span class="header-section-number">9.1</span> Tabelas dinâmicas</h2>
+<p>A função <code>tapply()</code> calcula alguma funcão sobre um vetor numérico para cada categoria de um fator.
+Já a função <code>aggregate()</code> faz o mesmo, mas permite múltiplos fatores e sempre retorna um <code>data.frame</code>.</p>
+<p>Vamos usar dados de parcelas em <a href="http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2015:caixeta.csv">caixetais</a>, formações dominadas por <em>Tabebuia cassinoides</em> (Lam.) D.C. (Bignoniaceae), espécie comum da Mata Atlântica nos estados de São Paulo, Minas Gerais, Rio de Janeiro e Espírito Santo.
+Baixe o arquivo para seu computador e instale-o na sua pasta de trabalho antes de seguir com os comandos abaixo.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="sumarização-de-dados.html#cb208-1"></a><span class="kw">dir</span>(<span class="dt">pattern=</span><span class="st">&quot;caixeta&quot;</span>)</span>
+<span id="cb208-2"><a href="sumarização-de-dados.html#cb208-2"></a>caixeta =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&#39;,&#39;</span>,<span class="dt">header=</span>T)</span>
+<span id="cb208-3"><a href="sumarização-de-dados.html#cb208-3"></a><span class="kw">names</span>(caixeta)</span>
+<span id="cb208-4"><a href="sumarização-de-dados.html#cb208-4"></a></span>
+<span id="cb208-5"><a href="sumarização-de-dados.html#cb208-5"></a><span class="co">## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores</span></span>
+<span id="cb208-6"><a href="sumarização-de-dados.html#cb208-6"></a>?tapply <span class="co">#veja o help dessa função</span></span>
+<span id="cb208-7"><a href="sumarização-de-dados.html#cb208-7"></a></span>
+<span id="cb208-8"><a href="sumarização-de-dados.html#cb208-8"></a><span class="co">#altura máxima de cada especie</span></span>
+<span id="cb208-9"><a href="sumarização-de-dados.html#cb208-9"></a><span class="kw">tapply</span>(caixeta<span class="op">$</span>h,<span class="dt">INDEX=</span>caixeta<span class="op">$</span>especie, <span class="dt">FUN=</span>max)</span>
+<span id="cb208-10"><a href="sumarização-de-dados.html#cb208-10"></a></span>
+<span id="cb208-11"><a href="sumarização-de-dados.html#cb208-11"></a><span class="co">#circunferencia media por localidade</span></span>
+<span id="cb208-12"><a href="sumarização-de-dados.html#cb208-12"></a><span class="kw">tapply</span>(caixeta<span class="op">$</span>cap,<span class="dt">INDEX=</span>caixeta<span class="op">$</span>local, <span class="dt">FUN=</span>mean)</span>
+<span id="cb208-13"><a href="sumarização-de-dados.html#cb208-13"></a></span>
+<span id="cb208-14"><a href="sumarização-de-dados.html#cb208-14"></a><span class="co">##&quot;Tabelas dinamicas&quot;: funcao aggregate</span></span>
+<span id="cb208-15"><a href="sumarização-de-dados.html#cb208-15"></a><span class="co">## Criar data.frame com altura media dos fustes por especie e por local</span></span>
+<span id="cb208-16"><a href="sumarização-de-dados.html#cb208-16"></a>?aggregate <span class="co">#veja o help dessa função</span></span>
+<span id="cb208-17"><a href="sumarização-de-dados.html#cb208-17"></a><span class="kw">names</span>(caixeta)</span>
+<span id="cb208-18"><a href="sumarização-de-dados.html#cb208-18"></a></span>
+<span id="cb208-19"><a href="sumarização-de-dados.html#cb208-19"></a><span class="co">#circunferencia máxima por especie</span></span>
+<span id="cb208-20"><a href="sumarização-de-dados.html#cb208-20"></a>ob1 =<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>cap, <span class="dt">by=</span><span class="kw">list</span>(<span class="dt">especie=</span>caixeta<span class="op">$</span>especie), <span class="dt">FUN=</span>max)</span>
+<span id="cb208-21"><a href="sumarização-de-dados.html#cb208-21"></a><span class="kw">class</span>(ob1) <span class="co">#obtenho um data frame</span></span>
+<span id="cb208-22"><a href="sumarização-de-dados.html#cb208-22"></a><span class="kw">head</span>(ob1)</span>
+<span id="cb208-23"><a href="sumarização-de-dados.html#cb208-23"></a></span>
+<span id="cb208-24"><a href="sumarização-de-dados.html#cb208-24"></a><span class="co">#neste caso também poderia fazer assim</span></span>
+<span id="cb208-25"><a href="sumarização-de-dados.html#cb208-25"></a>ob2 =<span class="st"> </span><span class="kw">tapply</span>(caixeta<span class="op">$</span>h,caixeta<span class="op">$</span>especie, max)</span>
+<span id="cb208-26"><a href="sumarização-de-dados.html#cb208-26"></a><span class="kw">class</span>(ob2) <span class="co">#mas neste caso nos temos um array (um vetor unidimensional)</span></span>
+<span id="cb208-27"><a href="sumarização-de-dados.html#cb208-27"></a>ob2[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
+<span id="cb208-28"><a href="sumarização-de-dados.html#cb208-28"></a></span>
+<span id="cb208-29"><a href="sumarização-de-dados.html#cb208-29"></a><span class="co">#mas se eu quiser por localidade e por especie, preciso usar aggregate</span></span>
+<span id="cb208-30"><a href="sumarização-de-dados.html#cb208-30"></a>caixeta.alt &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>h, <span class="dt">by=</span><span class="kw">list</span>(<span class="dt">local=</span>caixeta<span class="op">$</span>local,<span class="dt">especie=</span>caixeta<span class="op">$</span>especie), <span class="dt">FUN=</span>max)</span>
+<span id="cb208-31"><a href="sumarização-de-dados.html#cb208-31"></a><span class="kw">head</span>(caixeta.alt)</span>
+<span id="cb208-32"><a href="sumarização-de-dados.html#cb208-32"></a></span>
+<span id="cb208-33"><a href="sumarização-de-dados.html#cb208-33"></a><span class="co">##Vamos calcular a area basal (soma da area de todo os fustes)</span></span>
+<span id="cb208-34"><a href="sumarização-de-dados.html#cb208-34"></a></span>
+<span id="cb208-35"><a href="sumarização-de-dados.html#cb208-35"></a><span class="co">## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:</span></span>
+<span id="cb208-36"><a href="sumarização-de-dados.html#cb208-36"></a>caixeta<span class="op">$</span>ab &lt;-<span class="st"> </span>caixeta<span class="op">$</span>cap<span class="op">^</span><span class="dv">2</span><span class="op">/</span><span class="dv">4</span><span class="op">*</span>pi </span>
+<span id="cb208-37"><a href="sumarização-de-dados.html#cb208-37"></a><span class="co">## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes</span></span>
+<span id="cb208-38"><a href="sumarização-de-dados.html#cb208-38"></a>caixeta<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>ab, <span class="dt">by=</span><span class="kw">list</span>(<span class="dt">local=</span>caixeta<span class="op">$</span>local,<span class="dt">parcela=</span>caixeta<span class="op">$</span>parcela,<span class="dt">especie=</span>caixeta<span class="op">$</span>especie), <span class="dt">FUN=</span>sum)</span>
+<span id="cb208-39"><a href="sumarização-de-dados.html#cb208-39"></a><span class="kw">class</span>(caixeta<span class="fl">.2</span>)</span>
+<span id="cb208-40"><a href="sumarização-de-dados.html#cb208-40"></a><span class="kw">head</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
+</div>
+<div id="tabelas-de-contagem" class="section level2">
+<h2><span class="header-section-number">9.2</span> Tabelas de contagem</h2>
+<p>Vamos usar utilizar os mesmos dados de caixetas utilizados na seção @ref(#tabela-dinamica).
+A função <code>table()</code> permite contar valores em fatores e vetores.</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="sumarização-de-dados.html#cb209-1"></a><span class="kw">dir</span>(<span class="dt">pattern=</span><span class="st">&quot;caixeta&quot;</span>)</span>
+<span id="cb209-2"><a href="sumarização-de-dados.html#cb209-2"></a>caixeta =<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&#39;,&#39;</span>,<span class="dt">header=</span>T)</span>
+<span id="cb209-3"><a href="sumarização-de-dados.html#cb209-3"></a></span>
+<span id="cb209-4"><a href="sumarização-de-dados.html#cb209-4"></a><span class="kw">names</span>(caixeta)</span>
+<span id="cb209-5"><a href="sumarização-de-dados.html#cb209-5"></a><span class="co">#tem a coluna especie</span></span>
+<span id="cb209-6"><a href="sumarização-de-dados.html#cb209-6"></a></span>
+<span id="cb209-7"><a href="sumarização-de-dados.html#cb209-7"></a><span class="co">#podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)</span></span>
+<span id="cb209-8"><a href="sumarização-de-dados.html#cb209-8"></a><span class="kw">table</span>(caixeta<span class="op">$</span>especie) </span>
+<span id="cb209-9"><a href="sumarização-de-dados.html#cb209-9"></a><span class="co">#mostra as tres especies mais abundantes</span></span>
+<span id="cb209-10"><a href="sumarização-de-dados.html#cb209-10"></a><span class="kw">sort</span>(<span class="kw">table</span>(caixeta<span class="op">$</span>especie), <span class="dt">decreasing=</span>T)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] </span>
+<span id="cb209-11"><a href="sumarização-de-dados.html#cb209-11"></a></span>
+<span id="cb209-12"><a href="sumarização-de-dados.html#cb209-12"></a><span class="co">#quantos individuos por localidade?</span></span>
+<span id="cb209-13"><a href="sumarização-de-dados.html#cb209-13"></a><span class="kw">table</span>(caixeta<span class="op">$</span>local) </span>
+<span id="cb209-14"><a href="sumarização-de-dados.html#cb209-14"></a></span>
+<span id="cb209-15"><a href="sumarização-de-dados.html#cb209-15"></a><span class="co">#especie por localidade</span></span>
+<span id="cb209-16"><a href="sumarização-de-dados.html#cb209-16"></a>tb=<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie,caixeta<span class="op">$</span>local) </span>
+<span id="cb209-17"><a href="sumarização-de-dados.html#cb209-17"></a><span class="kw">head</span>(tb,<span class="dv">3</span>) <span class="co">#mostra as tres primeiras linhas</span></span>
+<span id="cb209-18"><a href="sumarização-de-dados.html#cb209-18"></a></span>
+<span id="cb209-19"><a href="sumarização-de-dados.html#cb209-19"></a><span class="co">#tabela de presenca e ausencia de especie por localidade</span></span>
+<span id="cb209-20"><a href="sumarização-de-dados.html#cb209-20"></a>tb =<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie,caixeta<span class="op">$</span>local) </span>
+<span id="cb209-21"><a href="sumarização-de-dados.html#cb209-21"></a><span class="co">#quem tem mais de 0 individuos está presente</span></span>
+<span id="cb209-22"><a href="sumarização-de-dados.html#cb209-22"></a><span class="co">#portanto, substituo por 1</span></span>
+<span id="cb209-23"><a href="sumarização-de-dados.html#cb209-23"></a>tb[tb<span class="op">&gt;</span><span class="dv">0</span>] =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb209-24"><a href="sumarização-de-dados.html#cb209-24"></a><span class="kw">head</span>(tb)</span>
+<span id="cb209-25"><a href="sumarização-de-dados.html#cb209-25"></a></span>
+<span id="cb209-26"><a href="sumarização-de-dados.html#cb209-26"></a><span class="co">#sendo assim, posso ver o numero de especie por localidade aplicando a suma das linha que tem 1 para cada coluna</span></span>
+<span id="cb209-27"><a href="sumarização-de-dados.html#cb209-27"></a><span class="kw">apply</span>(tb,<span class="dv">2</span>,sum)</span></code></pre></div>
+</div>
+<div id="lógica-da-junção-de-tabelas" class="section level2">
+<h2><span class="header-section-number">9.3</span> Lógica da junção de tabelas</h2>
+<p>Unir tabelas é uma prática corriqueira com bases de dados.
+É comum termos dados relacionados em tabelas diferentes, recurso que minimiza a entrada de redundância e portanto de erros nos nossos dados.</p>
+<p>É frequente também a necessidade de ter esses dados reunidos em uma só tabela.
+Para unir tabelas, é necessário que duas tabelas diferentes possuam uma coluna em comum, a quem vamos chamar de <strong>identificador</strong>.</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="sumarização-de-dados.html#cb210-1"></a><span class="co">#vou criar aqui uma situação artificial com os dados iris, mas imagine uma situação mais complexa com muitos dados</span></span>
+<span id="cb210-2"><a href="sumarização-de-dados.html#cb210-2"></a></span>
+<span id="cb210-3"><a href="sumarização-de-dados.html#cb210-3"></a><span class="co">#uma tabela com os nomes das especies</span></span>
+<span id="cb210-4"><a href="sumarização-de-dados.html#cb210-4"></a>spp =<span class="st"> </span><span class="kw">unique</span>(<span class="kw">data.frame</span>(</span>
+<span id="cb210-5"><a href="sumarização-de-dados.html#cb210-5"></a>  <span class="dt">GENUS =</span> <span class="st">&quot;Iris&quot;</span>,</span>
+<span id="cb210-6"><a href="sumarização-de-dados.html#cb210-6"></a>  <span class="dt">SPECIES =</span> iris<span class="op">$</span>Species,</span>
+<span id="cb210-7"><a href="sumarização-de-dados.html#cb210-7"></a>  <span class="dt">stringsAsFactors =</span> F</span>
+<span id="cb210-8"><a href="sumarização-de-dados.html#cb210-8"></a>))</span>
+<span id="cb210-9"><a href="sumarização-de-dados.html#cb210-9"></a>spp<span class="op">$</span>fullname =<span class="st"> </span><span class="kw">paste</span>(spp<span class="op">$</span>GENUS, spp<span class="op">$</span>SPECIES)</span>
+<span id="cb210-10"><a href="sumarização-de-dados.html#cb210-10"></a></span>
+<span id="cb210-11"><a href="sumarização-de-dados.html#cb210-11"></a><span class="co">################################################################</span></span>
+<span id="cb210-12"><a href="sumarização-de-dados.html#cb210-12"></a><span class="co">#vou adicionar uns dados para esses nomes baixando da internet</span></span>
+<span id="cb210-13"><a href="sumarização-de-dados.html#cb210-13"></a><span class="co">###SO FUNCIONA COM INTERNET: pesquisa esses nomes na interne e traz algo</span></span>
+<span id="cb210-14"><a href="sumarização-de-dados.html#cb210-14"></a><span class="co">#tem varios jeitos de fazer isso, aqui apenas para produzir um dado</span></span>
+<span id="cb210-15"><a href="sumarização-de-dados.html#cb210-15"></a><span class="co">#pesquisa no TNRS o nome cientifico</span></span>
+<span id="cb210-16"><a href="sumarização-de-dados.html#cb210-16"></a><span class="kw">library</span>(taxize) <span class="co">#instale se nao tiver</span></span>
+<span id="cb210-17"><a href="sumarização-de-dados.html#cb210-17"></a>sppinfo =<span class="st"> </span><span class="kw">sapply</span>(spp<span class="op">$</span>fullname, tp_search, <span class="dt">type =</span> <span class="st">&#39;exact&#39;</span>)</span>
+<span id="cb210-18"><a href="sumarização-de-dados.html#cb210-18"></a><span class="co">#pega as colunas obtidas para todos os nomes</span></span>
+<span id="cb210-19"><a href="sumarização-de-dados.html#cb210-19"></a>keys &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="kw">unlist</span>(<span class="kw">lapply</span>(sppinfo, names)))</span>
+<span id="cb210-20"><a href="sumarização-de-dados.html#cb210-20"></a>keys =<span class="st"> </span><span class="kw">names</span>(keys[keys <span class="op">==</span><span class="st"> </span><span class="kw">length</span>(sppinfo)])</span>
+<span id="cb210-21"><a href="sumarização-de-dados.html#cb210-21"></a><span class="co">#junta tudo num unico data.frame</span></span>
+<span id="cb210-22"><a href="sumarização-de-dados.html#cb210-22"></a>sppinfo =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">do.call</span>(mapply, <span class="kw">c</span>(<span class="dt">FUN =</span> c, <span class="kw">lapply</span>(sppinfo, <span class="st">`</span><span class="dt">[</span><span class="st">`</span>, keys))), <span class="dt">stringsAsFactors =</span> F)</span>
+<span id="cb210-23"><a href="sumarização-de-dados.html#cb210-23"></a><span class="co">#tira osnomes illegits</span></span>
+<span id="cb210-24"><a href="sumarização-de-dados.html#cb210-24"></a>sppinfo =<span class="st"> </span>sppinfo[<span class="op">-</span><span class="kw">grep</span>(<span class="st">&quot;illeg&quot;</span>, sppinfo<span class="op">$</span>nomenclaturestatusname, <span class="dt">ignore.case =</span> T), ]</span>
+<span id="cb210-25"><a href="sumarização-de-dados.html#cb210-25"></a><span class="co">#cria um identificaor compartilhado entre tabelas</span></span>
+<span id="cb210-26"><a href="sumarização-de-dados.html#cb210-26"></a>sppinfo<span class="op">$</span>Species =<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;Iris &quot;</span>, <span class="st">&quot;&quot;</span>, sppinfo<span class="op">$</span>scientificname)</span>
+<span id="cb210-27"><a href="sumarização-de-dados.html#cb210-27"></a><span class="co">#bagunca a ordem</span></span>
+<span id="cb210-28"><a href="sumarização-de-dados.html#cb210-28"></a>sppinfo =<span class="st"> </span>sppinfo[<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>), ]</span>
+<span id="cb210-29"><a href="sumarização-de-dados.html#cb210-29"></a><span class="kw">rownames</span>(sppinfo) =<span class="st"> </span>sppinfo<span class="op">$</span>Species</span>
+<span id="cb210-30"><a href="sumarização-de-dados.html#cb210-30"></a><span class="co">##NAO SE PREOCUPE EM DECIFRAR A BUSCA E ORGANIZACAO DESSA TABELA</span></span>
+<span id="cb210-31"><a href="sumarização-de-dados.html#cb210-31"></a><span class="co">################################################################</span></span>
+<span id="cb210-32"><a href="sumarização-de-dados.html#cb210-32"></a></span>
+<span id="cb210-33"><a href="sumarização-de-dados.html#cb210-33"></a><span class="co">#agora temos dois conjuntos de dados, que em comum tem a coluna Species</span></span>
+<span id="cb210-34"><a href="sumarização-de-dados.html#cb210-34"></a><span class="co">#mas tem linhas diferentes</span></span>
+<span id="cb210-35"><a href="sumarização-de-dados.html#cb210-35"></a>sppinfo</span>
+<span id="cb210-36"><a href="sumarização-de-dados.html#cb210-36"></a><span class="kw">head</span>(iris)</span>
+<span id="cb210-37"><a href="sumarização-de-dados.html#cb210-37"></a></span>
+<span id="cb210-38"><a href="sumarização-de-dados.html#cb210-38"></a><span class="co">#suponha que voce queira adicionar à tabela iris uma coluna com informacao que esta na tabela sppinfo</span></span>
+<span id="cb210-39"><a href="sumarização-de-dados.html#cb210-39"></a></span>
+<span id="cb210-40"><a href="sumarização-de-dados.html#cb210-40"></a><span class="co">#JEITO 1 DE FAZER ISSO (USANDO MATCH)</span></span>
+<span id="cb210-41"><a href="sumarização-de-dados.html#cb210-41"></a><span class="co">#pega as linhas da tabela sppinfo para cada linha da tabela iris</span></span>
+<span id="cb210-42"><a href="sumarização-de-dados.html#cb210-42"></a><span class="co">#para isso eu quero o INDICE da tabela sppinfo segundo o valor da coluna Species que a coluna comum às duas tabelas</span></span>
+<span id="cb210-43"><a href="sumarização-de-dados.html#cb210-43"></a>idxinfo =<span class="st"> </span><span class="kw">match</span>(iris<span class="op">$</span>Species, sppinfo<span class="op">$</span>Species)</span>
+<span id="cb210-44"><a href="sumarização-de-dados.html#cb210-44"></a><span class="co">#idxinfo é um vetor que tem o mesmo comprimento que o numero de linhas que iris e contem o numero das linhas (os indices) da tabela sppinfo</span></span>
+<span id="cb210-45"><a href="sumarização-de-dados.html#cb210-45"></a><span class="co">#assim, seguindo indexacao numerica eu posso pegar informacoes da tabela sppinfo e colocar na tabela iris</span></span>
+<span id="cb210-46"><a href="sumarização-de-dados.html#cb210-46"></a>iris<span class="op">$</span>speciesComAutor =<span class="st"> </span>sppinfo<span class="op">$</span>scientificnamewithauthors[idxinfo]</span>
+<span id="cb210-47"><a href="sumarização-de-dados.html#cb210-47"></a><span class="kw">head</span>(iris)</span>
+<span id="cb210-48"><a href="sumarização-de-dados.html#cb210-48"></a><span class="co">#jutando as duas tabelas</span></span>
+<span id="cb210-49"><a href="sumarização-de-dados.html#cb210-49"></a>novoiris =<span class="st"> </span><span class="kw">cbind</span>(iris, sppinfo[idxinfo, ])</span>
+<span id="cb210-50"><a href="sumarização-de-dados.html#cb210-50"></a><span class="kw">head</span>(novoiris)</span>
+<span id="cb210-51"><a href="sumarização-de-dados.html#cb210-51"></a></span>
+<span id="cb210-52"><a href="sumarização-de-dados.html#cb210-52"></a></span>
+<span id="cb210-53"><a href="sumarização-de-dados.html#cb210-53"></a><span class="co">#JEIO 2 DE FAZER ISSO (USANDO INDICES NOMINAIS)</span></span>
+<span id="cb210-54"><a href="sumarização-de-dados.html#cb210-54"></a><span class="co">#sppinfo contém nomes de linhas que correspondem aos valores que estao na coluna iris$Species</span></span>
+<span id="cb210-55"><a href="sumarização-de-dados.html#cb210-55"></a><span class="co">#portanto, para fazer a mesma coisa eu poderia simplesmente pegar atraves dos nomes das linhas da tabela sppinfo</span></span>
+<span id="cb210-56"><a href="sumarização-de-dados.html#cb210-56"></a>iris<span class="op">$</span>speciesComAutor =<span class="st"> </span>sppinfo[iris<span class="op">$</span>Species, ]<span class="op">$</span>scientificnamewithauthors</span>
+<span id="cb210-57"><a href="sumarização-de-dados.html#cb210-57"></a><span class="co">#juntando as duas tabelas  completas</span></span>
+<span id="cb210-58"><a href="sumarização-de-dados.html#cb210-58"></a>novoiris =<span class="st"> </span><span class="kw">cbind</span>(iris, sppinfo[iris<span class="op">$</span>Species, ])</span></code></pre></div>
+<!-- {{:bot89:precurso:3matrizes:video01_bot89-2020-04-08_11.41.08.mp4 |}} -->
+</div>
+<div id="junção-de-tabelas-utilizando-funções" class="section level2">
+<h2><span class="header-section-number">9.4</span> Junção de tabelas utilizando funções<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></h2>
+<p>O pacote <code>base</code> do R fornece uma função que executa essa ação, chamada <code>merge()</code>.
+Porém, há alguns tipos de junções não podem ser executados com esta função, o que nos levará ao uso de vetores lógicos em conjunto com a função <code>interaction()</code>.
+<!-- Podemos executar também as mesmas operações usando vetores lógicos e a função `match()`. -->
+Daremos exemplos com essas duas maneiras.</p>
+<div id="dados-para-nossa-prática" class="section level3">
+<h3><span class="header-section-number">9.4.1</span> Dados para nossa prática</h3>
+<p>Utilizaremos três tabelas para esta prática:</p>
+<ol start="13" class="example" style="list-style-type: decimal">
+<li>O <code>data.frame</code> <code>tab1</code> possui nomes de famílias, gêneros e epítetos específicos de algumas angiospermas:</li>
+</ol>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="sumarização-de-dados.html#cb211-1"></a>familia &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>,<span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Lauraceae&quot;</span>)</span>
+<span id="cb211-2"><a href="sumarização-de-dados.html#cb211-2"></a>generos &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Trattinnickia&quot;</span>, <span class="st">&quot;Dacryodes&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Markea&quot;</span>, <span class="st">&quot;Solanum&quot;</span>, <span class="st">&quot;Allophylastrum&quot;</span>, <span class="st">&quot;Cupania&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Duroia&quot;</span>, <span class="st">&quot;Cinchona&quot;</span>, <span class="st">&quot;Ocotea&quot;</span>, <span class="st">&quot;Licaria&quot;</span>, <span class="st">&quot;Rhodostemonodaphne&quot;</span>, <span class="st">&quot;Anisophyllea&quot;</span>, <span class="st">&quot;Freziera&quot;</span>)</span>
+<span id="cb211-3"><a href="sumarização-de-dados.html#cb211-3"></a>epitetos &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;aracouchini&quot;</span>, <span class="st">&quot;burserifolia&quot;</span>, <span class="st">&quot;edilsonii&quot;</span>, <span class="st">&quot;cestroides&quot;</span>, <span class="st">&quot;ulei&quot;</span>, <span class="st">&quot;cyathophorum&quot;</span>, <span class="st">&quot;frutescens&quot;</span>, <span class="st">&quot;rubiginosa&quot;</span>, <span class="st">&quot;myriantha&quot;</span>, <span class="st">&quot;viridis&quot;</span>, <span class="st">&quot;eriopila&quot;</span>, <span class="st">&quot;amazonica&quot;</span>, <span class="st">&quot;delicata&quot;</span>, <span class="st">&quot;aureosericea&quot;</span>,<span class="st">&quot;recurva&quot;</span>, <span class="st">&quot;manausensis&quot;</span>, <span class="st">&quot;carinata&quot;</span>)</span>
+<span id="cb211-4"><a href="sumarização-de-dados.html#cb211-4"></a>tab1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">familia =</span> <span class="kw">c</span>(<span class="kw">rep</span>(familia, <span class="dt">each =</span> <span class="dv">3</span>), <span class="st">&quot;Anisophylleaceae&quot;</span>, <span class="st">&quot;Pentaphylacaceae&quot;</span>), <span class="dt">genero =</span> generos, <span class="dt">epiteto =</span> epitetos, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="sumarização-de-dados.html#cb212-1"></a><span class="kw">kable</span>(tab1, <span class="dt">caption =</span> <span class="st">&quot;Tabela 1&quot;</span>)</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-174">Tabela 9.1: </span>Tabela 1
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Protium
+</td>
+<td style="text-align:left;">
+aracouchini
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Trattinnickia
+</td>
+<td style="text-align:left;">
+burserifolia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Dacryodes
+</td>
+<td style="text-align:left;">
+edilsonii
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Duckeodendron
+</td>
+<td style="text-align:left;">
+cestroides
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Markea
+</td>
+<td style="text-align:left;">
+ulei
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Solanum
+</td>
+<td style="text-align:left;">
+cyathophorum
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Allophylastrum
+</td>
+<td style="text-align:left;">
+frutescens
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Cupania
+</td>
+<td style="text-align:left;">
+rubiginosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Thinouia
+</td>
+<td style="text-align:left;">
+myriantha
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Psychotria
+</td>
+<td style="text-align:left;">
+viridis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Duroia
+</td>
+<td style="text-align:left;">
+eriopila
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Cinchona
+</td>
+<td style="text-align:left;">
+amazonica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Ocotea
+</td>
+<td style="text-align:left;">
+delicata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Licaria
+</td>
+<td style="text-align:left;">
+aureosericea
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Rhodostemonodaphne
+</td>
+<td style="text-align:left;">
+recurva
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Anisophylleaceae
+</td>
+<td style="text-align:left;">
+Anisophyllea
+</td>
+<td style="text-align:left;">
+manausensis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pentaphylacaceae
+</td>
+<td style="text-align:left;">
+Freziera
+</td>
+<td style="text-align:left;">
+carinata
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="14" class="example" style="list-style-type: decimal">
+<li>O <code>data.frame</code> <code>tab2</code> contem um conjunto pequeno com alguns nomes de famílias, gêneros, e o nome de seus respectivos clados acima dos nomes de ordens segundo o <span class="citation">APG (<a href="#ref-APG" role="doc-biblioref">2016</a>)</span>:</li>
+</ol>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="sumarização-de-dados.html#cb213-1"></a>familia2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>,<span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Annonaceae&quot;</span>)</span>
+<span id="cb213-2"><a href="sumarização-de-dados.html#cb213-2"></a>generos2  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Guatteria&quot;</span>)</span>
+<span id="cb213-3"><a href="sumarização-de-dados.html#cb213-3"></a>clado &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Magnoliids&quot;</span>)</span>
+<span id="cb213-4"><a href="sumarização-de-dados.html#cb213-4"></a>tab2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">familia =</span> familia2, <span class="dt">genero =</span> generos2, <span class="dt">clado =</span> clado, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-176">Tabela 9.2: </span>Tabela 2
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+clado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Protium
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Duckeodendron
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Thinouia
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Psychotria
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Annonaceae
+</td>
+<td style="text-align:left;">
+Guatteria
+</td>
+<td style="text-align:left;">
+Magnoliids
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="15" class="example" style="list-style-type: decimal">
+<li>O <code>data.frame</code> <code>tab3</code> corresponde à tabela 2, <code>tab2</code>, sem as famílias Solanaceae e Rubiaceae:</li>
+</ol>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="sumarização-de-dados.html#cb214-1"></a>tab3 &lt;-<span class="st"> </span><span class="kw">subset</span>(tab1, familia  <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>))</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-178">Tabela 9.3: </span>Tabela 3
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Protium
+</td>
+<td style="text-align:left;">
+aracouchini
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Trattinnickia
+</td>
+<td style="text-align:left;">
+burserifolia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Dacryodes
+</td>
+<td style="text-align:left;">
+edilsonii
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Allophylastrum
+</td>
+<td style="text-align:left;">
+frutescens
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Cupania
+</td>
+<td style="text-align:left;">
+rubiginosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Thinouia
+</td>
+<td style="text-align:left;">
+myriantha
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="unindo-tabelas-com-merge" class="section level3">
+<h3><span class="header-section-number">9.4.2</span> Unindo tabelas com <code>merge()</code></h3>
+<p>O básico para entender a função <code>merge()</code> é saber que existem dois argumentos, <code>x</code> e <code>y</code>, que correspondem aos <code>data.frames</code> de entrada.
+Quando unimos tabelas, existem junções que adicionam variáveis, e junções que filtram variáveis.
+Vamos ver abaixo 4 tipos da primeira ( <a href="sumarização-de-dados.html#interna">junção interna</a>, <a href="sumarização-de-dados.html#esquerda">junção à esquerda</a>, <a href="sumarização-de-dados.html#direita">junção à direita</a>, <a href="sumarização-de-dados.html#total">junção total</a>), e dois tipos desta última ( <a href="sumarização-de-dados.html#semi">semijunção</a> e <a href="sumarização-de-dados.html#anti">antijunção</a>).</p>
+<div id="interna" class="section level4">
+<h4><span class="header-section-number">9.4.2.1</span> Junção interna</h4>
+<blockquote>
+<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>x</code> em que há valores em comum com <code>y</code>, e todas as colunas de <code>x</code> e <code>y</code>. Se houver múltiplas <em>correspondências</em> entre <code>x</code> e <code>y</code>, todas as combinações retornam.</p>
+</blockquote>
+<p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/inner-join.png" /></p>
+<p>Em nosso exemplo, vamos unir as tabelas 1 e 2.
+Ambas possuem em comum os identificadores <code>familia</code> e <code>genero</code>.
+Para facilitar o entendimento, vamos verificar primeiro cada tabela com cores para checar as correspondências entre <code>x</code> e <code>y</code> nas variáveis em comum:</p>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:junc-interna">Tabela 9.4: </span>Tabela 1
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Protium</span>
+</td>
+<td style="text-align:left;">
+aracouchini
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Trattinnickia</span>
+</td>
+<td style="text-align:left;">
+burserifolia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Dacryodes</span>
+</td>
+<td style="text-align:left;">
+edilsonii
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Duckeodendron</span>
+</td>
+<td style="text-align:left;">
+cestroides
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Markea</span>
+</td>
+<td style="text-align:left;">
+ulei
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Solanum</span>
+</td>
+<td style="text-align:left;">
+cyathophorum
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Allophylastrum</span>
+</td>
+<td style="text-align:left;">
+frutescens
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Cupania</span>
+</td>
+<td style="text-align:left;">
+rubiginosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Thinouia</span>
+</td>
+<td style="text-align:left;">
+myriantha
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Psychotria</span>
+</td>
+<td style="text-align:left;">
+viridis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Duroia</span>
+</td>
+<td style="text-align:left;">
+eriopila
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Cinchona</span>
+</td>
+<td style="text-align:left;">
+amazonica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Lauraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Ocotea</span>
+</td>
+<td style="text-align:left;">
+delicata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Lauraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Licaria</span>
+</td>
+<td style="text-align:left;">
+aureosericea
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Lauraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Rhodostemonodaphne</span>
+</td>
+<td style="text-align:left;">
+recurva
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Anisophylleaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Anisophyllea</span>
+</td>
+<td style="text-align:left;">
+manausensis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Pentaphylacaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Freziera</span>
+</td>
+<td style="text-align:left;">
+carinata
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:junc-interna">Tabela 9.4: </span>Tabela 2
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+clado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Protium</span>
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Duckeodendron</span>
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Thinouia</span>
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Psychotria</span>
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Annonaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Guatteria</span>
+</td>
+<td style="text-align:left;">
+Magnoliids
+</td>
+</tr>
+</tbody>
+</table>
+<p>Reparem que os valores em que há correspondência entre <code>x</code> e <code>y</code> estão coloridos de <span style="background: yellow;">amarelo</span>; para os em que não há correspondência, estão coloridos de <span style="background: red;">vermelho</span>.
+Agora, executemos a junção das duas tabelas:</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="sumarização-de-dados.html#cb215-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+<th style="text-align:left;">
+clado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Protium
+</td>
+<td style="text-align:left;">
+aracouchini
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Psychotria
+</td>
+<td style="text-align:left;">
+viridis
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Thinouia
+</td>
+<td style="text-align:left;">
+myriantha
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Duckeodendron
+</td>
+<td style="text-align:left;">
+cestroides
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+</tbody>
+</table>
+<p>Vejam que houve a incorporação dos valores da coluna <code>epiteto</code>, presente apenas na tabela 2, em que há correspondência entre as tabelas 1 e 2.
+É importante notar que as famílias <span style="background: red;">Lauraceae, Anisophylleaceae, e Pentaphylacaceae</span> ficaram de fora, pois não são encontradas na tabela <code>y</code>, isto é, a tabela 2, assim como seus respectivos gêneros e epítetos associados a estes.
+Gêneros presentes na tabela 1 de famílias em comum entre ambas as tabelas também não foram incorporados nessa junção, pois nãp encontram correspondência na tabela 2: <span style="background: red;">Dacryodes, Trattinnickia, Markea, Solanum, Allophylastrum, Cupania, Duroia, Cinchona</span>.
+Revejam o conceito de <a href="sumarização-de-dados.html#interna">junção interna</a> para entender o porquê desse acontecimento.</p>
+</div>
+<div id="esquerda" class="section level4">
+<h4><span class="header-section-number">9.4.2.2</span> Junção à esquerda</h4>
+<blockquote>
+<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>x</code>, e todas as colunas de <code>x</code> e <code>y</code>. Linhas em <code>x</code> sem correspência em <code>y</code> terão valores <code>NA</code> adicionados nas novas colunas. Se houver múltiplas <em>correspondências</em> entre <code>x</code> e <code>y</code>, todas as combinações retornam.</p>
+</blockquote>
+<p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/left-join.png" /></p>
+<p>Continuaremos utilizando as tabelas 1 e 2.
+Como mostrado anteriormente, ambas possuem em comum os identificadores <code>familia</code> e <code>genero</code>.
+Chequemos novamente as cores das correspondências dentro de cada identificador, coloridas em <span style="background: yellow;">amarelo</span>:</p>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:junc-esq">Tabela 9.5: </span>Tabela 1
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Burseraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Protium
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+aracouchini
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Burseraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Trattinnickia
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+burserifolia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Burseraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Dacryodes
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+edilsonii
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Solanaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Duckeodendron
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+cestroides
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Solanaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Markea
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+ulei
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Solanaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Solanum
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+cyathophorum
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Sapindaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Allophylastrum
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+frutescens
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Sapindaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Cupania
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+rubiginosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Sapindaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Thinouia
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+myriantha
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Rubiaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Psychotria
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+viridis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Rubiaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Duroia
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+eriopila
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Rubiaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Cinchona
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+amazonica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Lauraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Ocotea
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+delicata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Lauraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Licaria
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+aureosericea
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Lauraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Rhodostemonodaphne
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+recurva
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Anisophylleaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Anisophyllea
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+manausensis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Pentaphylacaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Freziera
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+carinata
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:junc-esq">Tabela 9.5: </span>Tabela 2
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+clado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Protium</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Malvids</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Duckeodendron</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Lamiids</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Thinouia</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Malvids</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Psychotria</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Lamiids</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Annonaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Guatteria</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Magnoliids</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Em uma junção à esquerda, todas as linhas de <code>x</code> retornam após a junção.
+Para executar este tipo de junção, acrescentaremos um novo argumento, <code>all.x = TRUE</code>, indicando que manteremos todas as linhas de <code>x</code>, isto é, o <code>data.frame</code> à esquerda, que é a tabela 1.</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="sumarização-de-dados.html#cb216-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2, <span class="dt">all.x =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+<th style="text-align:left;">
+clado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Anisophylleaceae
+</td>
+<td style="text-align:left;">
+Anisophyllea
+</td>
+<td style="text-align:left;">
+manausensis
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Dacryodes
+</td>
+<td style="text-align:left;">
+edilsonii
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Protium
+</td>
+<td style="text-align:left;">
+aracouchini
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Trattinnickia
+</td>
+<td style="text-align:left;">
+burserifolia
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Licaria
+</td>
+<td style="text-align:left;">
+aureosericea
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Ocotea
+</td>
+<td style="text-align:left;">
+delicata
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Rhodostemonodaphne
+</td>
+<td style="text-align:left;">
+recurva
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pentaphylacaceae
+</td>
+<td style="text-align:left;">
+Freziera
+</td>
+<td style="text-align:left;">
+carinata
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Cinchona
+</td>
+<td style="text-align:left;">
+amazonica
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Duroia
+</td>
+<td style="text-align:left;">
+eriopila
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Psychotria
+</td>
+<td style="text-align:left;">
+viridis
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Allophylastrum
+</td>
+<td style="text-align:left;">
+frutescens
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Cupania
+</td>
+<td style="text-align:left;">
+rubiginosa
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Thinouia
+</td>
+<td style="text-align:left;">
+myriantha
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Duckeodendron
+</td>
+<td style="text-align:left;">
+cestroides
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Markea
+</td>
+<td style="text-align:left;">
+ulei
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Solanum
+</td>
+<td style="text-align:left;">
+cyathophorum
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<p>Agora, temos uma nova situação. Para os valores de <code>x</code> sem correspondência em y, valores <code>NA</code> são acrescentados.
+Reparem na coluna <code>clado</code> e vejam que isso ocorreu apenas nesta variável.
+Por exemplo, vejam a família Anisophylleaceae. Ela ocorre apenas na tabela 1 e, portanto, não possui nenhum valor de <code>clado</code>a ssociado a ela, pois esta variável ocorre apenas na tabela 2. Com a junção das tabelas, essa variável é retida, porém sem a existência de um valor para a família, é inserido então o valor <code>NA</code>.
+Temos também o caso de Annonaceae, presente na tabela 2. A família não é recuperada na junção interna, pois ela não existe na tabela 1 dentro da variável <code>familia</code> e, portanto, não apresenta correspondência com nenhum dado da tabela 1.
+Revejam o conceito de <a href="sumarização-de-dados.html#esquerda">junção à esquerda</a> para entender o porquê desse acontecimento.</p>
+</div>
+<div id="direita" class="section level4">
+<h4><span class="header-section-number">9.4.2.3</span> Junção à direita</h4>
+<blockquote>
+<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>y</code>, e todas as colunas de <code>x</code> e <code>y</code>.Linhas em <code>y</code> sem correspência em <code>x</code> terão valores NA adicionados nas novas colunas. Se houver múltiplas <em>correspondências</em> entre <code>x</code> e <code>y</code>, todas as combinações retornam.</p>
+</blockquote>
+<p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/right-join.png" /></p>
+<p>De maneira oposta à junção à esquerda, na junção à direita são mantidas todas as linhas de <code>y</code>.
+Desta vez, o argumento a ser utilizado é <code>all.y = TRUE</code>.
+Antes de executar a junção, vamos checar novamente as variáveis em comum e correspondências entre as tabelas <code>x</code> e <code>y</code>:</p>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:junc-dir">Tabela 9.6: </span>Tabela 1
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Protium</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">aracouchini</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Trattinnickia</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">burserifolia</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Dacryodes</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">edilsonii</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Duckeodendron</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">cestroides</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Markea</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">ulei</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Solanum</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">cyathophorum</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Allophylastrum</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">frutescens</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Cupania</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">rubiginosa</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Thinouia</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">myriantha</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Psychotria</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">viridis</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Duroia</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">eriopila</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Cinchona</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">amazonica</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Lauraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Ocotea</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">delicata</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Lauraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Licaria</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">aureosericea</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Lauraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Rhodostemonodaphne</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">recurva</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Anisophylleaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Anisophyllea</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">manausensis</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Pentaphylacaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Freziera</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">carinata</span>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:junc-dir">Tabela 9.6: </span>Tabela 2
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+clado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Burseraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Protium
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Solanaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Duckeodendron
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Sapindaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Thinouia
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Rubiaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Psychotria
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Annonaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Guatteria
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Magnoliids
+</td>
+</tr>
+</tbody>
+</table>
+<p>Agora executaremos a junção com o comando abaixo. Não deixem de reparar no uso do argumento <code>all.y = TRUE</code>, pois ele é o responsável por agora manter todas as linhas da tabela 2 (== <code>y</code>):</p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="sumarização-de-dados.html#cb217-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2, <span class="dt">all.y =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+<th style="text-align:left;">
+clado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Annonaceae
+</td>
+<td style="text-align:left;">
+Guatteria
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Magnoliids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Protium
+</td>
+<td style="text-align:left;">
+aracouchini
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Psychotria
+</td>
+<td style="text-align:left;">
+viridis
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Thinouia
+</td>
+<td style="text-align:left;">
+myriantha
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Duckeodendron
+</td>
+<td style="text-align:left;">
+cestroides
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+</tbody>
+</table>
+<p>Notem que agora todos os dados da tabela 2 foram mantidos.
+Houve a inserção de um valor <code>NA</code> para a família Annonaceae na variável <code>epiteto</code>, pois esta variável não está presente na tabela 2.
+Revejam o conceito de <a href="sumarização-de-dados.html#direita">junção à direita</a> para entender o porquê desse acontecimento.</p>
+</div>
+<div id="total" class="section level4">
+<h4><span class="header-section-number">9.4.2.4</span> Junção total</h4>
+<blockquote>
+<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas e colunas de <code>x</code> e <code>y</code>. Onde não houver valores correspondentes, valores <code>NA</code> serão colocados nesses lugares.</p>
+</blockquote>
+<p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/outer-join.png" /></p>
+<p>Em uma junção total, uniremos todas as linha de <code>x</code> e <code>y</code> utilizando o argumento <code>all = TRUE</code>.</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="sumarização-de-dados.html#cb218-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2, <span class="dt">all =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+<th style="text-align:left;">
+clado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Anisophylleaceae
+</td>
+<td style="text-align:left;">
+Anisophyllea
+</td>
+<td style="text-align:left;">
+manausensis
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Annonaceae
+</td>
+<td style="text-align:left;">
+Guatteria
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Magnoliids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Dacryodes
+</td>
+<td style="text-align:left;">
+edilsonii
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Protium
+</td>
+<td style="text-align:left;">
+aracouchini
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Trattinnickia
+</td>
+<td style="text-align:left;">
+burserifolia
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Licaria
+</td>
+<td style="text-align:left;">
+aureosericea
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Ocotea
+</td>
+<td style="text-align:left;">
+delicata
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Rhodostemonodaphne
+</td>
+<td style="text-align:left;">
+recurva
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pentaphylacaceae
+</td>
+<td style="text-align:left;">
+Freziera
+</td>
+<td style="text-align:left;">
+carinata
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Cinchona
+</td>
+<td style="text-align:left;">
+amazonica
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Duroia
+</td>
+<td style="text-align:left;">
+eriopila
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Psychotria
+</td>
+<td style="text-align:left;">
+viridis
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Allophylastrum
+</td>
+<td style="text-align:left;">
+frutescens
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Cupania
+</td>
+<td style="text-align:left;">
+rubiginosa
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Thinouia
+</td>
+<td style="text-align:left;">
+myriantha
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Duckeodendron
+</td>
+<td style="text-align:left;">
+cestroides
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Markea
+</td>
+<td style="text-align:left;">
+ulei
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Solanum
+</td>
+<td style="text-align:left;">
+cyathophorum
+</td>
+<td style="text-align:left;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<p>Reparem que valores <code>NA</code> são colocados nos valores da tabela 2 referentes à coluna <code>epiteto</code>, ausente na tabela 1.
+O mesmo se passa com valores da coluna <code>clado</code>, presente na tabela 2 e ausente na tabela 1.
+Revejam o conceito de <a href="sumarização-de-dados.html#total">junção total</a> para entender o porquê desse acontecimento.</p>
+</div>
+<div id="semi" class="section level4">
+<h4><span class="header-section-number">9.4.2.5</span> Semijunção</h4>
+<blockquote>
+<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>x</code> onde houver valores correspondentes em <code>y</code>, mantendo apenas colunas de <code>x</code>. É parecida com a junção interna, porém difere desta por nunca duplicar valores de <code>x</code>, retornando sempre apenas valores de <code>x</code> que houver uma correspondência em <code>y</code>.</p>
+</blockquote>
+<p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/left-anti-semi-join.png" /></p>
+<p>A semijunção é muito similar à junção interna, diferindo desta por não incorporar as colunas de <code>y</code>, pois apenas utiliza esta tabela para filtrar os dados de <code>x</code>, constituindo-se então em um tipo de junção que filtra variáveis.
+Neste exemplo, utilizaremos as tabelas 1 e 3.
+Ambas compartilham as colunas <code>familia</code> e <code>genero</code>.
+Vamos checar primeiramente cada tabela e ver o que é compartilhado entre cada uma:</p>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:semi-junc">Tabela 9.7: </span>Tabela 1
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Protium</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">aracouchini</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Trattinnickia</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">burserifolia</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Burseraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Dacryodes</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">edilsonii</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Duckeodendron</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">cestroides</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Markea</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">ulei</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Solanaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Solanum</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">cyathophorum</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Allophylastrum</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">frutescens</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Cupania</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">rubiginosa</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Sapindaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">Thinouia</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: yellow !important;">myriantha</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Psychotria</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">viridis</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Duroia</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">eriopila</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Rubiaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Cinchona</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">amazonica</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Lauraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Ocotea</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">delicata</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Lauraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Licaria</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">aureosericea</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Lauraceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Rhodostemonodaphne</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">recurva</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Anisophylleaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Anisophyllea</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">manausensis</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Pentaphylacaceae</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">Freziera</span>
+</td>
+<td style="text-align:left;">
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: red !important;">carinata</span>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="width: auto !important; ">
+<caption>
+<span id="tab:semi-junc">Tabela 9.7: </span>Tabela 3
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Burseraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Protium
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+aracouchini
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Burseraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Trattinnickia
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+burserifolia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Burseraceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Dacryodes
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+edilsonii
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Sapindaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Allophylastrum
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+frutescens
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Sapindaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Cupania
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+rubiginosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: yellow !important;">
+Sapindaceae
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+Thinouia
+</td>
+<td style="text-align:left;background-color: yellow !important;">
+myriantha
+</td>
+</tr>
+</tbody>
+</table>
+<p>Para executar uma semijunção com o pacote <code>base</code> do R, devemos fazer uso de vetores lógicos e da função <code>interaction()</code>, pois a função <code>merge()</code> não fornece uma maneira de se obter o que desejamos.</p>
+<p>Vamos então à prática<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.
+As colunas compartilhadas por ambas as tabelas serão nossas <code>chaves</code>:</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="sumarização-de-dados.html#cb219-1"></a>chaves &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;familia&quot;</span>, <span class="st">&quot;genero&quot;</span>)</span></code></pre></div>
+<p>Partimos então para filtrar na tabela 1 a combinação de linhas para esse conjunto de colunas utilizando a função <code>interaction()</code> do pacote <code>base</code> do R:</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="sumarização-de-dados.html#cb220-1"></a><span class="kw">interaction</span>(tab1[, chaves])</span></code></pre></div>
+<pre><code>##  [1] Burseraceae.Protium           Burseraceae.Trattinnickia    
+##  [3] Burseraceae.Dacryodes         Solanaceae.Duckeodendron     
+##  [5] Solanaceae.Markea             Solanaceae.Solanum           
+##  [7] Sapindaceae.Allophylastrum    Sapindaceae.Cupania          
+##  [9] Sapindaceae.Thinouia          Rubiaceae.Psychotria         
+## [11] Rubiaceae.Duroia              Rubiaceae.Cinchona           
+## [13] Lauraceae.Ocotea              Lauraceae.Licaria            
+## [15] Lauraceae.Rhodostemonodaphne  Anisophylleaceae.Anisophyllea
+## [17] Pentaphylacaceae.Freziera    
+## 119 Levels: Anisophylleaceae.Allophylastrum ... Solanaceae.Trattinnickia</code></pre>
+<p>Essa função computa um vetor de fatores que representa a interação das colunas fornecidas na tabela 1.
+Se fizermos isso com a tabela 3, poderemos saber quais combinações ocorrem em ambas as tabelas.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="sumarização-de-dados.html#cb222-1"></a><span class="kw">interaction</span>(tab3[, chaves])</span></code></pre></div>
+<pre><code>## [1] Burseraceae.Protium        Burseraceae.Trattinnickia 
+## [3] Burseraceae.Dacryodes      Sapindaceae.Allophylastrum
+## [5] Sapindaceae.Cupania        Sapindaceae.Thinouia      
+## 12 Levels: Burseraceae.Allophylastrum ... Sapindaceae.Trattinnickia</code></pre>
+<p>Agora utilizamos a mesma função <code>interaction</code> e o operador <code>%in%</code> para retornar um vetor lógico que utilizaremos para filtrar os valores da tabela 1 com correspondência na tabela 3.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="sumarização-de-dados.html#cb224-1"></a>linhas &lt;-<span class="st"> </span><span class="kw">interaction</span>(tab1[, chaves]) <span class="op">%in%</span><span class="st"> </span><span class="kw">interaction</span>(tab3[, chaves])</span>
+<span id="cb224-2"><a href="sumarização-de-dados.html#cb224-2"></a>linhas</span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+## [13] FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="sumarização-de-dados.html#cb226-1"></a>tab1[linhas,]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Protium
+</td>
+<td style="text-align:left;">
+aracouchini
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Trattinnickia
+</td>
+<td style="text-align:left;">
+burserifolia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Dacryodes
+</td>
+<td style="text-align:left;">
+edilsonii
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Allophylastrum
+</td>
+<td style="text-align:left;">
+frutescens
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Cupania
+</td>
+<td style="text-align:left;">
+rubiginosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Thinouia
+</td>
+<td style="text-align:left;">
+myriantha
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="anti" class="section level4">
+<h4><span class="header-section-number">9.4.2.6</span> Antijunção</h4>
+<blockquote>
+<p>retorna todas as linhas de <code>x</code> em que não há correspondência em <code>y</code>, mantendo apenas colunas de <code>x</code>.</p>
+</blockquote>
+<p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/right-anti-semi-join.png" /></p>
+<p>Uma antijunção é ligeiramente diferente de uma semijunção pois ela retorna todas as linhas de <code>x</code> que não aparecem em y.
+Portanto, podemos utilizar o inverso de nosso vetor lógico <code>linhas</code> e utilizar este inverso para filtrar as linhas da tabela 1 e ter nossa tabela antijunção entre <code>x</code> e <code>y</code>:</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="sumarização-de-dados.html#cb227-1"></a>antilinhas &lt;-<span class="st"> </span><span class="op">!</span>linhas</span>
+<span id="cb227-2"><a href="sumarização-de-dados.html#cb227-2"></a>tab1[antilinhas, ]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+genero
+</th>
+<th style="text-align:left;">
+epiteto
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Duckeodendron
+</td>
+<td style="text-align:left;">
+cestroides
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Markea
+</td>
+<td style="text-align:left;">
+ulei
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Solanum
+</td>
+<td style="text-align:left;">
+cyathophorum
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Psychotria
+</td>
+<td style="text-align:left;">
+viridis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Duroia
+</td>
+<td style="text-align:left;">
+eriopila
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Cinchona
+</td>
+<td style="text-align:left;">
+amazonica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Ocotea
+</td>
+<td style="text-align:left;">
+delicata
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Licaria
+</td>
+<td style="text-align:left;">
+aureosericea
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+Lauraceae
+</td>
+<td style="text-align:left;">
+Rhodostemonodaphne
+</td>
+<td style="text-align:left;">
+recurva
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+Anisophylleaceae
+</td>
+<td style="text-align:left;">
+Anisophyllea
+</td>
+<td style="text-align:left;">
+manausensis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+Pentaphylacaceae
+</td>
+<td style="text-align:left;">
+Freziera
+</td>
+<td style="text-align:left;">
+carinata
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="para-saber-mais" class="section level3">
+<h3><span class="header-section-number">9.4.3</span> Para saber mais</h3>
+<ul>
+<li><a href="http://www.datasciencemadesimple.com/join-in-r-merge-in-r/">Join in R</a>;</li>
+<li><a href="https://www.fulljoin.com.br/posts/2016-05-12-tudo-sobre-joins/">Tudo sobre Joins (merge) em R</a>;</li>
+<li><a href="https://rpubs.com/CristianaFreitas/311735">Join com dplyr</a>;</li>
+<li><a href="https://www.sqlfromhell.com/entendendo-join-sql/">Entendendo o JOIN do SQL (ou Junções)</a> - Obtive as imagens aqui apresentadas desta página. Há uma boa explicação com SQL como pano de fundo para operações de junções de tabela.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<h3>Referências</h3>
+<div id="refs" class="references">
+<div id="ref-APG">
+<p>APG. 2016. «An update of the Angiosperm Phylogeny Group classification for the orders and families of flowering plants: APG IV». <em>Botanical Journal of the Linnean Society</em> 181: 1–20.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>Texto publicado originalmente no blog de R.O.Perdiz (<a href="https://ricardoperdiz.com/post/2020_04_23_r-juncao-tabelas/juncao-tbl/" class="uri">https://ricardoperdiz.com/post/2020_04_23_r-juncao-tabelas/juncao-tbl/</a>)<a href="sumarização-de-dados.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Esta solução de semijunção é baseada no tutorial do pacote <a href="https://nathaneastwood.github.io/2020/03/08/poorman-replicating-dplyrs-join-and-filter-join-functions-with-base-r/">poorman</a>, recém-criado para emular as funções do pacote <a href="https://github.com/tidyverse/dplyr">dplyr</a>.<a href="sumarização-de-dados.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="iteração-e-controle-de-fluxo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="amostragens-aleatórias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/blob/main/cap06-sumarizacao_dados.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/cap06-sumarizacao_dados.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Objeto II - Matrizes e data.frames | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Objeto II - Matrizes e data.frames | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/LABOTAM.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Objeto II - Matrizes e data.frames | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini (INPA)" />
+<meta name="author" content="Ricardo de Oliveira Perdiz" />
+
+
+<meta name="date" content="2021-01-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="objeto-i-vetores.html"/>
+<link rel="next" href="objeto-iii-listas-e-objetos-complexos.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="2" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i><b>2</b> Pré-requisitos</a><ul>
+<li class="chapter" data-level="2.1" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-possua-um-computador"><i class="fa fa-check"></i><b>2.1</b> Caso você possua um computador</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-o-r"><i class="fa fa-check"></i><b>2.1.1</b> Instale o R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-um-ambiente-de-desenvolvimento-integrado"><i class="fa fa-check"></i><b>2.1.2</b> Instale um ambiente de desenvolvimento integrado</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i><b>2.2</b> Caso você não possua um computador</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html"><i class="fa fa-check"></i><b>3</b> Conceitos introdutórios</a><ul>
+<li class="chapter" data-level="3.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#console-e-scripts"><i class="fa fa-check"></i><b>3.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="3.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>3.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="3.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>3.3</b> R-Base e pacotes</a></li>
+<li class="chapter" data-level="3.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#ajuda-no-r"><i class="fa fa-check"></i><b>3.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="3.5" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>3.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="3.6" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>3.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="3.7" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>3.7</b> O R como calculadora</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#operadores"><i class="fa fa-check"></i><b>3.7.1</b> Operadores</a></li>
+<li class="chapter" data-level="3.7.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>3.7.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="3.7.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#funções-constantes-matemáticas"><i class="fa fa-check"></i><b>3.7.3</b> Funções &amp; constantes matemáticas</a></li>
+<li class="chapter" data-level="3.7.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#valor-na"><i class="fa fa-check"></i><b>3.7.4</b> NA e valores afins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html"><i class="fa fa-check"></i><b>4</b> Objeto I - Vetores</a><ul>
+<li class="chapter" data-level="4.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetores"><i class="fa fa-check"></i><b>4.1</b> Vetores &amp; Operações Vetoriais I</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>4.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>4.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>4.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="4.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>4.3</b> Funções com Vetores</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>4.3.1</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#classes"><i class="fa fa-check"></i><b>4.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="4.5" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#indexacao"><i class="fa fa-check"></i><b>4.5</b> Indexação</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>4.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="4.5.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>4.5.2</b> Usando índices de nomes</a></li>
+<li class="chapter" data-level="4.5.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-indexacao"><i class="fa fa-check"></i><b>4.5.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>4.6</b> Vetores e operadores lógicos</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#perg-vetores"><i class="fa fa-check"></i><b>4.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="4.6.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>4.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="4.6.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>4.6.3</b> Perguntando por valores ausentes - NA</a></li>
+<li class="chapter" data-level="4.6.4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-manip-texto"><i class="fa fa-check"></i><b>4.6.4</b> Para saber mais:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html"><i class="fa fa-check"></i><b>5</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="5.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>5.1</b> Matriz vs. <code>data.frame</code></a><ul>
+<li class="chapter" data-level="5.1.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-matrizes"><i class="fa fa-check"></i><b>5.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="5.1.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-data.frames"><i class="fa fa-check"></i><b>5.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>5.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>5.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matrizes"><i class="fa fa-check"></i><b>5.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="5.2.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#data.frame"><i class="fa fa-check"></i><b>5.2.2</b> <code>data.frame</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>5.2.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>5.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="5.3.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtragem-de-dados"><i class="fa fa-check"></i><b>5.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="5.3.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#ordenação-de-dados"><i class="fa fa-check"></i><b>5.3.2</b> Ordenação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>5.4</b> Importanto e exportando dados no R</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>5.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="5.4.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importando-dados"><i class="fa fa-check"></i><b>5.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="5.4.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#exportando-dados"><i class="fa fa-check"></i><b>5.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="5.4.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#outras-funções-úteis"><i class="fa fa-check"></i><b>5.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html"><i class="fa fa-check"></i><b>6</b> Objeto III - Listas e objetos complexos</a><ul>
+<li class="chapter" data-level="6.1" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#listas"><i class="fa fa-check"></i><b>6.1</b> Listas</a></li>
+<li class="chapter" data-level="6.2" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#obj-complexos"><i class="fa fa-check"></i><b>6.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="funções-gráficas.html"><a href="funções-gráficas.html"><i class="fa fa-check"></i><b>7</b> Funções gráficas</a><ul>
+<li class="chapter" data-level="7.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>7.1</b> Dispositivos Gráficos</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#função-plot"><i class="fa fa-check"></i><b>7.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="7.1.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>7.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="7.1.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>7.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="7.1.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>7.1.4</b> Dispositivos de Arquivos</a></li>
+<li class="chapter" data-level="7.1.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-vetoriais-pdf-ou-postscript"><i class="fa fa-check"></i><b>7.1.5</b> Figuras Vetoriais PDF ou POSTSCRIPT</a></li>
+<li class="chapter" data-level="7.1.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-raster"><i class="fa fa-check"></i><b>7.1.6</b> Figuras raster</a></li>
+<li class="chapter" data-level="7.1.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>7.1.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#par-graficos"><i class="fa fa-check"></i><b>7.2</b> Parâmetros gráficos dos dispositivos</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#conhecendo-os-parâmetros"><i class="fa fa-check"></i><b>7.2.1</b> Conhecendo os parâmetros</a></li>
+<li class="chapter" data-level="7.2.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-par-graficos"><i class="fa fa-check"></i><b>7.2.2</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#parâmetros-gráficos-parte-ii---símbolos-e-cores"><i class="fa fa-check"></i><b>7.3</b> Parâmetros gráficos parte II - Símbolos e cores</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>7.3.1</b> Tipo de símbolo - pch</a></li>
+<li class="chapter" data-level="7.3.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>7.3.2</b> Tamanho dos pontos - cex</a></li>
+<li class="chapter" data-level="7.3.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#linhas"><i class="fa fa-check"></i><b>7.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="7.3.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>7.3.4</b> Cores de símbolos - col e bg</a></li>
+<li class="chapter" data-level="7.3.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>7.3.5</b> Funções que definem cores</a></li>
+<li class="chapter" data-level="7.3.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-par-graficos-p2"><i class="fa fa-check"></i><b>7.3.6</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-alto-nivel"><i class="fa fa-check"></i><b>7.4</b> Funções gráficas de alto nível</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>7.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="7.4.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#hist"><i class="fa fa-check"></i><b>7.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#boxplot"><i class="fa fa-check"></i><b>7.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#barplot"><i class="fa fa-check"></i><b>7.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot.phylo"><i class="fa fa-check"></i><b>7.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#image-e-countour"><i class="fa fa-check"></i><b>7.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="7.4.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#map"><i class="fa fa-check"></i><b>7.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="7.4.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#xlim-e-ylim"><i class="fa fa-check"></i><b>7.4.8</b> xlim e ylim</a></li>
+<li class="chapter" data-level="7.4.9" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-graf-alto-nivel"><i class="fa fa-check"></i><b>7.4.9</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>7.5</b> Funções gráficas de baixo nível</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#legend"><i class="fa fa-check"></i><b>7.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#points"><i class="fa fa-check"></i><b>7.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#text-e-mtext"><i class="fa fa-check"></i><b>7.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#axis"><i class="fa fa-check"></i><b>7.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="7.5.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#abline"><i class="fa fa-check"></i><b>7.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="7.5.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>7.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="7.5.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#symbols"><i class="fa fa-check"></i><b>7.5.7</b> <code>symbols()</code></a></li>
+<li class="chapter" data-level="7.5.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-graf-baixo-nivel"><i class="fa fa-check"></i><b>7.5.8</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>7.6</b> Funções gráficas interativas</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#locator"><i class="fa fa-check"></i><b>7.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="7.6.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#identify"><i class="fa fa-check"></i><b>7.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html"><i class="fa fa-check"></i><b>8</b> Iteração e controle de fluxo</a><ul>
+<li class="chapter" data-level="8.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#funções-da-família-apply"><i class="fa fa-check"></i><b>8.1</b> Funções da família apply()</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-uma-matriz"><i class="fa fa-check"></i><b>8.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="8.1.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>8.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="8.1.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>8.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicionais"><i class="fa fa-check"></i><b>8.2</b> Condicionais</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if"><i class="fa fa-check"></i><b>8.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="8.2.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>8.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-ifelse"><i class="fa fa-check"></i><b>8.2.3</b> Condicional <code>ifelse()</code></a></li>
+<li class="chapter" data-level="8.2.4" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#sabermais-condic"><i class="fa fa-check"></i><b>8.2.4</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteracoes"><i class="fa fa-check"></i><b>8.3</b> Iterações</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for"><i class="fa fa-check"></i><b>8.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="8.3.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-while"><i class="fa fa-check"></i><b>8.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="8.3.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>8.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>8.4</b> Criando ou modificando funções</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-i"><i class="fa fa-check"></i><b>8.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="8.4.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-ii"><i class="fa fa-check"></i><b>8.4.2</b> Exemplo II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html"><i class="fa fa-check"></i><b>9</b> Sumarização de dados</a><ul>
+<li class="chapter" data-level="9.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>9.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="9.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>9.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="9.3" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>9.3</b> Lógica da junção de tabelas</a></li>
+<li class="chapter" data-level="9.4" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>9.4</b> Junção de tabelas utilizando funções</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>9.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="9.4.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#unindo-tabelas-com-merge"><i class="fa fa-check"></i><b>9.4.2</b> Unindo tabelas com <code>merge()</code></a></li>
+<li class="chapter" data-level="9.4.3" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>9.4.3</b> Para saber mais</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html"><i class="fa fa-check"></i><b>10</b> Amostragens aleatórias</a><ul>
+<li class="chapter" data-level="10.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>10.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="10.2" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>10.2</b> Distribuições aleatórias</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuição-normal"><i class="fa fa-check"></i><b>10.2.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="10.2.2" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>10.2.2</b> Para saber mais:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html"><i class="fa fa-check"></i><b>11</b> Extraindo dados de colunas descritivas</a><ul>
+<li class="chapter" data-level="11.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dados-categóricos"><i class="fa fa-check"></i><b>11.1</b> Dados categóricos</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>11.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="11.1.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>11.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="11.1.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>11.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#listas-ref"><i class="fa fa-check"></i><b>11.2</b> Listas de referência</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#hábito-da-planta"><i class="fa fa-check"></i><b>11.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="11.2.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>11.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="11.2.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#classes-de-hábitat"><i class="fa fa-check"></i><b>11.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="11.2.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#textura-do-solo"><i class="fa fa-check"></i><b>11.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="11.2.5" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#exsudato"><i class="fa fa-check"></i><b>11.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>11.3</b> Extraindo altura e dap</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#altura"><i class="fa fa-check"></i><b>11.3.1</b> Altura</a></li>
+<li class="chapter" data-level="11.3.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dap"><i class="fa fa-check"></i><b>11.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#usando-essas-funções"><i class="fa fa-check"></i><b>11.4</b> Usando essas funções</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="suplementos.html"><a href="suplementos.html"><i class="fa fa-check"></i><b>12</b> Suplementos</a><ul>
+<li class="chapter" data-level="12.1" data-path="suplementos.html"><a href="suplementos.html#base-r-vs.-tidyverse"><i class="fa fa-check"></i><b>12.1</b> Base R vs. Tidyverse</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="suplementos.html"><a href="suplementos.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>12.1.1</b> O que é o Tidyverse?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="suplementos.html"><a href="suplementos.html#usando-o-dplyr"><i class="fa fa-check"></i><b>12.1.2</b> Usando o <code>dplyr</code></a></li>
+<li class="chapter" data-level="12.1.3" data-path="suplementos.html"><a href="suplementos.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>12.1.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a></li>
+<li class="chapter" data-level="12.1.4" data-path="suplementos.html"><a href="suplementos.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>12.1.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="12.1.5" data-path="suplementos.html"><a href="suplementos.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>12.1.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a></li>
+<li class="chapter" data-level="12.1.6" data-path="suplementos.html"><a href="suplementos.html#baser"><i class="fa fa-check"></i><b>12.1.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a></li>
+<li class="chapter" data-level="12.1.7" data-path="suplementos.html"><a href="suplementos.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>12.1.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="12.1.8" data-path="suplementos.html"><a href="suplementos.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>12.1.8</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="suplementos.html"><a href="suplementos.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r"><i class="fa fa-check"></i><b>12.2</b> Baixar e descomprimir um arquivo zip usando o R</a></li>
+<li class="chapter" data-level="12.3" data-path="suplementos.html"><a href="suplementos.html#aulas-em-vídeo"><i class="fa fa-check"></i><b>12.3</b> Aulas em vídeo</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="suplementos.html"><a href="suplementos.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>12.3.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="12.3.2" data-path="suplementos.html"><a href="suplementos.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>12.3.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="12.3.3" data-path="suplementos.html"><a href="suplementos.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>12.3.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="12.3.4" data-path="suplementos.html"><a href="suplementos.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>12.3.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="12.3.5" data-path="suplementos.html"><a href="suplementos.html#listas-1"><i class="fa fa-check"></i><b>12.3.5</b> Listas</a></li>
+<li class="chapter" data-level="12.3.6" data-path="suplementos.html"><a href="suplementos.html#criando-matrizes-1"><i class="fa fa-check"></i><b>12.3.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="12.3.7" data-path="suplementos.html"><a href="suplementos.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>12.3.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="12.3.8" data-path="suplementos.html"><a href="suplementos.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>12.3.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="12.3.9" data-path="suplementos.html"><a href="suplementos.html#condicionais-1"><i class="fa fa-check"></i><b>12.3.9</b> Condicionais</a></li>
+<li class="chapter" data-level="12.3.10" data-path="suplementos.html"><a href="suplementos.html#funções-da-família-apply-1"><i class="fa fa-check"></i><b>12.3.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="12.3.11" data-path="suplementos.html"><a href="suplementos.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>12.3.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="12.3.12" data-path="suplementos.html"><a href="suplementos.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>12.3.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="12.3.13" data-path="suplementos.html"><a href="suplementos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>12.3.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="12.3.14" data-path="suplementos.html"><a href="suplementos.html#objetos-complexos"><i class="fa fa-check"></i><b>12.3.14</b> Objetos complexos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="informação-da-sessão.html"><a href="informação-da-sessão.html"><i class="fa fa-check"></i><b>13</b> Informação da sessão</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="objeto-ii---matrizes-e-data.frames" class="section level1">
+<h1><span class="header-section-number">5</span> Objeto II - Matrizes e <code>data.frames</code></h1>
+<div id="matriz-vs.-data.frame" class="section level2">
+<h2><span class="header-section-number">5.1</span> Matriz vs. <code>data.frame</code></h2>
+<p>Objetos de classe <code>matrix</code> ou <code>data.frame</code> são objetos bidimensionais (tem linhas e colunas), e constituem a forma como nossos dados estão organizados.
+Precisamos entender a diferença entre essas classes e suas propriedades.</p>
+<p>Objetos de classe <code>matrix</code> contêm linhas e colunas, mas os valores de toda a matriz são da mesma classe (<code>numeric</code>, <code>character</code>, ou <code>logical</code>, por exemplo).
+Operações matemáticas com matrizes utilizam matrizes numéricas, portanto, de uma única classe, <code>matrix</code>.</p>
+<p>Objetos de classe <code>data.frame</code> tambêm contém linhas e colunas, mas podem misturar colunas de classes diferentes (<code>numeric</code> e <code>character</code>, <code>factor</code>, e <code>logical</code>, por exemplo).
+Quando importamos dados ao R, geralmente atribuímos os dados a um objeto de classe <code>data.frame</code>.</p>
+<p>Podemos converter um objeto de classe <code>matrix</code> para <code>data.frame</code> e vice-versa, usando as funções <code>as.data.frame()</code> ou <code>as.matrix()</code>.
+Porém, quando convertemos os dados para um objeto de classe <code>matrix</code>, todos os dados passam a ser da mesma classe, geralmente havendo perda de dados.</p>
+<div id="criando-matrizes" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Criando matrizes</h3>
+<p>Poder criar uma matriz no R é muito útil para várias finalidades como, por exemplo, simular dados em testes de permutação ou preencher uma tabela com resultados de uma análise.
+Matrizes podem ser criadas de diferentes formas (e.g., pode juntar matrizes pelas linhas e colunas, ou pode extrair sub-matrizes de uma matriz).
+Para criar matrizes, a função básica se chama <code>matrix()</code>:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-1"></a><span class="co">#veja o help da função</span></span>
+<span id="cb43-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-2"></a>?matrix </span>
+<span id="cb43-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-3"></a> </span>
+<span id="cb43-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-4"></a><span class="co">#a função se usa assim: matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</span></span>
+<span id="cb43-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-5"></a><span class="co">#onde:</span></span>
+<span id="cb43-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-6"></a><span class="co"># data = NA #um vetor de comprimento igual ao número de células desejadas que é nrow*ncol. </span></span>
+<span id="cb43-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-7"></a><span class="co"># byrow = FALSE #A forma de preenchimento da planilha pelos dados em data. Se byrow=TRUE, então ele preenche pelas linhas, senão pelas </span></span>
+<span id="cb43-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-8"></a><span class="co"># colunas</span></span>
+<span id="cb43-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-9"></a><span class="co"># nrow = número de linhas</span></span>
+<span id="cb43-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-10"></a><span class="co"># ncol = número de colunas</span></span>
+<span id="cb43-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-11"></a><span class="co"># dimnames = um objeto do tipo lista (que ainda não vimos), com dois vetores, um com os nomes das linhas, outro com os nomes das colunas.</span></span>
+<span id="cb43-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-12"></a> </span>
+<span id="cb43-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-13"></a><span class="co">#exemplo 1 - matriz de 3x3 com zeros</span></span>
+<span id="cb43-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-14"></a>mm =<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">0</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">byrow=</span>F,<span class="dt">dimnames=</span><span class="ot">NULL</span>)</span>
+<span id="cb43-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-15"></a>mm</span>
+<span id="cb43-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-16"></a><span class="co">#note que data tem comprimento 1, apenas 1 valor. Pela regra da reciclagem ele é repetido até completar o total necessário dado por nrow*ncol</span></span>
+<span id="cb43-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-17"></a> </span>
+<span id="cb43-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-18"></a><span class="co">#exemplo2 - matriz de 3x3 com valores</span></span>
+<span id="cb43-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-19"></a>dd =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">9</span> <span class="co">#nove valores</span></span>
+<span id="cb43-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-20"></a>mm =<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span>dd,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">byrow=</span>F,<span class="dt">dimnames=</span><span class="ot">NULL</span>)</span>
+<span id="cb43-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-21"></a>mm</span>
+<span id="cb43-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-22"></a><span class="co">#mudando byrow para TRUE preenchemos pelas linhas</span></span>
+<span id="cb43-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-23"></a>mm2 =<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span>dd,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>,<span class="dt">dimnames=</span><span class="ot">NULL</span>)</span>
+<span id="cb43-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-24"></a>mm2</span>
+<span id="cb43-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-25"></a> </span>
+<span id="cb43-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-26"></a><span class="co">#exemplo3 - matriz de 3x3 com valores e nomes de colunas e linhas</span></span>
+<span id="cb43-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-27"></a><span class="co">#define dimensao</span></span>
+<span id="cb43-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-28"></a>nrow=<span class="dv">3</span></span>
+<span id="cb43-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-29"></a>ncol=<span class="dv">3</span></span>
+<span id="cb43-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-30"></a><span class="co">#define data</span></span>
+<span id="cb43-31"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-31"></a>dd =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">9</span> <span class="co">#nove valores</span></span>
+<span id="cb43-32"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-32"></a><span class="co">#define nome de colunas</span></span>
+<span id="cb43-33"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-33"></a>cln =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;coluna&quot;</span>,<span class="dv">1</span><span class="op">:</span>ncol,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb43-34"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-34"></a><span class="co">#define nome de linhas</span></span>
+<span id="cb43-35"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-35"></a>lln =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;linha&quot;</span>,<span class="dv">1</span><span class="op">:</span>nrow,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb43-36"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-36"></a> </span>
+<span id="cb43-37"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-37"></a>mm =<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span>dd,<span class="dt">nrow=</span>nrow,<span class="dt">ncol=</span>ncol,<span class="dt">byrow=</span>F,<span class="dt">dimnames=</span><span class="kw">list</span>(lln,cln))</span>
+<span id="cb43-38"><a href="objeto-ii-matrizes-e-data-frames.html#cb43-38"></a>mm</span></code></pre></div>
+<p>Para unir ou criar matrizes (e <code>data.frames</code>) temos duas funções úteis:</p>
+<ul>
+<li><p><code>rbind()</code>, que vem do inglês <em>row bind</em>, ou seja, cole linhas;</p></li>
+<li><p><code>cbind()</code>, que vem do inglês <em>column bind</em>, ou seja, cole colunas.</p></li>
+</ul>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-1"></a><span class="co"># vetores numéricos de mesmo comprimento</span></span>
+<span id="cb44-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-2"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb44-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-3"></a>v2 =<span class="st"> </span><span class="dv">10</span><span class="op">:</span><span class="dv">1</span></span>
+<span id="cb44-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-4"></a>v3=<span class="st"> </span><span class="dv">11</span><span class="op">:</span><span class="dv">20</span></span>
+<span id="cb44-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-5"></a><span class="co">#essas duas condições devem ser verdadeiras</span></span>
+<span id="cb44-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-6"></a><span class="kw">length</span>(v1)<span class="op">==</span><span class="kw">length</span>(v2)</span>
+<span id="cb44-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-7"></a><span class="kw">length</span>(v1)<span class="op">==</span><span class="kw">length</span>(v3)</span>
+<span id="cb44-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-8"></a> </span>
+<span id="cb44-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-9"></a><span class="co">#entao posso criar uma matriz juntando esses vetores em linhas ou colunas</span></span>
+<span id="cb44-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-10"></a>mml =<span class="st"> </span><span class="kw">rbind</span>(v1,v2,v3)</span>
+<span id="cb44-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-11"></a><span class="kw">class</span>(mml) <span class="co">#criou um matrix</span></span>
+<span id="cb44-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-12"></a>mml </span>
+<span id="cb44-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-13"></a><span class="co">#ou</span></span>
+<span id="cb44-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-14"></a>mmc =<span class="st"> </span><span class="kw">cbind</span>(v1,v2,v3)</span>
+<span id="cb44-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-15"></a><span class="kw">class</span>(mmc)</span>
+<span id="cb44-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-16"></a></span>
+<span id="cb44-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-17"></a><span class="co">#ou se eu já tenho uma matriz, posso usar essas funções para adicionar novas linhas ou colunas</span></span>
+<span id="cb44-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-18"></a>novovetor =<span class="st"> </span><span class="dv">31</span><span class="op">:</span><span class="dv">40</span></span>
+<span id="cb44-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-19"></a> </span>
+<span id="cb44-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-20"></a><span class="co">#por linha</span></span>
+<span id="cb44-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-21"></a><span class="kw">ncol</span>(mml)<span class="op">==</span><span class="kw">length</span>(novovetor) <span class="co">#neste caso o número de colunas da matrix precisa ser igual ao número de elementos no vetor</span></span>
+<span id="cb44-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-22"></a>mml =<span class="st"> </span><span class="kw">rbind</span>(mml,novovetor) <span class="co">#junto a matrix existente com o novo vetor, adicionando uma nova linha</span></span>
+<span id="cb44-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-23"></a>mml</span>
+<span id="cb44-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-24"></a><span class="co">#note que a nova linha recebeu como nome o nome do objeto que continha o dado</span></span>
+<span id="cb44-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-25"></a></span>
+<span id="cb44-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-26"></a><span class="co">#por coluna</span></span>
+<span id="cb44-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-27"></a><span class="kw">nrow</span>(mmc)<span class="op">==</span><span class="kw">length</span>(novovetor) <span class="co">#neste caso o número de linhas da matrix precisa ser igual ao número de elementos no vetor</span></span>
+<span id="cb44-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-28"></a>mmc =<span class="st"> </span><span class="kw">cbind</span>(mmc,novovetor) <span class="co">#junto a matrix existente com o novo vetor, adicionando uma nova coluna</span></span>
+<span id="cb44-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-29"></a>mmc</span>
+<span id="cb44-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb44-30"></a><span class="co">#note que a nova coluna recebeu como nome o nome do objeto que continha o dado</span></span></code></pre></div>
+</div>
+<div id="criando-data.frames" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Criando <code>data.frames</code></h3>
+<p>Objetos de classe <code>data.frame</code> são tabelas de dados, apresentam duas dimensões, e permitem misturar dados de classes diferentes, numéricos, texto (character ou factor) e lógicos.
+Quando importamos nossos dados ao R, em geral criamos objetos de classe <code>data.frame</code>.
+Para criar ou converter dados em data.frames, podemos usar as funções <code>data.frame()</code> e <code>as.data.frame()</code>.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-1"></a>?data.frame  <span class="co">#veja o help das funções acima</span></span>
+<span id="cb45-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-2"></a> </span>
+<span id="cb45-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-3"></a><span class="co"># a funcao que cria o objeto é</span></span>
+<span id="cb45-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-4"></a><span class="kw">data.frame</span>(..., <span class="dt">row.names =</span> <span class="ot">NULL</span>, <span class="dt">check.rows =</span> <span class="ot">FALSE</span>, <span class="dt">check.names =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="kw">default.stringsAsFactors</span>())</span>
+<span id="cb45-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-5"></a> </span>
+<span id="cb45-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-6"></a><span class="co">#de todos os argumentos os mais importantes são:</span></span>
+<span id="cb45-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-7"></a><span class="co">#...  #que pode ser vetores ou tag = vetor (os dados da tabela)</span></span>
+<span id="cb45-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-8"></a><span class="co">#stringsAsFactors #que especifica se queremos os textos como vetores ou fatores</span></span>
+<span id="cb45-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-9"></a> </span>
+<span id="cb45-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-10"></a><span class="co">#exemplo 1 - </span></span>
+<span id="cb45-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-11"></a><span class="co">#Primeiro criamos alguns dados</span></span>
+<span id="cb45-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-12"></a><span class="co">#um vetor numerico</span></span>
+<span id="cb45-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-13"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb45-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-14"></a><span class="co">#um vetor de letras do mesmo comprimento usando a constante LETTERS</span></span>
+<span id="cb45-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-15"></a>v2 =<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
+<span id="cb45-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-16"></a><span class="co">#um vetor de palavras de mesmo comprimento</span></span>
+<span id="cb45-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-17"></a>v3 =<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&#39;fulano&#39;</span>,<span class="st">&#39;jose&#39;</span>,<span class="st">&#39;joaquim&#39;</span>,<span class="st">&#39;martin&#39;</span>), <span class="dt">length.out=</span><span class="kw">length</span>(v1))</span>
+<span id="cb45-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-18"></a> </span>
+<span id="cb45-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-19"></a><span class="co">#Juntamos num data.frame com fatores</span></span>
+<span id="cb45-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-20"></a>dd =<span class="st"> </span><span class="kw">data.frame</span>(v1,v2,v3,<span class="dt">stringsAsFactors =</span> T)</span>
+<span id="cb45-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-21"></a><span class="kw">class</span>(dd) <span class="co">#é um data frame</span></span>
+<span id="cb45-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-22"></a><span class="kw">dim</span>(dd) <span class="co">#dimensoes, linhas e colunas</span></span>
+<span id="cb45-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-23"></a><span class="kw">ncol</span>(dd) <span class="co">#numero de colunas</span></span>
+<span id="cb45-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-24"></a><span class="kw">nrow</span>(dd) <span class="co">#numero de linhas</span></span>
+<span id="cb45-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-25"></a><span class="kw">str</span>(dd) <span class="co">#estrutura do objeto (veja as classes das colunas)</span></span>
+<span id="cb45-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-26"></a> </span>
+<span id="cb45-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-27"></a><span class="co">#JUNTAMOS SEM FATORES</span></span>
+<span id="cb45-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-28"></a>dd2 =<span class="st"> </span><span class="kw">data.frame</span>(v1,v2,v3,<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb45-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-29"></a><span class="kw">class</span>(dd2) <span class="co">#é um data frame</span></span>
+<span id="cb45-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-30"></a><span class="kw">str</span>(dd2) <span class="co">#estrutura do objeto (veja as classes das colunas)</span></span>
+<span id="cb45-31"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-31"></a> </span>
+<span id="cb45-32"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-32"></a><span class="co">#juntamos com nome de colunas (tag = vetor)</span></span>
+<span id="cb45-33"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-33"></a>dd2 =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">RegistorID=</span>v1,<span class="dt">CodigoZ=</span>v2,<span class="dt">Pessoa=</span>v3,<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb45-34"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-34"></a>dd2</span>
+<span id="cb45-35"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-35"></a> </span>
+<span id="cb45-36"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-36"></a><span class="co">#agora vamos usar o cbind que vimos acima</span></span>
+<span id="cb45-37"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-37"></a>dz =<span class="st"> </span><span class="kw">cbind</span>(v1,v2,v3)</span>
+<span id="cb45-38"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-38"></a><span class="co">#ou entao usando tag=vetor para ter nomes das colunas de acordo</span></span>
+<span id="cb45-39"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-39"></a>dz =<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">RegistorID=</span>v1,<span class="dt">CodigoZ=</span>v2,<span class="dt">Pessoa=</span>v3)</span>
+<span id="cb45-40"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-40"></a><span class="kw">class</span>(dz) <span class="co">#isso cria uma matriz</span></span>
+<span id="cb45-41"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-41"></a><span class="kw">str</span>(dz) <span class="co">#todos os dados são da mesma classe (texto)</span></span>
+<span id="cb45-42"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-42"></a>dz =<span class="st"> </span><span class="kw">as.data.frame</span>(dz) <span class="co">#convertemos num data.frame</span></span>
+<span id="cb45-43"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-43"></a><span class="kw">class</span>(dz) <span class="co">#é um data.frame</span></span>
+<span id="cb45-44"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-44"></a><span class="kw">str</span>(dz) <span class="co">#converte numeros para numerico e texto para fator</span></span>
+<span id="cb45-45"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-45"></a>dz =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">as.matrix</span>(dz), <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) <span class="co">#convertemos num data.frame sem fatores</span></span>
+<span id="cb45-46"><a href="objeto-ii-matrizes-e-data-frames.html#cb45-46"></a><span class="kw">str</span>(dz) <span class="co">#converte numeros para numerico e texto para character</span></span></code></pre></div>
+</div>
+<div id="funções-importantes-na-manipulação-de-matrizes-e-data.frames" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Funções importantes na manipulação de matrizes e <code>data.frames</code></h3>
+<p>As funções <code>head()</code> e <code>tail()</code> mostram o cabeçalho e rodapé tanto para matrizes como para <code>data.frames</code>, respectivamente.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-1"></a><span class="co">#Primeiro criamos alguns dados</span></span>
+<span id="cb46-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-2"></a><span class="co">#um vetor numerico</span></span>
+<span id="cb46-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-3"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb46-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-4"></a><span class="co">#um vetor de letras do mesmo comprimento usando a constante LETTERS</span></span>
+<span id="cb46-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-5"></a>v2 =<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
+<span id="cb46-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-6"></a><span class="co">#um vetor de palavras de mesmo comprimento</span></span>
+<span id="cb46-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-7"></a>v3 =<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&#39;fulano&#39;</span>,<span class="st">&#39;jose&#39;</span>,<span class="st">&#39;joaquim&#39;</span>,<span class="st">&#39;martin&#39;</span>), <span class="dt">length.out=</span><span class="kw">length</span>(v1))</span>
+<span id="cb46-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-8"></a><span class="co">#juntamos com nome de colunas (tag = vetor) e com</span></span>
+<span id="cb46-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-9"></a>dd2 =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">RegistorID=</span>v1,<span class="dt">CodigoZ=</span>v2,<span class="dt">Pessoa=</span>v3,<span class="dt">stringsAsFactors =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb46-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-10"></a><span class="co">#cabeçalho</span></span>
+<span id="cb46-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-11"></a>?<span class="kw">head</span>(dd2) <span class="co">#primeiras 6 linhas</span></span>
+<span id="cb46-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-12"></a><span class="kw">head</span>(dd2,<span class="dv">3</span>) <span class="co">#três primeiras linhas</span></span>
+<span id="cb46-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-13"></a> </span>
+<span id="cb46-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-14"></a><span class="co">#rodapé</span></span>
+<span id="cb46-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-15"></a><span class="kw">tail</span>(dd2) <span class="co">#seis últimas linhas</span></span>
+<span id="cb46-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb46-16"></a><span class="kw">tail</span>(dd2,<span class="dv">3</span>) <span class="co">#três últimas linhas</span></span></code></pre></div>
+<p>As funções <code>dim()</code>, <code>nrow()</code> e <code>ncol()</code> informam as dimensões de matrizes e data.frames, número de linhas, e número de colunas, respectivamente.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb47-1"></a><span class="kw">dim</span>(dd2) <span class="co">#vetor com dois valores, número de linhas e número de colunas</span></span>
+<span id="cb47-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb47-2"></a><span class="kw">nrow</span>(dd2) <span class="co">#número de linhas do data.frame ou matrix</span></span>
+<span id="cb47-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb47-3"></a><span class="kw">ncol</span>(dd2) <span class="co">#número de colunas do data.frame ou matrix</span></span>
+<span id="cb47-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb47-4"></a><span class="kw">nrow</span>(<span class="kw">as.matrix</span>(dd2))</span>
+<span id="cb47-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb47-5"></a><span class="kw">ncol</span>(<span class="kw">as.matrix</span>(dd2))</span></code></pre></div>
+<p>As funções <code>str()</code> e <code>summary()</code> informam a estrutura dos <code>data.frames</code> e o resumo dos dados, respectivamente.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb48-1"></a><span class="kw">str</span>(dd2) <span class="co">#mostra a estrutura do objeto, quais colunas, classes de colunas e total de valores</span></span>
+<span id="cb48-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb48-2"></a><span class="kw">summary</span>(dd2) <span class="co">#mostra para cada coluna a variação encontrada: estatística descritiva de variáveis numéricas, contagem por categoria de fatores, etc. Veremos isso adiante.</span></span></code></pre></div>
+<p>As funções <code>colnames()</code> e <code>rownames()</code> permitem VER e ATRIBUIR valores de nomes de linhas e colunas em data.frames e matrizes.
+Em um <code>data.frame</code>, os nomes de linhas DEVEM SER ÚNICOS e não podem ter duas linhas com o mesmo nome.
+São códigos que identificam registros únicos.
+Isso é muito importante para o entendimento dos identificadores dos seus dados.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-1"></a><span class="co">#vamos criar uma matriz com nomes de linhas e colunas</span></span>
+<span id="cb49-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-2"></a>mm =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">dimnames=</span><span class="kw">list</span>(<span class="kw">paste</span>(<span class="st">&quot;linha&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="kw">paste</span>(<span class="st">&quot;coluna&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)))</span>
+<span id="cb49-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-3"></a><span class="co">#e converter essa matrix para um data.frame</span></span>
+<span id="cb49-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-4"></a>dd =<span class="st"> </span><span class="kw">as.data.frame</span>(mm)</span>
+<span id="cb49-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-5"></a> </span>
+<span id="cb49-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-6"></a><span class="co">#vamos também criar outra matriz SEM nomes de linhas e colunas</span></span>
+<span id="cb49-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-7"></a>mm2 =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb49-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-8"></a><span class="co">#e converter essa matrix para um data.frame</span></span>
+<span id="cb49-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-9"></a>dd2 =<span class="st"> </span><span class="kw">as.data.frame</span>(mm2)</span>
+<span id="cb49-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-10"></a> </span>
+<span id="cb49-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-11"></a><span class="co">#para os objetos com nomes podemos ver os nomes</span></span>
+<span id="cb49-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-12"></a><span class="kw">rownames</span>(mm)</span>
+<span id="cb49-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-13"></a><span class="kw">rownames</span>(dd)</span>
+<span id="cb49-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-14"></a><span class="kw">colnames</span>(mm)</span>
+<span id="cb49-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-15"></a><span class="kw">colnames</span>(dd)</span>
+<span id="cb49-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-16"></a> </span>
+<span id="cb49-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-17"></a><span class="co">#para os objetos sem nomes</span></span>
+<span id="cb49-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-18"></a><span class="kw">rownames</span>(mm2) <span class="co">#nulo, não tem nome</span></span>
+<span id="cb49-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-19"></a><span class="kw">rownames</span>(dd2) <span class="co">#números em formato de texto</span></span>
+<span id="cb49-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-20"></a><span class="kw">colnames</span>(mm2) <span class="co">#nulo, não tem nome</span></span>
+<span id="cb49-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-21"></a><span class="kw">colnames</span>(dd2) <span class="co">#V1 a Vncol(dd) - ele cria nomes das colunas</span></span>
+<span id="cb49-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-22"></a><span class="co">#note que no caso do data.frame dd2, apesar de não ter nome de linha e coluna, o R criou uma para ele. DATA.FRAMES SEMPRE TEM NOME DE LINHAS E COLUNAS. Note que o nome das linhas apesar de números correspondentes aos índices, são de fato TEXTO</span></span>
+<span id="cb49-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-23"></a> </span>
+<span id="cb49-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-24"></a> </span>
+<span id="cb49-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-25"></a><span class="co">#essas funções permitem VER mas também permitem ATRIBUIR (modificar) nomes</span></span>
+<span id="cb49-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-26"></a><span class="co">#modificando quem já tem nome (matriz, mas funciona igual para dd)</span></span>
+<span id="cb49-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-27"></a><span class="kw">colnames</span>(mm) <span class="co">#nomes atuais</span></span>
+<span id="cb49-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-28"></a><span class="kw">colnames</span>(mm) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;novonome1&quot;</span>,<span class="st">&quot;novonome2&quot;</span>,<span class="st">&quot;novonome3&quot;</span>)</span>
+<span id="cb49-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-29"></a>mm <span class="co">#veja como o nome das colunas mudou</span></span>
+<span id="cb49-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-30"></a><span class="co">#mudando apenas o nome da coluna2</span></span>
+<span id="cb49-31"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-31"></a><span class="kw">colnames</span>(mm)[<span class="dv">2</span>] =<span class="st"> &quot;colunaDOIS&quot;</span></span>
+<span id="cb49-32"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-32"></a><span class="kw">colnames</span>(mm) <span class="co">#nomes atuais</span></span>
+<span id="cb49-33"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-33"></a> </span>
+<span id="cb49-34"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-34"></a><span class="co">#atribuindo quando não tem nome</span></span>
+<span id="cb49-35"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-35"></a><span class="kw">colnames</span>(mm2) <span class="co">#está vazio ou não existe (NULL)</span></span>
+<span id="cb49-36"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-36"></a><span class="kw">colnames</span>(mm2) =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;banana&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(mm2),<span class="dt">sep=</span><span class="st">&quot;-&quot;</span>)</span>
+<span id="cb49-37"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-37"></a>mm2 <span class="co">#agora tem nome de coluna</span></span>
+<span id="cb49-38"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-38"></a><span class="kw">rownames</span>(mm2) <span class="co">#nomes de linhas também está vazio</span></span>
+<span id="cb49-39"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-39"></a><span class="kw">rownames</span>(mm2) =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;chuchu&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(mm2),<span class="dt">sep=</span><span class="st">&quot;.&quot;</span>)</span>
+<span id="cb49-40"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-40"></a>mm2 <span class="co">#agora tem nomes de linha e coluna</span></span>
+<span id="cb49-41"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-41"></a> </span>
+<span id="cb49-42"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-42"></a><span class="co">#agora tente atribuir um nome repetido</span></span>
+<span id="cb49-43"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-43"></a><span class="kw">rownames</span>(mm2)[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] =<span class="st"> &quot;teste1&quot;</span> <span class="co">#coloque o nome teste1 para as linhas 1 e 2 FUNCIONA PARA MATRIX</span></span>
+<span id="cb49-44"><a href="objeto-ii-matrizes-e-data-frames.html#cb49-44"></a><span class="kw">rownames</span>(dd)[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] =<span class="st"> &quot;teste1&quot;</span> <span class="co">#nao funciona, porque ele não aceita nomes repetidos de linhas em DATA.FRAMES</span></span></code></pre></div>
+</div>
+</div>
+<div id="indexação-de-matriz-e-data.frame" class="section level2">
+<h2><span class="header-section-number">5.2</span> Indexação de matriz e <code>data.frame</code></h2>
+<p>Entender indexação é fundamental para manipular dados no R.
+Em indexação de vetores (seção <a href="objeto-i-vetores.html#indexacao">4.5</a>), vimos que é possível usar números, códigos/nomes ou valores de verdadeiro ou falso (lógico), como elementos para visualizar, filtrar e mudar dados em vetores unidimensionais.</p>
+<p>O mesmo operador, <code>[]</code>, pode ser usado para indexação de uma matriz ou um <code>data.frame</code>.
+A única diferença é que, por matrizes e <code>data.frames</code> serem bidimensionais, precisamos indicar a qual dimensão estamos nos referindo.
+Portanto o operador de indexação para matrizes e data.frame tem a seguinte estrutura, <code>[indiceDeLinha , indiceDeColuna]</code>, em que a vírgula separa os índices de linha e coluna.</p>
+<div id="matrizes" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Matrizes</h3>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-1"></a><span class="co">#vamos criar uma matriz</span></span>
+<span id="cb50-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-2"></a>mm =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">dimnames=</span><span class="kw">list</span>(<span class="kw">paste</span>(<span class="st">&quot;linha&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="kw">paste</span>(<span class="st">&quot;coluna&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)))</span>
+<span id="cb50-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-3"></a><span class="co">#veja a matriz criada</span></span>
+<span id="cb50-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-4"></a>mm</span>
+<span id="cb50-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-5"></a> </span>
+<span id="cb50-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-6"></a><span class="co">#USANDO INDICE NUMÉRICO</span></span>
+<span id="cb50-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-7"></a>mm[<span class="dv">1</span>,<span class="dv">2</span>] <span class="co">#mostra o elemento da linha 1 e coluna 2</span></span>
+<span id="cb50-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-8"></a>mm[<span class="dv">1</span>,<span class="kw">ncol</span>(mm)] <span class="co">#mostra o elemento da linha 1 e última coluna</span></span>
+<span id="cb50-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-9"></a>mm[<span class="kw">nrow</span>(mm),<span class="kw">ncol</span>(mm)] <span class="co">#mostra o elemento da última linha e última coluna</span></span>
+<span id="cb50-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-10"></a>mm[,<span class="dv">1</span>] <span class="co">#mostra a coluna 1</span></span>
+<span id="cb50-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-11"></a><span class="co"># eu posso juntar indices de matrizes e vetores na mesma linha</span></span>
+<span id="cb50-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-12"></a>mm[,<span class="dv">1</span>][<span class="dv">2</span>] <span class="co">#mostra o segundo elemento do vetor correspondente a primeira coluna</span></span>
+<span id="cb50-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-13"></a>mm[<span class="dv">1</span>,] <span class="co">#mostra a linha 1</span></span>
+<span id="cb50-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-14"></a>mm[<span class="kw">nrow</span>(mm),] <span class="co">#mostra a ultima linha</span></span>
+<span id="cb50-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-15"></a> </span>
+<span id="cb50-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-16"></a>mm[ ,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co">#mostra as duas primeiras colunas</span></span>
+<span id="cb50-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-17"></a>mm[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co">#mostra as duas primeiras linhas e duas primeiras colunas</span></span>
+<span id="cb50-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-18"></a>mm[<span class="dv">3</span><span class="op">:</span><span class="kw">nrow</span>(mm),] <span class="co">#mostra da linha tres a ultima linha</span></span>
+<span id="cb50-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-19"></a> </span>
+<span id="cb50-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-20"></a>mm[<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>)] <span class="co">#mostra as linhas 3 e 1 e colunas 3 e 2 (nessa ordem)</span></span>
+<span id="cb50-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-21"></a> </span>
+<span id="cb50-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-22"></a><span class="co">#USANDO INDICES DE NOMES</span></span>
+<span id="cb50-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-23"></a>mm[<span class="st">&quot;linha1&quot;</span>,] <span class="co">#mostra a linha 1 - note que poderia ser outro nome, poderia ter chamado no inicio do script a linha 1 de &quot;banana&quot;</span></span>
+<span id="cb50-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-24"></a>mm[,<span class="st">&quot;coluna1&quot;</span>] <span class="co">#mostra a coluna 1</span></span>
+<span id="cb50-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-25"></a>mm[<span class="kw">c</span>(<span class="st">&quot;linha3&quot;</span>,<span class="st">&quot;linha1&quot;</span>),<span class="kw">c</span>(<span class="st">&quot;coluna3&quot;</span>,<span class="st">&quot;coluna1&quot;</span>)] <span class="co">#mostra a linhas 3 e 1 e colunas 3 e 1. </span><span class="al">NOTE</span><span class="co"> QUE POSSO ASSIM INVERTER AS COLUNAS E LINHAS</span></span>
+<span id="cb50-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-26"></a> </span>
+<span id="cb50-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-27"></a><span class="co">#SE EU POSSO VER EU POSSO MUDAR</span></span>
+<span id="cb50-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-28"></a>mm</span>
+<span id="cb50-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-29"></a>mm[<span class="dv">1</span>,<span class="dv">3</span>] <span class="co">#elemento da linha 1 coluna 3</span></span>
+<span id="cb50-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-30"></a>mm[<span class="dv">1</span>,<span class="dv">3</span>] =<span class="st"> </span><span class="dv">33</span> <span class="co">#mudei o elemento</span></span>
+<span id="cb50-31"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-31"></a>mm[<span class="dv">2</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]</span>
+<span id="cb50-32"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-32"></a>mm[<span class="dv">2</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>] =<span class="st"> </span>mm[<span class="dv">2</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]<span class="op">*</span><span class="dv">10</span>  <span class="co">#mudei os valores das colunas 2 e 3 para a linha 2, multiplicando o original por 10</span></span>
+<span id="cb50-33"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-33"></a>mm[<span class="dv">2</span>,<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]</span>
+<span id="cb50-34"><a href="objeto-ii-matrizes-e-data-frames.html#cb50-34"></a>mm</span></code></pre></div>
+</div>
+<div id="data.frame" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> <code>data.frame</code></h3>
+<p>O operador <code>[indiceDeLinha , indiceDeColuna]</code> também funciona para <code>data.frames</code>.
+Outro operador útil na manipulação de <code>data.frames</code> é o <code>$</code>.
+Ele permite a visualização e atribuição de valores a qualquer coluna.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-1"></a><span class="co">#vamos criar uma matriz com nomes de linhas e colunas </span></span>
+<span id="cb51-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-2"></a>mm =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>,<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">3</span>,<span class="dt">dimnames=</span><span class="kw">list</span>(<span class="kw">paste</span>(<span class="st">&quot;linha&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>),<span class="kw">paste</span>(<span class="st">&quot;coluna&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)))</span>
+<span id="cb51-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-3"></a><span class="co">#veja a matriz criada</span></span>
+<span id="cb51-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-4"></a>mm</span>
+<span id="cb51-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-5"></a> </span>
+<span id="cb51-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-6"></a><span class="co">#convertemos para um data.frame</span></span>
+<span id="cb51-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-7"></a>dd =<span class="st"> </span><span class="kw">as.data.frame</span>(mm)</span>
+<span id="cb51-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-8"></a>dd<span class="op">$</span>coluna1 <span class="co">#pego a coluna 1 (note que o nome da coluna vai sem &quot;aspas&quot;)</span></span>
+<span id="cb51-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-9"></a>mm<span class="op">$</span>coluna1 <span class="co">#veja como não funciona para o objeto matrix</span></span>
+<span id="cb51-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-10"></a>dd<span class="op">$</span>coluna1[<span class="dv">2</span>] <span class="co">#vejo o segundo elemento da coluna1</span></span>
+<span id="cb51-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-11"></a><span class="co">#isso é o mesmo que </span></span>
+<span id="cb51-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-12"></a>dd[<span class="dv">2</span>,<span class="st">&quot;coluna1&quot;</span>] </span>
+<span id="cb51-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-13"></a><span class="co">#se eu vejo eu posso mudar</span></span>
+<span id="cb51-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-14"></a>dd[<span class="dv">2</span>,<span class="st">&quot;coluna1&quot;</span>] =<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb51-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-15"></a>dd<span class="op">$</span>coluna1[<span class="dv">3</span>] =<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb51-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-16"></a>dd<span class="op">$</span>coluna3 <span class="co">#pego a coluna tres</span></span>
+<span id="cb51-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-17"></a> </span>
+<span id="cb51-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-18"></a><span class="co">#também posso adicionar uma nova coluna </span></span>
+<span id="cb51-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-19"></a>dd<span class="op">$</span>novacoluna =<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(dd)]</span>
+<span id="cb51-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-20"></a>dd <span class="co">#agora tenho uma nova coluna</span></span>
+<span id="cb51-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-21"></a> </span>
+<span id="cb51-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-22"></a><span class="co">#ou poderia usar outra forma</span></span>
+<span id="cb51-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-23"></a>dd[,<span class="st">&quot;nova2&quot;</span>] =<span class="st"> </span>LETTERS <span class="co">#nao vai funcionar por estou atribuindo um vetor muito mais longo do que tenho linhas</span></span>
+<span id="cb51-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-24"></a><span class="kw">length</span>(LETTERS)<span class="op">&gt;</span><span class="kw">nrow</span>(dd) <span class="co">#essa expressão é verdadeira</span></span>
+<span id="cb51-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-25"></a>dd[,<span class="st">&quot;nova2&quot;</span>] =<span class="st"> </span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(dd)] <span class="co">#isso tem o mesmo comprimento e funciona</span></span>
+<span id="cb51-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-26"></a>dd</span>
+<span id="cb51-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-27"></a> </span>
+<span id="cb51-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-28"></a><span class="co">#posso adicionar uma coluna vazia</span></span>
+<span id="cb51-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-29"></a>dd<span class="op">$</span>outracoluna =<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb51-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-30"></a>dd</span>
+<span id="cb51-31"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-31"></a> </span>
+<span id="cb51-32"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-32"></a><span class="co">#e ainda outra (lógica)</span></span>
+<span id="cb51-33"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-33"></a>dd<span class="op">$</span>maisuma =<span class="st"> </span><span class="ot">TRUE</span></span>
+<span id="cb51-34"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-34"></a>dd</span>
+<span id="cb51-35"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-35"></a> </span>
+<span id="cb51-36"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-36"></a><span class="co">#NO CASO DE MATRIZES ISSO ADICIONAR NOVAS COLUNAS É UM POUCO DIFERENTE</span></span>
+<span id="cb51-37"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-37"></a><span class="co">#primeiro nao posso usar $ porque matrix não entende isso</span></span>
+<span id="cb51-38"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-38"></a><span class="kw">class</span>(mm) <span class="co">#é uma matrix</span></span>
+<span id="cb51-39"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-39"></a>mm<span class="op">$</span>colun3 <span class="co">#isso nao funciona</span></span>
+<span id="cb51-40"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-40"></a>mm[,<span class="st">&quot;coluna3&quot;</span>] <span class="co">#isso funciona</span></span>
+<span id="cb51-41"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-41"></a><span class="co">#adicionando uma coluna</span></span>
+<span id="cb51-42"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-42"></a>mm[,<span class="dv">4</span>] <span class="co">#isso nao existe</span></span>
+<span id="cb51-43"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-43"></a>mm[,<span class="dv">4</span>] =<span class="st"> </span><span class="kw">log</span>(mm[,<span class="st">&quot;coluna3&quot;</span>])  <span class="co">#isso não funciona</span></span>
+<span id="cb51-44"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-44"></a><span class="co">#poderia usar a função cbind que vimos anteriormente</span></span>
+<span id="cb51-45"><a href="objeto-ii-matrizes-e-data-frames.html#cb51-45"></a>mm =<span class="st"> </span><span class="kw">cbind</span>(mm, <span class="dt">LOGCOLUNA3 =</span><span class="kw">log</span>(mm[,<span class="st">&quot;coluna3&quot;</span>]) ) <span class="co">#assim eu posso</span></span></code></pre></div>
+</div>
+<div id="sabermais-indexacao-matrizes-dframes" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Para saber mais:</h3>
+<ol start="4" class="example" style="list-style-type: decimal">
+<li><a href="https://youtu.be/CJILnDzVviQ">Indexação de matrizes e <code>data.frames</code></a> - vídeoaula com o conteúdo desta seção.</li>
+</ol>
+</div>
+</div>
+<div id="filtrando-e-ordenando-matrizes-e-data.frames" class="section level2">
+<h2><span class="header-section-number">5.3</span> Filtrando e ordenando matrizes e <code>data.frames</code></h2>
+<div id="filtragem-de-dados" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Filtragem de dados</h3>
+<p>Já vimos como fazer perguntas sobre vetores (Seção <a href="objeto-i-vetores.html#perg-vetores">4.6.1</a>) e obter vetores lógicos ou valores de índices que nos permitem extrair ou filtrar de vetores os dados que satisfazem às condições das perguntas feitas.
+Aqui vamos estender isso para objetos de classe <code>matrix</code> e <code>data.frame</code>, porque é através de vetores lógicos ou de matrizes lógicas que podemos filtrar dados de objetos bidimensionais.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-1"></a>?iris  <span class="co">#veja o help do R sobre Edgar Anderson&#39;s Iris Data que explica esses dados que vem com o R</span></span>
+<span id="cb52-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-2"></a><span class="kw">class</span>(iris)</span>
+<span id="cb52-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-3"></a><span class="kw">str</span>(iris)  <span class="co">#estrutura, veja as colunas</span></span>
+<span id="cb52-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-4"></a></span>
+<span id="cb52-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-5"></a><span class="co">#vamos filtrar os dados de uma das especies</span></span>
+<span id="cb52-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-6"></a><span class="kw">unique</span>(iris<span class="op">$</span>Species) <span class="co">#vemos os valores únicos</span></span>
+<span id="cb52-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-7"></a><span class="co">#ou, tendo em vista que é um fator</span></span>
+<span id="cb52-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-8"></a><span class="kw">levels</span>(iris<span class="op">$</span>Species)</span>
+<span id="cb52-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-9"></a>sp1 =<span class="st"> </span><span class="kw">levels</span>(iris<span class="op">$</span>Species)[<span class="dv">1</span>]</span>
+<span id="cb52-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-10"></a><span class="co">#quais linhas correspondem a essa especie</span></span>
+<span id="cb52-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-11"></a>vl =<span class="st"> </span>iris<span class="op">$</span>Species<span class="op">==</span>sp1</span>
+<span id="cb52-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-12"></a><span class="kw">sum</span>(vl) <span class="co">#numero de linhas que satisfazem a pergunta</span></span>
+<span id="cb52-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-13"></a><span class="kw">nrow</span>(iris) <span class="co">#numero total de linhas no data.frame</span></span>
+<span id="cb52-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-14"></a><span class="co">#filtrando os dados eu simplesmente uso o vetor lógico como índice de linha. O novo objeto criado terá apenas as linhas em que vl é verdadeiro</span></span>
+<span id="cb52-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-15"></a>iris.sp1 =<span class="st"> </span>iris[vl,]</span>
+<span id="cb52-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-16"></a><span class="kw">nrow</span>(iris.sp1)<span class="op">==</span><span class="kw">sum</span>(vl) <span class="co">#entao esta condição é verdadeira</span></span>
+<span id="cb52-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-17"></a></span>
+<span id="cb52-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-18"></a><span class="co">#filtrar segundo duas colunas</span></span>
+<span id="cb52-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-19"></a>vl =<span class="st"> </span>iris<span class="op">$</span>Species<span class="op">==</span>sp1 <span class="co">#seja da especie em sp1</span></span>
+<span id="cb52-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-20"></a><span class="kw">sum</span>(vl) <span class="co">#quantas sao?</span></span>
+<span id="cb52-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-21"></a>vl2 =<span class="st"> </span>iris<span class="op">$</span>Sepal.Length<span class="op">&lt;=</span><span class="dv">5</span> <span class="co">#tenha sepala menor ou igual a 5</span></span>
+<span id="cb52-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-22"></a><span class="kw">sum</span>(vl2) <span class="co">#quantas sao?</span></span>
+<span id="cb52-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-23"></a><span class="co">#combinando as duas perguntas</span></span>
+<span id="cb52-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-24"></a>vll =<span class="st"> </span>vl <span class="op">&amp;</span><span class="st"> </span>vl2</span>
+<span id="cb52-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-25"></a><span class="kw">sum</span>(vll) <span class="co">#quantas sao?</span></span>
+<span id="cb52-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-26"></a><span class="co">#filtrando</span></span>
+<span id="cb52-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-27"></a>ff =<span class="st"> </span>iris[vll,] </span>
+<span id="cb52-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-28"></a><span class="kw">class</span>(ff) <span class="co">#novo data.frame resultando do filtro realizado</span></span>
+<span id="cb52-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb52-29"></a><span class="kw">nrow</span>(ff)<span class="op">==</span><span class="st"> </span><span class="kw">sum</span>(vll)  <span class="co">#isso deve ser verdadeiro</span></span></code></pre></div>
+<div id="dados-com-valores-ausentes" class="section level4">
+<h4><span class="header-section-number">5.3.1.1</span> Dados com valores ausentes</h4>
+<p>As funções<code>is.na()</code> e <code>na.omit()</code> vistas anteriormente (Seção <a href="objeto-i-vetores.html#filtro-dados-ausentes">4.6.3</a>) permitem eliminar linhas e colunas que tenham valores ausentes.
+A presença de valores às vezes impede certas análises de serem executadas.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-1"></a><span class="co">#vamos fazer uma cópia do objeto iris e modificar ele acrescentando alguns NAs</span></span>
+<span id="cb53-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-2"></a>dd =<span class="st"> </span>iris</span>
+<span id="cb53-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-3"></a><span class="co">#tem algum NA originalmente?</span></span>
+<span id="cb53-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-4"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(dd)) <span class="co">#não tem</span></span>
+<span id="cb53-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-5"></a></span>
+<span id="cb53-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-6"></a><span class="co">#qual a dimensão?</span></span>
+<span id="cb53-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-7"></a><span class="kw">dim</span>(dd)</span>
+<span id="cb53-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-8"></a><span class="co">#pega 10 valores aletórios entre 1:150 (linhas)</span></span>
+<span id="cb53-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-9"></a>v1 =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(dd),<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">replace=</span>F)</span>
+<span id="cb53-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-10"></a><span class="co">#nessas linhas acrescenta NAs na coluna 2</span></span>
+<span id="cb53-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-11"></a>dd[v1,<span class="dv">2</span>] =<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb53-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-12"></a><span class="co">#pega outros 10 valores aletórios entre 1:150 (linhas)</span></span>
+<span id="cb53-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-13"></a>v1 =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(dd),<span class="dt">size=</span><span class="dv">10</span>,<span class="dt">replace=</span>F)</span>
+<span id="cb53-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-14"></a><span class="co">#nessas linhas acrescenta NAs na coluna 3</span></span>
+<span id="cb53-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-15"></a>dd[v1,<span class="dv">3</span>] =<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb53-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-16"></a></span>
+<span id="cb53-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-17"></a><span class="co">#pronto agora temos um data.frame com NAs</span></span>
+<span id="cb53-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-18"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(dd)) <span class="co">#tem 20 NAs na tabela</span></span>
+<span id="cb53-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-19"></a></span>
+<span id="cb53-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-20"></a><span class="co">#quais linhas tem NA</span></span>
+<span id="cb53-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-21"></a>vl =<span class="st"> </span><span class="kw">is.na</span>(dd[,<span class="dv">2</span>]) <span class="op">|</span><span class="st"> </span><span class="kw">is.na</span>(dd[,<span class="dv">3</span>]) <span class="co">#ou é NA em 2 ou em 3 que foi onde mudei</span></span>
+<span id="cb53-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-22"></a>dd[vl,]</span>
+<span id="cb53-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-23"></a></span>
+<span id="cb53-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-24"></a><span class="co">#use na.omit() para eliminar todas as linhas que NA em alguma coluna</span></span>
+<span id="cb53-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-25"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(dd)) <span class="co">#tem 20 valores</span></span>
+<span id="cb53-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-26"></a>dd2 =<span class="st"> </span><span class="kw">na.omit</span>(dd)</span>
+<span id="cb53-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb53-27"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(dd2)) <span class="co">#nao tem mais nenhum</span></span></code></pre></div>
+</div>
+</div>
+<div id="ordenação-de-dados" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Ordenação de dados</h3>
+<p>Para ordenar matrizes e <code>data.frames</code>, é preciso entender a diferença entre duas funções:</p>
+<ul>
+<li><p><code>sort()</code> ordena um vetor e retorna os valores ordenados;</p></li>
+<li><p><code>order()</code> ordena um vetor e retorna os <strong>índices dos valores ordenados</strong>. É isso que deve ser utilizado para ordenar matrizes e <code>data.frames</code>.</p></li>
+</ul>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-1"></a>?sort</span>
+<span id="cb54-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-2"></a>?order</span>
+<span id="cb54-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-3"></a><span class="co">#ordenação</span></span>
+<span id="cb54-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-4"></a><span class="kw">str</span>(iris)  </span>
+<span id="cb54-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-5"></a></span>
+<span id="cb54-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-6"></a><span class="co">#funcao SORT()</span></span>
+<span id="cb54-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-7"></a>o1 =<span class="st"> </span><span class="kw">sort</span>(iris<span class="op">$</span>Sepal.Length) <span class="co">#pega os valores ordenados da coluna comprimento de sépala</span></span>
+<span id="cb54-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-8"></a>o1 <span class="co">#sao valores de sepalas do menor para o maior</span></span>
+<span id="cb54-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-9"></a><span class="co">#em ordem decrescente</span></span>
+<span id="cb54-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-10"></a>o2 =<span class="st"> </span><span class="kw">sort</span>(iris<span class="op">$</span>Sepal.Length,<span class="dt">decreasing=</span>T)</span>
+<span id="cb54-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-11"></a>o2 <span class="co">#sao valores de sepalas do maior para o menor</span></span>
+<span id="cb54-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-12"></a></span>
+<span id="cb54-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-13"></a><span class="co">#FUNCAO order()</span></span>
+<span id="cb54-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-14"></a><span class="co">#qual o indice dos valores ordenados em ordem crescente?</span></span>
+<span id="cb54-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-15"></a>o3 =<span class="st"> </span><span class="kw">order</span>(iris<span class="op">$</span>Sepal.Length)</span>
+<span id="cb54-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-16"></a>o3 <span class="co">#esses valores correspondem aos INDICES dos valores ordenados</span></span>
+<span id="cb54-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-17"></a><span class="co">#entao para ver os valores ordenados</span></span>
+<span id="cb54-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-18"></a>iris<span class="op">$</span>Sepal.Length[o3]</span>
+<span id="cb54-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-19"></a><span class="co">#então isso deve ser totalmente verdadeiro: </span></span>
+<span id="cb54-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-20"></a>iris<span class="op">$</span>Sepal.Length[o3]<span class="op">==</span><span class="kw">sort</span>(iris<span class="op">$</span>Sepal.Length) <span class="co">#as comparações para a par são identicas</span></span>
+<span id="cb54-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-21"></a><span class="co">#então esta expressão também é verdadeira:</span></span>
+<span id="cb54-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-22"></a><span class="kw">sum</span>(iris<span class="op">$</span>Sepal.Length[o3]<span class="op">==</span><span class="kw">sort</span>(iris<span class="op">$</span>Sepal.Length))<span class="op">==</span><span class="kw">nrow</span>(iris)</span>
+<span id="cb54-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-23"></a></span>
+<span id="cb54-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-24"></a><span class="co">#portanto a função sort ordena os valores e funcao order mostra apenas os indices dos valores ordenados. Assim, posso usar a funcao order() para ordenar data.frames, matrizes e vetores</span></span>
+<span id="cb54-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-25"></a>idx =<span class="st"> </span><span class="kw">order</span>(iris<span class="op">$</span>Sepal.Length) <span class="co">#indice das linhas ordenadas segundo o comprimento das sepalas</span></span>
+<span id="cb54-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-26"></a><span class="co">#compara com o original:</span></span>
+<span id="cb54-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-27"></a><span class="kw">sum</span>(iris<span class="op">$</span>Sepal.Length[idx]<span class="op">==</span>iris<span class="op">$</span>Sepal.Length)<span class="op">==</span><span class="kw">nrow</span>(iris) <span class="co">#é FALSO porque em iris as linhas não estão originalmente ordenadas segundo o comprimento. </span></span>
+<span id="cb54-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-28"></a></span>
+<span id="cb54-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-29"></a><span class="co">#vamos mudar isso</span></span>
+<span id="cb54-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-30"></a>novo.iris =<span class="st"> </span>iris[idx,] <span class="co">#pego o vetor de indices dos valores ordenados e uso na indexacao para ordenar o objeto original segunda a coluna escolhida</span></span>
+<span id="cb54-31"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-31"></a>idx2 =<span class="st"> </span><span class="kw">order</span>(novo.iris<span class="op">$</span>Sepal.Length) <span class="co">#indice das linhas ordenadas segundo o comprimento das sepalas</span></span>
+<span id="cb54-32"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-32"></a><span class="co">#note que agora essa expressão é verdadeira, porque o original já está ordenado segundo essa coluna</span></span>
+<span id="cb54-33"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-33"></a><span class="kw">sum</span>(novo.iris<span class="op">$</span>Sepal.Length[idx2]<span class="op">==</span>novo.iris<span class="op">$</span>Sepal.Length)<span class="op">==</span><span class="kw">nrow</span>(novo.iris) <span class="co">#é FALSO </span></span>
+<span id="cb54-34"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-34"></a></span>
+<span id="cb54-35"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-35"></a></span>
+<span id="cb54-36"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-36"></a><span class="co">#AGORA ORDENANDO POR MULTIPLAS COLUNAS</span></span>
+<span id="cb54-37"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-37"></a>idx =<span class="st"> </span><span class="kw">order</span>(iris<span class="op">$</span>Species,iris<span class="op">$</span>Sepal.Length, <span class="dt">decreasing=</span><span class="ot">TRUE</span>) <span class="co">#por especie e por sepala em ordem decrescente</span></span>
+<span id="cb54-38"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-38"></a></span>
+<span id="cb54-39"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-39"></a><span class="co">#ordena segundo essas duas colunas</span></span>
+<span id="cb54-40"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-40"></a>novo.iris =<span class="st"> </span>iris[idx,]</span>
+<span id="cb54-41"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-41"></a>novo.iris[,<span class="kw">c</span>(<span class="st">&quot;Species&quot;</span>,<span class="st">&quot;Sepal.Length&quot;</span>)]</span>
+<span id="cb54-42"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-42"></a></span>
+<span id="cb54-43"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-43"></a><span class="co">#para cada especie esta ordenado por sepala:</span></span>
+<span id="cb54-44"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-44"></a>novo.iris[novo.iris<span class="op">$</span>Species<span class="op">==</span><span class="st">&quot;versicolor&quot;</span>,]<span class="op">$</span>Sepal.Length  </span>
+<span id="cb54-45"><a href="objeto-ii-matrizes-e-data-frames.html#cb54-45"></a>novo.iris[novo.iris<span class="op">$</span>Species<span class="op">==</span><span class="st">&quot;virginica&quot;</span>,]<span class="op">$</span>Sepal.Length  </span></code></pre></div>
+</div>
+</div>
+<div id="importanto-e-exportando-dados-no-r" class="section level2">
+<h2><span class="header-section-number">5.4</span> Importanto e exportando dados no R</h2>
+<blockquote>
+<p>ATENÇÃO! Se você utiliza Windows, e no seu gerenciador de arquivos os arquivos aparecem sem <strong>extensão</strong> (<code>.csv</code>, <code>.txt</code>, <code>.doc</code> etc.), mude nas suas preferências para não <strong>ocultar extensões de arquivos conhecidos</strong>. Dessa forma você consegue ver os arquivos pelo tipo (extensão).</p>
+</blockquote>
+<p>Existem diversas funções para importar dados para objetos do R, incluindo funções para ler arquivos do Excel (<code>.xls</code>, ou <code>.xlsx</code>), arquivos XML, arquivos <code>*.DBF</code> etc.
+O R também tem pacotes que interagem diretamente com bancos de dados (mysql, postgres, sql etc.).
+Não cobriremos a importação desses tipos aqui, mas você pode pesquisar sozinho no rede.</p>
+<p>É frequente encontrarmos problemas de acentuação e na transferibilidade entre sistemas operacionais diferentes (Mac, Linux, Windows).
+A palavra chave aqui é <a href="https://en.wikipedia.org/wiki/Character_encoding">codificação de caracteres</a> (em inglês, “character encoding”).</p>
+<div id="arquivos-de-texto-simples-para-estocar-dados" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Arquivos de texto simples para estocar dados</h3>
+<p>Muitos dados que obtemos online e os próprios scripts do R são do formato mais simples que existe, que são arquivos de texto, geralmente arquivos salvos com extensões <code>.csv</code> ou <code>.txt</code>.
+Arquivos desse tipo podem ser abertos em qualquer editor de texto, em qualquer sistema operacional e em qualquer versão.
+Isso garante arquivamento, longevidade e transferibilidade.
+Portanto, é a melhor forma de salvar seus dados e compartilhá-los.</p>
+<p>Qualquer arquivo desse tipo pode ser lido pelos os editores de script do R ou RStudio.
+Pode também exportar planilhas do Excel ou LibreOffice (e afins) para esse formato.
+Vamos nos concentrar neste curso em lidar com arquivos deste tipo.</p>
+<p>É importante atentar em arquivos de texto contendo dados tabulados para:</p>
+<ul>
+<li><p>O <strong>separador</strong> das colunas pode ser <code>;</code>, tabulação (no R = ’‘’), <code>,</code>, ou qualquer símbolo que indique a separação das colunas (ou seja não está nas células);</p></li>
+<li><p>Casas decimais podem ser separadas por <code>.</code> ou <code>,</code>.</p></li>
+</ul>
+<blockquote>
+<p>DICA: Procure saber como seus dados estão antes de tentar importá-los, de forma a indicar corretamente o delimitador e o separador das casas decimais adequados. Você evitará assim muita dor de cabeça!</p>
+</blockquote>
+<ul>
+<li>Datas - colunas com datas constituem um objeto de classe <code>date</code> no R, que a converte em número que pode ser usado em operações matemáticas. Dependendo de como seus dados estão formatados no original, é comum a inversão de mês com dia entre, por exemplo, o sistema inglês (MM-DD-YYYY) e o sistema português (DD-MM-YYYY). Tenha controle disso!</li>
+</ul>
+<p>Por isso, recomenda-se que:</p>
+<ul>
+<li><p>Defina um padrão que você sempre usará para formatar seus dados ANTES de importá-los ao R. Dessa forma você irá memorizar rapidamente como importar os dados do jeito que você sempre prepara;</p></li>
+<li><p>Padronize a codificação dos caracteres (UTF8 é padrão Mac e Linux; Latin1 é padrão Windows) em arquivos <code>.txt</code>;</p></li>
+<li><p>Padronize o separador de casa decimal (ponto ou vírgula?);</p></li>
+<li><p>Pradonize a quebra de linha, i.e., o que indica no texto o início de uma nova linha (novamente, isso é diferente entre Mac, Linux e Windows);</p></li>
+<li><p>Padronize se colunas de texto vão entre aspas;</p></li>
+<li><p>Padronize como você dá nome às colunas; nome de colunas e de linhas não devem ser muito longos, e deve-se <strong>evitar acentos ou espaços em branco em nomes de colunas</strong>. Isso é muito importante!</p></li>
+<li><p>Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, anto para ler como para salvar arquivos de planilhas.</p></li>
+</ul>
+</div>
+<div id="importando-dados" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Importando dados</h3>
+<div id="pacote-base-do-r" class="section level4">
+<h4><span class="header-section-number">5.4.2.1</span> Pacote base do R</h4>
+<p>A principal função para importar dados no R é <code>read.table()</code>.
+Ela funciona para importar arquivos em formato de texto simples (<code>.csv</code>, <code>.txt</code>).</p>
+<p>Vamos utilizar um arquivo contendo as coordenadas geográficas dos municípios brasileiros para praticar a importação dos dados (<a href="http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv" class="uri">http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv</a>).
+Baixe-o para a sua pasta de trabalho.</p>
+<p>Em seguida, abra o arquivo com um editor de texto simples (Bloco de Notas, Notepad++, TextWrangler, Gedit, etc.) e veja como ele está formatado.
+Verifique:</p>
+<ul>
+<li><p>Qual é o separador de colunas?;</p></li>
+<li><p>Qual é a codificação dos caracteres? (consegue ver e editar isso no seu editor?);</p></li>
+<li><p>Qual é a quebra de linha? (consegue ver e editar isso no seu editor?</p></li>
+<li><p>Aspas duplas ou simples definem colunas? (este arquivo não tem nenhuma aspas!)</p></li>
+</ul>
+<p>Vamos agora abrir este arquivo no LibreOffice (ou similar, como o Excel).
+Busque os comandos de importação para poder importar o arquivo de texto<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.
+Veja os controles na importação quanto aos elementos acima:</p>
+<ul>
+<li><p>Salve o arquivo como <code>*.ods</code>;</p></li>
+<li><p>Salve novamente como <code>*.csv</code> - veja como você tem controle na exportação quanto aos elementos acima.</p></li>
+</ul>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-1"></a><span class="co"># se você colocou o arquivo na sua pasta de trabalho, ele deve estar visível por</span></span>
+<span id="cb55-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-2"></a><span class="kw">dir</span>(<span class="dt">pattern =</span> <span class="st">&quot;csv&quot;</span>)</span>
+<span id="cb55-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-3"></a><span class="co"># então posso ler sem precisar especificar o caminho até o arquivo</span></span>
+<span id="cb55-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-4"></a><span class="co"># veja o help da função antes de começar</span></span>
+<span id="cb55-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-5"></a>?read.table</span>
+<span id="cb55-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-6"></a><span class="co"># os seguintes argumentos são mais importantes:</span></span>
+<span id="cb55-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-7"></a><span class="co"># sep = &quot; &quot; #o codigo que separa as colunas, o padrão é espaço</span></span>
+<span id="cb55-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-8"></a><span class="co"># quote = &quot;\&quot;&#39;&quot;  #o que define células de texto - o padrão é interpretar tanto aspa simples como dupla presentes</span></span>
+<span id="cb55-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-9"></a><span class="co"># dec = &quot;.&quot; #ponto é a casa decimal padrão</span></span>
+<span id="cb55-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-10"></a><span class="co"># header = FALSE #a primeira linha não tem o nome de colunas</span></span>
+<span id="cb55-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-11"></a><span class="co"># as.is = FALSE #o padrão é converter texto em fatores, se usar T não fará isso</span></span>
+<span id="cb55-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-12"></a><span class="co"># na.strings #se definir, pode informar aqui que símbolos em células inteiras que sejam interpretados como valores ausentes (NA)</span></span>
+<span id="cb55-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-13"></a><span class="co"># encoding #codificação da acentuação. o padrão é &#39;unknown&#39; (desconhecido), na qual ele reconhece segundo o sistema operacional. As opções mais usadas são &#39;latin1&#39; ou &#39;utf8&#39; e alterne com isso se você tem problemas com acentos.</span></span>
+<span id="cb55-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-14"></a></span>
+<span id="cb55-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-15"></a><span class="co"># o arquivo original tem os seguintes formatos:</span></span>
+<span id="cb55-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-16"></a><span class="co"># colunas separadas por tabulação (no R isso é definido pela expressão regular &quot;\t&quot;)</span></span>
+<span id="cb55-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-17"></a><span class="co"># decimal com ponto</span></span>
+<span id="cb55-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-18"></a><span class="co"># não tem aspas definindo as colunas de texto.</span></span>
+<span id="cb55-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-19"></a><span class="co"># a primeira linha é o nome das colunas.</span></span>
+<span id="cb55-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-20"></a><span class="co"># Então, para ler posso usar:</span></span>
+<span id="cb55-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-21"></a>dd &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header =</span> T)</span>
+<span id="cb55-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-22"></a><span class="kw">class</span>(dd) <span class="co"># data.frame</span></span>
+<span id="cb55-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-23"></a><span class="kw">dim</span>(dd) <span class="co"># dimensão do objeto</span></span>
+<span id="cb55-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-24"></a><span class="kw">head</span>(dd) <span class="co"># cabeçalho do data.frame</span></span>
+<span id="cb55-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-25"></a></span>
+<span id="cb55-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-26"></a><span class="co"># veja o que aconteceria se eu achasse que no meu arquivo as colunas são separadas por vírgula</span></span>
+<span id="cb55-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-27"></a>dd2 &lt;-<span class="st">   </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> T)</span>
+<span id="cb55-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-28"></a><span class="kw">head</span>(dd2)</span>
+<span id="cb55-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-29"></a><span class="kw">dim</span>(dd2) <span class="co"># apenas 1 coluna, porque o separador informado não é o mesmo dos dados</span></span>
+<span id="cb55-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-30"></a></span>
+<span id="cb55-31"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-31"></a><span class="co"># e se o encoding do meu arquivo estiver errado?</span></span>
+<span id="cb55-32"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-32"></a>dd3 &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header =</span> T, <span class="dt">encoding =</span> <span class="st">&quot;latin1&quot;</span>)</span>
+<span id="cb55-33"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-33"></a>dd3[<span class="dv">5562</span>,] <span class="co"># veja o que aconteceu com os acentos nessa linha</span></span>
+<span id="cb55-34"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-34"></a>dd[<span class="dv">5562</span>,] <span class="co"># no original o encoding não é &quot;latin1&quot;</span></span>
+<span id="cb55-35"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-35"></a></span>
+<span id="cb55-36"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-36"></a><span class="co"># veja a estrutura do objeto correto</span></span>
+<span id="cb55-37"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-37"></a><span class="kw">str</span>(dd)</span>
+<span id="cb55-38"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-38"></a><span class="co"># Poxa, todas as colunas são fatores, mesmo as colunas Latitude e Longitude que são numéricas.</span></span>
+<span id="cb55-39"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-39"></a><span class="co"># Deve ter algum valor nessas colunas que não são numéricos.</span></span>
+<span id="cb55-40"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-40"></a><span class="co"># Quais são?</span></span>
+<span id="cb55-41"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-41"></a>vl &lt;-<span class="st"> </span><span class="kw">is.na</span>(<span class="kw">as.numeric</span>(<span class="kw">as.vector</span>(dd<span class="op">$</span>Latitude))) <span class="co"># quais são NA quando eu converto para numérico? Pois esses devem ser valores de texto e não numéricos. Note que converti o fator para vetor antes de converter para numérico. A função is.na pergunta o que é NA, pois os textos que não podem ser convertidos para número serão valores ausentes (NA)</span></span>
+<span id="cb55-42"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-42"></a><span class="kw">sum</span>(vl)</span>
+<span id="cb55-43"><a href="objeto-ii-matrizes-e-data-frames.html#cb55-43"></a>dd[vl,] <span class="co"># essas linhas tem a palavra &quot;NULL&quot; para Latitude e Longitude no arquivo original (volte lá para confirmar), e o R não reconheceu isso como ausente NA. Como vetores devem ser da mesma classe, os números dessas colunas foram codificados como texto e as colunas convertidas a fatores de texto que é o padrão da função read.table()</span></span></code></pre></div>
+<p>Podemos usar o argumento <code>na.strings</code> para corrigir isso durante a importação:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-1"></a>dd4 &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header =</span> T, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb56-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-2"></a><span class="co"># qualquer CELULA INTEIRA que contenha NULL ou NA ou esteja vazia SERÁ INTERPRETADA COMO VALOR AUSENTE e codificada como NA no R.</span></span>
+<span id="cb56-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-3"></a><span class="kw">str</span>(dd4)</span>
+<span id="cb56-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-4"></a><span class="co"># note que agora as colunas Latitude e Longitude foram interpretadas como número</span></span>
+<span id="cb56-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-5"></a></span>
+<span id="cb56-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-6"></a><span class="co"># mas o que acontece se informamos mal a casa decimal?</span></span>
+<span id="cb56-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-7"></a>dd5 &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header =</span> T, <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb56-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-8"></a><span class="kw">str</span>(dd5)</span>
+<span id="cb56-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-9"></a><span class="co"># como tem ponto como definição de casa decimal no arquivo de dados, as colunas numéricas foram novamente interpretadas como texto.</span></span>
+<span id="cb56-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-10"></a></span>
+<span id="cb56-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-11"></a><span class="co"># Texto como vetores ou fatores?</span></span>
+<span id="cb56-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-12"></a>dd4 &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header =</span> T, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb56-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-13"></a><span class="kw">str</span>(dd4) <span class="co"># todas as colunas de texto neste objeto foram interpretadas como fatores</span></span>
+<span id="cb56-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-14"></a><span class="co"># o argumento as.is permite corrigir isso. &quot;as is&quot; significa &quot;como está&quot; nos dados originais, então valores de texto são lidos como vetores de caracteres não codificados em fatores.</span></span>
+<span id="cb56-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-15"></a>dd6 &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>,</span>
+<span id="cb56-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-16"></a>    <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb56-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-17"></a>    <span class="dt">header =</span> T,</span>
+<span id="cb56-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-18"></a>    <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>,</span>
+<span id="cb56-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-19"></a>    <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>),</span>
+<span id="cb56-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-20"></a>    <span class="dt">as.is =</span> <span class="ot">TRUE</span></span>
+<span id="cb56-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-21"></a>  )</span>
+<span id="cb56-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-22"></a><span class="kw">str</span>(dd6) <span class="co"># diferentemente do objeto anterior, não há mais fatores</span></span>
+<span id="cb56-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-23"></a></span>
+<span id="cb56-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-24"></a><span class="co"># Lembram que colocamos o endereco do arquivo mais acima?</span></span>
+<span id="cb56-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-25"></a><span class="co"># podemos usar um endereco da internet para baixar um arquivo</span></span>
+<span id="cb56-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-26"></a>dd7 &lt;-</span>
+<span id="cb56-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-27"></a><span class="st">  </span><span class="kw">read.table</span>(</span>
+<span id="cb56-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-28"></a>    <span class="st">&quot;http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv&quot;</span>,</span>
+<span id="cb56-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-29"></a>    <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb56-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-30"></a>    <span class="dt">header =</span> <span class="ot">TRUE</span></span>
+<span id="cb56-31"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-31"></a>  )</span>
+<span id="cb56-32"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-32"></a>dd7</span>
+<span id="cb56-33"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-33"></a><span class="kw">head</span>(dd7)</span>
+<span id="cb56-34"><a href="objeto-ii-matrizes-e-data-frames.html#cb56-34"></a><span class="co"># a função read.table tem vários outros argumentos. Veja o help e entenda isso bem.</span></span></code></pre></div>
+</div>
+<div id="pacote-readr" class="section level4">
+<h4><span class="header-section-number">5.4.2.2</span> Pacote readr</h4>
+<p>A principal função para ler arquivos do pacote <code>readr</code> se chama <code>read_delim()</code>.
+Funciona de maneira parecida com o <code>read.table()</code> com algumas pequenas diferenças: não converte colunas de texto que possam ser categorizadas em fatores (<code>read.table()</code> faz isso por padrão), retorna um <code>tibble</code> no lugar de um data.frame (<code>tibbles</code> são <code>data.frames</code> diferentes na maneira como aparecem no console; além de mostrar apenas uma porção dos dados, para cada coluna há a indicação do tipo de variável presente), assume por padrão que o dado importado possui cabeçalho.
+Existem outras diferenças que podem ser melhor entendidas na página do pacote (<a href="https://github.com/tidyverse/readr" class="uri">https://github.com/tidyverse/readr</a>).
+Os argumentos possuem nomes diferentes do que os utilizados em <code>read.table()</code> e, como este, importa arquivos em formato de texto simples (<em>.csv</em> , <em>.txt</em>).</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-1"></a><span class="co"># pacote readr</span></span>
+<span id="cb57-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-2"></a><span class="co"># usando como exemplo o mesmo arquivo municipiosbrasil.csv</span></span>
+<span id="cb57-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-3"></a><span class="kw">library</span>(<span class="st">&quot;readr&quot;</span>)</span>
+<span id="cb57-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-4"></a>rr1 &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb57-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-5"></a>rr1</span>
+<span id="cb57-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-6"></a>dd7</span>
+<span id="cb57-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-7"></a><span class="kw">dim</span>(rr1)</span>
+<span id="cb57-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-8"></a><span class="kw">dim</span>(dd7)</span>
+<span id="cb57-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-9"></a>rr2 &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb57-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb57-10"></a>rr2</span></code></pre></div>
+</div>
+<div id="pacote-data.table" class="section level4">
+<h4><span class="header-section-number">5.4.2.3</span> Pacote data.table</h4>
+<p>A principal função para ler arquivos do pacote <code>data.table</code> se chama <code>fread()</code>.
+Este pacote é muito conhecido devido à velocidade de suas ações, funcionando perfeitamente para dados grandes.
+Esta função possui uma particularidade: o usuário não precisa indicar o separador; automaticamente ele descobre o separador e lê o arquivo.
+Em casos especiais, é necessário a indicação do separador com o argumento <code>sep</code>, igual ao <code>read.table()</code>.
+Ao ler um arquivo, a função retorna também um <code>data.frame</code>, porém com certas particularidades quanto à impressão do resultado na tela do console, como acontece com a função <code>read_delim()</code> do pacote <code>readr</code>.
+Mais informações, leiam atentamente o site do pacote: <a href="https://github.com/Rdatatable/data.table" class="uri">https://github.com/Rdatatable/data.table</a>.
+O pacote como um todo é uma excelente ferramenta na manipulação de dados.
+Como os pacotes citados acima, esta função é capaz de importar arquivos em formato de texto simples (<code>.csv</code> , <code>.txt</code>).</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb58-1"></a><span class="co"># pacote data.table</span></span>
+<span id="cb58-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb58-2"></a><span class="co"># usando como exemplo o mesmo arquivo municipiosbrasil.csv</span></span>
+<span id="cb58-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb58-3"></a><span class="kw">library</span>(<span class="st">&quot;data.table&quot;</span>)</span>
+<span id="cb58-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb58-4"></a>dt1 &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;municipiosbrasil.csv&quot;</span>)</span>
+<span id="cb58-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb58-5"></a>dt1</span>
+<span id="cb58-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb58-6"></a>dt2 &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv&quot;</span>)</span>
+<span id="cb58-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb58-7"></a>dt2</span></code></pre></div>
+</div>
+<div id="importando-do-excel-diretamente" class="section level4">
+<h4><span class="header-section-number">5.4.2.4</span> Importando do Excel diretamente</h4>
+<p>Os principais erros aqui podem ser por células unidas, cabeçalhos no topo da planilha, e acentos.
+Veja o <code>?</code> das funções usadas para conhecer parâmetros opcionais para resolver esses possíveis problemas.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-1"></a><span class="co"># instale o pacote</span></span>
+<span id="cb59-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-2"></a><span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb59-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-3"></a></span>
+<span id="cb59-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-4"></a><span class="co"># se o arquivo for xls</span></span>
+<span id="cb59-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-5"></a><span class="co"># Salve o arquivo municipiosbrasil.csv como xlsx ou xls</span></span>
+<span id="cb59-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-6"></a>meuxlsx &lt;-<span class="st"> &quot;municipiosbrasil.xlsx&quot;</span></span>
+<span id="cb59-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-7"></a>dd &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="dt">path =</span> meuxlsx, <span class="dt">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb59-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-8"></a>dd</span>
+<span id="cb59-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-9"></a>dd &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(dd)</span>
+<span id="cb59-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-10"></a>dd</span>
+<span id="cb59-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-11"></a></span>
+<span id="cb59-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-12"></a><span class="co"># se o arquivo for xls</span></span>
+<span id="cb59-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-13"></a>meuxls &lt;-<span class="st"> &quot;municipiosbrasil.xls&quot;</span></span>
+<span id="cb59-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-14"></a>dd &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="dt">path =</span> meuxls, <span class="dt">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb59-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-15"></a>dd</span>
+<span id="cb59-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-16"></a>dd &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(dd)</span>
+<span id="cb59-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb59-17"></a>dd</span></code></pre></div>
+</div>
+</div>
+<div id="exportando-dados" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> Exportando dados</h3>
+<div id="pacote-base-do-r-1" class="section level4">
+<h4><span class="header-section-number">5.4.3.1</span> Pacote base do R</h4>
+<p>A principal função do pacote base do R se chama <code>write.table()</code> e trata-se da função base para exportar seus dados do R.
+Ela funciona para exportar arquivos em formato de texto simples (<code>.csv</code>, <code>.txt</code>) e usa basicamente os mesmos argumentos da função <code>read.table()</code>.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-1"></a>?write.table <span class="co"># veja o help - recomendo usar essa função genérica e evitar de usar atalhos tipo write.csv, que no fundo usam esta mesma função</span></span>
+<span id="cb60-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-2"></a></span>
+<span id="cb60-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-3"></a><span class="co"># vamos usar o mesmo arquivo</span></span>
+<span id="cb60-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-4"></a><span class="kw">dir</span>(<span class="dt">pattern =</span> <span class="st">&quot;csv&quot;</span>)</span>
+<span id="cb60-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-5"></a><span class="co"># ler o arquivo para o R para ter algo a exportar</span></span>
+<span id="cb60-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-6"></a>dd &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header =</span> T, <span class="dt">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>), <span class="dt">as.is =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb60-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-7"></a><span class="kw">str</span>(dd) <span class="co"># diferentemente do objeto anterior, não há mais fatores</span></span>
+<span id="cb60-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-8"></a></span>
+<span id="cb60-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-9"></a><span class="co"># filtrando apenas para municipios do Amazonas:</span></span>
+<span id="cb60-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-10"></a>vl &lt;-<span class="st"> </span>dd<span class="op">$</span>Province <span class="op">%in%</span><span class="st"> &quot;Amazonas&quot;</span></span>
+<span id="cb60-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-11"></a><span class="kw">sum</span>(vl) <span class="co"># quantos são?</span></span>
+<span id="cb60-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-12"></a><span class="co"># ou, desse jeito que é identico:</span></span>
+<span id="cb60-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-13"></a>vl &lt;-<span class="st"> </span>dd<span class="op">$</span>Province <span class="op">==</span><span class="st"> &quot;Amazonas&quot;</span></span>
+<span id="cb60-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-14"></a><span class="kw">sum</span>(vl)</span>
+<span id="cb60-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-15"></a>dd.am &lt;-<span class="st"> </span>dd[vl, ]</span>
+<span id="cb60-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-16"></a><span class="kw">nrow</span>(dd.am) <span class="op">==</span><span class="st"> </span><span class="kw">sum</span>(vl) <span class="co"># deve ser verdadeiro, certo?</span></span>
+<span id="cb60-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-17"></a></span>
+<span id="cb60-18"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-18"></a><span class="co"># salvando esses dados num novo arquivo com diferentes formatações:</span></span>
+<span id="cb60-19"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-19"></a><span class="co"># separado por tabulação e textos sem aspas e células NA sem nada</span></span>
+<span id="cb60-20"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-20"></a><span class="kw">write.table</span>(dd.am, <span class="dt">file =</span> <span class="st">&quot;muni-am1.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>, <span class="dt">quote =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb60-21"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-21"></a><span class="co"># separado por tabulação e textos com aspas e células NA sem nada</span></span>
+<span id="cb60-22"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-22"></a><span class="kw">write.table</span>(dd.am, <span class="dt">file =</span> <span class="st">&quot;muni-am2.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>, <span class="dt">quote =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb60-23"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-23"></a></span>
+<span id="cb60-24"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-24"></a><span class="co"># separado por vírgula e textos com aspas e células NA com a palavra valor.ausente</span></span>
+<span id="cb60-25"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-25"></a><span class="kw">write.table</span>(dd.am, <span class="dt">file =</span> <span class="st">&quot;muni-am3.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;valor.ausente&quot;</span>, <span class="dt">quote =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb60-26"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-26"></a></span>
+<span id="cb60-27"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-27"></a><span class="co"># separado por vírgula e textos com aspas e células NA vazios e não adicona nomes das linhas como primeira coluna (row.names=FALSE). Pode deslocar a primeira linha na sua planilha SE você NAO USAR este argumento)</span></span>
+<span id="cb60-28"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-28"></a><span class="kw">write.table</span>(dd.am, <span class="dt">file =</span> <span class="st">&quot;muni-am4.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>, <span class="dt">quote =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb60-29"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-29"></a></span>
+<span id="cb60-30"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-30"></a><span class="co"># separado por tabulação e textos sem aspas e células NA vazias, sem nomes das linhas, e quebra de linha no formato do windows (eol = &quot;\r\n&quot;)</span></span>
+<span id="cb60-31"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-31"></a><span class="kw">write.table</span>(dd.am, <span class="dt">file =</span> <span class="st">&quot;muni-am5.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;&quot;</span>, <span class="dt">quote =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, <span class="dt">eol =</span> <span class="st">&quot;</span><span class="ch">\r\n</span><span class="st">&quot;</span>)</span>
+<span id="cb60-32"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-32"></a></span>
+<span id="cb60-33"><a href="objeto-ii-matrizes-e-data-frames.html#cb60-33"></a><span class="co"># ABRA OS ARQUIVOS GERADOS NO SEU EDITOR DE TEXTO E COMPARE AS FORMATAÇÕES GERADAS</span></span></code></pre></div>
+</div>
+<div id="pacote-readr-1" class="section level4">
+<h4><span class="header-section-number">5.4.3.2</span> Pacote <code>readr</code></h4>
+<p>A principal função do pacote <code>readr</code> se chama <code>write_delim</code> e exporta <code>data.frames</code> em formato de texto simples (<em>.csv, </em>.txt), utilizando basicamente os mesmos argumentos da função <code>read_delim</code>, pertencente ao mesmo pacote.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb61-1"></a><span class="co"># exportando dados com pacote readr</span></span>
+<span id="cb61-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb61-2"></a><span class="co"># utilizando mesmo objeto criado com pacote base</span></span>
+<span id="cb61-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb61-3"></a><span class="kw">write_delim</span>(dd.am, <span class="st">&quot;muni-am6.csv&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb61-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb61-4"></a><span class="kw">write_delim</span>(dd.am, <span class="st">&quot;muni-am7.csv&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;;&quot;</span>)</span></code></pre></div>
+</div>
+<div id="pacote-data.table-1" class="section level4">
+<h4><span class="header-section-number">5.4.3.3</span> Pacote <code>data.table</code></h4>
+<ul>
+<li><code>fwrite</code> - principal função do pacote data.table para exportar <code>data.frames</code> em formato de texto simples (<em>.csv, </em>.txt) e usa basicamente os mesmos argumentos da função <code>read_delim</code>, pertencente ao mesmo pacote.</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb62-1"></a><span class="co"># exportando dados com pacote data.table</span></span>
+<span id="cb62-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb62-2"></a><span class="co"># utilizando mesmo objeto criado com pacote base</span></span>
+<span id="cb62-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb62-3"></a><span class="kw">fwrite</span>(dd.am, <span class="st">&quot;muni-am8.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="outras-funções-úteis" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> Outras funções úteis</h3>
+<p>A função <code>scan()</code> lê um arquivo de texto em qualquer formato para um vetor ou lista no R.
+Trata-se de uma função genérica que é bom memorizar.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-1"></a><span class="co"># vamos usar o mesmo arquivo</span></span>
+<span id="cb63-2"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-2"></a><span class="kw">dir</span>(<span class="dt">pattern =</span> <span class="st">&quot;csv&quot;</span>)</span>
+<span id="cb63-3"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-3"></a><span class="co"># esta função é muito util para ler linha por linha um arquivo de texto que você quer explorar.</span></span>
+<span id="cb63-4"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-4"></a>dd &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">what =</span> <span class="st">&quot;complex&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb63-5"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-5"></a><span class="kw">class</span>(dd)</span>
+<span id="cb63-6"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-6"></a><span class="kw">length</span>(dd) <span class="co"># cada linha é um elemento do vetor</span></span>
+<span id="cb63-7"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-7"></a>dd[<span class="dv">1</span>]</span>
+<span id="cb63-8"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-8"></a><span class="co"># usando tabulação</span></span>
+<span id="cb63-9"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-9"></a>dd2 &lt;-<span class="st"> </span><span class="kw">scan</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">what =</span> <span class="st">&quot;complex&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb63-10"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-10"></a><span class="kw">class</span>(dd2)</span>
+<span id="cb63-11"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-11"></a><span class="kw">length</span>(dd2) <span class="co"># cada célula é um elemento deste vetor</span></span>
+<span id="cb63-12"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-12"></a>dd2[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
+<span id="cb63-13"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-13"></a></span>
+<span id="cb63-14"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-14"></a><span class="co"># nao faz muito sentido com esses dados que tem formato de tabela, mas essa função pode ser usada com qualquer arquivo de tipo texto, por exemplo:</span></span>
+<span id="cb63-15"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-15"></a><span class="co"># de um artigo no qual você quer buscar palavras e tabular palavras chaves?</span></span>
+<span id="cb63-16"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-16"></a><span class="co"># num log de uma análise feita por outro software (nao no R) do qual você quer extrair resultados a partir da lógica complicada do texto de resultado)</span></span>
+<span id="cb63-17"><a href="objeto-ii-matrizes-e-data-frames.html#cb63-17"></a><span class="co"># etc.</span></span></code></pre></div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Isso é mais fácil de ser feito no LibreOffice/OpenOffice<a href="objeto-ii-matrizes-e-data-frames.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="objeto-i-vetores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="objeto-iii-listas-e-objetos-complexos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/blob/main/cap02_matrizes-dframes.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/cap02_matrizes-dframes.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

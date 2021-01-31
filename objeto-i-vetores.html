@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Objeto I - Vetores | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Objeto I - Vetores | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/LABOTAM.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Objeto I - Vetores | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini (INPA)" />
+<meta name="author" content="Ricardo de Oliveira Perdiz" />
+
+
+<meta name="date" content="2021-01-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="conceitos-introdutórios.html"/>
+<link rel="next" href="objeto-ii-matrizes-e-data-frames.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="2" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i><b>2</b> Pré-requisitos</a><ul>
+<li class="chapter" data-level="2.1" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-possua-um-computador"><i class="fa fa-check"></i><b>2.1</b> Caso você possua um computador</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-o-r"><i class="fa fa-check"></i><b>2.1.1</b> Instale o R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-um-ambiente-de-desenvolvimento-integrado"><i class="fa fa-check"></i><b>2.1.2</b> Instale um ambiente de desenvolvimento integrado</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i><b>2.2</b> Caso você não possua um computador</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html"><i class="fa fa-check"></i><b>3</b> Conceitos introdutórios</a><ul>
+<li class="chapter" data-level="3.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#console-e-scripts"><i class="fa fa-check"></i><b>3.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="3.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>3.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="3.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>3.3</b> R-Base e pacotes</a></li>
+<li class="chapter" data-level="3.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#ajuda-no-r"><i class="fa fa-check"></i><b>3.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="3.5" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>3.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="3.6" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>3.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="3.7" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>3.7</b> O R como calculadora</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#operadores"><i class="fa fa-check"></i><b>3.7.1</b> Operadores</a></li>
+<li class="chapter" data-level="3.7.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>3.7.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="3.7.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#funções-constantes-matemáticas"><i class="fa fa-check"></i><b>3.7.3</b> Funções &amp; constantes matemáticas</a></li>
+<li class="chapter" data-level="3.7.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#valor-na"><i class="fa fa-check"></i><b>3.7.4</b> NA e valores afins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html"><i class="fa fa-check"></i><b>4</b> Objeto I - Vetores</a><ul>
+<li class="chapter" data-level="4.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetores"><i class="fa fa-check"></i><b>4.1</b> Vetores &amp; Operações Vetoriais I</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>4.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="4.1.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>4.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>4.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="4.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>4.3</b> Funções com Vetores</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>4.3.1</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#classes"><i class="fa fa-check"></i><b>4.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="4.5" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#indexacao"><i class="fa fa-check"></i><b>4.5</b> Indexação</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>4.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="4.5.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>4.5.2</b> Usando índices de nomes</a></li>
+<li class="chapter" data-level="4.5.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-indexacao"><i class="fa fa-check"></i><b>4.5.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>4.6</b> Vetores e operadores lógicos</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#perg-vetores"><i class="fa fa-check"></i><b>4.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="4.6.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>4.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="4.6.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>4.6.3</b> Perguntando por valores ausentes - NA</a></li>
+<li class="chapter" data-level="4.6.4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-manip-texto"><i class="fa fa-check"></i><b>4.6.4</b> Para saber mais:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html"><i class="fa fa-check"></i><b>5</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="5.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>5.1</b> Matriz vs. <code>data.frame</code></a><ul>
+<li class="chapter" data-level="5.1.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-matrizes"><i class="fa fa-check"></i><b>5.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="5.1.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-data.frames"><i class="fa fa-check"></i><b>5.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>5.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>5.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matrizes"><i class="fa fa-check"></i><b>5.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="5.2.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#data.frame"><i class="fa fa-check"></i><b>5.2.2</b> <code>data.frame</code></a></li>
+<li class="chapter" data-level="5.2.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>5.2.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>5.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="5.3.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtragem-de-dados"><i class="fa fa-check"></i><b>5.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="5.3.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#ordenação-de-dados"><i class="fa fa-check"></i><b>5.3.2</b> Ordenação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>5.4</b> Importanto e exportando dados no R</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>5.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="5.4.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importando-dados"><i class="fa fa-check"></i><b>5.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="5.4.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#exportando-dados"><i class="fa fa-check"></i><b>5.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="5.4.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#outras-funções-úteis"><i class="fa fa-check"></i><b>5.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html"><i class="fa fa-check"></i><b>6</b> Objeto III - Listas e objetos complexos</a><ul>
+<li class="chapter" data-level="6.1" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#listas"><i class="fa fa-check"></i><b>6.1</b> Listas</a></li>
+<li class="chapter" data-level="6.2" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#obj-complexos"><i class="fa fa-check"></i><b>6.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="funções-gráficas.html"><a href="funções-gráficas.html"><i class="fa fa-check"></i><b>7</b> Funções gráficas</a><ul>
+<li class="chapter" data-level="7.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>7.1</b> Dispositivos Gráficos</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#função-plot"><i class="fa fa-check"></i><b>7.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="7.1.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>7.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="7.1.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>7.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="7.1.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>7.1.4</b> Dispositivos de Arquivos</a></li>
+<li class="chapter" data-level="7.1.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-vetoriais-pdf-ou-postscript"><i class="fa fa-check"></i><b>7.1.5</b> Figuras Vetoriais PDF ou POSTSCRIPT</a></li>
+<li class="chapter" data-level="7.1.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-raster"><i class="fa fa-check"></i><b>7.1.6</b> Figuras raster</a></li>
+<li class="chapter" data-level="7.1.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>7.1.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#par-graficos"><i class="fa fa-check"></i><b>7.2</b> Parâmetros gráficos dos dispositivos</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#conhecendo-os-parâmetros"><i class="fa fa-check"></i><b>7.2.1</b> Conhecendo os parâmetros</a></li>
+<li class="chapter" data-level="7.2.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-par-graficos"><i class="fa fa-check"></i><b>7.2.2</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#parâmetros-gráficos-parte-ii---símbolos-e-cores"><i class="fa fa-check"></i><b>7.3</b> Parâmetros gráficos parte II - Símbolos e cores</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>7.3.1</b> Tipo de símbolo - pch</a></li>
+<li class="chapter" data-level="7.3.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>7.3.2</b> Tamanho dos pontos - cex</a></li>
+<li class="chapter" data-level="7.3.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#linhas"><i class="fa fa-check"></i><b>7.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="7.3.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>7.3.4</b> Cores de símbolos - col e bg</a></li>
+<li class="chapter" data-level="7.3.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>7.3.5</b> Funções que definem cores</a></li>
+<li class="chapter" data-level="7.3.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-par-graficos-p2"><i class="fa fa-check"></i><b>7.3.6</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-alto-nivel"><i class="fa fa-check"></i><b>7.4</b> Funções gráficas de alto nível</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>7.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="7.4.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#hist"><i class="fa fa-check"></i><b>7.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="7.4.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#boxplot"><i class="fa fa-check"></i><b>7.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="7.4.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#barplot"><i class="fa fa-check"></i><b>7.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="7.4.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot.phylo"><i class="fa fa-check"></i><b>7.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="7.4.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#image-e-countour"><i class="fa fa-check"></i><b>7.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="7.4.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#map"><i class="fa fa-check"></i><b>7.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="7.4.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#xlim-e-ylim"><i class="fa fa-check"></i><b>7.4.8</b> xlim e ylim</a></li>
+<li class="chapter" data-level="7.4.9" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-graf-alto-nivel"><i class="fa fa-check"></i><b>7.4.9</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>7.5</b> Funções gráficas de baixo nível</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#legend"><i class="fa fa-check"></i><b>7.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="7.5.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#points"><i class="fa fa-check"></i><b>7.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="7.5.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#text-e-mtext"><i class="fa fa-check"></i><b>7.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="7.5.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#axis"><i class="fa fa-check"></i><b>7.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="7.5.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#abline"><i class="fa fa-check"></i><b>7.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="7.5.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>7.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="7.5.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#symbols"><i class="fa fa-check"></i><b>7.5.7</b> <code>symbols()</code></a></li>
+<li class="chapter" data-level="7.5.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-graf-baixo-nivel"><i class="fa fa-check"></i><b>7.5.8</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>7.6</b> Funções gráficas interativas</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#locator"><i class="fa fa-check"></i><b>7.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="7.6.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#identify"><i class="fa fa-check"></i><b>7.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html"><i class="fa fa-check"></i><b>8</b> Iteração e controle de fluxo</a><ul>
+<li class="chapter" data-level="8.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#funções-da-família-apply"><i class="fa fa-check"></i><b>8.1</b> Funções da família apply()</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-uma-matriz"><i class="fa fa-check"></i><b>8.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="8.1.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>8.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="8.1.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>8.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicionais"><i class="fa fa-check"></i><b>8.2</b> Condicionais</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if"><i class="fa fa-check"></i><b>8.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="8.2.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>8.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="8.2.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-ifelse"><i class="fa fa-check"></i><b>8.2.3</b> Condicional <code>ifelse()</code></a></li>
+<li class="chapter" data-level="8.2.4" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#sabermais-condic"><i class="fa fa-check"></i><b>8.2.4</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteracoes"><i class="fa fa-check"></i><b>8.3</b> Iterações</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for"><i class="fa fa-check"></i><b>8.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="8.3.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-while"><i class="fa fa-check"></i><b>8.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="8.3.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>8.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>8.4</b> Criando ou modificando funções</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-i"><i class="fa fa-check"></i><b>8.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="8.4.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-ii"><i class="fa fa-check"></i><b>8.4.2</b> Exemplo II</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html"><i class="fa fa-check"></i><b>9</b> Sumarização de dados</a><ul>
+<li class="chapter" data-level="9.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>9.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="9.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>9.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="9.3" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>9.3</b> Lógica da junção de tabelas</a></li>
+<li class="chapter" data-level="9.4" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>9.4</b> Junção de tabelas utilizando funções</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>9.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="9.4.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#unindo-tabelas-com-merge"><i class="fa fa-check"></i><b>9.4.2</b> Unindo tabelas com <code>merge()</code></a></li>
+<li class="chapter" data-level="9.4.3" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>9.4.3</b> Para saber mais</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html"><i class="fa fa-check"></i><b>10</b> Amostragens aleatórias</a><ul>
+<li class="chapter" data-level="10.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>10.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="10.2" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>10.2</b> Distribuições aleatórias</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuição-normal"><i class="fa fa-check"></i><b>10.2.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="10.2.2" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>10.2.2</b> Para saber mais:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html"><i class="fa fa-check"></i><b>11</b> Extraindo dados de colunas descritivas</a><ul>
+<li class="chapter" data-level="11.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dados-categóricos"><i class="fa fa-check"></i><b>11.1</b> Dados categóricos</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>11.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="11.1.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>11.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="11.1.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>11.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#listas-ref"><i class="fa fa-check"></i><b>11.2</b> Listas de referência</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#hábito-da-planta"><i class="fa fa-check"></i><b>11.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="11.2.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>11.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="11.2.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#classes-de-hábitat"><i class="fa fa-check"></i><b>11.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="11.2.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#textura-do-solo"><i class="fa fa-check"></i><b>11.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="11.2.5" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#exsudato"><i class="fa fa-check"></i><b>11.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>11.3</b> Extraindo altura e dap</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#altura"><i class="fa fa-check"></i><b>11.3.1</b> Altura</a></li>
+<li class="chapter" data-level="11.3.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dap"><i class="fa fa-check"></i><b>11.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#usando-essas-funções"><i class="fa fa-check"></i><b>11.4</b> Usando essas funções</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="suplementos.html"><a href="suplementos.html"><i class="fa fa-check"></i><b>12</b> Suplementos</a><ul>
+<li class="chapter" data-level="12.1" data-path="suplementos.html"><a href="suplementos.html#base-r-vs.-tidyverse"><i class="fa fa-check"></i><b>12.1</b> Base R vs. Tidyverse</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="suplementos.html"><a href="suplementos.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>12.1.1</b> O que é o Tidyverse?</a></li>
+<li class="chapter" data-level="12.1.2" data-path="suplementos.html"><a href="suplementos.html#usando-o-dplyr"><i class="fa fa-check"></i><b>12.1.2</b> Usando o <code>dplyr</code></a></li>
+<li class="chapter" data-level="12.1.3" data-path="suplementos.html"><a href="suplementos.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>12.1.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a></li>
+<li class="chapter" data-level="12.1.4" data-path="suplementos.html"><a href="suplementos.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>12.1.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="12.1.5" data-path="suplementos.html"><a href="suplementos.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>12.1.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a></li>
+<li class="chapter" data-level="12.1.6" data-path="suplementos.html"><a href="suplementos.html#baser"><i class="fa fa-check"></i><b>12.1.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a></li>
+<li class="chapter" data-level="12.1.7" data-path="suplementos.html"><a href="suplementos.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>12.1.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="12.1.8" data-path="suplementos.html"><a href="suplementos.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>12.1.8</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="suplementos.html"><a href="suplementos.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r"><i class="fa fa-check"></i><b>12.2</b> Baixar e descomprimir um arquivo zip usando o R</a></li>
+<li class="chapter" data-level="12.3" data-path="suplementos.html"><a href="suplementos.html#aulas-em-vídeo"><i class="fa fa-check"></i><b>12.3</b> Aulas em vídeo</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="suplementos.html"><a href="suplementos.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>12.3.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="12.3.2" data-path="suplementos.html"><a href="suplementos.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>12.3.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="12.3.3" data-path="suplementos.html"><a href="suplementos.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>12.3.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="12.3.4" data-path="suplementos.html"><a href="suplementos.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>12.3.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="12.3.5" data-path="suplementos.html"><a href="suplementos.html#listas-1"><i class="fa fa-check"></i><b>12.3.5</b> Listas</a></li>
+<li class="chapter" data-level="12.3.6" data-path="suplementos.html"><a href="suplementos.html#criando-matrizes-1"><i class="fa fa-check"></i><b>12.3.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="12.3.7" data-path="suplementos.html"><a href="suplementos.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>12.3.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="12.3.8" data-path="suplementos.html"><a href="suplementos.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>12.3.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="12.3.9" data-path="suplementos.html"><a href="suplementos.html#condicionais-1"><i class="fa fa-check"></i><b>12.3.9</b> Condicionais</a></li>
+<li class="chapter" data-level="12.3.10" data-path="suplementos.html"><a href="suplementos.html#funções-da-família-apply-1"><i class="fa fa-check"></i><b>12.3.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="12.3.11" data-path="suplementos.html"><a href="suplementos.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>12.3.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="12.3.12" data-path="suplementos.html"><a href="suplementos.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>12.3.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="12.3.13" data-path="suplementos.html"><a href="suplementos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>12.3.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="12.3.14" data-path="suplementos.html"><a href="suplementos.html#objetos-complexos"><i class="fa fa-check"></i><b>12.3.14</b> Objetos complexos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="informação-da-sessão.html"><a href="informação-da-sessão.html"><i class="fa fa-check"></i><b>13</b> Informação da sessão</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="objeto-i---vetores" class="section level1">
+<h1><span class="header-section-number">4</span> Objeto I - Vetores</h1>
+<div id="vetores" class="section level2">
+<h2><span class="header-section-number">4.1</span> Vetores &amp; Operações Vetoriais I</h2>
+<p>Vetor no R é um tipo de objeto que concatena múltiplos valores de uma mesma classe.
+É fundamental que você entenda vetores para poder entender objetos mais complexos.</p>
+<div id="criação-de-vetores" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Criação de Vetores</h3>
+<p>A função <code>c()</code> é usada na criação de vetores, ela combina ou concatena elementos:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="objeto-i-vetores.html#cb22-1"></a><span class="co"># um vetor de números</span></span>
+<span id="cb22-2"><a href="objeto-i-vetores.html#cb22-2"></a>v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="fl">3.14</span>, pi, <span class="fl">37.5</span>, <span class="dv">38</span>)</span>
+<span id="cb22-3"><a href="objeto-i-vetores.html#cb22-3"></a>v1</span>
+<span id="cb22-4"><a href="objeto-i-vetores.html#cb22-4"></a></span>
+<span id="cb22-5"><a href="objeto-i-vetores.html#cb22-5"></a><span class="co"># um vetor de texto</span></span>
+<span id="cb22-6"><a href="objeto-i-vetores.html#cb22-6"></a>v2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;maça&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;jabuticaba&quot;</span>)</span>
+<span id="cb22-7"><a href="objeto-i-vetores.html#cb22-7"></a>v2</span>
+<span id="cb22-8"><a href="objeto-i-vetores.html#cb22-8"></a></span>
+<span id="cb22-9"><a href="objeto-i-vetores.html#cb22-9"></a><span class="co"># essas constantes do R são vetores de texto</span></span>
+<span id="cb22-10"><a href="objeto-i-vetores.html#cb22-10"></a>LETTERS <span class="co"># letras maiusculas</span></span>
+<span id="cb22-11"><a href="objeto-i-vetores.html#cb22-11"></a>letters <span class="co"># letras minusculuas</span></span>
+<span id="cb22-12"><a href="objeto-i-vetores.html#cb22-12"></a>month.abb <span class="co"># meses abreviados</span></span>
+<span id="cb22-13"><a href="objeto-i-vetores.html#cb22-13"></a>month.name <span class="co"># meses por extenso</span></span>
+<span id="cb22-14"><a href="objeto-i-vetores.html#cb22-14"></a></span>
+<span id="cb22-15"><a href="objeto-i-vetores.html#cb22-15"></a><span class="co"># vetor lógico (veremos adiante como isso é importante)</span></span>
+<span id="cb22-16"><a href="objeto-i-vetores.html#cb22-16"></a>v3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)</span>
+<span id="cb22-17"><a href="objeto-i-vetores.html#cb22-17"></a>v3</span>
+<span id="cb22-18"><a href="objeto-i-vetores.html#cb22-18"></a><span class="co"># é o mesmo que</span></span>
+<span id="cb22-19"><a href="objeto-i-vetores.html#cb22-19"></a>v3 &lt;-<span class="st"> </span><span class="kw">c</span>(T, T, F, F)</span>
+<span id="cb22-20"><a href="objeto-i-vetores.html#cb22-20"></a></span>
+<span id="cb22-21"><a href="objeto-i-vetores.html#cb22-21"></a><span class="co"># note que TRUE e FALSE são valores lógicos e essas palavras são entendidas apenas quando em maiúsculas pelo R</span></span>
+<span id="cb22-22"><a href="objeto-i-vetores.html#cb22-22"></a>v4 &lt;-<span class="st"> </span><span class="kw">c</span>(true, true, false, false) <span class="co"># o R não entende isso como valor lógico e o R procura por objetos com esses nomes</span></span></code></pre></div>
+</div>
+<div id="sequências-numéricas-repetições" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Sequências Numéricas &amp; Repetições</h3>
+<p>É possível criar vetores numéricos usando a função <code>seq()</code> ou o operador <code>:</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="objeto-i-vetores.html#cb23-1"></a><span class="co"># usando o :</span></span>
+<span id="cb23-2"><a href="objeto-i-vetores.html#cb23-2"></a><span class="dv">1</span><span class="op">:</span><span class="dv">10</span> <span class="co"># cria uma sequencia de números inteiros 1 a 10</span></span>
+<span id="cb23-3"><a href="objeto-i-vetores.html#cb23-3"></a><span class="dv">20</span><span class="op">:</span><span class="dv">0</span> <span class="co"># cria uma sequencia de números inteiros 20 a 0</span></span>
+<span id="cb23-4"><a href="objeto-i-vetores.html#cb23-4"></a><span class="dv">0</span><span class="op">:-</span><span class="dv">20</span> <span class="co"># cria uma sequencia de números inteiros 0 a -20</span></span>
+<span id="cb23-5"><a href="objeto-i-vetores.html#cb23-5"></a></span>
+<span id="cb23-6"><a href="objeto-i-vetores.html#cb23-6"></a><span class="co"># usando a função seq() temos maior controle das sequencias</span></span>
+<span id="cb23-7"><a href="objeto-i-vetores.html#cb23-7"></a>?seq <span class="co"># veja o help da função</span></span>
+<span id="cb23-8"><a href="objeto-i-vetores.html#cb23-8"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">0.5</span>) <span class="co"># de 1 a 0 a cada 0.5</span></span>
+<span id="cb23-9"><a href="objeto-i-vetores.html#cb23-9"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="dt">to =</span> <span class="dv">0</span>, <span class="dt">by =</span> <span class="fl">-0.5</span>) <span class="co"># de 10 a 0 a cada 0.5</span></span>
+<span id="cb23-10"><a href="objeto-i-vetores.html#cb23-10"></a><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">100</span>, <span class="dt">to =</span> <span class="dv">0</span>, <span class="dt">length.out =</span> <span class="dv">10</span>) <span class="co"># 10 valores igualmente espaçados de 100 a 0</span></span></code></pre></div>
+<p>É possível criar vetores repetindo valores através da função <code>rep()</code>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="objeto-i-vetores.html#cb24-1"></a><span class="co"># para números</span></span>
+<span id="cb24-2"><a href="objeto-i-vetores.html#cb24-2"></a><span class="kw">rep</span>(<span class="dv">5</span>, <span class="dt">times =</span> <span class="dv">3</span>) <span class="co"># cria um vetor com três elementos de valor 5</span></span>
+<span id="cb24-3"><a href="objeto-i-vetores.html#cb24-3"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">times =</span> <span class="dv">3</span>) <span class="co"># cria um vetor com três repetições da sequência de 1 a 5</span></span>
+<span id="cb24-4"><a href="objeto-i-vetores.html#cb24-4"></a><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">each =</span> <span class="dv">3</span>) <span class="co"># cria um vetor repetindo três vezes cada elemento da sequência de 1 a 5</span></span>
+<span id="cb24-5"><a href="objeto-i-vetores.html#cb24-5"></a></span>
+<span id="cb24-6"><a href="objeto-i-vetores.html#cb24-6"></a><span class="co"># para textos</span></span>
+<span id="cb24-7"><a href="objeto-i-vetores.html#cb24-7"></a>obj &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;maça&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
+<span id="cb24-8"><a href="objeto-i-vetores.html#cb24-8"></a><span class="kw">rep</span>(obj, <span class="dt">times =</span> <span class="dv">3</span>)</span>
+<span id="cb24-9"><a href="objeto-i-vetores.html#cb24-9"></a><span class="kw">rep</span>(obj, <span class="dt">each =</span> <span class="dv">3</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="operações-matemáticas-com-vetores" class="section level2">
+<h2><span class="header-section-number">4.2</span> Operações Matemáticas com Vetores</h2>
+<p>Todas as operações aplicadas a um vetor são aplicadas a cada um de seus elementos:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="objeto-i-vetores.html#cb25-1"></a>meuvetor &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span> <span class="co"># uma sequencia de 1 a 5</span></span>
+<span id="cb25-2"><a href="objeto-i-vetores.html#cb25-2"></a>mv2 &lt;-<span class="st"> </span>meuvetor <span class="op">*</span><span class="st"> </span><span class="dv">3</span> <span class="co"># uma sequencia onde cada valor de meuvetor foi multiplicado por 3</span></span>
+<span id="cb25-3"><a href="objeto-i-vetores.html#cb25-3"></a>mv2</span>
+<span id="cb25-4"><a href="objeto-i-vetores.html#cb25-4"></a>mv2 &lt;-<span class="st"> </span>meuvetor <span class="op">/</span><span class="st"> </span><span class="dv">3</span> <span class="co"># uma sequencia onde cada valor de meuvetor foi divido por 3</span></span>
+<span id="cb25-5"><a href="objeto-i-vetores.html#cb25-5"></a></span>
+<span id="cb25-6"><a href="objeto-i-vetores.html#cb25-6"></a><span class="co"># se usar uma função matemática com um vetor ela afetará cada elemento indivualmente</span></span>
+<span id="cb25-7"><a href="objeto-i-vetores.html#cb25-7"></a>meuvetor &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">49</span>, <span class="dv">25</span>, <span class="dv">16</span>, <span class="dv">4</span>, <span class="dv">1</span>)</span>
+<span id="cb25-8"><a href="objeto-i-vetores.html#cb25-8"></a><span class="kw">sqrt</span>(meuvetor) <span class="co"># raiz quadrada de cada elemento em meuvetor</span></span></code></pre></div>
+<p>Operações com dois ou mais vetores são pareadas.
+Se os vetores têm o mesmo comprimento (mesmo número de elementos), então a operação é feita par a par, na ordem em que os elementos aparecem no vetor:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="objeto-i-vetores.html#cb26-1"></a>v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span>
+<span id="cb26-2"><a href="objeto-i-vetores.html#cb26-2"></a>v2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">16</span>)</span>
+<span id="cb26-3"><a href="objeto-i-vetores.html#cb26-3"></a>v1 <span class="op">+</span><span class="st"> </span>v2 <span class="co"># soma dos valores individuais e pareados</span></span>
+<span id="cb26-4"><a href="objeto-i-vetores.html#cb26-4"></a>v1 <span class="op">*</span><span class="st"> </span>v2</span>
+<span id="cb26-5"><a href="objeto-i-vetores.html#cb26-5"></a>v1<span class="op">^</span>v2</span></code></pre></div>
+<blockquote>
+<p><strong>REGRA DA RECICLAGEM</strong> - se os vetores não têm o mesmo comprimento (mesmo número de elementos), então a operação é feita par a par, mas o vetor mais curto é reciclado, i.e. os elementos do vetor mais curto são repetidos sequencialmente até que a operação seja aplicada a todos os elementos do vetor mais longo (o R dará uma aviso quando a operação envolver vetores de tamanhos diferentes, pois às vezes não é isso que queremos).</p>
+</blockquote>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="objeto-i-vetores.html#cb27-1"></a><span class="co"># o mais simples para entender a regra da reciclagem é operação entre um vetor longo e um vetor atômico de um único valor</span></span>
+<span id="cb27-2"><a href="objeto-i-vetores.html#cb27-2"></a>v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>) <span class="co"># vetor com 4 elementos</span></span>
+<span id="cb27-3"><a href="objeto-i-vetores.html#cb27-3"></a>v2 &lt;-<span class="st"> </span><span class="dv">2</span> <span class="co"># vetor com 1 elemento</span></span>
+<span id="cb27-4"><a href="objeto-i-vetores.html#cb27-4"></a>v1 <span class="op">*</span><span class="st"> </span>v2 <span class="co"># cada elemento de v1 é multiplicado pelo único valor do vetor2</span></span>
+<span id="cb27-5"><a href="objeto-i-vetores.html#cb27-5"></a></span>
+<span id="cb27-6"><a href="objeto-i-vetores.html#cb27-6"></a><span class="co"># mas a reciclagem se aplica em todos os casos de operação entre vetores de tamanhos diferentes</span></span>
+<span id="cb27-7"><a href="objeto-i-vetores.html#cb27-7"></a>v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>) <span class="co"># vetor com 4 elementos</span></span>
+<span id="cb27-8"><a href="objeto-i-vetores.html#cb27-8"></a>v2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>) <span class="co"># vetor com 2 elemento</span></span>
+<span id="cb27-9"><a href="objeto-i-vetores.html#cb27-9"></a>v1 <span class="op">*</span><span class="st"> </span>v2 <span class="co"># os valores de v1 são multiplicados par a par pelos valores de v2. Como v2 tem apenas 2 elementos, eles são repetidos 1 vez</span></span>
+<span id="cb27-10"><a href="objeto-i-vetores.html#cb27-10"></a></span>
+<span id="cb27-11"><a href="objeto-i-vetores.html#cb27-11"></a>ob &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">each =</span> <span class="dv">5</span>)</span>
+<span id="cb27-12"><a href="objeto-i-vetores.html#cb27-12"></a>oc &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span></span>
+<span id="cb27-13"><a href="objeto-i-vetores.html#cb27-13"></a>ob <span class="op">*</span><span class="st"> </span>oc</span></code></pre></div>
+</div>
+<div id="funções-com-vetores" class="section level2">
+<h2><span class="header-section-number">4.3</span> Funções com Vetores</h2>
+<p>Algumas funções operam sobre todo o vetor e não sobre cada elemento individualmente.
+Essas funções são utilizadas constantemente no R e, portanto, devemos conhecer as principais:</p>
+<ul>
+<li><code>length()</code> e <code>sort()</code> - comprimento e ordenação de vetores</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="objeto-i-vetores.html#cb28-1"></a>meuvetor &lt;-<span class="st"> </span><span class="dv">10</span><span class="op">:</span><span class="dv">1</span></span>
+<span id="cb28-2"><a href="objeto-i-vetores.html#cb28-2"></a>mv2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">30</span>, <span class="dv">99</span>, <span class="dt">by =</span> <span class="dv">3</span>)</span>
+<span id="cb28-3"><a href="objeto-i-vetores.html#cb28-3"></a><span class="kw">length</span>(meuvetor) <span class="co"># quantos elementos tem meu vetor1</span></span>
+<span id="cb28-4"><a href="objeto-i-vetores.html#cb28-4"></a><span class="kw">length</span>(mv2) <span class="co"># quantos elementos tem meu vetor2</span></span>
+<span id="cb28-5"><a href="objeto-i-vetores.html#cb28-5"></a><span class="kw">length</span>(meuvetor) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(mv2) <span class="co"># operação com os resultados</span></span>
+<span id="cb28-6"><a href="objeto-i-vetores.html#cb28-6"></a></span>
+<span id="cb28-7"><a href="objeto-i-vetores.html#cb28-7"></a>mvord &lt;-<span class="st"> </span><span class="kw">sort</span>(meuvetor) <span class="co"># ordena os elementos em ordem crescente</span></span>
+<span id="cb28-8"><a href="objeto-i-vetores.html#cb28-8"></a>mvord</span>
+<span id="cb28-9"><a href="objeto-i-vetores.html#cb28-9"></a><span class="kw">sort</span>(mvord, <span class="dt">decreasing =</span> <span class="ot">TRUE</span>) <span class="co"># ordena os elementos em ordem decrescentes</span></span></code></pre></div>
+<ul>
+<li><code>mean()</code>, <code>sd()</code>, <code>min()</code>, <code>sum()</code> etc. - funções de estatística descritiva:</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="objeto-i-vetores.html#cb29-1"></a>?mean <span class="co"># veja ajuda de uma dessas funções e navegue por outras</span></span>
+<span id="cb29-2"><a href="objeto-i-vetores.html#cb29-2"></a>v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb29-3"><a href="objeto-i-vetores.html#cb29-3"></a><span class="kw">sum</span>(v1) <span class="co"># soma de todos os valores</span></span>
+<span id="cb29-4"><a href="objeto-i-vetores.html#cb29-4"></a><span class="kw">mean</span>(v1) <span class="co"># média aritimética dos valores</span></span>
+<span id="cb29-5"><a href="objeto-i-vetores.html#cb29-5"></a><span class="kw">median</span>(v1) <span class="co"># valor da mediana</span></span>
+<span id="cb29-6"><a href="objeto-i-vetores.html#cb29-6"></a><span class="kw">sd</span>(v1) <span class="co"># desvio padrão</span></span>
+<span id="cb29-7"><a href="objeto-i-vetores.html#cb29-7"></a><span class="kw">var</span>(v1) <span class="co"># variância</span></span>
+<span id="cb29-8"><a href="objeto-i-vetores.html#cb29-8"></a><span class="kw">sqrt</span>(<span class="kw">var</span>(v1)) <span class="co"># desvio padrão, pois este é a raíz quadrada da variância</span></span>
+<span id="cb29-9"><a href="objeto-i-vetores.html#cb29-9"></a><span class="kw">min</span>(v1) <span class="co"># valor mínimo</span></span>
+<span id="cb29-10"><a href="objeto-i-vetores.html#cb29-10"></a><span class="kw">max</span>(v1) <span class="co"># valor máximo</span></span>
+<span id="cb29-11"><a href="objeto-i-vetores.html#cb29-11"></a><span class="kw">range</span>(v1) <span class="co"># mínimo e máximo</span></span>
+<span id="cb29-12"><a href="objeto-i-vetores.html#cb29-12"></a><span class="kw">diff</span>(v1) <span class="co"># intervalos (diferenças entre valores consecutivos) entre os valores do vetor</span></span>
+<span id="cb29-13"><a href="objeto-i-vetores.html#cb29-13"></a><span class="kw">cumsum</span>(v1) <span class="co"># soma cumulativa dos valores</span></span></code></pre></div>
+<div id="sabermais-vetores" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Para saber mais:</h3>
+<ol class="example" style="list-style-type: decimal">
+<li>Veja nossas vídeoaulas com parte do conteúdo desta seção:</li>
+</ol>
+<ul>
+<li><p><a href="https://youtu.be/qXSZkGoDk1Y">Criação de vetores</a>;</p></li>
+<li><p><a href="https://youtu.be/PJ02yj0gnWc">Sequências numéricas e repetições</a>.</p></li>
+</ul>
+</div>
+</div>
+<div id="classes" class="section level2">
+<h2><span class="header-section-number">4.4</span> Classes de vetores e fatores</h2>
+<p>Para entender os conceitos, vamos primeiro conhecer algumas funções úteis no entendimento das classes de objetos do R e algumas funções importantes: <code>class()</code>, <code>is.[class]()</code> e <code>as.[class]()</code>.</p>
+<p>Vetores têm classes diferentes e todos os elementos de um vetor pertencem à mesma classe.</p>
+<p>As principais classes são:</p>
+<ul>
+<li><p><code>numeric</code> (=double, i.e. inclui casas decimais);</p></li>
+<li><p><code>integer</code> (numérico mas de valor inteiro);</p></li>
+<li><p><code>character</code> (texto);</p></li>
+<li><p><code>logical</code> (verdadeiro ou falso);</p></li>
+<li><p><code>date</code> (para datas).</p></li>
+</ul>
+<p>A função <code>class()</code> nos permite saber a classe de um objeto do R.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="objeto-i-vetores.html#cb30-1"></a>?class <span class="co"># veja o help dessa funcao</span></span>
+<span id="cb30-2"><a href="objeto-i-vetores.html#cb30-2"></a></span>
+<span id="cb30-3"><a href="objeto-i-vetores.html#cb30-3"></a>v1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span> <span class="co"># um vetor de números inteiros</span></span>
+<span id="cb30-4"><a href="objeto-i-vetores.html#cb30-4"></a><span class="kw">class</span>(v1)</span>
+<span id="cb30-5"><a href="objeto-i-vetores.html#cb30-5"></a></span>
+<span id="cb30-6"><a href="objeto-i-vetores.html#cb30-6"></a>v2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">by =</span> <span class="fl">0.5</span>) <span class="co"># um vetor de números</span></span>
+<span id="cb30-7"><a href="objeto-i-vetores.html#cb30-7"></a><span class="kw">class</span>(v2)</span>
+<span id="cb30-8"><a href="objeto-i-vetores.html#cb30-8"></a></span>
+<span id="cb30-9"><a href="objeto-i-vetores.html#cb30-9"></a>v3 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> <span class="dv">10</span>) <span class="co"># um vetor de palavras (character)</span></span>
+<span id="cb30-10"><a href="objeto-i-vetores.html#cb30-10"></a><span class="kw">class</span>(v3)</span>
+<span id="cb30-11"><a href="objeto-i-vetores.html#cb30-11"></a></span>
+<span id="cb30-12"><a href="objeto-i-vetores.html#cb30-12"></a>v4 &lt;-<span class="st"> </span><span class="kw">c</span>(T, T, F, F) <span class="co"># um vetor lógico</span></span>
+<span id="cb30-13"><a href="objeto-i-vetores.html#cb30-13"></a><span class="kw">class</span>(v4)</span>
+<span id="cb30-14"><a href="objeto-i-vetores.html#cb30-14"></a></span>
+<span id="cb30-15"><a href="objeto-i-vetores.html#cb30-15"></a>v4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="st">&quot;A&quot;</span>, <span class="dv">20</span>, <span class="st">&quot;B&quot;</span>) <span class="co"># um vetor com misto de números e letras será convertido para texto</span></span>
+<span id="cb30-16"><a href="objeto-i-vetores.html#cb30-16"></a><span class="kw">class</span>(v4)</span>
+<span id="cb30-17"><a href="objeto-i-vetores.html#cb30-17"></a>v4</span>
+<span id="cb30-18"><a href="objeto-i-vetores.html#cb30-18"></a><span class="co"># veja que em v4 os elementos 10 e 20 viraram palavras, porque vetor só aceita elementos da mesma classe e enquanto um número pode ser convertido em texto, um texto não pode ser convertido em número. Por isso tudo é convertido para texto para a informação seja perdida (i.e. vire NA)</span></span></code></pre></div>
+<p>As funções genéricas <code>is.[class]()</code> permitem você perguntar se um vetor é de uma determinada classe (<code>is?</code>).
+Vai retornar um vetor lógico, ou seja, verdadeiro ou falso dependendo da classe do objeto:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="objeto-i-vetores.html#cb31-1"></a>v1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span> <span class="co"># um vetor de números inteiros</span></span>
+<span id="cb31-2"><a href="objeto-i-vetores.html#cb31-2"></a><span class="kw">is.integer</span>(v1) <span class="co"># verdadeiro</span></span>
+<span id="cb31-3"><a href="objeto-i-vetores.html#cb31-3"></a><span class="kw">is.numeric</span>(v1) <span class="co"># também verdadeiro porque números inteiros também são números</span></span>
+<span id="cb31-4"><a href="objeto-i-vetores.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="objeto-i-vetores.html#cb31-5"></a>v3 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> <span class="dv">10</span>) <span class="co"># um vetor de palavras</span></span>
+<span id="cb31-6"><a href="objeto-i-vetores.html#cb31-6"></a><span class="kw">is.character</span>(v3) <span class="co"># verdadeiro</span></span>
+<span id="cb31-7"><a href="objeto-i-vetores.html#cb31-7"></a><span class="kw">is.numeric</span>(v3) <span class="co"># falso, porque o vetor contém palavras</span></span>
+<span id="cb31-8"><a href="objeto-i-vetores.html#cb31-8"></a></span>
+<span id="cb31-9"><a href="objeto-i-vetores.html#cb31-9"></a>v4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="st">&quot;A&quot;</span>, <span class="dv">20</span>, <span class="st">&quot;B&quot;</span>) <span class="co"># um vetor com misto de números e letras</span></span>
+<span id="cb31-10"><a href="objeto-i-vetores.html#cb31-10"></a><span class="kw">is.numeric</span>(v4) <span class="co"># falso, porque o vetor contém apenas palavras</span></span>
+<span id="cb31-11"><a href="objeto-i-vetores.html#cb31-11"></a></span>
+<span id="cb31-12"><a href="objeto-i-vetores.html#cb31-12"></a>v4 &lt;-<span class="st"> </span><span class="kw">c</span>(T, T, F, F) <span class="co"># um vetor lógico</span></span>
+<span id="cb31-13"><a href="objeto-i-vetores.html#cb31-13"></a><span class="kw">is.logical</span>(v4) <span class="co"># verdadeiro</span></span>
+<span id="cb31-14"><a href="objeto-i-vetores.html#cb31-14"></a><span class="kw">is.numeric</span>(v4) <span class="co"># falso</span></span>
+<span id="cb31-15"><a href="objeto-i-vetores.html#cb31-15"></a><span class="kw">is.character</span>(v4) <span class="co"># falso</span></span></code></pre></div>
+<p>As funções genéricas <code>as.[class]()</code> (as = ‘como uma?’) permitem você converter um vetor de uma classe para outra.
+Em alguns casos, isso faz sentido; em outros, o retorno será de valores inexistentes (<code>NA</code>) ou não numéricos (<code>NaN</code>).</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="objeto-i-vetores.html#cb32-1"></a><span class="co"># conversão total</span></span>
+<span id="cb32-2"><a href="objeto-i-vetores.html#cb32-2"></a>v1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span> <span class="co"># um vetor de números inteiros</span></span>
+<span id="cb32-3"><a href="objeto-i-vetores.html#cb32-3"></a><span class="kw">as.character</span>(v1) <span class="co"># converte para texto um vetor numérico</span></span>
+<span id="cb32-4"><a href="objeto-i-vetores.html#cb32-4"></a></span>
+<span id="cb32-5"><a href="objeto-i-vetores.html#cb32-5"></a><span class="co"># conversão parcial</span></span>
+<span id="cb32-6"><a href="objeto-i-vetores.html#cb32-6"></a>v4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="st">&quot;A&quot;</span>, <span class="dv">20</span>, <span class="st">&quot;B&quot;</span>) <span class="co"># um vetor com misto de números e letras</span></span>
+<span id="cb32-7"><a href="objeto-i-vetores.html#cb32-7"></a><span class="kw">as.numeric</span>(v4) <span class="co"># converte cada elemento separadamente (regra da reciclagem é aplicada), o R vai conseguir mudar os textos que são números, mas as letras serão substituídas por NA e um aviso será dado quando isso acontecer</span></span>
+<span id="cb32-8"><a href="objeto-i-vetores.html#cb32-8"></a></span>
+<span id="cb32-9"><a href="objeto-i-vetores.html#cb32-9"></a><span class="co"># um vetor de texto não pode virar número</span></span>
+<span id="cb32-10"><a href="objeto-i-vetores.html#cb32-10"></a>v3 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> <span class="dv">10</span>) <span class="co"># um vetor de palavras</span></span>
+<span id="cb32-11"><a href="objeto-i-vetores.html#cb32-11"></a><span class="kw">as.numeric</span>(v3) <span class="co"># todos viram NA pois a conversão é inválida</span></span>
+<span id="cb32-12"><a href="objeto-i-vetores.html#cb32-12"></a></span>
+<span id="cb32-13"><a href="objeto-i-vetores.html#cb32-13"></a><span class="co"># mas um vetor lógico pode virar número</span></span>
+<span id="cb32-14"><a href="objeto-i-vetores.html#cb32-14"></a>v4 &lt;-<span class="st"> </span><span class="kw">c</span>(T, T, F, F) <span class="co"># um vetor lógico</span></span>
+<span id="cb32-15"><a href="objeto-i-vetores.html#cb32-15"></a><span class="kw">as.numeric</span>(v4) <span class="co"># verdadeiro vira 1 e falso vira 0 - isso é muito útil e é por isso que operações matemáticas funcionam com vetores lógicos:</span></span>
+<span id="cb32-16"><a href="objeto-i-vetores.html#cb32-16"></a><span class="kw">sum</span>(v4)</span>
+<span id="cb32-17"><a href="objeto-i-vetores.html#cb32-17"></a><span class="kw">mean</span>(v4)</span>
+<span id="cb32-18"><a href="objeto-i-vetores.html#cb32-18"></a><span class="kw">min</span>(v4)</span></code></pre></div>
+<p>O <code>factor</code> (=fator) na linguagem do R é um tipo especial de vetor com elementos de texto (classe <code>character</code>), em que os valores de texto são categorias.
+Isso tem algumas vantagens operacionais e sempre que o R precisa de um vetor de texto no formato de <code>factor</code>, ele converte automaticamente (se possível).
+No entanto, é muito importante que você entenda a diferença entre um vetor de classe <code>character</code> e um vetor de classe <code>factor</code>.
+Isso vai aparecer o tempo todo enquanto você usa o R e algumas vezes você precisará converter de um para outro.
+Funções importantes a serem memorizadas são:</p>
+<ul>
+<li><p><code>levels()</code> - para ver (ou modificar) os níveis ou categorias de um fator;</p></li>
+<li><p><code>as.factor()</code> e <code>as.vector()</code> - para converter entre fator e vetor.</p></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="objeto-i-vetores.html#cb33-1"></a><span class="co"># um exemplo de um vetor de palavras</span></span>
+<span id="cb33-2"><a href="objeto-i-vetores.html#cb33-2"></a>mvv &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;abacate&quot;</span>, <span class="st">&quot;banama&quot;</span>, <span class="st">&quot;mamão&quot;</span>, <span class="st">&quot;uva&quot;</span>)</span>
+<span id="cb33-3"><a href="objeto-i-vetores.html#cb33-3"></a><span class="co"># repetindo cada fruta 3 vezes</span></span>
+<span id="cb33-4"><a href="objeto-i-vetores.html#cb33-4"></a>mvv &lt;-<span class="st"> </span><span class="kw">rep</span>(mvv, <span class="dt">each =</span> <span class="dv">3</span>)</span>
+<span id="cb33-5"><a href="objeto-i-vetores.html#cb33-5"></a><span class="co"># veja conteúdo</span></span>
+<span id="cb33-6"><a href="objeto-i-vetores.html#cb33-6"></a>mvv</span>
+<span id="cb33-7"><a href="objeto-i-vetores.html#cb33-7"></a></span>
+<span id="cb33-8"><a href="objeto-i-vetores.html#cb33-8"></a><span class="co"># qual a classe desse vetor?</span></span>
+<span id="cb33-9"><a href="objeto-i-vetores.html#cb33-9"></a><span class="kw">class</span>(mvv)</span>
+<span id="cb33-10"><a href="objeto-i-vetores.html#cb33-10"></a></span>
+<span id="cb33-11"><a href="objeto-i-vetores.html#cb33-11"></a><span class="co"># vamos converter esse vetor de character para um fator</span></span>
+<span id="cb33-12"><a href="objeto-i-vetores.html#cb33-12"></a>mvv2 &lt;-<span class="st"> </span><span class="kw">as.factor</span>(mvv)</span>
+<span id="cb33-13"><a href="objeto-i-vetores.html#cb33-13"></a><span class="kw">class</span>(mvv2) <span class="co"># de fato mudou para factor</span></span>
+<span id="cb33-14"><a href="objeto-i-vetores.html#cb33-14"></a>mvv2 <span class="co"># compare a estrutura deste objeto com mvv (apareceu a a palavra Levels:, que mostra as categorias existentes no fator)</span></span>
+<span id="cb33-15"><a href="objeto-i-vetores.html#cb33-15"></a><span class="co"># por ser um fator você pode</span></span>
+<span id="cb33-16"><a href="objeto-i-vetores.html#cb33-16"></a><span class="kw">levels</span>(mvv2) <span class="co"># você pode ver os níveis do fator, ou seja as categorias que ele contém)</span></span>
+<span id="cb33-17"><a href="objeto-i-vetores.html#cb33-17"></a><span class="kw">levels</span>(mvv2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;abacate&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;mamão&quot;</span>, <span class="st">&quot;uva&quot;</span>) <span class="co"># você pode mudar/corrigir os níveis, aqui corrigindo banama por banana</span></span>
+<span id="cb33-18"><a href="objeto-i-vetores.html#cb33-18"></a>mvv2 <span class="co"># veja como mudaram as categorias e os valores</span></span>
+<span id="cb33-19"><a href="objeto-i-vetores.html#cb33-19"></a><span class="kw">as.numeric</span>(mvv2) <span class="co"># você pode converter o fator em numérico, de forma que cada categoria vire um número (muito útil isso)</span></span>
+<span id="cb33-20"><a href="objeto-i-vetores.html#cb33-20"></a><span class="kw">as.numeric</span>(mvv) <span class="co"># nao pode fazer a mesma coisa com um vetor de palavras</span></span></code></pre></div>
+<p>A função <code>as.Date()</code> converte um vetor de trecho em um objeto de classe <code>date</code>.
+Datas são uma classe especial, que permite operações artiméticas para calcular distâncias temporais.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="objeto-i-vetores.html#cb34-1"></a><span class="co"># muitas vezes queremos calcular tempo entre duas observações, como por exemplo, entre duas medições consecutivas num estudo sobre crescimento de plantas</span></span>
+<span id="cb34-2"><a href="objeto-i-vetores.html#cb34-2"></a></span>
+<span id="cb34-3"><a href="objeto-i-vetores.html#cb34-3"></a><span class="co"># Qual a diferença em dias entre duas datas?</span></span>
+<span id="cb34-4"><a href="objeto-i-vetores.html#cb34-4"></a>data1 &lt;-<span class="st"> &quot;31/03/1964&quot;</span></span>
+<span id="cb34-5"><a href="objeto-i-vetores.html#cb34-5"></a>data2 &lt;-<span class="st"> &quot;17/04/2016&quot;</span></span>
+<span id="cb34-6"><a href="objeto-i-vetores.html#cb34-6"></a><span class="co"># eu nao posso simplesmente subtrair esses valores</span></span>
+<span id="cb34-7"><a href="objeto-i-vetores.html#cb34-7"></a>data2 <span class="op">-</span><span class="st"> </span>data1</span>
+<span id="cb34-8"><a href="objeto-i-vetores.html#cb34-8"></a><span class="co"># isso dá um erro porque esses objetos são de classe texto</span></span>
+<span id="cb34-9"><a href="objeto-i-vetores.html#cb34-9"></a><span class="kw">class</span>(data1)</span>
+<span id="cb34-10"><a href="objeto-i-vetores.html#cb34-10"></a><span class="kw">class</span>(data2)</span>
+<span id="cb34-11"><a href="objeto-i-vetores.html#cb34-11"></a></span>
+<span id="cb34-12"><a href="objeto-i-vetores.html#cb34-12"></a><span class="co"># mas o R tem um classe para datas</span></span>
+<span id="cb34-13"><a href="objeto-i-vetores.html#cb34-13"></a><span class="co"># entao fazemos a conversao</span></span>
+<span id="cb34-14"><a href="objeto-i-vetores.html#cb34-14"></a>?as.Date <span class="co"># veja o help dessa função</span></span>
+<span id="cb34-15"><a href="objeto-i-vetores.html#cb34-15"></a>data1 &lt;-<span class="st"> </span><span class="kw">as.Date</span>(data1, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span>
+<span id="cb34-16"><a href="objeto-i-vetores.html#cb34-16"></a>data2 &lt;-<span class="st"> </span><span class="kw">as.Date</span>(data2, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span>
+<span id="cb34-17"><a href="objeto-i-vetores.html#cb34-17"></a><span class="co"># agora a classe mudou</span></span>
+<span id="cb34-18"><a href="objeto-i-vetores.html#cb34-18"></a><span class="kw">class</span>(data1)</span>
+<span id="cb34-19"><a href="objeto-i-vetores.html#cb34-19"></a><span class="kw">class</span>(data2)</span>
+<span id="cb34-20"><a href="objeto-i-vetores.html#cb34-20"></a><span class="co"># posso fazer matemática com data</span></span>
+<span id="cb34-21"><a href="objeto-i-vetores.html#cb34-21"></a>data2 <span class="op">-</span><span class="st"> </span>data1</span>
+<span id="cb34-22"><a href="objeto-i-vetores.html#cb34-22"></a></span>
+<span id="cb34-23"><a href="objeto-i-vetores.html#cb34-23"></a><span class="co"># note o argumento format, ele importa para o R possa entender o formato de sua data</span></span>
+<span id="cb34-24"><a href="objeto-i-vetores.html#cb34-24"></a>data3 &lt;-<span class="st"> &quot;2016-04-21&quot;</span> <span class="co"># formato americano</span></span>
+<span id="cb34-25"><a href="objeto-i-vetores.html#cb34-25"></a><span class="kw">as.Date</span>(data3, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>) <span class="co"># se eu usasse isso com o mesmo formato acima, o resultado é NA, porque está mal especificado</span></span>
+<span id="cb34-26"><a href="objeto-i-vetores.html#cb34-26"></a></span>
+<span id="cb34-27"><a href="objeto-i-vetores.html#cb34-27"></a><span class="co"># mas mudando a simbologia do argumento format</span></span>
+<span id="cb34-28"><a href="objeto-i-vetores.html#cb34-28"></a><span class="kw">as.Date</span>(data3, <span class="dt">format =</span> <span class="st">&quot;%Y-%m-%d&quot;</span>)</span>
+<span id="cb34-29"><a href="objeto-i-vetores.html#cb34-29"></a></span>
+<span id="cb34-30"><a href="objeto-i-vetores.html#cb34-30"></a><span class="co"># ele reconhece</span></span></code></pre></div>
+</div>
+<div id="indexacao" class="section level2">
+<h2><span class="header-section-number">4.5</span> Indexação</h2>
+<p>Já vimos que vetores são conjuntos de valores da mesma classe (seção <a href="objeto-i-vetores.html#vetores">4.1</a>).
+Esses valores tem uma posição dentro do vetor, ou seja, possuem um <strong>índice</strong>.<br />
+Já vimos também que podemos alterar a ordem dos valores, utilizando a função <code>sort()</code>, ou seja, alterar a posição dos elementos no vetor.</p>
+<p>O índice identifica os elementos do vetor individualmente:</p>
+<ul>
+<li><p>pode ser um número equivalente à posição do elemento no vetor,</p></li>
+<li><p>ou pode ser um nome, quando os elementos do vetor tiverem um nome.</p></li>
+</ul>
+<p>Entender indexação é fundamental para escrever bons códigos no R, pois isso se aplica também às matrizes e às outras classes de objetos do R.</p>
+<p>Aqui vamos ver indexação de vetores, que é dada pelo operador <code>[]</code>.</p>
+<div id="usando-índices-numéricos" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> Usando índices numéricos</h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="objeto-i-vetores.html#cb35-1"></a><span class="co">#um vetor simples</span></span>
+<span id="cb35-2"><a href="objeto-i-vetores.html#cb35-2"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb35-3"><a href="objeto-i-vetores.html#cb35-3"></a>v1[<span class="dv">1</span>] <span class="co">#valor na posição/índice 1</span></span>
+<span id="cb35-4"><a href="objeto-i-vetores.html#cb35-4"></a>v1[<span class="dv">8</span>] <span class="co">#valor na posição/índice 8</span></span>
+<span id="cb35-5"><a href="objeto-i-vetores.html#cb35-5"></a></span>
+<span id="cb35-6"><a href="objeto-i-vetores.html#cb35-6"></a><span class="co">#em outra ordem</span></span>
+<span id="cb35-7"><a href="objeto-i-vetores.html#cb35-7"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb35-8"><a href="objeto-i-vetores.html#cb35-8"></a>v1 =<span class="st"> </span><span class="kw">sort</span>(v1,<span class="dt">decreasing=</span><span class="ot">TRUE</span>) <span class="co">#ordena decrescente</span></span>
+<span id="cb35-9"><a href="objeto-i-vetores.html#cb35-9"></a>v1[<span class="dv">1</span>] <span class="co">#valor na posição/índice 1</span></span>
+<span id="cb35-10"><a href="objeto-i-vetores.html#cb35-10"></a>v1[<span class="dv">8</span>] <span class="co">#valor na posição/índice 8</span></span></code></pre></div>
+</div>
+<div id="usando-índices-de-nomes" class="section level3">
+<h3><span class="header-section-number">4.5.2</span> Usando índices de nomes</h3>
+<p>Índices de nomes são elementos essenciais na manipulação de dados reais, pois nomes de linhas (seus registros) e nomes de colunas (suas variáveis) são nomes dos elementos que compõem a sua matriz.
+Índice de nomes preservam o identificador dos seus objetos (registros).
+Podemos atribuir nomes aos elementos do vetor usando a função <code>names()</code>.
+Uma outra função útil se chama <code>paste()</code>, muito utilizada na manipulação de textos.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="objeto-i-vetores.html#cb36-1"></a>?paste <span class="co">#veja o help da função paste</span></span>
+<span id="cb36-2"><a href="objeto-i-vetores.html#cb36-2"></a>?names <span class="co">#veja o help da função names</span></span>
+<span id="cb36-3"><a href="objeto-i-vetores.html#cb36-3"></a></span>
+<span id="cb36-4"><a href="objeto-i-vetores.html#cb36-4"></a><span class="co">#um vetor simples</span></span>
+<span id="cb36-5"><a href="objeto-i-vetores.html#cb36-5"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb36-6"><a href="objeto-i-vetores.html#cb36-6"></a><span class="co">#criando um vetor para usar como nomes</span></span>
+<span id="cb36-7"><a href="objeto-i-vetores.html#cb36-7"></a>v2 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;nome&quot;</span>,v1,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>) <span class="co">#significa = use a regra da reciclagem e cole (paste) a palavra &#39;nome&#39; com cada valor do vetor v1, sem separador</span></span>
+<span id="cb36-8"><a href="objeto-i-vetores.html#cb36-8"></a>v2 <span class="co">#é portanto um conjunto de textos</span></span>
+<span id="cb36-9"><a href="objeto-i-vetores.html#cb36-9"></a><span class="co">#note que é muito mais rápido fazer isso do que escrever nome1, nome2 ... nome10, certo?</span></span>
+<span id="cb36-10"><a href="objeto-i-vetores.html#cb36-10"></a></span>
+<span id="cb36-11"><a href="objeto-i-vetores.html#cb36-11"></a><span class="co">#agora vamos atribuir v2 como nome dos elementos de v1 </span></span>
+<span id="cb36-12"><a href="objeto-i-vetores.html#cb36-12"></a><span class="co">#para isso é importante que v1 e v2 tenham o mesmo comprimento</span></span>
+<span id="cb36-13"><a href="objeto-i-vetores.html#cb36-13"></a><span class="kw">length</span>(v1)</span>
+<span id="cb36-14"><a href="objeto-i-vetores.html#cb36-14"></a><span class="kw">length</span>(v2)</span>
+<span id="cb36-15"><a href="objeto-i-vetores.html#cb36-15"></a></span>
+<span id="cb36-16"><a href="objeto-i-vetores.html#cb36-16"></a><span class="kw">names</span>(v1) <span class="co">#deve ser nulo, pois os elementos não tem nome</span></span>
+<span id="cb36-17"><a href="objeto-i-vetores.html#cb36-17"></a><span class="kw">names</span>(v1) =<span class="st"> </span>v2 <span class="co">#atribuimos os nomes</span></span>
+<span id="cb36-18"><a href="objeto-i-vetores.html#cb36-18"></a>v2 <span class="co">#pronto agora os elementos tem nome</span></span>
+<span id="cb36-19"><a href="objeto-i-vetores.html#cb36-19"></a></span>
+<span id="cb36-20"><a href="objeto-i-vetores.html#cb36-20"></a><span class="co">#posso usar o nome como índice para pegar elementos</span></span>
+<span id="cb36-21"><a href="objeto-i-vetores.html#cb36-21"></a>v1[<span class="st">&#39;nome8&#39;</span>] <span class="co">#valor do elemento que tem nome = nome8</span></span>
+<span id="cb36-22"><a href="objeto-i-vetores.html#cb36-22"></a>v1[<span class="dv">8</span>] <span class="co">#isso deve ser equivalente, pois criamos os nomes assim</span></span>
+<span id="cb36-23"><a href="objeto-i-vetores.html#cb36-23"></a></span>
+<span id="cb36-24"><a href="objeto-i-vetores.html#cb36-24"></a><span class="co">#mas note a diferença quando reordenamos o vetor e mudamos os valores de posição</span></span>
+<span id="cb36-25"><a href="objeto-i-vetores.html#cb36-25"></a>v3 =<span class="st"> </span><span class="kw">sort</span>(v1, <span class="dt">decreasing=</span>T)</span>
+<span id="cb36-26"><a href="objeto-i-vetores.html#cb36-26"></a>v3[<span class="dv">8</span>] <span class="co">#o índice numérico pega outro valor</span></span>
+<span id="cb36-27"><a href="objeto-i-vetores.html#cb36-27"></a>v3[<span class="st">&#39;nome8&#39;</span>] <span class="co">#o indice de nome pega o mesmo valor (PRESERVA)</span></span></code></pre></div>
+</div>
+<div id="sabermais-indexacao" class="section level3">
+<h3><span class="header-section-number">4.5.3</span> Para saber mais:</h3>
+<ol start="2" class="example" style="list-style-type: decimal">
+<li><a href="http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:5vetores:video01_bot89-2020-04-07_07.38.30.mp4">Indexação</a> - veja esta vídeoaula com o conteúdo desta seção.</li>
+</ol>
+</div>
+</div>
+<div id="vetor-operador-logico" class="section level2">
+<h2><span class="header-section-number">4.6</span> Vetores e operadores lógicos</h2>
+<p>Para manipular dados no R, entender vetores lógicos e operadores lógicos é fundamental.
+Vetores lógicos são vetores de verdadeiros (<code>TRUE</code> ou apenas <code>T</code>, sempre em letras maiúsculas) ou falsos (<code>FALSE</code> ou <code>F</code>).
+Eles podem ser convertidos em vetores numéricos e, portanto, operados matematicamente (<code>T</code> = 1, e <code>F</code> = 0).</p>
+<div id="perg-vetores" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> Fazendo perguntas à vetores</h3>
+<p>Vetores lógicos podem ser respostas às perguntas feitas por <strong>operadores lógicos</strong>:</p>
+<ul>
+<li><p><code>&gt;</code> - é maior que?</p></li>
+<li><p><code>&lt;</code> - é menor que?</p></li>
+<li><p><code>&gt;=</code> - é maior igual a?</p></li>
+<li><p><code>&lt;=</code> - é menor igual a?</p></li>
+<li><p><code>==</code> - é igual a?</p></li>
+<li><p><code>!=</code> - é diferente de?</p></li>
+<li><p><code>%in%</code> - compara conteúdo de vetores</p></li>
+</ul>
+<p>Há ainda a função <code>duplicated()</code> que busca valores repetidos em um vetor.
+O resultado desta função é um vetor contendo <code>TRUE</code> ou <code>FALSE</code>.
+Valores que possuam o valor <code>TRUE</code> são duplicados.
+Para checar os duplicados, devemos filtrar o resultado desta ação (veja na seção <a href="objeto-i-vetores.html#vetor-filtro-logico">4.6.2</a>).</p>
+<!-- Há funções úteis que auxiliam na filtragem de dados utilizando valores lógicos. -->
+<!-- A primeira se chama `grep()`, que busca parte de palavras em um vetor, e a segunda chama-se `duplicated()`, que busca valores repetidos.   -->
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="objeto-i-vetores.html#cb37-1"></a><span class="co">#um vetor numerico</span></span>
+<span id="cb37-2"><a href="objeto-i-vetores.html#cb37-2"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span></span>
+<span id="cb37-3"><a href="objeto-i-vetores.html#cb37-3"></a><span class="co">#quais valores de v1 são maiores ou iguais a 10</span></span>
+<span id="cb37-4"><a href="objeto-i-vetores.html#cb37-4"></a>p1 =<span class="st"> </span>v1<span class="op">&gt;=</span><span class="dv">10</span> <span class="co">#vai retornar um vetor lógico</span></span>
+<span id="cb37-5"><a href="objeto-i-vetores.html#cb37-5"></a>p1</span>
+<span id="cb37-6"><a href="objeto-i-vetores.html#cb37-6"></a><span class="co">#soma dos verdadeiros responde &quot;quantos valores de v1 são maiores ou iguais a 10, pois apenas esses valores são verdadeiros ou seja são 1)</span></span>
+<span id="cb37-7"><a href="objeto-i-vetores.html#cb37-7"></a><span class="kw">sum</span>(p1) </span>
+<span id="cb37-8"><a href="objeto-i-vetores.html#cb37-8"></a><span class="co">#experimente os demais operadores</span></span>
+<span id="cb37-9"><a href="objeto-i-vetores.html#cb37-9"></a></span>
+<span id="cb37-10"><a href="objeto-i-vetores.html#cb37-10"></a><span class="co">#a regra da reciclagem também se aplica neste conceito</span></span>
+<span id="cb37-11"><a href="objeto-i-vetores.html#cb37-11"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span></span>
+<span id="cb37-12"><a href="objeto-i-vetores.html#cb37-12"></a>v2 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span></span>
+<span id="cb37-13"><a href="objeto-i-vetores.html#cb37-13"></a>p2 =<span class="st"> </span>v1<span class="op">==</span>v2 <span class="co">#compara cada par dos vetores que são idênticos</span></span>
+<span id="cb37-14"><a href="objeto-i-vetores.html#cb37-14"></a>p2 <span class="co">#é o vetor lógico resultando, todos os valores são verdadeiros</span></span>
+<span id="cb37-15"><a href="objeto-i-vetores.html#cb37-15"></a><span class="co">#portanto, as seguintes expressões também são verdadeiras</span></span>
+<span id="cb37-16"><a href="objeto-i-vetores.html#cb37-16"></a><span class="kw">sum</span>(v1<span class="op">==</span>v2)<span class="op">==</span><span class="kw">length</span>(v1)</span>
+<span id="cb37-17"><a href="objeto-i-vetores.html#cb37-17"></a><span class="co">#ou então</span></span>
+<span id="cb37-18"><a href="objeto-i-vetores.html#cb37-18"></a><span class="kw">sum</span>(v1<span class="op">==</span>v2)<span class="op">==</span><span class="kw">length</span>(v2)</span>
+<span id="cb37-19"><a href="objeto-i-vetores.html#cb37-19"></a></span>
+<span id="cb37-20"><a href="objeto-i-vetores.html#cb37-20"></a><span class="co">#valores duplicados</span></span>
+<span id="cb37-21"><a href="objeto-i-vetores.html#cb37-21"></a>vv =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>) </span>
+<span id="cb37-22"><a href="objeto-i-vetores.html#cb37-22"></a>vv <span class="co">#apenas o dois é duplicado</span></span>
+<span id="cb37-23"><a href="objeto-i-vetores.html#cb37-23"></a><span class="kw">duplicated</span>(vv) <span class="co">#note que esta função retorna TRUE apenas para dois dos três valores 2 (o primeiro não é duplicado)</span></span>
+<span id="cb37-24"><a href="objeto-i-vetores.html#cb37-24"></a></span>
+<span id="cb37-25"><a href="objeto-i-vetores.html#cb37-25"></a><span class="co">#comparando vetores</span></span>
+<span id="cb37-26"><a href="objeto-i-vetores.html#cb37-26"></a>v1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb37-27"><a href="objeto-i-vetores.html#cb37-27"></a>v2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb37-28"><a href="objeto-i-vetores.html#cb37-28"></a>v1<span class="op">%in%</span>v2 <span class="co">#quantos elementos de v1 existem em v2</span></span>
+<span id="cb37-29"><a href="objeto-i-vetores.html#cb37-29"></a><span class="kw">sum</span>(v1<span class="op">%in%</span>v2) <span class="co">#apenas 1</span></span>
+<span id="cb37-30"><a href="objeto-i-vetores.html#cb37-30"></a>v2<span class="op">%in%</span>v1 <span class="co">#quais elementos de v2 estão em v1</span></span>
+<span id="cb37-31"><a href="objeto-i-vetores.html#cb37-31"></a><span class="kw">sum</span>(v2<span class="op">%in%</span>v1) <span class="co">#os dois quatro</span></span>
+<span id="cb37-32"><a href="objeto-i-vetores.html#cb37-32"></a></span>
+<span id="cb37-33"><a href="objeto-i-vetores.html#cb37-33"></a>notas.dos.alunos =<span class="st"> </span><span class="kw">c</span>(<span class="fl">6.0</span>, <span class="fl">5.1</span>, <span class="fl">6.8</span>, <span class="fl">2.8</span>, <span class="fl">6.1</span>, <span class="fl">9.0</span>, <span class="fl">4.3</span>, <span class="fl">10.4</span>,<span class="fl">6.0</span>, <span class="fl">7.9</span>, <span class="fl">8.9</span>, <span class="fl">6.8</span>, <span class="fl">9.8</span>, <span class="fl">4.6</span>, <span class="fl">11.3</span>, <span class="fl">8.0</span>, <span class="fl">6.7</span>, <span class="fl">4.5</span>)</span>
+<span id="cb37-34"><a href="objeto-i-vetores.html#cb37-34"></a><span class="co">##Quantos aprovados?</span></span>
+<span id="cb37-35"><a href="objeto-i-vetores.html#cb37-35"></a><span class="kw">sum</span>(notas.dos.alunos<span class="op">&gt;=</span><span class="dv">5</span>)</span>
+<span id="cb37-36"><a href="objeto-i-vetores.html#cb37-36"></a><span class="co">#Qual a proporção de aprovados?</span></span>
+<span id="cb37-37"><a href="objeto-i-vetores.html#cb37-37"></a>prop =<span class="st"> </span><span class="kw">sum</span>(notas.dos.alunos<span class="op">&gt;=</span><span class="dv">5</span>)<span class="op">/</span><span class="kw">length</span>(notas.dos.alunos)</span>
+<span id="cb37-38"><a href="objeto-i-vetores.html#cb37-38"></a>prop</span>
+<span id="cb37-39"><a href="objeto-i-vetores.html#cb37-39"></a><span class="co">#ou em texto</span></span>
+<span id="cb37-40"><a href="objeto-i-vetores.html#cb37-40"></a><span class="kw">paste</span>(<span class="kw">round</span>(prop<span class="op">*</span><span class="dv">100</span>),<span class="st">&quot;%&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p>Podemos usar também vetores de texto e fatores em conjunto com operadores lógicos.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="objeto-i-vetores.html#cb38-1"></a><span class="co">#E VETORES DE TEXTO?</span></span>
+<span id="cb38-2"><a href="objeto-i-vetores.html#cb38-2"></a>v1 =<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;banana&quot;</span>,<span class="st">&quot;pera&quot;</span>,<span class="st">&quot;laranja&quot;</span>,<span class="st">&quot;limão&quot;</span>),<span class="dv">10</span>)</span>
+<span id="cb38-3"><a href="objeto-i-vetores.html#cb38-3"></a>v1 <span class="co">#um vetor de palavras</span></span>
+<span id="cb38-4"><a href="objeto-i-vetores.html#cb38-4"></a><span class="co">#quantos elementos são iguais a banana</span></span>
+<span id="cb38-5"><a href="objeto-i-vetores.html#cb38-5"></a>v1<span class="op">==</span><span class="st">&quot;banana&quot;</span></span>
+<span id="cb38-6"><a href="objeto-i-vetores.html#cb38-6"></a><span class="kw">sum</span>(v1<span class="op">==</span><span class="st">&quot;banana&quot;</span>)</span>
+<span id="cb38-7"><a href="objeto-i-vetores.html#cb38-7"></a><span class="co">#também poderia perguntar: quantos elementos de v1 contém banana</span></span>
+<span id="cb38-8"><a href="objeto-i-vetores.html#cb38-8"></a><span class="kw">sum</span>(v1<span class="op">%in%</span><span class="st">&quot;banana&quot;</span>)</span>
+<span id="cb38-9"><a href="objeto-i-vetores.html#cb38-9"></a>v1<span class="op">%in%</span><span class="st">&quot;banana&quot;</span></span>
+<span id="cb38-10"><a href="objeto-i-vetores.html#cb38-10"></a></span>
+<span id="cb38-11"><a href="objeto-i-vetores.html#cb38-11"></a><span class="co">#no caso acima == e %in% funcionam igual, mas o operador %in% é util quando quisermos comparar dois vetores de character</span></span>
+<span id="cb38-12"><a href="objeto-i-vetores.html#cb38-12"></a>v2 =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;banana&quot;</span>,<span class="st">&quot;pera&quot;</span>,<span class="st">&quot;abacate&quot;</span>)</span>
+<span id="cb38-13"><a href="objeto-i-vetores.html#cb38-13"></a>v1<span class="op">%in%</span>v2 <span class="co">#quais elementos de v1 correspondem a elementos de v2</span></span>
+<span id="cb38-14"><a href="objeto-i-vetores.html#cb38-14"></a><span class="kw">sum</span>(v1<span class="op">%in%</span>v2) <span class="co">#quantos são? 10 laranjas e 10 peras </span></span>
+<span id="cb38-15"><a href="objeto-i-vetores.html#cb38-15"></a>v2<span class="op">%in%</span>v1 <span class="co">#quais elementos de v2 estão em v1</span></span>
+<span id="cb38-16"><a href="objeto-i-vetores.html#cb38-16"></a><span class="kw">sum</span>(v2<span class="op">%in%</span>v1) <span class="co">#quantos são (apenas laranja e pera, abacate não está)</span></span></code></pre></div>
+<p>Operadores auxiliares permitem combinar perguntas:</p>
+<ul>
+<li><p><code>&amp;</code> equivale a <code>E</code> - essa condição E essa outra;</p></li>
+<li><p><code>|</code> equivale a <code>OU</code> - essa condição OU essa outra;</p></li>
+<li><p><code>!</code> - inverte os valores da pergunta</p></li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="objeto-i-vetores.html#cb39-1"></a><span class="co">#um vetor</span></span>
+<span id="cb39-2"><a href="objeto-i-vetores.html#cb39-2"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span></span>
+<span id="cb39-3"><a href="objeto-i-vetores.html#cb39-3"></a>v1</span>
+<span id="cb39-4"><a href="objeto-i-vetores.html#cb39-4"></a>p1 =<span class="st"> </span>v1<span class="op">&gt;</span><span class="dv">5</span> <span class="op">&amp;</span><span class="st"> </span>v1<span class="op">&lt;=</span><span class="dv">15</span> <span class="co">#quais elementos de v1 são maiores que 5 E menores ou iguais a 15</span></span>
+<span id="cb39-5"><a href="objeto-i-vetores.html#cb39-5"></a><span class="kw">sum</span>(p1) <span class="co">#quantos são?</span></span>
+<span id="cb39-6"><a href="objeto-i-vetores.html#cb39-6"></a>p1 =<span class="st"> </span>v1<span class="op">&gt;</span><span class="dv">5</span> <span class="op">|</span><span class="st"> </span>v1<span class="op">&lt;=</span><span class="dv">15</span> <span class="co">#quais elementos de v1 são maiores que 5 OU menores ou iguais a 15</span></span>
+<span id="cb39-7"><a href="objeto-i-vetores.html#cb39-7"></a><span class="kw">sum</span>(p1) <span class="co">#quantos são</span></span>
+<span id="cb39-8"><a href="objeto-i-vetores.html#cb39-8"></a></span>
+<span id="cb39-9"><a href="objeto-i-vetores.html#cb39-9"></a><span class="co">#!exclamação NEGA ou INVERTE verdadeiros e falsos</span></span>
+<span id="cb39-10"><a href="objeto-i-vetores.html#cb39-10"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span></span>
+<span id="cb39-11"><a href="objeto-i-vetores.html#cb39-11"></a><span class="kw">sum</span>(v1<span class="op">==</span><span class="dv">5</span>) <span class="co">#quantos v1 são iguais a 5?</span></span>
+<span id="cb39-12"><a href="objeto-i-vetores.html#cb39-12"></a><span class="kw">sum</span>(<span class="op">!</span>v1<span class="op">==</span><span class="dv">5</span>) <span class="co">#quantos v1 são diferentes de 5?</span></span>
+<span id="cb39-13"><a href="objeto-i-vetores.html#cb39-13"></a></span>
+<span id="cb39-14"><a href="objeto-i-vetores.html#cb39-14"></a><span class="kw">sum</span>(v1<span class="op">&gt;</span><span class="dv">5</span>) <span class="co">#quantos v1 são maiores que 5?</span></span>
+<span id="cb39-15"><a href="objeto-i-vetores.html#cb39-15"></a><span class="kw">sum</span>(<span class="op">!</span>v1<span class="op">&gt;</span><span class="dv">5</span>) <span class="co">#quantos v1 são menores que 5?</span></span>
+<span id="cb39-16"><a href="objeto-i-vetores.html#cb39-16"></a></span>
+<span id="cb39-17"><a href="objeto-i-vetores.html#cb39-17"></a><span class="co">#texto</span></span>
+<span id="cb39-18"><a href="objeto-i-vetores.html#cb39-18"></a>v1 =<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;banana&quot;</span>,<span class="st">&quot;pera&quot;</span>,<span class="st">&quot;laranja&quot;</span>,<span class="st">&quot;limão&quot;</span>),<span class="dv">10</span>)</span>
+<span id="cb39-19"><a href="objeto-i-vetores.html#cb39-19"></a>v1 <span class="co">#um vetor de palavras</span></span>
+<span id="cb39-20"><a href="objeto-i-vetores.html#cb39-20"></a>vl =<span class="st"> </span>v1<span class="op">==</span><span class="st">&quot;banana&quot;</span> <span class="op">&amp;</span><span class="st"> </span>v1<span class="op">==</span><span class="st">&quot;pera&quot;</span> <span class="co">#quantos elementos de v1 sao banana E sao pera</span></span>
+<span id="cb39-21"><a href="objeto-i-vetores.html#cb39-21"></a>vl </span>
+<span id="cb39-22"><a href="objeto-i-vetores.html#cb39-22"></a><span class="kw">sum</span>(vl)  <span class="co">#nenhum valor satisfaz as duas condicoes</span></span>
+<span id="cb39-23"><a href="objeto-i-vetores.html#cb39-23"></a></span>
+<span id="cb39-24"><a href="objeto-i-vetores.html#cb39-24"></a>vl =<span class="st"> </span>v1<span class="op">==</span><span class="st">&quot;banana&quot;</span> <span class="op">|</span><span class="st"> </span>v1<span class="op">==</span><span class="st">&quot;pera&quot;</span> <span class="co">#quantos elementos de v1 sao banana ou sao pera</span></span>
+<span id="cb39-25"><a href="objeto-i-vetores.html#cb39-25"></a>vl </span>
+<span id="cb39-26"><a href="objeto-i-vetores.html#cb39-26"></a><span class="kw">sum</span>(vl)  <span class="co">#tem 20 valores que satisfazem 1 das condições</span></span>
+<span id="cb39-27"><a href="objeto-i-vetores.html#cb39-27"></a><span class="co">#isso é o mesmo que pergunta desse outro jeito:</span></span>
+<span id="cb39-28"><a href="objeto-i-vetores.html#cb39-28"></a><span class="kw">sum</span>(v1<span class="op">%in%</span><span class="kw">c</span>(<span class="st">&quot;banana&quot;</span>,<span class="st">&quot;pera&quot;</span>))</span></code></pre></div>
+</div>
+<div id="vetor-filtro-logico" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> Filtrando dados com vetores lógicos</h3>
+<p>Vetores lógicos podem ser usados como índices (Seção @ref()) para filtrar elementos de um vetor.
+É através deste conceito que podemos filtrar dados de matrizes e criar subconjunto de dados.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="objeto-i-vetores.html#cb40-1"></a><span class="co">#um vetor com sequencia de 1 a 100</span></span>
+<span id="cb40-2"><a href="objeto-i-vetores.html#cb40-2"></a>v1 =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span></span>
+<span id="cb40-3"><a href="objeto-i-vetores.html#cb40-3"></a></span>
+<span id="cb40-4"><a href="objeto-i-vetores.html#cb40-4"></a>p1 =<span class="st"> </span>v1<span class="op">&gt;</span><span class="dv">15</span>  <span class="co">#Pergunta 1 quantos são maiores que 15</span></span>
+<span id="cb40-5"><a href="objeto-i-vetores.html#cb40-5"></a>v1[p1] <span class="co">#valores que satisfazem a pergunta 1</span></span>
+<span id="cb40-6"><a href="objeto-i-vetores.html#cb40-6"></a></span>
+<span id="cb40-7"><a href="objeto-i-vetores.html#cb40-7"></a>p2 =<span class="st"> </span>v1<span class="op">&lt;=</span><span class="dv">20</span> <span class="co">#Pergunta 2 quantos são menores ou iguais a 20</span></span>
+<span id="cb40-8"><a href="objeto-i-vetores.html#cb40-8"></a>v1[p2]  <span class="co">#valores que satisfazem a pergunta 2</span></span>
+<span id="cb40-9"><a href="objeto-i-vetores.html#cb40-9"></a></span>
+<span id="cb40-10"><a href="objeto-i-vetores.html#cb40-10"></a><span class="co">#quantos satisfazem as duas perguntas</span></span>
+<span id="cb40-11"><a href="objeto-i-vetores.html#cb40-11"></a>p3 =<span class="st"> </span>p1 <span class="op">&amp;</span><span class="st"> </span>p2</span>
+<span id="cb40-12"><a href="objeto-i-vetores.html#cb40-12"></a>v1[p2]  <span class="co">#valores que satisfazem as duas perguntas</span></span></code></pre></div>
+<p>A função <code>grep()</code> permite a busca de uma palavra (ou pedaço dela) em um vetor de palavras.
+Mais de uma palavra pode ser buscada ao mesmo tempo.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="objeto-i-vetores.html#cb41-1"></a>?grep <span class="co">#veja o help dessa função e seus argumentos</span></span>
+<span id="cb41-2"><a href="objeto-i-vetores.html#cb41-2"></a></span>
+<span id="cb41-3"><a href="objeto-i-vetores.html#cb41-3"></a><span class="co">#um vetor de palavras</span></span>
+<span id="cb41-4"><a href="objeto-i-vetores.html#cb41-4"></a>v1 =<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;banana&quot;</span>,<span class="st">&quot;pera&quot;</span>,<span class="st">&quot;laranja&quot;</span>,<span class="st">&quot;limão&quot;</span>),<span class="dv">5</span>)</span>
+<span id="cb41-5"><a href="objeto-i-vetores.html#cb41-5"></a><span class="kw">grep</span>(<span class="st">&quot;an&quot;</span>,v1) <span class="co">#quais elementos tem a palavra &#39;an&#39; no nome?</span></span>
+<span id="cb41-6"><a href="objeto-i-vetores.html#cb41-6"></a><span class="co">#note que é case.sensitive (depende se é maiusculo ou minúsculo)</span></span>
+<span id="cb41-7"><a href="objeto-i-vetores.html#cb41-7"></a><span class="kw">grep</span>(<span class="st">&quot;An&quot;</span>,v1) <span class="co">#não encontra nada</span></span>
+<span id="cb41-8"><a href="objeto-i-vetores.html#cb41-8"></a><span class="kw">grep</span>(<span class="st">&quot;An&quot;</span>,v1,<span class="dt">ignore.case=</span>T) <span class="co">#mas eu posso dizer para ele ignorar se é minusculo ou maiúsculo e ele encontra novamente </span></span>
+<span id="cb41-9"><a href="objeto-i-vetores.html#cb41-9"></a><span class="co">#quem sao esses elementos</span></span>
+<span id="cb41-10"><a href="objeto-i-vetores.html#cb41-10"></a>vl =<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;An&quot;</span>,v1,<span class="dt">ignore.case=</span>T) <span class="co">#pega os índices desses elementos</span></span>
+<span id="cb41-11"><a href="objeto-i-vetores.html#cb41-11"></a>v1[vl]</span>
+<span id="cb41-12"><a href="objeto-i-vetores.html#cb41-12"></a><span class="kw">unique</span>(v1[vl]) <span class="co">#valores únicos desse vetor</span></span></code></pre></div>
+</div>
+<div id="filtro-dados-ausentes" class="section level3">
+<h3><span class="header-section-number">4.6.3</span> Perguntando por valores ausentes - NA</h3>
+<p>Vimos anteriormente como o R codifica valores ausentes (seção <a href="conceitos-introdutórios.html#valor-na">3.7.4</a>): como uma classe lógica definida pela palavra <code>NA</code> em maiúsculo.
+E nossos dados frequentemente têm valores ausentes.
+Isso vai gerar avisos indesejáveis e impedir certas análises.
+Então, muitas vezes precisamos tirar registros com valores ausentes ou colunas com muitos valores ausentes.</p>
+<p>Perguntar por valores ausentes no R é feito por uma função especial chamada <code>is.na()</code>.
+A resposta da função é um vetor lógico indicando quem é e quem não é <code>NA</code>.
+Há uma outra função chamada <code>na.omit()</code> que elimina valores <code>NA</code> de um vetor.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="objeto-i-vetores.html#cb42-1"></a>?is.na  <span class="co">#veja o help</span></span>
+<span id="cb42-2"><a href="objeto-i-vetores.html#cb42-2"></a><span class="co">#um vetor com NAs</span></span>
+<span id="cb42-3"><a href="objeto-i-vetores.html#cb42-3"></a>v1 =<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>,<span class="ot">NA</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb42-4"><a href="objeto-i-vetores.html#cb42-4"></a><span class="kw">is.na</span>(v1) <span class="co">#quem é NA?</span></span>
+<span id="cb42-5"><a href="objeto-i-vetores.html#cb42-5"></a>v2 =<span class="st"> </span>v1[<span class="op">!</span><span class="kw">is.na</span>(v1)] <span class="co">#criar um vetor novo com quem não é NA (note o !)</span></span>
+<span id="cb42-6"><a href="objeto-i-vetores.html#cb42-6"></a>v2</span>
+<span id="cb42-7"><a href="objeto-i-vetores.html#cb42-7"></a><span class="co">#isso também pode ser feito com na.omit()</span></span>
+<span id="cb42-8"><a href="objeto-i-vetores.html#cb42-8"></a>?na.omit  <span class="co">#veja o help dessa função</span></span>
+<span id="cb42-9"><a href="objeto-i-vetores.html#cb42-9"></a>v3 =<span class="st"> </span><span class="kw">na.omit</span>(v1)</span>
+<span id="cb42-10"><a href="objeto-i-vetores.html#cb42-10"></a>v3 <span class="co">#a diferença é que criou um objeto de classe na.omit</span></span>
+<span id="cb42-11"><a href="objeto-i-vetores.html#cb42-11"></a>v3 =<span class="st"> </span><span class="kw">as.vector</span>(v3) <span class="co">#isso elimina a diferença, convertendo em vetor</span></span>
+<span id="cb42-12"><a href="objeto-i-vetores.html#cb42-12"></a>v3 <span class="co">#agora é idêntico a v2</span></span>
+<span id="cb42-13"><a href="objeto-i-vetores.html#cb42-13"></a></span>
+<span id="cb42-14"><a href="objeto-i-vetores.html#cb42-14"></a><span class="co">#agora suponha o seguinte vetor</span></span>
+<span id="cb42-15"><a href="objeto-i-vetores.html#cb42-15"></a>v4 =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>,<span class="st">&quot;pera&quot;</span>,<span class="st">&quot;banana&quot;</span>,<span class="st">&quot;mamão&quot;</span>)</span>
+<span id="cb42-16"><a href="objeto-i-vetores.html#cb42-16"></a><span class="kw">is.na</span>(v4) <span class="co">#ops todos são falsos</span></span>
+<span id="cb42-17"><a href="objeto-i-vetores.html#cb42-17"></a><span class="co">#isso porque &quot;NA&quot; é texto e não um objeto de classe lógica</span></span>
+<span id="cb42-18"><a href="objeto-i-vetores.html#cb42-18"></a><span class="kw">class</span>(<span class="ot">NA</span>)</span>
+<span id="cb42-19"><a href="objeto-i-vetores.html#cb42-19"></a><span class="kw">class</span>(<span class="st">&quot;NA&quot;</span>)</span>
+<span id="cb42-20"><a href="objeto-i-vetores.html#cb42-20"></a><span class="co">#mas eu poderia corrigir isso</span></span>
+<span id="cb42-21"><a href="objeto-i-vetores.html#cb42-21"></a>v4[v4<span class="op">==</span><span class="st">&quot;NA&quot;</span>] <span class="co">#vejo</span></span>
+<span id="cb42-22"><a href="objeto-i-vetores.html#cb42-22"></a>v4[v4<span class="op">==</span><span class="st">&quot;NA&quot;</span>] =<span class="st"> </span><span class="ot">NA</span> <span class="co">#corrijo</span></span>
+<span id="cb42-23"><a href="objeto-i-vetores.html#cb42-23"></a>v4</span>
+<span id="cb42-24"><a href="objeto-i-vetores.html#cb42-24"></a><span class="kw">is.na</span>(v4) <span class="co">#agora dois são NAs</span></span>
+<span id="cb42-25"><a href="objeto-i-vetores.html#cb42-25"></a><span class="co">#note que agora todos são diferentes de &quot;NA&quot; como texto </span></span>
+<span id="cb42-26"><a href="objeto-i-vetores.html#cb42-26"></a>v4[<span class="op">!</span>v4<span class="op">==</span><span class="st">&quot;NA&quot;</span>]</span>
+<span id="cb42-27"><a href="objeto-i-vetores.html#cb42-27"></a><span class="co">#mas isso de mostra quem não é corretamente</span></span>
+<span id="cb42-28"><a href="objeto-i-vetores.html#cb42-28"></a>v5 =<span class="st"> </span>v4[<span class="op">!</span><span class="kw">is.na</span>(v4)]</span>
+<span id="cb42-29"><a href="objeto-i-vetores.html#cb42-29"></a>v5</span></code></pre></div>
+</div>
+<div id="sabermais-manip-texto" class="section level3">
+<h3><span class="header-section-number">4.6.4</span> Para saber mais:</h3>
+<ol start="3" class="example" style="list-style-type: decimal">
+<li>Vídeoaula - temos uma vídeoaula disponível com o conteúdo desta aula. Acesse-a no <em>link</em> abaixo:</li>
+</ol>
+<ul>
+<li><a href="http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:6vetores:video01_bot89-2020-04-07_07.52.00.mp4">Vetores e Operadores Lógicos</a>;</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conceitos-introdutórios.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="objeto-ii-matrizes-e-data-frames.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/blob/main/cap01_vetores.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/cap01_vetores.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
