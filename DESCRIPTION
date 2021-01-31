@@ -2,6 +2,6 @@ Package: placeholder
 Type: Book
 Title: Curso básico de introdução ao R - BOT 89 PPBGBOT INPA
 Version: 0.0.1
-Imports: bookdown, printr, dplyr, ggplot2, knitr, kableExtra, magrittr
+Imports: bookdown, printr, dplyr, ggplot2, knitr, kableExtra, magrittr, svglite
 Remotes: rstudio/bookdown
 Encoding: UTF-8

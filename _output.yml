@@ -12,17 +12,17 @@ bookdown::gitbook:
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
     edit: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s
     download: ["pdf", "epub"]
-bookdown::pdf_book:
+# bookdown::pdf_book:
   # includes:
   #   in_header: preamble.tex
-  latex_engine: xelatex
-  citation_package: natbib
-  keep_tex: yes
+  # latex_engine: xelatex
+  # citation_package: natbib
+  # keep_tex: yes
   # # dev: "cairo_pdf"
   # toc_depth: 3
   # toc_unnumbered: no
   # toc_appendix: yes
   # quote_footer: ["\\VA{", "}{}"]
-bookdown::epub_book:
-  dev: svglite
-  stylesheet: style.css
+# bookdown::epub_book: default
+  # dev: svglite
+  # stylesheet: style.css

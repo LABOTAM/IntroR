@@ -618,4 +618,4 @@ Leiam e tirem suas próprias conclusões.
 (@) [Teach the tidyverse to beginners](http://varianceexplained.org/r/teach-tidyverse/) - postagem de David Robinson sobre sua opinião pessoal de se ensinar primeiro o tidyverse aos alunos de cursos de introdução ao R.
 
 (@) [Introducing magrittr
-](https://magrittr.tidyverse.org/articles/magrittr.html) - Vinheta de introdução às funcionalidades do operador `%>% `
+](https://magrittr.tidyverse.org/articles/magrittr.html) - Vinheta de introdução às funcionalidades do operador `%>%`
