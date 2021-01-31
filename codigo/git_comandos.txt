@@ -1,5 +1,0 @@
-# Alguns comandos git importantes
-
-## Restora os arquivos .Rmd e .md apagados com o commit <9dec406ce81fa0fff72d9ee086e693981e40a785>
-
-git checkout HEAD{3}
