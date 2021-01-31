@@ -18,15 +18,15 @@ jobs:
         run: Rscript -e 'install.packages(c("rmarkdown","bookdown", "dplyr", "printr", "ggplot2", "magrittr", "tidyr", "purrr", "knitr", "kableExtra", "tibble"))'
       - name: Render Book as gitbook
         run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
-      - name: Render Book as epub
-        run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::epub_book")'
+        # - name: Render Book as epub
+        # run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::epub_book")'
       # - name: Render Book as pdfbook
       #   run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::pdf_book")'
       - uses: actions/upload-artifact@v1
         with:
           name: _book
-          # path: _book/
-          path: docs/
+          path: _book/
+          # path: docs/
 
 # Need to first create an empty gh-pages branch
 # see https://pkgdown.r-lib.org/reference/deploy_site_github.html
@@ -44,18 +44,17 @@ jobs:
          # Artifact name
          name: _book # optional
          # Destination path
-         # path: _book # optional
-         path: docs # optional
+         path: _book # optional
+         # path: docs # optional
      - name: Deploy to GitHub Pages
-       uses: Cecilapp/GitHub-Pages-deploy@v3
-       # uses: Cecilapp/GitHub-Pages-deploy@v2
+       # uses: Cecilapp/GitHub-Pages-deploy@v3
+       uses: Cecilapp/GitHub-Pages-deploy@v2
        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
-          # EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
           # GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
-          # BUILD_DIR: _book/                     # "_site/" by default
-       with:
-          email: ${{ secrets.EMAIL }}  # must be a verified email
-          build_dir: docs     # "_site/" by default
-          branch: gh-pages
-          jekyll: no
+          EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
+          GH_TOKEN: ${{ secrets.GH_PAT }} # https://github.com/settings/tokens
+          BUILD_DIR: _book/                     # "_site/" by default
+       # with:
+       #    email: ${{ secrets.EMAIL }  # must be a verified email
+       #    build_dir: docs     # "_site/" by default
+       #    jekyll: no
