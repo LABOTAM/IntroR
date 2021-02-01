@@ -3,7 +3,7 @@
 <!-- badges: start -->
 
 [![Status do livro
-online](https://github.com/LABOTAM/LABOTAM.github.io/workflows/renderbook/badge.svg?branch=master)](https://github.com/LABOTAM/LABOTAM.github.io/actions)
+online](https://github.com/LABOTAM/LABOTAM.github.io/workflows/renderbook/badge.svg)](https://github.com/LABOTAM/LABOTAM.github.io/actions)
 <!-- badges: end -->
 
 Este livro é um passo a passo para conhecer a sintaxe básica da
