@@ -2,7 +2,8 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/LABOTAM/LABOTAM.github.io/workflows/deploy_bookdown/badge.svg)](https://github.com/LABOTAM/LABOTAM.github.io/actions)
+[![Status do livro
+online](https://github.com/LABOTAM/LABOTAM.github.io/workflows/renderbook/badge.svg?branch=master)](https://github.com/LABOTAM/LABOTAM.github.io/actions)
 <!-- badges: end -->
 
 Este livro é um passo a passo para conhecer a sintaxe básica da

@@ -18,8 +18,8 @@ jobs:
         run: Rscript -e 'install.packages(c("rmarkdown","bookdown", "dplyr", "printr", "ggplot2", "magrittr", "tidyr", "purrr", "knitr", "kableExtra", "tibble"))'
       - name: Render Book as gitbook
         run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
-        # - name: Render Book as epub
-        # run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::epub_book")'
+      - name: Render Book as epub
+        run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::epub_book")'
       # - name: Render Book as pdfbook
       #   run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::pdf_book")'
       - uses: actions/upload-artifact@v1

@@ -3,7 +3,7 @@
 ```{r, opts.label='executa'}
 knitr::asis_output(
   knitr::knit_child(
-    "basico-manipulacao_textos.Rmd",
+    "basico-manipulacao_texto.Rmd",
     quiet = TRUE))
 ```
 

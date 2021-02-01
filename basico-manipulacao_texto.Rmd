@@ -4,7 +4,7 @@
 
 A função `paste()` concatena textos.
 
-```{r, opts.label='evalF'}
+```{r}
 ?paste # veja o help dessa funcao
 ```
 
@@ -28,7 +28,7 @@ paste(txt, collapse = ";")
 
 A função `strsplit()` quebra um texto segundo um separador.
 
-```{r, opts.label='evalF'}
+```{r}
 ?strsplit
 ```
 
@@ -296,7 +296,7 @@ Algumas classes de caracteres podem ser utilizadas em buscas com expressões reg
 Perceb-se que estas classes permitem fazer buscas complexas.
 Suponha que você precisa substituir todos os valores que não contenham letras ou números por `NA`:
 
-```{r, opts.label='evalF'}
+```{r, eval = FALSE, echo = TRUE}
 # suponha um vetor de palavras (nomes de cores neste exemplo)
 vt <- colors()
 vt
@@ -325,7 +325,7 @@ grep("[a-z]", vt, value = TRUE)
 O uso do *backslash* `\` (barra invertida) indica ao R que a expressão regular espera lidar com tabulações, quebra de linhas e outros símbolos especiais.
 Isso é fundamental se você quer incluir/buscar num texto por aspas, parênteses, colchetes, barras, metacaracteres, etc.
 
-```{r, opts.label='evalF'}
+```{r}
 ?Quotes # leia atentamente esse help
 # criar um texto com aspas
 ```
@@ -369,7 +369,7 @@ grep("\\)", txt)
 ```
 
 
-## Para saber mais: {#sabermais-manip-texto}
+### Para saber mais: {#sabermais-manip-texto}
 
 (@) [RegExr is an online tool to learn, build, & test Regular Expressions (RegEx / RegExp)](http://regexr.com) - Página que ajuda o usuário a construir uma expressão regular.  
 

@@ -9,7 +9,7 @@ No dia a dia, dominá-las também possibilitará que muito tempo seja poupado em
 Vamos analisar o uso das funções `dir()`, `dir.create()` e `file.copy()` (vejam a seção [Para saber mais](#sabermais-manip-arqs-pastas) para mais informações).
 Não esqueçam de checar o `?` de cada função (e.g., `?dir`) para auxiliar no entendimento do funcionamento de cada uma das funções.  
 
-```{r, opts.label='evalF'}
+```{r, eval = FALSE, echo = TRUE}
 # meu caminho
 caminho <- "~/Documents/DOC/PROJETO_DOC/R/pkgs/BOT89-introR/tutorial/"
 # lista todos os arquivos no caminho que sejam pdfs
@@ -47,9 +47,9 @@ sapply(arqs, salvaarq, origem = caminho, destino = novapasta)
 dir(novapasta)
 ```
 
-## Para saber mais: {#sabermais-manip-arqs-pastas}
+### Para saber mais: {#sabermais-manip-arqs-pastas}
 
-(@) Vídeoaula de [Manipulação de pastas e arquivos(https://youtu.be/TbY5nEQTwLw) com o conteúdo desta aula;
+(@) Vídeoaula de [Manipulação de pastas e arquivos](https://youtu.be/TbY5nEQTwLw) com o conteúdo desta aula;
   
 (@) Pacote de R [fs](https://github.com/r-lib/fs) - Um pacote que agrupa funções para manipulações de arquivos e pastas, e que apresenta algumas melhoras sobre o conjunto de funções do pacote base do R. Além disso, há alguns tutoriais disponíveis.
 

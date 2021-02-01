@@ -138,7 +138,7 @@ sum(v1%in%c("banana","pera"))
 
 ### Filtrando dados com vetores lógicos {#vetor-filtro-logico}
 
-Vetores lógicos podem ser usados como índices (Seção \@ref()) para filtrar elementos de um vetor.
+Vetores lógicos podem ser usados como índices (Seção \@ref(indexacao)) para filtrar elementos de um vetor.
 É através deste conceito que podemos filtrar dados de matrizes e criar subconjunto de dados.  
 
 ```{r, opts.label='evalF'}
@@ -217,7 +217,7 @@ v5 = v4[!is.na(v4)]
 v5
 ```
 
-### Para saber mais: {#sabermais-manip-texto}
+### Para saber mais: {#sabermais-vetor-operador-logico}
 
 (@) Vídeoaula - temos uma vídeoaula disponível com o conteúdo desta aula. Acesse-a no *link* abaixo:
 
