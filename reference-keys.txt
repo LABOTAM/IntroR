@@ -10,6 +10,7 @@ tab:semi-junc
 tab:dplyrtb
 tab:ggcom
 introdução
+código-fonte-do-livro
 pré-requisitos
 caso-você-possua-um-computador
 instale-o-r

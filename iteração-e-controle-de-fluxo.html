@@ -133,7 +133,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#código-fonte-do-livro"><i class="fa fa-check"></i><b>1.1</b> Código fonte do livro</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i><b>2</b> Pré-requisitos</a><ul>
 <li class="chapter" data-level="2.1" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-possua-um-computador"><i class="fa fa-check"></i><b>2.1</b> Caso você possua um computador</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-o-r"><i class="fa fa-check"></i><b>2.1.1</b> Instale o R</a></li>
@@ -511,17 +513,17 @@ Portanto, ao dominar a função <code>apply()</code>, você acaba por não preci
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="iteração-e-controle-de-fluxo.html#cb185-1"></a><span class="co">#posso usar lapply para calcular a media desses vetores</span></span>
 <span id="cb185-2"><a href="iteração-e-controle-de-fluxo.html#cb185-2"></a><span class="kw">lapply</span>(ml,mean) <span class="co">#note que retorna uma lista</span></span></code></pre></div>
 <pre><code>## [[1]]
-## [1] 532.82
+## [1] 519.14
 ## 
 ## [[2]]
-## [1] 50
+## [1] 52.6
 ## 
 ## [[3]]
-## [1] 1490.111</code></pre>
+## [1] 1497.633</code></pre>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="iteração-e-controle-de-fluxo.html#cb187-1"></a>lt =<span class="st"> </span><span class="kw">lapply</span>(ml,mean) <span class="co">#podemos guardar</span></span>
 <span id="cb187-2"><a href="iteração-e-controle-de-fluxo.html#cb187-2"></a>lt =<span class="st"> </span><span class="kw">as.vector</span>(lt, <span class="dt">mode=</span><span class="st">&#39;numeric&#39;</span>) <span class="co">#e transformar num vetor. MODE neste caso é fundamental usar</span></span>
 <span id="cb187-3"><a href="iteração-e-controle-de-fluxo.html#cb187-3"></a>lt</span></code></pre></div>
-<pre><code>## [1]  532.820   50.000 1490.111</code></pre>
+<pre><code>## [1]  519.140   52.600 1497.633</code></pre>
 </div>
 <div id="por-categoria-de-um-fator" class="section level3">
 <h3><span class="header-section-number">8.1.3</span> Por categoria de um fator</h3>
