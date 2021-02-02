@@ -1,6 +1,7 @@
-book_filename: "VicentiniPerdiz2021_IntroR"
+book_filename: "bot89-introR"
 # output_dir: _book
-delete_merged_file: true
+# clean: ["bot89-introR.bbl"]
+delete_merged_file: false
 edit: https://github.com/LABOTAM/LABOTAM.github.io/blob/main/%s
 view: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s
 language:
@@ -9,23 +10,14 @@ language:
     tab: 'Tabela '
   ui:
     chapter_name: ""
-# clean: ["bot89-introR.bbl"]
 rmd_files:
   html: ["index.Rmd",
-    # instalacao
-    "prerequisitos.Rmd",
-    # conceitos introdutorios
-    "cap00_intro.Rmd",
-    # Objetos I
-    "cap01_vetores.Rmd",
-    # Objetos II
-    "cap02_matrizes-dframes.Rmd",
-    # Objetos III
-    "cap03_listas-objComplexos.Rmd",
-    # Funcoes graficas
-    "cap04_funcoes-graficas.Rmd",
-    # Iteracoes e controle de fluxo
-    "cap05_iteracoes-controleFluxo.Rmd",
+    "01-intro.Rmd",
+    "02-vetores.Rmd",
+    "03-matrizes_dframes.Rmd",
+    "04-listas_objComplexos.Rmd",
+    "05-funcoes_graficas.Rmd",
+    "06-iteracoes_controleFluxo.Rmd",
     # Sumarizacao de dados
     "cap06-sumarizacao_dados.Rmd",
     # Manipulacao textos
@@ -39,59 +31,3 @@ rmd_files:
     # Info da sessao para reprodutibilidade
     "info_sessao.Rmd",
     "referencias.Rmd"]
-  epub : ["index.Rmd",
-    # instalacao
-    "prerequisitos.Rmd",
-    # conceitos introdutorios
-    "cap00_intro.Rmd",
-    # Objetos I
-    "cap01_vetores.Rmd",
-    # Objetos II
-    "cap02_matrizes-dframes.Rmd",
-    # Objetos III
-    "cap03_listas-objComplexos.Rmd",
-    # Funcoes graficas
-    "cap04_funcoes-graficas.Rmd",
-    # Iteracoes e controle de fluxo
-    "cap05_iteracoes-controleFluxo.Rmd",
-    # Sumarizacao de dados
-    "cap06-sumarizacao_dados.Rmd",
-    # Manipulacao textos
-    "cap07-manipulacao_textos_arqs_pastas.Rmd",
-    # Amostragens aleatorias
-    "cap08-amostragens_aleatorias.Rmd",
-    # Outros
-    "aplicado-extrai_dados_colunas_descritivas.Rmd",
-    # Suplementos
-    "cap10-suplementos.Rmd",
-    # Info da sessao para reprodutibilidade
-    "info_sessao.Rmd",
-    "referencias.Rmd"]
-  # pdf: ["index.Rmd",
-  #   # instalacao
-  #   "prerequisitos.Rmd",
-  #   # conceitos introdutorios
-  #   "cap00_intro.Rmd",
-  #   # Objetos I
-  #   "cap01_vetores.Rmd",
-  #   # Objetos II
-  #   "cap02_matrizes-dframes.Rmd",
-  #   # Objetos III
-  #   "cap03_listas-objComplexos.Rmd",
-  #   # Funcoes graficas
-  #   "cap04_funcoes-graficas.Rmd",
-  #   # Iteracoes e controle de fluxo
-  #   "cap05_iteracoes-controleFluxo.Rmd",
-  #   # Sumarizacao de dados
-  #   "cap06-sumarizacao_dados.Rmd",
-  #   # Manipulacao textos
-  #   # "cap07-manipulacao_textos_arqs_pastas.Rmd",
-  #   # Amostragens aleatorias
-  #   "cap08-amostragens_aleatorias.Rmd",
-  #   # Outros
-  #   "aplicado-extrai_dados_colunas_descritivas.Rmd",
-  #   # Suplementos
-  #   "cap10-suplementos.Rmd",
-  #   # Info da sessao para reprodutibilidade
-  #   "info_sessao.Rmd",
-  #   "referencias.Rmd"]
