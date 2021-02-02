@@ -767,7 +767,7 @@ v5
 
 ## Para saber mais: {#sabermais-vetores}
 
-(@) Veja nossas vídeoaulas com parte do conteúdo deste capítulo:
+Veja nossas vídeoaulas com parte do conteúdo deste capítulo:
 
   * [Criação de vetores](https://youtu.be/qXSZkGoDk1Y);
   
