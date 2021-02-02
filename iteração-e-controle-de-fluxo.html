@@ -513,17 +513,17 @@ Portanto, ao dominar a função <code>apply()</code>, você acaba por não preci
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="iteração-e-controle-de-fluxo.html#cb185-1"></a><span class="co">#posso usar lapply para calcular a media desses vetores</span></span>
 <span id="cb185-2"><a href="iteração-e-controle-de-fluxo.html#cb185-2"></a><span class="kw">lapply</span>(ml,mean) <span class="co">#note que retorna uma lista</span></span></code></pre></div>
 <pre><code>## [[1]]
-## [1] 427.76
+## [1] 513.38
 ## 
 ## [[2]]
-## [1] 59.4
+## [1] 51.83333
 ## 
 ## [[3]]
-## [1] 1489.122</code></pre>
+## [1] 1465.056</code></pre>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="iteração-e-controle-de-fluxo.html#cb187-1"></a>lt =<span class="st"> </span><span class="kw">lapply</span>(ml,mean) <span class="co">#podemos guardar</span></span>
 <span id="cb187-2"><a href="iteração-e-controle-de-fluxo.html#cb187-2"></a>lt =<span class="st"> </span><span class="kw">as.vector</span>(lt, <span class="dt">mode=</span><span class="st">&#39;numeric&#39;</span>) <span class="co">#e transformar num vetor. MODE neste caso é fundamental usar</span></span>
 <span id="cb187-3"><a href="iteração-e-controle-de-fluxo.html#cb187-3"></a>lt</span></code></pre></div>
-<pre><code>## [1]  427.760   59.400 1489.122</code></pre>
+<pre><code>## [1]  513.38000   51.83333 1465.05556</code></pre>
 </div>
 <div id="por-categoria-de-um-fator" class="section level3">
 <h3><span class="header-section-number">8.1.3</span> Por categoria de um fator</h3>
