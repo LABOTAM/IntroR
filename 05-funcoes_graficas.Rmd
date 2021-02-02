@@ -2,7 +2,8 @@
 
 ## Dispositivos Gráficos
 
-Existem dois principais tipos de **dispositivos (Devices) gráficos** no R que basicamente significam onde você imprimirá um gráfico ou figura. Isso pode ocorrer:
+Existem dois principais tipos de **dispositivos (Devices) gráficos** no R que basicamente significam onde você imprimirá um gráfico ou figura.
+Isso pode ocorrer:
 
 * Na tela do computador (monitor), ou seja, em janelas do R ou do RStudio onde você visualiza gráficos;
 
@@ -25,7 +26,7 @@ vcl <- c("yellow", "green", "blue")[as.numeric(iris$Species)] # cria um vetor de
 plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
 ```
 
-Muitos argumentos da função `plot()` são [parâmetros gráficos](par-graficos).  
+Muitos argumentos da função `plot()` são parâmetros gráficos (Seções \@ref(par-graficos-p1) e \@ref(par-graficos-p2)).  
 
 ### Dispositivos de Tela
 
@@ -122,8 +123,9 @@ Há vários dispositivos para gerar arquivos com imagens.
 As funções em geral têm o nome do tipo de arquivo gerado.
 Vamos ver dois exemplos apenas, mas a mesma lógica se aplica a qualquer um dos dispositivos listados no `?` dos dispositivos (execute o comando `help('device')` e veja a explicação sobre os dispositivos (*devices*)).  
 
-Essas funções são ótimas ferramentas para incluir nos seus scripts a produção de figuras para uma publicação, basta ver na revista as especificações e através dos parâmetros das funções que abrem os dispositivos e dos [parâmetros gráficos](\@ref(par-graficos)), você pode gerar figuras na especificação exata da revista selecionada.  
-
+Essas funções são ótimas ferramentas para incluir nos seus scripts visando a produção de figuras para uma publicação.
+Procure na revista em que você deseja publicar seu artigo as especificações técnicas das figuras.
+Em seguida, cheque os parâmetros das funções gráficas (Seções \@ref(par-graficos-p1) e \@ref(par-graficos-p2)) para você ser capaz de gerar figuras na especificação exata da revista selecionada.  
 
 ### Figuras vetoriais em `pdf` ou `postscript`
 
@@ -197,15 +199,13 @@ dev.off()
 Note que em um `pdf` você nunca verá o pixel.
 Por isso, recomendamos que vocÊ trabalhe sempre com a função `pdf()`.  
 
-## Parâmetros gráficos dos dispositivos {#par-graficos}
+## Parâmetros gráficos, parte I - Margem, fonte, proporções {#par-graficos-p1}
 
 Para fazer boas figuras no R, você precisa muitas vezes controlar **parâmetros gráficos dos dispositivos**, como margem da figura, tamanho de fonte, tipo da fonte, distância das legendas dos eixos x e y, se essas legendas são horizontais ou verticais, o tipo símbolos dos pontos, as cores dos simbolos etc.
-Você pode definir esses parâmetros diretamente nas funções gráficas de alto-nível `highlevel plot> (..., <tag> = <value>)`, onde um valor (value) de um parâmetro (tag) pode ser adicionado diretamente como argumento de uma função de alto-nível.
+Você pode definir esses parâmetros diretamente nas funções gráficas de alto-nível `highlevel plot> (..., <tag> = <value>)`, onde um valor (value) de um parâmetro (tag) pode ser adicionado diretamente como argumento de uma função de alto-nível.  
 
 Alguns desses parâmetros, no entanto, só podem ser definidos através da função `par()`, que também define **parâmetros gráficos globais**, isto é, se você alterar os parâmetros através dessa função, isso será alterado para todos os gráficos que forem abertos posteriormente durante a mesma sessão do R.
 Esta mesma função também permite visualizar os parâmetros gráficos.  
-
-### Conhecendo os parâmetros
 
 Leia atentamente o `?` da função [`par()`](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/par.html).
 Você pode salvar os parâmetros globais antes de alterá-los.  
@@ -249,7 +249,7 @@ length(op) == length(op2) # tem comprimentos diferentes
 identical(op, op2) # nao são identicas
 ```
 
-#### Exemplos I - Margem
+### Margem da figura
 
 ```{r, cache = TRUE}
 # Usando novamente o exemplo de iris
@@ -288,7 +288,7 @@ plot(Sepalas,
 par(mar = op$mar)
 ```
 
-#### Exemplo II - Aspecto dos eixos
+### Aspecto dos eixos
 
 ```{r, opts.label='evalF'}
 op <- par(no.readonly = TRUE)
@@ -329,7 +329,7 @@ par(op) # restaurando valores originais
 plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
 ```
 
-#### Exemplo III - Proporção dos eixos
+### Proporção dos eixos
 
 ```{r, cache = TRUE}
 op <- par(no.readonly = TRUE)
@@ -344,7 +344,7 @@ plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
 # se não notou diferença, expandir o dispositivo onde está desenhando a figura
 ```
 
-#### Exemplo IV - Múltiplas figuras na mesma tela ou página
+### Múltiplas figuras na mesma tela ou página com `mfrow()` e `mfcol()`
 
 Você pode colocar diferentes gráficos na mesma tela ou na mesma página de um pdf, por exemplo. Temos duas formas de fazer isso.
 Os parâmetros `mfrow` e `mfcol` dividem os dispositivo em células de tamanhos idênticos.
@@ -380,7 +380,10 @@ for (f in 1:4) {
   plot(Sepalas, Petalas, pch = sbs, bg = NULL, cex = 0.8)
   mtext(LETTERS[f], side = 3, line = 0, adj = 0, font = 2, col = "red")
 }
+```
 
+
+```{r, opts.label='evalF'}
 # colocando exemplo 2 e 3 num pdf
 pdf(file = "meuPDFmfrow.pdf", paper = "a4")
 # EXEMPLO 2 expandido
@@ -398,7 +401,7 @@ for (f in 1:6) {
 dev.off()
 ```
 
-#### Exemplo V
+### Múltiplas figuras na mesma image usando a função `layout()`
 
 A função `layout()` também permite dividir um dispositivo para múltiplas figuras, mas de uma forma muito mais complexa.  
 
@@ -448,13 +451,12 @@ dev.off() # fecha o pdf
 ```
 
 
-
-## Parâmetros gráficos parte II - Símbolos e cores
+## Parâmetros gráficos, parte II - Símbolos e cores {#par-graficos-p2}
 
 Você pode fazer o que quiser na produção de um gráfico no R.
-Isso requer conhecer bem os parâmetros gráficos que já apresentamos de forma geral anteriormente (ver seção \@ref(#par-graficos)).
-Aqui apresentamos alguns parâmetros de uso comum pelas funções gráficas de alto (seção \@ref(#graf-alto-nivel)) e baixo nível (seção \@ref(#graf-baixo-nivel)), que definem símbolos e cores.
-Você viu isso se leu o `?` e entendeu o que a função `par()` faz.  
+Isso requer conhecer bem os parâmetros gráficos que já apresentamos de forma geral anteriormente (ver seção \@ref(par-graficos-p1)).
+Aqui apresentamos alguns parâmetros de uso comum pelas funções gráficas de alto (Seção \@ref(graf-alto-nivel)) e baixo nível (seção \@ref(graf-baixo-nivel)), que definem símbolos e cores.
+Você viu isso se leu o `?` da função `par()` e entendeu o que ela faz.  
 
 Em gráficos de dispersão e/ou na necessidade de colocar qualquer símbolo em um gráfico qualquer, precisamos saber como definir símbolos, suas cores e seus tamanhos.
 Os parâmetros gráficos que fazem isso são principalmente os seguintes:
@@ -470,11 +472,11 @@ Os parâmetros gráficos que fazem isso são principalmente os seguintes:
 * `lwd` - espessura das linhas.
 
 
-### Tipo de símbolo - pch
+### Tipo de símbolo - `pch`
 
 Nós queremos símbolos, em geral, para adicionar em um gráfico os pontos referentes às nossas unidades amostrais.
 Portanto, esse tipo de símbolo no R é chamado de `points`, e já vimos a função de baixo-nível `points()`, que depende desse argumento ou parâmetro.
-O argumento `pch` pode ser um número^[de 0 a 25; veja o `?` da função `points()`, `?points`, para saber quais são esses símbolos], que especifica um símbolo, ou símbolos de um único caractere [e.g. `c("A", "*","&", "?")`].  
+O argumento `pch` pode ser um número^[Valores do argumento `pch` variam de 0 a 25; veja o `?` da função `points()` para saber quais são esses símbolos], que especifica um símbolo, ou símbolos de um único caractere [e.g. `c("A", "*","&", "?")`].  
 
 ```{r, opts.label='evalF'}
 # veja o definido como parâmetro global
@@ -528,7 +530,7 @@ plot(Sepalas, Petalas, pch = pch.das.spp)
 # pronto cada espécie é um símbolo diferente
 ```
 
-### Tamanho dos pontos - cex
+### Tamanho dos pontos - `cex`
 
 O argumento genérico `cex` especifica o tamanho dos pontos relativo ao padrão do dispositivo.
 Aceita um valor numérico que é multiplicado pelo valor do seu dispositivo.
@@ -569,7 +571,7 @@ plot(AirPassengers, ylab = "Número de Passageiros", lty = "dotdash")
 plot(AirPassengers, ylab = "Número de Passageiros", lty = "dashed", col = "red", lwd = 2)
 ```
 
-### Cores de símbolos - col e bg
+### Cores de símbolos - `col` e `bg`
 
 O argumento `col` define cores para os símbolos. No caso de símbolos de uma única cor, utilizamos apenas este argumento.
 Já o argumento `bg` define as cores do preenchimento dos símbolos.  
@@ -1002,7 +1004,7 @@ sa <- c("Brazil", "Guyana", "French Guiana", "Suriname", "Venezuela", "Colombia"
 map(region = sa, col = "red", lty = "dashed")
 ```
 
-### xlim e ylim
+### `xlim` e `ylim`
 
 Esses dois parâmetros gráficos permitem ajustar o tamanho dos eixos de um gráfico, impondo limites.  
 
@@ -1438,3 +1440,5 @@ trees[ss, ]
   * [Funções gráficas de baixo nível, parte II](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:5plot:video01_bot89-2020-04-13_13.07.07.mp4);
   
 (2). [R Gallery](http://www.r-graph-gallery.com/) - página que tem exemplos de gráficos do R e os códigos correspondentes.
+
+## Referências
