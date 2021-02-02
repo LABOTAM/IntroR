@@ -44,14 +44,13 @@ v3 == v4
 ```
 
 Note que `TRUE` e `FALSE` são valores lógicos e essas palavras são entendidas apenas como tal quando em maiúsculas e sem aspas `"` pelo R.
-Vejamos abaixo quando utilizamos esses valores em letras minúsculas:
+Tente executar o comando abaixo para ver o que acontece quando utilizamos esses valores em letras minúsculas:
 
-```{r, echo = TRUE, eval = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 v5 <- c(true, true, false, false) 
 ```
 
-O R não entende isso como valores lógico, pois ele procura no ambiente por objetos com esses nomes.
-Por isso ele retorna a mensagem de erro `Error: object 'true' not found` pois ele procura pelo primeiro objeto de nosso vetor ` c(true, true, false, false)` na área de trabalho e, ao não encontrar, ele retorna esta mensagem de erro.
+O R retorna a mensagem de erro `Error: object 'true' not found` pois ele procura pelo primeiro objeto de nosso vetor ` c(true, true, false, false)` na área de trabalho e, ao não encontrar, ele retorna esta mensagem de erro, justamente por não compreender `true` como um vetor lógico, e sim como um objeto!
 Se nós atribuímos valores a esses objetos, então a concatenação funciona, podendo assim atribuirmos este vetor ao objeto `v5` (ou com qualquer nome que desejamos):
 
 ```{r, echo = TRUE, eval = TRUE}
@@ -307,7 +306,10 @@ A função `class()` nos permite saber a classe de um objeto do R.
 
 ```{r, opts.label='evalF'}
 ?class # veja o help dessa funcao
+```
 
+
+```{r, echo = TRUE, eval = TRUE}
 v1 <- 1:20 # um vetor de números inteiros
 class(v1)
 
@@ -327,9 +329,9 @@ v4
 ```
 
 As funções genéricas `is.[class]()` permitem você perguntar se um vetor é de uma determinada classe (`is?`).
-Vai retornar um vetor lógico, ou seja, verdadeiro ou falso dependendo da classe do objeto:
+Ao utilizar essas funções, o R retornará um vetor lógico, ou seja, verdadeiro ou falso dependendo da classe do objeto:
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = TRUE}
 v1 <- 1:20 # um vetor de números inteiros
 is.integer(v1) # verdadeiro
 is.numeric(v1) # também verdadeiro porque números inteiros também são números
@@ -350,7 +352,7 @@ is.character(v4) # falso
 As funções genéricas `as.[class]()` (as = 'como uma?') permitem você converter um vetor de uma classe para outra.
 Em alguns casos, isso faz sentido; em outros, o retorno será de valores inexistentes (`NA`) ou não numéricos (`NaN`).
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = TRUE}
 # conversão total
 v1 <- 1:20 # um vetor de números inteiros
 as.character(v1) # converte para texto um vetor numérico
@@ -381,7 +383,7 @@ Funções importantes a serem memorizadas são:
 
 * `as.factor()` e  `as.vector()` - para converter entre fator e vetor.
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = TRUE}
 # um exemplo de um vetor de palavras
 mvv <- c("abacate", "banama", "mamão", "uva")
 # repetindo cada fruta 3 vezes
@@ -407,21 +409,38 @@ as.numeric(mvv) # nao pode fazer a mesma coisa com um vetor de palavras
 A função `as.Date()` converte um vetor de trecho em um objeto de classe `date`.
 Datas são uma classe especial, que permite operações artiméticas para calcular distâncias temporais.
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = TRUE}
 # muitas vezes queremos calcular tempo entre duas observações, como por exemplo, entre duas medições consecutivas num estudo sobre crescimento de plantas
 
 # Qual a diferença em dias entre duas datas?
 data1 <- "31/03/1964"
 data2 <- "17/04/2016"
+```
+
+
+```{r, echo = TRUE, eval = FALSE}
 # eu nao posso simplesmente subtrair esses valores
 data2 - data1
-# isso dá um erro porque esses objetos são de classe texto
+```
+
+O R retorna uma mensagem de erro (`Error in data2 - data1 : non-numeric argument to binary operator`) porque esses objetos são de classe texto, e operações matemáticas só são permitidas com números ou datas.
+Vejam que a classe dos objetos criados acima são do tipo "texto" (`character`):
+
+
+```{r, echo = TRUE, eval = TRUE}
 class(data1)
 class(data2)
+```
+Porém, se convertermos esses objetos para a classe `Date`, então poderemos fazer operações matemáticas com eles:
 
+```{r, echo = TRUE, eval = FALSE}
 # mas o R tem um classe para datas
 # entao fazemos a conversao
 ?as.Date # veja o help dessa função
+```
+
+
+```{r, echo = TRUE, eval = TRUE}
 data1 <- as.Date(data1, format = "%d/%m/%Y")
 data2 <- as.Date(data2, format = "%d/%m/%Y")
 # agora a classe mudou
@@ -459,7 +478,7 @@ Aqui vamos ver indexação de vetores, que é dada pelo operador `[]`.
 
 ### Usando índices numéricos
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = TRUE}
 # um vetor simples
 v1 <- 1:10
 v1[1] # valor na posição/índice 1
@@ -482,7 +501,10 @@ Uma outra função útil se chama `paste()`, muito utilizada na manipulação de
 ```{r, opts.label='evalF'}
 ?paste # veja o help da função paste
 ?names # veja o help da função names
+```
 
+
+```{r, echo = TRUE, eval = TRUE}
 # um vetor simples
 v1 <- 1:10
 # criando um vetor para usar como nomes
@@ -542,7 +564,7 @@ Para checar os duplicados, devemos filtrar o resultado desta ação (veja na se�
 <!-- Há funções úteis que auxiliam na filtragem de dados utilizando valores lógicos. -->
 <!-- A primeira se chama `grep()`, que busca parte de palavras em um vetor, e a segunda chama-se `duplicated()`, que busca valores repetidos.   -->
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = TRUE}
 # um vetor numerico
 v1 <- 1:20
 # quais valores de v1 são maiores ou iguais a 10
@@ -587,7 +609,7 @@ paste(round(prop * 100), "%", sep = "")
   
 Podemos usar também vetores de texto e fatores em conjunto com operadores lógicos.  
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = TRUE}
 # E VETORES DE TEXTO?
 v1 <- rep(c("banana", "pera", "laranja", "limão"), 10)
 v1 # um vetor de palavras
@@ -616,7 +638,7 @@ Operadores auxiliares permitem combinar perguntas:
 * `!` - inverte os valores da pergunta
 
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = TRUE}
 # um vetor
 v1 <- 1:20
 v1
@@ -652,7 +674,7 @@ sum(v1 %in% c("banana", "pera"))
 Vetores lógicos podem ser usados como índices (Seção \@ref(indexacao)) para filtrar elementos de um vetor.
 É através deste conceito que podemos filtrar dados de matrizes e criar subconjunto de dados.  
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = TRUE}
 # um vetor com sequencia de 1 a 100
 v1 <- 1:100
 
@@ -672,7 +694,10 @@ Mais de uma palavra pode ser buscada ao mesmo tempo.
 
 ```{r, opts.label='evalF'}
 ?grep # veja o help dessa função e seus argumentos
+```
 
+
+```{r, echo = TRUE, eval = TRUE}
 # um vetor de palavras
 v1 <- rep(c("banana", "pera", "laranja", "limão"), 5)
 grep("an", v1) # quais elementos tem a palavra 'an' no nome?
@@ -698,13 +723,25 @@ Há uma outra função chamada `na.omit()` que elimina valores `NA` de um vetor.
 
 ```{r, opts.label='evalF'}
 ?is.na # veja o help
+```
+
+
+```{r, echo = TRUE, eval = TRUE}
 # um vetor com NAs
 v1 <- c(NA, NA, 1, 2, 3, 4, 5, 6)
 is.na(v1) # quem é NA?
 v2 <- v1[!is.na(v1)] # criar um vetor novo com quem não é NA (note o !)
 v2
+```
+
+
+```{r, echo = TRUE, eval = FALSE}
 # isso também pode ser feito com na.omit()
 ?na.omit # veja o help dessa função
+```
+
+
+```{r, echo = TRUE, eval = TRUE}
 v3 <- na.omit(v1)
 v3 # a diferença é que criou um objeto de classe na.omit
 v3 <- as.vector(v3) # isso elimina a diferença, convertendo em vetor
