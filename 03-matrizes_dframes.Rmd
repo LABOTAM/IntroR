@@ -630,7 +630,7 @@ dir(pattern = "csv")
 ```
 
 
-```{r, echo = TRUE, eval = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 # então posso ler sem precisar especificar o caminho até o arquivo
 # veja o help da função antes de começar
 ?read.table
@@ -645,7 +645,7 @@ dir(pattern = "csv")
 ```
 
 
-```{r, echo = TRUE, eval = TRUE, cache = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 # o arquivo original tem os seguintes formatos:
 # colunas separadas por tabulação (no R isso é definido pela expressão regular "\t")
 # decimal com ponto
@@ -679,7 +679,7 @@ dd[vl, ] # essas linhas tem a palavra "NULL" para Latitude e Longitude no arquiv
 
 Podemos usar o argumento `na.strings` para corrigir isso durante a importação:  
 
-```{r, echo = TRUE, eval = TRUE, cache = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 dd4 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ".", na.strings = c("NULL", "NA", ""))
 # qualquer CELULA INTEIRA que contenha NULL ou NA ou esteja vazia SERÁ INTERPRETADA COMO VALOR AUSENTE e codificada como NA no R.
 str(dd4)
@@ -703,7 +703,10 @@ dd6 <- read.table(
   as.is = TRUE
 )
 str(dd6) # diferentemente do objeto anterior, não há mais fatores
+```
 
+
+```{r, echo = TRUE, eval = FALSE}
 # Lembram que colocamos o endereco do arquivo mais acima?
 # podemos usar um endereco da internet para baixar um arquivo
 dd7 <-
@@ -724,7 +727,7 @@ Funciona de maneira parecida com o `read.table()` com algumas pequenas diferenç
 Existem outras diferenças que podem ser melhor entendidas na página do pacote (https://github.com/tidyverse/readr).
 Os argumentos possuem nomes diferentes do que os utilizados em `read.table()` e, como este, importa arquivos em formato de texto simples (*.csv* , *.txt*).
 
-```{r, echo = TRUE, eval = TRUE, cache = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 # pacote readr
 # usando como exemplo o mesmo arquivo municipiosbrasil.csv
 library("readr")
@@ -733,6 +736,11 @@ rr1
 dd7
 dim(rr1)
 dim(dd7)
+```
+
+Como no pacote `base`, também podemos ler arquivos diretamente da rede:
+
+```{r, echo = TRUE, eval = FALSE}
 rr2 <- read_delim("http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv", delim = "\t")
 rr2
 ```
@@ -748,12 +756,17 @@ Mais informações, leiam atentamente o site do pacote: <https://github.com/Rdat
 O pacote como um todo é uma excelente ferramenta na manipulação de dados.
 Como os pacotes citados acima, esta função é capaz de importar arquivos em formato de texto simples (`.csv` , `.txt`).
 
-```{r, echo = TRUE, eval = TRUE, cache = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 # pacote data.table
 # usando como exemplo o mesmo arquivo municipiosbrasil.csv
 library("data.table")
 dt1 <- fread("municipiosbrasil.csv")
 dt1
+```
+
+Também podemos ler arquivos diretamente da rede, providenciando um endereço que contenha um arquivo de texto simples:
+
+```{r, echo = TRUE, eval = FALSE}
 dt2 <- fread("http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv")
 dt2
 ```
@@ -765,7 +778,7 @@ A principal função para importar dados deste pacote se chama `read_excel()`.
 Os principais erros aqui podem ser por células unidas, cabeçalhos no topo da planilha, e acentos.
 Veja o `?` das funções usadas para conhecer parâmetros opcionais para resolver esses possíveis problemas.  
 
-```{r, echo = TRUE, eval = TRUE, cache = TRUE}
+```{r, echo = TRUE, eval = FALSE}
 # instale o pacote
 library("readxl")
 
@@ -884,6 +897,6 @@ dd2[1:5]
 
 ## Para saber mais: {#sabermais-indexacao-matrizes-dframes}
 
-[Indexação de matrizes e `data.frames`](https://youtu.be/CJILnDzVviQ).
+Vídeoaula de [Indexação de matrizes e `data.frames`](https://youtu.be/CJILnDzVviQ).
 
-# Referências
+## Referências
