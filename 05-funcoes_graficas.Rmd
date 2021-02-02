@@ -1,0 +1,1440 @@
+# Funções gráficas
+
+## Dispositivos Gráficos
+
+Existem dois principais tipos de **dispositivos (Devices) gráficos** no R que basicamente significam onde você imprimirá um gráfico ou figura. Isso pode ocorrer:
+
+* Na tela do computador (monitor), ou seja, em janelas do R ou do RStudio onde você visualiza gráficos;
+
+* Em um arquivo em formato `.pdf`, `.jpeg`, `.tiff`, `.png`, `.eps` etc.
+
+### Função `plot()`
+
+A função `plot()` (ou `plot.default()`) é a principal função genérica para gerar gráficos no R.
+Veremos isso com mais detalhes na seção [Funções gráficas de alto nível](#graf-alto-nivel).
+Aqui demonstraremos o uso da função simplificadamente para facilitar as demais explicações.
+Entenda que geramos gráficos com essa função.
+Vamos a um exemplo muito simples:
+
+```{r, cache = TRUE}
+# o objeto R do iris como exemplo
+str(iris)
+# plotando comprimento de sépala vs. comprimento de pétalas e colorindo os pontos de acordo com as espécies
+vcl <- c("yellow", "green", "blue")[as.numeric(iris$Species)] # cria um vetor de cores para cada linha em Iris segundo especie
+# plota a figura
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+```
+
+Muitos argumentos da função `plot()` são [parâmetros gráficos](par-graficos).  
+
+### Dispositivos de Tela
+
+Quando você usa funções para gerar um gráfico, o R ou RStudio usa automaticamente um dispositivo de tela.
+No entanto, você pode abrir novas janelas com as seguintes funções:
+
+* `X11()` ou `x11()` funcionam no Mac, Linux e Windows;
+
+* `quartz()` funciona apenas no Mac;
+
+* `windows()` funciona apenas no Windows.
+
+```{r, opts.label='evalF'}
+?device # veja o help da função e as opções de devices
+X11() # irá abrir uma janela nova
+
+# vamos plotar o mesmo gráfico do exercício anterior
+vcl <- c("yellow", "green", "blue")[as.numeric(iris$Species)] # cria um vetor de cores para cada linha em Iris segundo especie
+# plota a figura
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+
+# irá fechar essa nova janela
+dev.off()
+
+quartz() # num mac abre uma janela sem dar nenhum aviso (funciona melhor que X11() no Mac)
+vcl <- c("yellow", "green", "blue")[as.numeric(iris$Species)] # cria um vetor de cores para cada linha em Iris segundo especie
+# plota a figura
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+
+dev.off() # fecha
+```
+
+### Listar e controlar dispositivos
+
+Existem funções que permitem trabalhar com vários dispositivos ao mesmo tempo, controlando o uso dos dispositivos abertos.
+Pode haver, por exemplo, várias janelas diferentes mostrando gráficos diferentes durante um trabalho.
+As principais funções para trabalhar com dispositivos são:
+
+* A função `dev.list()`lista todos os dispositivos abertos no momento (geralmente o dispositivo padrão, que é sempre o número 1, é ignorado na lista), retornando o número (ordem de abertura) e o nome de cada um;
+
+* `dev.cur()` mostra qual o dispositivo que está ativo (em inglês, *current*). Se há vários abertos, haverá sempre um que estará ativo naquele momento e se você enviar uma figura, ela sairá neste dispositivo;
+
+* `dev.set()` torna ativo um determinado dispositivo;
+
+* `dev.off()` fecha o dispositivo atual ou vários. Esta é a função dessa lista que é a mais usada na prática.  
+
+```{r, opts.label='evalF'}
+# vamos primeiro fechar todos os dispositivos
+dev.off(which = dev.list())
+dev.list() # vai retornar NULL por não há dispositivos abertos
+# vamos abrir vários dispositivos
+X11() # primeira janela extra
+X11() # segunda janela e mesma figura com cores diferentes
+X11() # terceira janela e mesma figura com cores diferentes
+
+# coloque e redimensione as janelas para ter as tres visiveis na tua tela e volte aqui.
+
+# veja os dispositivos abertos
+dev.list()
+
+# qual o atual
+dev.cur() # o ultimo que abrimos, né
+
+dev.set(2)
+# vamos mudar para o segundo e plotar algo
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", cex = 0.8)
+
+# vamos mudar para o terceiro e plotar outra coisa
+dev.set(3)
+dev.cur() # deve responder 3
+vcl <- c("yellow", "green", "blue")[as.numeric(iris$Species)]
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+
+# vamos mudar para o quarto e plotar a mesma coisa com outras cores
+dev.set(4)
+dev.cur() # deve responder 4
+vcl <- c("red", "blue", "white")[as.numeric(iris$Species)]
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+
+# vamos fechar o dispositivo atual
+dev.cur()
+dev.off()
+dev.cur() # mudou automaticamente porque voce fechou o 4
+dev.off() # mesma coisa fechou o ativo
+dev.cur() # sobrou o 3
+# fechar este também
+dev.off()
+dev.list() # nao tem mais nenhum aberto
+```
+
+### Dispositivos de arquivos
+
+Há vários dispositivos para gerar arquivos com imagens.
+As funções em geral têm o nome do tipo de arquivo gerado.
+Vamos ver dois exemplos apenas, mas a mesma lógica se aplica a qualquer um dos dispositivos listados no `?` dos dispositivos (execute o comando `help('device')` e veja a explicação sobre os dispositivos (*devices*)).  
+
+Essas funções são ótimas ferramentas para incluir nos seus scripts a produção de figuras para uma publicação, basta ver na revista as especificações e através dos parâmetros das funções que abrem os dispositivos e dos [parâmetros gráficos](\@ref(par-graficos)), você pode gerar figuras na especificação exata da revista selecionada.  
+
+
+### Figuras vetoriais em `pdf` ou `postscript`
+
+Em nossa opinião, as funções `pdf()` e `postscript()` são as mais importantes para a geração de figuras, porque elas geram arquivos de excelente qualidade por serem vetoriais.
+Não há a necessidade de se definir a resolução, porque nesse tipo de imagem isso não existe.  
+
+```{r, cache = TRUE}
+# plotando a figura na tela é o que fazemos normalmente
+vcl <- c("yellow", "green", "blue")[as.numeric(iris$Species)]
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+```
+
+
+```{r, opts.label='evalF'}
+# salvando a figura num PDF
+?pdf # veja o help dessa função e seus argumentos, especialmente width e height
+# abre o dispositivo para pdf
+pdf(file = "meupdf.pdf", width = lcm(15), height = lcm(10))
+# lcm() apenas pega valores em cm e converte em polegadas que é a especificação padrão da funcao pdf. Portanto largura e altura de cada página do PDF é definida por esses argumentos
+# plota a figura
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+dev.off() # fecha o pdf
+# só será possível ver o pdf se tiver fechado ele.
+getwd() # o pdf foi gerado nessa pasta
+
+# se voce incluir vários gráficos. O pdf irá gerar várias páginas ao mesmo tempo.
+# abre o dispositivo para pdf
+pdf(file = "meupdf2.pdf", paper = "a4")
+# tamanho papel A4
+# plota a figura 10 vezes
+for (i in 1:10) {
+  plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+}
+dev.off() # fecha o pdf
+# veja que o arquivo 2 tem várias páginas
+```
+
+### Figuras raster
+
+As funções `jpeg()`, `png()` e `tiff()` geram imagens em pixels, cuja qualidade depende muito da definição da resolução.  
+
+```{r, opts.label='evalF'}
+# formato jpeg sem controlar a resolucao (usando units='px' ou pixel)
+# abre o dispositivo no formato desejado
+jpeg(filename = "meujpeg.jpg", width = 600, height = 400, units = "px")
+
+# plota alguma coisa
+vcl <- c("yellow", "green", "blue")[as.numeric(iris$Species)]
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+
+# fecha o jpeg
+dev.off()
+
+# ABRA O ARQUIVO E FAÇA UM ZOOM GRANDE
+# note que os pixels são super visíveis
+
+# AGORA MELHORANDO A RESOLUCAO
+# formato jpeg com 300dpi
+# abre o dispositivo no formato desejado
+jpeg(filename = "meujpeg2.jpg", width = 15, height = 10, units = "cm", res = 300)
+
+# plota alguma coisa
+vcl <- c("yellow", "green", "blue")[as.numeric(iris$Species)]
+plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex = 0.8)
+
+# fecha o jpeg
+dev.off()
+```
+
+> DICA: Abra os três arquivos e compare a resolução deles, ampliando a imagem até visualizar o pixel. 
+Note que em um `pdf` você nunca verá o pixel.
+Por isso, recomendamos que vocÊ trabalhe sempre com a função `pdf()`.  
+
+## Parâmetros gráficos dos dispositivos {#par-graficos}
+
+Para fazer boas figuras no R, você precisa muitas vezes controlar **parâmetros gráficos dos dispositivos**, como margem da figura, tamanho de fonte, tipo da fonte, distância das legendas dos eixos x e y, se essas legendas são horizontais ou verticais, o tipo símbolos dos pontos, as cores dos simbolos etc.
+Você pode definir esses parâmetros diretamente nas funções gráficas de alto-nível `highlevel plot> (..., <tag> = <value>)`, onde um valor (value) de um parâmetro (tag) pode ser adicionado diretamente como argumento de uma função de alto-nível.
+
+Alguns desses parâmetros, no entanto, só podem ser definidos através da função `par()`, que também define **parâmetros gráficos globais**, isto é, se você alterar os parâmetros através dessa função, isso será alterado para todos os gráficos que forem abertos posteriormente durante a mesma sessão do R.
+Esta mesma função também permite visualizar os parâmetros gráficos.  
+
+### Conhecendo os parâmetros
+
+Leia atentamente o `?` da função [`par()`](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/par.html).
+Você pode salvar os parâmetros globais antes de alterá-los.  
+
+```{r, opts.label='evalF'}
+?par # veja o help dessa função
+```
+
+
+```{r, cache = TRUE}
+# você pode ver os parâmetros padrão:
+par() # vejo todos os parâmetros
+op <- par() # pego todos os parâmetros
+class(op) # isso é uma lista
+names(op) # esses são os nomes dos parâmetros
+
+# a função par permite ver os valores atualmente definidos
+par("family") # tipo de fonte nao tem
+par("mar") # margens da figura em número de linhas
+
+
+# a função para tem apenas 1 argumento além dos parâmetros gráficos
+op2 <- par(no.readonly = TRUE)
+class(op2)
+# a diferença entre especificar no.readonly como verdadeiro (na primeria opção não especificada acima, o padrão é FALSE)
+# é que a lista gerada pode ser usada para refazer alterações, ou seja, para resgatar os parâmetros gráficos padrão.
+
+# ou seja, posso fazer:
+par(op2) # para resgatar valores originais
+```
+
+
+```{r, opts.label='evalF'}
+# mas não posso fazer o mesmo com a primeira opção
+par(op) # porque op é uma lista diferente
+```
+
+
+```{r}
+length(op) == length(op2) # tem comprimentos diferentes
+identical(op, op2) # nao são identicas
+```
+
+#### Exemplos I - Margem
+
+```{r, cache = TRUE}
+# Usando novamente o exemplo de iris
+Sepalas <- iris$Sepal.Length
+Petalas <- iris$Petal.Length
+
+# especies como números
+spp <- as.numeric(as.factor(iris$Species))
+# uma cor para cada espécie
+vcl <- c("yellow", "green", "blue")[spp]
+# um simbolo para cada espécie
+sbs <- c(21, 22, 23)[spp]
+
+# plota a figura no dispositivo padrão
+plot(Sepalas,
+  Petalas,
+  pch = sbs,
+  bg = vcl,
+  cex = 0.8
+)
+
+# ALTERANDO A MARGEM em NUMEROS DE LINHAS
+# salva o valor padrao para resgatar ao final
+op <- par(no.readonly = TRUE)
+op$mar # esses são os valor atuais para Margem Inferior, Esquerda, Superior e Direita, respectivamente. #quando se referir a margem todos os parâmetros seguem a ordem ANTI-HORÁRIA iniciando na margem inferior
+# reduzindo as margem direita e superior em número de linhas
+par(mar = c(5, 4, 1, 0.5))
+plot(Sepalas,
+  Petalas,
+  pch = sbs,
+  bg = vcl,
+  cex = 0.8
+)
+
+# voltando ao original
+par(mar = op$mar)
+```
+
+#### Exemplo II - Aspecto dos eixos
+
+```{r, opts.label='evalF'}
+op <- par(no.readonly = TRUE)
+
+
+# POSICAO DAS LEGENDAS DOS EIXOS
+par("mgp") # três valores que correspondem ao número de linhas para: (1) Titulo dos Eixos; (2) valores dos eixos; (3) linha dos eixos
+
+# TAMANHO DE FONTE DOS EIXOS É RELATIVO AO VALOR DE FONTE PADRÃO
+par("cex") # tamanho padrão
+par("cex.lab") # número que multiplicado por op$cex indica o valor da fonte dos títulos dos eixos
+par("cex.axis") # dos valores
+
+
+# TAMANHO DAS BARRAS DE CADA VALOR
+par("tck") # geralmente não tem padrão definido pois é extraído de outros valores automaticamente, mas você pode controlar isso
+
+# DIMINUINDO A FONTE DISSO
+par(cex.lab = 0.8, cex.axis = 0.7)
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+
+# note que isso muda se eu alterar o tamanho de fonte padrão par(cex)
+par(cex = 2, cex.lab = 0.8, cex.axis = 0.7)
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+
+# APROXIMANDO
+par(mgp = c(1.5, 0.5, 0))
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+
+# e agora
+par(tck = -0.01) # note o valor negativo
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+
+par(tck = 0.01) # se colocar positivo
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+
+par(op) # restaurando valores originais
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+```
+
+#### Exemplo III - Proporção dos eixos
+
+```{r, cache = TRUE}
+op <- par(no.readonly = TRUE)
+
+par("pty") # valor "m" maximiza a area disponível
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+
+# agora mantendo a proporção dos eixos (sem esticar nenhum dos dois)
+par(pty = "s")
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+
+# se não notou diferença, expandir o dispositivo onde está desenhando a figura
+```
+
+#### Exemplo IV - Múltiplas figuras na mesma tela ou página
+
+Você pode colocar diferentes gráficos na mesma tela ou na mesma página de um pdf, por exemplo. Temos duas formas de fazer isso.
+Os parâmetros `mfrow` e `mfcol` dividem os dispositivo em células de tamanhos idênticos.
+Todas as figuras terão o mesmo tamanho.
+A diferença entre os dois parâmetros é que `mfrow()` preenche o espaço por linhas, enquanto `mfcol()` preenche o espaço pelas colunas.  
+
+```{r, cache = TRUE}
+par(op)
+par("mfrow") # o dispositivo não está divido: tem 1 linha e 1 coluna
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+
+# EXEMPLO 1
+# duas figuras no mesmo dispositivo
+par(mfrow = c(1, 2)) # dividir o dispositivo em 1 linha e duas colunas
+# plota a primeira figura
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+# plota a segunda sem cores
+plot(Sepalas, Petalas, pch = sbs, bg = NULL, cex = 0.8)
+
+# EXEMPLO 2
+par(mar = c(5.1, 4.1, 2.1, 2.1))
+par(mfrow = c(2, 2)) # dividir o dispositivo em 2 linha e duas colunas
+# plota quatro figuras identificas
+for (f in 1:4) {
+  plot(Sepalas, Petalas, pch = sbs, bg = NULL, cex = 0.8)
+  # adiciona uma letra para você ver a ordem e comparar com o exemplo 3
+  mtext(LETTERS[f], side = 3, line = 0, adj = 0, font = 2, col = "red") # esta é uma função de baixo nível que falaremos depois
+}
+
+# EXEMPLO 3
+par(mfcol = c(2, 2)) # mesma coisa mas preenchendo por colunas (compare com a figura acima)
+for (f in 1:4) {
+  plot(Sepalas, Petalas, pch = sbs, bg = NULL, cex = 0.8)
+  mtext(LETTERS[f], side = 3, line = 0, adj = 0, font = 2, col = "red")
+}
+
+# colocando exemplo 2 e 3 num pdf
+pdf(file = "meuPDFmfrow.pdf", paper = "a4")
+# EXEMPLO 2 expandido
+par(mfrow = c(3, 2)) # tres linhas e duas colunas
+for (f in 1:6) {
+  plot(Sepalas, Petalas, pch = sbs, bg = NULL, cex = 0.8)
+  mtext(LETTERS[f], side = 3, line = 0, adj = 0, font = 2, col = "red")
+}
+# EXEMPLO 3 expandido
+par(mfcol = c(3, 2))
+for (f in 1:6) {
+  plot(Sepalas, Petalas, pch = sbs, bg = NULL, cex = 0.8)
+  mtext(LETTERS[f], side = 3, line = 0, adj = 0, font = 2, col = "red")
+}
+dev.off()
+```
+
+#### Exemplo V
+
+A função `layout()` também permite dividir um dispositivo para múltiplas figuras, mas de uma forma muito mais complexa.  
+
+```{r, opts.label='evalF'}
+?layout # veja o help dessa função
+
+# voce precisa definir uma matriz que indica:
+# 1) o numero de figuras (valores da matriz)
+# 2) a posição das figuras (numero de linhas e colunas)
+# por exemplo, suponha que queremos plotar 3 figuras:
+# 1 preenchendo a largura da página e metade da altura
+# 2 outras figuras preenchendo a outra metada da altura
+```
+
+
+```{r, opts.label='evalF'}
+# neste caso a figura 1 ira ocupar dois espacos
+mm <- matrix(c(1, 1, 2, 3), nrow = 2, ncol = 2, byrow = T)
+mm # a figura 1 irá ocupar a posicao do numero 1 na matriz
+# a figura 2 irá ocupar a posicao do numero 2 nessa matriz
+# a figura 3 irá ocupar a posicao do numero 3 dessa matriz
+# a largura de cada coluna e linha é especificada pelos argumentos widths e heights e usaremos a função lcm() para especificar isso em centímetros
+# divide o dispositivo
+ml <- layout(mm, widths = rep(lcm(5), ncol(mm)), heights = rep(lcm(5), nrow(mm)))
+# mostra a divisao feita
+layout.show(ml)
+
+# plota a primeira figura
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+# a segunda
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+# a terceira
+plot(Sepalas, Petalas, pch = sbs, bg = vcl, cex = 0.8)
+```
+
+Podemos salvar essas figuras em um `pdf`:
+
+```{r, opts.label='evalF'}
+pdf(file = "meuPDFlayout.pdf", paper = "letter")
+layout(mm, widths = rep(lcm(8), ncol(mm)), heights = rep(lcm(8), nrow(mm)))
+# plota as tres figuras fazendo uma iteracao
+for (f in 1:3) {
+  plot(Sepalas, Petalas, pch = sbs, bg = NULL, cex = 0.8)
+  mtext(LETTERS[f], side = 3, line = 0, adj = 0, font = 2, col = "red")
+}
+dev.off() # fecha o pdf
+```
+
+
+
+## Parâmetros gráficos parte II - Símbolos e cores
+
+Você pode fazer o que quiser na produção de um gráfico no R.
+Isso requer conhecer bem os parâmetros gráficos que já apresentamos de forma geral anteriormente (ver seção \@ref(#par-graficos)).
+Aqui apresentamos alguns parâmetros de uso comum pelas funções gráficas de alto (seção \@ref(#graf-alto-nivel)) e baixo nível (seção \@ref(#graf-baixo-nivel)), que definem símbolos e cores.
+Você viu isso se leu o `?` e entendeu o que a função `par()` faz.  
+
+Em gráficos de dispersão e/ou na necessidade de colocar qualquer símbolo em um gráfico qualquer, precisamos saber como definir símbolos, suas cores e seus tamanhos.
+Os parâmetros gráficos que fazem isso são principalmente os seguintes:
+
+* `pch` - define o tipo de símbolo para pontos;
+
+* `lty` - define o tipo de símbolo para linhas;
+
+* `col` e `bg` - respectivamente definem a cor de linhas e o "recheio" do ponto de símbolos, gráficos, polígonos etc;
+
+* `cex` - define o tamanho de símbolos e texto;
+
+* `lwd` - espessura das linhas.
+
+
+### Tipo de símbolo - pch
+
+Nós queremos símbolos, em geral, para adicionar em um gráfico os pontos referentes às nossas unidades amostrais.
+Portanto, esse tipo de símbolo no R é chamado de `points`, e já vimos a função de baixo-nível `points()`, que depende desse argumento ou parâmetro.
+O argumento `pch` pode ser um número^[de 0 a 25; veja o `?` da função `points()`, `?points`, para saber quais são esses símbolos], que especifica um símbolo, ou símbolos de um único caractere [e.g. `c("A", "*","&", "?")`].  
+
+```{r, opts.label='evalF'}
+# veja o definido como parâmetro global
+par("pch")
+
+# o que isso quer dizer?
+# vamos usar a função example()
+?example # se quiser saber o que isso faz
+# quando digitar o comando abaixo,
+# vai precisar RESPONDER NO CONSOLE para prosseguir.
+example("points")
+# pare na terceira figura que esse exemplo gera.
+par("pch") # este valor corresponde ao símbolo nessa figura.
+# note que os símbolos de 21:25 permitem definir cor de linha e de recheiro, os demais apenas uma única cor
+```
+
+
+```{r, cache = TRUE}
+# vamos gerar alguns exemplos com os dados de iris
+class(iris)
+dim(iris)
+colnames(iris)
+# com a definicao padrão de pch
+par("pch")
+Sepalas <- iris$Sepal.Length
+Petalas <- iris$Petal.Length
+plot(Sepalas, Petalas)
+
+# colocando todas com um único símbolo diferente
+plot(Sepalas, Petalas, pch = 25)
+
+# colocando cada espécie com um único símbolo
+# neste caso o argumento pch deve ter um vetor do número de linhas em iris, se for menor, pela regra da reciclagem, ele irá repetir os símbolo sem estar relacionado à coluna Species, que define qual linha é de qual espécie.
+# então se eu definir apenas três simbolos, um para cada espécie:
+plot(Sepalas, Petalas, pch = c("A", "&", "+"))
+# eles vao aparecer misturados, isso não está de acordo com as espécies
+# uma forma rápida de fazer isso, tendo em vista que o pch pode ser um valor numérico,
+# é transformar o nome das minhas especies em números.
+# Eu posso fazer isso se convertendo um fator para número, pois nele as categorias estão explicitamente definidas
+spp <- iris$Species
+class(spp) # já é um fator
+# note que isso gera muitos NAs, já vimos isso antes
+as.numeric(as.vector(spp))
+# mas isso gera números por spp é um fator
+as.numeric(spp)
+# então se eu quero os símbolos 22,23,25 para representar minhas espécies, eu uso esses números para pegar esses valores pelos índices de um vetor:
+pch.das.spp <- c(21, 23, 25)[as.numeric(spp)]
+pch.das.spp
+# posso usar isso como argumento em plot:
+plot(Sepalas, Petalas, pch = pch.das.spp)
+# pronto cada espécie é um símbolo diferente
+```
+
+### Tamanho dos pontos - cex
+
+O argumento genérico `cex` especifica o tamanho dos pontos relativo ao padrão do dispositivo.
+Aceita um valor numérico que é multiplicado pelo valor do seu dispositivo.
+O padrão geral é 1, isto é, 100% do tamanho.
+Se colocar 0.5 teremos 50%; se 1.5, teremos 150% do tamanho padrão.  
+
+```{r, cache = TRUE}
+# da etapa anterior
+pch.das.spp <- c(21, 23, 25)[as.numeric(spp)]
+# temos nosso gráfico com símbolos
+plot(Sepalas, Petalas, pch = pch.das.spp)
+
+# mudando o tamanho de todos os simbolos
+plot(Sepalas, Petalas, pch = pch.das.spp, cex = 0.5)
+
+# para maior
+plot(Sepalas, Petalas, pch = pch.das.spp, cex = 1.5)
+
+# um tamanho diferente por ponto (especie)
+tm <- c(0.5, 1, 1.5)[as.numeric(spp)]
+tm
+plot(Sepalas, Petalas, pch = pch.das.spp, cex = tm)
+```
+
+### Linhas
+
+Os argumentos `lwd` e `lty` controlam a espessura e o tipo das linhas, respectivamente.  
+
+```{r, cache = TRUE}
+data("AirPassengers") # veja esse conjunto de dados com ?datasets
+class(AirPassengers)
+plot(AirPassengers, ylab = "Número de Passageiros")
+# mudando o tipo de linha
+plot(AirPassengers, ylab = "Número de Passageiros", lty = "dotted")
+# outro tipo
+plot(AirPassengers, ylab = "Número de Passageiros", lty = "dotdash")
+# mudando a cor e espessura
+plot(AirPassengers, ylab = "Número de Passageiros", lty = "dashed", col = "red", lwd = 2)
+```
+
+### Cores de símbolos - col e bg
+
+O argumento `col` define cores para os símbolos. No caso de símbolos de uma única cor, utilizamos apenas este argumento.
+Já o argumento `bg` define as cores do preenchimento dos símbolos.  
+
+```{r, cache = TRUE}
+# o que definimos antes são símbolos que permitem definir cores para preenchimento e linha:
+pch.das.spp <- c(21, 23, 25)[as.numeric(spp)]
+# temos nosso gráfico com símbolos
+plot(Sepalas, Petalas, pch = pch.das.spp)
+
+# vamos adicionar as cores seguindo o mesmo raciocínio
+cores.spp <- c("red", "blue", "yellow")[as.numeric(spp)]
+cores.spp
+plot(Sepalas, Petalas, pch = pch.das.spp, bg = cores.spp)
+# podemos mudar a cor da linha desses simbolos (todos para verde pela regra da reciclagem especifico uma única vez)
+plot(Sepalas, Petalas, pch = pch.das.spp, bg = cores.spp, col = "green")
+
+# mudando simbolos
+nsb <- c("*", "#", "+")[as.numeric(spp)]
+plot(Sepalas, Petalas, pch = nsb, bg = cores.spp)
+# note que apesar de bg estar especificando cores as cores nao foram adicionadas, porque colocamos no argumento de preenchimento.
+# Mudando:
+plot(Sepalas, Petalas, pch = nsb, col = cores.spp)
+```
+
+### Funções que definem cores
+
+Cores podem ser definidas por palavras ou por códigos.
+As funções `colors()` ou `colours()` listam cores pelo nome.  
+
+```{r, opts.label='evalF'}
+# lista todas as cores disponíveis pelo nome
+colors()
+# nossa tem 657 cores. Difícil, né?
+# reduz para as mais distintas
+colors(distinct = TRUE)
+# ainda 502
+```
+
+
+```{r, opts.label='evalF'}
+# eu posso pegar ou buscar por cores
+ascores <- colors(distinct = TRUE)
+vl <- grep("blue", ascores)
+ascores[vl]
+# 60 nomes que contém a palavra azul
+
+# vamos ver todas as coresem umpdf longo
+# vamos plotar pizzas coloridas com 10 cores cada
+# 4 pizzas por página
+```
+
+
+```{r, opts.label='evalF'}
+?pie # veja o help dessa função
+```
+
+
+```{r, opts.label='evalF'}
+# abre um PDF
+pdf("cores.pdf", width = lcm(29), height = lcm(21))
+
+# vamos dividir o dispositivo em 2 colunas e 3 linhas (e diminuir a margem)
+par(mfrow = c(2, 2), mar = c(3, 3, 3, 3), cex = 0.7)
+ln <- length(ascores)
+ln # sao 502 cores
+ceiling(ln / 10) # , entao serao 51 pizzas
+
+# plota cada pizza fazendo uma iteração:
+idx <- 0 # o objeto nullo para usar de indice na iteracao para fazer de 10 em 10
+for (p in 1:ceiling(ln / 10)) {
+  de <- idx + 1 # cor do indice idx
+  ate <- idx + 10 # ate cor do indice idx+10
+  cls <- ascores[de:ate] # cores da pizza da iteracao p
+  pie(rep(1, 10), col = cls, labels = cls)
+  idx <- ate
+}
+dev.off() # fecha o pdf
+```
+
+As funções `rainbow()`  ou `terrain.colors()` geram gradientes de cores em um padrão definido.  
+
+```{r, cache = TRUE}
+# 10 cores do arco-iris
+cls <- rainbow(n = 10)
+pie(rep(1, 10), col = cls, labels = cls)
+
+# 12 cores do arco-iris com 50% de transparencia
+cls <- rainbow(n = 12, alpha = 0.5)
+pie(rep(1, 12), col = cls, labels = cls)
+
+# 12 cores do arco-iris, limitando o espectro
+cls <- rainbow(n = 12, start = 0.1, end = 0.9)
+pie(rep(1, 12), col = cls, labels = cls)
+
+
+# 10 cores quentes
+cls <- heat.colors(n = 10, alpha = 1)
+pie(rep(1, 10), col = cls, labels = cls)
+
+# 20 cores topográficas
+cls <- topo.colors(n = 20, alpha = 1)
+pie(rep(1, 20), col = cls, labels = cls)
+# ou melhor
+cls <- terrain.colors(n = 20, alpha = 1)
+pie(rep(1, 20), col = cls, labels = cls)
+```
+
+As funções `rgb()` ou `hsv()` geram qualquer tipo de cor para ser utilizados nos gráficos.  
+
+```{r, opts.label='evalF'}
+?rgb # veja o help dessa funcao e veja as funcoes sob See Also
+```
+
+
+```{r, cache = TRUE}
+# podemos entender melhor fazendo o caminho inverso
+defs <- col2rgb("yellow") # extraimos as especificacoes de amarelo (cores primárias ) pela palavra
+defs
+
+# sem cor temos preto
+cls <- rgb(red = 0, green = 0, blue = 0) # fazemos amarelo
+pie(1, col = cls, labels = cls)
+
+# fazemos amarelo
+cls <- rgb(red = 255, green = 255, blue = 0, maxColorValue = 255)
+pie(1, col = cls, labels = cls)
+
+# tiramos verde
+cls <- rgb(red = 255, green = 160, blue = 0, maxColorValue = 255)
+pie(1, col = cls, labels = cls)
+
+# tiramos verde e adicionamos azul
+cls <- rgb(red = 255, green = 160, blue = 255, maxColorValue = 255)
+pie(1, col = cls, labels = cls)
+
+# tiramos azul-escuro (mais perto de 0)
+cls <- rgb(red = 0, green = 0, blue = 150, maxColorValue = 255)
+pie(1, col = cls, labels = cls)
+
+# tiramos azul
+cls <- rgb(red = 0, green = 0, blue = 255, maxColorValue = 255)
+pie(1, col = cls, labels = cls)
+```
+
+
+
+## Funções gráficas de alto nível {#graf-alto-nivel}
+
+Funções gráficas de alto-nível (*highlevel plots*) são as funções que usamos para gerar os gráficos.
+Além da função genérica `plot()`, veremos apenas alguns poucos exemplos, mas existem diversas funções gráficas de alto nível, muitas das quais dependem de pacotes específicos.
+Existem inúmeras outras funções de alto-nível, algumas do R-base, outras geradas por colaboradores na forma de [pacotes do R](https://cran.r-project.org/web/packages/).
+A função `plot()` entende algumas dessas outras funções dos pacotes automaticamente, dependendo da classe do objeto, e você sequer  precisa usar o nome específico (veja o exemplo em plot.phylo(), abaixo).
+
+No `?` do pacote graphics, você encontra ajuda para funções gráficas em geral:  
+
+```{r, opts.label='evalF'}
+demo("graphics") # execute este demostrativo - lembre-se de interagir no console do R para as figuras
+?graphics # veja o help dessa função para alguns gráficos
+```
+
+### `plot()` - uma função genérica
+
+A função `plot()` é a principal para produção de gráficos porque é uma **função genérica** que irá gerar um gráfico dependendo da [classe do objeto](#classes). Em muitos casos, não precisamos usar outras funções, porque a depender da classe do objeto, esta função  automaticamente entenderá o que você precisa.  
+
+```{r, opts.label='evalF'}
+?plot # veja o help dessa função
+```
+
+Suponha que tenhamos um vetor simples e numérico chamado `vv`:
+
+```{r, eval = TRUE, echo = TRUE}
+vv <- 1:10
+# Qual e a classe desse vetor?
+class(vv)
+```
+
+Vamos plotá-lo: 
+
+```{r, cache = TRUE}
+plot(vv)
+```
+
+Vamos mudar alguns argumentos da função `plot()`.
+Acrescentaremos um tipo diferente de ponto (argumento `pch`), uma cor vermelha para o fundo do ponto (argumento `bg`), um novo texto para o eixo x (argumento `xlab`), um novo texto para o eixo y (argumento `ylab`), e um título para o plot (argumento `main`):
+
+```{r, cache = TRUE}
+plot(vv, pch = 21, bg = "red", xlab = "índice do vetor", ylab = "valor do vetor", main = "Plotando um vetor")
+```
+
+Vamos trabalhar agora com uma matriz de duas colunas:
+
+```{r, cache = TRUE}
+xx <- 1:10 # um vetor
+yy <- 10:1 # o mesmo vetor invertido
+mm <- cbind(xx, yy) # junta em uma matrix
+# Qual a classe dessa matriz?
+class(mm)
+```
+
+Vamos utilizar a matriz de duas colunas `mm` diretamente como primeiro argumento da função `plot()`:
+
+```{r, cache = TRUE}
+plot(mm, xlab = "Eixo X", ylab = "Eixo Y", main = "Plotando uma matriz de 2 colunas")
+```
+
+Podemos também especificar separadamente os eixos x e y, utilizando os vetores `xx` e `yy`, utilizados para compor a matriz `mm`:
+
+```{r, cache = TRUE}
+# ou poderia especificar diretamente os eixos xx e yy sem usar a matriz
+plot(xx, yy, xlab = "Eixo X", ylab = "Eixo Y", main = "Plotando uma matriz de 2 colunas", pch = 21, bg = "purple")
+```
+
+Se temos um conjunto de dados e queremos ver a relação entre si de todas as colunas do conjunto, podemos simplesmente usar:
+
+```{r, eval = TRUE, echo = TRUE}
+class(iris) # um conjunto de dados no formato data.frame
+```
+
+
+```{r, cache = TRUE}
+plot(iris)
+# o nome dos eixos está na diagonal dessa figura
+```
+
+### `hist()`
+
+Esta importante função serve para visualizar a variação de uma variável apenas.  
+
+```{r, opts.label='evalF'}
+?hist # veja o help
+```
+
+Vamos utilizar apenas a variável `Sepal.Length` do conjunto de dados `iris`:
+
+```{r, eval = TRUE, echo = TRUE}
+class(iris$Sepal.Length) # é um vetor
+```
+
+
+```{r, cache = TRUE}
+hist(iris$Sepal.Length, xlab = "Comprimento de sépala (cm)", main = "Variação em Iris")
+```
+Vamos diminuir os espaçamentos entre as barras e colorí-las:
+
+```{r, cache = TRUE}
+# diminuindo os espaçamentos entre as barras e colorindo
+hist(iris$Sepal.Length, xlab = "Comprimento de sépala (cm)", main = "Variação em Iris", breaks = 20, col = "red")
+# note que o eixo y é a frequencia que o valor ocorre, ou seja, corresponde ao número de linhas em iris que tem valor
+```
+
+
+### `boxplot()`
+
+Esta função é importante por mostrar a variação em uma variável qualquer em relação às categorias de um fator.
+É uma das melhores formas gráficas para mostrar a distribuição de valores de uma variável em relação às categorias.  
+
+```{r, opts.label='evalF'}
+?boxplot
+```
+
+
+```{r, cache = TRUE}
+# vamos usar o objeto iris
+class(iris$Sepal.Length) # é um vetor
+class(iris$Species) # é um fator
+boxplot(iris$Sepal.Length ~ iris$Species, ylab = "Comprimento da sépala")
+
+# você pode fazer a mesma coisa com a função plot() porque ela é genérica que irá reconhecer que sua fórmula 'valores~fator' pede por um boxplot
+plot(iris$Sepal.Length ~ iris$Species, ylab = "Comprimento da sépala", xlab = "") # note que especificamos aqui que o eixo x não tem título (lab)
+```
+
+### `barplot()`
+
+Esta função gera um gráfico de barras simples.  
+
+```{r, opts.label='evalF'}
+?barplot # veja o help dessa função
+?VADeaths # veja o help desse conjunto de dados
+```
+
+
+```{r, cache = TRUE}
+class(VADeaths)
+VADeaths # taxas de mortalidade/1000 habitantes no estado da Virgínia em 1940
+rownames(VADeaths) # cada linha é uma classe de idade
+colnames(VADeaths) # cada coluna é sexo e cidade ou rural
+
+# com as informações padrão
+barplot(VADeaths) # cada cor é uma linha
+barplot(VADeaths, beside = TRUE) # lado a lado (cada barra é uma linha)
+
+# vamos colorir diferente, uma para cada linha
+rownames(VADeaths)
+cores <- rainbow(n = nrow(VADeaths))
+cores # uma cor por linha
+# essa é a correspondencia:
+cbind(rownames(VADeaths), cores)
+
+# plota com essas cores
+barplot(VADeaths, beside = TRUE, col = cores)
+```
+
+### `plot.phylo()`
+
+O pacote [Ape (Analyses of Phylogenetics and Evolution)](https://cran.r-project.org/web/packages/ape/index.html) [@R-ape] possui uma função para desenhar uma filogenia.
+Caso você não tenha instalado o pacote `ape` ainda, faça-o assim:
+
+```{r, opts.label='evalF'}
+install.packages("ape")
+```
+
+Depois, siga o exemplo abaixo:  
+
+```{r, cache = TRUE}
+library(ape) # chama o pacote
+
+# uma filogenia hipotética para exemplo
+arv <- "(((A:1,B:1):2,C:3):0.5,((D:0.5,E:0.5):1,F:1.5):2);"
+
+# lê essa filogenia para um objeto de classe phylo, que é uma classe para dendrogramas.
+phy <- read.tree(text = arv)
+class(phy)
+
+# podemos plotar essa filogenia com
+plot(phy)
+# porque a função plot reconhece
+# que objetos de classe "phylo" são árvores
+# de fato ela usa a função plot.phylo() para gerar essa figura, que contém argumentos específicos para objetos dessa classe
+```
+
+
+```{r, opts.label='evalF'}
+?plot.phylo # veja o help e os argumentos
+```
+
+
+```{r, cache = TRUE}
+# portanto posso incluir argumentos de plot.phylo() quando uso a função plot() para plotar um objeto de classe phylo
+plot(phy, no.margin = TRUE, tip.color = c(rep("red", 3), rep("blue", 3)))
+
+# seria o mesmo que dizer
+plot.phylo(phy, no.margin = TRUE, tip.color = c(rep("red", 3), rep("blue", 3)))
+```
+
+### `image()` e `countour()`
+
+```{r, opts.label='evalF'}
+# existe um conjunto de dados topográficos na base do R que vamos usar como exemplo
+class(volcano) # é uma matriz
+dim(volcano) # com 87 linhas e 61 uma colnas
+volcano[1:5, 1:5] # os valores são altitude
+hist(volcano, breaks = 20) # essa é a distribuição de valores de elevacao
+range(volcano) # amplitude de variação
+```
+
+
+```{r, opts.label='evalF'}
+# podemos usar algumas funções para visualizar um conjunto de dados que tem essa estrutura (matrix)
+?image # veja o help
+```
+
+
+```{r, cache = TRUE}
+image(volcano, col = heat.colors(12))
+```
+
+
+```{r, opts.label='evalF'}
+?heat.colors # veja opções de gradientes continuos de cores
+```
+
+
+```{r, cache = TRUE}
+# vamos mudar isso,
+cores <- terrain.colors(12) # 12 categorias de cores
+cores # o código é uma cor em HTML
+image(volcano, col = cores)
+# notem a cratera
+```
+
+
+```{r, opts.label='evalF'}
+?contour # veja o help
+```
+
+
+```{r, cache = TRUE}
+# outra opção é fazermos os contornos (ou curvas de nível neste caso do vulcão)
+contour(volcano)
+# vamos mudar o número de níveis para o mesmo usado para as cores
+contour(volcano, nlevels = 12)
+
+# vamos juntar essas figuras em uma só
+image(volcano, col = cores)
+contour(volcano, nlevels = 12, add = TRUE)
+# note o argumento add=TRUE que indica para a função de alto-nível
+# que ela não deve começar uma nova figura,
+# apenas adiciona à uma já criada por outra função de alto-nível
+# muitas funções de alto-nível tem esse argumento add, que, portanto, mimetiza o que função gráfica de baixo-nível faz
+```
+
+### `map()`
+
+O pacote [maps](https://cran.r-project.org/web/packages/maps/index.html) [@R-maps] fornece funções para desenhar mapas com divisões administrativas.
+A função `map()` é uma de alto-nível.
+Veremos depois como adicionar sobre esses mapas informação através de funções de baixo-nível.  
+
+```{r, opts.label='evalF'}
+?maps::map # veja o help
+```
+
+Caso você não tenha instalado o pacote `maps` ainda, faça-o assim:
+
+```{r, opts.label='evalF'}
+install.packages("maps")
+```
+
+Agora, siga o exemplo abaixo:
+
+```{r, cache = TRUE}
+library(maps) # instalar se não tiver instalado
+map() # mapa do mundo
+
+map(region = "Brazil") # Brazil
+# dev.off() #pode precisar fechar o dispositivo se estiver avisar que a figura é muito grande
+
+dev.off()
+sa <- c("Brazil", "Guyana", "French Guiana", "Suriname", "Venezuela", "Colombia", "Ecuador", "Trinidad-Tobago", "Peru", "Bolivia", "Paraguay", "Chile", "Argentina", "Uruguay", "Panama")
+map(region = sa, col = "red", lty = "dashed")
+```
+
+### xlim e ylim
+
+Esses dois parâmetros gráficos permitem ajustar o tamanho dos eixos de um gráfico, impondo limites.  
+
+```{r, opts.label='evalF'}
+# CONTROLANDO UM XLIM
+plot(iris$Sepal.Length, iris$Sepal.Width, pch = 21, col = "red")
+# vamos aumentar um pouco o eixo X
+rg <- range(iris$Sepal.Length) # variacao atual
+rg
+# aumentar
+rg2 <- rg + c(-1, +1) # adicionamos 1 unidade de cada lado
+rg2
+plot(iris$Sepal.Length, iris$Sepal.Width, pch = 21, col = "red", xlim = rg2)
+
+
+# LIMITANDO UM MAPA POR SUAS COORDENADAS
+dev.off()
+library(maps) # instalar se não tiver instalado
+map() # mapa do mundo
+# alguns limites em latitude e longitude
+lat0 <- -22
+lat1 <- 5
+long0 <- -80
+long1 <- -30
+dev.off()
+map(xlim = c(long0, long1), ylim = c(lat0, lat1))
+```
+
+
+
+## Funções gráficas de baixo nível {#graf-baixo-nivel}
+
+Funções de baixo nível são funções que permitem **ADICIONAR** elementos em um gráfico já aberto com as funções `plot()` ou `plot.new()`.
+Muitas vezes você pode usar uma função de alto nível para fazer a mesma coisa com o argumento `add = TRUE`.
+Vamos ver alguns exemplos mais comumente utilizados de funções de baixo-nível.  
+
+### `legend()`
+
+A função `legend()` permite colocar uma legenda sobre um gráfico aberto por uma função de alto nível.  
+
+```{r, opts.label='evalF'}
+?legend # veja o help dessa funcao
+# vamos usar iris novamente
+```
+
+
+```{r, cache = TRUE}
+Sepalas <- iris$Sepal.Length
+Petalas <- iris$Petal.Length
+nlevels(iris$Species) # contém três espécies
+levels(iris$Species)
+ascores <- c("red", "blue", "green")[as.numeric(iris$Species)]
+# plota a figura
+plot(Sepalas, Petalas, pch = 21, bg = ascores, cex = 0.8)
+
+# vamos colocar uma legenda no canto direito inferior
+# definimos o que vai na legenda
+cores <- c("red", "blue", "green")
+texto <- levels(iris$Species)
+legend("bottomright", legend = texto, pt.bg = cores, pch = 21)
+
+# ficou apertado né...
+# aumentar o espacamento, colocar mais para dentro e tirar o box, diminuir o texto, aumentar o tamanho do ponto
+# plota a figura
+plot(Sepalas, Petalas, pch = 21, bg = ascores, cex = 0.8)
+legend("bottomright", legend = texto, pt.bg = cores, pch = 21, y.intersp = 1.7, inset = 0.1, box.lwd = 0, cex = 0.8, pt.cex = 1.5)
+
+# podemos colocar legendas também pela coordenada
+plot(Sepalas, Petalas, pch = 21, bg = ascores, cex = 0.8)
+legend(x = 7, y = 3, legend = texto, pt.bg = cores, pch = 21, y.intersp = 1.7, inset = 0.1, box.lwd = 0, cex = 0.8, pt.cex = 1.5)
+
+# ou colocar fora da figura
+# neste caso, primeiro dividimos o dispositivo em tres partes e plotamos a figura em 2 partes e a legenda em 1 parte
+layout(matrix(c(1, 1, 2), nrow = 1, ncol = 3))
+plot(Sepalas, Petalas, pch = 21, bg = ascores, cex = 0.8)
+# usamos a função plot.new() para mudar de parte no dispositivo cirando um plot vazio
+plot.new() # nao vai ver nada acontecendo
+# agora plotamos a legenda nesse espaço
+legend("left", legend = texto, pt.bg = cores, pch = 21, y.intersp = 1.7, inset = 0.1, box.lwd = 0, cex = 0.8, pt.cex = 1.5)
+```
+
+### `points()`
+
+Esta função genérica serve para adicionar pontos, linhas, simbolos etc, segundo coordenadas `x` ou `x+y` em um gráfico aberto por uma função de alto nível.  
+
+```{r, cache = TRUE}
+layout(1) # restaurando para 1 se fez o script acima
+# vamos usar um conjunto de dados de crescimento de laranja
+data("Orange")
+colnames(Orange) # número da árvore, idade, circunferencia nessa idade
+head(Orange)
+unique(Orange$Tree) # tem cinco árvores
+
+# vamos plotar idade por circunferencia
+# uma linha por árvore
+# cada linha de um tipo e cor diferente
+
+# definir tipos de linhas e cores
+ascores <- c("red", "blue", "green", "yellow", "purple")
+linhatipos <- c("solid", "dashed", "dotted", "dotdash", "longdash")
+
+# uma cor por árvore
+treeidx <- as.numeric(Orange$Tree)
+cls <- ascores[treeidx]
+cls
+# um tipo de linha por arvore
+tps <- linhatipos[treeidx]
+tps
+
+# fazemos uma figura
+plot(Orange$age, Orange$circumference, lwd = 1, type = "b", col = cls, lty = tps)
+# note que todas as linhas sairam com primeira cor e com o primeiro tipo
+cls[1]
+tps[1]
+# nao dá para fazer assim, porque não especificamos como os pontos se ligam
+
+# podemos no entanto colocar linha por linha
+# desenhamos o gráfico com uma função de alto nível com os dados, mas vazia
+plot(Orange$age, Orange$circumference, type = "n", xlab = "Idade", ylab = "Circunferência")
+# adicionamo para cada árvore os pontos e as linhas
+arvs <- as.numeric(levels(Orange$Tree))
+pts <- arvs + 20 # simbolos para pontos
+i <- 1
+for (i in 1:length(arvs)) { # para cada arvore
+  # filtra os dados
+  dd <- Orange[Orange$Tree == arvs[i], ]
+  # adiciona no gráfico aberto a linha e os pontos e uma vez (type='b', veja o argumento type)
+  points(dd$age, dd$circumference, type = "b", pch = pts[arvs[i]], lty = linhatipos[arvs[i]], lwd = 1, col = ascores[arvs[i]], bg = ascores[arvs[i]])
+}
+
+# vamos adicionar uma legenda
+txt <- paste("tree", arvs)
+legend("bottomright", inset = 0.1, box.lwd = 0, legend = txt, pch = pts[arvs], pt.bg = ascores[arvs], lty = linhatipos[arvs], col = ascores[arvs], y.intersp = 1.5)
+```
+
+### `text()` e `mtext()`
+
+`text()` e `mtext()`- funções para plotar textos (>= 1 caracter de comprimento) sobre uma figura de alto nível. text() plota dentro da área da figura através de coordendas, mtext() plota fora da área da figura com indicação do lado (side) e da distância da linha dos eixos (line).  
+
+```{r, opts.label='evalF'}
+?text # veja o help dessa função
+# vamos usar iris novamente
+```
+
+
+```{r, cache = TRUE}
+Sepalas <- iris$Sepal.Length
+Petalas <- iris$Petal.Length
+nlevels(iris$Species) # contém três espécies
+levels(iris$Species)
+ascores <- c("red", "blue", "green")[as.numeric(iris$Species)]
+
+# vamos dar um código de texto para cada especie (suas primeiras letras maiusculo)
+levels(iris$Species)
+spp <- toupper(substr(iris$Species, 1, 2))
+spp
+
+# plota a figura, mas ao inves de simbolos adicionamos text
+# poderiamos fazer isso se spp fosse apenas 1 caractere
+plot(Sepalas, Petalas, pch = spp, col = ascores, cex = 0.8)
+legend("bottomright", legend = levels(iris$Species), text.col = c("red", "blue", "green"), inset = 0.1, box.lwd = 0, y.intersp = 1.5)
+# mas note que versicolor e virginica não se diferenciam, pois pch plota apenas 1 caractere quando o simbolo for texto
+
+# podemos, no entanto, usar a funcao text para isso
+plot(Sepalas, Petalas, type = "n")
+text(Sepalas, Petalas, labels = spp, col = ascores, cex = 0.8)
+txt <- paste("Iris", levels(iris$Species))
+legend("bottomright", legend = txt, text.col = c("red", "blue", "green"), inset = 0.1, box.lwd = 0, y.intersp = 1.5)
+
+# posso usar essa função para adicionar qualquer texto, em qualquer coordenada
+text(4.5, 6, labels = "Exemplo Iris", adj = 0, col = "yellow")
+# note o argumento adj que define o ajuste do texto em relacao à coordenada x y especificada (ajuste: 0 esquerda, 1 direita)
+# apenas o x
+text(x = 4.5, y = 6, labels = "Exemplo Iris", adj = 1, col = "black")
+
+# o x e o y do ajuste (dois valores em adj)
+text(x = 4.5, y = 6, labels = "Exemplo Iris", adj = c(0.3, 1), col = "purple")
+
+# a funcao mtext plot for da área das coordenas da figura
+# lado superior
+mtext(side = 3, text = "A.", line = 1, col = "red", font = 2, cex = 2)
+# lado superior esquerdo
+mtext(side = 3, text = "A.", line = 1, col = "red", font = 2, cex = 2, adj = 0)
+
+# lado inferior direito
+mtext(side = 1, text = "B.", line = 1, col = "red", font = 2, cex = 2, adj = 1)
+# mais para baixo
+mtext(side = 1, text = "B.", line = 2.5, col = "red", font = 2, cex = 2, adj = 1)
+
+# lado direito superior
+mtext(side = 4, text = "C.", line = 1, col = "red", font = 2, cex = 2, adj = 1)
+
+# lado direito no meio
+mtext(side = 4, text = "C.", line = 1, col = "red", font = 2, cex = 2, adj = 0.5)
+```
+
+### `axis()`
+
+A função `axis()` adiciona eixos individualmente.
+É importante quando desejamos combinar dois gráficos em um só.  
+
+```{r, opts.label='evalF'}
+?axis
+```
+
+
+```{r, cache = TRUE}
+# algumas vezes queremos adicionar eixos, ou formatar o eixo de uma forma individualizada
+# por exemplo, na seguinte figura, queremos colocar o nome das especies no eixo y em posicao horizontal
+plot(iris$Sepal.Length ~ iris$Species, horizontal = TRUE)
+
+# o argumento para isso é par(las=2)
+# se mudar isso eu mudo para todos os eixos
+par(las = 2)
+plot(iris$Sepal.Length ~ iris$Species, horizontal = TRUE)
+
+# mas eu quero apenas o eixo y
+par(las = 1) # voltamos ao padrao 1
+
+# plotamos a figura sem esse eixo
+plot(iris$Sepal.Length ~ iris$Species, horizontal = TRUE, yaxt = "n")
+# adicionamos o eixo y na horizontal
+axis(side = 2, las = 2)
+# mas ele plotou números não é isso que eu quero
+plot(iris$Sepal.Length ~ iris$Species, horizontal = TRUE, yaxt = "n")
+# entao dizemos onde e o que queremos desenhar
+axis(side = 2, at = 1:3, labels = levels(iris$Species))
+
+# vamos mudar o titulo do eixo da variavel dependente (y) e apagar das especies
+plot(iris$Sepal.Length ~ iris$Species, horizontal = TRUE, yaxt = "n", ylab = "Comprimento Sépalas", xlab = "")
+# entao dizemos onde e o que queremos desenhar
+axis(side = 2, at = 1:3, labels = levels(iris$Species))
+
+# também posso adicionar eixos em outras posicoes
+axis(side = 3)
+```
+
+### `abline()`
+
+Esta função plota uma linha reta sobre um gráfico, ou uma linha de ajuste de uma correlação ou regressão.  
+
+```{r, opts.label='evalF'}
+# linha sobre o eixo
+?abline # permite colocar linha em regressoes ou linhas retas simples
+```
+
+
+```{r, cache = TRUE}
+plot(iris$Sepal.Length, iris$Petal.Length)
+# um linha horizontal
+abline(h = 4, col = "red", lwd = 2)
+# uma linha vertical
+abline(v = 6.3, col = "blue", lwd = 2)
+
+# uma linha de uma regressao
+rg <- lm(iris$Petal.Length ~ iris$Sepal.Length) # faço a regressao entre essas variaveis
+abline(coef(rg), col = "darkgreen", lwd = 3, lty = "dotted") # plot pelos coeficientes
+```
+
+### `arrows()`, `rect()`, `polygon()` e `segments()`
+
+Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas sobre sobre gráficos, respectivamente.  
+
+#### Flechas
+
+```{r, opts.label='evalF'}
+?arrows # veja o help
+```
+
+
+```{r, cache = TRUE}
+# vamos criar um histograma
+hist(iris$Sepal.Width, breaks = 20, col = "red")
+# adicionar uma seta
+arrows(x0 = 3.6, y0 = 5, x1 = 3.6, y1 = 10, lty = "solid", col = "blue")
+
+# invertendo y0 e y1, diminuindo o tamanho da seta e colocando mais grosso
+hist(iris$Sepal.Width, breaks = 20, col = "red")
+arrows(x0 = 3.6, y0 = 10, x1 = 3.6, y1 = 5, lty = "solid", lwd = 3, col = "blue", length = 0.1)
+```
+
+#### Retângulos
+
+```{r, opts.label='evalF'}
+?rect # veja o help
+```
+
+
+```{r, cache = TRUE}
+plot(1:10, 1:10, type = "n")
+rect(xleft = 2, ybottom = 2, xright = 3, ytop = 4)
+# com preenchimento
+rect(xleft = 4, ybottom = 2, xright = 6, ytop = 4, density = 8, border = "red", col = "blue")
+
+# com preenchimento total (density tem valor negativo (um qualquer))
+rect(xleft = 7, ybottom = 2, xright = 8, ytop = 4, density = -1, border = "yellow", col = "blue", lwd = 5)
+```
+
+#### Polígonos
+
+```{r, opts.label='evalF'}
+?polygon # veja o help
+```
+
+
+```{r, cache = TRUE}
+plot(1:10, 1:10, type = "n")
+polygon(x = c(4, 7.5, 8.2, 6, 4), y = c(2, 2, 5, 8, 2), lwd = 2, col = "red")
+
+plot(1:10, 1:10, type = "n")
+polygon(x = c(4, 7.5, 8.2, 6, 4), y = c(2, 2, 5, 8, 2), lwd = 2, col = "red", density = 10)
+```
+
+#### Segmentos de linhas
+
+```{r, opts.label='evalF'}
+?segments
+```
+
+
+```{r, cache = TRUE}
+plot(1:10, 1:10, type = "n")
+segments(x0 = 2, y0 = 2, x1 = 4.5, y1 = 6, lwd = 2, col = "red")
+segments(x0 = 2, y0 = 8, x1 = 7.5, y1 = 8, lwd = 2, col = "blue")
+```
+
+### `symbols()`
+
+A função `symbols()` é uma de alto nível, mas com a adição do argumento `add=TRUE`, ela pode ser utilizada para adicionar sobre gráficos já plotados símbolos que expressam quantidades.  
+
+```{r, opts.label='evalF'}
+?symbols # ver o help
+```
+
+
+```{r, cache = TRUE}
+plot(1:10, 1:10, type = "n")
+xx <- c(3, 5, 7, 9)
+yy <- c(3, 5, 7, 9)
+zz <- c(0.1, 0.3, 0.4, 1) # tamanho em unidade gráfica
+symbols(xx, yy, circles = zz, bg = "red", add = T, inches = FALSE)
+
+plot(1:10, 1:10, type = "n")
+symbols(xx, yy, squares = zz, bg = "blue", add = T, inches = FALSE)
+
+# agora mais complexo, expressando proporção
+plot(1:10, 1:10, type = "n")
+
+# uma matrix que com tres colunas: largura do simbolo, altura do simbolo e proporcao que simbolo deve estar preenchido
+v1 <- matrix(c(1, 1, 0.2), nrow = 1, ncol = 3) # 20% cheio
+# ll = rep(v1,length(xx))
+symbols(xx[1], yy[1], thermometers = v1, add = T, inches = FALSE)
+v2 <- matrix(c(1, 1, 0.8), nrow = 1, ncol = 3) # 80% cheio
+# ll = rep(v1,length(xx))
+symbols(xx[2], yy[2], thermometers = v2, add = T, inches = FALSE)
+```
+
+## Funções gráficas interativas
+
+### `locator()`
+
+Esta função extrai coordenadas de um gráfico.  
+
+```{r, opts.label='evalF'}
+?locator # veja o help
+
+# fazemos um gráfico
+?trees # se quiser entender esses dados
+data("trees")
+class(trees)
+colnames(trees)
+Circunferencia <- trees$Girth
+Altura <- trees$Height
+plot(Circunferencia, Altura, type = "p", pch = 21, bg = "red")
+locator(n = 1)
+# clique na figura dentro do gráfico
+# veja que no console há uma lista com os valores das coordenadas x e y
+
+# pode fazer a mesma coisa já salvando as coordendas num ojbeto. Colete 2 pontos agora, traçando uma linha entre eles
+cds <- locator(n = 2, type = "l")
+cds # dois valores para cada coordenada
+# posso usar os valores obtidos, por exemplo para plotar uma flexa
+x0 <- cds$x[1]
+x1 <- cds$x[2]
+y0 <- cds$y[1]
+y1 <- cds$y[2]
+arrows(x0, y0, x1, y1, lwd = 2, col = "red")
+```
+
+### `identify()`
+
+Esta função identifica os pontos de um gráfico.  
+
+```{r, opts.label='evalF'}
+?identify # veja o help
+
+# fazemos um gráfico
+data("trees")
+Circunferencia <- trees$Girth
+Altura <- trees$Height
+# plotamos vazio
+plot(Circunferencia, Altura, type = "n")
+ss <- sample(1:nrow(trees), 1) # um valor de indice aleatorio
+# um  ponto qualquer em vermelho
+points(Circunferencia[ss], Altura[ss], pch = 21, cex = 1.5, bg = "red")
+# o resto dos pontos em branco
+points(Circunferencia[-ss], Altura[-ss], pch = 21, cex = 1.5, bg = "white")
+# identificar pontos. Execute a funçào e selecione no ponto vermelho
+identify(Circunferencia, Altura, n = 1, tolerance = 1)
+# o numero que aparece no gráfico é o indice
+# portanto, deve ser igual ao valor de
+ss
+trees[ss, ]
+```
+
+
+## Para saber mais: {#sabermais-disp-grafico}
+
+(1). Vídeoaulas com conteúdos parciais deste capítulo:
+
+  * [Dispositivos gráficos](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:1plot:video01_bot89-2020-04-09_18.22.40.mp4);
+  
+  * [Parâmetros gráficos, parte I](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:3plot:video01_bot89-2020-04-13_08.47.11.mp4);
+  
+  * [Parâmetros gráficos, parte II](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:3plot:video01_bot89-2020-04-13_09.17.45.mp4);
+  
+  * [Parâmetros gráficos parte II](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:4plot:video01_bot89-2020-04-13_10.15.19.mp4);
+  
+  * [Funções gráficas de alto nível](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2plot:video01_bot89-2020-04-13_11.26.19.mp4);
+  
+  * [Funções gráficas de baixo nível, parte I](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:5plot:video01_bot89-2020-04-13_12.05.18.mp4);
+  
+  * [Funções gráficas de baixo nível, parte II](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:5plot:video01_bot89-2020-04-13_13.07.07.mp4);
+  
+(2). [R Gallery](http://www.r-graph-gallery.com/) - página que tem exemplos de gráficos do R e os códigos correspondentes.
