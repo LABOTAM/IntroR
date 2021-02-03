@@ -28,7 +28,7 @@ knitr::opts_template$set(executa = list(echo = FALSE,
 
 knitr::opts_template$set(executa_mostra = list(echo = TRUE,
                                                eval = TRUE))
-options(knitr.duplicate.label = "allow")
+# options(knitr.duplicate.label = "allow") # ve se com new_session: yes no bookdown.yml, esse problema e resolvido
 ```
 
 ```{r load_packages, include = FALSE, echo = FALSE, message = FALSE}
@@ -40,7 +40,7 @@ sapply(libs, library, logical.return = T, character.only = T)
 
 ```{r build-pkg-bib, include = FALSE, echo = FALSE, message = FALSE}
 knitr::write_bib(
-  c(.packages(), "readxl", "readr", "data.table", "rgdal"),
+  c(.packages(), "readxl", "readr", "data.table", "rgdal", "taxize"),
   'pkg-bib.bib')
 ```
 
