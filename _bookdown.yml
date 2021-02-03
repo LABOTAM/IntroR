@@ -34,16 +34,11 @@ rmd_files:
     "04-listas_objComplexos.Rmd",
     "05-funcoes_graficas.Rmd",
     "06-iteracoes_controleFluxo.Rmd",
-    # Sumarizacao de dados
-    "cap06-sumarizacao_dados.Rmd",
-    # Manipulacao textos
-    "cap07-manipulacao_textos_arqs_pastas.Rmd",
-    # Amostragens aleatorias
-    "cap08-amostragens_aleatorias.Rmd",
-    # Outros
-    "aplicado-extrai_dados_colunas_descritivas.Rmd",
-    # Suplementos
-    "cap10-suplementos.Rmd",
+    "07-sumarizacao_dados.Rmd",
+    "08-manip_txt_arqs_pasta.Rmd",
+    "09-amostragens_aleatorias.Rmd",
+    "10-extracao_dados.Rmd",
+    "11-mat_suplementar.Rmd",
     # Info da sessao para reprodutibilidade
     # "info_sessao.Rmd",
-    "referencias.Rmd"]
+    "12-referencias.Rmd"]
