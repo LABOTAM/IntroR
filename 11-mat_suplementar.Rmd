@@ -622,7 +622,77 @@ O que podemos afirmar é que qualquer pacote de R, com exceção do pacote `base
 Quisemos aqui apresentar funcionalidades básicas de alguns pacotes que podem ser adotadas ou não pelos alunos, e mostrar como podem ser incorporadas no fluxo diário das manipulações de dados.
 Caso queiram ver manipulações mais complexas em tabelas utilizando as ferramentas do tidyverse, convido-os a checarem estas duas postagens: [importando e manipulando dados no R](https://ricardoperdiz.com/post/2020_03_29_r-obtendo-plotando-dados/obtendo-dados-e-plotando-mapas-no-r-versao-3/), e um [tutorial para gerar o mapa de distribuição de Macrolobium aracaense Farroñay](https://ricardoperdiz.com/post/2020_03_29_r-map-farronayetal-2018/mapa-macrolobium/).
 
-### Para saber mais: {#sabermais-tidyverse}
+## Baixar e descomprimir um arquivo zip usando o R
+
+Caso você queira baixar e descomprimir um arquivo `.zip` no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
+Utilizaremos um arquivo utilizado na seção \@ref(#obj-complexos).  
+
+```{r, opts.label='evalF'}
+# grava o endereco do arquivo em um objeto
+arq_zip_url <- "http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip"
+# cria um diretorio temporario
+dirtemp <- tempdir()
+# cria um arquivo temporario para arquivar esse zip
+arq_temp <- tempfile(tmpdir = dirtemp, fileext = ".zip")
+# baixa o arquivo para dentro do arquivo temporario
+download.file(arq_zip_url, arq_temp)
+
+# Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`
+# agora utilizaremos a funcao `unzip()` para descomprimir o arquivo
+
+# pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta
+fname <- unzip(arq_temp, list = TRUE)$Name[1]
+nomes_arqs <- unzip(arq_temp, list = TRUE)
+class(nomes_arqs) # e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo
+str(nomes_arqs)
+nomes_arqs
+# Descomprime o arquivo zip para a pasta temporaria
+unzip(arq_temp, files = nome_pasta, exdir = dirtemp, overwrite = TRUE)
+# caminho completo do arquivo extraido
+caminho_completo <- file.path(dirtemp, nome_pasta)
+caminho_completo
+
+# lista arquivos dentro do caminho contido em caminho_completo
+list.files(paste0(caminho_completo, "/."), all.files = TRUE)
+```
+
+
+## Baixar e descomprimir um arquivo zip usando o R
+
+Caso você queira baixar e descomprimir um arquivo `.zip` no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
+Utilizaremos um arquivo utilizado na seção \@ref(#obj-complexos).  
+
+```{r, opts.label='evalF'}
+# grava o endereco do arquivo em um objeto
+arq_zip_url <- "http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip"
+# cria um diretorio temporario
+dirtemp <- tempdir()
+# cria um arquivo temporario para arquivar esse zip
+arq_temp <- tempfile(tmpdir = dirtemp, fileext = ".zip")
+# baixa o arquivo para dentro do arquivo temporario
+download.file(arq_zip_url, arq_temp)
+
+# Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`
+# agora utilizaremos a funcao `unzip()` para descomprimir o arquivo
+
+# pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta
+fname <- unzip(arq_temp, list = TRUE)$Name[1]
+nomes_arqs <- unzip(arq_temp, list = TRUE)
+class(nomes_arqs) # e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo
+str(nomes_arqs)
+nomes_arqs
+# Descomprime o arquivo zip para a pasta temporaria
+unzip(arq_temp, files = nome_pasta, exdir = dirtemp, overwrite = TRUE)
+# caminho completo do arquivo extraido
+caminho_completo <- file.path(dirtemp, nome_pasta)
+caminho_completo
+
+# lista arquivos dentro do caminho contido em caminho_completo
+list.files(paste0(caminho_completo, "/."), all.files = TRUE)
+```
+
+
+### Para saber mais sobre o **Tidyverse**: {#sabermais-tidyverse}
 
 As postagens abaixo variam entre posições favoráveis ou desfavoráveis ao Tidyverse.
 Abrangem desde opiniões pessoais sobre o porquê de não ensinar essas ferramentas aos iniciantes na linguagem a questões de performance computacional desse universo quando comparado com o base R.
@@ -644,73 +714,3 @@ Leiam e tirem suas próprias conclusões.
 
 (@) [Introducing magrittr
 ](https://magrittr.tidyverse.org/articles/magrittr.html) - Vinheta de introdução às funcionalidades do operador `%>%`
-
-
-## Baixar e descomprimir um arquivo zip usando o R
-
-Caso você queira baixar e descomprimir um arquivo `.zip` no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
-Utilizaremos um arquivo utilizado na seção \@ref(#obj-complexos).  
-
-```{r, opts.label='evalF'}
-# grava o endereco do arquivo em um objeto
-arq_zip_url <- "http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip"
-# cria um diretorio temporario
-dirtemp <- tempdir()
-# cria um arquivo temporario para arquivar esse zip
-arq_temp <- tempfile(tmpdir = dirtemp, fileext = ".zip")
-# baixa o arquivo para dentro do arquivo temporario
-download.file(arq_zip_url, arq_temp)
-
-# Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`
-# agora utilizaremos a funcao `unzip()` para descomprimir o arquivo
-
-# pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta
-fname <- unzip(arq_temp, list = TRUE)$Name[1]
-nomes_arqs <- unzip(arq_temp, list = TRUE)
-class(nomes_arqs) # e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo
-str(nomes_arqs)
-nomes_arqs
-# Descomprime o arquivo zip para a pasta temporaria
-unzip(arq_temp, files = nome_pasta, exdir = dirtemp, overwrite = TRUE)
-# caminho completo do arquivo extraido
-caminho_completo <- file.path(dirtemp, nome_pasta)
-caminho_completo
-
-# lista arquivos dentro do caminho contido em caminho_completo
-list.files(paste0(caminho_completo, "/."), all.files = TRUE)
-```
-
-
-## Baixar e descomprimir um arquivo zip usando o R
-
-Caso você queira baixar e descomprimir um arquivo `.zip` no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
-Utilizaremos um arquivo utilizado na seção \@ref(#obj-complexos).  
-
-```{r, opts.label='evalF'}
-# grava o endereco do arquivo em um objeto
-arq_zip_url <- "http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip"
-# cria um diretorio temporario
-dirtemp <- tempdir()
-# cria um arquivo temporario para arquivar esse zip
-arq_temp <- tempfile(tmpdir = dirtemp, fileext = ".zip")
-# baixa o arquivo para dentro do arquivo temporario
-download.file(arq_zip_url, arq_temp)
-
-# Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`
-# agora utilizaremos a funcao `unzip()` para descomprimir o arquivo
-
-# pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta
-fname <- unzip(arq_temp, list = TRUE)$Name[1]
-nomes_arqs <- unzip(arq_temp, list = TRUE)
-class(nomes_arqs) # e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo
-str(nomes_arqs)
-nomes_arqs
-# Descomprime o arquivo zip para a pasta temporaria
-unzip(arq_temp, files = nome_pasta, exdir = dirtemp, overwrite = TRUE)
-# caminho completo do arquivo extraido
-caminho_completo <- file.path(dirtemp, nome_pasta)
-caminho_completo
-
-# lista arquivos dentro do caminho contido em caminho_completo
-list.files(paste0(caminho_completo, "/."), all.files = TRUE)
-```
