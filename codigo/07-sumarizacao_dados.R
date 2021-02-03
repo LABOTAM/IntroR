@@ -317,8 +317,14 @@ kable(tab3, caption = "Tabela 3", row.names = FALSE)
 #' 
 #' #### Junção interna {#interna}
 #' 
-#' > ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x` em que há valores em comum com `y`, e todas as colunas de `x` e `y`. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
-#'   
+#' ::: {.infobox .idea data-latex="idea"}
+#' 
+#' 
+#' Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x` em que há valores em comum com `y`, e todas as colunas de `x` e `y`. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
+#' 
+#' :::
+#' 
+#' 
 #' ![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/inner-join.png)
 #' 
 #' Em nosso exemplo, vamos unir as tabelas 1 e 2.
@@ -357,8 +363,14 @@ merge(x = tab1, y = tab2)
 #' 
 #' #### Junção à esquerda {#esquerda}
 #' 
-#' > ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x`, e todas as colunas de `x` e `y`. Linhas em `x` sem correspência em `y` terão valores `NA` adicionados nas novas colunas. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
-#'   
+#' 
+#' ::: {.infobox .idea data-latex="idea"}
+#' 
+#' Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x`, e todas as colunas de `x` e `y`. Linhas em `x` sem correspência em `y` terão valores `NA` adicionados nas novas colunas. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
+#' 
+#' :::
+#' 
+#' 
 #' ![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/left-join.png)
 #' 
 #' Continuaremos utilizando as tabelas 1 e 2.
@@ -395,8 +407,13 @@ merge(x = tab1, y = tab2, all.x = TRUE)
 #' 
 #' #### Junção à direita {#direita}
 #' 
-#' > ao juntarmos tabelas `x` e `y`, temos todas as linhas de `y`, e todas as colunas de `x` e `y`.Linhas em `y` sem correspência em `x` terão valores NA adicionados nas novas colunas. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
-#'   
+#' ::: {.infobox .idea data-latex="idea"}
+#' 
+#' Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `y`, e todas as colunas de `x` e `y`.Linhas em `y` sem correspência em `x` terão valores NA adicionados nas novas colunas. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
+#' 
+#' :::
+#' 
+#' 
 #' ![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/right-join.png)
 #' 
 #' De maneira oposta à junção à esquerda, na junção à direita são mantidas todas as linhas de `y`.
@@ -431,8 +448,13 @@ merge(x = tab1, y = tab2, all.y = TRUE)
 #' 
 #' #### Junção total {#total}
 #' 
-#' > ao juntarmos tabelas `x` e `y`, temos todas as linhas e colunas de `x` e `y`. Onde não houver valores correspondentes, valores `NA` serão colocados nesses lugares.
-#'   
+#' ::: {.infobox .idea data-latex="idea"}
+#' 
+#' Ao juntarmos tabelas `x` e `y`, temos todas as linhas e colunas de `x` e `y`. Onde não houver valores correspondentes, valores `NA` serão colocados nesses lugares.
+#' 
+#' :::
+#' 
+#' 
 #' ![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/outer-join.png)
 #' 
 #' Em uma junção total, uniremos todas as linha de `x` e `y` utilizando o argumento `all = TRUE`.
@@ -447,8 +469,13 @@ merge(x = tab1, y = tab2, all = TRUE)
 #' 
 #' #### Semijunção {#semi}
 #' 
-#' > ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x` onde houver valores correspondentes em `y`, mantendo apenas colunas de `x`. É parecida com a junção interna, porém difere desta por nunca duplicar valores de `x`, retornando sempre apenas valores de `x` que houver uma correspondência em `y`.
-#'   
+#' ::: {.infobox .idea data-latex="idea"}
+#' 
+#' Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x` onde houver valores correspondentes em `y`, mantendo apenas colunas de `x`. É parecida com a junção interna, porém difere desta por nunca duplicar valores de `x`, retornando sempre apenas valores de `x` que houver uma correspondência em `y`.
+#' 
+#' :::
+#' 
+#' 
 #' ![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/left-anti-semi-join.png)
 #' 
 #' A semijunção é muito similar à junção interna, diferindo desta por não incorporar as colunas de `y`, pois apenas utiliza esta tabela para filtrar os dados de `x`, constituindo-se então em um tipo de junção que filtra variáveis.
@@ -509,7 +536,12 @@ tab1[linhas, ]
 #' 
 #' #### Antijunção {#anti}
 #' 
-#' > retorna todas as linhas de `x` em que não há correspondência em `y`, mantendo apenas colunas de `x`.
+#' ::: {.infobox .idea data-latex="idea"}
+#' 
+#' Retorna todas as linhas de `x` em que não há correspondência em `y`, mantendo apenas colunas de `x`.
+#' 
+#' :::
+#' 
 #' 
 #' ![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/right-anti-semi-join.png)
 #' 

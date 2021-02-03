@@ -262,7 +262,6 @@ meudf
 
 #' 
 #' 
-#' 
 #' ## Iterações {#iteracoes}
 #' 
 #' Vocês usaram várias funções da família `apply`, especialmente `apply()` e `tapply()`, que são funções especiais que repetem uma mesma função `FUN` para cada objeto de um conjunto (vetores, matrizes, valores atômicos).

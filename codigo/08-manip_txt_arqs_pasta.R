@@ -429,9 +429,9 @@ grep("[A-Z]", vt, value = TRUE) # nao tem nenhum neste vetor
 grep("[a-z]", vt, value = TRUE)[1:30]
 
 #' 
-#' ### Barra invertida `\` (backslash)
+#' ### Barra invertida `\`
 #' 
-#' O uso do *backslash* `\` (barra invertida) indica ao R que a expressão regular espera lidar com tabulações, quebra de linhas e outros símbolos especiais.
+#' O uso da barra invertida `\` (em inglês, *backslash*) indica ao R que a expressão regular espera lidar com tabulações, quebra de linhas e outros símbolos especiais.
 #' Isso é fundamental se você quer incluir/buscar num texto por aspas, parênteses, colchetes, barras, metacaracteres, etc.
 #' 
 ## ---- eval = FALSE, echo = TRUE-----------------------------------------------
@@ -530,7 +530,7 @@ txt <- c("sem parenteses", "com ()")
 
 #' 
 #' 
-#' ### Para saber mais: {#sabermais-manip-txt-arqs-fld}
+#' ## Para saber mais: {#sabermais-manip-txt-arqs-fld}
 #' 
 #' (1) [RegExr is an online tool to learn, build, & test Regular Expressions (RegEx / RegExp)](http://regexr.com) - Página que ajuda o usuário a construir uma expressão regular.  
 #' 

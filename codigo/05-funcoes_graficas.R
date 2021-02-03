@@ -195,9 +195,15 @@ plot(iris$Sepal.Length, iris$Petal.Length, type = "p", pch = 21, bg = vcl, cex =
 dev.off()
 
 #' 
-#' > DICA: Abra os três arquivos e compare a resolução deles, ampliando a imagem até visualizar o pixel. 
+#' 
+#' ::: {.infobox .idea data-latex="idea"}
+#' 
+#' DICA: Abra os três arquivos e compare a resolução deles, ampliando a imagem até visualizar o pixel. 
 #' Note que em um `pdf` você nunca verá o pixel.
 #' Por isso, recomendamos que vocÊ trabalhe sempre com a função `pdf()`.  
+#' 
+#' 
+#' :::
 #' 
 #' ## Parâmetros gráficos, parte I - Margem, fonte, proporções {#par-graficos-p1}
 #' 
