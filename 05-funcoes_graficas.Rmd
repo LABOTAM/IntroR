@@ -1,4 +1,4 @@
-# Funções gráficas
+# Funções gráficas {#func-graf}
 
 ## Dispositivos Gráficos
 

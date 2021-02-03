@@ -1,4 +1,4 @@
-# Manipulação de textos, arquivos e pastas
+# Manipulação de textos, arquivos e pastas {#manip-txt-arq-pasta}
 
 ## Funções para manipulação e busca de textos
 

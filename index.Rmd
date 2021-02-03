@@ -28,7 +28,7 @@ knitr::opts_template$set(executa = list(echo = FALSE,
 
 knitr::opts_template$set(executa_mostra = list(echo = TRUE,
                                                eval = TRUE))
-# options(knitr.duplicate.label = "allow")#
+options(knitr.duplicate.label = "allow")#
 ```
 
 ```{r load_packages, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
@@ -47,6 +47,17 @@ knitr::write_bib(
 rmarkdown::render("README.Rmd", output_format = "md_document", encoding = 'UTF-8')
 ```
 
+```{r converte-rmd-r, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
+capitulos <- list.files(pattern = "^[0-9]")
+capitulos_out <- gsub("\\.Rmd", ".R", capitulos)
+capitulosR_output_names <- paste0("codigo/", capitulos_out)
+purrr::walk2(
+  capitulos,
+  capitulosR_output_names,
+  ~knitr::purl(.x, output = .y, documentation = 2)
+)
+```
+
 # Prefácio {-}
 
 Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina [Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89)](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio) do [Programa de Pós-Graduação em Ciências Biológicas (Botânica)](http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/) do INPA.
@@ -57,23 +68,40 @@ Nosso meta é prover uma introdução básica
 da linguagem de programação R, que é extremamente poderosa para manipulação de dados, análises estatísticas, produção de gráficos e de documentos dinâmicos, e cujo domínio oferece um grande ganho de produtividade a todo cientista e facilita o entendimento de métodos analíticos.
 Ressaltamos que **isto não é um curso de estatística**.  
 
-# Sobre o livro {-}
+## Estrutura do livro {-}
 
-Você pode encontrar os códigos fonte deste livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main).
-Caso você verifique algum erro de português, pense que algum conteúdo possa melhorar, ou possua o desejo de contribuir ativamente com a construção do livro, sinta-se à vontade para entrar em contato conosco.
-Você pode nos enviar um email, pode criar um problema na página deste repositório ("open an issue" em inglês; acessa a aba **Issues** no endereço [github.com/LABOTAM/LABOTAM.github.io/issues](https://github.com/LABOTAM/LABOTAM.github.io/issues)) para solicitar alguma mudança ou informar algum erro no conteúdo desta obra (Fig. \@ref(fig:issues)).
-Toda contribuição será bem vinda.  
+```{asis, echo=!knitr::is_latex_output()}
+::: {.infobox .caution data-latex="{caution}"}
+**Nota**: Este livro está em constante atualização. Os capítulos de 1 a 10 estão relativamente estáveis e devem passar por poucas mudanças daqui para a frente. Haverá uma reestruturação no que atualmente se chama [Material Suplementar](https://labotam.github.io/material-suplementar.html), e também a adição de ao menos uma parte contendo tutorials de análise exploratória de dados. Você pode encontrar os códigos fonte deste livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/LABOTAM.github.io/issues) (Figura \@ref(fig:issues)). Grato!
+:::
+  
+```
 
 ```{r issues, fig.cap = 'Imagem do repositório https://github.com/LABOTAM/LABOTAM.github.io destacando a aba **Issues**. Nesta aba, o usuário pode fazer solicitações, informar aos desenvolvedores sobre possíveis erros no código, ou fazer comentários.', eval = TRUE, echo = FALSE}
 knitr::include_graphics("figuras/issues.png")
 ```
 
-Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro.
-Ao optar por esse caminho, você será levado à página do código fonte e poderá editar o arquivo diretamente no GitHub.
-Após as modificações, você terá a possibilidade de gerar um **[Pull request](https://docs.github.com/pt/github/collaborating-with-issues-and-pull-requests/about-pull-requests)** que será analisado por nós.
-Caso aceitemos a modificação proposta, seu nome será incluído entre os contribuidores do livro.  
 
-# Sobre os autores {-}
+O livro está dividido em 10 capítulos.  
+
+* **Capítulo \@ref(intro)** aborda os aspectos básicos da linguagem R, o software que utilizamos para usar a linguagem, pacotes com funções, como solicitar ajuda sobre funções, dicas de organização das pastas, e o R como uma calculadora.
+* **Capítulo \@ref(vetores)** aborda a criação, indexação, e operações matemáticas com vetores no R.
+* **Capítulo \@ref(mat-dframe)** XXX.
+* **Capítulo \@ref(lista-objcompl)** XXX.
+* **Capítulo \@ref(func-graf)** XXX.
+* **Capítulo \@ref(iter-cflux)** XXX.
+* **Capítulo \@ref(sumar-dados)** XXX.
+* **Capítulo \@ref(manip-txt-arq-pasta)** XXX.
+* **Capítulo \@ref(amost-aleat)** XXX.
+* **Capítulo \@ref(extr-dados)** XXX.
+* **Capítulo \@ref(mat-sup)** XXX.
+
+<!-- Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro. -->
+<!-- Ao optar por esse caminho, você será levado à página do código fonte e poderá editar o arquivo diretamente no GitHub. -->
+<!-- Após as modificações, você terá a possibilidade de gerar um **[Pull request](https://docs.github.com/pt/github/collaborating-with-issues-and-pull-requests/about-pull-requests)** que será analisado por nós. -->
+<!-- Caso aceitemos a modificação proposta, seu nome será incluído entre os contribuidores do livro.   -->
+
+## Sobre os autores {-}
 
 O texto deste livro foi escrito e aprimorado majoritariamente (mais de 90%) por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
 Essas aulas podem ser visualizadas no endereço [http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio).
@@ -82,7 +110,7 @@ Ricardo Perdiz transpôs as aulas originais formatadas em `dokuwiki` para o form
 
 <!-- incluir aqui a autores.Rmd - pedir ao Beto para revisar o texto XXX-->
 
-# Pré-requisitos {-}
+## Pré-requisitos {-}
 
 Devido ao modo como foi construído, este livro pode ser tanto lido quanto "executado", uma vez que seus arquivos são o que chamamos de *Rmarkdown*, uma linguagem que mistura texto com código.
 Sendo assim, o livro pode ser visualizado em computadores, em celulares modernos, e em *tablets*.
@@ -102,6 +130,39 @@ Recomendamos que o software [RStudio](https://www.rstudio.com/products/rstudio/d
 Ademais, ambientes de desenvolvimento integrado (do inglês *Integrated Development Environment*, **IDE**) como este software têm o objetivo de prover ao usuário mais ferramentas na interação entre o código e o resultado da execução do código, além de facilitar o uso de ferramentas alternativas para construção de texto mesclado com códigos (e.g., LaTeX, Markdown etc), o que permite uma dinamicidade na construção de textos acadêmicos.  
 
 Existem outras alternativas de software, tais como o [Atom](https://atom.io/) e o [Visual Studio Code](https://code.visualstudio.com/). Fique à vontade para escolher.  
+
+### Baixe o repositório para seu computador
+
+Acesse a [página do repositório]() contendo os códigos fontes deste livro (Fig. \@ref(fig:repo)).
+
+```{r repo, fig.cap = 'Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro.', eval = TRUE, echo = FALSE}
+knitr::include_graphics("figuras/repo.png")
+```
+
+Busque um botão de cor **verde** chamado *Code* (Fig. \@ref(fig:baixa_repo)).
+Clique neste botão e aparecerão algumas opções.
+Clique no botão **Download Zip**, destacado em vermelho na figura \@ref(fig:baixa-repo), e escolha onde você quer salvar o arquivo.
+
+```{r baixa-repo, fig.cap = 'Destaque do botão *Code* (retângulo **azul** pontilhado circundando o botão, com uma seta **azul** apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor **vermelha** destacando a opção **Download Zip**.', eval = TRUE, echo = FALSE}
+knitr::include_graphics("figuras/baixa_repo.png")
+```
+
+Após baixar, descomprima este arquivo `.zip`, escolha onde você deseja guardar a pasta, e comece a acessar os arquivos.  
+
+Os arquivos contendo cada capítulo deste livro são listados abaixo e podem ser encontrados na [página inicial do repositório](https://github.com/LABOTAM/LABOTAM.github.io):
+
+```{r, eval = TRUE, echo = FALSE}
+cat(capitulos, sep = "\n")
+```
+
+Você pode tanto utilizar os arquivos escritos em formato [Rmarkdown](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio) e executar os códigos em cada célula de código (**code chunks**) ou usar os scripts contidos na pasta `codigo`, que nada mais são do que os capítulos do livro convertidos para um script de R, isto é, em formato `.R`.
+Nesses scripts, todos os pedaços de texto, incluindo cabeçalhos e comentários estão precedidos de `#'`; o que for código aparecerá sem `#'` precedentes.
+Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repositório.  
+
+```{r mostra-scrpt-r, eval = TRUE, echo = FALSE, message = FALSE, results='asis'}
+cat(paste0("* [", gsub("codigo/", "", capitulosR_output_names), "](https://github.com/LABOTAM/LABOTAM.github.io/tree/main/", capitulosR_output_names, ")"),
+    sep = "\n")
+```
 
 ## Caso você não possua um computador  {-}
 

@@ -1,6 +1,6 @@
-# Objeto I - Vetores
+# Objeto I - Vetores {#vetores}
 
-## Vetores & Operações Vetoriais I {#vetores}
+## Vetores e operações vetoriais I
 
 Vetor no R é um tipo de objeto que concatena múltiplos valores de uma mesma classe.
 É fundamental que você entenda vetores para poder entender objetos mais complexos.  

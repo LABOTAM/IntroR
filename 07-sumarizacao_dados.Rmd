@@ -1,4 +1,4 @@
-# Sumarização de dados
+# Sumarização de dados {#sumar-dados}
 
 ## Tabelas dinâmicas {#tabela-dinamica}
 

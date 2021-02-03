@@ -1,4 +1,4 @@
-# Amostragens aleatórias
+# Amostragens aleatórias {#amost-aleat}
 
 ## Funções para gerar permutações e simular dados
 

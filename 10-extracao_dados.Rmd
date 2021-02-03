@@ -1,4 +1,4 @@
-# Extraindo dados de colunas descritivas
+# Extraindo dados de colunas descritivas {#extr-dados}
 
 Na compilação de dados de especímenes botânicos, informações sobre a planta e o habitat estão em geral anotadas na forma de textos (notas), num formato pouco útil para entender os atributos dos organismos.
 Os scripts aqui relacionados mostram exemplos de como extrair informações dessas colunas descritivas, categorizando informações de **habito**, **fertilidade**, **textura do solo**, **habitat**, **dap**, **altura**.  
@@ -87,7 +87,7 @@ pegavalor <- function(x, referencias) {
 
 ### Passo 03 - Usando a função
 
-Vamos utilizar dados de exemplo para testar a função. Baixe o arquivo presente neste link (http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=analises:baixandoespecimenes:pegados_dados_exemplo.csv).
+Vamos utilizar dados de exemplo para testar a função. Baixe o arquivo presente neste endereço (http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=analises:baixandoespecimenes:pegados_dados_exemplo.csv).
 Ele apresenta uma coluna com notas de exsicatas para ilustrar nosso exemplo.  
 
 ```{r, opts.label='evalF'}
