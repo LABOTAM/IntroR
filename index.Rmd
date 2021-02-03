@@ -31,20 +31,19 @@ knitr::opts_template$set(executa_mostra = list(echo = TRUE,
 # options(knitr.duplicate.label = "allow")#
 ```
 
-```{r load_packages, include = FALSE, echo = FALSE, message = FALSE}
+```{r load_packages, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
 description <- readr::read_lines("DESCRIPTION")
 libs <- unlist(stringr::str_split(gsub("Imports: ", "", grep("Imports: ", description, value = TRUE)), ", "))
 sapply(libs, library, logical.return = T, character.only = T)
 ```
 
-
-```{r build-pkg-bib, include = FALSE, echo = FALSE, message = FALSE}
+```{r build-pkg-bib, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
 knitr::write_bib(
   c(.packages(), "readxl", "readr", "data.table", "rgdal", "taxize"),
   'pkg-bib.bib')
 ```
 
-```{r compila-readme, include = FALSE, echo = FALSE, message = FALSE}
+```{r compila-readme, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
 rmarkdown::render("README.Rmd", output_format = "md_document", encoding = 'UTF-8')
 ```
 

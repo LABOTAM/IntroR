@@ -1,6 +1,6 @@
 # Objeto III - Listas e objetos complexos
 
-## Listas
+## Listas {#listas}
 
 O resultado de muitas análises são objetos de classe `list` e você precisa entender o que isso significa.
 Listas permitem organizar diferentes classes de objetos numa estrutura hierárquica organizada.
@@ -153,5 +153,3 @@ ctro[2] <- ctro[2] + 1.5 # adiciona 1.5 graus na latitude para não plotar sobre
 # plota no nome
 text(x = ctro[1], y = ctro[2], labels = "Manaus", cex = 0.8)
 ```
-
-## Referências

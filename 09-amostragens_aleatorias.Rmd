@@ -64,7 +64,7 @@ hist(outraamostra, density = 10, add = T, col = "black")
 
 ## Distribuições aleatórias
 
-O R disponibiliza um conjunto um conjunto de funções para gerar densidade, distribuição cumulativa, quantis e geração aleatória de variáveis com diferentes distribuições de probabilidade (veja a seção [Para saber mais](#distribuicoes) para mais informações).  
+O R disponibiliza um conjunto um conjunto de funções para gerar densidade, distribuição cumulativa, quantis e geração aleatória de variáveis com diferentes distribuições de probabilidade (veja a seção [Para saber mais](#sabermais-distribuicoes) para mais informações).  
 
 Aqui vamos conhecer as funções que geram variáveis aleatórias para duas distribuições probabilísticas:
 
@@ -126,7 +126,7 @@ qMaior15in <- pnorm(q = 15, mean = 14.4, sd = 1, lower.tail = F)
 # note o argumento lower.tail=F (você quer apenas o percentil que está acima desse valor)
 # ca. de 27%
 qMaior15in
-print(paste(round(qMaior15in * 100, 0), "% dos americanos não cabem em um assento de 15polegadas", sep = ""))
+print(paste(round(qMaior15in * 100, 0), "% dos americanos não cabem em um assento de 15 polegadas", sep = ""))
 
 # vamos visualizar isso
 x <- sort(quadris) # ordenamos os quadris
@@ -192,5 +192,5 @@ axis(side = 2, at = dq12, labels = paste(round(dq12 * 100, 0), "%", sep = ""), l
 
 ## Para saber mais: {#sabermais-distribuicoes}
 
-(@) [Probability distributions](http://www.r-tutor.com/elementary-statistics/probability-distributions)
+(1) [Probability distributions](http://www.r-tutor.com/elementary-statistics/probability-distributions)
   

@@ -528,5 +528,3 @@ tab1[antilinhas, ]
 * [Tudo sobre Joins (merge) em R](https://www.fulljoin.com.br/posts/2016-05-12-tudo-sobre-joins/);
 * [Join com dplyr](https://rpubs.com/CristianaFreitas/311735);
 * [Entendendo o JOIN do SQL (ou Junções)](https://www.sqlfromhell.com/entendendo-join-sql/) - Obtive as imagens aqui apresentadas desta página. Há uma boa explicação com SQL como pano de fundo para operações de junções de tabela.
-
-## Referências

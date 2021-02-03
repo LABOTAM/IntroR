@@ -1440,5 +1440,3 @@ trees[ss, ]
   * [Funções gráficas de baixo nível, parte II](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:5plot:video01_bot89-2020-04-13_13.07.07.mp4);
   
 (2). [R Gallery](http://www.r-graph-gallery.com/) - página que tem exemplos de gráficos do R e os códigos correspondentes.
-
-## Referências
