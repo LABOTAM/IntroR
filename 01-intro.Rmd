@@ -122,7 +122,7 @@ Pode-se também o menu do R ou do RStudio para instalar pacotes e definir um rep
 Como tudo no R, você pode executar comandos que estão no menu usando funções.
 Por exemplo, ao invés de usarmos o menu do R para definir um repositório e instalar um pacote, vamos executar estas ações por meio de um script:
 
-```{r, opts.label='evalF'}
+```{r, eval = FALSE, echo = TRUE}
 # isso pode não funcionar se estiver no INPA por causa do Proxy.
 chooseCRANmirror() # seleciona repositório
 install.packages("ape", dependencies = TRUE) # instala o pacote Ape
@@ -177,7 +177,7 @@ Toda vez que você usar o R, é uma boa prática primeiramente definir a *pasta 
 Você pode definir a *pasta de trabalho* usando o menu do R (`Arquivo ⇒ Diretório de Trabalho` no Windows; ou `Misc ⇒ Muda Pasta de Trabalho` no Mac).
 Ou você pode usar uma função:
 
-```{r, opts.label='evalF'}
+```{r, eval = FALSE, echo = TRUE}
 ?setwd # veja o help da função que iremos utilizar
 minhapasta <- "/Users/BetoVicentini/Desktop/bot89-2016"
 # se estiver usando windows:

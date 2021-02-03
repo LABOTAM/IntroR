@@ -28,7 +28,7 @@ knitr::opts_template$set(executa = list(echo = FALSE,
 
 knitr::opts_template$set(executa_mostra = list(echo = TRUE,
                                                eval = TRUE))
-# options(knitr.duplicate.label = "allow") # ve se com new_session: yes no bookdown.yml, esse problema e resolvido
+# options(knitr.duplicate.label = "allow")#
 ```
 
 ```{r load_packages, include = FALSE, echo = FALSE, message = FALSE}
@@ -108,8 +108,10 @@ Existem outras alternativas de software, tais como o [Atom](https://atom.io/) e 
 
 O Google oferece um serviço chamado [Google Colab](https://research.google.com/colaboratory/faq.html) que pode ser utilizado em computadores, em celulares modernos com acesso à internet e possuídores de um navegador, e em tablets.  
 
-Nós convertemos o conteúdo deste livro para um Jupyter Notebook e o colocamos nesta plataforma.
-Você pode acessar este arquivo pelo endereço XXX INCLUIR ENDERECO AQUI.
-Por ser uma ferramenta nova, nós não sabemos de possíveis erros que possam ocorrer ao executar os comandos deste livro nesta plataforma.
-Caso você encontre algum erro, abra um problema em nosso repositório e nos informe do ocorrido.  
+Em breve, apresentaremos aqui um endereço contendo todo o conteúdo deste livro já convertido para o formato de um Jupyter Notebook, que é o modelo de arquivo utilizado pelo Google Colab.  
+
+<!-- Nós convertemos o conteúdo deste livro para um Jupyter Notebook e o colocamos nesta plataforma. -->
+<!-- Você pode acessar este arquivo pelo endereço XXX INCLUIR ENDERECO AQUI. -->
+<!-- Por ser uma ferramenta nova, nós não sabemos de possíveis erros que possam ocorrer ao executar os comandos deste livro nesta plataforma. -->
+<!-- Caso você encontre algum erro, abra um problema em nosso repositório e nos informe do ocorrido.   -->
 
