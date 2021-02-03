@@ -912,6 +912,8 @@ dd2[1:5]
 
 ## Para saber mais: {#sabermais-indexacao-matrizes-dframes}
 
-Vídeoaula de [Indexação de matrizes e `data.frames`](https://youtu.be/CJILnDzVviQ).
+(1). Vídeoaula de [Indexação de matrizes e `data.frames`](https://youtu.be/CJILnDzVviQ).
+
+(2). Vídeoaula de [filtragem e ordenação de matrizes](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:3matrizes:video01_bot89-2020-04-08_11.41.08.mp4)
 
 ## Referências
