@@ -872,18 +872,33 @@ fwrite(dd.am, "muni-am8.csv", sep = "\t")
 
 A função `scan()` lê um arquivo de texto em qualquer formato para um vetor ou lista no R.
 Trata-se de uma função genérica que é bom memorizar.
+Vamos usar o mesmo arquivo `municipiosbrasil.csv` para demonstrar sua utilidade:
+
+```{r, echo = TRUE, eval = FALSE}
+# esta função é muito util para ler linha por linha um arquivo de texto que você quer explorar.
+dd <- scan(file = "municipiosbrasil.csv", what = "complex", sep = "\n")
+```
+
+```{r, include = FALSE, message = FALSE}
+load("dados/dd.rda")
+load("dados/dd2.rda")
+```
 
 
 ```{r, echo = TRUE, eval = TRUE}
-# vamos usar o mesmo arquivo
-dir(pattern = "csv")
-# esta função é muito util para ler linha por linha um arquivo de texto que você quer explorar.
-dd <- scan(file = "municipiosbrasil.csv", what = "complex", sep = "\n")
 class(dd)
 length(dd) # cada linha é um elemento do vetor
 dd[1]
+```
+
+
+```{r, echo = TRUE, eval = FALSE}
 # usando tabulação
 dd2 <- scan(file = "municipiosbrasil.csv", what = "complex", sep = "\t")
+```
+
+
+```{r, echo = TRUE, eval = TRUE}
 class(dd2)
 length(dd2) # cada célula é um elemento deste vetor
 dd2[1:5]
