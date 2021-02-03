@@ -393,34 +393,19 @@ pegadap <- function(x) {
 
 ## Usando essas funções 
 
+Vamos utilizar o conjunto `dados` carregado acima para utilizar as funções que criamos anteriormente:
+
+```{r}
+txt.org <- as.vector(dados$NOTAS) # sua coluna com dados descritivos
+```
+
 ### Obtendo valores de altura
 
-```{r, opts.label='evalF'}
-names(daps) <- NULL
-# quais valores viraram NA (ou seja, não encontrou um valor de dap)
-txt.org[is.na(daps)]
-# adiciona ao conjunto de dados
-dados$DAPcm <- daps
-
+```{r}
 # aplica a funcao
 alts <- sapply(txt.org, pegaaltura)
 head(alts)
 ```
-
-### Obtendo valores de DAP
-
-```{r}
-# usando os dados de exemplo carregados acima
-txt.org <- as.vector(dados$NOTAS) # sua coluna com dados descritivos
-# aplica a funcao
-daps <- sapply(txt.org, pegadap)
-head(daps)
-```
-
-Reparem que ambas as funções ainda precisam de alguns ajustes.
-Retirar variáveis de vetores de texto é algo complexo, especialmente quando não se há um padrão, fato observado comumente nas etiquetas de espécimes coletados e depositados em herbários.
-Ainda assim, conseguimos extrair bastante informação da coluna de notas de texto estocada em `txt.org`.
-
 
 ```{r}
 names(alts) <- NULL
@@ -431,3 +416,27 @@ hist(alts)
 # adiciona ao conjunto de dados
 dados$ALTURAm <- alts
 ```
+
+
+### Obtendo valores de DAP
+
+```{r}
+# aplica a funcao
+daps <- sapply(txt.org, pegadap)
+head(daps)
+```
+
+
+```{r}
+names(daps) <- NULL
+# quais valores viraram NA (ou seja, não encontrou um valor de dap)
+txt.org[is.na(daps)]
+# histograma
+hist(daps)
+# adiciona ao conjunto de dados
+dados$DAPcm <- daps
+```
+
+Reparem que ambas as funções ainda precisam de alguns ajustes.
+Retirar variáveis de vetores de texto é algo complexo, especialmente quando não se há um padrão, fato observado comumente nas etiquetas de espécimes coletados e depositados em herbários.
+Ainda assim, conseguimos extrair bastante informação da coluna de notas de texto estocada em `txt.org`.  
