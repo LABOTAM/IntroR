@@ -8,7 +8,7 @@ date: "Última atualização: `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [bot89-introR.bib, pkg-bib.bib]
+bibliography: bot89-introR.bib
 biblio-style: apalike
 link-citations: true
 links-as-notes: true
@@ -36,7 +36,7 @@ libs <- unlist(stringr::str_split(gsub("Imports: ", "", grep("Imports: ", descri
 sapply(libs, library, logical.return = T, character.only = T)
 ```
 
-```{r build-pkg-bib, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
+```{r build-pkg-bib, eval = FALSE, include = FALSE, echo = FALSE, message = FALSE}
 knitr::write_bib(
   c(.packages(), "readxl", "readr", "data.table", "rgdal", "taxize"),
   'pkg-bib.bib')
@@ -74,15 +74,6 @@ Ressaltamos que **isto não é um curso de estatística**.
 **Nota**: Este livro está em constante atualização. Os capítulos de 1 a 10 estão relativamente estáveis e devem passar por poucas mudanças daqui para a frente. Haverá uma reestruturação no que atualmente se chama [Material Suplementar](https://labotam.github.io/material-suplementar.html), e também a adição de ao menos uma parte contendo tutorials de análise exploratória de dados. Você pode encontrar os códigos fonte deste livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/LABOTAM.github.io/issues). Grato!
 
 :::
-
-
-
- <!-- (Figura \@ref(fig:issues)) -->
- 
-```{r issues, include = FALSE, fig.cap = 'Imagem do repositório https://github.com/LABOTAM/LABOTAM.github.io destacando a aba **Issues**. Nesta aba, o usuário pode fazer solicitações, informar aos desenvolvedores sobre possíveis erros no código, ou fazer comentários.', eval = TRUE, echo = FALSE}
-knitr::include_graphics("figuras/issues.png")
-```
-
 
 O livro está dividido em 10 capítulos.  
 

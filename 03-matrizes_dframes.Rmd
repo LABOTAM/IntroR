@@ -756,7 +756,7 @@ rr2
 
 #### Pacote data.table
 
-A principal função para ler arquivos do pacote `data.table` [@R-data.table] se chama `fread()`.
+A principal função para ler arquivos do pacote `data.table` [@R-datatable] se chama `fread()`.
 Este pacote é muito conhecido devido à velocidade de suas ações, funcionando perfeitamente para dados grandes.
 Esta função possui uma particularidade: o usuário não precisa indicar o separador; automaticamente ele descobre o separador e lê o arquivo.
 Em casos especiais, é necessário a indicação do separador com o argumento `sep`, igual ao `read.table()`.
