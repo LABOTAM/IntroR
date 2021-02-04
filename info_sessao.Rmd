@@ -1,6 +1,0 @@
-# Informação da sessão
-
-```{r, eval = TRUE, echo = FALSE}
-xfun::session_info()
-```
-
