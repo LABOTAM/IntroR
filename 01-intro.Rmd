@@ -2,6 +2,14 @@
 
 # Conceitos introdutórios {#intro}
 
+Recomendamos que o usuário siga a ordem dos capítulos, especialmente se é a primeira vez que o mesmo está lidando com o R.
+Use o R via RStudio, é mais simples.
+Busque executar cada script linha por linha, procurando entender o que cada linha faz e o que cada comando representa.
+E para cada função nova, busque a [ajuda do R](#help), leia o que significam cada um dos argumentos.
+Altere os argumentos das funções e veja o que acontece.
+Explore!  
+
+
 ## Console e scripts
 
 As figuras abaixo mostram imagens relativamente similares ao que os usuários do R padrão (Figura \@ref(fig:pad-r)) e RStudio (Figura \@ref(fig:studio-r)) verão ao iniciarem esses programas.  
@@ -130,7 +138,7 @@ chooseCRANmirror() # seleciona repositório
 install.packages("ape", dependencies = TRUE) # instala o pacote Ape
 ```
 
-## Ajuda no R
+## Ajuda no R {#help}
 
 Toda função no R, oriunda tanto do pacote base ou dos pacotes extras, possui um pedaço de texto chamado de "ajuda" e que possui uma instrução sobre a utilização da mesma.
 Para obter esta instrução, é muito fácil. 
@@ -281,6 +289,195 @@ Da mesma forma para salvar resultados a partir do R.
 
 O [RStudio](https://rstudio.com/) [@rstudio] facilita esse processo para você, permitindo que você crie um projeto.
 Um projeto basicamente consiste em definir uma pasta de trabalho para que, toda vez que você abrí-lo, a pasta que contem o arquivo de término `.Rproj` seja a sua pasta de trabalho. Alternativamente, você pode simplesmente indicar a pasta de trabalho toda vez que iniciar uma atividade utilizando as funções `setwd()` no console ou em um script.  
+
+## Dicas de erros comuns de sintaxe da linguagem R
+
+Abrir e esquecer de fechar parênteses, colchetes e aspas é um dos erros mais comuns no início da caminhada rumo ao aprendizado de qualquer linguagem de programação, e é necessário muita paciência^[Lembrem-se sempre de que vocês não são os únicos a ter de lidar com a frustração durante o aprendizado de uma linguagem de programação. É importante estarem conscientes dessa verdade. Vejam esta postagem: <https://www.codingame.com/blog/dealing-with-programming-frustration-the-right-way/>] por parte do usuário para aprender a lidar com a frustração dos sucessivos erros que aparecem no caminho.
+Mesmo usuários mais experientes têm que aprender a lidar com os erros, que são comuns, o que levou o programador Patrick Burns a publicar um curioso livro sob o título [The R Inferno](https://www.burns-stat.com/pages/Tutor/R_inferno.pdf) [@Burns2012_rinferno].
+Uma ferramenta útil para evitar tais problemas é o uso de uma IDE como o RStudio.
+Há opções na configuração que autorizam o software a checar seu código e informá-lo de possíveis erros, além de proverem ao usuário uma ferramenta de limpeza do código.
+Sugerimos fortemente a instalação de uma IDE para usar o R.
+Segue então uma brevíssima lista de erros super comuns que iniciantes enfrentam no aprendizado da linguagem R.
+
+### Parênteses
+
+Lembre-se sempre de, ao abrir um parêntese, fechá-lo.
+Caso contrário, a ação não se completará e seu console ficará travado com um sinal de `+` aguardando que seu código seja completo.
+Neste caso, ficar completo significa fechar o parêntese.
+Tente executar o código abaixo e verifique que o sinal de `+` ficará estagnado na tela de seu console.
+Para sair desta tela, clique no console e depois tecle `Esc`.
+Você verá que o sinal de `>` voltará a aparecer no console.
+
+```{r, eval = FALSE}
+erro <- c(1, 2, 3
+```
+
+Agora, execute o comando abaixo.
+Ele será executado perfeitamente.
+
+```{r, eval = TRUE}
+erro <- c(1, 2, 3)
+```
+
+### Vírgulas
+
+Ao concatenar elementos ou ao adicionar valores em argumentos de funções, é necessário lembrar sempre de colocar as vírgulas em seus devidos lugares.
+Caso contrário ... mais um erro!
+Tentem executar o código abaixo:
+
+```{r, eval = FALSE}
+numeros <- c(1, 5, 6 7, 8)
+```
+
+O R dará o aviso `Error: unexpected numeric constant in "numeros <- c(1,5,6 7"` e encerrá a operação.
+Executem agora o comando abaixo.
+Será executado sem problemas.
+
+```{r}
+numeros <- c(1, 5, 6, 7, 8)
+```
+
+
+### Aspas
+
+Textos são especificados dentro de aspas duplas `""` ou aspas simples `''`; tanto faz qual você usa, o importante é sempre que abrir aspas, fechar as aspas com o mesmo tipo.
+Se seu texto tem acentos, use aspas duplas para delimitá-lo.
+Aspas simples podem entrar num texto definido por aspas duplas, e vice-versa.
+Rode isso no seu console:
+
+```{r}
+objum <- "um texto com 'aspas simples'"
+objum
+
+obj2 <- 'um texto com "aspas simples"'
+obj2
+# note que foi adicionada uma barra invertida, porque \" na sintaxe do Rsignifica aspas para confundir com as aspas que você usa para indicar textos.
+```
+
+### Números
+
+Números são sempre especificados sem aspas; se você colocar qualquer número entre aspas, ele será interpretado como texto:
+
+```{r}
+obj1 <- 18
+obj1 + 1 # essa fórmula irá funcionar porque obj1 é um número
+obj2 <- "18"
+```
+
+Isso não vai funcionar porque `obj2` não é um número.
+
+```{r, eval = FALSE}
+obj2 + 1
+```
+
+Caso você insista em rodar, receberá a seguinte mensagem: `Error in obj2 + 1 : non-numeric argument to binary operator`.
+
+### Nomes de objetos
+
+Nomes de objetos não podem ter espaço em branco e aspas são ignoradas:
+
+```{r, eval = FALSE}
+obj 1 = "meutexto" #nao vai funcionar
+```
+
+
+```{r}
+obj1 <- "meutexto" # vai funcionar
+obj1
+
+"obj1" <- "meu texto" # vai criar objeto obj1, ignorando as aspas
+obj1
+```
+
+
+```{r, eval = FALSE}
+obj"1" = "meu texto" #nao vai funcionar
+```
+
+
+### Atribuição de objetos
+
+A **atribuição de valores aos objetos** pode ser feita com dois operadores equivalentes, `=` ou `<-` (este pode ser utilizado no sentido inverso também `->`):
+
+```{r}
+obj1 <- "meu texto"
+
+# ou pode escrever assim
+obj1 <- "meu texto" # atribui
+
+# ou assim
+"meu texto" -> obj1 # atribui
+obj1
+```
+
+### Busque entender as partes
+
+Se você tiver dificuldade no entendimento de um script do R que está tentando rodar, separe os termos das linhas e expressões para entender o que cada parte está fazendo.
+Também pode alterar os valores dos argumentos para entender o funcionamento de uma função, ou simplesmente digitar a função sem os parênteses para ver o script que ela contem.
+Por exemplo, vejamos a expressão abaixo, que faz uso de um conjunto de dados chamado `iris`, que vem disponível com o R.
+
+```{r}
+obj1 <- paste(levels(iris$Species), tapply(iris$Sepal.Length, INDEX = iris$Species, mean, na.rm = TRUE), sep = " sépala média = ")
+obj1
+```
+
+À primeira vista, a expressão parece complicada.
+Vamos separar as partes e entender pedaço por pedaço.
+Primeiro, vamos tentar entender quem é `iris`.
+Vamos checar a estrutura de `iris`:
+
+```{r}
+str(iris) #veja a estrutura
+```
+
+Agora, vamos obter um sumário estatístico de `iris`:
+
+```{r}
+summary(iris) #veja o que é iris
+```
+
+
+Note que `iris$Species` contem 50 valores para três nomes e portanto eles estao sendo intepretados como categoria, isto é, é um fator.
+Vamos ver os níveis desse fator com a expressão abaixo, contida na função executada anteriormente e que desejamos destrinchar:
+
+```{r}
+levels(iris$Species) #categorias especies do objeto factor iris$Species
+```
+
+Partamos para o segundo elemento dessa função, que é a expressão colocada abaixo:
+
+```{r}
+#o segundo elemento é o resultado de:
+tapply(iris$Sepal.Length, INDEX = iris$Species, mean, na.rm = TRUE)
+```
+
+Essa expressão basicamente calcula a média dos 50 comprimentos de sépala para cada espécie.
+Por fim, temos o último elemento da expressão que é o argumento `sep` pertencente à função `paste()`.
+Este argumento é responsável por informar à função `paste()` qual separador nós vamos utilizar para separar os elementos contidos antes do argumento `sep`, isto é, separar o resultado de `levels(iris$Species)` da expressão `tapply(iris$Sepal.Length,INDEX=iris$Species,mean,na.rm=TRUE)`.
+Nesse caso, vamos separar esses dois elementos com o texto `sépala média = `.
+
+```r
+paste(, sep ='sépala média = ')
+```
+
+Vamos agora ver o resultado da função que executamos lá em cima.
+```{r}
+#veja o resultado
+obj1
+```
+
+Lembre-se sempre de checar também o código de qualquer função, para poder entender como ela funciona.
+Vejamos os casos das funções `paste()` e `tapply()`, utilizadas neste exercício.
+Para checar o código de uma função, geralmente basta executa o nome da função sem parênteses.
+Vejamos:
+
+```{r}
+tapply
+```
+
+```{r}
+paste
+```
 
 ## O R como calculadora
 

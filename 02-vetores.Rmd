@@ -716,7 +716,7 @@ unique(v1[vl]) # valores únicos desse vetor
 
 ### Perguntando por valores ausentes - NA {#filtro-dados-ausentes}
 
-Vimos anteriormente como o R codifica valores ausentes (seção \@ref(valor-na)): como uma classe lógica definida pela palavra `NA` em maiúsculo.
+Vimos anteriormente como o R codifica valores ausentes (seção \@ref(valor-na)): converte em uma classe lógica definida pela palavra `NA` em maiúsculo.
 E nossos dados frequentemente têm valores ausentes.
 Isso vai gerar avisos indesejáveis e impedir certas análises.
 Então, muitas vezes precisamos tirar registros com valores ausentes ou colunas com muitos valores ausentes.  
