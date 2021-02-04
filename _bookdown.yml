@@ -23,10 +23,14 @@ rmd_files:
     "08-manip_txt_arqs_pasta.Rmd",
     "09-amostragens_aleatorias.Rmd",
     "10-extracao_dados.Rmd",
-    "11-mat_suplementar.Rmd",
+    "11-aed_checadados.Rmd",
+    "12-aed_checaunivar.Rmd",
+    "13-aed_checabivar.Rmd",
+    "14-aed_checamultivar.Rmd",
+    "15-apendice.Rmd",
     # Info da sessao para reprodutibilidade
     # "info_sessao.Rmd",
-    "12-referencias.Rmd"]
+    "16-referencias.Rmd"]
   epub: ["index.Rmd",
     "01-intro.Rmd",
     "02-vetores.Rmd",
@@ -38,7 +42,11 @@ rmd_files:
     "08-manip_txt_arqs_pasta.Rmd",
     "09-amostragens_aleatorias.Rmd",
     "10-extracao_dados.Rmd",
-    "11-mat_suplementar.Rmd",
+    "11-aed_checadados.Rmd",
+    "12-aed_checaunivar.Rmd",
+    "13-aed_checabivar.Rmd",
+    "14-aed_checamultivar.Rmd",
+    "15-apendice.Rmd",
     # Info da sessao para reprodutibilidade
     # "info_sessao.Rmd",
-    "12-referencias.Rmd"]
+    "16-referencias.Rmd"]
