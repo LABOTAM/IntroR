@@ -20,7 +20,7 @@ Parte dessa popularidade é relativamente recente, podendo ser verificada a part
 
 ### O que é o Tidyverse?^[Texto publicado originalmente no blog de R.O.Perdiz (https://ricardoperdiz.com/post/2020-04-08-basertidyverse/tidyverse/)]
 
-O Tidyverse é um conjunto de pacotes de R desenvolvidos para a ciência de dados.
+O [Tidyverse](https://www.tidyverse.org/) é um conjunto de pacotes de R desenvolvidos para a ciência de dados.
 Todos os pacotes compartilham uma mesma filosofia e gramática da linguagem. Por exemplo, a estrutura das funções é sempre a mesma:
 
 * __o primeiro argumento sempre é `data`__, isto é, você deve sempre apresentar os dados neste local. Já que o universo destes pacotes é focado em dados na forma de uma tabela, aqui sempre deve ser fornecido um `data.frame`;
@@ -657,42 +657,96 @@ list.files(paste0(caminho_completo, "/."), all.files = TRUE)
 ```
 
 
-## Baixar e descomprimir um arquivo zip usando o R
+## Aulas em vídeo
 
-Caso você queira baixar e descomprimir um arquivo `.zip` no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
-Utilizaremos um arquivo utilizado na seção \@ref(#obj-complexos).  
+Gravamos vídeos para muitas aulas da disciplina [Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89)](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio) do [Programa de Pós-Graduação em Ciências Biológicas (Botânica)](http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/) do INPA.
+Elas estão agrupadas abaixo para facilitar a visualização e o entendimento dos tópicos abordados.  
 
-```{r, opts.label='evalF'}
-# grava o endereco do arquivo em um objeto
-arq_zip_url <- "http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip"
-# cria um diretorio temporario
-dirtemp <- tempdir()
-# cria um arquivo temporario para arquivar esse zip
-arq_temp <- tempfile(tmpdir = dirtemp, fileext = ".zip")
-# baixa o arquivo para dentro do arquivo temporario
-download.file(arq_zip_url, arq_temp)
+### Importando e exportando dados
 
-# Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`
-# agora utilizaremos a funcao `unzip()` para descomprimir o arquivo
-
-# pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta
-fname <- unzip(arq_temp, list = TRUE)$Name[1]
-nomes_arqs <- unzip(arq_temp, list = TRUE)
-class(nomes_arqs) # e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo
-str(nomes_arqs)
-nomes_arqs
-# Descomprime o arquivo zip para a pasta temporaria
-unzip(arq_temp, files = nome_pasta, exdir = dirtemp, overwrite = TRUE)
-# caminho completo do arquivo extraido
-caminho_completo <- file.path(dirtemp, nome_pasta)
-caminho_completo
-
-# lista arquivos dentro do caminho contido em caminho_completo
-list.files(paste0(caminho_completo, "/."), all.files = TRUE)
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/3OYkXsoAHS4")
 ```
 
+### Criação de vetores
 
-### Para saber mais sobre o **Tidyverse**: {#sabermais-tidyverse}
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/qXSZkGoDk1Y")
+```
+
+### Classes de vetores e fatores
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/CAXnQpYgJ3Y")
+```
+
+### Sequências numéricas e repetições, operações e funções com vetores
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/PJ02yj0gnWc")
+```
+
+### Listas
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/gBGFGslcbfU")
+```
+
+### Criando matrizes
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/cA4ETA6qfB4")
+```
+
+### Criando dataframes, e operações importantes em matrizes e dataframes
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/27HgQHV5zBs")
+```
+
+### Indexação de matrizes e dataframes
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/CJILnDzVviQ")
+```
+
+### Condicionais
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/8Z_k02PwQZc")
+```
+
+### Funções da família `apply(")`
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/Fs0is2251Sw")
+```
+
+### Funções de manipulação de pasta e arquivos
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/TbY5nEQTwLw")
+```
+
+### Funções de manipulação de texto - parte 01
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/at5XpBAT1sI")
+```
+
+### Funções de manipulação de texto - parte 02
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/j6O6e96qmEc")
+```
+
+### Objetos complexos
+
+```{r, echo = FALSE}
+knitr::include_url("https://www.youtube.com/embed/hvWJr0khuwc")
+```
+
+## Para saber mais sobre o **Tidyverse**: {#sabermais-tidyverse}
 
 As postagens abaixo variam entre posições favoráveis ou desfavoráveis ao Tidyverse.
 Abrangem desde opiniões pessoais sobre o porquê de não ensinar essas ferramentas aos iniciantes na linguagem a questões de performance computacional desse universo quando comparado com o base R.

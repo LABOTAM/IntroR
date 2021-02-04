@@ -549,7 +549,11 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 
 ## Importanto e exportando dados no R
 
-> ATENÇÃO! Se você utiliza Windows, e no seu gerenciador de arquivos os arquivos aparecem sem **extensão** (`.csv`, `.txt`, `.doc` etc.), mude nas suas preferências para não **ocultar extensões de arquivos conhecidos**. Dessa forma você consegue ver os arquivos pelo tipo (extensão).  
+::: {.infobox .warning data-latex="warning"}
+
+ATENÇÃO! Se você utiliza Windows, e no seu gerenciador de arquivos os arquivos aparecem sem **extensão** (`.csv`, `.txt`, `.doc` etc.), mude nas suas preferências para não **ocultar extensões de arquivos conhecidos**. Dessa forma você consegue ver os arquivos pelo tipo (extensão).  
+
+:::
 
 Existem diversas funções para importar dados para objetos do R, incluindo funções para ler arquivos do Excel (`.xls`, ou `.xlsx`), arquivos XML, arquivos `*.DBF` etc.
 O R também tem pacotes que interagem diretamente com bancos de dados (mysql, postgres, sql etc.).
@@ -575,7 +579,12 @@ Vamos nos concentrar neste curso em lidar com arquivos deste tipo.
 
 * Casas decimais podem ser separadas por `.` ou `,`.
 
-> DICA: Procure saber como seus dados estão antes de tentar importá-los, de forma a indicar corretamente o delimitador e o separador das casas decimais adequados. Você evitará assim muita dor de cabeça!
+::: {.infobox .idea data-latex="idea"}
+
+DICA: Procure saber como seus dados estão antes de tentar importá-los, de forma a indicar corretamente o delimitador e o separador das casas decimais adequados. Você evitará assim muita dor de cabeça!
+
+:::
+
 
 * Datas - colunas com datas constituem um objeto de classe `date` no R, que a converte em número que pode ser usado em operações matemáticas. Dependendo de como seus dados estão formatados no original, é comum a inversão de mês com dia entre, por exemplo, o sistema inglês (MM-DD-YYYY)  e o sistema português (DD-MM-YYYY). Tenha controle disso!
 

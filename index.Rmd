@@ -6,8 +6,7 @@ author:
   - "[Ricardo de Oliveira Perdiz](https://ricardoperdiz.com) - ricardoperdiz\\@yahoo.com"
 date: "Última atualização: `r Sys.Date()`"
 site: bookdown::bookdown_site
-output: 
-  bookdown::gitbook: default
+output: bookdown::gitbook
 documentclass: book
 bibliography: [bot89-introR.bib, pkg-bib.bib]
 biblio-style: apalike
@@ -28,7 +27,7 @@ knitr::opts_template$set(executa = list(echo = FALSE,
 
 knitr::opts_template$set(executa_mostra = list(echo = TRUE,
                                                eval = TRUE))
-options(knitr.duplicate.label = "allow")#
+options(knitr.duplicate.label = "allow")
 ```
 
 ```{r load_packages, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
@@ -70,14 +69,17 @@ Ressaltamos que **isto não é um curso de estatística**.
 
 ## Estrutura do livro {-}
 
-```{asis, echo=!knitr::is_latex_output()}
-::: {.infobox .caution data-latex="{caution}"}
-**Nota**: Este livro está em constante atualização. Os capítulos de 1 a 10 estão relativamente estáveis e devem passar por poucas mudanças daqui para a frente. Haverá uma reestruturação no que atualmente se chama [Material Suplementar](https://labotam.github.io/material-suplementar.html), e também a adição de ao menos uma parte contendo tutorials de análise exploratória de dados. Você pode encontrar os códigos fonte deste livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/LABOTAM.github.io/issues) (Figura \@ref(fig:issues)). Grato!
-:::
-  
-```
+::: {.infobox .warning data-latex="warning"}
 
-```{r issues, fig.cap = 'Imagem do repositório https://github.com/LABOTAM/LABOTAM.github.io destacando a aba **Issues**. Nesta aba, o usuário pode fazer solicitações, informar aos desenvolvedores sobre possíveis erros no código, ou fazer comentários.', eval = TRUE, echo = FALSE}
+**Nota**: Este livro está em constante atualização. Os capítulos de 1 a 10 estão relativamente estáveis e devem passar por poucas mudanças daqui para a frente. Haverá uma reestruturação no que atualmente se chama [Material Suplementar](https://labotam.github.io/material-suplementar.html), e também a adição de ao menos uma parte contendo tutorials de análise exploratória de dados. Você pode encontrar os códigos fonte deste livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/LABOTAM.github.io/issues). Grato!
+
+:::
+
+
+
+ <!-- (Figura \@ref(fig:issues)) -->
+ 
+```{r issues, include = FALSE, fig.cap = 'Imagem do repositório https://github.com/LABOTAM/LABOTAM.github.io destacando a aba **Issues**. Nesta aba, o usuário pode fazer solicitações, informar aos desenvolvedores sobre possíveis erros no código, ou fazer comentários.', eval = TRUE, echo = FALSE}
 knitr::include_graphics("figuras/issues.png")
 ```
 
@@ -86,15 +88,15 @@ O livro está dividido em 10 capítulos.
 
 * **Capítulo \@ref(intro)** aborda os aspectos básicos da linguagem R, o software que utilizamos para usar a linguagem, pacotes com funções, como solicitar ajuda sobre funções, dicas de organização das pastas, e o R como uma calculadora.
 * **Capítulo \@ref(vetores)** aborda a criação, indexação, e operações matemáticas com vetores no R.
-* **Capítulo \@ref(mat-dframe)** XXX.
-* **Capítulo \@ref(lista-objcompl)** XXX.
-* **Capítulo \@ref(func-graf)** XXX.
-* **Capítulo \@ref(iter-cflux)** XXX.
-* **Capítulo \@ref(sumar-dados)** XXX.
-* **Capítulo \@ref(manip-txt-arq-pasta)** XXX.
-* **Capítulo \@ref(amost-aleat)** XXX.
-* **Capítulo \@ref(extr-dados)** XXX.
-* **Capítulo \@ref(mat-sup)** XXX.
+* **Capítulo \@ref(mat-dframe)** aborda a criação, indexação, filtragem, importação e exportação de matrizes e data.frames.
+* **Capítulo \@ref(lista-objcompl)** ensina a criar, indexar, e filtrar listas e objetos complexos.
+* **Capítulo \@ref(func-graf)** aborda as funções gráficas do pacote `base` do R.
+* **Capítulo \@ref(iter-cflux)** aborda dois conceitos chave em qualquer linguagem de programação: iteração e controles de fluxo.
+* **Capítulo \@ref(sumar-dados)** abrange o tópico de sumarização de dados, explicando tabelas de contagem, tabelas dinâmicas e junção de tabelas.<!-- NOTA! Junção de tabelas não parece se encaixar aqui, hein, Beto? -->
+* **Capítulo \@ref(manip-txt-arq-pasta)** ensina ferramentas básicas para a manipulação de textos, arquivos e pastas.
+* **Capítulo \@ref(amost-aleat)** ensina de maneira breve funções para amostragens aleatórias e distribuições de valores.
+* **Capítulo \@ref(extr-dados)** abrange o uso de funções customizadas para extração de variáveis morfológicas de notas de texto obtidas de espécimes de plantas.
+* **Capítulo \@ref(mat-sup)** inclui uma discussão breve sobre o universo de pacotes conhecidos como [Tidyverse](https://www.tidyverse.org/), comparando-os com o pacote `base` do R; um tutorial para baixar e descomprimir arquivos `.zip`; e por fim uma lista de vídeos gravados por nós abordando diversos tópicos deste livro, disponíveis em uma lista para facilitar a consulta.  
 
 <!-- Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro. -->
 <!-- Ao optar por esse caminho, você será levado à página do código fonte e poderá editar o arquivo diretamente no GitHub. -->
@@ -118,20 +120,20 @@ Não é necessário ter um computador próprio, apesar de que possuir um facilit
 Entendemos que nosso país ainda carece de muito investimento na melhora da qualidade de vida da população em geral, o que inclui acesso facilitado aos bens de informática.
 Desta forma, providenciamos duas maneiras de o leitor deste livro fazer bem uso das informações aqui contidas.  
 
-## Caso você possua um computador  {-}
+## Caso você possua um computador {-}
 
-### Instale o R  {-}
+### Instale o R {-}
 
 Baixe e instale o [R](https://www.r-project.org/), próprio para o seu sistema operacional.  
 
-### Instale um ambiente de desenvolvimento integrado - IDE  {-}
+### Instale um ambiente de desenvolvimento integrado - IDE {-}
 
 Recomendamos que o software [RStudio](https://www.rstudio.com/products/rstudio/download/) seja instalado no seu computador, pois ele foi criado facilitar a interação do usuário com os múltiplos recursos oferecidos pela linguagem, em especial os inúmeros pacotes desenvolvidos por funcionários desta empresa, entre os quais se inclui o pacote [bookdown](https://github.com/rstudio/bookdown), utilizado para construir este livro online.
 Ademais, ambientes de desenvolvimento integrado (do inglês *Integrated Development Environment*, **IDE**) como este software têm o objetivo de prover ao usuário mais ferramentas na interação entre o código e o resultado da execução do código, além de facilitar o uso de ferramentas alternativas para construção de texto mesclado com códigos (e.g., LaTeX, Markdown etc), o que permite uma dinamicidade na construção de textos acadêmicos.  
 
 Existem outras alternativas de software, tais como o [Atom](https://atom.io/) e o [Visual Studio Code](https://code.visualstudio.com/). Fique à vontade para escolher.  
 
-### Baixe o repositório para seu computador
+### Baixe o repositório para seu computador {-}
 
 Acesse a [página do repositório]() contendo os códigos fontes deste livro (Fig. \@ref(fig:repo)).
 
@@ -139,7 +141,7 @@ Acesse a [página do repositório]() contendo os códigos fontes deste livro (Fi
 knitr::include_graphics("figuras/repo.png")
 ```
 
-Busque um botão de cor **verde** chamado *Code* (Fig. \@ref(fig:baixa_repo)).
+Busque um botão de cor **verde** chamado *Code* (Fig. \@ref(fig:baixa-repo)).
 Clique neste botão e aparecerão algumas opções.
 Clique no botão **Download Zip**, destacado em vermelho na figura \@ref(fig:baixa-repo), e escolha onde você quer salvar o arquivo.
 
@@ -164,7 +166,7 @@ cat(paste0("* [", gsub("codigo/", "", capitulosR_output_names), "](https://githu
     sep = "\n")
 ```
 
-## Caso você não possua um computador  {-}
+## Caso você não possua um computador {-}
 
 O Google oferece um serviço chamado [Google Colab](https://research.google.com/colaboratory/faq.html) que pode ser utilizado em computadores, em celulares modernos com acesso à internet e possuídores de um navegador, e em tablets.  
 

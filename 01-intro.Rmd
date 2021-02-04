@@ -2,19 +2,19 @@
 
 ## Console e scripts
 
-As figuras abaixo mostram imagens relativamente similares ao que os usuários do R padrão (Figura \@ref(fig:rpadrao)) e RStudio (Figura \@ref(fig:rstudio)) verão ao iniciarem esses programas.  
+As figuras abaixo mostram imagens relativamente similares ao que os usuários do R padrão (Figura \@ref(fig:pad-r)) e RStudio (Figura \@ref(fig:studio-r)) verão ao iniciarem esses programas.  
 
-```{r rpadrao, out.width="100%", fig.cap = ' Imagem de uma sessão do R para Mac OSX com um janela de script aberta além do console.', eval = TRUE, echo = FALSE}
-knitr::include_graphics("figuras/rpadrao.png")
+```{r pad-r, out.width="101%", fig.cap = ' Imagem de uma sessão do R para Mac OSX com um janela de script aberta além do console.', eval = TRUE, echo = FALSE}
+knitr::include_graphics("figuras/r_padrao.png")
 ```
 
 Ao abrirem o R ou o RStudio você terão basicamente duas janelas principais:
 
-* **Console** - corresponde`a interface que interpreta o código da linguagem. Os códigos digitados aqui serão interpretados pelo R (Texto destacado em **verde** nas figuras \@ref(fig:rpadrao), \@ref(fig:rstudio));
+* **Console** - corresponde`a interface que interpreta o código da linguagem. Os códigos digitados aqui serão interpretados pelo R (Texto destacado em **verde** nas figuras \@ref(fig:pad-r), \@ref(fig:studio-r));
 
-* **Script** - digitar um código curto no console é simples, mas quando o código é longo, é importante guardá-lo em algum lugar para executá-lo em qualquer momento. Para isso utilizamos scripts, que são arquivos de textos simples que podem ser salvo (extensão `.R`) numa pasta no seu computador e reutilizado (Texto destacado em **amarelo** nas figuras \@ref(fig:rpadrao), \@ref(fig:rstudio)). Como um arquivo `.R` é um texto simples, ele é editável por qualquer editor de texto, como o Bloco de Notas ou [Notepad++](https://notepad-plus-plus.org/) para usuários Windows, [TextWrangler](https://www.barebones.com/products/textwrangler/) ou [BBEdit](https://www.barebones.com/products/textwrangler/) para usuários macOS, ou [gedit](https://help.gnome.org/users/gedit/stable/index.html.pt_BR) para usuários Linux. O editor de scripts do RStudio é excelente.
+* **Script** - digitar um código curto no console é simples, mas quando o código é longo, é importante guardá-lo em algum lugar para executá-lo em qualquer momento. Para isso utilizamos scripts, que são arquivos de textos simples que podem ser salvo (extensão `.R`) numa pasta no seu computador e reutilizado (Texto destacado em **amarelo** nas figuras \@ref(fig:pad-r), \@ref(fig:studio-r)). Como um arquivo `.R` é um texto simples, ele é editável por qualquer editor de texto, como o Bloco de Notas ou [Notepad++](https://notepad-plus-plus.org/) para usuários Windows, [TextWrangler](https://www.barebones.com/products/textwrangler/) ou [BBEdit](https://www.barebones.com/products/textwrangler/) para usuários macOS, ou [gedit](https://help.gnome.org/users/gedit/stable/index.html.pt_BR) para usuários Linux. O editor de scripts do RStudio é excelente.
 
-```{r rstudio, out.width="100%", fig.cap = ' Imagem de uma sessão do R studio com três painéis abertos.', eval = TRUE, echo = FALSE}
+```{r studio-r, out.width="100%", fig.cap = ' Imagem de uma sessão do RStudio com três painéis abertos.', eval = TRUE, echo = FALSE}
 knitr::include_graphics("figuras/rstudio.png")
 ```
 
