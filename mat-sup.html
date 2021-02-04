@@ -1,0 +1,4743 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Material suplementar | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Material suplementar | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/LABOTAM.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Material suplementar | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini (INPA)" />
+<meta name="author" content="Ricardo de Oliveira Perdiz - ricardoperdiz@yahoo.com" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="extr-dados.html"/>
+<link rel="next" href="referências.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">Disciplina BOT89 - PPGBOT INPA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estrutura-do-livro"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-os-autores"><i class="fa fa-check"></i>Sobre os autores</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pré-requisitos"><i class="fa fa-check"></i>Pré-requisitos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#ajuda-no-r"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.7</b> O R como calculadora</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#operadores"><i class="fa fa-check"></i><b>1.7.1</b> Operadores</a></li>
+<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.7.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.7.3</b> Funções e constantes matemáticas</a></li>
+<li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#valor-na"><i class="fa fa-check"></i><b>1.7.4</b> NA e valores afins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a><ul>
+<li class="chapter" data-level="2.1" data-path="vetores.html"><a href="vetores.html#vetores-e-operações-vetoriais-i"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="vetores.html"><a href="vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores.html"><a href="vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="vetores.html"><a href="vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="2.3" data-path="vetores.html"><a href="vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
+<li class="chapter" data-level="2.4" data-path="vetores.html"><a href="vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="2.5" data-path="vetores.html"><a href="vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="vetores.html"><a href="vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="2.5.2" data-path="vetores.html"><a href="vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="vetores.html"><a href="vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="vetores.html"><a href="vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetores.html"><a href="vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetores.html"><a href="vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="vetores.html"><a href="vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.1.1" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="3.1.2" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="mat-dframe.html"><a href="mat-dframe.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mat-dframe.html"><a href="mat-dframe.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="mat-dframe.html"><a href="mat-dframe.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importanto e exportando dados no R</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#importando-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="3.4.4" data-path="mat-dframe.html"><a href="mat-dframe.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mat-dframe.html"><a href="mat-dframe.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a><ul>
+<li class="chapter" data-level="4.1" data-path="lista-objcompl.html"><a href="lista-objcompl.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
+<li class="chapter" data-level="4.2" data-path="lista-objcompl.html"><a href="lista-objcompl.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a><ul>
+<li class="chapter" data-level="5.1" data-path="func-graf.html"><a href="func-graf.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="func-graf.html"><a href="func-graf.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="5.1.3" data-path="func-graf.html"><a href="func-graf.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="5.1.4" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="func-graf.html"><a href="func-graf.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
+<li class="chapter" data-level="5.1.6" data-path="func-graf.html"><a href="func-graf.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="func-graf.html"><a href="func-graf.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
+<li class="chapter" data-level="5.2.2" data-path="func-graf.html"><a href="func-graf.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
+<li class="chapter" data-level="5.2.3" data-path="func-graf.html"><a href="func-graf.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
+<li class="chapter" data-level="5.2.4" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="func-graf.html"><a href="func-graf.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="func-graf.html"><a href="func-graf.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="func-graf.html"><a href="func-graf.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="5.3.4" data-path="func-graf.html"><a href="func-graf.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="func-graf.html"><a href="func-graf.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="func-graf.html"><a href="func-graf.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="func-graf.html"><a href="func-graf.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="5.4.2" data-path="func-graf.html"><a href="func-graf.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="func-graf.html"><a href="func-graf.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="func-graf.html"><a href="func-graf.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="5.4.5" data-path="func-graf.html"><a href="func-graf.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="5.4.6" data-path="func-graf.html"><a href="func-graf.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="func-graf.html"><a href="func-graf.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="5.4.8" data-path="func-graf.html"><a href="func-graf.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="func-graf.html"><a href="func-graf.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="func-graf.html"><a href="func-graf.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="func-graf.html"><a href="func-graf.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="func-graf.html"><a href="func-graf.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="func-graf.html"><a href="func-graf.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="func-graf.html"><a href="func-graf.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="5.5.6" data-path="func-graf.html"><a href="func-graf.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="5.5.7" data-path="func-graf.html"><a href="func-graf.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="func-graf.html"><a href="func-graf.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="func-graf.html"><a href="func-graf.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="func-graf.html"><a href="func-graf.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="func-graf.html"><a href="func-graf.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a><ul>
+<li class="chapter" data-level="6.1" data-path="iter-cflux.html"><a href="iter-cflux.html#funções-da-família-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a><ul>
+<li class="chapter" data-level="6.1.1" data-path="iter-cflux.html"><a href="iter-cflux.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="6.1.2" data-path="iter-cflux.html"><a href="iter-cflux.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="6.1.3" data-path="iter-cflux.html"><a href="iter-cflux.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="iter-cflux.html"><a href="iter-cflux.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="6.4.2" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="iter-cflux.html"><a href="iter-cflux.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a><ul>
+<li class="chapter" data-level="7.1" data-path="sumar-dados.html"><a href="sumar-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="7.2" data-path="sumar-dados.html"><a href="sumar-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="7.3" data-path="sumar-dados.html"><a href="sumar-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="sumar-dados.html"><a href="sumar-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="sumar-dados.html"><a href="sumar-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="sumar-dados.html"><a href="sumar-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="7.4.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="sumar-dados.html"><a href="sumar-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a><ul>
+<li class="chapter" data-level="8.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
+<li class="chapter" data-level="8.1.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
+<li class="chapter" data-level="8.1.4" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
+<li class="chapter" data-level="8.1.5" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
+<li class="chapter" data-level="8.1.6" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
+<li class="chapter" data-level="8.1.7" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
+<li class="chapter" data-level="8.1.8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
+<li class="chapter" data-level="8.1.9" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
+<li class="chapter" data-level="8.1.10" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
+<li class="chapter" data-level="8.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a><ul>
+<li class="chapter" data-level="9.1" data-path="amost-aleat.html"><a href="amost-aleat.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="9.2" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="amost-aleat.html"><a href="amost-aleat.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a><ul>
+<li class="chapter" data-level="10.1" data-path="extr-dados.html"><a href="extr-dados.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="extr-dados.html"><a href="extr-dados.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="10.1.2" data-path="extr-dados.html"><a href="extr-dados.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="10.1.3" data-path="extr-dados.html"><a href="extr-dados.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="extr-dados.html"><a href="extr-dados.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="extr-dados.html"><a href="extr-dados.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="10.2.2" data-path="extr-dados.html"><a href="extr-dados.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="10.2.3" data-path="extr-dados.html"><a href="extr-dados.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="10.2.4" data-path="extr-dados.html"><a href="extr-dados.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="10.2.5" data-path="extr-dados.html"><a href="extr-dados.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="extr-dados.html"><a href="extr-dados.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="extr-dados.html"><a href="extr-dados.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
+<li class="chapter" data-level="10.3.2" data-path="extr-dados.html"><a href="extr-dados.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="extr-dados.html"><a href="extr-dados.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
+<li class="chapter" data-level="10.4.2" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="mat-sup.html"><a href="mat-sup.html"><i class="fa fa-check"></i><b>11</b> Material suplementar</a><ul>
+<li class="chapter" data-level="11.1" data-path="mat-sup.html"><a href="mat-sup.html#base-r-vs.-tidyverse"><i class="fa fa-check"></i><b>11.1</b> Base R vs. Tidyverse</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="mat-sup.html"><a href="mat-sup.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>11.1.1</b> O que é o Tidyverse?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="mat-sup.html"><a href="mat-sup.html#usando-o-dplyr"><i class="fa fa-check"></i><b>11.1.2</b> Usando o <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.1.3" data-path="mat-sup.html"><a href="mat-sup.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>11.1.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a></li>
+<li class="chapter" data-level="11.1.4" data-path="mat-sup.html"><a href="mat-sup.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>11.1.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="11.1.5" data-path="mat-sup.html"><a href="mat-sup.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>11.1.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a></li>
+<li class="chapter" data-level="11.1.6" data-path="mat-sup.html"><a href="mat-sup.html#baser"><i class="fa fa-check"></i><b>11.1.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.1.7" data-path="mat-sup.html"><a href="mat-sup.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>11.1.7</b> Tidyverse, um resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="mat-sup.html"><a href="mat-sup.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r"><i class="fa fa-check"></i><b>11.2</b> Baixar e descomprimir um arquivo zip usando o R</a></li>
+<li class="chapter" data-level="11.3" data-path="mat-sup.html"><a href="mat-sup.html#aulas-em-vídeo"><i class="fa fa-check"></i><b>11.3</b> Aulas em vídeo</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="mat-sup.html"><a href="mat-sup.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>11.3.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="11.3.2" data-path="mat-sup.html"><a href="mat-sup.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>11.3.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="11.3.3" data-path="mat-sup.html"><a href="mat-sup.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>11.3.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="11.3.4" data-path="mat-sup.html"><a href="mat-sup.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>11.3.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="11.3.5" data-path="mat-sup.html"><a href="mat-sup.html#listas-1"><i class="fa fa-check"></i><b>11.3.5</b> Listas</a></li>
+<li class="chapter" data-level="11.3.6" data-path="mat-sup.html"><a href="mat-sup.html#criando-matrizes-1"><i class="fa fa-check"></i><b>11.3.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="11.3.7" data-path="mat-sup.html"><a href="mat-sup.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>11.3.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="11.3.8" data-path="mat-sup.html"><a href="mat-sup.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>11.3.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="11.3.9" data-path="mat-sup.html"><a href="mat-sup.html#condicionais-1"><i class="fa fa-check"></i><b>11.3.9</b> Condicionais</a></li>
+<li class="chapter" data-level="11.3.10" data-path="mat-sup.html"><a href="mat-sup.html#funções-da-família-apply-1"><i class="fa fa-check"></i><b>11.3.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="11.3.11" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>11.3.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="11.3.12" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>11.3.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="11.3.13" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>11.3.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="11.3.14" data-path="mat-sup.html"><a href="mat-sup.html#objetos-complexos"><i class="fa fa-check"></i><b>11.3.14</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="mat-sup.html"><a href="mat-sup.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>11.4</b> Para saber mais sobre o <strong>Tidyverse</strong>:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mat-sup" class="section level1">
+<h1><span class="header-section-number">11</span> Material suplementar</h1>
+<div id="base-r-vs.-tidyverse" class="section level2">
+<h2><span class="header-section-number">11.1</span> Base R vs. Tidyverse</h2>
+<!-- summary: 'Comenta o conjunto de pacotes de R conhecido como Tidyverse, e como eles mudaram a forma de analisar dados usando o ambiente R.' -->
+<p>A linguagem R completou 20 anos de idade neste mês de março de 2020, e a cada dia se torna mais popular.
+<a href="https://fossbytes.com/most-popular-programming-languages/">Pesquisa recente</a> publicada no mês de março feita pelo TIOBE Programming Community Index, um site que agrega indicadores sobre a popularidade de linguagens de programação, posiciona a linguagem como a 11º entre as mais populares no mundo A TIOBE agrega dados do Google, Yahoo, Bing, Wikipedia, Youtube, Badu, e Amazon, para gerar estes resultados, que são apresentados mensalmente.</p>
+<p>Parte dessa popularidade é relativamente recente, podendo ser verificada a partir do ano de 2014. Coincidência ou não, 2014 é o ano de surgimento do pacote <code>dplyr</code>, o primeiro de uma série de pacotes que coletivamente vieram a se tornar conhecidos como <em>Tidyverse</em>.</p>
+<div class="figure">
+<img src="https://149351115.v2.pressablecdn.com/wp-content/uploads/2017/10/plot_tags_time-1-675x675.png" alt="" />
+<p class="caption">Porcentagem de visitas às questões pertinentes a algumas linguagens de programação na plataforma <em>Stack Overflow</em>. Dados obtidos apenas de países desenvolvidos segundo o Banco Mundial. Nota-se o aumento quase linear referente à linguagem R a partir do ano 2014. Figura extraída desta postagem: <a href="https://stackoverflow.blog/2017/10/10/impressive-growth-r/" class="uri">https://stackoverflow.blog/2017/10/10/impressive-growth-r/</a></p>
+</div>
+<div id="o-que-é-o-tidyverse" class="section level3">
+<h3><span class="header-section-number">11.1.1</span> O que é o Tidyverse?<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></h3>
+<p>O <a href="https://www.tidyverse.org/">Tidyverse</a> é um conjunto de pacotes de R desenvolvidos para a ciência de dados.
+Todos os pacotes compartilham uma mesma filosofia e gramática da linguagem. Por exemplo, a estrutura das funções é sempre a mesma:</p>
+<ul>
+<li><p><strong>o primeiro argumento sempre é <code>data</code></strong>, isto é, você deve sempre apresentar os dados neste local. Já que o universo destes pacotes é focado em dados na forma de uma tabela, aqui sempre deve ser fornecido um <code>data.frame</code>;</p></li>
+<li><p><strong>Argumentos posteriores modificam o <code>data.frame</code></strong></p>
+<ul>
+<li>por exemplo, na função <code>select()</code> do pacote <code>dplyr</code>, você deve fornecer os nomes das colunas que deseja <em>selecionar</em> no seu conjunto de dados;</li>
+<li>na função <code>separate_rows</code> do pacote <code>tidyr</code>, você deve fornecer os nomes das colunas que se deseja separar em uma ou mais colunas além de indicar o separador (por exemplo, você pode ter uma coluna que possui os nomes <code>Sapotaceae;Burseraceae</code> e deseja separar isso em duas colunas; você deve indicar que o separador é <code>;</code>).</li>
+</ul></li>
+<li><p><strong>A função sempre deve retornar um <code>data.frame</code></strong> (existem algumas exceções feitas às funções de alguns pacotes voltados exclusivamente para lidar com vetores, como por exemplo o pacote <code>purrr</code>; porém o uso dessas funções é geralmente utilizado dentro de colunas do seu <code>data.frame</code>)</p></li>
+</ul>
+<p>Pretendemos aqui apresentar apenas funcionalidades básicas de dois dos pacotes deste universo, e mostrar como se tornam poderosas quando integrados ao mesmo fluxo de trabalho.</p>
+<div id="dplyr-e-ggplot2-símbolos-do-tidyverse" class="section level4">
+<h4><span class="header-section-number">11.1.1.1</span> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse</h4>
+<p>Talvez os pacotes mais conhecidos deste universo sejam o <code>dplyr</code> e o <code>ggplot2</code>.
+Enquanto o primeiro é especializado na manipulação de dados, o segundo é voltado para a produção de plots.
+O <code>dplyr</code> surgiu com o objetivo de fornecer um conjunto de ferramentas (suas funções!) para uma manipulação eficiente de conjuntos de dados sob a forma de <code>data.frames</code>, e rapidamente, ganhou muitos adeptos devido à facilidade de uso de suas funções dentro de uma <strong>nova gramática</strong> para a manipulação de dados (palavras do criador do pacote, Hadley Wickham, em sua <a href="https://blog.rstudio.com/2014/01/17/introducing-dplyr/">postagem de introdução do pacote</a>).
+Essa <strong>nova gramática</strong> incluiu tanto o uso de funções com nomes de verbos (em inglês, vale ressaltar) desenhados para executar muito bem apenas uma ação (Tabela <a href="mat-sup.html#tab:dplyrtb">11.1</a>), quanto o uso do que se convencionou chamar de <strong>pipe</strong>, criado para encadear ações da esquerda para a direita, resultando em menos objetos intermediários estocados na área de trabalho e facilitando a leitura do código.
+Com o uso de verbos como nome de funções e uma sintaxe diferente da tradicionalmente utilizada em R, o pacote ganhou muitos adeptos deste sua disponibilização no CRAN em janeiro de 2012.
+Seguindo o mesmo caminho, o pacote <code>ggplot2</code> (Tabela <a href="mat-sup.html#tab:ggcom">11.2</a>), também do mesmo autor do pacote <code>dplyr</code>, porém já de muito mais idade (foi lançado oficialmente em 10 de junho de 2007) se tornou uma referência na produção de gráficos utilizando a linguagem R, ao propor a construção de gráficos por camadas, similar ao utilizado em programas de SIG.
+Dentro desta nova sintaxe em R, o operador <code>+</code> ganhou uma nova função.
+Nas próximas seções, vamos ver alguns exemplos práticos utilizando esses dois pacotes.</p>
+</div>
+</div>
+<div id="usando-o-dplyr" class="section level3">
+<h3><span class="header-section-number">11.1.2</span> Usando o <code>dplyr</code></h3>
+<p>Vamos utilizar o famoso conjunto <code>iris</code><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> para aprender a manipular os dados com as ferramentas do <code>dplyr</code>.</p>
+<p>Vamos aprender brevemente como funcionam as principais funções deste pacote (Tabela <a href="mat-sup.html#tab:dplyrtb">11.1</a>).
+Primeiro vamos carregar o pacote para a sessão de trabalho:</p>
+<div class="sourceCode" id="cb1412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1412-1"><a href="mat-sup.html#cb1412-1"></a><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:dplyrtb">Tabela 11.1: </span>Principais funções do pacote R <code>dplyr</code>.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Função
+</th>
+<th style="text-align:left;">
+O que faz
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+select()
+</td>
+<td style="text-align:left;">
+seleciona colunas dos dados
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+filter()
+</td>
+<td style="text-align:left;">
+filtra linhas específicas dos dados
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+arrange()
+</td>
+<td style="text-align:left;">
+ordena as linhas do <code>data.frame</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mutate()
+</td>
+<td style="text-align:left;">
+cria novas colunas no <code>data.frame</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+summarise()
+</td>
+<td style="text-align:left;">
+sumariza os dados de acordo com grupos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+group_by()
+</td>
+<td style="text-align:left;">
+agrupa os dados segundo grupos
+</td>
+</tr>
+</tbody>
+</table>
+<div id="selecionando-colunas-com-select" class="section level4">
+<h4><span class="header-section-number">11.1.2.1</span> Selecionando colunas com <code>select()</code></h4>
+<p>Agora, vamos utilizar a função <code>select()</code> para selecionar colunas. Ela funciona da seguinte maneira:</p>
+<ul>
+<li><p>primeiro, utiliza-se como primeiro argumento o nome do <code>data.frame</code> que se deseja trabalhar; em nosso caso, o <code>data.frame</code> se chama <code>iris</code>: <code>select(iris, ...)</code>;</p></li>
+<li><p>depois, colocamos no lugar de <code>...</code> o nome das colunas que desejamos selecionar, <strong>sem aspas</strong>. Por exemplo, se quisermos selecionar a coluna das espécie, fazemos assim:</p></li>
+</ul>
+<div class="sourceCode" id="cb1413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1413-1"><a href="mat-sup.html#cb1413-1"></a><span class="kw">head</span>(</span>
+<span id="cb1413-2"><a href="mat-sup.html#cb1413-2"></a>  <span class="kw">select</span>(iris, Species),</span>
+<span id="cb1413-3"><a href="mat-sup.html#cb1413-3"></a>  <span class="dv">10</span></span>
+<span id="cb1413-4"><a href="mat-sup.html#cb1413-4"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ou se quisermos a coluna de comprimento de pétala mais a coluna das espécies:</p>
+<div class="sourceCode" id="cb1414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1414-1"><a href="mat-sup.html#cb1414-1"></a><span class="kw">head</span>(</span>
+<span id="cb1414-2"><a href="mat-sup.html#cb1414-2"></a>  <span class="kw">select</span>(iris, Petal.Length, Species),</span>
+<span id="cb1414-3"><a href="mat-sup.html#cb1414-3"></a>  <span class="dv">10</span></span>
+<span id="cb1414-4"><a href="mat-sup.html#cb1414-4"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:left;">
+Species
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+</tbody>
+</table>
+<p>Também podemos utilizar funções auxiliares para executar buscas nos nomes das colunas segundo determinados padrões.
+Entre essas funções auxiliares, destacamos a função <code>contains()</code>.
+Por exemplo, se quisermos selecionar todas as variáveis que contêm “Petal” em seus nomes:</p>
+<div class="sourceCode" id="cb1415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1415-1"><a href="mat-sup.html#cb1415-1"></a><span class="kw">head</span>(</span>
+<span id="cb1415-2"><a href="mat-sup.html#cb1415-2"></a>  <span class="kw">select</span>(iris, <span class="kw">contains</span>(<span class="st">&quot;Petal&quot;</span>)),</span>
+<span id="cb1415-3"><a href="mat-sup.html#cb1415-3"></a>  <span class="dv">10</span></span>
+<span id="cb1415-4"><a href="mat-sup.html#cb1415-4"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="filtrando-dados-com-filter" class="section level4">
+<h4><span class="header-section-number">11.1.2.2</span> Filtrando dados com <code>filter()</code></h4>
+<p>Se desejamos filtrar os dados segundo alguma informação, devemos utilizar a função <code>filter()</code>.
+Por exemplo, se quiser checar os dados de pétalas apenas para a espécie <code>setosa</code>, fazemos assim:</p>
+<div class="sourceCode" id="cb1416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1416-1"><a href="mat-sup.html#cb1416-1"></a><span class="kw">head</span>(</span>
+<span id="cb1416-2"><a href="mat-sup.html#cb1416-2"></a>  <span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>),</span>
+<span id="cb1416-3"><a href="mat-sup.html#cb1416-3"></a>  <span class="dv">10</span></span>
+<span id="cb1416-4"><a href="mat-sup.html#cb1416-4"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+speciesComAutor
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ou então quais amostras da espécie <code>virginica</code> possuem comprimento de sépala maior que 7 cm:</p>
+<div class="sourceCode" id="cb1417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1417-1"><a href="mat-sup.html#cb1417-1"></a><span class="kw">head</span>(</span>
+<span id="cb1417-2"><a href="mat-sup.html#cb1417-2"></a>  <span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>, Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>),</span>
+<span id="cb1417-3"><a href="mat-sup.html#cb1417-3"></a>  <span class="dv">10</span></span>
+<span id="cb1417-4"><a href="mat-sup.html#cb1417-4"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+speciesComAutor
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+5.9
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.6
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+6.6
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+6.3
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+2.2
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+2.6
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+2.3
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+1.6
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.4
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+</tbody>
+</table>
+<p>E se quisermos adicionar uma coluna em <code>iris</code> que consiste na razão entre o comprimento da pétala pelo comprimento da sépala? Chamaremos nossa nova coluna de <code>razaopetsep</code>:</p>
+<div class="sourceCode" id="cb1418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1418-1"><a href="mat-sup.html#cb1418-1"></a><span class="kw">head</span>(</span>
+<span id="cb1418-2"><a href="mat-sup.html#cb1418-2"></a>  <span class="kw">mutate</span>(iris, <span class="dt">razaopetsep =</span> Petal.Length <span class="op">/</span><span class="st"> </span>Sepal.Length),</span>
+<span id="cb1418-3"><a href="mat-sup.html#cb1418-3"></a>  <span class="dv">10</span></span>
+<span id="cb1418-4"><a href="mat-sup.html#cb1418-4"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+speciesComAutor
+</th>
+<th style="text-align:right;">
+razaopetsep
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.2745098
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.2857143
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.2765957
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3260870
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.2800000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3148148
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3043478
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3000000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3181818
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3061224
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="destrinchando-as-funções-group_by-e-summarise" class="section level4">
+<h4><span class="header-section-number">11.1.2.3</span> Destrinchando as funções <code>group_by</code> e <code>summarise</code></h4>
+<p>As funções <code>group_by</code> e <code>summarise</code> resumem o propósito do pacote <code>dplyr</code>, pois permitem em poucas linhas de comando sumariar os dados, e partem do princípio, muito presente no R através das funções da família <code>apply</code>, chamado <strong>split-apply-combine</strong> que, em tradução livre, pode ser entendido como uma sequência lógica de ação: quebre em grupos, aplique uma função, e combine os resultados.
+Vamos partir para o uso dessas funções agrupando os dados em função da coluna <code>Species</code> e calculando a média do comprimento das pétalas (variável <code>Petal.Length</code>):</p>
+<div class="sourceCode" id="cb1419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1419-1"><a href="mat-sup.html#cb1419-1"></a>iris_grouped &lt;-<span class="st"> </span><span class="kw">group_by</span>(iris, Species)</span>
+<span id="cb1419-2"><a href="mat-sup.html#cb1419-2"></a>iris_sumario &lt;-<span class="st"> </span><span class="kw">summarise</span>(iris_grouped, <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb1419-3"><a href="mat-sup.html#cb1419-3"></a>iris_sumario</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+petala_l_media
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+1.462
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+4.260
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+5.552
+</td>
+</tr>
+</tbody>
+</table>
+<p>Vamos destrinchar o que fizemos acima.
+A função <code>group_by</code> os dados em função de alguma ou algumas variáveis.
+Essa função geralmente é utilizada em conjunto com a função <code>summarise</code> para gerar sumários estatísticos de uma ou mais variáveis.</p>
+<div class="sourceCode" id="cb1420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1420-1"><a href="mat-sup.html#cb1420-1"></a><span class="kw">head</span>(</span>
+<span id="cb1420-2"><a href="mat-sup.html#cb1420-2"></a>  <span class="kw">group_by</span>(iris, Species),</span>
+<span id="cb1420-3"><a href="mat-sup.html#cb1420-3"></a>  <span class="dv">10</span></span>
+<span id="cb1420-4"><a href="mat-sup.html#cb1420-4"></a>)</span></code></pre></div>
+<pre><code>## [90m# A tibble: 10 x 6[39m
+## [90m# Groups:   Species [1][39m
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species speciesComAutor   
+##           [3m[90m&lt;dbl&gt;[39m[23m       [3m[90m&lt;dbl&gt;[39m[23m        [3m[90m&lt;dbl&gt;[39m[23m       [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;fct&gt;[39m[23m   [3m[90m&lt;chr&gt;[39m[23m             
+## [90m 1[39m          5.1         3.5          1.4         0.2 setosa  Iris versicolor L.
+## [90m 2[39m          4.9         3            1.4         0.2 setosa  Iris versicolor L.
+## [90m 3[39m          4.7         3.2          1.3         0.2 setosa  Iris versicolor L.
+## [90m 4[39m          4.6         3.1          1.5         0.2 setosa  Iris versicolor L.
+## [90m 5[39m          5           3.6          1.4         0.2 setosa  Iris versicolor L.
+## [90m 6[39m          5.4         3.9          1.7         0.4 setosa  Iris versicolor L.
+## [90m 7[39m          4.6         3.4          1.4         0.3 setosa  Iris versicolor L.
+## [90m 8[39m          5           3.4          1.5         0.2 setosa  Iris versicolor L.
+## [90m 9[39m          4.4         2.9          1.4         0.2 setosa  Iris versicolor L.
+## [90m10[39m          4.9         3.1          1.5         0.1 setosa  Iris versicolor L.</code></pre>
+<p>Vejam que, acima das linhas do conjunto de dados, há a seguinte sentença:</p>
+<pre><code>## # Groups:   Species [1]</code></pre>
+<p>Ela informa que o objeto gerado a partir de <code>group_by</code> está agrupado ao redor da variável <code>Species</code>.
+Pensando no pacote <code>base</code>, é como pensar que a variável <code>Species</code> é o argumento <code>INDEX</code> da função <code>tapply()</code>: todos os cálculos a partir desse objeto ocorrerão em função dessa variável.
+Após agrupar os dados, nós colocamos esse <code>data.frame</code> agrupado via <code>group_by()</code>, <code>iris_grouped &lt;- group_by(iris, Species)</code>, como primeiro argumento da função <code>summarise()</code> para então calcular a média do comprimento de pétala:</p>
+<div class="sourceCode" id="cb1423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1423-1"><a href="mat-sup.html#cb1423-1"></a>iris_grouped &lt;-<span class="st"> </span><span class="kw">group_by</span>(iris, Species)</span>
+<span id="cb1423-2"><a href="mat-sup.html#cb1423-2"></a><span class="kw">summarise</span>(iris_grouped, <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+petala_l_media
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+1.462
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+4.260
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+5.552
+</td>
+</tr>
+</tbody>
+</table>
+<p>A partir desse mesmo <code>data.frame</code> agrupado, <code>iris_grouped</code>, podemos responder várias outras perguntas:</p>
+<blockquote>
+<p>Quantas amostras por espécies existem nesse conjunto de dados?</p>
+</blockquote>
+<p>Utilizaremos a função <code>n()</code>, que pertence ao mesmo pacote <code>dplyr</code>, para contar o número de grupos. Vejamos:</p>
+<div class="sourceCode" id="cb1424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1424-1"><a href="mat-sup.html#cb1424-1"></a><span class="kw">summarise</span>(iris_grouped, <span class="kw">n</span>())</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+n()
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Médias de comprimento de sépalas e pétalas</p>
+</blockquote>
+<div class="sourceCode" id="cb1425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1425-1"><a href="mat-sup.html#cb1425-1"></a><span class="kw">summarise</span>(iris_grouped, <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+sepala_l_media
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.006
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+5.936
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+6.588
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1426-1"><a href="mat-sup.html#cb1426-1"></a><span class="kw">summarise</span>(iris_grouped, <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+petala_l_media
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+1.462
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+4.260
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+5.552
+</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Todas as operações anteriores na mesma linha de comando:</p>
+</blockquote>
+<div class="sourceCode" id="cb1427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1427-1"><a href="mat-sup.html#cb1427-1"></a>iris_sumario &lt;-<span class="st"> </span><span class="kw">summarise</span>(iris_grouped, <span class="dt">N =</span> <span class="kw">n</span>(), <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb1427-2"><a href="mat-sup.html#cb1427-2"></a><span class="kw">head</span>(iris_sumario, <span class="dv">10</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+N
+</th>
+<th style="text-align:right;">
+sepala_l_media
+</th>
+<th style="text-align:right;">
+petala_l_media
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+5.006
+</td>
+<td style="text-align:right;">
+1.462
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+5.936
+</td>
+<td style="text-align:right;">
+4.260
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+6.588
+</td>
+<td style="text-align:right;">
+5.552
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="o-operador-e-o-encadeamento-de-ações" class="section level3">
+<h3><span class="header-section-number">11.1.3</span> O operador <code>%&gt;%</code> e o encadeamento de ações</h3>
+<p>Notem que nada do que vimos até aqui parece ser muito relevante se comparamos com o que pode ser feito com o pacote <code>base</code> do R. Vejamos:</p>
+<div class="sourceCode" id="cb1428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1428-1"><a href="mat-sup.html#cb1428-1"></a><span class="co"># Queremos selecionar colunas? Operadores `$` e `[[` dao conta</span></span>
+<span id="cb1428-2"><a href="mat-sup.html#cb1428-2"></a><span class="kw">head</span>(</span>
+<span id="cb1428-3"><a href="mat-sup.html#cb1428-3"></a>  iris[, <span class="kw">which</span>(<span class="kw">names</span>(iris) <span class="op">==</span><span class="st"> &quot;Species&quot;</span>)],</span>
+<span id="cb1428-4"><a href="mat-sup.html#cb1428-4"></a>  <span class="dv">10</span></span>
+<span id="cb1428-5"><a href="mat-sup.html#cb1428-5"></a>)</span></code></pre></div>
+<pre><code>##  [1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa
+## Levels: setosa versicolor virginica</code></pre>
+<div class="sourceCode" id="cb1430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1430-1"><a href="mat-sup.html#cb1430-1"></a><span class="kw">head</span>(</span>
+<span id="cb1430-2"><a href="mat-sup.html#cb1430-2"></a>  iris[, <span class="st">&quot;Sepal.Length&quot;</span>],</span>
+<span id="cb1430-3"><a href="mat-sup.html#cb1430-3"></a>  <span class="dv">10</span></span>
+<span id="cb1430-4"><a href="mat-sup.html#cb1430-4"></a>)</span></code></pre></div>
+<pre><code>##  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9</code></pre>
+<div class="sourceCode" id="cb1432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1432-1"><a href="mat-sup.html#cb1432-1"></a><span class="co"># Filtrar linhas? Vetores lógicos em conjunto com o operador `[[` em um data.frame resolvem o problema</span></span>
+<span id="cb1432-2"><a href="mat-sup.html#cb1432-2"></a><span class="kw">head</span>(</span>
+<span id="cb1432-3"><a href="mat-sup.html#cb1432-3"></a>  iris[iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>iris<span class="op">$</span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>, ],</span>
+<span id="cb1432-4"><a href="mat-sup.html#cb1432-4"></a>  <span class="dv">10</span></span>
+<span id="cb1432-5"><a href="mat-sup.html#cb1432-5"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+speciesComAutor
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+103
+</td>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+5.9
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+106
+</td>
+<td style="text-align:right;">
+7.6
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+6.6
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+108
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+6.3
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+110
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+118
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+2.2
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+119
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+2.6
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+2.3
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+123
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+126
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+130
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+1.6
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+131
+</td>
+<td style="text-align:right;">
+7.4
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1433-1"><a href="mat-sup.html#cb1433-1"></a><span class="co"># Ou podemos filtrar também usando a função `subset`:</span></span>
+<span id="cb1433-2"><a href="mat-sup.html#cb1433-2"></a><span class="kw">head</span>(</span>
+<span id="cb1433-3"><a href="mat-sup.html#cb1433-3"></a>  <span class="kw">subset</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>iris<span class="op">$</span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>),</span>
+<span id="cb1433-4"><a href="mat-sup.html#cb1433-4"></a>  <span class="dv">10</span></span>
+<span id="cb1433-5"><a href="mat-sup.html#cb1433-5"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+speciesComAutor
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+103
+</td>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+5.9
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+106
+</td>
+<td style="text-align:right;">
+7.6
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+6.6
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+108
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+6.3
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+110
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+118
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+2.2
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+119
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+2.6
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+2.3
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+123
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+126
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+130
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+1.6
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+131
+</td>
+<td style="text-align:right;">
+7.4
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+Iris setosa Pall. ex Link
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1434-1"><a href="mat-sup.html#cb1434-1"></a><span class="co"># Criar novas colunas? Podemos atribuir novas colunas a qualquer data.frame existente usando o operador `$` para criar uma nova coluna qualquer</span></span>
+<span id="cb1434-2"><a href="mat-sup.html#cb1434-2"></a>iris_novo &lt;-<span class="st"> </span>iris</span>
+<span id="cb1434-3"><a href="mat-sup.html#cb1434-3"></a>iris_novo<span class="op">$</span>razaopetsep &lt;-<span class="st"> </span>iris_novo<span class="op">$</span>Petal.Length <span class="op">/</span><span class="st"> </span>iris_novo<span class="op">$</span>Sepal.Length</span>
+<span id="cb1434-4"><a href="mat-sup.html#cb1434-4"></a><span class="kw">head</span>(</span>
+<span id="cb1434-5"><a href="mat-sup.html#cb1434-5"></a>  iris_novo,</span>
+<span id="cb1434-6"><a href="mat-sup.html#cb1434-6"></a>  <span class="dv">10</span></span>
+<span id="cb1434-7"><a href="mat-sup.html#cb1434-7"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+speciesComAutor
+</th>
+<th style="text-align:right;">
+razaopetsep
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.2745098
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.2857143
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.2765957
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3260870
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.2800000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3148148
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3043478
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3000000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3181818
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+Iris versicolor L.
+</td>
+<td style="text-align:right;">
+0.3061224
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1435-1"><a href="mat-sup.html#cb1435-1"></a><span class="co"># Sumariar resultados - Aqui temos um pouco mais de trabalho, porem nada muito complexo</span></span>
+<span id="cb1435-2"><a href="mat-sup.html#cb1435-2"></a>iris_count &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(iris<span class="op">$</span>Species))</span>
+<span id="cb1435-3"><a href="mat-sup.html#cb1435-3"></a><span class="kw">names</span>(iris_count) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Species&quot;</span>, <span class="st">&quot;N&quot;</span>)</span>
+<span id="cb1435-4"><a href="mat-sup.html#cb1435-4"></a>iris_sumario2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(iris_count, <span class="dt">sepala_c_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="dt">sepala_l_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Width, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="dt">petala_c_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Petal.Length, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="dt">petala_l_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Petal.Width, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>))</span>
+<span id="cb1435-5"><a href="mat-sup.html#cb1435-5"></a><span class="kw">head</span>(</span>
+<span id="cb1435-6"><a href="mat-sup.html#cb1435-6"></a>  iris_sumario2,</span>
+<span id="cb1435-7"><a href="mat-sup.html#cb1435-7"></a>  <span class="dv">10</span></span>
+<span id="cb1435-8"><a href="mat-sup.html#cb1435-8"></a>) <span class="co"># comparem o resultado do objeto `iris_sumario2` com os de `iris_sumario` criado com as funcoes do pacote `dplyr`</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+N
+</th>
+<th style="text-align:right;">
+sepala_c_media
+</th>
+<th style="text-align:right;">
+sepala_l_media
+</th>
+<th style="text-align:right;">
+petala_c_media
+</th>
+<th style="text-align:right;">
+petala_l_media
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+5.006
+</td>
+<td style="text-align:right;">
+3.428
+</td>
+<td style="text-align:right;">
+1.462
+</td>
+<td style="text-align:right;">
+0.246
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+5.936
+</td>
+<td style="text-align:right;">
+2.770
+</td>
+<td style="text-align:right;">
+4.260
+</td>
+<td style="text-align:right;">
+1.326
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+6.588
+</td>
+<td style="text-align:right;">
+2.974
+</td>
+<td style="text-align:right;">
+5.552
+</td>
+<td style="text-align:right;">
+2.026
+</td>
+</tr>
+</tbody>
+</table>
+<!-- o que o levou a ser conhecido como `pipe`, que, em tradução literal do inglês, poderia ser traduzido como `cano`. Porém, propomos que sela lido como **então**. -->
+<p>O operador <code>%&gt;%</code> foi introduzido no R por meio do pacote <code>magrittr</code>, de autoria de Stefan Milton Bache, com o intuito de encadear ações na manipulação de data.frames e facilitar a leitura do código.
+Segundo <a href="https://magrittr.tidyverse.org/articles/magrittr.html">palavras do próprio autor</a>, o operador <code>%&gt;%</code> modifica semanticamente o código em R e o torna mais intuitivo tanto na escrita quanto na leitura.
+Será? Vamos tentar entender isso na prática.
+Vamos retomar os exemplos acima com a introdução do operador <code>%&gt;%</code> e usá-lo para efetuar dois conjuntos de comandos, expostos abaixo:</p>
+<div id="com1" class="section level4">
+<h4><span class="header-section-number">11.1.3.1</span> Conjunto de comandos 1</h4>
+<pre><code># Chamar o data.frame `iris`, então...
+# Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...
+# Agrupar os dados em função de `Species`, então ...
+# Sumariar os dados para obter o número de observações por grupo, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, e o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`, então ...
+# Atribui o resultado dessa operação a um objeto chamado `res1`</code></pre>
+</div>
+<div id="com2" class="section level4">
+<h4><span class="header-section-number">11.1.3.2</span> Conjunto de comandos 2</h4>
+<pre><code># Chamar o data.frame `iris`, então...
+# Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...
+# Filtrar os dados para conter apenas a espécie `virginica` e espécimes com comprimento de sépala maior que 7 cm, então ...
+# Criar uma nova coluna chamada `razaopetsep` que contenha a razão entre os comprimentos de pétala e sépala, então ...
+# Sumariar os dados para obter o número total de observações, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`, e a média do índice da razão entre o comprimento de pétalas e o comprimento de sépalas, nomeando-a como `media_razaopetsep`, então ...
+# Atribui o resultado dessa operação a um objeto chamado `res2`</code></pre>
+<p>Primeiramente, carreguemos o pacote <code>magrittr</code>:</p>
+<div class="sourceCode" id="cb1438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1438-1"><a href="mat-sup.html#cb1438-1"></a><span class="kw">library</span>(<span class="st">&quot;magrittr&quot;</span>)</span></code></pre></div>
+<p>Executando o conjunto de <a href="mat-sup.html#com1">comandos 1</a>, temos:</p>
+<div class="sourceCode" id="cb1439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1439-1"><a href="mat-sup.html#cb1439-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
+<span id="cb1439-2"><a href="mat-sup.html#cb1439-2"></a>res1 &lt;-</span>
+<span id="cb1439-3"><a href="mat-sup.html#cb1439-3"></a><span class="st">  </span>iris <span class="op">%&gt;%</span></span>
+<span id="cb1439-4"><a href="mat-sup.html#cb1439-4"></a><span class="st">  </span><span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
+<span id="cb1439-5"><a href="mat-sup.html#cb1439-5"></a><span class="st">  </span><span class="kw">select</span>(Species, Petal.Length, Sepal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1439-6"><a href="mat-sup.html#cb1439-6"></a><span class="st">  </span><span class="co"># Agrupar os dados em função de `Species`, então ...</span></span>
+<span id="cb1439-7"><a href="mat-sup.html#cb1439-7"></a><span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span></span>
+<span id="cb1439-8"><a href="mat-sup.html#cb1439-8"></a><span class="st">  </span><span class="co"># Sumariar os dados para obter o número de observações por grupo, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, e o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`</span></span>
+<span id="cb1439-9"><a href="mat-sup.html#cb1439-9"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
+<span id="cb1439-10"><a href="mat-sup.html#cb1439-10"></a>    <span class="dt">N =</span> <span class="kw">n</span>(),</span>
+<span id="cb1439-11"><a href="mat-sup.html#cb1439-11"></a>    <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb1439-12"><a href="mat-sup.html#cb1439-12"></a>    <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1439-13"><a href="mat-sup.html#cb1439-13"></a>  )</span>
+<span id="cb1439-14"><a href="mat-sup.html#cb1439-14"></a>res1</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+N
+</th>
+<th style="text-align:right;">
+petala_l_media
+</th>
+<th style="text-align:right;">
+sepala_l_media
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+1.462
+</td>
+<td style="text-align:right;">
+5.006
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+4.260
+</td>
+<td style="text-align:right;">
+5.936
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+5.552
+</td>
+<td style="text-align:right;">
+6.588
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fazendo o mesmo com o conjunto de <a href="mat-sup.html#com2">comandos 2</a>, temos:</p>
+<div class="sourceCode" id="cb1440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1440-1"><a href="mat-sup.html#cb1440-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
+<span id="cb1440-2"><a href="mat-sup.html#cb1440-2"></a>res2 &lt;-</span>
+<span id="cb1440-3"><a href="mat-sup.html#cb1440-3"></a><span class="st">  </span>iris <span class="op">%&gt;%</span></span>
+<span id="cb1440-4"><a href="mat-sup.html#cb1440-4"></a><span class="st">  </span><span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
+<span id="cb1440-5"><a href="mat-sup.html#cb1440-5"></a><span class="st">  </span><span class="kw">select</span>(Species, Petal.Length, Sepal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1440-6"><a href="mat-sup.html#cb1440-6"></a><span class="st">  </span><span class="co"># Filtrar os dados para conter apenas a espécie `virginica` e espécimes com comprimento de sépala maior que 7 cm, então ...</span></span>
+<span id="cb1440-7"><a href="mat-sup.html#cb1440-7"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1440-8"><a href="mat-sup.html#cb1440-8"></a><span class="st">  </span><span class="co"># Criar uma nova coluna chamada `razaopetsep` que contenha a razão entre os comprimentos de pétala e sépala, então ...</span></span>
+<span id="cb1440-9"><a href="mat-sup.html#cb1440-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb1440-10"><a href="mat-sup.html#cb1440-10"></a>    <span class="dt">razaopetsep =</span> Petal.Length <span class="op">/</span><span class="st"> </span>Sepal.Length</span>
+<span id="cb1440-11"><a href="mat-sup.html#cb1440-11"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb1440-12"><a href="mat-sup.html#cb1440-12"></a><span class="st">  </span><span class="co"># Sumariar os dados para obter o número total de observações, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`, e a média do índice da razão entre o comprimento de pétalas e o comprimento de sépalas, nomeando-a como `media_razaopetsep`</span></span>
+<span id="cb1440-13"><a href="mat-sup.html#cb1440-13"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
+<span id="cb1440-14"><a href="mat-sup.html#cb1440-14"></a>    <span class="dt">N =</span> <span class="kw">n</span>(),</span>
+<span id="cb1440-15"><a href="mat-sup.html#cb1440-15"></a>    <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb1440-16"><a href="mat-sup.html#cb1440-16"></a>    <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1440-17"><a href="mat-sup.html#cb1440-17"></a>  )</span>
+<span id="cb1440-18"><a href="mat-sup.html#cb1440-18"></a>res2</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+N
+</th>
+<th style="text-align:right;">
+petala_l_media
+</th>
+<th style="text-align:right;">
+sepala_l_media
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+6.3
+</td>
+<td style="text-align:right;">
+7.475
+</td>
+</tr>
+</tbody>
+</table>
+<p>Notem que o código fica formatado da maneira que funciona nosso pensamento sobre as ações a serem executadas: pegamos os dados, efetuamos transformações, e agregamos os resultados, praticamente da mesma maneira que o código é executado.
+Como diz o autor na <a href="https://magrittr.tidyverse.org/articles/magrittr.html">vinheta de introdução ao operador <code>%&gt;%</code></a>, é como uma receita, fácil de ler, fácil de seguir (<code>It’s like a recipe – easy to read, easy to follow!</code>).
+Em conformidade com este entendimento, sugere-se que leiamos o operador <code>%&gt;%</code> como <strong>ENTÃO</strong>, implicando em uma passagem do resultado da ação à esquerda para a função à direita.
+Por isso, eu fiz questão de incluir em ambos os conjuntos de comandos, <a href="mat-sup.html#com1">1</a> e <a href="mat-sup.html#com2">2</a>, a palavra <code>então...</code> ao fim de cada sentença.</p>
+<p>Um ponto importante que deve ser levado em consideração é que o uso do operador <code>%&gt;%</code> permite que escondamos o <code>data.frame</code> de entrada nas funções.
+Vejamos na prática para entender.
+Suponha que nós queiramos selecionar apenas as colunas <code>Species</code> e <code>Petal.Length</code> de <code>iris</code>. Podemos executar isso de duas maneiras, todas com o mesmo resultado:</p>
+<div class="sourceCode" id="cb1441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1441-1"><a href="mat-sup.html#cb1441-1"></a><span class="co"># podemos representar iris de três maneiras utilizando o operador `%&gt;%`</span></span>
+<span id="cb1441-2"><a href="mat-sup.html#cb1441-2"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Species, Petal.Length) <span class="co"># como temos feito ate aqui</span></span>
+<span id="cb1441-3"><a href="mat-sup.html#cb1441-3"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(., Species, Petal.Length) <span class="co"># explicitamos que `iris` esta dentro de select por meio do `.`</span></span></code></pre></div>
+<p>Isso pode ficar mais fácil de entender com outro exemplo. Suponha que tenhamos o vetor <code>meuvetor &lt;- c(1:20)</code> e queiramos obter o somatório deste vetor. Podemos executar isso de três maneiras utilizando o operador <code>%&gt;%</code>:</p>
+<div class="sourceCode" id="cb1442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1442-1"><a href="mat-sup.html#cb1442-1"></a>meuvetor &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)</span>
+<span id="cb1442-2"><a href="mat-sup.html#cb1442-2"></a>meuvetor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>(.) <span class="co"># representando o vetor na forma de um `.`</span></span>
+<span id="cb1442-3"><a href="mat-sup.html#cb1442-3"></a>meuvetor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() <span class="co"># deixando a funcao vazia</span></span>
+<span id="cb1442-4"><a href="mat-sup.html#cb1442-4"></a>meuvetor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() <span class="co"># sem parenteses e sem o `.`. O que?????</span></span></code></pre></div>
+<p>Todas as maneiras acima executam e geram o mesmo resultado, 210. Essa multiplicidade de maneiras de expor o data.frame (ou o vetor no exemplo acima) é alvo de críticas por parte de alguns estudiosos, devido ao pacote <code>magrittr</code> não exigir que o argumento seja explícito quando usamos o operador <code>%&gt;%</code> (vejam uma boa argumentação nesta postagem de <a href="http://www.win-vector.com/blog/2018/03/r-tip-make-arguments-explicit-in-magrittr-dplyr-pipelines/">John Mount</a>).</p>
+<p>Vale ressaltar que poderíamos muito bem encadear todas as ações executadas acima sem o operador <code>%&gt;%</code>, porém perderíamos a chance de ler o código da esquerda para a direita, oportunidade ofertada pelo uso do operador. Vejamos, usando o conjunto de comandos 2:</p>
+<div class="sourceCode" id="cb1443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1443-1"><a href="mat-sup.html#cb1443-1"></a><span class="kw">summarise</span>(</span>
+<span id="cb1443-2"><a href="mat-sup.html#cb1443-2"></a>  <span class="kw">mutate</span>(</span>
+<span id="cb1443-3"><a href="mat-sup.html#cb1443-3"></a>    <span class="kw">filter</span>(</span>
+<span id="cb1443-4"><a href="mat-sup.html#cb1443-4"></a>      <span class="kw">select</span>(iris, Species, Petal.Length, Sepal.Length),</span>
+<span id="cb1443-5"><a href="mat-sup.html#cb1443-5"></a>      Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span></span>
+<span id="cb1443-6"><a href="mat-sup.html#cb1443-6"></a>    ),</span>
+<span id="cb1443-7"><a href="mat-sup.html#cb1443-7"></a>    <span class="dt">razaopetsep =</span> Petal.Length <span class="op">/</span><span class="st"> </span>Sepal.Length</span>
+<span id="cb1443-8"><a href="mat-sup.html#cb1443-8"></a>  ),</span>
+<span id="cb1443-9"><a href="mat-sup.html#cb1443-9"></a>  <span class="dt">N =</span> <span class="kw">n</span>(),</span>
+<span id="cb1443-10"><a href="mat-sup.html#cb1443-10"></a>  <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb1443-11"><a href="mat-sup.html#cb1443-11"></a>  <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1443-12"><a href="mat-sup.html#cb1443-12"></a>)</span></code></pre></div>
+<p>Reparem que o código fica mais difícil de ser lido, pois temos de identificar primeiro quem é o <code>data.frame</code> que serve de entrada para a função <code>summarise</code>.
+Depois, há outros desafios, como entender o que cada função faz, e em qual ordem.
+Por fim, o código é lido de dentro para fora, um sentido nada intuitivo.
+Foi pensando em tornar a leitura do código mais fácil que o autor decidiu criar este operador na linguagem R, uma vez que essa lógica já é extensivamente utilizada em algumas outras linguagens de programação, como <code>F#</code> (representada como <code>|&gt;</code> e o <code>bash</code> (e similares) (representada como <code>|</code>).</p>
+</div>
+<div id="pipe" class="section level4">
+<h4><span class="header-section-number">11.1.3.3</span> Resumo do operador <code>%&gt;%</code>:</h4>
+<ul>
+<li><p>transforma a leitura do código da <strong>esquerda</strong> para a <strong>direita</strong>;</p></li>
+<li><p>evita a criação de muitos objetos intermediários na sessão de trabalho;</p></li>
+<li><p>facilita a leitura do código, pois transforma a própria escrita em uma receita.</p></li>
+</ul>
+</div>
+</div>
+<div id="usando-o-ggplot2" class="section level3">
+<h3><span class="header-section-number">11.1.4</span> Usando o <code>ggplot2</code></h3>
+<p>O pacote <code>ggplot2</code> funciona de maneira diferente da função <code>plot()</code> do pacote <code>base</code> do R, pois trabalha em camadas.
+Similarmente ao pacote <code>dplyr</code>, começamos com o <code>data.frame</code> que desejamos plotar, contudo, passos posteriores são bem diferentes, e se assemelham mais ao uso do operador <code>%&gt;%</code> do pacote <code>magrittr</code>.
+No <code>ggplot2</code>, utilizamos o operador <code>+</code> para adicionar as camadas.</p>
+<table>
+<caption>
+<span id="tab:ggcom">Tabela 11.2: </span>Principais funções do pacote R <code>ggplot2</code>.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Função
+</th>
+<th style="text-align:left;">
+O que faz
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ggplot()
+</td>
+<td style="text-align:left;">
+Recebe os dados a serem plotados
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+geom_point()
+</td>
+<td style="text-align:left;">
+Plota um gráfico de barra
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+geom_boxplot()
+</td>
+<td style="text-align:left;">
+Plota um diagrama de caixa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aes()
+</td>
+<td style="text-align:left;">
+Estética do gráfico
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+xlab()
+</td>
+<td style="text-align:left;">
+Modifica o texto do eixo X
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ylab()
+</td>
+<td style="text-align:left;">
+Modifica o texto do eixo Y
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ggtitle()
+</td>
+<td style="text-align:left;">
+Adiciona o título do gráfico
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+facet_wrap()
+</td>
+<td style="text-align:left;">
+Divide os gráficos segundo categoria especificada
+</td>
+</tr>
+</tbody>
+</table>
+<p>As principais funções do pacote estão exemplificadas na tabela <a href="mat-sup.html#tab:ggcom">11.2</a>.
+A função básica do pacote é <code>ggplot()</code>: nela, informamos nosso conjunto de dados no primeiro argumento.
+Após o primeiro passo, fazemos uso de funções para plotar dados em forma de um espalhamento (scatterplots usando a função <code>geom_point()</code>), gráficos de barra (<code>geom_bar</code>), diagramas de caixa (<code>geom_boxplot()</code>), entre outras.
+Vejamos na prática como funciona:</p>
+<div class="sourceCode" id="cb1444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1444-1"><a href="mat-sup.html#cb1444-1"></a><span class="co"># um grafico de espalhamento da variavel Sepal.Length no eixo X e Petal.Length no eixo Y utilizando o conjunto de dados iris</span></span>
+<span id="cb1444-2"><a href="mat-sup.html#cb1444-2"></a><span class="kw">ggplot</span>(iris) <span class="op">+</span></span>
+<span id="cb1444-3"><a href="mat-sup.html#cb1444-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length))</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-406-1.png" width="672" /></p>
+<p>Dentro das funções que plotam os dados efetivamente (e.g., <code>geom_point()</code>, <code>geom_boxplot()</code>), devemos sempre usar a função <code>aes()</code>: nela inserimos os eixos <code>x</code> e <code>y</code>, informando sempre o nome das colunas <em>sem aspas</em>.
+Se quisermos colorir os pontos em função das espécies, fazemos:</p>
+<div class="sourceCode" id="cb1445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1445-1"><a href="mat-sup.html#cb1445-1"></a><span class="kw">ggplot</span>(iris) <span class="op">+</span></span>
+<span id="cb1445-2"><a href="mat-sup.html#cb1445-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length, <span class="dt">color =</span> Species))</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-407-1.png" width="672" /></p>
+<p>Por trabalhar em camadas, podemos atribuir os resultados dessas operações a objetos. Por exemplo, vamos passar o resultado da ação acima para um objeto <code>meugrafico</code> e mudar os temas do gráfico:</p>
+<div class="sourceCode" id="cb1446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1446-1"><a href="mat-sup.html#cb1446-1"></a>meugrafico &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris) <span class="op">+</span></span>
+<span id="cb1446-2"><a href="mat-sup.html#cb1446-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length, <span class="dt">color =</span> Species))</span></code></pre></div>
+<div class="sourceCode" id="cb1447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1447-1"><a href="mat-sup.html#cb1447-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="co"># Existem varios outros temas pre-definidos no ggplot2</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-409-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1448-1"><a href="mat-sup.html#cb1448-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="co"># Para utilizar os outros temas, e so verificar o help de funcoes que comecam com theme_OUTROSnomes</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-410-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1449-1"><a href="mat-sup.html#cb1449-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">theme_void</span>() <span class="co"># - existem, por exemplo, os temas theme_grey, theme_classic, theme_light etc</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-411-1.png" width="672" /></p>
+<p>Podemos facilmente também gerar um gráfico para cada espécie utilizando a função <code>facet_wrap()</code>:</p>
+<div class="sourceCode" id="cb1450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1450-1"><a href="mat-sup.html#cb1450-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Species)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-412-1.png" width="672" /></p>
+<p>Não temos a intenção de cobrir todo o uso do pacote <code>ggplot2</code> nesta postagem. Existem muitas páginas com excelentes tutoriais na internet que podem ser visitadas para um maior aprofundamento nas ferramentas deste pacote (vejam abaixo na seção <a href="mat-sup.html#sabermais-tidyverse"><strong>Para saber mais</strong></a>).
+Queremos aqui demonstrar o uso concomitante do pacote <code>ggplot2</code> dentro de uma linha de trabalho associada ao pacote <code>dplyr</code>.
+Passemos para a seção abaixo.</p>
+</div>
+<div id="dplyr-e-ggplot2-em-conjunto" class="section level3">
+<h3><span class="header-section-number">11.1.5</span> <code>dplyr</code> e <code>ggplot2</code> em conjunto</h3>
+<p>Durante uma análise exploratória de dados, muitas perguntas surgem com a análise de gráficos simples, que podemos criar com poucas linhas de comando.
+Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjunto de dados <code>iris</code>, vamos fazer uma exploração muito breve nesses dados.</p>
+<div id="gráfico-de-espalhamento" class="section level4">
+<h4><span class="header-section-number">11.1.5.1</span> Gráfico de espalhamento</h4>
+<div class="sourceCode" id="cb1451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1451-1"><a href="mat-sup.html#cb1451-1"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb1451-2"><a href="mat-sup.html#cb1451-2"></a><span class="st">  </span><span class="kw">select</span>(Species, Sepal.Width, Sepal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1451-3"><a href="mat-sup.html#cb1451-3"></a><span class="st">  </span><span class="kw">ggplot</span>(.) <span class="op">+</span><span class="st"> </span><span class="co"># lembrem-se que o data.frame com colunas selecionadas acima aqui e representado por um `.`</span></span>
+<span id="cb1451-4"><a href="mat-sup.html#cb1451-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">y =</span> Sepal.Length, <span class="dt">color =</span> Species)) <span class="op">+</span></span>
+<span id="cb1451-5"><a href="mat-sup.html#cb1451-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="op">+</span></span>
+<span id="cb1451-6"><a href="mat-sup.html#cb1451-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-413-1.png" width="672" /></p>
+</div>
+<div id="diagrama-de-caixas" class="section level4">
+<h4><span class="header-section-number">11.1.5.2</span> Diagrama de caixas</h4>
+<div class="sourceCode" id="cb1452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1452-1"><a href="mat-sup.html#cb1452-1"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb1452-2"><a href="mat-sup.html#cb1452-2"></a><span class="st">  </span><span class="kw">select</span>(Species, Sepal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1452-3"><a href="mat-sup.html#cb1452-3"></a><span class="st">  </span><span class="kw">ggplot</span>(.) <span class="op">+</span></span>
+<span id="cb1452-4"><a href="mat-sup.html#cb1452-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span></span>
+<span id="cb1452-5"><a href="mat-sup.html#cb1452-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Espécies de Iris&quot;</span>) <span class="op">+</span></span>
+<span id="cb1452-6"><a href="mat-sup.html#cb1452-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-414-1.png" width="672" /></p>
+</div>
+<div id="histograma" class="section level4">
+<h4><span class="header-section-number">11.1.5.3</span> Histograma</h4>
+<div class="sourceCode" id="cb1453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1453-1"><a href="mat-sup.html#cb1453-1"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb1453-2"><a href="mat-sup.html#cb1453-2"></a><span class="st">  </span><span class="kw">select</span>(Species, Sepal.Width) <span class="op">%&gt;%</span></span>
+<span id="cb1453-3"><a href="mat-sup.html#cb1453-3"></a><span class="st">  </span><span class="kw">ggplot</span>(.) <span class="op">+</span></span>
+<span id="cb1453-4"><a href="mat-sup.html#cb1453-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">fill =</span> Species)) <span class="op">+</span></span>
+<span id="cb1453-5"><a href="mat-sup.html#cb1453-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="op">+</span></span>
+<span id="cb1453-6"><a href="mat-sup.html#cb1453-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequência&quot;) +</span></span>
+<span id="cb1453-7"><a href="mat-sup.html#cb1453-7"></a><span class="st">  facet_wrap(~Species)</span></span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-415-1.png" width="672" /></p>
+</div>
+</div>
+<div id="baser" class="section level3">
+<h3><span class="header-section-number">11.1.6</span> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></h3>
+<p>Abaixo, para efeitos de comparação, executamos as mesmas ações usando os pacotes <code>base</code> e <code>dplyr</code>; ao utilizar o <code>dplyr</code>, também fizemos uso do operador <code>%&gt;%</code>.</p>
+<div class="sourceCode" id="cb1455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1455-1"><a href="mat-sup.html#cb1455-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
+<span id="cb1455-2"><a href="mat-sup.html#cb1455-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb1455-3"><a href="mat-sup.html#cb1455-3"></a><span class="co"># filtra os dados em iris</span></span>
+<span id="cb1455-4"><a href="mat-sup.html#cb1455-4"></a><span class="co">## quem tem sepala menor que 6 cm e tem petala maior que 5 cm?</span></span>
+<span id="cb1455-5"><a href="mat-sup.html#cb1455-5"></a>iris2 &lt;-<span class="st"> </span><span class="kw">subset</span>(iris, Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>Petal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>)</span>
+<span id="cb1455-6"><a href="mat-sup.html#cb1455-6"></a><span class="kw">head</span>(iris2, <span class="dv">10</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.4
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1456-1"><a href="mat-sup.html#cb1456-1"></a><span class="co"># checa as dimensoes do novo objeto</span></span>
+<span id="cb1456-2"><a href="mat-sup.html#cb1456-2"></a><span class="kw">dim</span>(iris2)</span></code></pre></div>
+<pre><code>## [1] 78  5</code></pre>
+<div class="sourceCode" id="cb1458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1458-1"><a href="mat-sup.html#cb1458-1"></a><span class="co"># ordena os dados segundo comprimento da petala</span></span>
+<span id="cb1458-2"><a href="mat-sup.html#cb1458-2"></a>iris_ord &lt;-<span class="st"> </span>iris2[<span class="kw">order</span>(iris2<span class="op">$</span>Petal.Length), ]</span>
+<span id="cb1458-3"><a href="mat-sup.html#cb1458-3"></a><span class="kw">head</span>(iris_ord, <span class="dv">10</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+23
+</td>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+36
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+37
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+39
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+41
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+42
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+<td style="text-align:right;">
+2.3
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1459-1"><a href="mat-sup.html#cb1459-1"></a><span class="co"># muda a ordem das colunas, colocando a coluna Species primeiro</span></span>
+<span id="cb1459-2"><a href="mat-sup.html#cb1459-2"></a>colsp &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">colnames</span>(iris_ord) <span class="op">==</span><span class="st"> &quot;Species&quot;</span>) <span class="co"># qual a posicao da coluna Species?</span></span>
+<span id="cb1459-3"><a href="mat-sup.html#cb1459-3"></a>irisf &lt;-<span class="st"> </span>iris_ord[, <span class="kw">c</span>(colsp, (<span class="kw">which</span>(<span class="op">!</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(iris_ord)) <span class="op">%in%</span><span class="st"> </span>colsp)))]</span>
+<span id="cb1459-4"><a href="mat-sup.html#cb1459-4"></a><span class="co"># cria uma nova coluna de razao entre comprimento da sepala e comprimento da petala</span></span>
+<span id="cb1459-5"><a href="mat-sup.html#cb1459-5"></a>irisf<span class="op">$</span>razao_sepall_petall &lt;-<span class="st"> </span>irisf<span class="op">$</span>Sepal.Length <span class="op">/</span><span class="st"> </span>irisf<span class="op">$</span>Petal.Length</span>
+<span id="cb1459-6"><a href="mat-sup.html#cb1459-6"></a><span class="kw">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:right;">
+razao_sepall_petall
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+23
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.600000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:right;">
+3.909091
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.833333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+36
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.166667
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+3.615385
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:right;">
+4.153846
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+37
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.230769
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+39
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+3.384615
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+41
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+3.846154
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+42
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+<td style="text-align:right;">
+2.3
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+3.461539
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1460-1"><a href="mat-sup.html#cb1460-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
+<span id="cb1460-2"><a href="mat-sup.html#cb1460-2"></a>mean_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1460-3"><a href="mat-sup.html#cb1460-3"></a>mean_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1460-4"><a href="mat-sup.html#cb1460-4"></a>sd_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1460-5"><a href="mat-sup.html#cb1460-5"></a>sd_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1460-6"><a href="mat-sup.html#cb1460-6"></a>res &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mean_pl)</span>
+<span id="cb1460-7"><a href="mat-sup.html#cb1460-7"></a>res2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(res, <span class="dt">media_razao =</span> mean_raz[, <span class="dv">-1</span>], <span class="dt">desvio_pl =</span> sd_pl[, <span class="dv">-1</span>], <span class="dt">desvio_raz =</span> sd_raz[, <span class="dv">-1</span>])</span>
+<span id="cb1460-8"><a href="mat-sup.html#cb1460-8"></a><span class="kw">names</span>(res2)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;media_pl&quot;</span></span>
+<span id="cb1460-9"><a href="mat-sup.html#cb1460-9"></a>res2</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+media_pl
+</th>
+<th style="text-align:right;">
+media_razao
+</th>
+<th style="text-align:right;">
+desvio_pl
+</th>
+<th style="text-align:right;">
+desvio_raz
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+1.462000
+</td>
+<td style="text-align:right;">
+3.464906
+</td>
+<td style="text-align:right;">
+0.1736640
+</td>
+<td style="text-align:right;">
+0.4302168
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+3.969231
+</td>
+<td style="text-align:right;">
+1.404475
+</td>
+<td style="text-align:right;">
+0.4249887
+</td>
+<td style="text-align:right;">
+0.1195457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+4.700000
+</td>
+<td style="text-align:right;">
+1.115873
+</td>
+<td style="text-align:right;">
+0.2828427
+</td>
+<td style="text-align:right;">
+0.0381613
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1461-1"><a href="mat-sup.html#cb1461-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
+<span id="cb1461-2"><a href="mat-sup.html#cb1461-2"></a><span class="kw">plot</span>(irisf<span class="op">$</span>Sepal.Length, irisf<span class="op">$</span>Petal.Length, <span class="dt">col =</span> irisf<span class="op">$</span>Species)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/baser-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1462-1"><a href="mat-sup.html#cb1462-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
+<span id="cb1462-2"><a href="mat-sup.html#cb1462-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb1462-3"><a href="mat-sup.html#cb1462-3"></a><span class="co"># chama os pacotes tidyverse</span></span>
+<span id="cb1462-4"><a href="mat-sup.html#cb1462-4"></a><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co"># o pacote para manipular dados</span></span>
+<span id="cb1462-5"><a href="mat-sup.html#cb1462-5"></a><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># o pacote para plotar graficos</span></span>
+<span id="cb1462-6"><a href="mat-sup.html#cb1462-6"></a><span class="co"># utilizando a filosofia tidyverse, utilizarei o pipe (&quot; %&gt;% &quot;)</span></span>
+<span id="cb1462-7"><a href="mat-sup.html#cb1462-7"></a>iris2t &lt;-<span class="st"> </span><span class="co"># salvamos o objeto como `iris2t` para diferenciar do salvo acima</span></span>
+<span id="cb1462-8"><a href="mat-sup.html#cb1462-8"></a><span class="st">  </span>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># chama os dados e passa para a funcao abaixo</span></span>
+<span id="cb1462-9"><a href="mat-sup.html#cb1462-9"></a><span class="st">  </span><span class="kw">filter</span>(Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>Petal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># quem tem sepala menor que 6 cm E petala maior que 5 cm?</span></span>
+<span id="cb1462-10"><a href="mat-sup.html#cb1462-10"></a><span class="st">  </span><span class="kw">arrange</span>(Petal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1462-11"><a href="mat-sup.html#cb1462-11"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">razao_sepall_petall =</span> Sepal.Length <span class="op">/</span><span class="st"> </span>Petal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1462-12"><a href="mat-sup.html#cb1462-12"></a><span class="st">  </span><span class="kw">select</span>(Species, <span class="kw">everything</span>()) <span class="co"># reordena as colunas</span></span>
+<span id="cb1462-13"><a href="mat-sup.html#cb1462-13"></a><span class="kw">head</span>(iris2t, <span class="dv">10</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:right;">
+razao_sepall_petall
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.600000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:right;">
+3.909091
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.833333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.166667
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+3.615385
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:right;">
+4.153846
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.230769
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+3.384615
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+3.846154
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+<td style="text-align:right;">
+2.3
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+3.461539
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1463-1"><a href="mat-sup.html#cb1463-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
+<span id="cb1463-2"><a href="mat-sup.html#cb1463-2"></a>res_t &lt;-<span class="st"> </span>iris2t <span class="op">%&gt;%</span></span>
+<span id="cb1463-3"><a href="mat-sup.html#cb1463-3"></a><span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># agrupa dados pela coluna Species</span></span>
+<span id="cb1463-4"><a href="mat-sup.html#cb1463-4"></a><span class="st">  </span><span class="kw">summarise</span>( <span class="co"># sumarisa dados de acordo com os grupo estabelecidos acima</span></span>
+<span id="cb1463-5"><a href="mat-sup.html#cb1463-5"></a>    <span class="dt">mean_pl =</span> <span class="kw">mean</span>(Petal.Length), <span class="co"># media da coluna comp de petala</span></span>
+<span id="cb1463-6"><a href="mat-sup.html#cb1463-6"></a>    <span class="dt">mean_raz =</span> <span class="kw">mean</span>(razao_sepall_petall), <span class="co"># media da coluna razao de comp de sepala/petala</span></span>
+<span id="cb1463-7"><a href="mat-sup.html#cb1463-7"></a>    <span class="dt">sd_pl =</span> <span class="kw">sd</span>(Petal.Length), <span class="co"># desvio do comp da petala</span></span>
+<span id="cb1463-8"><a href="mat-sup.html#cb1463-8"></a>    <span class="dt">sd_raz =</span> <span class="kw">sd</span>(razao_sepall_petall)</span>
+<span id="cb1463-9"><a href="mat-sup.html#cb1463-9"></a>  ) <span class="co"># desvio do comp da sepala</span></span>
+<span id="cb1463-10"><a href="mat-sup.html#cb1463-10"></a><span class="kw">head</span>(res_t, <span class="dv">10</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+mean_pl
+</th>
+<th style="text-align:right;">
+mean_raz
+</th>
+<th style="text-align:right;">
+sd_pl
+</th>
+<th style="text-align:right;">
+sd_raz
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+1.462000
+</td>
+<td style="text-align:right;">
+3.464906
+</td>
+<td style="text-align:right;">
+0.1736640
+</td>
+<td style="text-align:right;">
+0.4302168
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+3.969231
+</td>
+<td style="text-align:right;">
+1.404475
+</td>
+<td style="text-align:right;">
+0.4249887
+</td>
+<td style="text-align:right;">
+0.1195457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+4.700000
+</td>
+<td style="text-align:right;">
+1.115873
+</td>
+<td style="text-align:right;">
+0.2828427
+</td>
+<td style="text-align:right;">
+0.0381613
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1464-1"><a href="mat-sup.html#cb1464-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
+<span id="cb1464-2"><a href="mat-sup.html#cb1464-2"></a>tgraf &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris2t) <span class="op">+</span></span>
+<span id="cb1464-3"><a href="mat-sup.html#cb1464-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length, <span class="dt">color =</span> Species))</span>
+<span id="cb1464-4"><a href="mat-sup.html#cb1464-4"></a>tgraf</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-416-1.png" width="672" /></p>
+<p>Vejam que os resultados são iguais, com exceção da estética diferente proporcionada pelo pacote <code>ggplot2</code>.
+Porém, há uma mudança notável em como a manipulação dos dados é feita quando utilizamos o operador <code>%&gt;%</code> dentro do fluxo de trabalho, como <a href="mat-sup.html#pipe">resumido acima</a>: a leitura é feita da esquerda para a direita, podemos reduzir a criação de objetos intermediários na área de trabalho, e o código pode ser lido com mais clareza.
+Postagens futuras abordarão com mais detalhes outros usos deste operador e de alguns outros inclusos no mesmo pacote, porém com funções levemente diferentes.</p>
+<div id="e-o-uso-do-operador-com-o-pacote-base" class="section level4">
+<h4><span class="header-section-number">11.1.6.1</span> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?</h4>
+<p>Apesar de termos explorado até aqui o uso do operador <code>%&gt;%</code> apenas com o pacote <code>dplyr</code>, ele pode ser utilizado com qualquer função no R. Vamos retormar o exemplo da <a href="mat-sup.html#baser">seção acima</a> com comandos do pacote <code>base</code> do R, porém adicionando o operador <code>%&gt;%</code> na manipulação dos dados:</p>
+<div class="sourceCode" id="cb1465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1465-1"><a href="mat-sup.html#cb1465-1"></a>iris_ord &lt;-</span>
+<span id="cb1465-2"><a href="mat-sup.html#cb1465-2"></a><span class="st">  </span>iris <span class="op">%&gt;%</span></span>
+<span id="cb1465-3"><a href="mat-sup.html#cb1465-3"></a><span class="st">  </span><span class="kw">subset</span>(Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>Petal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># filtramos os dados com a funcao subset()</span></span>
+<span id="cb1465-4"><a href="mat-sup.html#cb1465-4"></a><span class="st">  </span>.[<span class="kw">order</span>(.<span class="op">$</span>Petal.Length), ] <span class="co"># usamos o `.` para representar o data.frame filtrado no passo anterior</span></span>
+<span id="cb1465-5"><a href="mat-sup.html#cb1465-5"></a>colsp &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">colnames</span>(iris_ord) <span class="op">==</span><span class="st"> &quot;Species&quot;</span>)</span>
+<span id="cb1465-6"><a href="mat-sup.html#cb1465-6"></a>irisf &lt;-<span class="st"> </span>iris_ord[, <span class="kw">c</span>(colsp, (<span class="kw">which</span>(<span class="op">!</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(iris_ord)) <span class="op">%in%</span><span class="st"> </span>colsp)))]</span>
+<span id="cb1465-7"><a href="mat-sup.html#cb1465-7"></a>irisf<span class="op">$</span>razao_sepall_petall &lt;-<span class="st"> </span>irisf<span class="op">$</span>Sepal.Length <span class="op">/</span><span class="st"> </span>irisf<span class="op">$</span>Petal.Length</span>
+<span id="cb1465-8"><a href="mat-sup.html#cb1465-8"></a><span class="kw">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:right;">
+razao_sepall_petall
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+23
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.600000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:right;">
+3.909091
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.833333
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+36
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.166667
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+3.615385
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:right;">
+4.153846
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+37
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+4.230769
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+39
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:right;">
+3.384615
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+41
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+3.846154
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+42
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+<td style="text-align:right;">
+2.3
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.3
+</td>
+<td style="text-align:right;">
+3.461539
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1466-1"><a href="mat-sup.html#cb1466-1"></a>mean_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1466-2"><a href="mat-sup.html#cb1466-2"></a>mean_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1466-3"><a href="mat-sup.html#cb1466-3"></a>sd_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1466-4"><a href="mat-sup.html#cb1466-4"></a>sd_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1466-5"><a href="mat-sup.html#cb1466-5"></a>res &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mean_pl)</span>
+<span id="cb1466-6"><a href="mat-sup.html#cb1466-6"></a>res2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(res, <span class="dt">media_razao =</span> mean_raz[, <span class="dv">-1</span>], <span class="dt">desvio_pl =</span> sd_pl[, <span class="dv">-1</span>], <span class="dt">desvio_raz =</span> sd_raz[, <span class="dv">-1</span>])</span>
+<span id="cb1466-7"><a href="mat-sup.html#cb1466-7"></a><span class="kw">names</span>(res2)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;media_pl&quot;</span></span>
+<span id="cb1466-8"><a href="mat-sup.html#cb1466-8"></a>res2</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+media_pl
+</th>
+<th style="text-align:right;">
+media_razao
+</th>
+<th style="text-align:right;">
+desvio_pl
+</th>
+<th style="text-align:right;">
+desvio_raz
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+setosa
+</td>
+<td style="text-align:right;">
+1.462000
+</td>
+<td style="text-align:right;">
+3.464906
+</td>
+<td style="text-align:right;">
+0.1736640
+</td>
+<td style="text-align:right;">
+0.4302168
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+versicolor
+</td>
+<td style="text-align:right;">
+3.969231
+</td>
+<td style="text-align:right;">
+1.404475
+</td>
+<td style="text-align:right;">
+0.4249887
+</td>
+<td style="text-align:right;">
+0.1195457
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+virginica
+</td>
+<td style="text-align:right;">
+4.700000
+</td>
+<td style="text-align:right;">
+1.115873
+</td>
+<td style="text-align:right;">
+0.2828427
+</td>
+<td style="text-align:right;">
+0.0381613
+</td>
+</tr>
+</tbody>
+</table>
+<p>Reparem que, mesmo utilizando o operador <code>%&gt;%</code>, algumas transformações realizadas com <strong>poucas linhas de código</strong> com o pacote <code>dplyr</code> em uma cadeia de comandos (o chamado <code>pipeline</code> em inglês) não são possíveis com o uso do pacote <code>base</code> do R, notadamente a criação de colunas, o rearranjo de colunas, e o sumário de dados.</p>
+</div>
+</div>
+<div id="tidyverse-um-resumo" class="section level3">
+<h3><span class="header-section-number">11.1.7</span> Tidyverse, um resumo</h3>
+<p>David Robinson, autor do pacote <a href="https://github.com/tidymodels/broom">broom</a>, um dos membros do tidyverse, explica em sua postagem <a href="http://varianceexplained.org/r/teach-tidyverse/"><strong>Teach the tidyverse to beginners</strong></a> que sua preferência por ensinar as ferramentas dos pacotes pertencentes ao tidyverse primeiramente a seus alunos se deve à compatibilidade da filosofia de ensino deste universo com o que ele acredita que seja ideal em uma filosofia de ensino: <strong>deve haver uma, preferencialmente apenas uma, maneira óbvia de se fazer</strong>, mote emprestado do guia de 19 princípios da linguagem de programação Python, conhecido como <a href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a>.
+Essa filosofia se contrapõe, por exemplo, ao mote da linguagem Perl, que é <code>Há sempre mais de uma maneira de se fazer</code> (nota pessoal: Isso pode ser observado na linguagem R, são sempre múltiplos os caminhos para se chegar a um resultado).</p>
+<p>O mesmo autor também afirma nesta postagem que talvez um fluxo de trabalho comum aos alunos de cursos de ciência de dados seja:</p>
+<ul>
+<li><p>trabalhar com dados interessantes e reais;</p></li>
+<li><p>Criar gráficos informativos e atrativos;</p></li>
+<li><p>Chegar a conclusões úteis.</p></li>
+</ul>
+<p>Finalizando, ele conclui dizendo que o <em>tidyverse</em> oferece ferramentas a seus usuários que tornam esse caminho mais suave.</p>
+<p>O uso do <code>%&gt;%</code> oferece outros aspectos a serem considerados no uso dessas ferramentas:</p>
+<ul>
+<li>Cada passo do operador resolve um problema;</li>
+<li>Cada passo ensina uma função;</li>
+<li>Acelera o uso da linguagem para análise exploratória de dados.</li>
+</ul>
+<p>Nem tudo são flores em nenhum dos pontos abordados acima.
+Há muita controvérsia sobre o caminho a ser tomado em aulas da linguagem R nos dias atuais, que passam pela pergunta: ensinar primeiro o pacote <code>base</code> do R e suas funcionalidades básicas, ou começar pelas ferramentas do <code>tidyverse</code> (ver mais na seção <a href="mat-sup.html#sabermais-tidyverse"><strong>Para saber mais</strong></a>.
+Não vamos entrar nesse embate nesta postagem.
+O que podemos afirmar é que qualquer pacote de R, com exceção do pacote <code>base</code>, foi construído em cima das funcionalidades deste último, logo, sem este pacote, não estaríamos nem aqui falando de funcionalidades do <code>dplyr</code> e afins.</p>
+<p>Quisemos aqui apresentar funcionalidades básicas de alguns pacotes que podem ser adotadas ou não pelos alunos, e mostrar como podem ser incorporadas no fluxo diário das manipulações de dados.
+Caso queiram ver manipulações mais complexas em tabelas utilizando as ferramentas do tidyverse, convido-os a checarem estas duas postagens: <a href="https://ricardoperdiz.com/post/2020_03_29_r-obtendo-plotando-dados/obtendo-dados-e-plotando-mapas-no-r-versao-3/">importando e manipulando dados no R</a>, e um <a href="https://ricardoperdiz.com/post/2020_03_29_r-map-farronayetal-2018/mapa-macrolobium/">tutorial para gerar o mapa de distribuição de Macrolobium aracaense Farroñay</a>.</p>
+</div>
+</div>
+<div id="baixar-e-descomprimir-um-arquivo-zip-usando-o-r" class="section level2">
+<h2><span class="header-section-number">11.2</span> Baixar e descomprimir um arquivo zip usando o R</h2>
+<p>Caso você queira baixar e descomprimir um arquivo <code>.zip</code> no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
+Utilizaremos um arquivo utilizado na seção @ref(#obj-complexos).</p>
+<div class="sourceCode" id="cb1467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1467-1"><a href="mat-sup.html#cb1467-1"></a><span class="co"># grava o endereco do arquivo em um objeto</span></span>
+<span id="cb1467-2"><a href="mat-sup.html#cb1467-2"></a>arq_zip_url &lt;-<span class="st"> &quot;http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip&quot;</span></span>
+<span id="cb1467-3"><a href="mat-sup.html#cb1467-3"></a><span class="co"># cria um diretorio temporario</span></span>
+<span id="cb1467-4"><a href="mat-sup.html#cb1467-4"></a>dirtemp &lt;-<span class="st"> </span><span class="kw">tempdir</span>()</span>
+<span id="cb1467-5"><a href="mat-sup.html#cb1467-5"></a><span class="co"># cria um arquivo temporario para arquivar esse zip</span></span>
+<span id="cb1467-6"><a href="mat-sup.html#cb1467-6"></a>arq_temp &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">tmpdir =</span> dirtemp, <span class="dt">fileext =</span> <span class="st">&quot;.zip&quot;</span>)</span>
+<span id="cb1467-7"><a href="mat-sup.html#cb1467-7"></a><span class="co"># baixa o arquivo para dentro do arquivo temporario</span></span>
+<span id="cb1467-8"><a href="mat-sup.html#cb1467-8"></a><span class="kw">download.file</span>(arq_zip_url, arq_temp)</span>
+<span id="cb1467-9"><a href="mat-sup.html#cb1467-9"></a></span>
+<span id="cb1467-10"><a href="mat-sup.html#cb1467-10"></a><span class="co"># Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`</span></span>
+<span id="cb1467-11"><a href="mat-sup.html#cb1467-11"></a><span class="co"># agora utilizaremos a funcao `unzip()` para descomprimir o arquivo</span></span>
+<span id="cb1467-12"><a href="mat-sup.html#cb1467-12"></a></span>
+<span id="cb1467-13"><a href="mat-sup.html#cb1467-13"></a><span class="co"># pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta</span></span>
+<span id="cb1467-14"><a href="mat-sup.html#cb1467-14"></a>fname &lt;-<span class="st"> </span><span class="kw">unzip</span>(arq_temp, <span class="dt">list =</span> <span class="ot">TRUE</span>)<span class="op">$</span>Name[<span class="dv">1</span>]</span>
+<span id="cb1467-15"><a href="mat-sup.html#cb1467-15"></a>nomes_arqs &lt;-<span class="st"> </span><span class="kw">unzip</span>(arq_temp, <span class="dt">list =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1467-16"><a href="mat-sup.html#cb1467-16"></a><span class="kw">class</span>(nomes_arqs) <span class="co"># e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo</span></span>
+<span id="cb1467-17"><a href="mat-sup.html#cb1467-17"></a><span class="kw">str</span>(nomes_arqs)</span>
+<span id="cb1467-18"><a href="mat-sup.html#cb1467-18"></a>nomes_arqs</span>
+<span id="cb1467-19"><a href="mat-sup.html#cb1467-19"></a><span class="co"># Descomprime o arquivo zip para a pasta temporaria</span></span>
+<span id="cb1467-20"><a href="mat-sup.html#cb1467-20"></a><span class="kw">unzip</span>(arq_temp, <span class="dt">files =</span> nome_pasta, <span class="dt">exdir =</span> dirtemp, <span class="dt">overwrite =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1467-21"><a href="mat-sup.html#cb1467-21"></a><span class="co"># caminho completo do arquivo extraido</span></span>
+<span id="cb1467-22"><a href="mat-sup.html#cb1467-22"></a>caminho_completo &lt;-<span class="st"> </span><span class="kw">file.path</span>(dirtemp, nome_pasta)</span>
+<span id="cb1467-23"><a href="mat-sup.html#cb1467-23"></a>caminho_completo</span>
+<span id="cb1467-24"><a href="mat-sup.html#cb1467-24"></a></span>
+<span id="cb1467-25"><a href="mat-sup.html#cb1467-25"></a><span class="co"># lista arquivos dentro do caminho contido em caminho_completo</span></span>
+<span id="cb1467-26"><a href="mat-sup.html#cb1467-26"></a><span class="kw">list.files</span>(<span class="kw">paste0</span>(caminho_completo, <span class="st">&quot;/.&quot;</span>), <span class="dt">all.files =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="aulas-em-vídeo" class="section level2">
+<h2><span class="header-section-number">11.3</span> Aulas em vídeo</h2>
+<p>Gravamos vídeos para muitas aulas da disciplina <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89)</a> do <a href="http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/">Programa de Pós-Graduação em Ciências Biológicas (Botânica)</a> do INPA.
+Elas estão agrupadas abaixo para facilitar a visualização e o entendimento dos tópicos abordados.</p>
+<div id="importando-e-exportando-dados" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> Importando e exportando dados</h3>
+<iframe src="https://www.youtube.com/embed/3OYkXsoAHS4" width="672" height="400px">
+</iframe>
+</div>
+<div id="criação-de-vetores-1" class="section level3">
+<h3><span class="header-section-number">11.3.2</span> Criação de vetores</h3>
+<iframe src="https://www.youtube.com/embed/qXSZkGoDk1Y" width="672" height="400px">
+</iframe>
+</div>
+<div id="classes-de-vetores-e-fatores" class="section level3">
+<h3><span class="header-section-number">11.3.3</span> Classes de vetores e fatores</h3>
+<iframe src="https://www.youtube.com/embed/CAXnQpYgJ3Y" width="672" height="400px">
+</iframe>
+</div>
+<div id="sequências-numéricas-e-repetições-operações-e-funções-com-vetores" class="section level3">
+<h3><span class="header-section-number">11.3.4</span> Sequências numéricas e repetições, operações e funções com vetores</h3>
+<iframe src="https://www.youtube.com/embed/PJ02yj0gnWc" width="672" height="400px">
+</iframe>
+</div>
+<div id="listas-1" class="section level3">
+<h3><span class="header-section-number">11.3.5</span> Listas</h3>
+<iframe src="https://www.youtube.com/embed/gBGFGslcbfU" width="672" height="400px">
+</iframe>
+</div>
+<div id="criando-matrizes-1" class="section level3">
+<h3><span class="header-section-number">11.3.6</span> Criando matrizes</h3>
+<iframe src="https://www.youtube.com/embed/cA4ETA6qfB4" width="672" height="400px">
+</iframe>
+</div>
+<div id="criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes" class="section level3">
+<h3><span class="header-section-number">11.3.7</span> Criando dataframes, e operações importantes em matrizes e dataframes</h3>
+<iframe src="https://www.youtube.com/embed/27HgQHV5zBs" width="672" height="400px">
+</iframe>
+</div>
+<div id="indexação-de-matrizes-e-dataframes" class="section level3">
+<h3><span class="header-section-number">11.3.8</span> Indexação de matrizes e dataframes</h3>
+<iframe src="https://www.youtube.com/embed/CJILnDzVviQ" width="672" height="400px">
+</iframe>
+</div>
+<div id="condicionais-1" class="section level3">
+<h3><span class="header-section-number">11.3.9</span> Condicionais</h3>
+<iframe src="https://www.youtube.com/embed/8Z_k02PwQZc" width="672" height="400px">
+</iframe>
+</div>
+<div id="funções-da-família-apply-1" class="section level3">
+<h3><span class="header-section-number">11.3.10</span> Funções da família <code>apply(")</code></h3>
+<iframe src="https://www.youtube.com/embed/Fs0is2251Sw" width="672" height="400px">
+</iframe>
+</div>
+<div id="funções-de-manipulação-de-pasta-e-arquivos" class="section level3">
+<h3><span class="header-section-number">11.3.11</span> Funções de manipulação de pasta e arquivos</h3>
+<iframe src="https://www.youtube.com/embed/TbY5nEQTwLw" width="672" height="400px">
+</iframe>
+</div>
+<div id="funções-de-manipulação-de-texto---parte-01" class="section level3">
+<h3><span class="header-section-number">11.3.12</span> Funções de manipulação de texto - parte 01</h3>
+<iframe src="https://www.youtube.com/embed/at5XpBAT1sI" width="672" height="400px">
+</iframe>
+</div>
+<div id="funções-de-manipulação-de-texto---parte-02" class="section level3">
+<h3><span class="header-section-number">11.3.13</span> Funções de manipulação de texto - parte 02</h3>
+<iframe src="https://www.youtube.com/embed/j6O6e96qmEc" width="672" height="400px">
+</iframe>
+</div>
+<div id="objetos-complexos" class="section level3">
+<h3><span class="header-section-number">11.3.14</span> Objetos complexos</h3>
+<iframe src="https://www.youtube.com/embed/hvWJr0khuwc" width="672" height="400px">
+</iframe>
+</div>
+</div>
+<div id="sabermais-tidyverse" class="section level2">
+<h2><span class="header-section-number">11.4</span> Para saber mais sobre o <strong>Tidyverse</strong>:</h2>
+<p>As postagens abaixo variam entre posições favoráveis ou desfavoráveis ao Tidyverse.
+Abrangem desde opiniões pessoais sobre o porquê de não ensinar essas ferramentas aos iniciantes na linguagem a questões de performance computacional desse universo quando comparado com o base R.
+Leiam e tirem suas próprias conclusões.</p>
+<ol start="4" class="example" style="list-style-type: decimal">
+<li><p><a href="https://towardsdatascience.com/a-thousand-gadgets-my-thoughts-on-the-r-tidyverse-2441d8504433">A Thousand Gadgets: My Thoughts on the R Tidyverse</a> - Opinião pessoal do autor da postagem sobre o porquê de ele não simpatizar nem utilizar nenhuma ferramenta do tidyverse.</p></li>
+<li><p><a href="https://www.tidyverse.org/">Tidyverse</a> - Página principal deste universo de pacotes;</p></li>
+<li><p><a href="https://r4ds.had.co.nz/">R for Data Science</a> - Livro disponível gratuitamente na internet, escrito por Garrett Grolemund e Hadley Wickham, este criador e mente criativa por muitos dos pacotes deste universo</p></li>
+<li><p><a href="https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/">What is the tidyverse</a> - Postagem introdutória sobre o tidyverse e algumas de suas funcionalidades.</p></li>
+<li><p><a href="https://www.r-bloggers.com/why-i-dont-use-the-tidyverse/">Why I don’t use the tidyverse</a> - opinião pessoal do autor sobre o porquê do mesmo não utilizar nenhum pacote do tidyverse.</p></li>
+<li><p><a href="http://varianceexplained.org/r/teach_ggplot2_to_beginners/">Don’t teach built-in plotting to beginners (teach ggplot2)</a> - postagem do autor do pacote <strong>broom</strong>, David Robinson, sobre o porquê de ele ensinar seus alunos a manipularem primeiro o <strong>ggplot2</strong> em detrimento das funções gráficas do pacote <code>base</code> do R.</p></li>
+<li><p><a href="http://varianceexplained.org/r/teach-tidyverse/">Teach the tidyverse to beginners</a> - postagem de David Robinson sobre sua opinião pessoal de se ensinar primeiro o tidyverse aos alunos de cursos de introdução ao R.</p></li>
+<li><p><a href="https://magrittr.tidyverse.org/articles/magrittr.html">Introducing magrittr</a> - Vinheta de introdução às funcionalidades do operador <code>%&gt;%</code></p></li>
+</ol>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>Texto publicado originalmente no blog de R.O.Perdiz (<a href="https://ricardoperdiz.com/post/2020-04-08-basertidyverse/tidyverse/" class="uri">https://ricardoperdiz.com/post/2020-04-08-basertidyverse/tidyverse/</a>)<a href="mat-sup.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>O famoso conjunto de dados <code>iris</code> consiste de observações de comprimentos e larguras de sépalas e pétalas de 3 espécies de <em>Iris</em>, um gênero de plantas herbáceas da família Iridaceae. O conjunto de dados possui 150 linhas e 6 colunas. Para quem quiser saber mais sobre esses dados, leia <a href="https://archive.ics.uci.edu/ml/datasets/Iris">aqui</a>.<a href="mat-sup.html#fnref6" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="extr-dados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referências.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/11-mat_suplementar.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/11-mat_suplementar.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

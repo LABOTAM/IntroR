@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="iteração-e-controle-de-fluxo.html"/>
-<link rel="next" href="manipulação-de-textos-arquivos-e-pastas.html"/>
+<link rel="prev" href="iter-cflux.html"/>
+<link rel="next" href="manip-txt-arq-pasta.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,6 +53,8 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -85,41 +87,41 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  background-color: #f8f8f8; }
 @media screen {
 code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -132,222 +134,241 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a></li>
-<li class="chapter" data-level="" data-path="sobre-o-livro.html"><a href="sobre-o-livro.html"><i class="fa fa-check"></i>Sobre o livro</a></li>
-<li class="chapter" data-level="" data-path="sobre-os-autores.html"><a href="sobre-os-autores.html"><i class="fa fa-check"></i>Sobre os autores</a></li>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i>Pré-requisitos</a><ul>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">Disciplina BOT89 - PPGBOT INPA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estrutura-do-livro"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-os-autores"><i class="fa fa-check"></i>Sobre os autores</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pré-requisitos"><i class="fa fa-check"></i>Pré-requisitos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
-<li class="chapter" data-level="1.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
-<li class="chapter" data-level="1.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
-<li class="chapter" data-level="1.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
-<li class="chapter" data-level="1.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#ajuda-no-r"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
-<li class="chapter" data-level="1.5" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
-<li class="chapter" data-level="1.6" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
-<li class="chapter" data-level="1.7" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.7</b> O R como calculadora</a><ul>
-<li class="chapter" data-level="1.7.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#operadores"><i class="fa fa-check"></i><b>1.7.1</b> Operadores</a></li>
-<li class="chapter" data-level="1.7.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.7.2</b> Precedência de parênteses</a></li>
-<li class="chapter" data-level="1.7.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.7.3</b> Funções e constantes matemáticas</a></li>
-<li class="chapter" data-level="1.7.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#valor-na"><i class="fa fa-check"></i><b>1.7.4</b> NA e valores afins</a></li>
-</ul></li>
-<li class="chapter" data-level="1.8" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#referências"><i class="fa fa-check"></i><b>1.8</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a><ul>
-<li class="chapter" data-level="2.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetores"><i class="fa fa-check"></i><b>2.1</b> Vetores &amp; Operações Vetoriais I</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
-<li class="chapter" data-level="2.1.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
-<li class="chapter" data-level="2.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
-<li class="chapter" data-level="2.4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
-<li class="chapter" data-level="2.5" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
-<li class="chapter" data-level="2.5.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
-<li class="chapter" data-level="2.6.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
-<li class="chapter" data-level="2.6.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
-</ul></li>
-<li class="chapter" data-level="2.7" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
-<li class="chapter" data-level="3.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a><ul>
-<li class="chapter" data-level="3.1.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
-<li class="chapter" data-level="3.1.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
-<li class="chapter" data-level="3.1.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
-<li class="chapter" data-level="3.2.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
-<li class="chapter" data-level="3.2.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
-<li class="chapter" data-level="3.3.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
-<li class="chapter" data-level="3.3.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importanto e exportando dados no R</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
-<li class="chapter" data-level="3.4.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importando-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
-<li class="chapter" data-level="3.4.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
-<li class="chapter" data-level="3.4.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
-<li class="chapter" data-level="3.6" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#referências-1"><i class="fa fa-check"></i><b>3.6</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a><ul>
-<li class="chapter" data-level="4.1" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
-<li class="chapter" data-level="4.2" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
-<li class="chapter" data-level="4.3" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#referências-2"><i class="fa fa-check"></i><b>4.3</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="funções-gráficas.html"><a href="funções-gráficas.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a><ul>
-<li class="chapter" data-level="5.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
-<li class="chapter" data-level="5.1.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
-<li class="chapter" data-level="5.1.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
-<li class="chapter" data-level="5.1.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
-<li class="chapter" data-level="5.1.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
-<li class="chapter" data-level="5.1.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
-<li class="chapter" data-level="5.2.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
-<li class="chapter" data-level="5.2.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
-<li class="chapter" data-level="5.2.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
-<li class="chapter" data-level="5.2.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
-<li class="chapter" data-level="5.3.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
-<li class="chapter" data-level="5.3.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
-<li class="chapter" data-level="5.3.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
-<li class="chapter" data-level="5.3.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
-</ul></li>
-<li class="chapter" data-level="5.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
-<li class="chapter" data-level="5.4.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
-<li class="chapter" data-level="5.4.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
-<li class="chapter" data-level="5.4.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
-<li class="chapter" data-level="5.4.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
-<li class="chapter" data-level="5.4.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
-<li class="chapter" data-level="5.4.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
-<li class="chapter" data-level="5.4.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
-<li class="chapter" data-level="5.5.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
-<li class="chapter" data-level="5.5.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
-<li class="chapter" data-level="5.5.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
-<li class="chapter" data-level="5.5.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
-<li class="chapter" data-level="5.5.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
-<li class="chapter" data-level="5.5.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
-<li class="chapter" data-level="5.6.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
-<li class="chapter" data-level="5.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#referências-3"><i class="fa fa-check"></i><b>5.8</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a><ul>
-<li class="chapter" data-level="6.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#funções-da-família-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a><ul>
-<li class="chapter" data-level="6.1.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
-<li class="chapter" data-level="6.1.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
-<li class="chapter" data-level="6.1.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
-<li class="chapter" data-level="6.2.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
-<li class="chapter" data-level="6.2.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
-<li class="chapter" data-level="6.3.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
-<li class="chapter" data-level="6.3.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
-<li class="chapter" data-level="6.4.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a><ul>
-<li class="chapter" data-level="7.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
-<li class="chapter" data-level="7.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
-<li class="chapter" data-level="7.3" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
-<li class="chapter" data-level="7.3.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
-<li class="chapter" data-level="7.4.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
-<li class="chapter" data-level="7.6" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#referências-4"><i class="fa fa-check"></i><b>7.6</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a><ul>
-<li class="chapter" data-level="8.1" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
-<li class="chapter" data-level="8.1.2" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
-<li class="chapter" data-level="8.1.3" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#um-exemplo-prático"><i class="fa fa-check"></i><b>8.1.3</b> Um exemplo prático</a></li>
-<li class="chapter" data-level="8.1.4" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.4</b> Altera caixa do texto</a></li>
-<li class="chapter" data-level="8.1.5" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
-<li class="chapter" data-level="8.1.6" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
-<li class="chapter" data-level="8.1.7" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
-<li class="chapter" data-level="8.1.8" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
-<li class="chapter" data-level="8.1.9" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
-<li class="chapter" data-level="8.1.10" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#barra-invertida-backslash"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code> (backslash)</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.2.1</b> Para saber mais:</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#ajuda-no-r"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.7</b> O R como calculadora</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#operadores"><i class="fa fa-check"></i><b>1.7.1</b> Operadores</a></li>
+<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.7.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.7.3</b> Funções e constantes matemáticas</a></li>
+<li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#valor-na"><i class="fa fa-check"></i><b>1.7.4</b> NA e valores afins</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a><ul>
-<li class="chapter" data-level="9.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
-<li class="chapter" data-level="9.2" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a><ul>
+<li class="chapter" data-level="2.1" data-path="vetores.html"><a href="vetores.html#vetores-e-operações-vetoriais-i"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="vetores.html"><a href="vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores.html"><a href="vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+<li class="chapter" data-level="2.2" data-path="vetores.html"><a href="vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="2.3" data-path="vetores.html"><a href="vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
+<li class="chapter" data-level="2.4" data-path="vetores.html"><a href="vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="2.5" data-path="vetores.html"><a href="vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="vetores.html"><a href="vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="2.5.2" data-path="vetores.html"><a href="vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a><ul>
-<li class="chapter" data-level="10.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
-<li class="chapter" data-level="10.1.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
-<li class="chapter" data-level="10.1.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+<li class="chapter" data-level="2.6" data-path="vetores.html"><a href="vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="vetores.html"><a href="vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetores.html"><a href="vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetores.html"><a href="vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
-<li class="chapter" data-level="10.2.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
-<li class="chapter" data-level="10.2.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
-<li class="chapter" data-level="10.2.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
-<li class="chapter" data-level="10.2.5" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+<li class="chapter" data-level="2.7" data-path="vetores.html"><a href="vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
-<li class="chapter" data-level="10.3.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+<li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.1.1" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="3.1.2" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="mat-dframe.html"><a href="mat-dframe.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a></li>
+<li class="chapter" data-level="3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mat-dframe.html"><a href="mat-dframe.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="material-suplementar.html"><a href="material-suplementar.html"><i class="fa fa-check"></i><b>11</b> Material suplementar</a><ul>
-<li class="chapter" data-level="11.1" data-path="material-suplementar.html"><a href="material-suplementar.html#base-r-vs.-tidyverse"><i class="fa fa-check"></i><b>11.1</b> Base R vs. Tidyverse</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="material-suplementar.html"><a href="material-suplementar.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>11.1.1</b> O que é o Tidyverse?</a></li>
-<li class="chapter" data-level="11.1.2" data-path="material-suplementar.html"><a href="material-suplementar.html#usando-o-dplyr"><i class="fa fa-check"></i><b>11.1.2</b> Usando o <code>dplyr</code></a></li>
-<li class="chapter" data-level="11.1.3" data-path="material-suplementar.html"><a href="material-suplementar.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>11.1.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a></li>
-<li class="chapter" data-level="11.1.4" data-path="material-suplementar.html"><a href="material-suplementar.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>11.1.4</b> Usando o <code>ggplot2</code></a></li>
-<li class="chapter" data-level="11.1.5" data-path="material-suplementar.html"><a href="material-suplementar.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>11.1.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a></li>
-<li class="chapter" data-level="11.1.6" data-path="material-suplementar.html"><a href="material-suplementar.html#baser"><i class="fa fa-check"></i><b>11.1.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a></li>
-<li class="chapter" data-level="11.1.7" data-path="material-suplementar.html"><a href="material-suplementar.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>11.1.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="3.3" data-path="mat-dframe.html"><a href="mat-dframe.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="material-suplementar.html"><a href="material-suplementar.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r"><i class="fa fa-check"></i><b>11.2</b> Baixar e descomprimir um arquivo zip usando o R</a></li>
-<li class="chapter" data-level="11.3" data-path="material-suplementar.html"><a href="material-suplementar.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r-1"><i class="fa fa-check"></i><b>11.3</b> Baixar e descomprimir um arquivo zip usando o R</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="material-suplementar.html"><a href="material-suplementar.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>11.3.1</b> Para saber mais sobre o <strong>Tidyverse</strong>:</a></li>
+<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importanto e exportando dados no R</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#importando-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="3.4.4" data-path="mat-dframe.html"><a href="mat-dframe.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mat-dframe.html"><a href="mat-dframe.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a><ul>
+<li class="chapter" data-level="4.1" data-path="lista-objcompl.html"><a href="lista-objcompl.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
+<li class="chapter" data-level="4.2" data-path="lista-objcompl.html"><a href="lista-objcompl.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a><ul>
+<li class="chapter" data-level="5.1" data-path="func-graf.html"><a href="func-graf.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="func-graf.html"><a href="func-graf.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="5.1.3" data-path="func-graf.html"><a href="func-graf.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="5.1.4" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="func-graf.html"><a href="func-graf.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
+<li class="chapter" data-level="5.1.6" data-path="func-graf.html"><a href="func-graf.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="func-graf.html"><a href="func-graf.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
+<li class="chapter" data-level="5.2.2" data-path="func-graf.html"><a href="func-graf.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
+<li class="chapter" data-level="5.2.3" data-path="func-graf.html"><a href="func-graf.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
+<li class="chapter" data-level="5.2.4" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="func-graf.html"><a href="func-graf.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="func-graf.html"><a href="func-graf.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="func-graf.html"><a href="func-graf.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="5.3.4" data-path="func-graf.html"><a href="func-graf.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="func-graf.html"><a href="func-graf.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="func-graf.html"><a href="func-graf.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="func-graf.html"><a href="func-graf.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="5.4.2" data-path="func-graf.html"><a href="func-graf.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="func-graf.html"><a href="func-graf.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="func-graf.html"><a href="func-graf.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="5.4.5" data-path="func-graf.html"><a href="func-graf.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="5.4.6" data-path="func-graf.html"><a href="func-graf.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="func-graf.html"><a href="func-graf.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="5.4.8" data-path="func-graf.html"><a href="func-graf.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="func-graf.html"><a href="func-graf.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="func-graf.html"><a href="func-graf.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="func-graf.html"><a href="func-graf.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="func-graf.html"><a href="func-graf.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="func-graf.html"><a href="func-graf.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="func-graf.html"><a href="func-graf.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="5.5.6" data-path="func-graf.html"><a href="func-graf.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="5.5.7" data-path="func-graf.html"><a href="func-graf.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="func-graf.html"><a href="func-graf.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="func-graf.html"><a href="func-graf.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="func-graf.html"><a href="func-graf.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="func-graf.html"><a href="func-graf.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a><ul>
+<li class="chapter" data-level="6.1" data-path="iter-cflux.html"><a href="iter-cflux.html#funções-da-família-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a><ul>
+<li class="chapter" data-level="6.1.1" data-path="iter-cflux.html"><a href="iter-cflux.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="6.1.2" data-path="iter-cflux.html"><a href="iter-cflux.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="6.1.3" data-path="iter-cflux.html"><a href="iter-cflux.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="iter-cflux.html"><a href="iter-cflux.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="6.4.2" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="iter-cflux.html"><a href="iter-cflux.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a><ul>
+<li class="chapter" data-level="7.1" data-path="sumar-dados.html"><a href="sumar-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="7.2" data-path="sumar-dados.html"><a href="sumar-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="7.3" data-path="sumar-dados.html"><a href="sumar-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="sumar-dados.html"><a href="sumar-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="sumar-dados.html"><a href="sumar-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="sumar-dados.html"><a href="sumar-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="7.4.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="sumar-dados.html"><a href="sumar-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a><ul>
+<li class="chapter" data-level="8.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
+<li class="chapter" data-level="8.1.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
+<li class="chapter" data-level="8.1.4" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
+<li class="chapter" data-level="8.1.5" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
+<li class="chapter" data-level="8.1.6" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
+<li class="chapter" data-level="8.1.7" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
+<li class="chapter" data-level="8.1.8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
+<li class="chapter" data-level="8.1.9" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
+<li class="chapter" data-level="8.1.10" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
+<li class="chapter" data-level="8.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a><ul>
+<li class="chapter" data-level="9.1" data-path="amost-aleat.html"><a href="amost-aleat.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="9.2" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="amost-aleat.html"><a href="amost-aleat.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a><ul>
+<li class="chapter" data-level="10.1" data-path="extr-dados.html"><a href="extr-dados.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="extr-dados.html"><a href="extr-dados.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="10.1.2" data-path="extr-dados.html"><a href="extr-dados.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="10.1.3" data-path="extr-dados.html"><a href="extr-dados.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="extr-dados.html"><a href="extr-dados.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="extr-dados.html"><a href="extr-dados.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="10.2.2" data-path="extr-dados.html"><a href="extr-dados.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="10.2.3" data-path="extr-dados.html"><a href="extr-dados.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="10.2.4" data-path="extr-dados.html"><a href="extr-dados.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="10.2.5" data-path="extr-dados.html"><a href="extr-dados.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="extr-dados.html"><a href="extr-dados.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="extr-dados.html"><a href="extr-dados.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
+<li class="chapter" data-level="10.3.2" data-path="extr-dados.html"><a href="extr-dados.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="extr-dados.html"><a href="extr-dados.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
+<li class="chapter" data-level="10.4.2" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="referências-5.html"><a href="referências-5.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="chapter" data-level="11" data-path="mat-sup.html"><a href="mat-sup.html"><i class="fa fa-check"></i><b>11</b> Material suplementar</a><ul>
+<li class="chapter" data-level="11.1" data-path="mat-sup.html"><a href="mat-sup.html#base-r-vs.-tidyverse"><i class="fa fa-check"></i><b>11.1</b> Base R vs. Tidyverse</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="mat-sup.html"><a href="mat-sup.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>11.1.1</b> O que é o Tidyverse?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="mat-sup.html"><a href="mat-sup.html#usando-o-dplyr"><i class="fa fa-check"></i><b>11.1.2</b> Usando o <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.1.3" data-path="mat-sup.html"><a href="mat-sup.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>11.1.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a></li>
+<li class="chapter" data-level="11.1.4" data-path="mat-sup.html"><a href="mat-sup.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>11.1.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="11.1.5" data-path="mat-sup.html"><a href="mat-sup.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>11.1.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a></li>
+<li class="chapter" data-level="11.1.6" data-path="mat-sup.html"><a href="mat-sup.html#baser"><i class="fa fa-check"></i><b>11.1.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.1.7" data-path="mat-sup.html"><a href="mat-sup.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>11.1.7</b> Tidyverse, um resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="mat-sup.html"><a href="mat-sup.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r"><i class="fa fa-check"></i><b>11.2</b> Baixar e descomprimir um arquivo zip usando o R</a></li>
+<li class="chapter" data-level="11.3" data-path="mat-sup.html"><a href="mat-sup.html#aulas-em-vídeo"><i class="fa fa-check"></i><b>11.3</b> Aulas em vídeo</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="mat-sup.html"><a href="mat-sup.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>11.3.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="11.3.2" data-path="mat-sup.html"><a href="mat-sup.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>11.3.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="11.3.3" data-path="mat-sup.html"><a href="mat-sup.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>11.3.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="11.3.4" data-path="mat-sup.html"><a href="mat-sup.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>11.3.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="11.3.5" data-path="mat-sup.html"><a href="mat-sup.html#listas-1"><i class="fa fa-check"></i><b>11.3.5</b> Listas</a></li>
+<li class="chapter" data-level="11.3.6" data-path="mat-sup.html"><a href="mat-sup.html#criando-matrizes-1"><i class="fa fa-check"></i><b>11.3.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="11.3.7" data-path="mat-sup.html"><a href="mat-sup.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>11.3.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="11.3.8" data-path="mat-sup.html"><a href="mat-sup.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>11.3.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="11.3.9" data-path="mat-sup.html"><a href="mat-sup.html#condicionais-1"><i class="fa fa-check"></i><b>11.3.9</b> Condicionais</a></li>
+<li class="chapter" data-level="11.3.10" data-path="mat-sup.html"><a href="mat-sup.html#funções-da-família-apply-1"><i class="fa fa-check"></i><b>11.3.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="11.3.11" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>11.3.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="11.3.12" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>11.3.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="11.3.13" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>11.3.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="11.3.14" data-path="mat-sup.html"><a href="mat-sup.html#objetos-complexos"><i class="fa fa-check"></i><b>11.3.14</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="mat-sup.html"><a href="mat-sup.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>11.4</b> Para saber mais sobre o <strong>Tidyverse</strong>:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -365,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sumarização-de-dados" class="section level1">
+<div id="sumar-dados" class="section level1">
 <h1><span class="header-section-number">7</span> Sumarização de dados</h1>
 <div id="tabela-dinamica" class="section level2">
 <h2><span class="header-section-number">7.1</span> Tabelas dinâmicas</h2>
@@ -373,13 +394,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Já a função <code>aggregate()</code> faz o mesmo, mas permite múltiplos fatores e sempre retorna um <code>data.frame</code>.</p>
 <p>Vamos usar dados de parcelas em <a href="http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2015:caixeta.csv">caixetais</a>, formações dominadas por <em>Tabebuia cassinoides</em> (Lam.) D.C. (Bignoniaceae), espécie comum da Mata Atlântica nos estados de São Paulo, Minas Gerais, Rio de Janeiro e Espírito Santo.
 Baixe o arquivo para seu computador e instale-o na sua pasta de trabalho antes de seguir com os comandos abaixo.</p>
-<div class="sourceCode" id="cb1121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1121-1"><a href="sumarização-de-dados.html#cb1121-1"></a>caixeta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> T)</span></code></pre></div>
-<div class="sourceCode" id="cb1122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1122-1"><a href="sumarização-de-dados.html#cb1122-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1122-1"><a href="sumar-dados.html#cb1122-1"></a>caixeta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb1123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1123-1"><a href="sumar-dados.html#cb1123-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
-<div class="sourceCode" id="cb1124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1124-1"><a href="sumarização-de-dados.html#cb1124-1"></a><span class="co">## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores</span></span>
-<span id="cb1124-2"><a href="sumarização-de-dados.html#cb1124-2"></a>?tapply <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb1125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1125-1"><a href="sumarização-de-dados.html#cb1125-1"></a><span class="co"># altura máxima de cada especie</span></span>
-<span id="cb1125-2"><a href="sumarização-de-dados.html#cb1125-2"></a><span class="kw">tapply</span>(caixeta<span class="op">$</span>h, <span class="dt">INDEX =</span> caixeta<span class="op">$</span>especie, <span class="dt">FUN =</span> max)</span></code></pre></div>
+<div class="sourceCode" id="cb1125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1125-1"><a href="sumar-dados.html#cb1125-1"></a><span class="co">## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores</span></span>
+<span id="cb1125-2"><a href="sumar-dados.html#cb1125-2"></a>?tapply <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb1126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1126-1"><a href="sumar-dados.html#cb1126-1"></a><span class="co"># altura máxima de cada especie</span></span>
+<span id="cb1126-2"><a href="sumar-dados.html#cb1126-2"></a><span class="kw">tapply</span>(caixeta<span class="op">$</span>h, <span class="dt">INDEX =</span> caixeta<span class="op">$</span>especie, <span class="dt">FUN =</span> max)</span></code></pre></div>
 <pre><code>##    Alchornea triplinervia       Andira fraxinifolia               bombacaceae 
 ##                       140                        90                       150 
 ##        Cabralea canjerana Callophyllum brasiliensis  Calophyllum brasiliensis 
@@ -410,20 +431,20 @@ Baixe o arquivo para seu computador e instale-o na sua pasta de trabalho antes d
 ##                        70                        60                       480 
 ##      Tibouchina nutticeps 
 ##                        50</code></pre>
-<div class="sourceCode" id="cb1127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1127-1"><a href="sumarização-de-dados.html#cb1127-1"></a><span class="co"># circunferencia media por localidade</span></span>
-<span id="cb1127-2"><a href="sumarização-de-dados.html#cb1127-2"></a><span class="kw">tapply</span>(caixeta<span class="op">$</span>cap, <span class="dt">INDEX =</span> caixeta<span class="op">$</span>local, <span class="dt">FUN =</span> mean)</span></code></pre></div>
+<div class="sourceCode" id="cb1128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1128-1"><a href="sumar-dados.html#cb1128-1"></a><span class="co"># circunferencia media por localidade</span></span>
+<span id="cb1128-2"><a href="sumar-dados.html#cb1128-2"></a><span class="kw">tapply</span>(caixeta<span class="op">$</span>cap, <span class="dt">INDEX =</span> caixeta<span class="op">$</span>local, <span class="dt">FUN =</span> mean)</span></code></pre></div>
 <pre><code>##   chauas   jureia   retiro 
 ## 293.6385 404.4813 236.5972</code></pre>
-<div class="sourceCode" id="cb1129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1129-1"><a href="sumarização-de-dados.html#cb1129-1"></a><span class="co">## &quot;Tabelas dinamicas&quot;: funcao aggregate</span></span>
-<span id="cb1129-2"><a href="sumarização-de-dados.html#cb1129-2"></a><span class="co">## Criar data.frame com altura media dos fustes por especie e por local</span></span></code></pre></div>
-<div class="sourceCode" id="cb1130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1130-1"><a href="sumarização-de-dados.html#cb1130-1"></a>?aggregate <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb1131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1131-1"><a href="sumarização-de-dados.html#cb1131-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1130-1"><a href="sumar-dados.html#cb1130-1"></a><span class="co">## &quot;Tabelas dinamicas&quot;: funcao aggregate</span></span>
+<span id="cb1130-2"><a href="sumar-dados.html#cb1130-2"></a><span class="co">## Criar data.frame com altura media dos fustes por especie e por local</span></span></code></pre></div>
+<div class="sourceCode" id="cb1131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1131-1"><a href="sumar-dados.html#cb1131-1"></a>?aggregate <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb1132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1132-1"><a href="sumar-dados.html#cb1132-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
-<div class="sourceCode" id="cb1133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1133-1"><a href="sumarização-de-dados.html#cb1133-1"></a><span class="co"># circunferencia máxima por especie</span></span>
-<span id="cb1133-2"><a href="sumarização-de-dados.html#cb1133-2"></a>ob1 &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>cap, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> max)</span>
-<span id="cb1133-3"><a href="sumarização-de-dados.html#cb1133-3"></a><span class="kw">class</span>(ob1) <span class="co"># obtenho um data frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb1134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1134-1"><a href="sumar-dados.html#cb1134-1"></a><span class="co"># circunferencia máxima por especie</span></span>
+<span id="cb1134-2"><a href="sumar-dados.html#cb1134-2"></a>ob1 &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>cap, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> max)</span>
+<span id="cb1134-3"><a href="sumar-dados.html#cb1134-3"></a><span class="kw">class</span>(ob1) <span class="co"># obtenho um data frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1135-1"><a href="sumarização-de-dados.html#cb1135-1"></a><span class="kw">head</span>(ob1)</span></code></pre></div>
+<div class="sourceCode" id="cb1136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1136-1"><a href="sumar-dados.html#cb1136-1"></a><span class="kw">head</span>(ob1)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -486,11 +507,11 @@ Calophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1136-1"><a href="sumarização-de-dados.html#cb1136-1"></a><span class="co"># neste caso também poderia fazer assim</span></span>
-<span id="cb1136-2"><a href="sumarização-de-dados.html#cb1136-2"></a>ob2 &lt;-<span class="st"> </span><span class="kw">tapply</span>(caixeta<span class="op">$</span>h, caixeta<span class="op">$</span>especie, max)</span>
-<span id="cb1136-3"><a href="sumarização-de-dados.html#cb1136-3"></a><span class="kw">class</span>(ob2) <span class="co"># mas neste caso nos temos um array (um vetor unidimensional)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1137-1"><a href="sumar-dados.html#cb1137-1"></a><span class="co"># neste caso também poderia fazer assim</span></span>
+<span id="cb1137-2"><a href="sumar-dados.html#cb1137-2"></a>ob2 &lt;-<span class="st"> </span><span class="kw">tapply</span>(caixeta<span class="op">$</span>h, caixeta<span class="op">$</span>especie, max)</span>
+<span id="cb1137-3"><a href="sumar-dados.html#cb1137-3"></a><span class="kw">class</span>(ob2) <span class="co"># mas neste caso nos temos um array (um vetor unidimensional)</span></span></code></pre></div>
 <pre><code>## [1] &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb1138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1138-1"><a href="sumarização-de-dados.html#cb1138-1"></a>ob2[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1139-1"><a href="sumar-dados.html#cb1139-1"></a>ob2[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##    Alchornea triplinervia       Andira fraxinifolia               bombacaceae 
 ##                       140                        90                       150 
 ##        Cabralea canjerana Callophyllum brasiliensis  Calophyllum brasiliensis 
@@ -499,9 +520,9 @@ Calophyllum brasiliensis
 ##                        70                       100                       110 
 ##      Cryptocaria moschata 
 ##                       140</code></pre>
-<div class="sourceCode" id="cb1140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1140-1"><a href="sumarização-de-dados.html#cb1140-1"></a><span class="co"># mas se eu quiser por localidade e por especie, preciso usar aggregate</span></span>
-<span id="cb1140-2"><a href="sumarização-de-dados.html#cb1140-2"></a>caixeta.alt &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>h, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">local =</span> caixeta<span class="op">$</span>local, <span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> max)</span>
-<span id="cb1140-3"><a href="sumarização-de-dados.html#cb1140-3"></a><span class="kw">head</span>(caixeta.alt)</span></code></pre></div>
+<div class="sourceCode" id="cb1141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1141-1"><a href="sumar-dados.html#cb1141-1"></a><span class="co"># mas se eu quiser por localidade e por especie, preciso usar aggregate</span></span>
+<span id="cb1141-2"><a href="sumar-dados.html#cb1141-2"></a>caixeta.alt &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>h, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">local =</span> caixeta<span class="op">$</span>local, <span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> max)</span>
+<span id="cb1141-3"><a href="sumar-dados.html#cb1141-3"></a><span class="kw">head</span>(caixeta.alt)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -585,15 +606,15 @@ Callophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1141-1"><a href="sumarização-de-dados.html#cb1141-1"></a><span class="co">## Vamos calcular a area basal (soma da area de todo os fustes)</span></span>
-<span id="cb1141-2"><a href="sumarização-de-dados.html#cb1141-2"></a></span>
-<span id="cb1141-3"><a href="sumarização-de-dados.html#cb1141-3"></a><span class="co">## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:</span></span>
-<span id="cb1141-4"><a href="sumarização-de-dados.html#cb1141-4"></a>caixeta<span class="op">$</span>ab &lt;-<span class="st"> </span>caixeta<span class="op">$</span>cap<span class="op">^</span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span><span class="dv">4</span> <span class="op">*</span><span class="st"> </span>pi</span>
-<span id="cb1141-5"><a href="sumarização-de-dados.html#cb1141-5"></a><span class="co">## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes</span></span>
-<span id="cb1141-6"><a href="sumarização-de-dados.html#cb1141-6"></a>caixeta<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>ab, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">local =</span> caixeta<span class="op">$</span>local, <span class="dt">parcela =</span> caixeta<span class="op">$</span>parcela, <span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> sum)</span>
-<span id="cb1141-7"><a href="sumarização-de-dados.html#cb1141-7"></a><span class="kw">class</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1142-1"><a href="sumar-dados.html#cb1142-1"></a><span class="co">## Vamos calcular a area basal (soma da area de todo os fustes)</span></span>
+<span id="cb1142-2"><a href="sumar-dados.html#cb1142-2"></a></span>
+<span id="cb1142-3"><a href="sumar-dados.html#cb1142-3"></a><span class="co">## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:</span></span>
+<span id="cb1142-4"><a href="sumar-dados.html#cb1142-4"></a>caixeta<span class="op">$</span>ab &lt;-<span class="st"> </span>caixeta<span class="op">$</span>cap<span class="op">^</span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span><span class="dv">4</span> <span class="op">*</span><span class="st"> </span>pi</span>
+<span id="cb1142-5"><a href="sumar-dados.html#cb1142-5"></a><span class="co">## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes</span></span>
+<span id="cb1142-6"><a href="sumar-dados.html#cb1142-6"></a>caixeta<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>ab, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">local =</span> caixeta<span class="op">$</span>local, <span class="dt">parcela =</span> caixeta<span class="op">$</span>parcela, <span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> sum)</span>
+<span id="cb1142-7"><a href="sumar-dados.html#cb1142-7"></a><span class="kw">class</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1143-1"><a href="sumarização-de-dados.html#cb1143-1"></a><span class="kw">head</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1144-1"><a href="sumar-dados.html#cb1144-1"></a><span class="kw">head</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -701,16 +722,16 @@ Alchornea triplinervia
 </div>
 <div id="tabelas-de-contagem" class="section level2">
 <h2><span class="header-section-number">7.2</span> Tabelas de contagem</h2>
-<p>Vamos usar utilizar os mesmos dados de caixetas utilizados na seção <a href="sumarização-de-dados.html#tabela-dinamica">7.1</a>.
+<p>Vamos usar utilizar os mesmos dados de caixetas utilizados na seção <a href="sumar-dados.html#tabela-dinamica">7.1</a>.
 A função <code>table()</code> permite contar valores em fatores e vetores.</p>
-<div class="sourceCode" id="cb1144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1144-1"><a href="sumarização-de-dados.html#cb1144-1"></a>caixeta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> T)</span></code></pre></div>
-<div class="sourceCode" id="cb1145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1145-1"><a href="sumarização-de-dados.html#cb1145-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1145-1"><a href="sumar-dados.html#cb1145-1"></a>caixeta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb1146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1146-1"><a href="sumar-dados.html#cb1146-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;
 ## [8] &quot;ab&quot;</code></pre>
-<div class="sourceCode" id="cb1147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1147-1"><a href="sumarização-de-dados.html#cb1147-1"></a><span class="co"># tem a coluna especie</span></span>
-<span id="cb1147-2"><a href="sumarização-de-dados.html#cb1147-2"></a></span>
-<span id="cb1147-3"><a href="sumarização-de-dados.html#cb1147-3"></a><span class="co"># podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)</span></span>
-<span id="cb1147-4"><a href="sumarização-de-dados.html#cb1147-4"></a><span class="kw">table</span>(caixeta<span class="op">$</span>especie)</span></code></pre></div>
+<div class="sourceCode" id="cb1148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1148-1"><a href="sumar-dados.html#cb1148-1"></a><span class="co"># tem a coluna especie</span></span>
+<span id="cb1148-2"><a href="sumar-dados.html#cb1148-2"></a></span>
+<span id="cb1148-3"><a href="sumar-dados.html#cb1148-3"></a><span class="co"># podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)</span></span>
+<span id="cb1148-4"><a href="sumar-dados.html#cb1148-4"></a><span class="kw">table</span>(caixeta<span class="op">$</span>especie)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -979,8 +1000,8 @@ Tibouchina nutticeps
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1148-1"><a href="sumarização-de-dados.html#cb1148-1"></a><span class="co"># mostra as tres especies mais abundantes</span></span>
-<span id="cb1148-2"><a href="sumarização-de-dados.html#cb1148-2"></a><span class="kw">sort</span>(<span class="kw">table</span>(caixeta<span class="op">$</span>especie), <span class="dt">decreasing =</span> T)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1149-1"><a href="sumar-dados.html#cb1149-1"></a><span class="co"># mostra as tres especies mais abundantes</span></span>
+<span id="cb1149-2"><a href="sumar-dados.html#cb1149-2"></a><span class="kw">sort</span>(<span class="kw">table</span>(caixeta<span class="op">$</span>especie), <span class="dt">decreasing =</span> T)[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1009,8 +1030,8 @@ Mela 1
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1149-1"><a href="sumarização-de-dados.html#cb1149-1"></a><span class="co"># quantos individuos por localidade?</span></span>
-<span id="cb1149-2"><a href="sumarização-de-dados.html#cb1149-2"></a><span class="kw">table</span>(caixeta<span class="op">$</span>local)</span></code></pre></div>
+<div class="sourceCode" id="cb1150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1150-1"><a href="sumar-dados.html#cb1150-1"></a><span class="co"># quantos individuos por localidade?</span></span>
+<span id="cb1150-2"><a href="sumar-dados.html#cb1150-2"></a><span class="kw">table</span>(caixeta<span class="op">$</span>local)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1039,9 +1060,9 @@ retiro
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1150-1"><a href="sumarização-de-dados.html#cb1150-1"></a><span class="co"># especie por localidade</span></span>
-<span id="cb1150-2"><a href="sumarização-de-dados.html#cb1150-2"></a>tb &lt;-<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie, caixeta<span class="op">$</span>local)</span>
-<span id="cb1150-3"><a href="sumarização-de-dados.html#cb1150-3"></a><span class="kw">head</span>(tb, <span class="dv">3</span>) <span class="co"># mostra as tres primeiras linhas</span></span></code></pre></div>
+<div class="sourceCode" id="cb1151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1151-1"><a href="sumar-dados.html#cb1151-1"></a><span class="co"># especie por localidade</span></span>
+<span id="cb1151-2"><a href="sumar-dados.html#cb1151-2"></a>tb &lt;-<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie, caixeta<span class="op">$</span>local)</span>
+<span id="cb1151-3"><a href="sumar-dados.html#cb1151-3"></a><span class="kw">head</span>(tb, <span class="dv">3</span>) <span class="co"># mostra as tres primeiras linhas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1103,12 +1124,12 @@ bombacaceae
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1151-1"><a href="sumarização-de-dados.html#cb1151-1"></a><span class="co"># tabela de presenca e ausencia de especie por localidade</span></span>
-<span id="cb1151-2"><a href="sumarização-de-dados.html#cb1151-2"></a>tb &lt;-<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie, caixeta<span class="op">$</span>local)</span>
-<span id="cb1151-3"><a href="sumarização-de-dados.html#cb1151-3"></a><span class="co"># quem tem mais de 0 individuos está presente</span></span>
-<span id="cb1151-4"><a href="sumarização-de-dados.html#cb1151-4"></a><span class="co"># portanto, substituo por 1</span></span>
-<span id="cb1151-5"><a href="sumarização-de-dados.html#cb1151-5"></a>tb[tb <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb1151-6"><a href="sumarização-de-dados.html#cb1151-6"></a><span class="kw">head</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1152-1"><a href="sumar-dados.html#cb1152-1"></a><span class="co"># tabela de presenca e ausencia de especie por localidade</span></span>
+<span id="cb1152-2"><a href="sumar-dados.html#cb1152-2"></a>tb &lt;-<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie, caixeta<span class="op">$</span>local)</span>
+<span id="cb1152-3"><a href="sumar-dados.html#cb1152-3"></a><span class="co"># quem tem mais de 0 individuos está presente</span></span>
+<span id="cb1152-4"><a href="sumar-dados.html#cb1152-4"></a><span class="co"># portanto, substituo por 1</span></span>
+<span id="cb1152-5"><a href="sumar-dados.html#cb1152-5"></a>tb[tb <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb1152-6"><a href="sumar-dados.html#cb1152-6"></a><span class="kw">head</span>(tb)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1212,8 +1233,8 @@ Calophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1152-1"><a href="sumarização-de-dados.html#cb1152-1"></a><span class="co"># sendo assim, posso ver o numero de especie por localidade aplicando a suma das linha que tem 1 para cada coluna</span></span>
-<span id="cb1152-2"><a href="sumarização-de-dados.html#cb1152-2"></a><span class="kw">apply</span>(tb, <span class="dv">2</span>, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb1153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1153-1"><a href="sumar-dados.html#cb1153-1"></a><span class="co"># sendo assim, posso ver o numero de especie por localidade aplicando a suma das linha que tem 1 para cada coluna</span></span>
+<span id="cb1153-2"><a href="sumar-dados.html#cb1153-2"></a><span class="kw">apply</span>(tb, <span class="dv">2</span>, sum)</span></code></pre></div>
 <pre><code>## chauas jureia retiro 
 ##     13     22     13</code></pre>
 </div>
@@ -1224,14 +1245,14 @@ Calophyllum brasiliensis
 <p>É frequente também a necessidade de ter esses dados reunidos em uma só tabela.
 Para unir tabelas, é necessário que duas tabelas diferentes possuam uma coluna em comum, a quem vamos chamar de <strong>identificador</strong>.
 Vamos criar aqui uma situação artificial com os dados <code>iris</code>, mas imagine uma situação mais complexa com muitos dados.</p>
-<div class="sourceCode" id="cb1154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1154-1"><a href="sumarização-de-dados.html#cb1154-1"></a><span class="co"># uma tabela com os nomes das especies</span></span>
-<span id="cb1154-2"><a href="sumarização-de-dados.html#cb1154-2"></a>spp &lt;-<span class="st"> </span><span class="kw">unique</span>(<span class="kw">data.frame</span>(</span>
-<span id="cb1154-3"><a href="sumarização-de-dados.html#cb1154-3"></a>  <span class="dt">GENUS =</span> <span class="st">&quot;Iris&quot;</span>,</span>
-<span id="cb1154-4"><a href="sumarização-de-dados.html#cb1154-4"></a>  <span class="dt">SPECIES =</span> iris<span class="op">$</span>Species,</span>
-<span id="cb1154-5"><a href="sumarização-de-dados.html#cb1154-5"></a>  <span class="dt">stringsAsFactors =</span> F</span>
-<span id="cb1154-6"><a href="sumarização-de-dados.html#cb1154-6"></a>))</span>
-<span id="cb1154-7"><a href="sumarização-de-dados.html#cb1154-7"></a>spp<span class="op">$</span>fullname &lt;-<span class="st"> </span><span class="kw">paste</span>(spp<span class="op">$</span>GENUS, spp<span class="op">$</span>SPECIES)</span>
-<span id="cb1154-8"><a href="sumarização-de-dados.html#cb1154-8"></a>spp</span></code></pre></div>
+<div class="sourceCode" id="cb1155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1155-1"><a href="sumar-dados.html#cb1155-1"></a><span class="co"># uma tabela com os nomes das especies</span></span>
+<span id="cb1155-2"><a href="sumar-dados.html#cb1155-2"></a>spp &lt;-<span class="st"> </span><span class="kw">unique</span>(<span class="kw">data.frame</span>(</span>
+<span id="cb1155-3"><a href="sumar-dados.html#cb1155-3"></a>  <span class="dt">GENUS =</span> <span class="st">&quot;Iris&quot;</span>,</span>
+<span id="cb1155-4"><a href="sumar-dados.html#cb1155-4"></a>  <span class="dt">SPECIES =</span> iris<span class="op">$</span>Species,</span>
+<span id="cb1155-5"><a href="sumar-dados.html#cb1155-5"></a>  <span class="dt">stringsAsFactors =</span> F</span>
+<span id="cb1155-6"><a href="sumar-dados.html#cb1155-6"></a>))</span>
+<span id="cb1155-7"><a href="sumar-dados.html#cb1155-7"></a>spp<span class="op">$</span>fullname &lt;-<span class="st"> </span><span class="kw">paste</span>(spp<span class="op">$</span>GENUS, spp<span class="op">$</span>SPECIES)</span>
+<span id="cb1155-8"><a href="sumar-dados.html#cb1155-8"></a>spp</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1299,24 +1320,24 @@ Para fazer uso da função <code>tp_search()</code>, é necessário ter uma <a h
 Nós utilizamos uma chave obtida junto ao <a href="https://www.tropicos.org/">Tropicos.org</a>, base de dados do Jardim Botânico do Missouri (Missouri Botanical Garden).
 O pacote <code>taxize</code> oferece uma função chamada <code>use_tropicos()</code> que abre o navegador na página de solicitação da chave API.
 Você pode executar o comando, preencher o formulário e aguardar por sua chave:</p>
-<div class="sourceCode" id="cb1155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1155-1"><a href="sumarização-de-dados.html#cb1155-1"></a><span class="kw">use_tropicos</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1156-1"><a href="sumar-dados.html#cb1156-1"></a><span class="kw">use_tropicos</span>()</span></code></pre></div>
 <p>Para este exemplo, guardamos nossa chave API em um objeto chamado <code>tropicos_key</code> que, por motivos óbvios, não mostraremos aqui o que ele guarda:</p>
-<div class="sourceCode" id="cb1156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1156-1"><a href="sumarização-de-dados.html#cb1156-1"></a><span class="co"># install.packages(&quot;taxize&quot;)</span></span>
-<span id="cb1156-2"><a href="sumarização-de-dados.html#cb1156-2"></a><span class="kw">library</span>(<span class="st">&quot;taxize&quot;</span>) <span class="co"># instale se nao tiver</span></span>
-<span id="cb1156-3"><a href="sumarização-de-dados.html#cb1156-3"></a>sppinfo &lt;-<span class="st"> </span><span class="kw">sapply</span>(spp<span class="op">$</span>fullname, tp_search, <span class="dt">key =</span> tropicos_key, <span class="dt">type =</span> <span class="st">&quot;exact&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1157-1"><a href="sumar-dados.html#cb1157-1"></a><span class="co"># install.packages(&quot;taxize&quot;)</span></span>
+<span id="cb1157-2"><a href="sumar-dados.html#cb1157-2"></a><span class="kw">library</span>(<span class="st">&quot;taxize&quot;</span>) <span class="co"># instale se nao tiver</span></span>
+<span id="cb1157-3"><a href="sumar-dados.html#cb1157-3"></a>sppinfo &lt;-<span class="st"> </span><span class="kw">sapply</span>(spp<span class="op">$</span>fullname, tp_search, <span class="dt">key =</span> tropicos_key, <span class="dt">type =</span> <span class="st">&quot;exact&quot;</span>)</span></code></pre></div>
 <p>O resultado de nossa pesquisa foi estocado no objeto <code>sppinfo</code>.
 Vamos pegar as colunas obtidas para todos os nomes:</p>
-<div class="sourceCode" id="cb1157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1157-1"><a href="sumarização-de-dados.html#cb1157-1"></a>keys &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="kw">unlist</span>(<span class="kw">lapply</span>(sppinfo, names)))</span>
-<span id="cb1157-2"><a href="sumarização-de-dados.html#cb1157-2"></a>keys &lt;-<span class="st"> </span><span class="kw">names</span>(keys[keys <span class="op">==</span><span class="st"> </span><span class="kw">length</span>(sppinfo)])</span>
-<span id="cb1157-3"><a href="sumarização-de-dados.html#cb1157-3"></a>keys</span></code></pre></div>
+<div class="sourceCode" id="cb1158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1158-1"><a href="sumar-dados.html#cb1158-1"></a>keys &lt;-<span class="st"> </span><span class="kw">table</span>(<span class="kw">unlist</span>(<span class="kw">lapply</span>(sppinfo, names)))</span>
+<span id="cb1158-2"><a href="sumar-dados.html#cb1158-2"></a>keys &lt;-<span class="st"> </span><span class="kw">names</span>(keys[keys <span class="op">==</span><span class="st"> </span><span class="kw">length</span>(sppinfo)])</span>
+<span id="cb1158-3"><a href="sumar-dados.html#cb1158-3"></a>keys</span></code></pre></div>
 <pre><code>##  [1] &quot;author&quot;                    &quot;displaydate&quot;              
 ##  [3] &quot;displayreference&quot;          &quot;family&quot;                   
 ##  [5] &quot;nameid&quot;                    &quot;nomenclaturestatusname&quot;   
 ##  [7] &quot;rankabbreviation&quot;          &quot;scientificname&quot;           
 ##  [9] &quot;scientificnamewithauthors&quot; &quot;totalrows&quot;</code></pre>
 <p>Juntemos agora tudo em um único <code>data.frame</code>:</p>
-<div class="sourceCode" id="cb1159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1159-1"><a href="sumarização-de-dados.html#cb1159-1"></a>sppinfo &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">do.call</span>(mapply, <span class="kw">c</span>(<span class="dt">FUN =</span> c, <span class="kw">lapply</span>(sppinfo, <span class="st">`</span><span class="dt">[</span><span class="st">`</span>, keys))), <span class="dt">stringsAsFactors =</span> F)</span>
-<span id="cb1159-2"><a href="sumarização-de-dados.html#cb1159-2"></a>sppinfo</span></code></pre></div>
+<div class="sourceCode" id="cb1160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1160-1"><a href="sumar-dados.html#cb1160-1"></a>sppinfo &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">do.call</span>(mapply, <span class="kw">c</span>(<span class="dt">FUN =</span> c, <span class="kw">lapply</span>(sppinfo, <span class="st">`</span><span class="dt">[</span><span class="st">`</span>, keys))), <span class="dt">stringsAsFactors =</span> F)</span>
+<span id="cb1160-2"><a href="sumar-dados.html#cb1160-2"></a>sppinfo</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1498,8 +1519,8 @@ Iris virginica L.
 </tbody>
 </table>
 <p>Vamos excluir os nomes ilegítimos:</p>
-<div class="sourceCode" id="cb1160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1160-1"><a href="sumarização-de-dados.html#cb1160-1"></a>sppinfo &lt;-<span class="st"> </span>sppinfo[<span class="op">-</span><span class="kw">grep</span>(<span class="st">&quot;illeg&quot;</span>, sppinfo<span class="op">$</span>nomenclaturestatusname, <span class="dt">ignore.case =</span> T), ]</span>
-<span id="cb1160-2"><a href="sumarização-de-dados.html#cb1160-2"></a>sppinfo</span></code></pre></div>
+<div class="sourceCode" id="cb1161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1161-1"><a href="sumar-dados.html#cb1161-1"></a>sppinfo &lt;-<span class="st"> </span>sppinfo[<span class="op">-</span><span class="kw">grep</span>(<span class="st">&quot;illeg&quot;</span>, sppinfo<span class="op">$</span>nomenclaturestatusname, <span class="dt">ignore.case =</span> T), ]</span>
+<span id="cb1161-2"><a href="sumar-dados.html#cb1161-2"></a>sppinfo</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1646,13 +1667,13 @@ Iris virginica L.
 </tbody>
 </table>
 <p>Vamos agora criar um identificador compartilhado entre as tabelas:</p>
-<div class="sourceCode" id="cb1161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1161-1"><a href="sumarização-de-dados.html#cb1161-1"></a>sppinfo<span class="op">$</span>Species &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;Iris &quot;</span>, <span class="st">&quot;&quot;</span>, sppinfo<span class="op">$</span>scientificname)</span></code></pre></div>
+<div class="sourceCode" id="cb1162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1162-1"><a href="sumar-dados.html#cb1162-1"></a>sppinfo<span class="op">$</span>Species &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;Iris &quot;</span>, <span class="st">&quot;&quot;</span>, sppinfo<span class="op">$</span>scientificname)</span></code></pre></div>
 <p>Vamos bagunçar a ordem dos dados em <code>sppinfo</code> para mostrar como se procede a junção de tabelas:</p>
-<div class="sourceCode" id="cb1162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1162-1"><a href="sumarização-de-dados.html#cb1162-1"></a><span class="kw">set.seed</span>(<span class="dv">4857</span>)</span>
-<span id="cb1162-2"><a href="sumarização-de-dados.html#cb1162-2"></a>sppinfo &lt;-<span class="st"> </span>sppinfo[<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>), ]</span>
-<span id="cb1162-3"><a href="sumarização-de-dados.html#cb1162-3"></a><span class="kw">rownames</span>(sppinfo) &lt;-<span class="st"> </span>sppinfo<span class="op">$</span>Species</span></code></pre></div>
+<div class="sourceCode" id="cb1163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1163-1"><a href="sumar-dados.html#cb1163-1"></a><span class="kw">set.seed</span>(<span class="dv">4857</span>)</span>
+<span id="cb1163-2"><a href="sumar-dados.html#cb1163-2"></a>sppinfo &lt;-<span class="st"> </span>sppinfo[<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>), ]</span>
+<span id="cb1163-3"><a href="sumar-dados.html#cb1163-3"></a><span class="kw">rownames</span>(sppinfo) &lt;-<span class="st"> </span>sppinfo<span class="op">$</span>Species</span></code></pre></div>
 <p>Agora temos dois conjuntos de dados que em comum possuem a coluna <code>Species</code>, mas apresentam linhas diferentes:</p>
-<div class="sourceCode" id="cb1163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1163-1"><a href="sumarização-de-dados.html#cb1163-1"></a>sppinfo</span></code></pre></div>
+<div class="sourceCode" id="cb1164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1164-1"><a href="sumar-dados.html#cb1164-1"></a>sppinfo</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1810,7 +1831,7 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1164-1"><a href="sumarização-de-dados.html#cb1164-1"></a><span class="kw">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb1165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1165-1"><a href="sumar-dados.html#cb1165-1"></a><span class="kw">head</span>(iris)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1942,11 +1963,11 @@ Podemos pensar em duas maneiras de executar esta ação.</p>
 <h3><span class="header-section-number">7.3.1</span> Maneira 1 - função <code>match()</code></h3>
 <p>Pegaremos as linhas da tabela <code>sppinfo</code> com correspondência a cada linha da tabela <code>iris</code>.
 Para isso, devemos ter o <strong>índice</strong> da tabela <code>sppinfo</code> segundo o valor da coluna <code>Species</code>, que é o identificador em comum entre as duas tabelas:</p>
-<div class="sourceCode" id="cb1165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1165-1"><a href="sumarização-de-dados.html#cb1165-1"></a>idxinfo &lt;-<span class="st"> </span><span class="kw">match</span>(iris<span class="op">$</span>Species, sppinfo<span class="op">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb1166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1166-1"><a href="sumar-dados.html#cb1166-1"></a>idxinfo &lt;-<span class="st"> </span><span class="kw">match</span>(iris<span class="op">$</span>Species, sppinfo<span class="op">$</span>Species)</span></code></pre></div>
 <p>Guardamos esta correspondência no vetor <code>idxinfo</code>, que possui o mesmo comprimento que o número de linhas que <code>iris</code> e contem o número das linhas (os <strong>índices</strong>!) da tabela <code>sppinfo</code>:</p>
-<div class="sourceCode" id="cb1166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1166-1"><a href="sumarização-de-dados.html#cb1166-1"></a><span class="co"># assim, seguindo indexacao numerica eu posso pegar informacoes da tabela sppinfo e colocar na tabela iris</span></span>
-<span id="cb1166-2"><a href="sumarização-de-dados.html#cb1166-2"></a>iris<span class="op">$</span>speciesComAutor &lt;-<span class="st"> </span>sppinfo<span class="op">$</span>scientificnamewithauthors[idxinfo]</span>
-<span id="cb1166-3"><a href="sumarização-de-dados.html#cb1166-3"></a><span class="kw">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb1167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1167-1"><a href="sumar-dados.html#cb1167-1"></a><span class="co"># assim, seguindo indexacao numerica eu posso pegar informacoes da tabela sppinfo e colocar na tabela iris</span></span>
+<span id="cb1167-2"><a href="sumar-dados.html#cb1167-2"></a>iris<span class="op">$</span>speciesComAutor &lt;-<span class="st"> </span>sppinfo<span class="op">$</span>scientificnamewithauthors[idxinfo]</span>
+<span id="cb1167-3"><a href="sumar-dados.html#cb1167-3"></a><span class="kw">head</span>(iris)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2094,8 +2115,8 @@ Iris setosa Pall. ex Link
 </tbody>
 </table>
 <p>Agora, vamos unir as duas tabelas:</p>
-<div class="sourceCode" id="cb1167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1167-1"><a href="sumarização-de-dados.html#cb1167-1"></a>novoiris &lt;-<span class="st"> </span><span class="kw">cbind</span>(iris, sppinfo[idxinfo, ])</span>
-<span id="cb1167-2"><a href="sumarização-de-dados.html#cb1167-2"></a><span class="kw">head</span>(novoiris)</span></code></pre></div>
+<div class="sourceCode" id="cb1168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1168-1"><a href="sumar-dados.html#cb1168-1"></a>novoiris &lt;-<span class="st"> </span><span class="kw">cbind</span>(iris, sppinfo[idxinfo, ])</span>
+<span id="cb1168-2"><a href="sumar-dados.html#cb1168-2"></a><span class="kw">head</span>(novoiris)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2497,11 +2518,11 @@ setosa
 <div id="maneira-2---índices-nominais" class="section level3">
 <h3><span class="header-section-number">7.3.2</span> Maneira 2 - índices nominais</h3>
 <p>A tabela <code>sppinfo</code> contem nomes de linhas que correspondem aos valores que estão na coluna <code>iris$Species</code>.
-Portanto, para fazer a mesma coisa que fizemos na <a href="sumarização-de-dados.html#juncao-tbl-maneira1">maneira 1</a>, nós poderíamos simplesmente filtrar através dos nomes das linhas da tabela <code>sppinfo</code>:</p>
-<div class="sourceCode" id="cb1168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1168-1"><a href="sumarização-de-dados.html#cb1168-1"></a>iris<span class="op">$</span>speciesComAutor &lt;-<span class="st"> </span>sppinfo[iris<span class="op">$</span>Species, ]<span class="op">$</span>scientificnamewithauthors</span>
-<span id="cb1168-2"><a href="sumarização-de-dados.html#cb1168-2"></a><span class="co"># juntando as duas tabelas  completas</span></span>
-<span id="cb1168-3"><a href="sumarização-de-dados.html#cb1168-3"></a>novoiris &lt;-<span class="st"> </span><span class="kw">cbind</span>(iris, sppinfo[iris<span class="op">$</span>Species, ])</span>
-<span id="cb1168-4"><a href="sumarização-de-dados.html#cb1168-4"></a>novoiris</span></code></pre></div>
+Portanto, para fazer a mesma coisa que fizemos na <a href="sumar-dados.html#juncao-tbl-maneira1">maneira 1</a>, nós poderíamos simplesmente filtrar através dos nomes das linhas da tabela <code>sppinfo</code>:</p>
+<div class="sourceCode" id="cb1169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1169-1"><a href="sumar-dados.html#cb1169-1"></a>iris<span class="op">$</span>speciesComAutor &lt;-<span class="st"> </span>sppinfo[iris<span class="op">$</span>Species, ]<span class="op">$</span>scientificnamewithauthors</span>
+<span id="cb1169-2"><a href="sumar-dados.html#cb1169-2"></a><span class="co"># juntando as duas tabelas  completas</span></span>
+<span id="cb1169-3"><a href="sumar-dados.html#cb1169-3"></a>novoiris &lt;-<span class="st"> </span><span class="kw">cbind</span>(iris, sppinfo[iris<span class="op">$</span>Species, ])</span>
+<span id="cb1169-4"><a href="sumar-dados.html#cb1169-4"></a>novoiris</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -10977,13 +10998,13 @@ Daremos exemplos com essas duas novas maneiras.</p>
 <ol class="example" style="list-style-type: decimal">
 <li>O <code>data.frame</code> <code>tab1</code> possui nomes de famílias, gêneros e epítetos específicos de algumas angiospermas:</li>
 </ol>
-<div class="sourceCode" id="cb1169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1169-1"><a href="sumarização-de-dados.html#cb1169-1"></a>familia &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Lauraceae&quot;</span>)</span>
-<span id="cb1169-2"><a href="sumarização-de-dados.html#cb1169-2"></a>generos &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Trattinnickia&quot;</span>, <span class="st">&quot;Dacryodes&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Markea&quot;</span>, <span class="st">&quot;Solanum&quot;</span>, <span class="st">&quot;Allophylastrum&quot;</span>, <span class="st">&quot;Cupania&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Duroia&quot;</span>, <span class="st">&quot;Cinchona&quot;</span>, <span class="st">&quot;Ocotea&quot;</span>, <span class="st">&quot;Licaria&quot;</span>, <span class="st">&quot;Rhodostemonodaphne&quot;</span>, <span class="st">&quot;Anisophyllea&quot;</span>, <span class="st">&quot;Freziera&quot;</span>)</span>
-<span id="cb1169-3"><a href="sumarização-de-dados.html#cb1169-3"></a>epitetos &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;aracouchini&quot;</span>, <span class="st">&quot;burserifolia&quot;</span>, <span class="st">&quot;edilsonii&quot;</span>, <span class="st">&quot;cestroides&quot;</span>, <span class="st">&quot;ulei&quot;</span>, <span class="st">&quot;cyathophorum&quot;</span>, <span class="st">&quot;frutescens&quot;</span>, <span class="st">&quot;rubiginosa&quot;</span>, <span class="st">&quot;myriantha&quot;</span>, <span class="st">&quot;viridis&quot;</span>, <span class="st">&quot;eriopila&quot;</span>, <span class="st">&quot;amazonica&quot;</span>, <span class="st">&quot;delicata&quot;</span>, <span class="st">&quot;aureosericea&quot;</span>, <span class="st">&quot;recurva&quot;</span>, <span class="st">&quot;manausensis&quot;</span>, <span class="st">&quot;carinata&quot;</span>)</span>
-<span id="cb1169-4"><a href="sumarização-de-dados.html#cb1169-4"></a>tab1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">familia =</span> <span class="kw">c</span>(<span class="kw">rep</span>(familia, <span class="dt">each =</span> <span class="dv">3</span>), <span class="st">&quot;Anisophylleaceae&quot;</span>, <span class="st">&quot;Pentaphylacaceae&quot;</span>), <span class="dt">genero =</span> generos, <span class="dt">epiteto =</span> epitetos, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1170-1"><a href="sumar-dados.html#cb1170-1"></a>familia &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Lauraceae&quot;</span>)</span>
+<span id="cb1170-2"><a href="sumar-dados.html#cb1170-2"></a>generos &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Trattinnickia&quot;</span>, <span class="st">&quot;Dacryodes&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Markea&quot;</span>, <span class="st">&quot;Solanum&quot;</span>, <span class="st">&quot;Allophylastrum&quot;</span>, <span class="st">&quot;Cupania&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Duroia&quot;</span>, <span class="st">&quot;Cinchona&quot;</span>, <span class="st">&quot;Ocotea&quot;</span>, <span class="st">&quot;Licaria&quot;</span>, <span class="st">&quot;Rhodostemonodaphne&quot;</span>, <span class="st">&quot;Anisophyllea&quot;</span>, <span class="st">&quot;Freziera&quot;</span>)</span>
+<span id="cb1170-3"><a href="sumar-dados.html#cb1170-3"></a>epitetos &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;aracouchini&quot;</span>, <span class="st">&quot;burserifolia&quot;</span>, <span class="st">&quot;edilsonii&quot;</span>, <span class="st">&quot;cestroides&quot;</span>, <span class="st">&quot;ulei&quot;</span>, <span class="st">&quot;cyathophorum&quot;</span>, <span class="st">&quot;frutescens&quot;</span>, <span class="st">&quot;rubiginosa&quot;</span>, <span class="st">&quot;myriantha&quot;</span>, <span class="st">&quot;viridis&quot;</span>, <span class="st">&quot;eriopila&quot;</span>, <span class="st">&quot;amazonica&quot;</span>, <span class="st">&quot;delicata&quot;</span>, <span class="st">&quot;aureosericea&quot;</span>, <span class="st">&quot;recurva&quot;</span>, <span class="st">&quot;manausensis&quot;</span>, <span class="st">&quot;carinata&quot;</span>)</span>
+<span id="cb1170-4"><a href="sumar-dados.html#cb1170-4"></a>tab1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">familia =</span> <span class="kw">c</span>(<span class="kw">rep</span>(familia, <span class="dt">each =</span> <span class="dv">3</span>), <span class="st">&quot;Anisophylleaceae&quot;</span>, <span class="st">&quot;Pentaphylacaceae&quot;</span>), <span class="dt">genero =</span> generos, <span class="dt">epiteto =</span> epitetos, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-307">Tabela 7.1: </span>Tabela 1
+<span id="tab:unnamed-chunk-308">Tabela 7.1: </span>Tabela 1
 </caption>
 <thead>
 <tr>
@@ -11191,13 +11212,13 @@ carinata
 <ol start="2" class="example" style="list-style-type: decimal">
 <li>O <code>data.frame</code> <code>tab2</code> contem um conjunto pequeno com alguns nomes de famílias, gêneros, e o nome de seus respectivos clados acima dos nomes de ordens segundo o <span class="citation">APG (<a href="#ref-APG" role="doc-biblioref">2016</a>)</span>:</li>
 </ol>
-<div class="sourceCode" id="cb1170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1170-1"><a href="sumarização-de-dados.html#cb1170-1"></a>familia2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Annonaceae&quot;</span>)</span>
-<span id="cb1170-2"><a href="sumarização-de-dados.html#cb1170-2"></a>generos2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Guatteria&quot;</span>)</span>
-<span id="cb1170-3"><a href="sumarização-de-dados.html#cb1170-3"></a>clado &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Magnoliids&quot;</span>)</span>
-<span id="cb1170-4"><a href="sumarização-de-dados.html#cb1170-4"></a>tab2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">familia =</span> familia2, <span class="dt">genero =</span> generos2, <span class="dt">clado =</span> clado, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1171-1"><a href="sumar-dados.html#cb1171-1"></a>familia2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Annonaceae&quot;</span>)</span>
+<span id="cb1171-2"><a href="sumar-dados.html#cb1171-2"></a>generos2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Guatteria&quot;</span>)</span>
+<span id="cb1171-3"><a href="sumar-dados.html#cb1171-3"></a>clado &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Magnoliids&quot;</span>)</span>
+<span id="cb1171-4"><a href="sumar-dados.html#cb1171-4"></a>tab2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">familia =</span> familia2, <span class="dt">genero =</span> generos2, <span class="dt">clado =</span> clado, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-309">Tabela 7.2: </span>Tabela 2
+<span id="tab:unnamed-chunk-310">Tabela 7.2: </span>Tabela 2
 </caption>
 <thead>
 <tr>
@@ -11273,10 +11294,10 @@ Magnoliids
 <ol start="3" class="example" style="list-style-type: decimal">
 <li>O <code>data.frame</code> <code>tab3</code> corresponde à tabela 2, <code>tab2</code>, sem as famílias Solanaceae e Rubiaceae:</li>
 </ol>
-<div class="sourceCode" id="cb1171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1171-1"><a href="sumarização-de-dados.html#cb1171-1"></a>tab3 &lt;-<span class="st"> </span><span class="kw">subset</span>(tab1, familia <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1172-1"><a href="sumar-dados.html#cb1172-1"></a>tab3 &lt;-<span class="st"> </span><span class="kw">subset</span>(tab1, familia <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>))</span></code></pre></div>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-311">Tabela 7.3: </span>Tabela 3
+<span id="tab:unnamed-chunk-312">Tabela 7.3: </span>Tabela 3
 </caption>
 <thead>
 <tr>
@@ -11365,12 +11386,12 @@ myriantha
 <h3><span class="header-section-number">7.4.2</span> Maneira 3 - função <code>merge()</code></h3>
 <p>O básico para entender a função <code>merge()</code> é saber que existem dois argumentos, <code>x</code> e <code>y</code>, que correspondem aos <code>data.frames</code> de entrada.
 Quando unimos tabelas, existem junções que adicionam variáveis, e junções que filtram variáveis.
-Vamos ver abaixo 4 tipos da primeira ( <a href="sumarização-de-dados.html#interna">junção interna</a>, <a href="sumarização-de-dados.html#esquerda">junção à esquerda</a>, <a href="sumarização-de-dados.html#direita">junção à direita</a>, <a href="sumarização-de-dados.html#total">junção total</a>), e dois tipos desta última ( <a href="sumarização-de-dados.html#semi">semijunção</a> e <a href="sumarização-de-dados.html#anti">antijunção</a>).</p>
+Vamos ver abaixo 4 tipos da primeira ( <a href="sumar-dados.html#interna">junção interna</a>, <a href="sumar-dados.html#esquerda">junção à esquerda</a>, <a href="sumar-dados.html#direita">junção à direita</a>, <a href="sumar-dados.html#total">junção total</a>), e dois tipos desta última ( <a href="sumar-dados.html#semi">semijunção</a> e <a href="sumar-dados.html#anti">antijunção</a>).</p>
 <div id="interna" class="section level4">
 <h4><span class="header-section-number">7.4.2.1</span> Junção interna</h4>
-<blockquote>
-<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>x</code> em que há valores em comum com <code>y</code>, e todas as colunas de <code>x</code> e <code>y</code>. Se houver múltiplas <em>correspondências</em> entre <code>x</code> e <code>y</code>, todas as combinações retornam.</p>
-</blockquote>
+<div class="infobox idea">
+<p>Ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>x</code> em que há valores em comum com <code>y</code>, e todas as colunas de <code>x</code> e <code>y</code>. Se houver múltiplas <em>correspondências</em> entre <code>x</code> e <code>y</code>, todas as combinações retornam.</p>
+</div>
 <p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/inner-join.png" /></p>
 <p>Em nosso exemplo, vamos unir as tabelas 1 e 2.
 Ambas possuem em comum os identificadores <code>familia</code> e <code>genero</code>.
@@ -11659,7 +11680,7 @@ Magnoliids
 </table>
 <p>Reparem que os valores em que há correspondência entre <code>x</code> e <code>y</code> estão coloridos de <span style="background: yellow;">amarelo</span>; para os em que não há correspondência, estão coloridos de <span style="background: red;">vermelho</span>.
 Agora, executemos a junção das duas tabelas:</p>
-<div class="sourceCode" id="cb1172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1172-1"><a href="sumarização-de-dados.html#cb1172-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2)</span></code></pre></div>
+<div class="sourceCode" id="cb1173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1173-1"><a href="sumar-dados.html#cb1173-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -11739,13 +11760,13 @@ Lamiids
 <p>Vejam que houve a incorporação dos valores da coluna <code>epiteto</code>, presente apenas na tabela 2, em que há correspondência entre as tabelas 1 e 2.
 É importante notar que as famílias <span style="background: red;">Lauraceae, Anisophylleaceae, e Pentaphylacaceae</span> ficaram de fora, pois não são encontradas na tabela <code>y</code>, isto é, a tabela 2, assim como seus respectivos gêneros e epítetos associados a estes.
 Gêneros presentes na tabela 1 de famílias em comum entre ambas as tabelas também não foram incorporados nessa junção, pois nãp encontram correspondência na tabela 2: <span style="background: red;">Dacryodes, Trattinnickia, Markea, Solanum, Allophylastrum, Cupania, Duroia, Cinchona</span>.
-Revejam o conceito de <a href="sumarização-de-dados.html#interna">junção interna</a> para entender o porquê desse acontecimento.</p>
+Revejam o conceito de <a href="sumar-dados.html#interna">junção interna</a> para entender o porquê desse acontecimento.</p>
 </div>
 <div id="esquerda" class="section level4">
 <h4><span class="header-section-number">7.4.2.2</span> Junção à esquerda</h4>
-<blockquote>
-<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>x</code>, e todas as colunas de <code>x</code> e <code>y</code>. Linhas em <code>x</code> sem correspência em <code>y</code> terão valores <code>NA</code> adicionados nas novas colunas. Se houver múltiplas <em>correspondências</em> entre <code>x</code> e <code>y</code>, todas as combinações retornam.</p>
-</blockquote>
+<div class="infobox idea">
+<p>Ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>x</code>, e todas as colunas de <code>x</code> e <code>y</code>. Linhas em <code>x</code> sem correspência em <code>y</code> terão valores <code>NA</code> adicionados nas novas colunas. Se houver múltiplas <em>correspondências</em> entre <code>x</code> e <code>y</code>, todas as combinações retornam.</p>
+</div>
 <p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/left-join.png" /></p>
 <p>Continuaremos utilizando as tabelas 1 e 2.
 Como mostrado anteriormente, ambas possuem em comum os identificadores <code>familia</code> e <code>genero</code>.
@@ -12034,7 +12055,7 @@ clado
 </table>
 <p>Em uma junção à esquerda, todas as linhas de <code>x</code> retornam após a junção.
 Para executar este tipo de junção, acrescentaremos um novo argumento, <code>all.x = TRUE</code>, indicando que manteremos todas as linhas de <code>x</code>, isto é, o <code>data.frame</code> à esquerda, que é a tabela 1.</p>
-<div class="sourceCode" id="cb1173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1173-1"><a href="sumarização-de-dados.html#cb1173-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2, <span class="dt">all.x =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1174-1"><a href="sumar-dados.html#cb1174-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2, <span class="dt">all.x =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -12297,13 +12318,13 @@ NA
 Reparem na coluna <code>clado</code> e vejam que isso ocorreu apenas nesta variável.
 Por exemplo, vejam a família Anisophylleaceae. Ela ocorre apenas na tabela 1 e, portanto, não possui nenhum valor de <code>clado</code>a ssociado a ela, pois esta variável ocorre apenas na tabela 2. Com a junção das tabelas, essa variável é retida, porém sem a existência de um valor para a família, é inserido então o valor <code>NA</code>.
 Temos também o caso de Annonaceae, presente na tabela 2. A família não é recuperada na junção interna, pois ela não existe na tabela 1 dentro da variável <code>familia</code> e, portanto, não apresenta correspondência com nenhum dado da tabela 1.
-Revejam o conceito de <a href="sumarização-de-dados.html#esquerda">junção à esquerda</a> para entender o porquê desse acontecimento.</p>
+Revejam o conceito de <a href="sumar-dados.html#esquerda">junção à esquerda</a> para entender o porquê desse acontecimento.</p>
 </div>
 <div id="direita" class="section level4">
 <h4><span class="header-section-number">7.4.2.3</span> Junção à direita</h4>
-<blockquote>
-<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>y</code>, e todas as colunas de <code>x</code> e <code>y</code>.Linhas em <code>y</code> sem correspência em <code>x</code> terão valores NA adicionados nas novas colunas. Se houver múltiplas <em>correspondências</em> entre <code>x</code> e <code>y</code>, todas as combinações retornam.</p>
-</blockquote>
+<div class="infobox idea">
+<p>Ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>y</code>, e todas as colunas de <code>x</code> e <code>y</code>.Linhas em <code>y</code> sem correspência em <code>x</code> terão valores NA adicionados nas novas colunas. Se houver múltiplas <em>correspondências</em> entre <code>x</code> e <code>y</code>, todas as combinações retornam.</p>
+</div>
 <p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/right-join.png" /></p>
 <p>De maneira oposta à junção à esquerda, na junção à direita são mantidas todas as linhas de <code>y</code>.
 Desta vez, o argumento a ser utilizado é <code>all.y = TRUE</code>.
@@ -12592,7 +12613,7 @@ Magnoliids
 </table>
 <p>Agora executaremos a junção com o comando abaixo.
 Não deixem de reparar no uso do argumento <code>all.y = TRUE</code>, pois ele é o responsável por agora manter todas as linhas da tabela 2 (== <code>y</code>):</p>
-<div class="sourceCode" id="cb1174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1174-1"><a href="sumarização-de-dados.html#cb1174-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2, <span class="dt">all.y =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1175-1"><a href="sumar-dados.html#cb1175-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2, <span class="dt">all.y =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -12685,16 +12706,16 @@ Lamiids
 </table>
 <p>Notem que agora todos os dados da tabela 2 foram mantidos.
 Houve a inserção de um valor <code>NA</code> para a família Annonaceae na variável <code>epiteto</code>, pois esta variável não está presente na tabela 2.
-Revejam o conceito de <a href="sumarização-de-dados.html#direita">junção à direita</a> para entender o porquê desse acontecimento.</p>
+Revejam o conceito de <a href="sumar-dados.html#direita">junção à direita</a> para entender o porquê desse acontecimento.</p>
 </div>
 <div id="total" class="section level4">
 <h4><span class="header-section-number">7.4.2.4</span> Junção total</h4>
-<blockquote>
-<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas e colunas de <code>x</code> e <code>y</code>. Onde não houver valores correspondentes, valores <code>NA</code> serão colocados nesses lugares.</p>
-</blockquote>
+<div class="infobox idea">
+<p>Ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas e colunas de <code>x</code> e <code>y</code>. Onde não houver valores correspondentes, valores <code>NA</code> serão colocados nesses lugares.</p>
+</div>
 <p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/outer-join.png" /></p>
 <p>Em uma junção total, uniremos todas as linha de <code>x</code> e <code>y</code> utilizando o argumento <code>all = TRUE</code>.</p>
-<div class="sourceCode" id="cb1175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1175-1"><a href="sumarização-de-dados.html#cb1175-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2, <span class="dt">all =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1176-1"><a href="sumar-dados.html#cb1176-1"></a><span class="kw">merge</span>(<span class="dt">x =</span> tab1, <span class="dt">y =</span> tab2, <span class="dt">all =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -12969,13 +12990,13 @@ NA
 </table>
 <p>Reparem que valores <code>NA</code> são colocados nos valores da tabela 2 referentes à coluna <code>epiteto</code>, ausente na tabela 1.
 O mesmo se passa com valores da coluna <code>clado</code>, presente na tabela 2 e ausente na tabela 1.
-Revejam o conceito de <a href="sumarização-de-dados.html#total">junção total</a> para entender o porquê desse acontecimento.</p>
+Revejam o conceito de <a href="sumar-dados.html#total">junção total</a> para entender o porquê desse acontecimento.</p>
 </div>
 <div id="semi" class="section level4">
 <h4><span class="header-section-number">7.4.2.5</span> Semijunção</h4>
-<blockquote>
-<p>ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>x</code> onde houver valores correspondentes em <code>y</code>, mantendo apenas colunas de <code>x</code>. É parecida com a junção interna, porém difere desta por nunca duplicar valores de <code>x</code>, retornando sempre apenas valores de <code>x</code> que houver uma correspondência em <code>y</code>.</p>
-</blockquote>
+<div class="infobox idea">
+<p>Ao juntarmos tabelas <code>x</code> e <code>y</code>, temos todas as linhas de <code>x</code> onde houver valores correspondentes em <code>y</code>, mantendo apenas colunas de <code>x</code>. É parecida com a junção interna, porém difere desta por nunca duplicar valores de <code>x</code>, retornando sempre apenas valores de <code>x</code> que houver uma correspondência em <code>y</code>.</p>
+</div>
 <p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/left-anti-semi-join.png" /></p>
 <p>A semijunção é muito similar à junção interna, diferindo desta por não incorporar as colunas de <code>y</code>, pois apenas utiliza esta tabela para filtrar os dados de <code>x</code>, constituindo-se então em um tipo de junção que filtra variáveis.
 Neste exemplo, utilizaremos as tabelas 1 e 3.
@@ -13279,9 +13300,9 @@ myriantha
 <p>Para executar uma semijunção com o pacote <code>base</code> do R, devemos fazer uso de vetores lógicos e da função <code>interaction()</code>, pois a função <code>merge()</code> não fornece uma maneira de se obter o que desejamos.</p>
 <p>Vamos então à prática<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.
 As colunas compartilhadas por ambas as tabelas serão nossas <code>chaves</code>:</p>
-<div class="sourceCode" id="cb1176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1176-1"><a href="sumarização-de-dados.html#cb1176-1"></a>chaves &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;familia&quot;</span>, <span class="st">&quot;genero&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1177-1"><a href="sumar-dados.html#cb1177-1"></a>chaves &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;familia&quot;</span>, <span class="st">&quot;genero&quot;</span>)</span></code></pre></div>
 <p>Partimos então para filtrar na tabela 1 a combinação de linhas para esse conjunto de colunas utilizando a função <code>interaction()</code> do pacote <code>base</code> do R:</p>
-<div class="sourceCode" id="cb1177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1177-1"><a href="sumarização-de-dados.html#cb1177-1"></a><span class="kw">interaction</span>(tab1[, chaves])</span></code></pre></div>
+<div class="sourceCode" id="cb1178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1178-1"><a href="sumar-dados.html#cb1178-1"></a><span class="kw">interaction</span>(tab1[, chaves])</span></code></pre></div>
 <pre><code>##  [1] Burseraceae.Protium           Burseraceae.Trattinnickia    
 ##  [3] Burseraceae.Dacryodes         Solanaceae.Duckeodendron     
 ##  [5] Solanaceae.Markea             Solanaceae.Solanum           
@@ -13294,17 +13315,17 @@ As colunas compartilhadas por ambas as tabelas serão nossas <code>chaves</code>
 ## 119 Levels: Anisophylleaceae.Allophylastrum ... Solanaceae.Trattinnickia</code></pre>
 <p>Essa função computa um vetor de fatores que representa a interação das colunas fornecidas na tabela 1.
 Se fizermos isso com a tabela 3, poderemos saber quais combinações ocorrem em ambas as tabelas.</p>
-<div class="sourceCode" id="cb1179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1179-1"><a href="sumarização-de-dados.html#cb1179-1"></a><span class="kw">interaction</span>(tab3[, chaves])</span></code></pre></div>
+<div class="sourceCode" id="cb1180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1180-1"><a href="sumar-dados.html#cb1180-1"></a><span class="kw">interaction</span>(tab3[, chaves])</span></code></pre></div>
 <pre><code>## [1] Burseraceae.Protium        Burseraceae.Trattinnickia 
 ## [3] Burseraceae.Dacryodes      Sapindaceae.Allophylastrum
 ## [5] Sapindaceae.Cupania        Sapindaceae.Thinouia      
 ## 12 Levels: Burseraceae.Allophylastrum ... Sapindaceae.Trattinnickia</code></pre>
 <p>Agora utilizamos a mesma função <code>interaction</code> e o operador <code>%in%</code> para retornar um vetor lógico que utilizaremos para filtrar os valores da tabela 1 com correspondência na tabela 3.</p>
-<div class="sourceCode" id="cb1181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1181-1"><a href="sumarização-de-dados.html#cb1181-1"></a>linhas &lt;-<span class="st"> </span><span class="kw">interaction</span>(tab1[, chaves]) <span class="op">%in%</span><span class="st"> </span><span class="kw">interaction</span>(tab3[, chaves])</span>
-<span id="cb1181-2"><a href="sumarização-de-dados.html#cb1181-2"></a>linhas</span></code></pre></div>
+<div class="sourceCode" id="cb1182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1182-1"><a href="sumar-dados.html#cb1182-1"></a>linhas &lt;-<span class="st"> </span><span class="kw">interaction</span>(tab1[, chaves]) <span class="op">%in%</span><span class="st"> </span><span class="kw">interaction</span>(tab3[, chaves])</span>
+<span id="cb1182-2"><a href="sumar-dados.html#cb1182-2"></a>linhas</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE
 ## [13] FALSE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb1183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1183-1"><a href="sumarização-de-dados.html#cb1183-1"></a>tab1[linhas, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1184-1"><a href="sumar-dados.html#cb1184-1"></a>tab1[linhas, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -13412,14 +13433,14 @@ myriantha
 </div>
 <div id="anti" class="section level4">
 <h4><span class="header-section-number">7.4.2.6</span> Antijunção</h4>
-<blockquote>
-<p>retorna todas as linhas de <code>x</code> em que não há correspondência em <code>y</code>, mantendo apenas colunas de <code>x</code>.</p>
-</blockquote>
+<div class="infobox idea">
+<p>Retorna todas as linhas de <code>x</code> em que não há correspondência em <code>y</code>, mantendo apenas colunas de <code>x</code>.</p>
+</div>
 <p><img src="https://www.sqlfromhell.com/wp-content/uploads/2018/06/right-anti-semi-join.png" /></p>
 <p>Uma antijunção é ligeiramente diferente de uma semijunção pois ela retorna todas as linhas de <code>x</code> que não aparecem em y.
 Portanto, podemos utilizar o inverso de nosso vetor lógico <code>linhas</code> e utilizar este inverso para filtrar as linhas da tabela 1 e ter nossa tabela antijunção entre <code>x</code> e <code>y</code>:</p>
-<div class="sourceCode" id="cb1184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1184-1"><a href="sumarização-de-dados.html#cb1184-1"></a>antilinhas &lt;-<span class="st"> </span><span class="op">!</span>linhas</span>
-<span id="cb1184-2"><a href="sumarização-de-dados.html#cb1184-2"></a>tab1[antilinhas, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1185-1"><a href="sumar-dados.html#cb1185-1"></a>antilinhas &lt;-<span class="st"> </span><span class="op">!</span>linhas</span>
+<span id="cb1185-2"><a href="sumar-dados.html#cb1185-2"></a>tab1[antilinhas, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -13604,9 +13625,6 @@ carinata
 <li><a href="https://rpubs.com/CristianaFreitas/311735">Join com dplyr</a>;</li>
 <li><a href="https://www.sqlfromhell.com/entendendo-join-sql/">Entendendo o JOIN do SQL (ou Junções)</a> - Obtive as imagens aqui apresentadas desta página. Há uma boa explicação com SQL como pano de fundo para operações de junções de tabela.</li>
 </ul>
-</div>
-<div id="referências-4" class="section level2">
-<h2><span class="header-section-number">7.6</span> Referências</h2>
 
 </div>
 </div>
@@ -13619,8 +13637,8 @@ carinata
 <div class="footnotes">
 <hr />
 <ol start="3">
-<li id="fn3"><p>Texto publicado originalmente no blog de R.O.Perdiz (<a href="https://ricardoperdiz.com/post/2020_04_23_r-juncao-tabelas/juncao-tbl/" class="uri">https://ricardoperdiz.com/post/2020_04_23_r-juncao-tabelas/juncao-tbl/</a>)<a href="sumarização-de-dados.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>Esta solução de semijunção é baseada no tutorial do pacote <a href="https://nathaneastwood.github.io/2020/03/08/poorman-replicating-dplyrs-join-and-filter-join-functions-with-base-r/">poorman</a>, recém-criado para emular as funções do pacote <a href="https://github.com/tidyverse/dplyr">dplyr</a>.<a href="sumarização-de-dados.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Texto publicado originalmente no blog de R.O.Perdiz (<a href="https://ricardoperdiz.com/post/2020_04_23_r-juncao-tabelas/juncao-tbl/" class="uri">https://ricardoperdiz.com/post/2020_04_23_r-juncao-tabelas/juncao-tbl/</a>)<a href="sumar-dados.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Esta solução de semijunção é baseada no tutorial do pacote <a href="https://nathaneastwood.github.io/2020/03/08/poorman-replicating-dplyrs-join-and-filter-join-functions-with-base-r/">poorman</a>, recém-criado para emular as funções do pacote <a href="https://github.com/tidyverse/dplyr">dplyr</a>.<a href="sumar-dados.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -13628,8 +13646,8 @@ carinata
           </div>
         </div>
       </div>
-<a href="iteração-e-controle-de-fluxo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="manipulação-de-textos-arquivos-e-pastas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="iter-cflux.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="manip-txt-arq-pasta.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -13660,7 +13678,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/blob/main/07-sumarizacao_dados.Rmd",
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/07-sumarizacao_dados.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -13673,7 +13691,8 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

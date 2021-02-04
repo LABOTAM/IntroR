@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="objeto-ii-matrizes-e-data-frames.html"/>
-<link rel="next" href="funções-gráficas.html"/>
+<link rel="prev" href="mat-dframe.html"/>
+<link rel="next" href="func-graf.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,6 +53,8 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -85,41 +87,41 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  background-color: #f8f8f8; }
 @media screen {
 code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -132,222 +134,241 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a></li>
-<li class="chapter" data-level="" data-path="sobre-o-livro.html"><a href="sobre-o-livro.html"><i class="fa fa-check"></i>Sobre o livro</a></li>
-<li class="chapter" data-level="" data-path="sobre-os-autores.html"><a href="sobre-os-autores.html"><i class="fa fa-check"></i>Sobre os autores</a></li>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i>Pré-requisitos</a><ul>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">Disciplina BOT89 - PPGBOT INPA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estrutura-do-livro"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-os-autores"><i class="fa fa-check"></i>Sobre os autores</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pré-requisitos"><i class="fa fa-check"></i>Pré-requisitos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
-<li class="chapter" data-level="1.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
-<li class="chapter" data-level="1.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
-<li class="chapter" data-level="1.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
-<li class="chapter" data-level="1.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#ajuda-no-r"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
-<li class="chapter" data-level="1.5" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
-<li class="chapter" data-level="1.6" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
-<li class="chapter" data-level="1.7" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.7</b> O R como calculadora</a><ul>
-<li class="chapter" data-level="1.7.1" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#operadores"><i class="fa fa-check"></i><b>1.7.1</b> Operadores</a></li>
-<li class="chapter" data-level="1.7.2" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.7.2</b> Precedência de parênteses</a></li>
-<li class="chapter" data-level="1.7.3" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.7.3</b> Funções e constantes matemáticas</a></li>
-<li class="chapter" data-level="1.7.4" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#valor-na"><i class="fa fa-check"></i><b>1.7.4</b> NA e valores afins</a></li>
-</ul></li>
-<li class="chapter" data-level="1.8" data-path="conceitos-introdutórios.html"><a href="conceitos-introdutórios.html#referências"><i class="fa fa-check"></i><b>1.8</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a><ul>
-<li class="chapter" data-level="2.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetores"><i class="fa fa-check"></i><b>2.1</b> Vetores &amp; Operações Vetoriais I</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
-<li class="chapter" data-level="2.1.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
-<li class="chapter" data-level="2.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
-<li class="chapter" data-level="2.4" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
-<li class="chapter" data-level="2.5" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
-<li class="chapter" data-level="2.5.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a><ul>
-<li class="chapter" data-level="2.6.1" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
-<li class="chapter" data-level="2.6.2" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
-<li class="chapter" data-level="2.6.3" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
-</ul></li>
-<li class="chapter" data-level="2.7" data-path="objeto-i-vetores.html"><a href="objeto-i-vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
-<li class="chapter" data-level="3.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a><ul>
-<li class="chapter" data-level="3.1.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
-<li class="chapter" data-level="3.1.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
-<li class="chapter" data-level="3.1.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
-<li class="chapter" data-level="3.2.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
-<li class="chapter" data-level="3.2.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
-<li class="chapter" data-level="3.3.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
-<li class="chapter" data-level="3.3.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importanto e exportando dados no R</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
-<li class="chapter" data-level="3.4.2" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#importando-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
-<li class="chapter" data-level="3.4.3" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
-<li class="chapter" data-level="3.4.4" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
-<li class="chapter" data-level="3.6" data-path="objeto-ii-matrizes-e-data-frames.html"><a href="objeto-ii-matrizes-e-data-frames.html#referências-1"><i class="fa fa-check"></i><b>3.6</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a><ul>
-<li class="chapter" data-level="4.1" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
-<li class="chapter" data-level="4.2" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
-<li class="chapter" data-level="4.3" data-path="objeto-iii-listas-e-objetos-complexos.html"><a href="objeto-iii-listas-e-objetos-complexos.html#referências-2"><i class="fa fa-check"></i><b>4.3</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="funções-gráficas.html"><a href="funções-gráficas.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a><ul>
-<li class="chapter" data-level="5.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
-<li class="chapter" data-level="5.1.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
-<li class="chapter" data-level="5.1.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
-<li class="chapter" data-level="5.1.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
-<li class="chapter" data-level="5.1.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
-<li class="chapter" data-level="5.1.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
-<li class="chapter" data-level="5.2.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
-<li class="chapter" data-level="5.2.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
-<li class="chapter" data-level="5.2.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
-<li class="chapter" data-level="5.2.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
-<li class="chapter" data-level="5.3.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
-<li class="chapter" data-level="5.3.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
-<li class="chapter" data-level="5.3.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
-<li class="chapter" data-level="5.3.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
-</ul></li>
-<li class="chapter" data-level="5.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
-<li class="chapter" data-level="5.4.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
-<li class="chapter" data-level="5.4.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
-<li class="chapter" data-level="5.4.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
-<li class="chapter" data-level="5.4.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
-<li class="chapter" data-level="5.4.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
-<li class="chapter" data-level="5.4.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
-<li class="chapter" data-level="5.4.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
-<li class="chapter" data-level="5.5.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
-<li class="chapter" data-level="5.5.3" data-path="funções-gráficas.html"><a href="funções-gráficas.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
-<li class="chapter" data-level="5.5.4" data-path="funções-gráficas.html"><a href="funções-gráficas.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
-<li class="chapter" data-level="5.5.5" data-path="funções-gráficas.html"><a href="funções-gráficas.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
-<li class="chapter" data-level="5.5.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
-<li class="chapter" data-level="5.5.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.6" data-path="funções-gráficas.html"><a href="funções-gráficas.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="funções-gráficas.html"><a href="funções-gráficas.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
-<li class="chapter" data-level="5.6.2" data-path="funções-gráficas.html"><a href="funções-gráficas.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="5.7" data-path="funções-gráficas.html"><a href="funções-gráficas.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
-<li class="chapter" data-level="5.8" data-path="funções-gráficas.html"><a href="funções-gráficas.html#referências-3"><i class="fa fa-check"></i><b>5.8</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a><ul>
-<li class="chapter" data-level="6.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#funções-da-família-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a><ul>
-<li class="chapter" data-level="6.1.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
-<li class="chapter" data-level="6.1.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
-<li class="chapter" data-level="6.1.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
-<li class="chapter" data-level="6.2.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
-<li class="chapter" data-level="6.2.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
-<li class="chapter" data-level="6.3.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
-<li class="chapter" data-level="6.3.3" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
-<li class="chapter" data-level="6.4.2" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="iteração-e-controle-de-fluxo.html"><a href="iteração-e-controle-de-fluxo.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a><ul>
-<li class="chapter" data-level="7.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
-<li class="chapter" data-level="7.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
-<li class="chapter" data-level="7.3" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
-<li class="chapter" data-level="7.3.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
-</ul></li>
-<li class="chapter" data-level="7.4" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
-<li class="chapter" data-level="7.4.2" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
-<li class="chapter" data-level="7.6" data-path="sumarização-de-dados.html"><a href="sumarização-de-dados.html#referências-4"><i class="fa fa-check"></i><b>7.6</b> Referências</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a><ul>
-<li class="chapter" data-level="8.1" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
-<li class="chapter" data-level="8.1.2" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
-<li class="chapter" data-level="8.1.3" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#um-exemplo-prático"><i class="fa fa-check"></i><b>8.1.3</b> Um exemplo prático</a></li>
-<li class="chapter" data-level="8.1.4" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.4</b> Altera caixa do texto</a></li>
-<li class="chapter" data-level="8.1.5" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
-<li class="chapter" data-level="8.1.6" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
-<li class="chapter" data-level="8.1.7" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
-<li class="chapter" data-level="8.1.8" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
-<li class="chapter" data-level="8.1.9" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
-<li class="chapter" data-level="8.1.10" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#barra-invertida-backslash"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code> (backslash)</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="manipulação-de-textos-arquivos-e-pastas.html"><a href="manipulação-de-textos-arquivos-e-pastas.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.2.1</b> Para saber mais:</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#ajuda-no-r"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.7</b> O R como calculadora</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#operadores"><i class="fa fa-check"></i><b>1.7.1</b> Operadores</a></li>
+<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.7.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.7.3</b> Funções e constantes matemáticas</a></li>
+<li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#valor-na"><i class="fa fa-check"></i><b>1.7.4</b> NA e valores afins</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a><ul>
-<li class="chapter" data-level="9.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
-<li class="chapter" data-level="9.2" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a><ul>
+<li class="chapter" data-level="2.1" data-path="vetores.html"><a href="vetores.html#vetores-e-operações-vetoriais-i"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="vetores.html"><a href="vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores.html"><a href="vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="amostragens-aleatórias.html"><a href="amostragens-aleatórias.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+<li class="chapter" data-level="2.2" data-path="vetores.html"><a href="vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="2.3" data-path="vetores.html"><a href="vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
+<li class="chapter" data-level="2.4" data-path="vetores.html"><a href="vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="2.5" data-path="vetores.html"><a href="vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="vetores.html"><a href="vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="2.5.2" data-path="vetores.html"><a href="vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a><ul>
-<li class="chapter" data-level="10.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
-<li class="chapter" data-level="10.1.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
-<li class="chapter" data-level="10.1.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+<li class="chapter" data-level="2.6" data-path="vetores.html"><a href="vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="vetores.html"><a href="vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetores.html"><a href="vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetores.html"><a href="vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
-<li class="chapter" data-level="10.2.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
-<li class="chapter" data-level="10.2.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
-<li class="chapter" data-level="10.2.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
-<li class="chapter" data-level="10.2.5" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+<li class="chapter" data-level="2.7" data-path="vetores.html"><a href="vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a><ul>
-<li class="chapter" data-level="10.3.1" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
-<li class="chapter" data-level="10.3.2" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+<li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.1.1" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="3.1.2" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="mat-dframe.html"><a href="mat-dframe.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="extraindo-dados-de-colunas-descritivas.html"><a href="extraindo-dados-de-colunas-descritivas.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a></li>
+<li class="chapter" data-level="3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mat-dframe.html"><a href="mat-dframe.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="material-suplementar.html"><a href="material-suplementar.html"><i class="fa fa-check"></i><b>11</b> Material suplementar</a><ul>
-<li class="chapter" data-level="11.1" data-path="material-suplementar.html"><a href="material-suplementar.html#base-r-vs.-tidyverse"><i class="fa fa-check"></i><b>11.1</b> Base R vs. Tidyverse</a><ul>
-<li class="chapter" data-level="11.1.1" data-path="material-suplementar.html"><a href="material-suplementar.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>11.1.1</b> O que é o Tidyverse?</a></li>
-<li class="chapter" data-level="11.1.2" data-path="material-suplementar.html"><a href="material-suplementar.html#usando-o-dplyr"><i class="fa fa-check"></i><b>11.1.2</b> Usando o <code>dplyr</code></a></li>
-<li class="chapter" data-level="11.1.3" data-path="material-suplementar.html"><a href="material-suplementar.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>11.1.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a></li>
-<li class="chapter" data-level="11.1.4" data-path="material-suplementar.html"><a href="material-suplementar.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>11.1.4</b> Usando o <code>ggplot2</code></a></li>
-<li class="chapter" data-level="11.1.5" data-path="material-suplementar.html"><a href="material-suplementar.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>11.1.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a></li>
-<li class="chapter" data-level="11.1.6" data-path="material-suplementar.html"><a href="material-suplementar.html#baser"><i class="fa fa-check"></i><b>11.1.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a></li>
-<li class="chapter" data-level="11.1.7" data-path="material-suplementar.html"><a href="material-suplementar.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>11.1.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="3.3" data-path="mat-dframe.html"><a href="mat-dframe.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="material-suplementar.html"><a href="material-suplementar.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r"><i class="fa fa-check"></i><b>11.2</b> Baixar e descomprimir um arquivo zip usando o R</a></li>
-<li class="chapter" data-level="11.3" data-path="material-suplementar.html"><a href="material-suplementar.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r-1"><i class="fa fa-check"></i><b>11.3</b> Baixar e descomprimir um arquivo zip usando o R</a><ul>
-<li class="chapter" data-level="11.3.1" data-path="material-suplementar.html"><a href="material-suplementar.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>11.3.1</b> Para saber mais sobre o <strong>Tidyverse</strong>:</a></li>
+<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importanto e exportando dados no R</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#importando-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="3.4.4" data-path="mat-dframe.html"><a href="mat-dframe.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mat-dframe.html"><a href="mat-dframe.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a><ul>
+<li class="chapter" data-level="4.1" data-path="lista-objcompl.html"><a href="lista-objcompl.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
+<li class="chapter" data-level="4.2" data-path="lista-objcompl.html"><a href="lista-objcompl.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a><ul>
+<li class="chapter" data-level="5.1" data-path="func-graf.html"><a href="func-graf.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="func-graf.html"><a href="func-graf.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="5.1.3" data-path="func-graf.html"><a href="func-graf.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="5.1.4" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="func-graf.html"><a href="func-graf.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
+<li class="chapter" data-level="5.1.6" data-path="func-graf.html"><a href="func-graf.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="func-graf.html"><a href="func-graf.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
+<li class="chapter" data-level="5.2.2" data-path="func-graf.html"><a href="func-graf.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
+<li class="chapter" data-level="5.2.3" data-path="func-graf.html"><a href="func-graf.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
+<li class="chapter" data-level="5.2.4" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="func-graf.html"><a href="func-graf.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="func-graf.html"><a href="func-graf.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="func-graf.html"><a href="func-graf.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="5.3.4" data-path="func-graf.html"><a href="func-graf.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="func-graf.html"><a href="func-graf.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="func-graf.html"><a href="func-graf.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="func-graf.html"><a href="func-graf.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="5.4.2" data-path="func-graf.html"><a href="func-graf.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="func-graf.html"><a href="func-graf.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="func-graf.html"><a href="func-graf.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="5.4.5" data-path="func-graf.html"><a href="func-graf.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="5.4.6" data-path="func-graf.html"><a href="func-graf.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="func-graf.html"><a href="func-graf.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="5.4.8" data-path="func-graf.html"><a href="func-graf.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="func-graf.html"><a href="func-graf.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="func-graf.html"><a href="func-graf.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="func-graf.html"><a href="func-graf.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="func-graf.html"><a href="func-graf.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="func-graf.html"><a href="func-graf.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="func-graf.html"><a href="func-graf.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="5.5.6" data-path="func-graf.html"><a href="func-graf.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="5.5.7" data-path="func-graf.html"><a href="func-graf.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="func-graf.html"><a href="func-graf.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="func-graf.html"><a href="func-graf.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="func-graf.html"><a href="func-graf.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="func-graf.html"><a href="func-graf.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a><ul>
+<li class="chapter" data-level="6.1" data-path="iter-cflux.html"><a href="iter-cflux.html#funções-da-família-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a><ul>
+<li class="chapter" data-level="6.1.1" data-path="iter-cflux.html"><a href="iter-cflux.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="6.1.2" data-path="iter-cflux.html"><a href="iter-cflux.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="6.1.3" data-path="iter-cflux.html"><a href="iter-cflux.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="iter-cflux.html"><a href="iter-cflux.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="6.4.2" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="iter-cflux.html"><a href="iter-cflux.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a><ul>
+<li class="chapter" data-level="7.1" data-path="sumar-dados.html"><a href="sumar-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="7.2" data-path="sumar-dados.html"><a href="sumar-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="7.3" data-path="sumar-dados.html"><a href="sumar-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="sumar-dados.html"><a href="sumar-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="sumar-dados.html"><a href="sumar-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="sumar-dados.html"><a href="sumar-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="7.4.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="sumar-dados.html"><a href="sumar-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a><ul>
+<li class="chapter" data-level="8.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
+<li class="chapter" data-level="8.1.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
+<li class="chapter" data-level="8.1.4" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
+<li class="chapter" data-level="8.1.5" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
+<li class="chapter" data-level="8.1.6" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
+<li class="chapter" data-level="8.1.7" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
+<li class="chapter" data-level="8.1.8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
+<li class="chapter" data-level="8.1.9" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
+<li class="chapter" data-level="8.1.10" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
+<li class="chapter" data-level="8.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a><ul>
+<li class="chapter" data-level="9.1" data-path="amost-aleat.html"><a href="amost-aleat.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="9.2" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="amost-aleat.html"><a href="amost-aleat.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a><ul>
+<li class="chapter" data-level="10.1" data-path="extr-dados.html"><a href="extr-dados.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="extr-dados.html"><a href="extr-dados.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="10.1.2" data-path="extr-dados.html"><a href="extr-dados.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="10.1.3" data-path="extr-dados.html"><a href="extr-dados.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="extr-dados.html"><a href="extr-dados.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="extr-dados.html"><a href="extr-dados.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="10.2.2" data-path="extr-dados.html"><a href="extr-dados.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="10.2.3" data-path="extr-dados.html"><a href="extr-dados.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="10.2.4" data-path="extr-dados.html"><a href="extr-dados.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="10.2.5" data-path="extr-dados.html"><a href="extr-dados.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="extr-dados.html"><a href="extr-dados.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="extr-dados.html"><a href="extr-dados.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
+<li class="chapter" data-level="10.3.2" data-path="extr-dados.html"><a href="extr-dados.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="extr-dados.html"><a href="extr-dados.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
+<li class="chapter" data-level="10.4.2" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="referências-5.html"><a href="referências-5.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="chapter" data-level="11" data-path="mat-sup.html"><a href="mat-sup.html"><i class="fa fa-check"></i><b>11</b> Material suplementar</a><ul>
+<li class="chapter" data-level="11.1" data-path="mat-sup.html"><a href="mat-sup.html#base-r-vs.-tidyverse"><i class="fa fa-check"></i><b>11.1</b> Base R vs. Tidyverse</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="mat-sup.html"><a href="mat-sup.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>11.1.1</b> O que é o Tidyverse?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="mat-sup.html"><a href="mat-sup.html#usando-o-dplyr"><i class="fa fa-check"></i><b>11.1.2</b> Usando o <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.1.3" data-path="mat-sup.html"><a href="mat-sup.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>11.1.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a></li>
+<li class="chapter" data-level="11.1.4" data-path="mat-sup.html"><a href="mat-sup.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>11.1.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="11.1.5" data-path="mat-sup.html"><a href="mat-sup.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>11.1.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a></li>
+<li class="chapter" data-level="11.1.6" data-path="mat-sup.html"><a href="mat-sup.html#baser"><i class="fa fa-check"></i><b>11.1.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.1.7" data-path="mat-sup.html"><a href="mat-sup.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>11.1.7</b> Tidyverse, um resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="mat-sup.html"><a href="mat-sup.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r"><i class="fa fa-check"></i><b>11.2</b> Baixar e descomprimir um arquivo zip usando o R</a></li>
+<li class="chapter" data-level="11.3" data-path="mat-sup.html"><a href="mat-sup.html#aulas-em-vídeo"><i class="fa fa-check"></i><b>11.3</b> Aulas em vídeo</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="mat-sup.html"><a href="mat-sup.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>11.3.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="11.3.2" data-path="mat-sup.html"><a href="mat-sup.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>11.3.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="11.3.3" data-path="mat-sup.html"><a href="mat-sup.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>11.3.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="11.3.4" data-path="mat-sup.html"><a href="mat-sup.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>11.3.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="11.3.5" data-path="mat-sup.html"><a href="mat-sup.html#listas-1"><i class="fa fa-check"></i><b>11.3.5</b> Listas</a></li>
+<li class="chapter" data-level="11.3.6" data-path="mat-sup.html"><a href="mat-sup.html#criando-matrizes-1"><i class="fa fa-check"></i><b>11.3.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="11.3.7" data-path="mat-sup.html"><a href="mat-sup.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>11.3.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="11.3.8" data-path="mat-sup.html"><a href="mat-sup.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>11.3.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="11.3.9" data-path="mat-sup.html"><a href="mat-sup.html#condicionais-1"><i class="fa fa-check"></i><b>11.3.9</b> Condicionais</a></li>
+<li class="chapter" data-level="11.3.10" data-path="mat-sup.html"><a href="mat-sup.html#funções-da-família-apply-1"><i class="fa fa-check"></i><b>11.3.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="11.3.11" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>11.3.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="11.3.12" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>11.3.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="11.3.13" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>11.3.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="11.3.14" data-path="mat-sup.html"><a href="mat-sup.html#objetos-complexos"><i class="fa fa-check"></i><b>11.3.14</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="mat-sup.html"><a href="mat-sup.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>11.4</b> Para saber mais sobre o <strong>Tidyverse</strong>:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -365,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="objeto-iii---listas-e-objetos-complexos" class="section level1">
+<div id="lista-objcompl" class="section level1">
 <h1><span class="header-section-number">4</span> Objeto III - Listas e objetos complexos</h1>
 <div id="listas" class="section level2">
 <h2><span class="header-section-number">4.1</span> Listas</h2>
@@ -374,22 +395,22 @@ Listas permitem organizar diferentes classes de objetos numa estrutura hierárqu
 Uma mesma lista pode incluir elementos que são vetores de qualquer classe, matrizes, data.frames etc.
 Listas são criadas pela função <code>list()</code>.
 A indexação de listas é dado pelo operador <code>[[indice_ou_nome]]</code> ou <code>lista$</code> seguida do nome (se os elementos da lista tem nome; e.g. <code>lista$nomeDeUmElementoDaLista</code>).</p>
-<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb667-1"></a>?list <span class="co"># veja o help</span></span></code></pre></div>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb668-1"></a><span class="co"># um vetor simples</span></span>
-<span id="cb668-2"><a href="objeto-iii-listas-e-objetos-complexos.html#cb668-2"></a>v1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb668-3"><a href="objeto-iii-listas-e-objetos-complexos.html#cb668-3"></a><span class="kw">class</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="lista-objcompl.html#cb668-1"></a>?list <span class="co"># veja o help</span></span></code></pre></div>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="lista-objcompl.html#cb669-1"></a><span class="co"># um vetor simples</span></span>
+<span id="cb669-2"><a href="lista-objcompl.html#cb669-2"></a>v1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb669-3"><a href="lista-objcompl.html#cb669-3"></a><span class="kw">class</span>(v1)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb670-1"></a><span class="co"># outro vetor simples</span></span>
-<span id="cb670-2"><a href="objeto-iii-listas-e-objetos-complexos.html#cb670-2"></a>v2 &lt;-<span class="st"> </span>LETTERS</span>
-<span id="cb670-3"><a href="objeto-iii-listas-e-objetos-complexos.html#cb670-3"></a><span class="kw">class</span>(v2)</span></code></pre></div>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="lista-objcompl.html#cb671-1"></a><span class="co"># outro vetor simples</span></span>
+<span id="cb671-2"><a href="lista-objcompl.html#cb671-2"></a>v2 &lt;-<span class="st"> </span>LETTERS</span>
+<span id="cb671-3"><a href="lista-objcompl.html#cb671-3"></a><span class="kw">class</span>(v2)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb672-1"></a><span class="co"># uma matriz simples</span></span>
-<span id="cb672-2"><a href="objeto-iii-listas-e-objetos-complexos.html#cb672-2"></a>mm &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb672-3"><a href="objeto-iii-listas-e-objetos-complexos.html#cb672-3"></a><span class="kw">class</span>(mm)</span></code></pre></div>
+<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="lista-objcompl.html#cb673-1"></a><span class="co"># uma matriz simples</span></span>
+<span id="cb673-2"><a href="lista-objcompl.html#cb673-2"></a>mm &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb673-3"><a href="lista-objcompl.html#cb673-3"></a><span class="kw">class</span>(mm)</span></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb674-1"></a><span class="co"># um data.frame</span></span>
-<span id="cb674-2"><a href="objeto-iii-listas-e-objetos-complexos.html#cb674-2"></a>dd &lt;-<span class="st"> </span>iris</span>
-<span id="cb674-3"><a href="objeto-iii-listas-e-objetos-complexos.html#cb674-3"></a>dd</span></code></pre></div>
+<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="lista-objcompl.html#cb675-1"></a><span class="co"># um data.frame</span></span>
+<span id="cb675-2"><a href="lista-objcompl.html#cb675-2"></a>dd &lt;-<span class="st"> </span>iris</span>
+<span id="cb675-3"><a href="lista-objcompl.html#cb675-3"></a>dd</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2963,15 +2984,15 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb675-1"></a><span class="kw">class</span>(dd)</span></code></pre></div>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="lista-objcompl.html#cb676-1"></a><span class="kw">class</span>(dd)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb677-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb677-1"></a><span class="co"># criamos uma lista simples</span></span>
-<span id="cb677-2"><a href="objeto-iii-listas-e-objetos-complexos.html#cb677-2"></a>v1</span></code></pre></div>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="lista-objcompl.html#cb678-1"></a><span class="co"># criamos uma lista simples</span></span>
+<span id="cb678-2"><a href="lista-objcompl.html#cb678-2"></a>v1</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb679-1"></a>v2</span></code></pre></div>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="lista-objcompl.html#cb680-1"></a>v2</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
 ## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb681-1"></a>mm</span></code></pre></div>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="lista-objcompl.html#cb682-1"></a>mm</span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -3009,7 +3030,7 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb682-1"></a>dd</span></code></pre></div>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="lista-objcompl.html#cb683-1"></a>dd</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -5583,14 +5604,14 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb683-1"></a>ml &lt;-<span class="st"> </span><span class="kw">list</span>(v1, v2, mm, dd)</span>
-<span id="cb683-2"><a href="objeto-iii-listas-e-objetos-complexos.html#cb683-2"></a><span class="kw">class</span>(ml) <span class="co"># deve ser lista</span></span></code></pre></div>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="lista-objcompl.html#cb684-1"></a>ml &lt;-<span class="st"> </span><span class="kw">list</span>(v1, v2, mm, dd)</span>
+<span id="cb684-2"><a href="lista-objcompl.html#cb684-2"></a><span class="kw">class</span>(ml) <span class="co"># deve ser lista</span></span></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
-<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb685-1"></a><span class="kw">length</span>(ml) <span class="co"># número de elementos</span></span></code></pre></div>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="lista-objcompl.html#cb686-1"></a><span class="kw">length</span>(ml) <span class="co"># número de elementos</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb687-1"></a><span class="kw">names</span>(ml) <span class="co"># os elementos dessa lista não tem nome</span></span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="lista-objcompl.html#cb688-1"></a><span class="kw">names</span>(ml) <span class="co"># os elementos dessa lista não tem nome</span></span></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb689-1"></a><span class="kw">str</span>(ml) <span class="co"># veja a estrutura do objeto</span></span></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="lista-objcompl.html#cb690-1"></a><span class="kw">str</span>(ml) <span class="co"># veja a estrutura do objeto</span></span></code></pre></div>
 <pre><code>## List of 4
 ##  $ : int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ : chr [1:26] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; ...
@@ -5601,16 +5622,16 @@ virginica
 ##   ..$ Petal.Length: num [1:150] 1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
 ##   ..$ Petal.Width : num [1:150] 0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
 ##   ..$ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb691-1"></a>ml[[<span class="dv">1</span>]] <span class="co"># o elemento 1 é o vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="lista-objcompl.html#cb692-1"></a>ml[[<span class="dv">1</span>]] <span class="co"># o elemento 1 é o vetor</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb693-1"></a>ml[[<span class="dv">2</span>]] <span class="co"># o segundo também</span></span></code></pre></div>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="lista-objcompl.html#cb694-1"></a>ml[[<span class="dv">2</span>]] <span class="co"># o segundo também</span></span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
 ## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb695-1"></a>ml[[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]] <span class="co"># note que retorna apenas o segundo... nao funciona como vetor para pegar mais de um elemento, pois a estrutura é complexa</span></span></code></pre></div>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="lista-objcompl.html#cb696-1"></a>ml[[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]] <span class="co"># note que retorna apenas o segundo... nao funciona como vetor para pegar mais de um elemento, pois a estrutura é complexa</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb697-1"></a>ml[[<span class="dv">1</span>]][<span class="dv">3</span>] <span class="co"># terceiro elemento do vetor que está no elemento 1 da lista</span></span></code></pre></div>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="lista-objcompl.html#cb698-1"></a>ml[[<span class="dv">1</span>]][<span class="dv">3</span>] <span class="co"># terceiro elemento do vetor que está no elemento 1 da lista</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb699-1"></a>ml[[<span class="dv">3</span>]] <span class="co"># é uma matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="lista-objcompl.html#cb700-1"></a>ml[[<span class="dv">3</span>]] <span class="co"># é uma matrix</span></span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -5648,9 +5669,9 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb700-1"></a>ml[[<span class="dv">3</span>]][<span class="dv">1</span>, <span class="dv">3</span>] <span class="co"># valor da primeira linha e da terceira coluna da matrix que o objeto 2 da lista</span></span></code></pre></div>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="lista-objcompl.html#cb701-1"></a>ml[[<span class="dv">3</span>]][<span class="dv">1</span>, <span class="dv">3</span>] <span class="co"># valor da primeira linha e da terceira coluna da matrix que o objeto 2 da lista</span></span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb702-1"></a>ml[[<span class="dv">4</span>]] <span class="co"># é uma data.frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="lista-objcompl.html#cb703-1"></a>ml[[<span class="dv">4</span>]] <span class="co"># é uma data.frame</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -8224,7 +8245,7 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb703-1"></a>ml[[<span class="dv">4</span>]][, <span class="dv">1</span>] <span class="co"># a primeira coluna deste data.frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="lista-objcompl.html#cb704-1"></a>ml[[<span class="dv">4</span>]][, <span class="dv">1</span>] <span class="co"># a primeira coluna deste data.frame</span></span></code></pre></div>
 <pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
 ##  [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
 ##  [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
@@ -8234,7 +8255,7 @@ virginica
 ## [109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
 ## [127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
 ## [145] 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
-<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb705-1"></a>ml[[<span class="dv">4</span>]]<span class="op">$</span>Sepal.Length <span class="co"># mesma coisa</span></span></code></pre></div>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="lista-objcompl.html#cb706-1"></a>ml[[<span class="dv">4</span>]]<span class="op">$</span>Sepal.Length <span class="co"># mesma coisa</span></span></code></pre></div>
 <pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
 ##  [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
 ##  [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
@@ -8244,20 +8265,20 @@ virginica
 ## [109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
 ## [127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
 ## [145] 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
-<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb707-1"></a><span class="co"># uma lista pode conter listas</span></span>
-<span id="cb707-2"><a href="objeto-iii-listas-e-objetos-complexos.html#cb707-2"></a>mll &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">list</span>(v1, v2), mm, dd) <span class="co"># o primeiro elemento virou uma lista com dois vetores</span></span>
-<span id="cb707-3"><a href="objeto-iii-listas-e-objetos-complexos.html#cb707-3"></a><span class="kw">class</span>(mll[[<span class="dv">1</span>]]) <span class="co"># é uma lista agora</span></span></code></pre></div>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="lista-objcompl.html#cb708-1"></a><span class="co"># uma lista pode conter listas</span></span>
+<span id="cb708-2"><a href="lista-objcompl.html#cb708-2"></a>mll &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="kw">list</span>(v1, v2), mm, dd) <span class="co"># o primeiro elemento virou uma lista com dois vetores</span></span>
+<span id="cb708-3"><a href="lista-objcompl.html#cb708-3"></a><span class="kw">class</span>(mll[[<span class="dv">1</span>]]) <span class="co"># é uma lista agora</span></span></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
-<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb709-1"></a>mll[[<span class="dv">1</span>]][[<span class="dv">1</span>]] <span class="co"># a sublista 1 do elemento 1 da lista</span></span></code></pre></div>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="lista-objcompl.html#cb710-1"></a>mll[[<span class="dv">1</span>]][[<span class="dv">1</span>]] <span class="co"># a sublista 1 do elemento 1 da lista</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb711-1"></a>mll[[<span class="dv">1</span>]][[<span class="dv">2</span>]] <span class="co"># a sublista 2 do elemento 1 da lista</span></span></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="lista-objcompl.html#cb712-1"></a>mll[[<span class="dv">1</span>]][[<span class="dv">2</span>]] <span class="co"># a sublista 2 do elemento 1 da lista</span></span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
 ## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb713-1"></a><span class="co"># criamos uma lista com nomes</span></span>
-<span id="cb713-2"><a href="objeto-iii-listas-e-objetos-complexos.html#cb713-2"></a>ml &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">VETOR1 =</span> v1, <span class="dt">MATRIZ =</span> mm, <span class="dt">TABELA =</span> dd)</span>
-<span id="cb713-3"><a href="objeto-iii-listas-e-objetos-complexos.html#cb713-3"></a><span class="kw">class</span>(ml)</span></code></pre></div>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="lista-objcompl.html#cb714-1"></a><span class="co"># criamos uma lista com nomes</span></span>
+<span id="cb714-2"><a href="lista-objcompl.html#cb714-2"></a>ml &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">VETOR1 =</span> v1, <span class="dt">MATRIZ =</span> mm, <span class="dt">TABELA =</span> dd)</span>
+<span id="cb714-3"><a href="lista-objcompl.html#cb714-3"></a><span class="kw">class</span>(ml)</span></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
-<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb715-1"></a><span class="kw">str</span>(ml)</span></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="lista-objcompl.html#cb716-1"></a><span class="kw">str</span>(ml)</span></code></pre></div>
 <pre><code>## List of 3
 ##  $ VETOR1: int [1:10] 1 2 3 4 5 6 7 8 9 10
 ##  $ MATRIZ: int [1:3, 1:3] 1 2 3 4 5 6 7 8 9
@@ -8267,13 +8288,13 @@ virginica
 ##   ..$ Petal.Length: num [1:150] 1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
 ##   ..$ Petal.Width : num [1:150] 0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
 ##   ..$ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb717-1"></a><span class="kw">names</span>(ml) <span class="co"># nome dos elementos</span></span></code></pre></div>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="lista-objcompl.html#cb718-1"></a><span class="kw">names</span>(ml) <span class="co"># nome dos elementos</span></span></code></pre></div>
 <pre><code>## [1] &quot;VETOR1&quot; &quot;MATRIZ&quot; &quot;TABELA&quot;</code></pre>
-<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb719-1"></a>ml[[<span class="st">&quot;VETOR1&quot;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="lista-objcompl.html#cb720-1"></a>ml[[<span class="st">&quot;VETOR1&quot;</span>]]</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb721-1"></a>ml<span class="op">$</span>VETOR1 <span class="co"># ou assim, da mesma forma que uma coluna de um data.frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="lista-objcompl.html#cb722-1"></a>ml<span class="op">$</span>VETOR1 <span class="co"># ou assim, da mesma forma que uma coluna de um data.frame</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb723-1"></a>ml[[<span class="st">&quot;TABELA&quot;</span>]][, <span class="st">&quot;Sepal.Length&quot;</span>] <span class="co"># coluna do data.frame em TABELA</span></span></code></pre></div>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="lista-objcompl.html#cb724-1"></a>ml[[<span class="st">&quot;TABELA&quot;</span>]][, <span class="st">&quot;Sepal.Length&quot;</span>] <span class="co"># coluna do data.frame em TABELA</span></span></code></pre></div>
 <pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
 ##  [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
 ##  [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
@@ -8283,7 +8304,7 @@ virginica
 ## [109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
 ## [127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
 ## [145] 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
-<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb725-1"></a>ml[[<span class="st">&quot;TABELA&quot;</span>]]<span class="op">$</span>Sepal.Length <span class="co"># idem</span></span></code></pre></div>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="lista-objcompl.html#cb726-1"></a>ml[[<span class="st">&quot;TABELA&quot;</span>]]<span class="op">$</span>Sepal.Length <span class="co"># idem</span></span></code></pre></div>
 <pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
 ##  [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
 ##  [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
@@ -8293,7 +8314,7 @@ virginica
 ## [109] 6.7 7.2 6.5 6.4 6.8 5.7 5.8 6.4 6.5 7.7 7.7 6.0 6.9 5.6 7.7 6.3 6.7 7.2
 ## [127] 6.2 6.1 6.4 7.2 7.4 7.9 6.4 6.3 6.1 7.7 6.3 6.4 6.0 6.9 6.7 6.9 5.8 6.8
 ## [145] 6.7 6.7 6.3 6.5 6.2 5.9</code></pre>
-<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb727-1"></a>ml<span class="op">$</span>TABELA<span class="op">$</span>Sepal.Length <span class="co"># idem também</span></span></code></pre></div>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="lista-objcompl.html#cb728-1"></a>ml<span class="op">$</span>TABELA<span class="op">$</span>Sepal.Length <span class="co"># idem também</span></span></code></pre></div>
 <pre><code>##   [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9 5.4 4.8 4.8 4.3 5.8 5.7 5.4 5.1
 ##  [19] 5.7 5.1 5.4 5.1 4.6 5.1 4.8 5.0 5.0 5.2 5.2 4.7 4.8 5.4 5.2 5.5 4.9 5.0
 ##  [37] 5.5 4.9 4.4 5.1 5.0 4.5 4.4 5.0 5.1 4.8 5.1 4.6 5.3 5.0 7.0 6.4 6.9 5.5
@@ -8314,76 +8335,73 @@ Abaixo mostramos um exemplo através de um mapa dos municípios brasileiros. Par
 Baixe este arquivo comprimido que contem os arquivos de um único <em>shapefile</em>.
 Descomprima-o na sua pasta de trabalho e você perceberá que haverá vários arquivos associados.
 Para trabalhar com esses arquivos, vamos utilizar os pacotes <code>maps</code> <span class="citation">(Brownrigg <a href="#ref-R-maps" role="doc-biblioref">2018</a>)</span> e <code>rgdal</code> <span class="citation">(<span class="citeproc-not-found" data-reference-id="R-rgdal"><strong>???</strong></span>)</span>.</p>
-<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-1"></a><span class="co"># vamos precisar de dois pacotes para dados espaciais</span></span>
-<span id="cb729-2"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-2"></a><span class="co"># se não tiver instalado, instale com as dependencias</span></span>
-<span id="cb729-3"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-3"></a><span class="co"># install.packages(c(&quot;maps&quot;, &quot;rgdal&quot;), dependencies = TRUE)</span></span>
-<span id="cb729-4"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-4"></a><span class="kw">library</span>(maps)</span>
-<span id="cb729-5"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-5"></a><span class="kw">library</span>(rgdal)</span>
-<span id="cb729-6"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-6"></a></span>
-<span id="cb729-7"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-7"></a><span class="co"># agora mudem o diretorio para pasta que contem os arquivos shape</span></span>
-<span id="cb729-8"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-8"></a><span class="co"># lembre que voces podem tanto utilizar a funcao `setwd()` quanto clicar em Ferramentas/Tools na barra de opcoes do RStudio para mudar o diretorio de trabalho</span></span>
-<span id="cb729-9"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-9"></a><span class="kw">dir</span>(<span class="dt">pattern =</span> <span class="st">&quot;shp&quot;</span>) <span class="co"># lista arquivos shape na pasta</span></span>
-<span id="cb729-10"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-10"></a><span class="co"># veja o help da função para ler shapefiles</span></span>
-<span id="cb729-11"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-11"></a>?readOGR</span>
-<span id="cb729-12"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-12"></a></span>
-<span id="cb729-13"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-13"></a><span class="co"># le o shape file com objeto espacial no R</span></span>
-<span id="cb729-14"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-14"></a>mp &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="dt">dsn =</span> <span class="st">&quot;MUNICIPIOS.shp&quot;</span>, <span class="dt">layer =</span> <span class="st">&quot;MUNICIPIOS&quot;</span>, <span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
-<span id="cb729-15"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-15"></a><span class="kw">plot</span>(mp) <span class="co"># veja o mapa</span></span>
-<span id="cb729-16"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-16"></a></span>
-<span id="cb729-17"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-17"></a><span class="kw">class</span>(mp) <span class="co"># é um objeto de classe SpatialPolygonsDataFrame</span></span>
-<span id="cb729-18"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-18"></a><span class="kw">str</span>(mp) <span class="co"># a estrutura é complexa</span></span>
-<span id="cb729-19"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-19"></a></span>
-<span id="cb729-20"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-20"></a><span class="co"># tem elementos definidos por $, que interpretado diretamente, é corresponde a um data.frame que é o dado associado à cada polígono no arquivo (attribute table do shapefile).</span></span>
-<span id="cb729-21"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-21"></a><span class="kw">names</span>(mp)</span>
-<span id="cb729-22"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-22"></a>mp<span class="op">$</span>NOME_MUNI</span>
-<span id="cb729-23"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-23"></a><span class="kw">dim</span>(mp)</span>
-<span id="cb729-24"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-24"></a></span>
-<span id="cb729-25"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-25"></a><span class="co"># tem elementos definidos por @</span></span>
-<span id="cb729-26"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-26"></a><span class="co"># ver o help da função</span></span>
-<span id="cb729-27"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-27"></a><span class="co"># ?slot</span></span>
-<span id="cb729-28"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-28"></a><span class="co"># slotNames(mp) #lista quais são esses elementos</span></span>
-<span id="cb729-29"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-29"></a></span>
-<span id="cb729-30"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-30"></a></span>
-<span id="cb729-31"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-31"></a>mp<span class="op">@</span>data <span class="co"># é o mesmo data.frame que é automaticamente reconhecido na expressão acima</span></span>
-<span id="cb729-32"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-32"></a><span class="kw">dim</span>(mp) <span class="op">==</span><span class="st"> </span><span class="kw">dim</span>(mp<span class="op">@</span>data)</span>
-<span id="cb729-33"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-33"></a><span class="kw">names</span>(mp) <span class="op">==</span><span class="st"> </span><span class="kw">names</span>(mp<span class="op">@</span>data)</span>
-<span id="cb729-34"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-34"></a></span>
-<span id="cb729-35"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-35"></a><span class="co"># area do mapa dos municipios (os limites em latitude e longitude da área)</span></span>
-<span id="cb729-36"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-36"></a>mp<span class="op">@</span>bbox</span>
-<span id="cb729-37"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-37"></a><span class="kw">plot</span>(mp<span class="op">@</span>bbox)</span>
-<span id="cb729-38"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-38"></a><span class="co"># adicionamos o mapa mundi sobre isso</span></span>
-<span id="cb729-39"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-39"></a><span class="kw">map</span>(<span class="dt">add =</span> T)</span>
-<span id="cb729-40"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-40"></a></span>
-<span id="cb729-41"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-41"></a><span class="co"># mp@polygons define cada poligono individualmente numa lista</span></span>
-<span id="cb729-42"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-42"></a><span class="kw">class</span>(mp<span class="op">@</span>polygons)</span>
-<span id="cb729-43"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-43"></a>mp<span class="op">@</span>polygons[[<span class="dv">1</span>]] <span class="co"># um elemento qualquer</span></span>
-<span id="cb729-44"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-44"></a><span class="kw">class</span>(mp<span class="op">@</span>polygons[[<span class="dv">1</span>]])</span>
-<span id="cb729-45"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-45"></a><span class="kw">str</span>(mp<span class="op">@</span>polygons[[<span class="dv">1</span>]])</span>
-<span id="cb729-46"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-46"></a></span>
-<span id="cb729-47"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-47"></a><span class="co"># veja que este objeto tem vários elementos definidos por @</span></span>
-<span id="cb729-48"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-48"></a><span class="co"># slotNames(mp@polygons[[1]]) #slots desse objeto</span></span>
-<span id="cb729-49"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-49"></a>mp<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>labpt <span class="co"># o centroid do polígono 1 que é o municipio de:</span></span>
-<span id="cb729-50"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-50"></a>mp<span class="op">@</span>data<span class="op">$</span>NOME_MUNI[<span class="dv">1</span>] <span class="co"># Chuí</span></span>
-<span id="cb729-51"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-51"></a></span>
-<span id="cb729-52"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-52"></a><span class="co"># qual elemento é manaus?</span></span>
-<span id="cb729-53"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-53"></a>gp &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;Manaus&quot;</span>, mp<span class="op">@</span>data<span class="op">$</span>NOME_MUNI)</span>
-<span id="cb729-54"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-54"></a><span class="co"># pega o polígono de manaus</span></span>
-<span id="cb729-55"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-55"></a>manaus &lt;-<span class="st"> </span>mp<span class="op">@</span>polygons[[gp]]</span>
-<span id="cb729-56"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-56"></a><span class="kw">class</span>(manaus)</span>
-<span id="cb729-57"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-57"></a><span class="kw">str</span>(manaus)</span>
-<span id="cb729-58"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-58"></a></span>
-<span id="cb729-59"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-59"></a><span class="co"># plota manaus</span></span>
-<span id="cb729-60"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-60"></a><span class="co"># dev.off() #fecha dispositivos gráficos podes precisar disso</span></span>
-<span id="cb729-61"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-61"></a><span class="kw">map</span>(<span class="dt">xlim =</span> mp<span class="op">@</span>bbox[<span class="st">&quot;x&quot;</span>, ], <span class="dt">ylim =</span> mp<span class="op">@</span>bbox[<span class="st">&quot;y&quot;</span>, ])</span>
-<span id="cb729-62"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-62"></a><span class="kw">polygon</span>(manaus<span class="op">@</span>Polygons[[<span class="dv">1</span>]]<span class="op">@</span>coords, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb729-63"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-63"></a><span class="co"># centroides do poligono de manaus</span></span>
-<span id="cb729-64"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-64"></a>ctro &lt;-<span class="st"> </span>manaus<span class="op">@</span>Polygons[[<span class="dv">1</span>]]<span class="op">@</span>labpt</span>
-<span id="cb729-65"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-65"></a>ctro[<span class="dv">2</span>] &lt;-<span class="st"> </span>ctro[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span><span class="fl">1.5</span> <span class="co"># adiciona 1.5 graus na latitude para não plotar sobre o poligono do municipio</span></span>
-<span id="cb729-66"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-66"></a><span class="co"># plota no nome</span></span>
-<span id="cb729-67"><a href="objeto-iii-listas-e-objetos-complexos.html#cb729-67"></a><span class="kw">text</span>(<span class="dt">x =</span> ctro[<span class="dv">1</span>], <span class="dt">y =</span> ctro[<span class="dv">2</span>], <span class="dt">labels =</span> <span class="st">&quot;Manaus&quot;</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>)</span></code></pre></div>
-</div>
-<div id="referências-2" class="section level2">
-<h2><span class="header-section-number">4.3</span> Referências</h2>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="lista-objcompl.html#cb730-1"></a><span class="co"># vamos precisar de dois pacotes para dados espaciais</span></span>
+<span id="cb730-2"><a href="lista-objcompl.html#cb730-2"></a><span class="co"># se não tiver instalado, instale com as dependencias</span></span>
+<span id="cb730-3"><a href="lista-objcompl.html#cb730-3"></a><span class="co"># install.packages(c(&quot;maps&quot;, &quot;rgdal&quot;), dependencies = TRUE)</span></span>
+<span id="cb730-4"><a href="lista-objcompl.html#cb730-4"></a><span class="kw">library</span>(maps)</span>
+<span id="cb730-5"><a href="lista-objcompl.html#cb730-5"></a><span class="kw">library</span>(rgdal)</span>
+<span id="cb730-6"><a href="lista-objcompl.html#cb730-6"></a></span>
+<span id="cb730-7"><a href="lista-objcompl.html#cb730-7"></a><span class="co"># agora mudem o diretorio para pasta que contem os arquivos shape</span></span>
+<span id="cb730-8"><a href="lista-objcompl.html#cb730-8"></a><span class="co"># lembre que voces podem tanto utilizar a funcao `setwd()` quanto clicar em Ferramentas/Tools na barra de opcoes do RStudio para mudar o diretorio de trabalho</span></span>
+<span id="cb730-9"><a href="lista-objcompl.html#cb730-9"></a><span class="kw">dir</span>(<span class="dt">pattern =</span> <span class="st">&quot;shp&quot;</span>) <span class="co"># lista arquivos shape na pasta</span></span>
+<span id="cb730-10"><a href="lista-objcompl.html#cb730-10"></a><span class="co"># veja o help da função para ler shapefiles</span></span>
+<span id="cb730-11"><a href="lista-objcompl.html#cb730-11"></a>?readOGR</span>
+<span id="cb730-12"><a href="lista-objcompl.html#cb730-12"></a></span>
+<span id="cb730-13"><a href="lista-objcompl.html#cb730-13"></a><span class="co"># le o shape file com objeto espacial no R</span></span>
+<span id="cb730-14"><a href="lista-objcompl.html#cb730-14"></a>mp &lt;-<span class="st"> </span><span class="kw">readOGR</span>(<span class="dt">dsn =</span> <span class="st">&quot;MUNICIPIOS.shp&quot;</span>, <span class="dt">layer =</span> <span class="st">&quot;MUNICIPIOS&quot;</span>, <span class="dt">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb730-15"><a href="lista-objcompl.html#cb730-15"></a><span class="kw">plot</span>(mp) <span class="co"># veja o mapa</span></span>
+<span id="cb730-16"><a href="lista-objcompl.html#cb730-16"></a></span>
+<span id="cb730-17"><a href="lista-objcompl.html#cb730-17"></a><span class="kw">class</span>(mp) <span class="co"># é um objeto de classe SpatialPolygonsDataFrame</span></span>
+<span id="cb730-18"><a href="lista-objcompl.html#cb730-18"></a><span class="kw">str</span>(mp) <span class="co"># a estrutura é complexa</span></span>
+<span id="cb730-19"><a href="lista-objcompl.html#cb730-19"></a></span>
+<span id="cb730-20"><a href="lista-objcompl.html#cb730-20"></a><span class="co"># tem elementos definidos por $, que interpretado diretamente, é corresponde a um data.frame que é o dado associado à cada polígono no arquivo (attribute table do shapefile).</span></span>
+<span id="cb730-21"><a href="lista-objcompl.html#cb730-21"></a><span class="kw">names</span>(mp)</span>
+<span id="cb730-22"><a href="lista-objcompl.html#cb730-22"></a>mp<span class="op">$</span>NOME_MUNI</span>
+<span id="cb730-23"><a href="lista-objcompl.html#cb730-23"></a><span class="kw">dim</span>(mp)</span>
+<span id="cb730-24"><a href="lista-objcompl.html#cb730-24"></a></span>
+<span id="cb730-25"><a href="lista-objcompl.html#cb730-25"></a><span class="co"># tem elementos definidos por @</span></span>
+<span id="cb730-26"><a href="lista-objcompl.html#cb730-26"></a><span class="co"># ver o help da função</span></span>
+<span id="cb730-27"><a href="lista-objcompl.html#cb730-27"></a><span class="co"># ?slot</span></span>
+<span id="cb730-28"><a href="lista-objcompl.html#cb730-28"></a><span class="co"># slotNames(mp) #lista quais são esses elementos</span></span>
+<span id="cb730-29"><a href="lista-objcompl.html#cb730-29"></a></span>
+<span id="cb730-30"><a href="lista-objcompl.html#cb730-30"></a></span>
+<span id="cb730-31"><a href="lista-objcompl.html#cb730-31"></a>mp<span class="op">@</span>data <span class="co"># é o mesmo data.frame que é automaticamente reconhecido na expressão acima</span></span>
+<span id="cb730-32"><a href="lista-objcompl.html#cb730-32"></a><span class="kw">dim</span>(mp) <span class="op">==</span><span class="st"> </span><span class="kw">dim</span>(mp<span class="op">@</span>data)</span>
+<span id="cb730-33"><a href="lista-objcompl.html#cb730-33"></a><span class="kw">names</span>(mp) <span class="op">==</span><span class="st"> </span><span class="kw">names</span>(mp<span class="op">@</span>data)</span>
+<span id="cb730-34"><a href="lista-objcompl.html#cb730-34"></a></span>
+<span id="cb730-35"><a href="lista-objcompl.html#cb730-35"></a><span class="co"># area do mapa dos municipios (os limites em latitude e longitude da área)</span></span>
+<span id="cb730-36"><a href="lista-objcompl.html#cb730-36"></a>mp<span class="op">@</span>bbox</span>
+<span id="cb730-37"><a href="lista-objcompl.html#cb730-37"></a><span class="kw">plot</span>(mp<span class="op">@</span>bbox)</span>
+<span id="cb730-38"><a href="lista-objcompl.html#cb730-38"></a><span class="co"># adicionamos o mapa mundi sobre isso</span></span>
+<span id="cb730-39"><a href="lista-objcompl.html#cb730-39"></a><span class="kw">map</span>(<span class="dt">add =</span> T)</span>
+<span id="cb730-40"><a href="lista-objcompl.html#cb730-40"></a></span>
+<span id="cb730-41"><a href="lista-objcompl.html#cb730-41"></a><span class="co"># mp@polygons define cada poligono individualmente numa lista</span></span>
+<span id="cb730-42"><a href="lista-objcompl.html#cb730-42"></a><span class="kw">class</span>(mp<span class="op">@</span>polygons)</span>
+<span id="cb730-43"><a href="lista-objcompl.html#cb730-43"></a>mp<span class="op">@</span>polygons[[<span class="dv">1</span>]] <span class="co"># um elemento qualquer</span></span>
+<span id="cb730-44"><a href="lista-objcompl.html#cb730-44"></a><span class="kw">class</span>(mp<span class="op">@</span>polygons[[<span class="dv">1</span>]])</span>
+<span id="cb730-45"><a href="lista-objcompl.html#cb730-45"></a><span class="kw">str</span>(mp<span class="op">@</span>polygons[[<span class="dv">1</span>]])</span>
+<span id="cb730-46"><a href="lista-objcompl.html#cb730-46"></a></span>
+<span id="cb730-47"><a href="lista-objcompl.html#cb730-47"></a><span class="co"># veja que este objeto tem vários elementos definidos por @</span></span>
+<span id="cb730-48"><a href="lista-objcompl.html#cb730-48"></a><span class="co"># slotNames(mp@polygons[[1]]) #slots desse objeto</span></span>
+<span id="cb730-49"><a href="lista-objcompl.html#cb730-49"></a>mp<span class="op">@</span>polygons[[<span class="dv">1</span>]]<span class="op">@</span>labpt <span class="co"># o centroid do polígono 1 que é o municipio de:</span></span>
+<span id="cb730-50"><a href="lista-objcompl.html#cb730-50"></a>mp<span class="op">@</span>data<span class="op">$</span>NOME_MUNI[<span class="dv">1</span>] <span class="co"># Chuí</span></span>
+<span id="cb730-51"><a href="lista-objcompl.html#cb730-51"></a></span>
+<span id="cb730-52"><a href="lista-objcompl.html#cb730-52"></a><span class="co"># qual elemento é manaus?</span></span>
+<span id="cb730-53"><a href="lista-objcompl.html#cb730-53"></a>gp &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;Manaus&quot;</span>, mp<span class="op">@</span>data<span class="op">$</span>NOME_MUNI)</span>
+<span id="cb730-54"><a href="lista-objcompl.html#cb730-54"></a><span class="co"># pega o polígono de manaus</span></span>
+<span id="cb730-55"><a href="lista-objcompl.html#cb730-55"></a>manaus &lt;-<span class="st"> </span>mp<span class="op">@</span>polygons[[gp]]</span>
+<span id="cb730-56"><a href="lista-objcompl.html#cb730-56"></a><span class="kw">class</span>(manaus)</span>
+<span id="cb730-57"><a href="lista-objcompl.html#cb730-57"></a><span class="kw">str</span>(manaus)</span>
+<span id="cb730-58"><a href="lista-objcompl.html#cb730-58"></a></span>
+<span id="cb730-59"><a href="lista-objcompl.html#cb730-59"></a><span class="co"># plota manaus</span></span>
+<span id="cb730-60"><a href="lista-objcompl.html#cb730-60"></a><span class="co"># dev.off() #fecha dispositivos gráficos podes precisar disso</span></span>
+<span id="cb730-61"><a href="lista-objcompl.html#cb730-61"></a><span class="kw">map</span>(<span class="dt">xlim =</span> mp<span class="op">@</span>bbox[<span class="st">&quot;x&quot;</span>, ], <span class="dt">ylim =</span> mp<span class="op">@</span>bbox[<span class="st">&quot;y&quot;</span>, ])</span>
+<span id="cb730-62"><a href="lista-objcompl.html#cb730-62"></a><span class="kw">polygon</span>(manaus<span class="op">@</span>Polygons[[<span class="dv">1</span>]]<span class="op">@</span>coords, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb730-63"><a href="lista-objcompl.html#cb730-63"></a><span class="co"># centroides do poligono de manaus</span></span>
+<span id="cb730-64"><a href="lista-objcompl.html#cb730-64"></a>ctro &lt;-<span class="st"> </span>manaus<span class="op">@</span>Polygons[[<span class="dv">1</span>]]<span class="op">@</span>labpt</span>
+<span id="cb730-65"><a href="lista-objcompl.html#cb730-65"></a>ctro[<span class="dv">2</span>] &lt;-<span class="st"> </span>ctro[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span><span class="fl">1.5</span> <span class="co"># adiciona 1.5 graus na latitude para não plotar sobre o poligono do municipio</span></span>
+<span id="cb730-66"><a href="lista-objcompl.html#cb730-66"></a><span class="co"># plota no nome</span></span>
+<span id="cb730-67"><a href="lista-objcompl.html#cb730-67"></a><span class="kw">text</span>(<span class="dt">x =</span> ctro[<span class="dv">1</span>], <span class="dt">y =</span> ctro[<span class="dv">2</span>], <span class="dt">labels =</span> <span class="st">&quot;Manaus&quot;</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -8398,8 +8416,8 @@ Para trabalhar com esses arquivos, vamos utilizar os pacotes <code>maps</code> <
           </div>
         </div>
       </div>
-<a href="objeto-ii-matrizes-e-data-frames.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="funções-gráficas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="mat-dframe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="func-graf.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -8430,7 +8448,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/blob/main/04-listas_objComplexos.Rmd",
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/04-listas_objComplexos.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -8443,7 +8461,8 @@ gitbook.start({
 },
 "download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "subsection",
+"scroll_highlight": true
 }
 });
 });

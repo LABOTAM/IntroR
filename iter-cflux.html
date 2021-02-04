@@ -1,0 +1,2732 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Iteração e controle de fluxo | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Iteração e controle de fluxo | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/LABOTAM.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Iteração e controle de fluxo | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini (INPA)" />
+<meta name="author" content="Ricardo de Oliveira Perdiz - ricardoperdiz@yahoo.com" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="func-graf.html"/>
+<link rel="next" href="sumar-dados.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">Disciplina BOT89 - PPGBOT INPA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estrutura-do-livro"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-os-autores"><i class="fa fa-check"></i>Sobre os autores</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pré-requisitos"><i class="fa fa-check"></i>Pré-requisitos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#ajuda-no-r"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.7</b> O R como calculadora</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#operadores"><i class="fa fa-check"></i><b>1.7.1</b> Operadores</a></li>
+<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.7.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.7.3</b> Funções e constantes matemáticas</a></li>
+<li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#valor-na"><i class="fa fa-check"></i><b>1.7.4</b> NA e valores afins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a><ul>
+<li class="chapter" data-level="2.1" data-path="vetores.html"><a href="vetores.html#vetores-e-operações-vetoriais-i"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="vetores.html"><a href="vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores.html"><a href="vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="vetores.html"><a href="vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="2.3" data-path="vetores.html"><a href="vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
+<li class="chapter" data-level="2.4" data-path="vetores.html"><a href="vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="2.5" data-path="vetores.html"><a href="vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="vetores.html"><a href="vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="2.5.2" data-path="vetores.html"><a href="vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="vetores.html"><a href="vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="vetores.html"><a href="vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetores.html"><a href="vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetores.html"><a href="vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="vetores.html"><a href="vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.1.1" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="3.1.2" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="mat-dframe.html"><a href="mat-dframe.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mat-dframe.html"><a href="mat-dframe.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="mat-dframe.html"><a href="mat-dframe.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importanto e exportando dados no R</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#importando-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="3.4.4" data-path="mat-dframe.html"><a href="mat-dframe.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mat-dframe.html"><a href="mat-dframe.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a><ul>
+<li class="chapter" data-level="4.1" data-path="lista-objcompl.html"><a href="lista-objcompl.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
+<li class="chapter" data-level="4.2" data-path="lista-objcompl.html"><a href="lista-objcompl.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a><ul>
+<li class="chapter" data-level="5.1" data-path="func-graf.html"><a href="func-graf.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="func-graf.html"><a href="func-graf.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="5.1.3" data-path="func-graf.html"><a href="func-graf.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="5.1.4" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="func-graf.html"><a href="func-graf.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
+<li class="chapter" data-level="5.1.6" data-path="func-graf.html"><a href="func-graf.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="func-graf.html"><a href="func-graf.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
+<li class="chapter" data-level="5.2.2" data-path="func-graf.html"><a href="func-graf.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
+<li class="chapter" data-level="5.2.3" data-path="func-graf.html"><a href="func-graf.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
+<li class="chapter" data-level="5.2.4" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="func-graf.html"><a href="func-graf.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="func-graf.html"><a href="func-graf.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="func-graf.html"><a href="func-graf.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="5.3.4" data-path="func-graf.html"><a href="func-graf.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="func-graf.html"><a href="func-graf.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="func-graf.html"><a href="func-graf.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="func-graf.html"><a href="func-graf.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="5.4.2" data-path="func-graf.html"><a href="func-graf.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="func-graf.html"><a href="func-graf.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="func-graf.html"><a href="func-graf.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="5.4.5" data-path="func-graf.html"><a href="func-graf.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="5.4.6" data-path="func-graf.html"><a href="func-graf.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="func-graf.html"><a href="func-graf.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="5.4.8" data-path="func-graf.html"><a href="func-graf.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="func-graf.html"><a href="func-graf.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="func-graf.html"><a href="func-graf.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="func-graf.html"><a href="func-graf.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="func-graf.html"><a href="func-graf.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="func-graf.html"><a href="func-graf.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="func-graf.html"><a href="func-graf.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="5.5.6" data-path="func-graf.html"><a href="func-graf.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="5.5.7" data-path="func-graf.html"><a href="func-graf.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="func-graf.html"><a href="func-graf.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="func-graf.html"><a href="func-graf.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="func-graf.html"><a href="func-graf.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="func-graf.html"><a href="func-graf.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a><ul>
+<li class="chapter" data-level="6.1" data-path="iter-cflux.html"><a href="iter-cflux.html#funções-da-família-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a><ul>
+<li class="chapter" data-level="6.1.1" data-path="iter-cflux.html"><a href="iter-cflux.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="6.1.2" data-path="iter-cflux.html"><a href="iter-cflux.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="6.1.3" data-path="iter-cflux.html"><a href="iter-cflux.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="iter-cflux.html"><a href="iter-cflux.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="6.4.2" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="iter-cflux.html"><a href="iter-cflux.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a><ul>
+<li class="chapter" data-level="7.1" data-path="sumar-dados.html"><a href="sumar-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="7.2" data-path="sumar-dados.html"><a href="sumar-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="7.3" data-path="sumar-dados.html"><a href="sumar-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="sumar-dados.html"><a href="sumar-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="sumar-dados.html"><a href="sumar-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="sumar-dados.html"><a href="sumar-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="7.4.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="sumar-dados.html"><a href="sumar-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a><ul>
+<li class="chapter" data-level="8.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
+<li class="chapter" data-level="8.1.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
+<li class="chapter" data-level="8.1.4" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
+<li class="chapter" data-level="8.1.5" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
+<li class="chapter" data-level="8.1.6" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
+<li class="chapter" data-level="8.1.7" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
+<li class="chapter" data-level="8.1.8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
+<li class="chapter" data-level="8.1.9" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
+<li class="chapter" data-level="8.1.10" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
+<li class="chapter" data-level="8.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a><ul>
+<li class="chapter" data-level="9.1" data-path="amost-aleat.html"><a href="amost-aleat.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="9.2" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="amost-aleat.html"><a href="amost-aleat.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a><ul>
+<li class="chapter" data-level="10.1" data-path="extr-dados.html"><a href="extr-dados.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="extr-dados.html"><a href="extr-dados.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="10.1.2" data-path="extr-dados.html"><a href="extr-dados.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="10.1.3" data-path="extr-dados.html"><a href="extr-dados.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="extr-dados.html"><a href="extr-dados.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="extr-dados.html"><a href="extr-dados.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="10.2.2" data-path="extr-dados.html"><a href="extr-dados.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="10.2.3" data-path="extr-dados.html"><a href="extr-dados.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="10.2.4" data-path="extr-dados.html"><a href="extr-dados.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="10.2.5" data-path="extr-dados.html"><a href="extr-dados.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="extr-dados.html"><a href="extr-dados.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="extr-dados.html"><a href="extr-dados.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
+<li class="chapter" data-level="10.3.2" data-path="extr-dados.html"><a href="extr-dados.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="extr-dados.html"><a href="extr-dados.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
+<li class="chapter" data-level="10.4.2" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="mat-sup.html"><a href="mat-sup.html"><i class="fa fa-check"></i><b>11</b> Material suplementar</a><ul>
+<li class="chapter" data-level="11.1" data-path="mat-sup.html"><a href="mat-sup.html#base-r-vs.-tidyverse"><i class="fa fa-check"></i><b>11.1</b> Base R vs. Tidyverse</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="mat-sup.html"><a href="mat-sup.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>11.1.1</b> O que é o Tidyverse?</a></li>
+<li class="chapter" data-level="11.1.2" data-path="mat-sup.html"><a href="mat-sup.html#usando-o-dplyr"><i class="fa fa-check"></i><b>11.1.2</b> Usando o <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.1.3" data-path="mat-sup.html"><a href="mat-sup.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>11.1.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a></li>
+<li class="chapter" data-level="11.1.4" data-path="mat-sup.html"><a href="mat-sup.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>11.1.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="11.1.5" data-path="mat-sup.html"><a href="mat-sup.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>11.1.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a></li>
+<li class="chapter" data-level="11.1.6" data-path="mat-sup.html"><a href="mat-sup.html#baser"><i class="fa fa-check"></i><b>11.1.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a></li>
+<li class="chapter" data-level="11.1.7" data-path="mat-sup.html"><a href="mat-sup.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>11.1.7</b> Tidyverse, um resumo</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="mat-sup.html"><a href="mat-sup.html#baixar-e-descomprimir-um-arquivo-zip-usando-o-r"><i class="fa fa-check"></i><b>11.2</b> Baixar e descomprimir um arquivo zip usando o R</a></li>
+<li class="chapter" data-level="11.3" data-path="mat-sup.html"><a href="mat-sup.html#aulas-em-vídeo"><i class="fa fa-check"></i><b>11.3</b> Aulas em vídeo</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="mat-sup.html"><a href="mat-sup.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>11.3.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="11.3.2" data-path="mat-sup.html"><a href="mat-sup.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>11.3.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="11.3.3" data-path="mat-sup.html"><a href="mat-sup.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>11.3.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="11.3.4" data-path="mat-sup.html"><a href="mat-sup.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>11.3.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="11.3.5" data-path="mat-sup.html"><a href="mat-sup.html#listas-1"><i class="fa fa-check"></i><b>11.3.5</b> Listas</a></li>
+<li class="chapter" data-level="11.3.6" data-path="mat-sup.html"><a href="mat-sup.html#criando-matrizes-1"><i class="fa fa-check"></i><b>11.3.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="11.3.7" data-path="mat-sup.html"><a href="mat-sup.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>11.3.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="11.3.8" data-path="mat-sup.html"><a href="mat-sup.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>11.3.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="11.3.9" data-path="mat-sup.html"><a href="mat-sup.html#condicionais-1"><i class="fa fa-check"></i><b>11.3.9</b> Condicionais</a></li>
+<li class="chapter" data-level="11.3.10" data-path="mat-sup.html"><a href="mat-sup.html#funções-da-família-apply-1"><i class="fa fa-check"></i><b>11.3.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="11.3.11" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>11.3.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="11.3.12" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>11.3.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="11.3.13" data-path="mat-sup.html"><a href="mat-sup.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>11.3.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="11.3.14" data-path="mat-sup.html"><a href="mat-sup.html#objetos-complexos"><i class="fa fa-check"></i><b>11.3.14</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="mat-sup.html"><a href="mat-sup.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>11.4</b> Para saber mais sobre o <strong>Tidyverse</strong>:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="iter-cflux" class="section level1">
+<h1><span class="header-section-number">6</span> Iteração e controle de fluxo</h1>
+<div id="funções-da-família-apply" class="section level2">
+<h2><span class="header-section-number">6.1</span> Funções da família <code>apply()</code></h2>
+<p>Algumas funções da família <code>apply()</code> são muito úteis na manipulação de dados e descrição de dados.
+Essas funções são muito poderosas, porque permitem você fazer iterações de forma simples, ou seja, você pode aplicar uma função a vários objetos simultaneamente com funções dessa família.
+O que você faz com essas funções você também faz com as iterações que fazem uso da expressão <code>for(){}</code> (veja seção <a href="iter-cflux.html#iteracoes">6.3</a>), mas essas funções simplificam e aceleram o processo.</p>
+<div id="em-uma-matriz" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Em uma matriz</h3>
+<p>A função <code>apply()</code> poderia ser traduzida como:</p>
+<blockquote>
+<p>aplique uma função (FUN) a todas as linhas ou colunas (MARGIN) de uma matriz (X):</p>
+</blockquote>
+<div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb963-1"><a href="iter-cflux.html#cb963-1"></a>?apply <span class="co"># Veja o help</span></span>
+<span id="cb963-2"><a href="iter-cflux.html#cb963-2"></a><span class="co"># os argumentos dessa função são:</span></span>
+<span id="cb963-3"><a href="iter-cflux.html#cb963-3"></a><span class="co"># X = matrix</span></span>
+<span id="cb963-4"><a href="iter-cflux.html#cb963-4"></a><span class="co"># MAGRIN = 1 indica linha, 2 indica colunas</span></span>
+<span id="cb963-5"><a href="iter-cflux.html#cb963-5"></a><span class="co"># FUN = a função que você deseja aplicar</span></span>
+<span id="cb963-6"><a href="iter-cflux.html#cb963-6"></a><span class="co"># ... ARGUMENTOS DESSA FUNCAO SE FOR O CASO</span></span>
+<span id="cb963-7"><a href="iter-cflux.html#cb963-7"></a></span>
+<span id="cb963-8"><a href="iter-cflux.html#cb963-8"></a><span class="co"># TOTAIS MARGINAIS</span></span>
+<span id="cb963-9"><a href="iter-cflux.html#cb963-9"></a><span class="co"># crie uma matriz</span></span></code></pre></div>
+<div class="sourceCode" id="cb964"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb964-1"><a href="iter-cflux.html#cb964-1"></a>X &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">36</span>, <span class="dt">nrow =</span> <span class="dv">4</span>, <span class="dt">ncol =</span> <span class="dv">9</span>)</span>
+<span id="cb964-2"><a href="iter-cflux.html#cb964-2"></a><span class="kw">colnames</span>(X) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;col&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(X))</span>
+<span id="cb964-3"><a href="iter-cflux.html#cb964-3"></a><span class="kw">rownames</span>(X) &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;ln&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(X))</span>
+<span id="cb964-4"><a href="iter-cflux.html#cb964-4"></a><span class="kw">head</span>(X) <span class="co"># cabeça da matriz criada</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+col 1
+</th>
+<th style="text-align:right;">
+col 2
+</th>
+<th style="text-align:right;">
+col 3
+</th>
+<th style="text-align:right;">
+col 4
+</th>
+<th style="text-align:right;">
+col 5
+</th>
+<th style="text-align:right;">
+col 6
+</th>
+<th style="text-align:right;">
+col 7
+</th>
+<th style="text-align:right;">
+col 8
+</th>
+<th style="text-align:right;">
+col 9
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ln 1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ln 2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ln 3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ln 4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb965"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb965-1"><a href="iter-cflux.html#cb965-1"></a><span class="co"># calcule para todas as linhas:</span></span>
+<span id="cb965-2"><a href="iter-cflux.html#cb965-2"></a><span class="co"># a soma dos valores</span></span>
+<span id="cb965-3"><a href="iter-cflux.html#cb965-3"></a><span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">1</span>, <span class="dt">FUN =</span> sum)</span></code></pre></div>
+<pre><code>## ln 1 ln 2 ln 3 ln 4 
+##  153  162  171  180</code></pre>
+<div class="sourceCode" id="cb967"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb967-1"><a href="iter-cflux.html#cb967-1"></a><span class="co"># o valor máximo</span></span>
+<span id="cb967-2"><a href="iter-cflux.html#cb967-2"></a><span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">1</span>, <span class="dt">FUN =</span> max)</span></code></pre></div>
+<pre><code>## ln 1 ln 2 ln 3 ln 4 
+##   33   34   35   36</code></pre>
+<div class="sourceCode" id="cb969"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb969-1"><a href="iter-cflux.html#cb969-1"></a><span class="co"># a média</span></span>
+<span id="cb969-2"><a href="iter-cflux.html#cb969-2"></a><span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">1</span>, <span class="dt">FUN =</span> mean)</span></code></pre></div>
+<pre><code>## ln 1 ln 2 ln 3 ln 4 
+##   17   18   19   20</code></pre>
+<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="iter-cflux.html#cb971-1"></a><span class="co"># o desvio padrão</span></span>
+<span id="cb971-2"><a href="iter-cflux.html#cb971-2"></a><span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">1</span>, <span class="dt">FUN =</span> sd)</span></code></pre></div>
+<pre><code>##     ln 1     ln 2     ln 3     ln 4 
+## 10.95445 10.95445 10.95445 10.95445</code></pre>
+<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb973-1"><a href="iter-cflux.html#cb973-1"></a><span class="co"># para todas as colunas</span></span>
+<span id="cb973-2"><a href="iter-cflux.html#cb973-2"></a><span class="co"># a soma dos valores</span></span>
+<span id="cb973-3"><a href="iter-cflux.html#cb973-3"></a><span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> sum)</span></code></pre></div>
+<pre><code>## col 1 col 2 col 3 col 4 col 5 col 6 col 7 col 8 col 9 
+##    10    26    42    58    74    90   106   122   138</code></pre>
+<div class="sourceCode" id="cb975"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb975-1"><a href="iter-cflux.html#cb975-1"></a><span class="co"># o valor máximo</span></span>
+<span id="cb975-2"><a href="iter-cflux.html#cb975-2"></a><span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> max)</span></code></pre></div>
+<pre><code>## col 1 col 2 col 3 col 4 col 5 col 6 col 7 col 8 col 9 
+##     4     8    12    16    20    24    28    32    36</code></pre>
+<div class="sourceCode" id="cb977"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb977-1"><a href="iter-cflux.html#cb977-1"></a><span class="co"># a média</span></span>
+<span id="cb977-2"><a href="iter-cflux.html#cb977-2"></a><span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> mean)</span></code></pre></div>
+<pre><code>## col 1 col 2 col 3 col 4 col 5 col 6 col 7 col 8 col 9 
+##   2.5   6.5  10.5  14.5  18.5  22.5  26.5  30.5  34.5</code></pre>
+<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb979-1"><a href="iter-cflux.html#cb979-1"></a><span class="co"># o desvio padrão</span></span>
+<span id="cb979-2"><a href="iter-cflux.html#cb979-2"></a><span class="kw">apply</span>(X, <span class="dt">MARGIN =</span> <span class="dv">2</span>, <span class="dt">FUN =</span> sd)</span></code></pre></div>
+<pre><code>##    col 1    col 2    col 3    col 4    col 5    col 6    col 7    col 8 
+## 1.290994 1.290994 1.290994 1.290994 1.290994 1.290994 1.290994 1.290994 
+##    col 9 
+## 1.290994</code></pre>
+<p>As funções <code>rowSums()</code>, <code>rowMeans()</code>, <code>colSums()</code>, ou <code>colMeans()</code> são equivalentes à função <code>apply()</code>.
+Elas simplificam o uso para somas (em inglês, <em>sum</em>) e médias (em inglês, <em>mean</em>) de linhas (em inglês, <em>rows</em>) e colunas (em inglês, <em>columns</em>).
+Se você conhece bem a função <code>apply()</code>, você pode fazer o que essas funções fazem e muito mais.
+Portanto, ao dominar a função <code>apply()</code>, você acaba por não precisar se preocupar em aprender essas funções mais específicas.</p>
+<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb981-1"><a href="iter-cflux.html#cb981-1"></a>?rowSums</span></code></pre></div>
+<div class="sourceCode" id="cb982"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb982-1"><a href="iter-cflux.html#cb982-1"></a><span class="kw">rowSums</span>(X) <span class="co"># soma de cada linha</span></span></code></pre></div>
+<pre><code>## ln 1 ln 2 ln 3 ln 4 
+##  153  162  171  180</code></pre>
+<div class="sourceCode" id="cb984"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb984-1"><a href="iter-cflux.html#cb984-1"></a><span class="kw">rowMeans</span>(X) <span class="co"># media de cada linha</span></span></code></pre></div>
+<pre><code>## ln 1 ln 2 ln 3 ln 4 
+##   17   18   19   20</code></pre>
+<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb986-1"><a href="iter-cflux.html#cb986-1"></a><span class="kw">colSums</span>(X) <span class="co"># soma de cada coluna</span></span></code></pre></div>
+<pre><code>## col 1 col 2 col 3 col 4 col 5 col 6 col 7 col 8 col 9 
+##    10    26    42    58    74    90   106   122   138</code></pre>
+<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="iter-cflux.html#cb988-1"></a><span class="kw">colMeans</span>(X) <span class="co"># média de cada coluna</span></span></code></pre></div>
+<pre><code>## col 1 col 2 col 3 col 4 col 5 col 6 col 7 col 8 col 9 
+##   2.5   6.5  10.5  14.5  18.5  22.5  26.5  30.5  34.5</code></pre>
+</div>
+<div id="em-um-vetor-ou-lista" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Em um vetor ou lista</h3>
+<p>A função <code>lapply()</code> aplica uma função <code>FUN</code> para cada elemento de um vetor ou de uma lista, e retorna um objeto de classe <code>list</code>.</p>
+<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb990-1"><a href="iter-cflux.html#cb990-1"></a><span class="co"># muito simples, imprime algo linha por linha</span></span>
+<span id="cb990-2"><a href="iter-cflux.html#cb990-2"></a>ll &lt;-<span class="st"> </span><span class="kw">lapply</span>(LETTERS, print)</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot;
+## [1] &quot;B&quot;
+## [1] &quot;C&quot;
+## [1] &quot;D&quot;
+## [1] &quot;E&quot;
+## [1] &quot;F&quot;
+## [1] &quot;G&quot;
+## [1] &quot;H&quot;
+## [1] &quot;I&quot;
+## [1] &quot;J&quot;
+## [1] &quot;K&quot;
+## [1] &quot;L&quot;
+## [1] &quot;M&quot;
+## [1] &quot;N&quot;
+## [1] &quot;O&quot;
+## [1] &quot;P&quot;
+## [1] &quot;Q&quot;
+## [1] &quot;R&quot;
+## [1] &quot;S&quot;
+## [1] &quot;T&quot;
+## [1] &quot;U&quot;
+## [1] &quot;V&quot;
+## [1] &quot;W&quot;
+## [1] &quot;X&quot;
+## [1] &quot;Y&quot;
+## [1] &quot;Z&quot;</code></pre>
+<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb992-1"><a href="iter-cflux.html#cb992-1"></a><span class="kw">class</span>(ll)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb994"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb994-1"><a href="iter-cflux.html#cb994-1"></a><span class="kw">str</span>(ll)</span></code></pre></div>
+<pre><code>## List of 26
+##  $ : chr &quot;A&quot;
+##  $ : chr &quot;B&quot;
+##  $ : chr &quot;C&quot;
+##  $ : chr &quot;D&quot;
+##  $ : chr &quot;E&quot;
+##  $ : chr &quot;F&quot;
+##  $ : chr &quot;G&quot;
+##  $ : chr &quot;H&quot;
+##  $ : chr &quot;I&quot;
+##  $ : chr &quot;J&quot;
+##  $ : chr &quot;K&quot;
+##  $ : chr &quot;L&quot;
+##  $ : chr &quot;M&quot;
+##  $ : chr &quot;N&quot;
+##  $ : chr &quot;O&quot;
+##  $ : chr &quot;P&quot;
+##  $ : chr &quot;Q&quot;
+##  $ : chr &quot;R&quot;
+##  $ : chr &quot;S&quot;
+##  $ : chr &quot;T&quot;
+##  $ : chr &quot;U&quot;
+##  $ : chr &quot;V&quot;
+##  $ : chr &quot;W&quot;
+##  $ : chr &quot;X&quot;
+##  $ : chr &quot;Y&quot;
+##  $ : chr &quot;Z&quot;</code></pre>
+<div class="sourceCode" id="cb996"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb996-1"><a href="iter-cflux.html#cb996-1"></a><span class="co"># suponha três vetores de tamanhos diferentes</span></span>
+<span id="cb996-2"><a href="iter-cflux.html#cb996-2"></a>v1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>, <span class="dv">50</span>)</span>
+<span id="cb996-3"><a href="iter-cflux.html#cb996-3"></a><span class="kw">length</span>(v1)</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
+<div class="sourceCode" id="cb998"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb998-1"><a href="iter-cflux.html#cb998-1"></a>v2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">30</span>)</span>
+<span id="cb998-2"><a href="iter-cflux.html#cb998-2"></a><span class="kw">length</span>(v2)</span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<div class="sourceCode" id="cb1000"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1000-1"><a href="iter-cflux.html#cb1000-1"></a>v3 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1000</span><span class="op">:</span><span class="dv">2000</span>, <span class="dv">90</span>)</span>
+<span id="cb1000-2"><a href="iter-cflux.html#cb1000-2"></a><span class="kw">length</span>(v3)</span></code></pre></div>
+<pre><code>## [1] 90</code></pre>
+<div class="sourceCode" id="cb1002"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1002-1"><a href="iter-cflux.html#cb1002-1"></a><span class="co"># imagina que isso esteja numa lista</span></span>
+<span id="cb1002-2"><a href="iter-cflux.html#cb1002-2"></a>ml &lt;-<span class="st"> </span><span class="kw">list</span>(v1, v2, v3)</span>
+<span id="cb1002-3"><a href="iter-cflux.html#cb1002-3"></a><span class="kw">class</span>(ml)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb1004"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1004-1"><a href="iter-cflux.html#cb1004-1"></a><span class="kw">length</span>(ml)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb1006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1006-1"><a href="iter-cflux.html#cb1006-1"></a><span class="co"># posso usar lapply para calcular a media desses vetores</span></span>
+<span id="cb1006-2"><a href="iter-cflux.html#cb1006-2"></a><span class="kw">lapply</span>(ml, mean) <span class="co"># note que retorna uma lista</span></span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 584.54
+## 
+## [[2]]
+## [1] 56.93333
+## 
+## [[3]]
+## [1] 1489.422</code></pre>
+<div class="sourceCode" id="cb1008"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1008-1"><a href="iter-cflux.html#cb1008-1"></a>lt &lt;-<span class="st"> </span><span class="kw">lapply</span>(ml, mean) <span class="co"># podemos guardar</span></span>
+<span id="cb1008-2"><a href="iter-cflux.html#cb1008-2"></a>lt &lt;-<span class="st"> </span><span class="kw">as.vector</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;numeric&quot;</span>) <span class="co"># e transformar num vetor. MODE neste caso é fundamental usar</span></span>
+<span id="cb1008-3"><a href="iter-cflux.html#cb1008-3"></a>lt</span></code></pre></div>
+<pre><code>## [1]  584.54000   56.93333 1489.42222</code></pre>
+</div>
+<div id="por-categoria-de-um-fator" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Por categoria de um fator</h3>
+<p>A função <code>tapply()</code> aplica uma função <code>FUN</code> em uma coluna numérica individualizando os resultados para cada categoria de um determinado fator.</p>
+<div class="sourceCode" id="cb1010"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1010-1"><a href="iter-cflux.html#cb1010-1"></a><span class="co"># vamos usar os dados de Iris novamente</span></span>
+<span id="cb1010-2"><a href="iter-cflux.html#cb1010-2"></a>?iris</span></code></pre></div>
+<div class="sourceCode" id="cb1011"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1011-1"><a href="iter-cflux.html#cb1011-1"></a><span class="co"># calculando o comprimento médio de sepálas pelas categorias de um fator (especies)</span></span>
+<span id="cb1011-2"><a href="iter-cflux.html#cb1011-2"></a><span class="kw">class</span>(iris<span class="op">$</span>Sepal.Length) <span class="co"># variavel numerica</span></span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb1013"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1013-1"><a href="iter-cflux.html#cb1013-1"></a><span class="kw">class</span>(iris<span class="op">$</span>Species) <span class="co"># fator com categorias que correspondem a especies</span></span></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<div class="sourceCode" id="cb1015"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1015-1"><a href="iter-cflux.html#cb1015-1"></a><span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Species, <span class="dt">FUN =</span> mean)</span></code></pre></div>
+<pre><code>##     setosa versicolor  virginica 
+##      5.006      5.936      6.588</code></pre>
+<div class="sourceCode" id="cb1017"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1017-1"><a href="iter-cflux.html#cb1017-1"></a><span class="co"># calculando o comprimento máximo por especie</span></span>
+<span id="cb1017-2"><a href="iter-cflux.html#cb1017-2"></a><span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Species, <span class="dt">FUN =</span> max)</span></code></pre></div>
+<pre><code>##     setosa versicolor  virginica 
+##        5.8        7.0        7.9</code></pre>
+<div class="sourceCode" id="cb1019"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1019-1"><a href="iter-cflux.html#cb1019-1"></a><span class="co"># a amplitude de variacao</span></span>
+<span id="cb1019-2"><a href="iter-cflux.html#cb1019-2"></a><span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Species, <span class="dt">FUN =</span> range)</span></code></pre></div>
+<pre><code>## $setosa
+## [1] 4.3 5.8
+## 
+## $versicolor
+## [1] 4.9 7.0
+## 
+## $virginica
+## [1] 4.9 7.9</code></pre>
+<div class="sourceCode" id="cb1021"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1021-1"><a href="iter-cflux.html#cb1021-1"></a><span class="co"># note que essa funcao sempre retorna um array (que é uma lista de fato, neste caso)</span></span>
+<span id="cb1021-2"><a href="iter-cflux.html#cb1021-2"></a>tm &lt;-<span class="st"> </span><span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Species, <span class="dt">FUN =</span> min)</span>
+<span id="cb1021-3"><a href="iter-cflux.html#cb1021-3"></a><span class="kw">class</span>(tm)</span></code></pre></div>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<div class="sourceCode" id="cb1023"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1023-1"><a href="iter-cflux.html#cb1023-1"></a><span class="kw">names</span>(tm)</span></code></pre></div>
+<pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
+<div class="sourceCode" id="cb1025"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1025-1"><a href="iter-cflux.html#cb1025-1"></a>tm[[<span class="st">&quot;setosa&quot;</span>]] <span class="co"># indexadores de lista</span></span></code></pre></div>
+<pre><code>## [1] 4.3</code></pre>
+<div class="sourceCode" id="cb1027"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1027-1"><a href="iter-cflux.html#cb1027-1"></a>tr &lt;-<span class="st"> </span><span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Species, <span class="dt">FUN =</span> range)</span>
+<span id="cb1027-2"><a href="iter-cflux.html#cb1027-2"></a><span class="kw">class</span>(tr)</span></code></pre></div>
+<pre><code>## [1] &quot;array&quot;</code></pre>
+<div class="sourceCode" id="cb1029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1029-1"><a href="iter-cflux.html#cb1029-1"></a><span class="kw">names</span>(tr)</span></code></pre></div>
+<pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
+<div class="sourceCode" id="cb1031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1031-1"><a href="iter-cflux.html#cb1031-1"></a>tr[[<span class="st">&quot;setosa&quot;</span>]]</span></code></pre></div>
+<pre><code>## [1] 4.3 5.8</code></pre>
+</div>
+</div>
+<div id="condicionais" class="section level2">
+<h2><span class="header-section-number">6.2</span> Condicionais</h2>
+<p>Condicionais são expressões que permitem a um programa a tomada de decisões.
+Vamos tratar aqui das condicionais <code>if ()</code>, <code>if () else {}</code>, e <code>ifelse ()</code> (veja a seção <a href="iter-cflux.html#sabermais-condic">Para saber mais</a> para mais informações).</p>
+<div id="condicional-if" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Condicional <code>if ()</code></h3>
+<p>A expressão <code>if ()</code> avalia um vetor atômico (ou de índice 1) lógico e executa o que estiver entre <code>{}</code> se o valor do vetor for verdadeiro (TRUE).</p>
+<p>A estrutura básica de um <code>if ()</code> é:</p>
+<pre><code>if (condicao) {
+  
+  ação a ser realizada caso a condição seja VERDADEIRA
+}</code></pre>
+<p>Dentro do par de parênteses, deve haver uma <strong>condição.</strong>
+Condições em R são feitas com operadores lógicos: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code> etc (veja a seção @ref(#vetor-operador-logico) para relembrar; veja também a seção <a href="iter-cflux.html#sabermais-condic">Para saber mais</a> pois apresenta <em>links</em> para vídeoaulas importantes).</p>
+<div id="exemplo-01" class="section level4">
+<h4><span class="header-section-number">6.2.1.1</span> Exemplo 01</h4>
+<div class="sourceCode" id="cb1034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1034-1"><a href="iter-cflux.html#cb1034-1"></a>perdiz_estuda_breu &lt;-<span class="st"> </span><span class="ot">TRUE</span></span>
+<span id="cb1034-2"><a href="iter-cflux.html#cb1034-2"></a>perdiz_estuda_grama &lt;-<span class="st"> </span><span class="ot">FALSE</span></span>
+<span id="cb1034-3"><a href="iter-cflux.html#cb1034-3"></a>perdiz_estuda_breu</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb1036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1036-1"><a href="iter-cflux.html#cb1036-1"></a>perdiz_estuda_grama</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb1038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1038-1"><a href="iter-cflux.html#cb1038-1"></a><span class="cf">if</span> (perdiz_estuda_breu) {</span>
+<span id="cb1038-2"><a href="iter-cflux.html#cb1038-2"></a>  <span class="kw">print</span>(<span class="st">&quot;Breu pode ser Protium, Dacryodes, Trattinnickia, e é da família Burseraceae&quot;</span>)</span>
+<span id="cb1038-3"><a href="iter-cflux.html#cb1038-3"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Breu pode ser Protium, Dacryodes, Trattinnickia, e é da família Burseraceae&quot;</code></pre>
+<div class="sourceCode" id="cb1040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1040-1"><a href="iter-cflux.html#cb1040-1"></a><span class="cf">if</span> (perdiz_estuda_grama) {</span>
+<span id="cb1040-2"><a href="iter-cflux.html#cb1040-2"></a>  <span class="kw">print</span>(<span class="st">&quot;Isso não vai dar imprimir&quot;</span>)</span>
+<span id="cb1040-3"><a href="iter-cflux.html#cb1040-3"></a>}</span></code></pre></div>
+<p>Reparem na condição que deve ser satisfeita dentro dos parênteses: <code>TRUE</code>, para efetuar a ação; se <code>FALSE</code>, não executa a função:</p>
+<div class="sourceCode" id="cb1041"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1041-1"><a href="iter-cflux.html#cb1041-1"></a><span class="cf">if</span> (<span class="ot">TRUE</span>) {</span>
+<span id="cb1041-2"><a href="iter-cflux.html#cb1041-2"></a>  <span class="kw">print</span>(<span class="st">&quot;Eu executo!&quot;</span>)</span>
+<span id="cb1041-3"><a href="iter-cflux.html#cb1041-3"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Eu executo!&quot;</code></pre>
+<div class="sourceCode" id="cb1043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1043-1"><a href="iter-cflux.html#cb1043-1"></a><span class="cf">if</span> (<span class="ot">FALSE</span>) {</span>
+<span id="cb1043-2"><a href="iter-cflux.html#cb1043-2"></a>  <span class="kw">print</span>(<span class="st">&quot;Eu não executo&quot;</span>)</span>
+<span id="cb1043-3"><a href="iter-cflux.html#cb1043-3"></a>}</span></code></pre></div>
+</div>
+</div>
+<div id="condicional-if-com-o-else" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Condicional <code>if ()</code> com o <code>else</code></h3>
+<p>A condicional <code>if ()</code> pode ser expandida para <code>if () { } else {}</code>: execute em <code>{}</code> se <code>if ()</code> for VERDADEIRO, caso contrário (== else), execute o que estiver entre o segundo par <code>{}</code>.</p>
+<div id="exemplo-01-1" class="section level4">
+<h4><span class="header-section-number">6.2.2.1</span> Exemplo 01</h4>
+<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="iter-cflux.html#cb1044-1"></a>meunumero &lt;-<span class="st"> </span><span class="dv">77</span></span>
+<span id="cb1044-2"><a href="iter-cflux.html#cb1044-2"></a>meunumero</span></code></pre></div>
+<pre><code>## [1] 77</code></pre>
+<div class="sourceCode" id="cb1046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1046-1"><a href="iter-cflux.html#cb1046-1"></a><span class="cf">if</span> (meunumero <span class="op">==</span><span class="st"> </span><span class="dv">76</span>) {</span>
+<span id="cb1046-2"><a href="iter-cflux.html#cb1046-2"></a>  <span class="kw">print</span>(<span class="st">&quot;Meu número é o 3&quot;</span>)</span>
+<span id="cb1046-3"><a href="iter-cflux.html#cb1046-3"></a>} <span class="cf">else</span> {</span>
+<span id="cb1046-4"><a href="iter-cflux.html#cb1046-4"></a></span>
+<span id="cb1046-5"><a href="iter-cflux.html#cb1046-5"></a>  <span class="co"># meu_else &lt;- paste0(&quot;Mas pode ser o &quot;, meunumero)</span></span>
+<span id="cb1046-6"><a href="iter-cflux.html#cb1046-6"></a>  <span class="co"># print(meu_else)</span></span>
+<span id="cb1046-7"><a href="iter-cflux.html#cb1046-7"></a>  <span class="co"># 1+1</span></span>
+<span id="cb1046-8"><a href="iter-cflux.html#cb1046-8"></a>  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Se eu somar o meu número &quot;</span>, meunumero, <span class="st">&quot;com 3, eu vou obter &quot;</span>, meunumero <span class="op">+</span><span class="st"> </span><span class="dv">3</span>))</span>
+<span id="cb1046-9"><a href="iter-cflux.html#cb1046-9"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Se eu somar o meu número  77 com 3, eu vou obter  80&quot;</code></pre>
+</div>
+<div id="exemplo-02" class="section level4">
+<h4><span class="header-section-number">6.2.2.2</span> Exemplo 02</h4>
+<div class="sourceCode" id="cb1048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1048-1"><a href="iter-cflux.html#cb1048-1"></a>familia &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>)</span>
+<span id="cb1048-2"><a href="iter-cflux.html#cb1048-2"></a>clado &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>)</span>
+<span id="cb1048-3"><a href="iter-cflux.html#cb1048-3"></a>apg &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">familia =</span> familia, <span class="dt">clado =</span> clado, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb1048-4"><a href="iter-cflux.html#cb1048-4"></a>apg</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+familia
+</th>
+<th style="text-align:left;">
+clado
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Malvids
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Lamiids
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="iter-cflux.html#cb1049-1"></a><span class="kw">str</span>(apg)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    4 obs. of  2 variables:
+##  $ familia: chr  &quot;Burseraceae&quot; &quot;Solanaceae&quot; &quot;Sapindaceae&quot; &quot;Rubiaceae&quot;
+##  $ clado  : chr  &quot;Malvids&quot; &quot;Lamiids&quot; &quot;Malvids&quot; &quot;Lamiids&quot;</code></pre>
+<div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="iter-cflux.html#cb1051-1"></a><span class="kw">dim</span>(apg)</span></code></pre></div>
+<pre><code>## [1] 4 2</code></pre>
+<div class="sourceCode" id="cb1053"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1053-1"><a href="iter-cflux.html#cb1053-1"></a>malvids &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>)</span>
+<span id="cb1053-2"><a href="iter-cflux.html#cb1053-2"></a></span>
+<span id="cb1053-3"><a href="iter-cflux.html#cb1053-3"></a>meunumero &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb1053-4"><a href="iter-cflux.html#cb1053-4"></a>apg<span class="op">$</span>familia[meunumero]</span></code></pre></div>
+<pre><code>## [1] &quot;Rubiaceae&quot;</code></pre>
+<div class="sourceCode" id="cb1055"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1055-1"><a href="iter-cflux.html#cb1055-1"></a>apg<span class="op">$</span>familia[meunumero] <span class="op">%in%</span><span class="st"> </span>malvids</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb1057"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1057-1"><a href="iter-cflux.html#cb1057-1"></a><span class="cf">if</span> (apg<span class="op">$</span>familia[meunumero] <span class="op">%in%</span><span class="st"> </span>malvids) {</span>
+<span id="cb1057-2"><a href="iter-cflux.html#cb1057-2"></a>  malv_fam &lt;-<span class="st"> </span><span class="kw">paste</span>(malvids, <span class="dt">collapse =</span> <span class="st">&quot; e &quot;</span>)</span>
+<span id="cb1057-3"><a href="iter-cflux.html#cb1057-3"></a>  malv_fam</span>
+<span id="cb1057-4"><a href="iter-cflux.html#cb1057-4"></a>  clado &lt;-<span class="st"> &quot;Malvids&quot;</span></span>
+<span id="cb1057-5"><a href="iter-cflux.html#cb1057-5"></a>  frase &lt;-<span class="st"> </span><span class="kw">paste</span>(malv_fam, clado, <span class="dt">sep =</span> <span class="st">&quot; pertencem ao clado das &quot;</span>)</span>
+<span id="cb1057-6"><a href="iter-cflux.html#cb1057-6"></a>  frase</span>
+<span id="cb1057-7"><a href="iter-cflux.html#cb1057-7"></a>  <span class="kw">print</span>(frase)</span>
+<span id="cb1057-8"><a href="iter-cflux.html#cb1057-8"></a>} <span class="cf">else</span> {</span>
+<span id="cb1057-9"><a href="iter-cflux.html#cb1057-9"></a>  <span class="kw">paste</span>(<span class="st">&quot;A família&quot;</span>, apg<span class="op">$</span>familia[meunumero], <span class="st">&quot;pertence ao clado das&quot;</span>, apg<span class="op">$</span>clado[meunumero])</span>
+<span id="cb1057-10"><a href="iter-cflux.html#cb1057-10"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;A família Rubiaceae pertence ao clado das Lamiids&quot;</code></pre>
+</div>
+</div>
+<div id="condicional-ifelse" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Condicional <code>ifelse()</code></h3>
+<pre><code>ifelse(condicao, executa se VERDADEIRO, executa se FALSO)</code></pre>
+<div class="sourceCode" id="cb1060"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1060-1"><a href="iter-cflux.html#cb1060-1"></a><span class="kw">set.seed</span>(<span class="dv">333</span>)</span>
+<span id="cb1060-2"><a href="iter-cflux.html#cb1060-2"></a>familia</span></code></pre></div>
+<pre><code>## [1] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Rubiaceae&quot;</code></pre>
+<div class="sourceCode" id="cb1062"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1062-1"><a href="iter-cflux.html#cb1062-1"></a>familias &lt;-<span class="st"> </span><span class="kw">sample</span>(familia, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1062-2"><a href="iter-cflux.html#cb1062-2"></a>familias</span></code></pre></div>
+<pre><code>##   [1] &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Sapindaceae&quot;
+##   [6] &quot;Rubiaceae&quot;   &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Rubiaceae&quot;  
+##  [11] &quot;Sapindaceae&quot; &quot;Sapindaceae&quot; &quot;Rubiaceae&quot;   &quot;Sapindaceae&quot; &quot;Burseraceae&quot;
+##  [16] &quot;Sapindaceae&quot; &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Solanaceae&quot; 
+##  [21] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;   &quot;Solanaceae&quot;  &quot;Sapindaceae&quot;
+##  [26] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;  
+##  [31] &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;  
+##  [36] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;   &quot;Rubiaceae&quot;  
+##  [41] &quot;Burseraceae&quot; &quot;Burseraceae&quot; &quot;Burseraceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot;
+##  [46] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Rubiaceae&quot;   &quot;Burseraceae&quot;
+##  [51] &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot;
+##  [56] &quot;Rubiaceae&quot;   &quot;Rubiaceae&quot;   &quot;Rubiaceae&quot;   &quot;Rubiaceae&quot;   &quot;Solanaceae&quot; 
+##  [61] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Sapindaceae&quot; &quot;Burseraceae&quot;
+##  [66] &quot;Burseraceae&quot; &quot;Rubiaceae&quot;   &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Solanaceae&quot; 
+##  [71] &quot;Rubiaceae&quot;   &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Rubiaceae&quot;  
+##  [76] &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot;
+##  [81] &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot;
+##  [86] &quot;Rubiaceae&quot;   &quot;Burseraceae&quot; &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;  
+##  [91] &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Burseraceae&quot;
+##  [96] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Solanaceae&quot;</code></pre>
+<div class="sourceCode" id="cb1064"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1064-1"><a href="iter-cflux.html#cb1064-1"></a><span class="kw">table</span>(familias)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Burseraceae
+</th>
+<th style="text-align:right;">
+Rubiaceae
+</th>
+<th style="text-align:right;">
+Sapindaceae
+</th>
+<th style="text-align:right;">
+Solanaceae
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1065"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1065-1"><a href="iter-cflux.html#cb1065-1"></a>familias</span></code></pre></div>
+<pre><code>##   [1] &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Sapindaceae&quot;
+##   [6] &quot;Rubiaceae&quot;   &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Rubiaceae&quot;  
+##  [11] &quot;Sapindaceae&quot; &quot;Sapindaceae&quot; &quot;Rubiaceae&quot;   &quot;Sapindaceae&quot; &quot;Burseraceae&quot;
+##  [16] &quot;Sapindaceae&quot; &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Solanaceae&quot; 
+##  [21] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;   &quot;Solanaceae&quot;  &quot;Sapindaceae&quot;
+##  [26] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;  
+##  [31] &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;  
+##  [36] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;   &quot;Rubiaceae&quot;  
+##  [41] &quot;Burseraceae&quot; &quot;Burseraceae&quot; &quot;Burseraceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot;
+##  [46] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Rubiaceae&quot;   &quot;Burseraceae&quot;
+##  [51] &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot;
+##  [56] &quot;Rubiaceae&quot;   &quot;Rubiaceae&quot;   &quot;Rubiaceae&quot;   &quot;Rubiaceae&quot;   &quot;Solanaceae&quot; 
+##  [61] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Sapindaceae&quot; &quot;Burseraceae&quot;
+##  [66] &quot;Burseraceae&quot; &quot;Rubiaceae&quot;   &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Solanaceae&quot; 
+##  [71] &quot;Rubiaceae&quot;   &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Rubiaceae&quot;  
+##  [76] &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot;
+##  [81] &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Sapindaceae&quot; &quot;Burseraceae&quot; &quot;Sapindaceae&quot;
+##  [86] &quot;Rubiaceae&quot;   &quot;Burseraceae&quot; &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Rubiaceae&quot;  
+##  [91] &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Burseraceae&quot;
+##  [96] &quot;Burseraceae&quot; &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Solanaceae&quot;</code></pre>
+<div class="sourceCode" id="cb1067"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1067-1"><a href="iter-cflux.html#cb1067-1"></a><span class="kw">ifelse</span>(familias <span class="op">==</span><span class="st"> &quot;Burseraceae&quot;</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>##   [1] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [13] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+##  [25] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE
+##  [37] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE
+##  [49] FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [61]  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [73] FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE
+##  [85] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE
+##  [97] FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb1069"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1069-1"><a href="iter-cflux.html#cb1069-1"></a><span class="kw">ifelse</span>(familias <span class="op">==</span><span class="st"> &quot;Sapindaceae&quot;</span>, <span class="st">&quot;Sapindaceae é a família do guaraná&quot;</span>, <span class="st">&quot;Não é Sapindaceae&quot;</span>)</span></code></pre></div>
+<pre><code>##   [1] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##   [3] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##   [5] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##   [7] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##   [9] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [11] &quot;Sapindaceae é a família do guaraná&quot; &quot;Sapindaceae é a família do guaraná&quot;
+##  [13] &quot;Não é Sapindaceae&quot;                  &quot;Sapindaceae é a família do guaraná&quot;
+##  [15] &quot;Não é Sapindaceae&quot;                  &quot;Sapindaceae é a família do guaraná&quot;
+##  [17] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [19] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [21] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [23] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [25] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [27] &quot;Não é Sapindaceae&quot;                  &quot;Sapindaceae é a família do guaraná&quot;
+##  [29] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [31] &quot;Não é Sapindaceae&quot;                  &quot;Sapindaceae é a família do guaraná&quot;
+##  [33] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [35] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [37] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [39] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [41] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [43] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [45] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [47] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [49] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [51] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [53] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [55] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [57] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [59] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [61] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [63] &quot;Não é Sapindaceae&quot;                  &quot;Sapindaceae é a família do guaraná&quot;
+##  [65] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [67] &quot;Não é Sapindaceae&quot;                  &quot;Sapindaceae é a família do guaraná&quot;
+##  [69] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [71] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [73] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [75] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [77] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [79] &quot;Não é Sapindaceae&quot;                  &quot;Sapindaceae é a família do guaraná&quot;
+##  [81] &quot;Não é Sapindaceae&quot;                  &quot;Sapindaceae é a família do guaraná&quot;
+##  [83] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [85] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;                 
+##  [87] &quot;Não é Sapindaceae&quot;                  &quot;Sapindaceae é a família do guaraná&quot;
+##  [89] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [91] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [93] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [95] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [97] &quot;Não é Sapindaceae&quot;                  &quot;Não é Sapindaceae&quot;                 
+##  [99] &quot;Sapindaceae é a família do guaraná&quot; &quot;Não é Sapindaceae&quot;</code></pre>
+<div class="sourceCode" id="cb1071"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1071-1"><a href="iter-cflux.html#cb1071-1"></a>familias[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Sapindaceae&quot;</code></pre>
+<div class="sourceCode" id="cb1073"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1073-1"><a href="iter-cflux.html#cb1073-1"></a>familias[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<pre><code>##  [1] &quot;Solanaceae&quot;  &quot;Burseraceae&quot; &quot;Sapindaceae&quot; &quot;Solanaceae&quot;  &quot;Sapindaceae&quot;
+##  [6] &quot;Rubiaceae&quot;   &quot;Solanaceae&quot;  &quot;Solanaceae&quot;  &quot;Sapindaceae&quot; &quot;Rubiaceae&quot;</code></pre>
+<div class="sourceCode" id="cb1075"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1075-1"><a href="iter-cflux.html#cb1075-1"></a><span class="kw">ifelse</span>(familias <span class="op">==</span><span class="st"> &quot;Sapindaceae&quot;</span>, <span class="st">&quot;Sapindaceae da ordem Sapindales&quot;</span>,</span>
+<span id="cb1075-2"><a href="iter-cflux.html#cb1075-2"></a>  <span class="kw">ifelse</span>(familias <span class="op">==</span><span class="st"> &quot;Burseraceae&quot;</span>, <span class="st">&quot;Burseraceae também é da ordem Sapindales&quot;</span>, <span class="st">&quot;Nenhuma dessas famílias é uma Sapindales&quot;</span>)</span>
+<span id="cb1075-3"><a href="iter-cflux.html#cb1075-3"></a>)</span></code></pre></div>
+<pre><code>##   [1] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##   [2] &quot;Burseraceae também é da ordem Sapindales&quot;
+##   [3] &quot;Sapindaceae da ordem Sapindales&quot;         
+##   [4] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##   [5] &quot;Sapindaceae da ordem Sapindales&quot;         
+##   [6] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##   [7] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##   [8] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##   [9] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [10] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [11] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [12] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [13] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [14] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [15] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [16] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [17] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [18] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [19] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [20] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [21] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [22] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [23] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [24] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [25] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [26] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [27] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [28] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [29] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [30] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [31] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [32] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [33] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [34] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [35] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [36] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [37] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [38] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [39] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [40] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [41] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [42] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [43] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [44] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [45] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [46] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [47] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [48] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [49] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [50] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [51] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [52] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [53] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [54] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [55] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [56] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [57] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [58] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [59] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [60] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [61] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [62] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [63] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [64] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [65] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [66] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [67] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [68] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [69] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [70] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [71] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [72] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [73] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [74] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [75] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [76] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [77] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [78] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [79] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [80] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [81] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [82] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [83] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [84] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [85] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [86] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [87] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [88] &quot;Sapindaceae da ordem Sapindales&quot;         
+##  [89] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [90] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [91] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [92] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [93] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [94] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [95] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [96] &quot;Burseraceae também é da ordem Sapindales&quot;
+##  [97] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [98] &quot;Nenhuma dessas famílias é uma Sapindales&quot;
+##  [99] &quot;Sapindaceae da ordem Sapindales&quot;         
+## [100] &quot;Nenhuma dessas famílias é uma Sapindales&quot;</code></pre>
+<div class="sourceCode" id="cb1077"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1077-1"><a href="iter-cflux.html#cb1077-1"></a>sei_qual_ordem &lt;-<span class="st"> </span><span class="kw">ifelse</span>(familias <span class="op">==</span><span class="st"> &quot;Sapindaceae&quot;</span>, <span class="st">&quot;Sapindaceae da ordem Sapindales&quot;</span>,</span>
+<span id="cb1077-2"><a href="iter-cflux.html#cb1077-2"></a>  <span class="kw">ifelse</span>(familias <span class="op">==</span><span class="st"> &quot;Burseraceae&quot;</span>, <span class="st">&quot;Burseraceae também é da ordem Sapindales&quot;</span>, <span class="st">&quot;Nenhuma dessas famílias é uma Sapindales&quot;</span>)</span>
+<span id="cb1077-3"><a href="iter-cflux.html#cb1077-3"></a>)</span>
+<span id="cb1077-4"><a href="iter-cflux.html#cb1077-4"></a></span>
+<span id="cb1077-5"><a href="iter-cflux.html#cb1077-5"></a>meudf &lt;-<span class="st"> </span><span class="kw">data.frame</span>(familias, sei_qual_ordem)</span>
+<span id="cb1077-6"><a href="iter-cflux.html#cb1077-6"></a>meudf</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+familias
+</th>
+<th style="text-align:left;">
+sei_qual_ordem
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rubiaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Burseraceae
+</td>
+<td style="text-align:left;">
+Burseraceae também é da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sapindaceae
+</td>
+<td style="text-align:left;">
+Sapindaceae da ordem Sapindales
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solanaceae
+</td>
+<td style="text-align:left;">
+Nenhuma dessas famílias é uma Sapindales
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="iteracoes" class="section level2">
+<h2><span class="header-section-number">6.3</span> Iterações</h2>
+<p>Vocês usaram várias funções da família <code>apply</code>, especialmente <code>apply()</code> e <code>tapply()</code>, que são funções especiais que repetem uma mesma função <code>FUN</code> para cada objeto de um conjunto (vetores, matrizes, valores atômicos).
+Essas funções utilizam portanto a lógica de iterações (em inglês, <em>loops</em>), ou seja, fazem a mesma ação repetidas vezes; em outras palavras, fazem <em>LOOPs</em>, dão voltas, realizam o mesmo percurso várias vezes, percorrem um circuito.</p>
+<p>As expressões <code>for(){}</code> e <code>while(){}</code> permitem fazer <em>LOOPs</em>, e <em>LOOPs</em> dentro de <em>LOOPS</em> com muita liberdade.
+Aprendê-las é o mesmo que aprender todas as funções da família <code>apply</code> juntas (<code>apply()</code>, <code>tapply()</code>, <code>sapply()</code>, <code>lapply()</code>, <code>mapply()</code> etc).
+Se você compreende os <em>LOOPS</em>, pode fazer o que essas funções fazem sem precisar delas (embora elas possam executar a tarefa mais rapidamente).</p>
+<div id="iteração-com-for" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Iteração com <code>for(){}</code></h3>
+<div id="exemplo-1" class="section level4">
+<h4><span class="header-section-number">6.3.1.1</span> Exemplo 1</h4>
+<p>Um exemplo simples do que seria uma iteração com o comando <code>for(){}</code>:</p>
+<div class="sourceCode" id="cb1078"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1078-1"><a href="iter-cflux.html#cb1078-1"></a><span class="co"># vamos imprimir na tela as letras do objeto LETTERS</span></span>
+<span id="cb1078-2"><a href="iter-cflux.html#cb1078-2"></a><span class="cf">for</span> (let <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(LETTERS)) {</span>
+<span id="cb1078-3"><a href="iter-cflux.html#cb1078-3"></a>  paraimprimir &lt;-<span class="st"> </span><span class="kw">paste</span>(LETTERS[let], <span class="st">&quot; é a letra de índice &quot;</span>, let)</span>
+<span id="cb1078-4"><a href="iter-cflux.html#cb1078-4"></a>  <span class="kw">print</span>(paraimprimir)</span>
+<span id="cb1078-5"><a href="iter-cflux.html#cb1078-5"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;A  é a letra de índice  1&quot;
+## [1] &quot;B  é a letra de índice  2&quot;
+## [1] &quot;C  é a letra de índice  3&quot;
+## [1] &quot;D  é a letra de índice  4&quot;
+## [1] &quot;E  é a letra de índice  5&quot;
+## [1] &quot;F  é a letra de índice  6&quot;
+## [1] &quot;G  é a letra de índice  7&quot;
+## [1] &quot;H  é a letra de índice  8&quot;
+## [1] &quot;I  é a letra de índice  9&quot;
+## [1] &quot;J  é a letra de índice  10&quot;
+## [1] &quot;K  é a letra de índice  11&quot;
+## [1] &quot;L  é a letra de índice  12&quot;
+## [1] &quot;M  é a letra de índice  13&quot;
+## [1] &quot;N  é a letra de índice  14&quot;
+## [1] &quot;O  é a letra de índice  15&quot;
+## [1] &quot;P  é a letra de índice  16&quot;
+## [1] &quot;Q  é a letra de índice  17&quot;
+## [1] &quot;R  é a letra de índice  18&quot;
+## [1] &quot;S  é a letra de índice  19&quot;
+## [1] &quot;T  é a letra de índice  20&quot;
+## [1] &quot;U  é a letra de índice  21&quot;
+## [1] &quot;V  é a letra de índice  22&quot;
+## [1] &quot;W  é a letra de índice  23&quot;
+## [1] &quot;X  é a letra de índice  24&quot;
+## [1] &quot;Y  é a letra de índice  25&quot;
+## [1] &quot;Z  é a letra de índice  26&quot;</code></pre>
+<p>Ou seja, para cada elemento do objeto <code>let</code>, assumindo os valores na sequência do elemento 1 ao elemento corresponden ao comprimento (== <code>length(LETTERS)</code>) do objeto LETTERS, execute o que está dentro de <code>{}</code>.</p>
+</div>
+<div id="exemplo-2" class="section level4">
+<h4><span class="header-section-number">6.3.1.2</span> Exemplo 2</h4>
+<div class="sourceCode" id="cb1080"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1080-1"><a href="iter-cflux.html#cb1080-1"></a><span class="co"># Fazendo um loop com for(){} replicando o que a função apply() faz</span></span>
+<span id="cb1080-2"><a href="iter-cflux.html#cb1080-2"></a><span class="co"># criamos uma matriz</span></span>
+<span id="cb1080-3"><a href="iter-cflux.html#cb1080-3"></a>vetn &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">1</span>)</span>
+<span id="cb1080-4"><a href="iter-cflux.html#cb1080-4"></a>mvetn &lt;-<span class="st"> </span><span class="kw">matrix</span>(vetn, <span class="dt">ncol =</span> <span class="dv">10</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="kw">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="kw">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
+<span id="cb1080-5"><a href="iter-cflux.html#cb1080-5"></a><span class="kw">head</span>(mvetn)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+coluna 1
+</th>
+<th style="text-align:right;">
+coluna 2
+</th>
+<th style="text-align:right;">
+coluna 3
+</th>
+<th style="text-align:right;">
+coluna 4
+</th>
+<th style="text-align:right;">
+coluna 5
+</th>
+<th style="text-align:right;">
+coluna 6
+</th>
+<th style="text-align:right;">
+coluna 7
+</th>
+<th style="text-align:right;">
+coluna 8
+</th>
+<th style="text-align:right;">
+coluna 9
+</th>
+<th style="text-align:right;">
+coluna 10
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+linha 1
+</td>
+<td style="text-align:right;">
+29.83293
+</td>
+<td style="text-align:right;">
+29.14018
+</td>
+<td style="text-align:right;">
+29.23649
+</td>
+<td style="text-align:right;">
+30.41905
+</td>
+<td style="text-align:right;">
+30.94899
+</td>
+<td style="text-align:right;">
+29.84389
+</td>
+<td style="text-align:right;">
+29.97366
+</td>
+<td style="text-align:right;">
+30.15412
+</td>
+<td style="text-align:right;">
+29.34273
+</td>
+<td style="text-align:right;">
+30.08479
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+linha 2
+</td>
+<td style="text-align:right;">
+31.24129
+</td>
+<td style="text-align:right;">
+31.05689
+</td>
+<td style="text-align:right;">
+29.45685
+</td>
+<td style="text-align:right;">
+30.92010
+</td>
+<td style="text-align:right;">
+30.28868
+</td>
+<td style="text-align:right;">
+30.51557
+</td>
+<td style="text-align:right;">
+29.74122
+</td>
+<td style="text-align:right;">
+30.46949
+</td>
+<td style="text-align:right;">
+28.15604
+</td>
+<td style="text-align:right;">
+30.88475
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+linha 3
+</td>
+<td style="text-align:right;">
+30.29010
+</td>
+<td style="text-align:right;">
+31.34928
+</td>
+<td style="text-align:right;">
+29.17843
+</td>
+<td style="text-align:right;">
+28.80200
+</td>
+<td style="text-align:right;">
+30.94568
+</td>
+<td style="text-align:right;">
+29.34699
+</td>
+<td style="text-align:right;">
+29.88953
+</td>
+<td style="text-align:right;">
+28.76698
+</td>
+<td style="text-align:right;">
+29.47358
+</td>
+<td style="text-align:right;">
+29.82502
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+linha 4
+</td>
+<td style="text-align:right;">
+29.94628
+</td>
+<td style="text-align:right;">
+30.14674
+</td>
+<td style="text-align:right;">
+30.23371
+</td>
+<td style="text-align:right;">
+28.56894
+</td>
+<td style="text-align:right;">
+31.47962
+</td>
+<td style="text-align:right;">
+32.13595
+</td>
+<td style="text-align:right;">
+29.62404
+</td>
+<td style="text-align:right;">
+28.93148
+</td>
+<td style="text-align:right;">
+30.15042
+</td>
+<td style="text-align:right;">
+31.61015
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+linha 5
+</td>
+<td style="text-align:right;">
+30.07430
+</td>
+<td style="text-align:right;">
+30.81179
+</td>
+<td style="text-align:right;">
+29.26558
+</td>
+<td style="text-align:right;">
+29.58111
+</td>
+<td style="text-align:right;">
+29.59002
+</td>
+<td style="text-align:right;">
+29.91044
+</td>
+<td style="text-align:right;">
+32.09775
+</td>
+<td style="text-align:right;">
+31.96293
+</td>
+<td style="text-align:right;">
+27.54644
+</td>
+<td style="text-align:right;">
+30.83061
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+linha 6
+</td>
+<td style="text-align:right;">
+29.88561
+</td>
+<td style="text-align:right;">
+28.47641
+</td>
+<td style="text-align:right;">
+29.62197
+</td>
+<td style="text-align:right;">
+30.23359
+</td>
+<td style="text-align:right;">
+29.96315
+</td>
+<td style="text-align:right;">
+28.71014
+</td>
+<td style="text-align:right;">
+30.48448
+</td>
+<td style="text-align:right;">
+31.47933
+</td>
+<td style="text-align:right;">
+30.73691
+</td>
+<td style="text-align:right;">
+31.11348
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1081"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1081-1"><a href="iter-cflux.html#cb1081-1"></a><span class="co"># Fazendo algo == apply(mvetn,2,mean)</span></span>
+<span id="cb1081-2"><a href="iter-cflux.html#cb1081-2"></a><span class="co"># cria um objeto para salvar o resultado</span></span>
+<span id="cb1081-3"><a href="iter-cflux.html#cb1081-3"></a>resultado &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb1081-4"><a href="iter-cflux.html#cb1081-4"></a><span class="cf">for</span> (coluna <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(mvetn)) {</span>
+<span id="cb1081-5"><a href="iter-cflux.html#cb1081-5"></a>  <span class="co"># pega a coluna</span></span>
+<span id="cb1081-6"><a href="iter-cflux.html#cb1081-6"></a>  cl &lt;-<span class="st"> </span>mvetn[, coluna]</span>
+<span id="cb1081-7"><a href="iter-cflux.html#cb1081-7"></a>  <span class="co"># calcula a media</span></span>
+<span id="cb1081-8"><a href="iter-cflux.html#cb1081-8"></a>  mcl &lt;-<span class="st"> </span><span class="kw">mean</span>(cl)</span>
+<span id="cb1081-9"><a href="iter-cflux.html#cb1081-9"></a>  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Média da coluna&quot;</span>, <span class="kw">colnames</span>(mvetn)[cl], <span class="st">&quot;=&quot;</span>, <span class="kw">round</span>(mcl, <span class="dv">2</span>)))</span>
+<span id="cb1081-10"><a href="iter-cflux.html#cb1081-10"></a>  <span class="co"># salva o resultado com a media do item anterior</span></span>
+<span id="cb1081-11"><a href="iter-cflux.html#cb1081-11"></a>  resultado &lt;-<span class="st"> </span><span class="kw">c</span>(resultado, mcl)</span>
+<span id="cb1081-12"><a href="iter-cflux.html#cb1081-12"></a>}</span></code></pre></div>
+<pre><code>##  [1] &quot;Média da coluna NA = 30.02&quot; &quot;Média da coluna NA = 30.02&quot;
+##  [3] &quot;Média da coluna NA = 30.02&quot; &quot;Média da coluna NA = 30.02&quot;
+##  [5] &quot;Média da coluna NA = 30.02&quot; &quot;Média da coluna NA = 30.02&quot;
+##  [7] &quot;Média da coluna NA = 30.02&quot; &quot;Média da coluna NA = 30.02&quot;
+##  [9] &quot;Média da coluna NA = 30.02&quot; &quot;Média da coluna NA = 30.02&quot;
+##  [1] &quot;Média da coluna NA = 29.77&quot; &quot;Média da coluna NA = 29.77&quot;
+##  [3] &quot;Média da coluna NA = 29.77&quot; &quot;Média da coluna NA = 29.77&quot;
+##  [5] &quot;Média da coluna NA = 29.77&quot; &quot;Média da coluna NA = 29.77&quot;
+##  [7] &quot;Média da coluna NA = 29.77&quot; &quot;Média da coluna NA = 29.77&quot;
+##  [9] &quot;Média da coluna NA = 29.77&quot; &quot;Média da coluna NA = 29.77&quot;
+##  [1] &quot;Média da coluna NA = 29.92&quot; &quot;Média da coluna NA = 29.92&quot;
+##  [3] &quot;Média da coluna NA = 29.92&quot; &quot;Média da coluna NA = 29.92&quot;
+##  [5] &quot;Média da coluna NA = 29.92&quot; &quot;Média da coluna NA = 29.92&quot;
+##  [7] &quot;Média da coluna NA = 29.92&quot; &quot;Média da coluna NA = 29.92&quot;
+##  [9] &quot;Média da coluna NA = 29.92&quot; &quot;Média da coluna NA = 29.92&quot;
+##  [1] &quot;Média da coluna NA = 29.8&quot; &quot;Média da coluna NA = 29.8&quot;
+##  [3] &quot;Média da coluna NA = 29.8&quot; &quot;Média da coluna NA = 29.8&quot;
+##  [5] &quot;Média da coluna NA = 29.8&quot; &quot;Média da coluna NA = 29.8&quot;
+##  [7] &quot;Média da coluna NA = 29.8&quot; &quot;Média da coluna NA = 29.8&quot;
+##  [9] &quot;Média da coluna NA = 29.8&quot; &quot;Média da coluna NA = 29.8&quot;
+##  [1] &quot;Média da coluna NA = 30.21&quot; &quot;Média da coluna NA = 30.21&quot;
+##  [3] &quot;Média da coluna NA = 30.21&quot; &quot;Média da coluna NA = 30.21&quot;
+##  [5] &quot;Média da coluna NA = 30.21&quot; &quot;Média da coluna NA = 30.21&quot;
+##  [7] &quot;Média da coluna NA = 30.21&quot; &quot;Média da coluna NA = 30.21&quot;
+##  [9] &quot;Média da coluna NA = 30.21&quot; &quot;Média da coluna NA = 30.21&quot;
+##  [1] &quot;Média da coluna NA = 29.85&quot; &quot;Média da coluna NA = 29.85&quot;
+##  [3] &quot;Média da coluna NA = 29.85&quot; &quot;Média da coluna NA = 29.85&quot;
+##  [5] &quot;Média da coluna NA = 29.85&quot; &quot;Média da coluna NA = 29.85&quot;
+##  [7] &quot;Média da coluna NA = 29.85&quot; &quot;Média da coluna NA = 29.85&quot;
+##  [9] &quot;Média da coluna NA = 29.85&quot; &quot;Média da coluna NA = 29.85&quot;
+##  [1] &quot;Média da coluna NA = 30.34&quot; &quot;Média da coluna NA = 30.34&quot;
+##  [3] &quot;Média da coluna NA = 30.34&quot; &quot;Média da coluna NA = 30.34&quot;
+##  [5] &quot;Média da coluna NA = 30.34&quot; &quot;Média da coluna NA = 30.34&quot;
+##  [7] &quot;Média da coluna NA = 30.34&quot; &quot;Média da coluna NA = 30.34&quot;
+##  [9] &quot;Média da coluna NA = 30.34&quot; &quot;Média da coluna NA = 30.34&quot;
+##  [1] &quot;Média da coluna NA = 30.33&quot; &quot;Média da coluna NA = 30.33&quot;
+##  [3] &quot;Média da coluna NA = 30.33&quot; &quot;Média da coluna NA = 30.33&quot;
+##  [5] &quot;Média da coluna NA = 30.33&quot; &quot;Média da coluna NA = 30.33&quot;
+##  [7] &quot;Média da coluna NA = 30.33&quot; &quot;Média da coluna NA = 30.33&quot;
+##  [9] &quot;Média da coluna NA = 30.33&quot; &quot;Média da coluna NA = 30.33&quot;
+##  [1] &quot;Média da coluna NA = 29.95&quot; &quot;Média da coluna NA = 29.95&quot;
+##  [3] &quot;Média da coluna NA = 29.95&quot; &quot;Média da coluna NA = 29.95&quot;
+##  [5] &quot;Média da coluna NA = 29.95&quot; &quot;Média da coluna NA = 29.95&quot;
+##  [7] &quot;Média da coluna NA = 29.95&quot; &quot;Média da coluna NA = 29.95&quot;
+##  [9] &quot;Média da coluna NA = 29.95&quot; &quot;Média da coluna NA = 29.95&quot;
+##  [1] &quot;Média da coluna NA = 30.69&quot; &quot;Média da coluna NA = 30.69&quot;
+##  [3] &quot;Média da coluna NA = 30.69&quot; &quot;Média da coluna NA = 30.69&quot;
+##  [5] &quot;Média da coluna NA = 30.69&quot; &quot;Média da coluna NA = 30.69&quot;
+##  [7] &quot;Média da coluna NA = 30.69&quot; &quot;Média da coluna NA = 30.69&quot;
+##  [9] &quot;Média da coluna NA = 30.69&quot; &quot;Média da coluna NA = 30.69&quot;</code></pre>
+<div class="sourceCode" id="cb1083"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1083-1"><a href="iter-cflux.html#cb1083-1"></a><span class="co"># adicona o nome das colunas</span></span>
+<span id="cb1083-2"><a href="iter-cflux.html#cb1083-2"></a><span class="kw">names</span>(resultado) &lt;-<span class="st"> </span><span class="kw">colnames</span>(mvetn)</span>
+<span id="cb1083-3"><a href="iter-cflux.html#cb1083-3"></a><span class="co"># ver o resultado</span></span>
+<span id="cb1083-4"><a href="iter-cflux.html#cb1083-4"></a>resultado</span></code></pre></div>
+<pre><code>##  coluna 1  coluna 2  coluna 3  coluna 4  coluna 5  coluna 6  coluna 7  coluna 8 
+##  30.02231  29.76714  29.91783  29.79591  30.21034  29.85470  30.33654  30.32650 
+##  coluna 9 coluna 10 
+##  29.94533  30.69054</code></pre>
+<div class="sourceCode" id="cb1085"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1085-1"><a href="iter-cflux.html#cb1085-1"></a><span class="co"># identico ao apply, maior controle de como a média é aplicada</span></span>
+<span id="cb1085-2"><a href="iter-cflux.html#cb1085-2"></a>resultado <span class="op">==</span><span class="st"> </span><span class="kw">apply</span>(mvetn, <span class="dv">2</span>, mean)</span></code></pre></div>
+<pre><code>##  coluna 1  coluna 2  coluna 3  coluna 4  coluna 5  coluna 6  coluna 7  coluna 8 
+##      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE 
+##  coluna 9 coluna 10 
+##      TRUE      TRUE</code></pre>
+</div>
+<div id="exemplo-3" class="section level4">
+<h4><span class="header-section-number">6.3.1.3</span> Exemplo 3</h4>
+<p>Agora usando <code>for(){}</code> para fazer algo como o <code>tapply()</code>.</p>
+<div class="sourceCode" id="cb1087"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1087-1"><a href="iter-cflux.html#cb1087-1"></a><span class="co"># Fazendo algo == tapply(mvetn[,2],mvetn$classe,sum)</span></span>
+<span id="cb1087-2"><a href="iter-cflux.html#cb1087-2"></a><span class="co"># criamos uma matriz</span></span>
+<span id="cb1087-3"><a href="iter-cflux.html#cb1087-3"></a>vetn &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">1</span>)</span>
+<span id="cb1087-4"><a href="iter-cflux.html#cb1087-4"></a>mvetn &lt;-<span class="st"> </span><span class="kw">matrix</span>(vetn, <span class="dt">ncol =</span> <span class="dv">10</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="kw">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="kw">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
+<span id="cb1087-5"><a href="iter-cflux.html#cb1087-5"></a><span class="co"># transformamos num data.frame adicionando uma coluna categorica</span></span>
+<span id="cb1087-6"><a href="iter-cflux.html#cb1087-6"></a>mvetn &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">classe =</span> <span class="kw">sample</span>(<span class="kw">paste</span>(<span class="st">&quot;categ&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), <span class="dt">size =</span> <span class="kw">nrow</span>(mvetn), <span class="dt">replace =</span> T), mvetn)</span>
+<span id="cb1087-7"><a href="iter-cflux.html#cb1087-7"></a><span class="kw">head</span>(mvetn[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</span>
+<span id="cb1087-8"><a href="iter-cflux.html#cb1087-8"></a><span class="co"># cria um objeto para salvar o resultado</span></span>
+<span id="cb1087-9"><a href="iter-cflux.html#cb1087-9"></a>resultado &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb1087-10"><a href="iter-cflux.html#cb1087-10"></a><span class="co"># para cada categoria</span></span>
+<span id="cb1087-11"><a href="iter-cflux.html#cb1087-11"></a><span class="cf">for</span> (ct <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(<span class="kw">levels</span>(mvetn<span class="op">$</span>classe))) {</span>
+<span id="cb1087-12"><a href="iter-cflux.html#cb1087-12"></a>  <span class="co"># pega a categoria</span></span>
+<span id="cb1087-13"><a href="iter-cflux.html#cb1087-13"></a>  cl &lt;-<span class="st"> </span><span class="kw">levels</span>(mvetn<span class="op">$</span>classe)[ct]</span>
+<span id="cb1087-14"><a href="iter-cflux.html#cb1087-14"></a>  <span class="co"># filtra os dados (vetor logico)</span></span>
+<span id="cb1087-15"><a href="iter-cflux.html#cb1087-15"></a>  vl &lt;-<span class="st"> </span>mvetn<span class="op">$</span>classe <span class="op">==</span><span class="st"> </span>cl</span>
+<span id="cb1087-16"><a href="iter-cflux.html#cb1087-16"></a>  <span class="co"># calcula a soma dos dados da categoria</span></span>
+<span id="cb1087-17"><a href="iter-cflux.html#cb1087-17"></a>  soma &lt;-<span class="st"> </span><span class="kw">sum</span>(mvetn[vl, <span class="dv">2</span>], <span class="dt">na.rm =</span> T)</span>
+<span id="cb1087-18"><a href="iter-cflux.html#cb1087-18"></a>  <span class="co"># imprime o passo</span></span>
+<span id="cb1087-19"><a href="iter-cflux.html#cb1087-19"></a>  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;A soma da categoria&quot;</span>, cl, <span class="st">&quot; é igual a &quot;</span>, soma))</span>
+<span id="cb1087-20"><a href="iter-cflux.html#cb1087-20"></a>  <span class="co"># junta os resultados</span></span>
+<span id="cb1087-21"><a href="iter-cflux.html#cb1087-21"></a>  resultado &lt;-<span class="st"> </span><span class="kw">c</span>(resultado, soma)</span>
+<span id="cb1087-22"><a href="iter-cflux.html#cb1087-22"></a>}</span>
+<span id="cb1087-23"><a href="iter-cflux.html#cb1087-23"></a><span class="co"># atribui nomes aos elementos do vetor de somas</span></span>
+<span id="cb1087-24"><a href="iter-cflux.html#cb1087-24"></a><span class="kw">names</span>(resultado) &lt;-<span class="st"> </span><span class="kw">levels</span>(mvetn<span class="op">$</span>classe)</span>
+<span id="cb1087-25"><a href="iter-cflux.html#cb1087-25"></a><span class="co"># confere</span></span>
+<span id="cb1087-26"><a href="iter-cflux.html#cb1087-26"></a>resultado <span class="op">==</span><span class="st"> </span><span class="kw">tapply</span>(mvetn[, <span class="dv">2</span>], mvetn<span class="op">$</span>classe, sum)</span></code></pre></div>
+</div>
+<div id="exemplo-4" class="section level4">
+<h4><span class="header-section-number">6.3.1.4</span> Exemplo 4</h4>
+<p>Calculando somas e médias de linhas, similar ao que podemos fazer com a função <code>apply()</code>:</p>
+<div class="sourceCode" id="cb1088"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1088-1"><a href="iter-cflux.html#cb1088-1"></a>somas &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># objeto vazio para salvar soma de cada linha</span></span>
+<span id="cb1088-2"><a href="iter-cflux.html#cb1088-2"></a>medias &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># objeto vazio para salvar medias de cada linha</span></span>
+<span id="cb1088-3"><a href="iter-cflux.html#cb1088-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(X)) { <span class="co"># para cada linha</span></span>
+<span id="cb1088-4"><a href="iter-cflux.html#cb1088-4"></a>  somai &lt;-<span class="st"> </span><span class="kw">sum</span>(X[i, ]) <span class="co"># soma dos valores na linha i</span></span>
+<span id="cb1088-5"><a href="iter-cflux.html#cb1088-5"></a>  somas &lt;-<span class="st"> </span><span class="kw">c</span>(somas, somai) <span class="co"># junta a somai com o resto (que estará vazio na primeira vez)</span></span>
+<span id="cb1088-6"><a href="iter-cflux.html#cb1088-6"></a>  mediai &lt;-<span class="st"> </span><span class="kw">mean</span>(X[i, ]) <span class="co"># média  dos valores na linha i</span></span>
+<span id="cb1088-7"><a href="iter-cflux.html#cb1088-7"></a>  medias &lt;-<span class="st"> </span><span class="kw">c</span>(medias, mediai) <span class="co"># junta as medias</span></span>
+<span id="cb1088-8"><a href="iter-cflux.html#cb1088-8"></a>}</span>
+<span id="cb1088-9"><a href="iter-cflux.html#cb1088-9"></a><span class="co"># como a matriz tem nomes, acrescenta esses nomes aos vetores com resultados</span></span>
+<span id="cb1088-10"><a href="iter-cflux.html#cb1088-10"></a><span class="kw">names</span>(medias) &lt;-<span class="st"> </span><span class="kw">rownames</span>(X)</span>
+<span id="cb1088-11"><a href="iter-cflux.html#cb1088-11"></a>medias</span></code></pre></div>
+<pre><code>## ln 1 ln 2 ln 3 ln 4 
+##   17   18   19   20</code></pre>
+<div class="sourceCode" id="cb1090"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1090-1"><a href="iter-cflux.html#cb1090-1"></a><span class="kw">names</span>(somas) &lt;-<span class="st"> </span><span class="kw">rownames</span>(X)</span>
+<span id="cb1090-2"><a href="iter-cflux.html#cb1090-2"></a>somas</span></code></pre></div>
+<pre><code>## ln 1 ln 2 ln 3 ln 4 
+##  153  162  171  180</code></pre>
+</div>
+</div>
+<div id="iteração-com-while" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Iteração com <code>while(){}</code></h3>
+<p>O comando <code>while(){}</code> funciona de forma parecida, mas faz algo ENQUANTO (em inglês, <em>while</em>) a condição em <code>while(){}</code> seja verdadeira.
+Um exemplo simples:</p>
+<div id="exemplo-1-1" class="section level4">
+<h4><span class="header-section-number">6.3.2.1</span> Exemplo 1</h4>
+<div class="sourceCode" id="cb1092"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1092-1"><a href="iter-cflux.html#cb1092-1"></a><span class="co"># cria um vetor de valores aleatorizados</span></span>
+<span id="cb1092-2"><a href="iter-cflux.html#cb1092-2"></a>vet &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span><span class="op">:</span><span class="dv">100</span>)</span>
+<span id="cb1092-3"><a href="iter-cflux.html#cb1092-3"></a><span class="co"># amostra um valor do vetor até que este valor seja 10</span></span>
+<span id="cb1092-4"><a href="iter-cflux.html#cb1092-4"></a>conta &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb1092-5"><a href="iter-cflux.html#cb1092-5"></a>valor &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb1092-6"><a href="iter-cflux.html#cb1092-6"></a><span class="cf">while</span> (valor <span class="op">!=</span><span class="st"> </span><span class="dv">10</span>) {</span>
+<span id="cb1092-7"><a href="iter-cflux.html#cb1092-7"></a>  valor &lt;-<span class="st"> </span><span class="kw">sample</span>(vet, <span class="dv">1</span>)</span>
+<span id="cb1092-8"><a href="iter-cflux.html#cb1092-8"></a>  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;o valor selecionado na iteração&quot;</span>, conta, <span class="st">&quot;foi de &quot;</span>, valor))</span>
+<span id="cb1092-9"><a href="iter-cflux.html#cb1092-9"></a>  conta &lt;-<span class="st"> </span>conta <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb1092-10"><a href="iter-cflux.html#cb1092-10"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;o valor selecionado na iteração 1 foi de  81&quot;
+## [1] &quot;o valor selecionado na iteração 2 foi de  23&quot;
+## [1] &quot;o valor selecionado na iteração 3 foi de  30&quot;
+## [1] &quot;o valor selecionado na iteração 4 foi de  32&quot;
+## [1] &quot;o valor selecionado na iteração 5 foi de  39&quot;
+## [1] &quot;o valor selecionado na iteração 6 foi de  74&quot;
+## [1] &quot;o valor selecionado na iteração 7 foi de  88&quot;
+## [1] &quot;o valor selecionado na iteração 8 foi de  16&quot;
+## [1] &quot;o valor selecionado na iteração 9 foi de  60&quot;
+## [1] &quot;o valor selecionado na iteração 10 foi de  61&quot;
+## [1] &quot;o valor selecionado na iteração 11 foi de  62&quot;
+## [1] &quot;o valor selecionado na iteração 12 foi de  74&quot;
+## [1] &quot;o valor selecionado na iteração 13 foi de  10&quot;</code></pre>
+</div>
+</div>
+<div id="iteração-com-for-e-a-condicional-if" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></h3>
+<div id="exemplo-1-2" class="section level4">
+<h4><span class="header-section-number">6.3.3.1</span> Exemplo 1</h4>
+<div class="sourceCode" id="cb1094"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1094-1"><a href="iter-cflux.html#cb1094-1"></a><span class="co"># cria um vetor de valores aleatorizados</span></span>
+<span id="cb1094-2"><a href="iter-cflux.html#cb1094-2"></a>vet &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">60</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb1094-3"><a href="iter-cflux.html#cb1094-3"></a><span class="co"># amostra um valor do vetor até que este valor seja 10</span></span>
+<span id="cb1094-4"><a href="iter-cflux.html#cb1094-4"></a><span class="cf">for</span> (v <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>) {</span>
+<span id="cb1094-5"><a href="iter-cflux.html#cb1094-5"></a>  valor &lt;-<span class="st"> </span><span class="kw">sample</span>(vet, <span class="dv">1</span>)</span>
+<span id="cb1094-6"><a href="iter-cflux.html#cb1094-6"></a>  <span class="cf">if</span> (valor <span class="op">==</span><span class="st"> </span><span class="dv">10</span>) {</span>
+<span id="cb1094-7"><a href="iter-cflux.html#cb1094-7"></a>    <span class="co"># se o valor selecionado aleatoriamente for 10, ou seja se a expressão valor==10 for TRUE execute:</span></span>
+<span id="cb1094-8"><a href="iter-cflux.html#cb1094-8"></a>    <span class="co"># imprima isso</span></span>
+<span id="cb1094-9"><a href="iter-cflux.html#cb1094-9"></a>    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;A primeira vez que o valor 10 foi selecionado aleatoriamente foi quando o objeto v assumiu o valor de&quot;</span>, v))</span>
+<span id="cb1094-10"><a href="iter-cflux.html#cb1094-10"></a>    <span class="co"># interrompa (quebre) o loop</span></span>
+<span id="cb1094-11"><a href="iter-cflux.html#cb1094-11"></a>    <span class="cf">break</span> <span class="co"># note este argumento</span></span>
+<span id="cb1094-12"><a href="iter-cflux.html#cb1094-12"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1094-13"><a href="iter-cflux.html#cb1094-13"></a>    <span class="co"># caso contrario, valor!=10, imprime o valor selecionado e continua o loop</span></span>
+<span id="cb1094-14"><a href="iter-cflux.html#cb1094-14"></a>    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;O valor selecionado foi &quot;</span>, valor, <span class="st">&quot;no indice&quot;</span>, v))</span>
+<span id="cb1094-15"><a href="iter-cflux.html#cb1094-15"></a>  }</span>
+<span id="cb1094-16"><a href="iter-cflux.html#cb1094-16"></a>}</span></code></pre></div>
+<p>É possível que o script acima repita as 10000 vezes do <code>for(){}</code> sem encontrar o valor 10, até porque o 10 pode não estar em vet se não for amostrado.<br />
+<!-- A expressão `if(){}` não precisa necessariamente estar dentro de um loop, ela é independente.   --></p>
+</div>
+</div>
+</div>
+<div id="criando-ou-modificando-funções" class="section level2">
+<h2><span class="header-section-number">6.4</span> Criando ou modificando funções</h2>
+<p>Funções são objetos que contêm um script que usa os argumentos (também objetos) para executar alguma coisa.
+A expressão <code>function(){}</code> é utilizada para criar funções.
+Criar funções é útil pois podem executar algo várias vezes (podendo ser de forma diferente) sem precisar reescrever o código todas às vezes.
+Isso nos auxilia em práticas rotineiras como, por exemplo, na manipulação de um conjunto de dados de localização geográfica de espécimes botânicos.
+Podemos gerar um mapa personalizado de distribuição geográfica de cada espécie criando uma função para plotar um mapa, e depois utilizamos a aplicamos a função sobre a categoria, neste caso, a variável contendo o nome da espécie.
+É muito útil também poder modificar uma função criada por outra pessoa, seja uma função de um determinado <strong>pacote</strong> ou uma função que você encontrou em uma página qualquer navegando pela internet.</p>
+<p>É muito simples construir uma função.
+Há um bloco que deve ser sempre repetido:</p>
+<pre><code>function(meu_argumento1, meu_argumento2, ...) {
+  
+  # AQUI FICAM AS AÇÕES DE SUA FUNÇÃO, COMO POR EXEMPLO
+  
+  return(&quot;resultado da função&quot;) #
+  
+} </code></pre>
+<p>É costume sempre utilizar a função <code>return()</code> como último elemento da função para que algum objeto seja retornado ao usuário.</p>
+<div class="sourceCode" id="cb1096"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1096-1"><a href="iter-cflux.html#cb1096-1"></a>?return <span class="co"># veja o help</span></span></code></pre></div>
+<div id="exemplo-i" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Exemplo I</h3>
+<p>Vamos fazer a nossa versão da função <code>mean()</code>, que tira a média aritmética dos valores de um vetor.</p>
+<div class="sourceCode" id="cb1097"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1097-1"><a href="iter-cflux.html#cb1097-1"></a><span class="co"># Vamos fazer essa função na unha:</span></span>
+<span id="cb1097-2"><a href="iter-cflux.html#cb1097-2"></a>amedia &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb1097-3"><a href="iter-cflux.html#cb1097-3"></a>  <span class="co"># x será um vetor de comprimento &gt;=1 e todos os valores devem ser numéricos, senão precisamos avisar.</span></span>
+<span id="cb1097-4"><a href="iter-cflux.html#cb1097-4"></a>  <span class="co"># essa funçao ira retornar o valor do &#39;am&#39; que definimos como nulo inicialmente</span></span>
+<span id="cb1097-5"><a href="iter-cflux.html#cb1097-5"></a>  am &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb1097-6"><a href="iter-cflux.html#cb1097-6"></a>  <span class="co"># condicao 1</span></span>
+<span id="cb1097-7"><a href="iter-cflux.html#cb1097-7"></a>  c1 &lt;-<span class="st"> </span><span class="kw">is.vector</span>(x)</span>
+<span id="cb1097-8"><a href="iter-cflux.html#cb1097-8"></a>  <span class="co"># condicao 2</span></span>
+<span id="cb1097-9"><a href="iter-cflux.html#cb1097-9"></a>  xx &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(x) <span class="co"># convertemos em numérico</span></span>
+<span id="cb1097-10"><a href="iter-cflux.html#cb1097-10"></a>  xx &lt;-<span class="st"> </span>xx[<span class="op">!</span><span class="kw">is.na</span>(xx)] <span class="co"># tira o que não é número (o que não foi convertido ou está em branco)</span></span>
+<span id="cb1097-11"><a href="iter-cflux.html#cb1097-11"></a>  c2 &lt;-<span class="st"> </span><span class="kw">length</span>(xx) <span class="op">==</span><span class="st"> </span><span class="kw">length</span>(x) <span class="co"># os comprimentos são iguais? e tem algum valor?</span></span>
+<span id="cb1097-12"><a href="iter-cflux.html#cb1097-12"></a>  <span class="cf">if</span> (c1 <span class="op">&amp;</span><span class="st"> </span><span class="kw">length</span>(xx) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>) { <span class="co"># se for um vetor e houver algum valor numérico, pode calcular a média</span></span>
+<span id="cb1097-13"><a href="iter-cflux.html#cb1097-13"></a>    am &lt;-<span class="st"> </span><span class="kw">sum</span>(xx) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(xx)</span>
+<span id="cb1097-14"><a href="iter-cflux.html#cb1097-14"></a>    <span class="cf">if</span> (<span class="op">!</span>c2) { <span class="co"># se c1 for falso</span></span>
+<span id="cb1097-15"><a href="iter-cflux.html#cb1097-15"></a>      <span class="kw">print</span>(<span class="kw">paste</span>(<span class="kw">length</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">length</span>(xx), <span class="st">&quot; valores do vetor não são numéricos e foram excluídos&quot;</span>)) <span class="co"># avisa</span></span>
+<span id="cb1097-16"><a href="iter-cflux.html#cb1097-16"></a>    }</span>
+<span id="cb1097-17"><a href="iter-cflux.html#cb1097-17"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1097-18"><a href="iter-cflux.html#cb1097-18"></a>    <span class="kw">print</span>(<span class="st">&quot;O objeto não é um vetor ou não há valores numéricos&quot;</span>) <span class="co"># avisa</span></span>
+<span id="cb1097-19"><a href="iter-cflux.html#cb1097-19"></a>  }</span>
+<span id="cb1097-20"><a href="iter-cflux.html#cb1097-20"></a>  <span class="kw">return</span>(am)</span>
+<span id="cb1097-21"><a href="iter-cflux.html#cb1097-21"></a>}</span></code></pre></div>
+<p>Vamos agora utilizar a função:</p>
+<div class="sourceCode" id="cb1098"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1098-1"><a href="iter-cflux.html#cb1098-1"></a>v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb1098-2"><a href="iter-cflux.html#cb1098-2"></a><span class="kw">amedia</span>(v1)</span></code></pre></div>
+<pre><code>## [1] 3.5</code></pre>
+<div class="sourceCode" id="cb1100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1100-1"><a href="iter-cflux.html#cb1100-1"></a>v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb1100-2"><a href="iter-cflux.html#cb1100-2"></a><span class="kw">amedia</span>(v1)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb1102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1102-1"><a href="iter-cflux.html#cb1102-1"></a>v1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="st">&quot;A&quot;</span>)</span>
+<span id="cb1102-2"><a href="iter-cflux.html#cb1102-2"></a><span class="kw">amedia</span>(v1)</span></code></pre></div>
+<pre><code>## Warning in amedia(v1): NAs introduced by coercion</code></pre>
+<pre><code>## [1] &quot;1  valores do vetor não são numéricos e foram excluídos&quot;</code></pre>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb1106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1106-1"><a href="iter-cflux.html#cb1106-1"></a>v1 &lt;-<span class="st"> </span>LETTERS</span>
+<span id="cb1106-2"><a href="iter-cflux.html#cb1106-2"></a><span class="kw">amedia</span>(v1)</span></code></pre></div>
+<pre><code>## Warning in amedia(v1): NAs introduced by coercion</code></pre>
+<pre><code>## [1] &quot;O objeto não é um vetor ou não há valores numéricos&quot;</code></pre>
+<pre><code>## NULL</code></pre>
+</div>
+<div id="exemplo-ii" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Exemplo II</h3>
+<p>Os <em>loops</em> por meio da expressão <code>for(){}</code> e a condicional <code>if</code> são muito úteis dentro de funções.
+Sua função pode, por exemplo, ser construida para que um argumento possa assumir diferentes valores e, a depender do valor, executar uma coisa diferente.
+Como exemplo, vamos criar uma função que contem o script do exemplo de <code>if</code>:</p>
+<div class="sourceCode" id="cb1110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1110-1"><a href="iter-cflux.html#cb1110-1"></a><span class="co"># CRIA uma funcao com os seguintes argumentos:</span></span>
+<span id="cb1110-2"><a href="iter-cflux.html#cb1110-2"></a><span class="co"># vet = um vetor de valores</span></span>
+<span id="cb1110-3"><a href="iter-cflux.html#cb1110-3"></a><span class="co"># busca.valor = um valor para busca em vet</span></span>
+<span id="cb1110-4"><a href="iter-cflux.html#cb1110-4"></a><span class="co"># nrun = numero de vezes da iteracao</span></span>
+<span id="cb1110-5"><a href="iter-cflux.html#cb1110-5"></a>minhafuncao &lt;-<span class="st"> </span><span class="cf">function</span>(vet, busca.valor, nrun) {</span>
+<span id="cb1110-6"><a href="iter-cflux.html#cb1110-6"></a>  <span class="co"># cria um loop do número de vezes (note o argumento nrun abaixo)</span></span>
+<span id="cb1110-7"><a href="iter-cflux.html#cb1110-7"></a>  <span class="cf">for</span> (v <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>nrun) {</span>
+<span id="cb1110-8"><a href="iter-cflux.html#cb1110-8"></a>    <span class="co"># pega um valor aleatorio</span></span>
+<span id="cb1110-9"><a href="iter-cflux.html#cb1110-9"></a>    <span class="co"># amostra o indice aleatoriamente</span></span>
+<span id="cb1110-10"><a href="iter-cflux.html#cb1110-10"></a>    idx &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(vet), <span class="dv">1</span>)</span>
+<span id="cb1110-11"><a href="iter-cflux.html#cb1110-11"></a>    valor &lt;-<span class="st"> </span>vet[idx]</span>
+<span id="cb1110-12"><a href="iter-cflux.html#cb1110-12"></a>    <span class="co"># se o valor amostrado for igual ao valor procurado para</span></span>
+<span id="cb1110-13"><a href="iter-cflux.html#cb1110-13"></a>    <span class="cf">if</span> (valor <span class="op">==</span><span class="st"> </span>busca.valor) {</span>
+<span id="cb1110-14"><a href="iter-cflux.html#cb1110-14"></a>      <span class="co"># se o valor selecionado aleatoriamente for 10, ou seja se a expressão valor==10 for TRUE execute:</span></span>
+<span id="cb1110-15"><a href="iter-cflux.html#cb1110-15"></a>      <span class="co"># imprima isso</span></span>
+<span id="cb1110-16"><a href="iter-cflux.html#cb1110-16"></a>      <span class="co"># print(paste(&quot;A primeira vez que o valor 10 foi selecionado aleatoriamente foi quando o objeto v assumiu o valor de&quot;,v))</span></span>
+<span id="cb1110-17"><a href="iter-cflux.html#cb1110-17"></a>      <span class="co"># interrompa (quebre) o loop</span></span>
+<span id="cb1110-18"><a href="iter-cflux.html#cb1110-18"></a>      <span class="cf">break</span> <span class="co"># note este argumento</span></span>
+<span id="cb1110-19"><a href="iter-cflux.html#cb1110-19"></a>    } <span class="cf">else</span> {</span>
+<span id="cb1110-20"><a href="iter-cflux.html#cb1110-20"></a>      <span class="co"># caso contrario, valor!=10, imprime o valor selecionado e continua o loop</span></span>
+<span id="cb1110-21"><a href="iter-cflux.html#cb1110-21"></a>      <span class="co"># print(paste(&quot;O valor selecionado foi &quot;,valor,&quot;no indice&quot;,v))</span></span>
+<span id="cb1110-22"><a href="iter-cflux.html#cb1110-22"></a>    }</span>
+<span id="cb1110-23"><a href="iter-cflux.html#cb1110-23"></a>  }</span>
+<span id="cb1110-24"><a href="iter-cflux.html#cb1110-24"></a>  <span class="co"># o valor do objeto v será o último valor assumido na execucao do for(){}, se tiver encontrado será menor que nrun, caso contrario será ==nrun</span></span>
+<span id="cb1110-25"><a href="iter-cflux.html#cb1110-25"></a>  <span class="co"># se encontrou retorna o indice do valor (que é o último valor assumido por idx)</span></span>
+<span id="cb1110-26"><a href="iter-cflux.html#cb1110-26"></a>  <span class="co"># caso o último valor seja == ao valor buscado, ou que o ultimo v é menor que o especificado em nrun, retorna o indice do valor no vetor vet</span></span>
+<span id="cb1110-27"><a href="iter-cflux.html#cb1110-27"></a>  <span class="cf">if</span> (v <span class="op">&lt;</span><span class="st"> </span>nrun <span class="op">|</span><span class="st"> </span>valor <span class="op">==</span><span class="st"> </span>busca.valor) {</span>
+<span id="cb1110-28"><a href="iter-cflux.html#cb1110-28"></a>    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Encontrei o valor&quot;</span>, busca.valor, <span class="st">&quot;no indice, &quot;</span>, idx, <span class="st">&quot;do vetor indicado&quot;</span>))</span>
+<span id="cb1110-29"><a href="iter-cflux.html#cb1110-29"></a>    <span class="kw">return</span>(idx)</span>
+<span id="cb1110-30"><a href="iter-cflux.html#cb1110-30"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1110-31"><a href="iter-cflux.html#cb1110-31"></a>    <span class="co"># caso contrário returna NA</span></span>
+<span id="cb1110-32"><a href="iter-cflux.html#cb1110-32"></a>    <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Não encontrei o valor&quot;</span>, busca.valor, <span class="st">&quot;no vetor indicado&quot;</span>))</span>
+<span id="cb1110-33"><a href="iter-cflux.html#cb1110-33"></a>    <span class="kw">return</span>(<span class="ot">NA</span>)</span>
+<span id="cb1110-34"><a href="iter-cflux.html#cb1110-34"></a>  }</span>
+<span id="cb1110-35"><a href="iter-cflux.html#cb1110-35"></a>}</span></code></pre></div>
+<p>Vamos utilizar a função recém-criada:</p>
+<div class="sourceCode" id="cb1111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1111-1"><a href="iter-cflux.html#cb1111-1"></a>umvetor &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">60</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb1111-2"><a href="iter-cflux.html#cb1111-2"></a><span class="kw">minhafuncao</span>(<span class="dt">vet =</span> umvetor, <span class="dt">busca.valor =</span> <span class="dv">22</span>, <span class="dt">nrun =</span> <span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Não encontrei o valor 22 no vetor indicado&quot;</code></pre>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb1114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1114-1"><a href="iter-cflux.html#cb1114-1"></a>retornou.isso &lt;-<span class="st"> </span><span class="kw">minhafuncao</span>(<span class="dt">vet =</span> umvetor, <span class="dt">busca.valor =</span> <span class="dv">22</span>, <span class="dt">nrun =</span> <span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Não encontrei o valor 22 no vetor indicado&quot;</code></pre>
+<div class="sourceCode" id="cb1116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1116-1"><a href="iter-cflux.html#cb1116-1"></a><span class="co"># e usar de novo com outros valores</span></span>
+<span id="cb1116-2"><a href="iter-cflux.html#cb1116-2"></a>umvetor &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">200</span><span class="op">:</span><span class="dv">300</span>, <span class="dv">50</span>, <span class="dt">replace =</span> T)</span>
+<span id="cb1116-3"><a href="iter-cflux.html#cb1116-3"></a><span class="kw">sort</span>(<span class="kw">table</span>(umvetor), <span class="dt">decreasing =</span> T)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+255
+</th>
+<th style="text-align:right;">
+210
+</th>
+<th style="text-align:right;">
+219
+</th>
+<th style="text-align:right;">
+228
+</th>
+<th style="text-align:right;">
+260
+</th>
+<th style="text-align:right;">
+261
+</th>
+<th style="text-align:right;">
+264
+</th>
+<th style="text-align:right;">
+269
+</th>
+<th style="text-align:right;">
+201
+</th>
+<th style="text-align:right;">
+202
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1117-1"><a href="iter-cflux.html#cb1117-1"></a><span class="kw">minhafuncao</span>(<span class="dt">vet =</span> umvetor, <span class="dt">busca.valor =</span> <span class="dv">250</span>, <span class="dt">nrun =</span> <span class="dv">10000</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Encontrei o valor 250 no indice,  36 do vetor indicado&quot;</code></pre>
+<pre><code>## [1] 36</code></pre>
+<div class="sourceCode" id="cb1120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1120-1"><a href="iter-cflux.html#cb1120-1"></a>retornou.isso &lt;-<span class="st"> </span><span class="kw">minhafuncao</span>(<span class="dt">vet =</span> umvetor, <span class="dt">busca.valor =</span> <span class="dv">250</span>, <span class="dt">nrun =</span> <span class="dv">10000</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Encontrei o valor 250 no indice,  36 do vetor indicado&quot;</code></pre>
+</div>
+</div>
+<div id="sabermais-condic" class="section level2">
+<h2><span class="header-section-number">6.5</span> Para saber mais:</h2>
+<ol style="list-style-type: decimal">
+<li>Acesse vídeoaulas com conteúdo parcial deste capítulo clicando no tópicos abaixo:</li>
+</ol>
+<ul>
+<li><p><a href="http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:6vetores:video01_bot89-2020-04-07_07.52.00.mp4">Vetores e Operadores Lógicos</a>;</p>
+<ul>
+<li><a href="https://youtu.be/8Z_k02PwQZc">Condicionais no R</a></li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Auxílio do R - executem a expressão <code>?Control</code> no R e vejam a explicação sobre condicionais.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="func-graf.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sumar-dados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/06-iteracoes_controleFluxo.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/06-iteracoes_controleFluxo.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

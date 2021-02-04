@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Curso básico de introdução à linguagem R</title>
+  <title>Referências | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Curso básico de introdução à linguagem R" />
+  <meta property="og:title" content="Referências | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="LABOTAM/LABOTAM.github.io" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Curso básico de introdução à linguagem R" />
+  <meta name="twitter:title" content="Referências | Curso básico de introdução à linguagem R" />
   
   <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="mat-sup.html"/>
 
-<link rel="next" href="intro.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -386,142 +386,48 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Curso básico de introdução à linguagem R</h1>
-<h2 class="subtitle"><em>Disciplina BOT89 - PPGBOT INPA</em></h2>
-<p class="author"><em><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=alunos:a.vicentini:inicio">Alberto Vicentini</a> (<a href="http://portal.inpa.gov.br/">INPA</a>)</em></p>
-<p class="author"><em><a href="https://ricardoperdiz.com">Ricardo de Oliveira Perdiz</a> - ricardoperdiz@yahoo.com</em></p>
-<p class="date"><em>Última atualização: 2021-02-04</em></p>
-</div>
-<div id="prefácio" class="section level1 unnumbered">
-<h1>Prefácio</h1>
-<p>Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89)</a> do <a href="http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/">Programa de Pós-Graduação em Ciências Biológicas (Botânica)</a> do INPA.
-Porém, devido ao seu conteúdo abrangente, pode ser utilizado por qualquer pessoa que escolha conhecer esta linguagem para utilizá-la no dia a dia.</p>
-<p>Nosso meta é prover uma introdução básica
-<!-- (a) passar uma noção geral sobre dados e metadados e como criar e manter um banco de dados de forma simples e organizada e que facilite seu uso posterior; -->
-da linguagem de programação R, que é extremamente poderosa para manipulação de dados, análises estatísticas, produção de gráficos e de documentos dinâmicos, e cujo domínio oferece um grande ganho de produtividade a todo cientista e facilita o entendimento de métodos analíticos.
-Ressaltamos que <strong>isto não é um curso de estatística</strong>.</p>
-<div id="estrutura-do-livro" class="section level2 unnumbered">
-<h2>Estrutura do livro</h2>
-<div class="infobox warning">
-<p><strong>Nota</strong>: Este livro está em constante atualização. Os capítulos de 1 a 10 estão relativamente estáveis e devem passar por poucas mudanças daqui para a frente. Haverá uma reestruturação no que atualmente se chama <a href="https://labotam.github.io/material-suplementar.html">Material Suplementar</a>, e também a adição de ao menos uma parte contendo tutorials de análise exploratória de dados. Você pode encontrar os códigos fonte deste livro no endereço <a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main">https://github.com/LABOTAM/LABOTAM.github.io/tree/main</a>. Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para <a href="https://github.com/LABOTAM/LABOTAM.github.io/issues">abrir um problema no repositório do livro</a>. Grato!</p>
-</div>
-<p><!-- (Figura \@ref(fig:issues)) --></p>
-<p>O livro está dividido em 10 capítulos.</p>
-<ul>
-<li><strong>Capítulo <a href="intro.html#intro">1</a></strong> aborda os aspectos básicos da linguagem R, o software que utilizamos para usar a linguagem, pacotes com funções, como solicitar ajuda sobre funções, dicas de organização das pastas, e o R como uma calculadora.</li>
-<li><strong>Capítulo <a href="vetores.html#vetores">2</a></strong> aborda a criação, indexação, e operações matemáticas com vetores no R.</li>
-<li><strong>Capítulo <a href="mat-dframe.html#mat-dframe">3</a></strong> aborda a criação, indexação, filtragem, importação e exportação de matrizes e data.frames.</li>
-<li><strong>Capítulo <a href="lista-objcompl.html#lista-objcompl">4</a></strong> ensina a criar, indexar, e filtrar listas e objetos complexos.</li>
-<li><strong>Capítulo <a href="func-graf.html#func-graf">5</a></strong> aborda as funções gráficas do pacote <code>base</code> do R.</li>
-<li><strong>Capítulo <a href="iter-cflux.html#iter-cflux">6</a></strong> aborda dois conceitos chave em qualquer linguagem de programação: iteração e controles de fluxo.</li>
-<li><strong>Capítulo <a href="sumar-dados.html#sumar-dados">7</a></strong> abrange o tópico de sumarização de dados, explicando tabelas de contagem, tabelas dinâmicas e junção de tabelas.<!-- NOTA! Junção de tabelas não parece se encaixar aqui, hein, Beto? --></li>
-<li><strong>Capítulo <a href="manip-txt-arq-pasta.html#manip-txt-arq-pasta">8</a></strong> ensina ferramentas básicas para a manipulação de textos, arquivos e pastas.</li>
-<li><strong>Capítulo <a href="amost-aleat.html#amost-aleat">9</a></strong> ensina de maneira breve funções para amostragens aleatórias e distribuições de valores.</li>
-<li><strong>Capítulo <a href="extr-dados.html#extr-dados">10</a></strong> abrange o uso de funções customizadas para extração de variáveis morfológicas de notas de texto obtidas de espécimes de plantas.</li>
-<li><strong>Capítulo <a href="mat-sup.html#mat-sup">11</a></strong> inclui uma discussão breve sobre o universo de pacotes conhecidos como <a href="https://www.tidyverse.org/">Tidyverse</a>, comparando-os com o pacote <code>base</code> do R; um tutorial para baixar e descomprimir arquivos <code>.zip</code>; e por fim uma lista de vídeos gravados por nós abordando diversos tópicos deste livro, disponíveis em uma lista para facilitar a consulta.</li>
-</ul>
-<!-- Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro. -->
-<!-- Ao optar por esse caminho, você será levado à página do código fonte e poderá editar o arquivo diretamente no GitHub. -->
-<!-- Após as modificações, você terá a possibilidade de gerar um **[Pull request](https://docs.github.com/pt/github/collaborating-with-issues-and-pull-requests/about-pull-requests)** que será analisado por nós. -->
-<!-- Caso aceitemos a modificação proposta, seu nome será incluído entre os contribuidores do livro.   -->
-</div>
-<div id="sobre-os-autores" class="section level2 unnumbered">
-<h2>Sobre os autores</h2>
-<p>O texto deste livro foi escrito e aprimorado majoritariamente (mais de 90%) por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
-Essas aulas podem ser visualizadas no endereço <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio</a>.
-Ricardo Perdiz transpôs as aulas originais formatadas em <code>dokuwiki</code> para o formato <a href="https://rmarkdown.rstudio.com/">Rmarkdown</a>. Também corrigiu alguns detalhes e acrescentou novos conteúdos.</p>
-<!-- incluir aqui a autores.Rmd - pedir ao Beto para revisar o texto XXX-->
-</div>
-<div id="pré-requisitos" class="section level2 unnumbered">
-<h2>Pré-requisitos</h2>
-<p>Devido ao modo como foi construído, este livro pode ser tanto lido quanto “executado”, uma vez que seus arquivos são o que chamamos de <em>Rmarkdown</em>, uma linguagem que mistura texto com código.
-Sendo assim, o livro pode ser visualizado em computadores, em celulares modernos, e em <em>tablets</em>.
-Não é necessário ter um computador próprio, apesar de que possuir um facilita o aprendizado.
-Entendemos que nosso país ainda carece de muito investimento na melhora da qualidade de vida da população em geral, o que inclui acesso facilitado aos bens de informática.
-Desta forma, providenciamos duas maneiras de o leitor deste livro fazer bem uso das informações aqui contidas.</p>
-</div>
-<div id="caso-você-possua-um-computador" class="section level2 unnumbered">
-<h2>Caso você possua um computador</h2>
-<div id="instale-o-r" class="section level3 unnumbered">
-<h3>Instale o R</h3>
-<p>Baixe e instale o <a href="https://www.r-project.org/">R</a>, próprio para o seu sistema operacional.</p>
-</div>
-<div id="instale-um-ambiente-de-desenvolvimento-integrado---ide" class="section level3 unnumbered">
-<h3>Instale um ambiente de desenvolvimento integrado - IDE</h3>
-<p>Recomendamos que o software <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a> seja instalado no seu computador, pois ele foi criado facilitar a interação do usuário com os múltiplos recursos oferecidos pela linguagem, em especial os inúmeros pacotes desenvolvidos por funcionários desta empresa, entre os quais se inclui o pacote <a href="https://github.com/rstudio/bookdown">bookdown</a>, utilizado para construir este livro online.
-Ademais, ambientes de desenvolvimento integrado (do inglês <em>Integrated Development Environment</em>, <strong>IDE</strong>) como este software têm o objetivo de prover ao usuário mais ferramentas na interação entre o código e o resultado da execução do código, além de facilitar o uso de ferramentas alternativas para construção de texto mesclado com códigos (e.g., LaTeX, Markdown etc), o que permite uma dinamicidade na construção de textos acadêmicos.</p>
-<p>Existem outras alternativas de software, tais como o <a href="https://atom.io/">Atom</a> e o <a href="https://code.visualstudio.com/">Visual Studio Code</a>. Fique à vontade para escolher.</p>
-</div>
-<div id="baixe-o-repositório-para-seu-computador" class="section level3 unnumbered">
-<h3>Baixe o repositório para seu computador</h3>
-<p>Acesse a <a href="">página do repositório</a> contendo os códigos fontes deste livro (Fig. <a href="index.html#fig:repo">0.1</a>).</p>
-<div class="figure"><span id="fig:repo"></span>
-<img src="figuras/repo.png" alt="Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro."  />
-<p class="caption">
-Figura 0.1: Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro.
-</p>
-</div>
-<p>Busque um botão de cor <strong>verde</strong> chamado <em>Code</em> (Fig. <a href="index.html#fig:baixa-repo">0.2</a>).
-Clique neste botão e aparecerão algumas opções.
-Clique no botão <strong>Download Zip</strong>, destacado em vermelho na figura <a href="index.html#fig:baixa-repo">0.2</a>, e escolha onde você quer salvar o arquivo.</p>
-<div class="figure"><span id="fig:baixa-repo"></span>
-<img src="figuras/baixa_repo.png" alt="Destaque do botão *Code* (retângulo **azul** pontilhado circundando o botão, com uma seta **azul** apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor **vermelha** destacando a opção **Download Zip**."  />
-<p class="caption">
-Figura 0.2: Destaque do botão <em>Code</em> (retângulo <strong>azul</strong> pontilhado circundando o botão, com uma seta <strong>azul</strong> apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor <strong>vermelha</strong> destacando a opção <strong>Download Zip</strong>.
-</p>
-</div>
-<p>Após baixar, descomprima este arquivo <code>.zip</code>, escolha onde você deseja guardar a pasta, e comece a acessar os arquivos.</p>
-<p>Os arquivos contendo cada capítulo deste livro são listados abaixo e podem ser encontrados na <a href="https://github.com/LABOTAM/LABOTAM.github.io">página inicial do repositório</a>:</p>
-<pre><code>## 01-intro.Rmd
-## 02-vetores.Rmd
-## 03-matrizes_dframes.Rmd
-## 04-listas_objComplexos.Rmd
-## 05-funcoes_graficas.Rmd
-## 06-iteracoes_controleFluxo.Rmd
-## 07-sumarizacao_dados.Rmd
-## 08-manip_txt_arqs_pasta.Rmd
-## 09-amostragens_aleatorias.Rmd
-## 10-extracao_dados.Rmd
-## 11-mat_suplementar.Rmd
-## 12-referencias.Rmd</code></pre>
-<p>Você pode tanto utilizar os arquivos escritos em formato <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio">Rmarkdown</a> e executar os códigos em cada célula de código (<strong>code chunks</strong>) ou usar os scripts contidos na pasta <code>codigo</code>, que nada mais são do que os capítulos do livro convertidos para um script de R, isto é, em formato <code>.R</code>.
-Nesses scripts, todos os pedaços de texto, incluindo cabeçalhos e comentários estão precedidos de <code>#'</code>; o que for código aparecerá sem <code>#'</code> precedentes.
-Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repositório.</p>
-<ul>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/01-intro.R">01-intro.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/02-vetores.R">02-vetores.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/03-matrizes_dframes.R">03-matrizes_dframes.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/04-listas_objComplexos.R">04-listas_objComplexos.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/05-funcoes_graficas.R">05-funcoes_graficas.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/06-iteracoes_controleFluxo.R">06-iteracoes_controleFluxo.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/07-sumarizacao_dados.R">07-sumarizacao_dados.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/08-manip_txt_arqs_pasta.R">08-manip_txt_arqs_pasta.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/09-amostragens_aleatorias.R">09-amostragens_aleatorias.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/10-extracao_dados.R">10-extracao_dados.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/11-mat_suplementar.R">11-mat_suplementar.R</a></li>
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main/codigo/12-referencias.R">12-referencias.R</a></li>
-</ul>
-</div>
-</div>
-<div id="caso-você-não-possua-um-computador" class="section level2 unnumbered">
-<h2>Caso você não possua um computador</h2>
-<p>O Google oferece um serviço chamado <a href="https://research.google.com/colaboratory/faq.html">Google Colab</a> que pode ser utilizado em computadores, em celulares modernos com acesso à internet e possuídores de um navegador, e em tablets.</p>
-<p>Em breve, apresentaremos aqui um endereço contendo todo o conteúdo deste livro já convertido para o formato de um Jupyter Notebook, que é o modelo de arquivo utilizado pelo Google Colab.</p>
-<!-- Nós convertemos o conteúdo deste livro para um Jupyter Notebook e o colocamos nesta plataforma. -->
-<!-- Você pode acessar este arquivo pelo endereço XXX INCLUIR ENDERECO AQUI. -->
-<!-- Por ser uma ferramenta nova, nós não sabemos de possíveis erros que possam ocorrer ao executar os comandos deste livro nesta plataforma. -->
-<!-- Caso você encontre algum erro, abra um problema em nosso repositório e nos informe do ocorrido.   -->
+<div id="referências" class="section level1 unnumbered">
+<h1>Referências</h1>
 
+<div id="refs" class="references">
+<div>
+<p>APG. 2016. «An update of the Angiosperm Phylogeny Group classification for the orders and families of flowering plants: APG IV». <em>Botanical Journal of the Linnean Society</em> 181: 1–20.</p>
+</div>
+<div>
+<p>Brownrigg, Ray. 2018. <em>maps: Draw Geographical Maps</em>. <a href="https://CRAN.R-project.org/package=maps">https://CRAN.R-project.org/package=maps</a>.</p>
+</div>
+<div>
+<p>Paradis, Emmanuel, Simon Blomberg, Ben Bolker, Joseph Brown, Santiago Claramunt, Julien Claude, Hoa Sien Cuong, et al. 2020. <em>ape: Analyses of Phylogenetics and Evolution</em>. <a href="http://ape-package.ird.fr/">http://ape-package.ird.fr/</a>.</p>
+</div>
+<div>
+<p>RStudio Team. 2020. <em>RStudio: Integrated Development Environment for R</em>. Boston, MA: RStudio, PBC. <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>.</p>
+</div>
+<div>
+<p>Venables, W. N., e B. D. Ripley. 2002. <em>Modern Applied Statistics with S</em>. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4">http://www.stats.ox.ac.uk/pub/MASS4</a>.</p>
+</div>
+<div>
+<p>Wickham, Hadley, e Jim Hester. 2020. <em>readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.</p>
 </div>
 </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
+<a href="mat-sup.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -552,7 +458,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/12-referencias.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -560,7 +466,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/12-referencias.Rmd",
 "text": null
 },
 "download": null,
