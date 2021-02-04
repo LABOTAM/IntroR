@@ -604,14 +604,14 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' 
 #' * Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, anto para ler como para salvar arquivos de planilhas.
 #' 
-#' ### Importando dados
+#' ### Importando dados {#import-dados}
 #' 
 #' #### Pacote base do R
 #' 
 #' A principal função para importar dados no R é `read.table()`.
 #' Ela funciona para importar arquivos em formato de texto simples (`.csv`, `.txt`).  
 #' 
-#' Vamos utilizar um arquivo contendo as coordenadas geográficas dos municípios brasileiros para praticar a importação dos dados (http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv).
+#' Vamos utilizar um conjunto de [dados contendo as coordenadas geográficas dos municípios brasileiros](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv) para praticar a importação dos dados.
 #' Baixe-o para a sua pasta de trabalho.  
 #' 
 #' Em seguida, abra o arquivo com um editor de texto simples (Bloco de Notas, Notepad++, TextWrangler, gedit, etc.) e veja como ele está formatado.
@@ -756,7 +756,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' 
 #' #### Pacote data.table
 #' 
-#' A principal função para ler arquivos do pacote `data.table` [@R-data.table] se chama `fread()`.
+#' A principal função para ler arquivos do pacote `data.table` [@R-datatable] se chama `fread()`.
 #' Este pacote é muito conhecido devido à velocidade de suas ações, funcionando perfeitamente para dados grandes.
 #' Esta função possui uma particularidade: o usuário não precisa indicar o separador; automaticamente ele descobre o separador e lê o arquivo.
 #' Em casos especiais, é necessário a indicação do separador com o argumento `sep`, igual ao `read.table()`.
