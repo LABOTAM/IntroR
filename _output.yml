@@ -16,7 +16,6 @@ bookdown::gitbook:
 bookdown::epub_book:
   # dev: svglite
   stylesheet: style.css
-
 # bookdown::pdf_book:
   # includes:
   #   in_header: preamble.tex
