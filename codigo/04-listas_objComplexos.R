@@ -13,7 +13,7 @@
 
 #' 
 #' 
-## ---- eval = TRUE, echo = TRUE------------------------------------------------
+## -----------------------------------------------------------------------------
 # um vetor simples
 v1 <- 1:10
 class(v1)
@@ -79,7 +79,8 @@ ml$TABELA$Sepal.Length # idem também
 #' Em alguns casos você terá que usá-lo para entender o objeto ou para pegar elementos dos mesmos objetos.  
 #' 
 #' A função `slotNames()` permite ver os elementos que podem ser extraídos com o operador `@`.
-#' Abaixo mostramos um exemplo através de um mapa dos municípios brasileiros. Para isso, vamos precisar baixar um arquivo (http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip).
+#' Abaixo mostramos um exemplo através de um mapa dos municípios brasileiros.
+#' Para isso, vamos precisar baixar um arquivo (https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosshape.zip).
 #' Baixe este arquivo comprimido que contem os arquivos de um único *shapefile*.
 #' Descomprima-o na sua pasta de trabalho e você perceberá que haverá vários arquivos associados.
 #' Para trabalhar com esses arquivos, vamos utilizar os pacotes `maps` [@R-maps] e `rgdal` [@R-rgdal].  
@@ -88,8 +89,8 @@ ml$TABELA$Sepal.Length # idem também
 # vamos precisar de dois pacotes para dados espaciais
 # se não tiver instalado, instale com as dependencias
 # install.packages(c("maps", "rgdal"), dependencies = TRUE)
-library(maps)
-library(rgdal)
+library("maps")
+library("rgdal")
 
 # agora mudem o diretorio para pasta que contem os arquivos shape
 # lembre que voces podem tanto utilizar a funcao `setwd()` quanto clicar em Ferramentas/Tools na barra de opcoes do RStudio para mudar o diretorio de trabalho

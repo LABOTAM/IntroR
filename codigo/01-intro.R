@@ -763,3 +763,10 @@ sqrt(-1)
 2 * NA
 2 * NaN
 
+#' 
+#' ## Exercícios
+#' 
+#' Como prática, vamos iniciar com dois exercícios do **notaR** para que você se familiarize tanto com a linguagem R quanto com o sistema **notaR**:
+#' 
+#' * Resolva o exercício [101.01 Bem vindo ao notaR](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=29).
+#' * Resolva o exercício [101.05 Remoção Com Critério](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=15).
