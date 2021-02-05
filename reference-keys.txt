@@ -12,6 +12,9 @@ tab:junc-dir
 tab:semi-junc
 tab:dplyrtb
 tab:ggcom
+exercícios-no-notar
+conhecendo-o-notar
+referências-bibliográficas
 intro
 console-e-scripts
 linguagem-objeto-orientada
@@ -32,6 +35,7 @@ operadores
 precedência-de-parênteses
 funções-e-constantes-matemáticas
 valor-na
+exercícios
 vetores
 vetores-e-operações-vetoriais-i
 criação-de-vetores
@@ -47,6 +51,7 @@ perg-vetores
 vetor-filtro-logico
 filtro-dados-ausentes
 sabermais-vetores
+exercícios-1
 mat-dframe
 matriz-vs.-data.frame
 criando-matrizes
@@ -72,6 +77,7 @@ pacote-readr-1
 pacote-data.table-1
 outras-funções-úteis
 sabermais-indexacao-matrizes-dframes
+exercícios-2
 lista-objcompl
 listas
 obj-complexos
@@ -120,6 +126,7 @@ funções-gráficas-interativas
 locator
 identify
 sabermais-disp-grafico
+exercícios-3
 iter-cflux
 func-apply
 em-uma-matriz
@@ -163,6 +170,7 @@ semi
 maneira-4---vetores-lógicos-e-a-função-interaction
 anti
 para-saber-mais
+exercícios-4
 manip-txt-arq-pasta
 funções-para-manipulação-e-busca-de-textos
 colar-ou-concatenar-textos
@@ -187,6 +195,7 @@ pnorm
 qnorm
 dnorm
 sabermais-distribuicoes
+exercícios-5
 extr-dados
 dados-categóricos
 passo-01---lista-de-referência
@@ -207,7 +216,6 @@ obtendo-valores-de-dap
 aed-checa-dados
 tem-valores-ausentes
 colunas-com-fatores
-para-saber-mais-1
 aed-univar
 qual-a-distribuição-dos-valores-numéricos
 dados-do-tutorial
