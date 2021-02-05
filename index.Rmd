@@ -75,7 +75,7 @@ Ressaltamos que **isto não é um curso de estatística**.
 
 :::
 
-O livro está dividido três partes.
+O livro está dividido em três partes.
 A primeira parte contem 10 capítulos e aborda os ensinamentos básicos para o usuário aprender a usar a linguagem como uma ferramenta científica.  
 
 * **Capítulo \@ref(intro)** aborda os aspectos básicos da linguagem R, o software que utilizamos para usar a linguagem, pacotes com funções, como solicitar ajuda sobre funções, dicas de organização das pastas, e o R como uma calculadora.
