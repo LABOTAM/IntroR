@@ -71,7 +71,7 @@ Ressaltamos que **isto não é um curso de estatística**.
 
 ::: {.infobox .warning data-latex="warning"}
 
-**Nota**: Este livro está em constante atualização. Os capítulos de 1 a 10 estão relativamente estáveis e devem passar por poucas mudanças daqui para a frente. Haverá uma reestruturação no que atualmente se chama [Material Suplementar](https://labotam.github.io/material-suplementar.html), e também a adição de ao menos uma parte contendo tutorials de análise exploratória de dados. Você pode encontrar os códigos fonte deste livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/LABOTAM.github.io/issues). Grato!
+**Nota**: Este livro está em constante atualização. Os capítulos de 1 a 10 estão relativamente estáveis e devem passar por poucas mudanças daqui para a frente. Você pode encontrar os arquivos de **Rmarkdown** que geraram este livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/LABOTAM.github.io/issues). Grato!
 
 :::
 
@@ -89,22 +89,21 @@ A primeira parte contem 10 capítulos e aborda os ensinamentos básicos para o u
 * **Capítulo \@ref(amost-aleat)** ensina de maneira breve funções para amostragens aleatórias e distribuições de valores.
 * **Capítulo \@ref(extr-dados)** abrange o uso de funções customizadas para extração de variáveis morfológicas de notas de texto obtidas de espécimes de plantas.  
 
-A segunda parte (**em fase de preparação**) contem tutoriais curtos de análise exploratória de dado (AED).
+A segunda parte contem tutoriais curtos de análise exploratória de dado (AED).
 A AED **deve ser iniciada ainda durante a coleta de dados**, pois através dela podemos conhecer nossos dados e acompanhar como estamos coletando esses dados.
 AED baseia-se largamente em técnicas visuais (gráficos) e pode levar entre 20 a 50% do tempo das análises.
 Os capítulos abaixo exemplificam algumas ferramentas do R para fazer AED:
 
-* **Capítulo \@ref(aed-checa-dados)** aborda a checagem inicial dos dados;
-
-* **Capítulo \@ref(aed-univar)** aborda a AED em dados univariados;
-
-* **Capítulo \@ref(aed-bivar)** aborda a AED em dados biivariados;
-
+* **Capítulo \@ref(aed-checa-dados)** aborda a checagem inicial dos dados.
+* **Capítulo \@ref(aed-univar)** aborda a AED em dados univariados.
+* **Capítulo \@ref(aed-bivar)** aborda a AED em dados biivariados.
 * **Capítulo \@ref(aed-multivar)** aborda a AED em dados multivariados.  
 
-Por fim, temos um apêndice contendo materiais suplementares:
+Por fim, temos o apêndice contendo materiais suplementares:
 
-* **Capítulo \@ref(mat-sup)** inclui uma discussão breve sobre o universo de pacotes conhecidos como [Tidyverse](https://www.tidyverse.org/), comparando-os com o pacote `base` do R; um tutorial para baixar e descomprimir arquivos `.zip`; e por fim uma lista de vídeos gravados por nós abordando diversos tópicos deste livro, disponíveis em uma lista para facilitar a consulta.  
+* **Apêndice \@ref(base-tidyverse)** inclui uma discussão breve sobre o universo de pacotes conhecidos como [Tidyverse](https://www.tidyverse.org/), comparando-os com o pacote `base` do R.
+* **Apêndice \@ref(unzip)** apresenta um tutorial para baixar e descomprimir arquivos `.zip` dentro R.
+* **Apêndice \@ref(videos)** apresenta uma lista de vídeos gravados por nós, autores, abordando diversos tópicos deste livro e que podem auxiliar o aprendizado da linguagem.  
 
 <!-- Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro. -->
 <!-- Ao optar por esse caminho, você será levado à página do código fonte e poderá editar o arquivo diretamente no GitHub. -->
