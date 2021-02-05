@@ -1446,3 +1446,16 @@ trees[ss, ]
   * [Funções gráficas de baixo nível, parte II](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:5plot:video01_bot89-2020-04-13_13.07.07.mp4);
   
 (2). [R Gallery](http://www.r-graph-gallery.com/) - página que tem exemplos de gráficos do R e os códigos correspondentes.
+
+## Exercícios
+
+Esta série de exercícios exemplificam algumas funções que serão retomadas no tutorial de AED (Capítulos \@ref(aed-checa-dados),  \@ref(aed-univar), \@ref(aed-bivar) e \@ref(aed-multivar)).
+Procure exercitar o que aprenderam até aqui.
+O conjunto de dados [alunos2018.txt](http://www.lage.ib.usp.br/notar/files/alunos2018.txt) será utilizado na maioria dos exercícios listados abaixo:
+
+* Resolva o exercício [302.02 Histogramas (frequência)](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=66).
+* Resolva o exercício [302.07 Gráficos com trechos selecionados do data.frame/matriz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=71).
+* Resolva o exercício [302.04 Box-plots](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=67).
+* Resolva o exercício [302.05 Gráficos de dispersão](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=69).
+* Resolva o exercício [302.06 Matriz de dispersão](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=70).
+* Resolva o exercício [Editando parâmetros gráficos](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=75).

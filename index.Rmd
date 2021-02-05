@@ -256,3 +256,55 @@ A análise exploratória não é *dragagem* de dados! Assume-se que o pesquisado
 ### Para ler {-}
 
 Dois artigos que você deveria ler: @Tukey1980 e @Zuuretal2010.  
+
+## Exercícios no **notaR**
+
+Ao fim de alguns capítulos, disponibilizaremos em seções chamadas **Exercícios** uma lista de endereços ligados ao [notaR](http://www.lage.ib.usp.br/notar/index.php), um sistema criado para auxiliar no aprendizado da linguagem R desenvolvido pelo laboratório de Ecologia Teórica da Universidade de São Paulo [@Chalometal2012].
+
+### Conhecendo o **notaR**
+
+Os exercícios do notaR obrigam o usuário a construir um script de R a partir de um enunciado, acabando por fugir do tradicional **copia-cola** de tutoriais de R.
+Muitos exercícios no sistema não obrigam o usuário a estar autenticado (estar logado usando login e senha) no sistema para poder fazê-los.
+Leia com atenção o enunciado de cada exercício antes de iniciar a construir o seu script.  
+
+
+Uma lista de todos os exercícios **notaR** incluídos neste livro está relacionada abaixo:
+
+* Resolva o exercício [101.01 Bem vindo ao notaR](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=29).
+* Resolva o exercício [101.05 Remoção Com Critério](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=15).
+* Resolva o exercício [102.04 Biomassa de Árvores](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=19).
+* Resolva o exercício [102.02 Sequências](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=12).
+* Resolva o exercício [102.03 Conta de Luz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=4).
+* Resolva o exercício [102.01 Área Basal](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=17).
+* Resolva o exercício [102.05 Variância na Unha](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=5).
+* Resolva o exercício [101.03 Objetos de Data](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=18).
+* Resolva o exercício [103.01 Distância entre cidades](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=23).
+* Resolva o exercício [103.02 Criação de um data frame](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=2).
+* Resolva o exercício [103.03 Criando uma Matriz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=13).
+* Resolva o exercício [302.02 Histogramas (frequência)](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=66).
+* Resolva o exercício [302.07 Gráficos com trechos selecionados do data.frame/matriz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=71).
+* Resolva o exercício [302.04 Box-plots](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=67).
+* Resolva o exercício [302.05 Gráficos de dispersão](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=69).
+* Resolva o exercício [302.06 Matriz de dispersão](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=70).
+* Resolva o exercício [Editando parâmetros gráficos](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=75).
+* Resolva o exercício [104.01 Sintetizando dados](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=14).
+* Resolva o exercício [103.05 Classes de Objetos](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=21).
+* Resolva o exercício [103.04 Lendo e salvando seus dados ](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=22).
+* Resolva o exercício [103.7 Cara ou coroa](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=34).
+* Resolva o exercício [103.9 Lembrando matrizes e listas](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=37).
+
+<!-- Alunos inscritos na disciplina precisam estar autenticados para fazer os exercícios obrigatórios. O login de cada aluno inscrito na disciplina é o seu email informado na inscrição e a senha será informada pelos professores. Outros exercícios são opcionais e qualquer pessoa pode entrar no site e fazer exercícios sem autenticação. -->
+<!-- Avaliação será baseada em: -->
+<!-- Notas nos exercícios feitos no NotaR e indicados noTutorial de Introdução ao R. -->
+<!-- Para validar a nota precisa estar logado no sistema. -->
+<!-- Login, senha e prazos serão informados na sala virtual; -->
+<!-- Entrega de uma análise exploratória de dados, seus ou dados que serão disponibilizados para a disciplina; -->
+
+## Referências bibliográficas
+
+Listamos abaixo algumas referências importantes para complementar o seu estudo:
+
+* [Apostila USP-BIE-5782](http://ecologia.ib.usp.br/bie5782/doku.php?id=bie5782:02_tutoriais:tutorial4:start).
+* [Introdução ao R no site do R](https://cran.r-project.org/doc/manuals/R-intro.html).
+* [Introdução ao uso do programa R de Victor Landeiro e Fabricio Baccaro](https://6e938257-ec28-4b42-9917-4ed33b2f1d0b.filesusr.com/ugd/e086b2_0d0de99bbb204ca68e079b4ae11b87d6.docx?dn=A_apostila_de_introdu%C3%A7%C3%A3o_ao_R_vers%C3%A3o_6.3.1_2018.docx).
+* [Relatórios dinâmicos com R Markdown](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio).
