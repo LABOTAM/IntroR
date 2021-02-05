@@ -1,6 +1,6 @@
 # Iteração e controle de fluxo {#iter-cflux}
 
-## Funções da família `apply()`
+## Funções da família `apply()` {#func-apply}
 
 Algumas funções da família `apply()` são muito úteis na manipulação de dados e descrição de dados.
 Essas funções são muito poderosas, porque permitem você fazer iterações de forma simples, ou seja, você pode aplicar uma função a vários objetos simultaneamente com funções dessa família.

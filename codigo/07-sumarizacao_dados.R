@@ -5,7 +5,7 @@
 #' A função `tapply()` calcula alguma funcão sobre um vetor numérico para cada categoria de um fator.
 #' Já a função `aggregate()` faz o mesmo, mas permite múltiplos fatores e sempre retorna um `data.frame`.  
 #' 
-#' Vamos usar dados de parcelas em [caixetais](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2015:caixeta.csv), formações dominadas por *Tabebuia cassinoides* (Lam.) D.C. (Bignoniaceae), espécie comum da Mata Atlântica nos estados de São Paulo, Minas Gerais, Rio de Janeiro e Espírito Santo.
+#' Vamos usar dados de parcelas em [caixetais](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/caixeta.csv), formações dominadas por *Tabebuia cassinoides* (Lam.) D.C. (Bignoniaceae), espécie comum da Mata Atlântica nos estados de São Paulo, Minas Gerais, Rio de Janeiro e Espírito Santo.
 #' Baixe o arquivo para seu computador e instale-o na sua pasta de trabalho antes de seguir com os comandos abaixo.  
 #' 
 ## ---- opts.label='evalF'------------------------------------------------------
@@ -15,7 +15,6 @@ caixeta <- read.table("caixeta.csv", sep = ",", header = T)
 ## ---- include = FALSE, message=FALSE------------------------------------------
 load("dados/caixeta.rda")
 
-#' 
 #' 
 ## -----------------------------------------------------------------------------
 names(caixeta)

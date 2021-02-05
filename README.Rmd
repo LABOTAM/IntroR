@@ -1,19 +1,24 @@
 ---
-title: "Curso básico de introdução ao R"
+title: "Curso básico de introdução à linguagem R"
 output: md_document
 ---
 
-## Descrição
+## Descrição {-}
 
 Este é o repositório contendo o código fonte do livro [Curso básico de introdução à linguagem R](https://labotam.github.io/) de Alberto Vicentini e Ricardo de Oliveira Perdiz.
 
 <!-- badges: start -->
 [![Status do livro online](https://github.com/LABOTAM/LABOTAM.github.io/workflows/renderbook/badge.svg)](https://github.com/LABOTAM/LABOTAM.github.io/actions)
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 <!-- badges: end -->
 
+## Licença {-}
 
-## Maneiras de uso
+[Curso básico de introdução à linguagem R](https://labotam.github.io/) de Alberto Vicentini e Ricardo de Oliveira Perdiz está licenciada sob [Licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional (CC BY-SA 4.0) ][cc-by-sa].
+Baseado em trabalho disponível em <https://github.com/LABOTAM/LABOTAM.github.io>.
 
-Você pode visitar a versão digital do livro, disponível no endereço [https://labotam.github.io/](https://labotam.github.io/).
-Ou você pode baixar este repositório para o seu computador e compilá-lo localmente usando o fluxo implementado pelo pacote R [bookdown](https://bookdown.org/yihui/bookdown/).
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg

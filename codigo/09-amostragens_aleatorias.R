@@ -95,14 +95,13 @@ amedia <- 14.4
 osd <- 1
 # vamos gerar 1000 valores aleatórios com essa distribuição
 quadris <- rnorm(n = 1000, mean = amedia, sd = osd)
-
 # visualizando essa distribuição de valores
 hist(quadris)
 
 # ou visualizando a densidade probabilística dessa distribuição
 hist(quadris, probability = T)
 # a linha da densidade
-lines(density(quadris), col = "red", lwd = 2)
+lines(stats::density(quadris), col = "red", lwd = 2)
 
 #' 
 #' 
@@ -197,7 +196,7 @@ dq12
 # plota a densidade probabilística
 hist(quadris, prob = T)
 # coloca a linha
-lines(density(quadris), col = "red", lwd = 2)
+lines(stats::density(quadris), col = "red", lwd = 2)
 # adicona um ponto que mostra a probabilidade do valor
 points(x = 12, y = dq12, pch = 21, bg = "blue")
 segments(0, dq12, 12, dq12, lty = "dotted", col = "blue", lwd = 2)

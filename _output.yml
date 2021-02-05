@@ -1,5 +1,6 @@
 bookdown::gitbook:
-  highlight: tango
+  # highlight: tango
+  highlight: pygments
   css: style.css
   config:
     toc:
@@ -7,7 +8,6 @@ bookdown::gitbook:
       scroll_highlight: yes
       before: |
         <li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
-        <li><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">Disciplina BOT89 - PPGBOT INPA</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
     edit: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s

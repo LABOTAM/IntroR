@@ -1,4 +1,4 @@
-# Material suplementar {#mat-sup}
+# (APPENDIX) Apêndice {#mat-sup}
 
 ## Base R vs. Tidyverse
 
