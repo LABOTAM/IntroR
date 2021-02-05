@@ -157,10 +157,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos-da-aed"><i class="fa fa-check"></i>Objetivos da AED</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#para-ler"><i class="fa fa-check"></i>Para ler</a></li>
 </ul></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#exercícios-no-notar"><i class="fa fa-check"></i><b>0.1</b> Exercícios no <strong>notaR</strong></a><ul>
-<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#conhecendo-o-notar"><i class="fa fa-check"></i><b>0.1.1</b> Conhecendo o <strong>notaR</strong></a></li>
+<li><a href="index.html#exercícios-no-notar">Exercícios no <strong>notaR</strong></a><ul>
+<li><a href="index.html#conhecendo-o-notar">Conhecendo o <strong>notaR</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#referências-bibliográficas"><i class="fa fa-check"></i><b>0.2</b> Referências bibliográficas</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#referências-úteis"><i class="fa fa-check"></i>Referências úteis</a></li>
 </ul></li>
 <li class="part"><span><b>I Parte I</b></span></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
@@ -792,17 +792,17 @@ Portanto, ao dominar a função <code>apply()</code>, você acaba por não preci
 <div class="sourceCode" id="cb1043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1043-1"><a href="iter-cflux.html#cb1043-1"></a><span class="co"># posso usar lapply para calcular a media desses vetores</span></span>
 <span id="cb1043-2"><a href="iter-cflux.html#cb1043-2"></a><span class="kw">lapply</span>(ml, mean) <span class="co"># note que retorna uma lista</span></span></code></pre></div>
 <pre><code>## [[1]]
-## [1] 565.4
+## [1] 522.76
 ## 
 ## [[2]]
-## [1] 46.7
+## [1] 54.53333
 ## 
 ## [[3]]
-## [1] 1458.356</code></pre>
+## [1] 1500.533</code></pre>
 <div class="sourceCode" id="cb1045"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1045-1"><a href="iter-cflux.html#cb1045-1"></a>lt &lt;-<span class="st"> </span><span class="kw">lapply</span>(ml, mean) <span class="co"># podemos guardar</span></span>
 <span id="cb1045-2"><a href="iter-cflux.html#cb1045-2"></a>lt &lt;-<span class="st"> </span><span class="kw">as.vector</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;numeric&quot;</span>) <span class="co"># e transformar num vetor. MODE neste caso é fundamental usar</span></span>
 <span id="cb1045-3"><a href="iter-cflux.html#cb1045-3"></a>lt</span></code></pre></div>
-<pre><code>## [1]  565.400   46.700 1458.356</code></pre>
+<pre><code>## [1]  522.76000   54.53333 1500.53333</code></pre>
 </div>
 <div id="por-categoria-de-um-fator" class="section level3">
 <h3><span class="header-section-number">6.1.3</span> Por categoria de um fator</h3>

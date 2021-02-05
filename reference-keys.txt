@@ -12,9 +12,6 @@ tab:junc-dir
 tab:semi-junc
 tab:dplyrtb
 tab:ggcom
-exercícios-no-notar
-conhecendo-o-notar
-referências-bibliográficas
 intro
 console-e-scripts
 linguagem-objeto-orientada
