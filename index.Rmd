@@ -257,11 +257,11 @@ A análise exploratória não é *dragagem* de dados! Assume-se que o pesquisado
 
 Dois artigos que você deveria ler: @Tukey1980 e @Zuuretal2010.  
 
-## Exercícios no **notaR**
+## Exercícios no **notaR** {-}
 
 Ao fim de alguns capítulos, disponibilizaremos em seções chamadas **Exercícios** uma lista de endereços ligados ao [notaR](http://www.lage.ib.usp.br/notar/index.php), um sistema criado para auxiliar no aprendizado da linguagem R desenvolvido pelo laboratório de Ecologia Teórica da Universidade de São Paulo [@Chalometal2012].
 
-### Conhecendo o **notaR**
+### Conhecendo o **notaR** {-}
 
 Os exercícios do notaR obrigam o usuário a construir um script de R a partir de um enunciado, acabando por fugir do tradicional **copia-cola** de tutoriais de R.
 Muitos exercícios no sistema não obrigam o usuário a estar autenticado (estar logado usando login e senha) no sistema para poder fazê-los.
@@ -300,7 +300,7 @@ Uma lista de todos os exercícios **notaR** incluídos neste livro está relacio
 <!-- Login, senha e prazos serão informados na sala virtual; -->
 <!-- Entrega de uma análise exploratória de dados, seus ou dados que serão disponibilizados para a disciplina; -->
 
-## Referências bibliográficas
+## Referências úteis {-}
 
 Listamos abaixo algumas referências importantes para complementar o seu estudo:
 

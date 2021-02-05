@@ -308,8 +308,6 @@ rownames(muni) <- muni$Municipio
 # calcula a distancia geografica entre essas cidades (em graus de latitude)
 mdist <- dist(muni[, c("Longitude", "Latitude")], method = "euclidean")
 
-# fazendo uma analise de agrupamento
-
 #' 
 #' 
 ## ---- eval = FALSE------------------------------------------------------------

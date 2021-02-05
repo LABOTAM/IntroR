@@ -773,10 +773,17 @@ v5
 #' 
 #' Veja nossas vídeoaulas com parte do conteúdo deste capítulo:
 #' 
-#'   * [Criação de vetores](https://youtu.be/qXSZkGoDk1Y);
-#'   
-#'   * [Sequências numéricas e repetições](https://youtu.be/PJ02yj0gnWc);
-#'   
-#'   * [Indexação](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:5vetores:video01_bot89-2020-04-07_07.38.30.mp4);
-#'   
-#'   * [Vetores e Operadores Lógicos](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:6vetores:video01_bot89-2020-04-07_07.52.00.mp4).
+#' * [Criação de vetores](https://youtu.be/qXSZkGoDk1Y).
+#' * [Sequências numéricas e repetições](https://youtu.be/PJ02yj0gnWc).
+#' * [Indexação](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:5vetores:video01_bot89-2020-04-07_07.38.30.mp4).
+#' * [Vetores e Operadores Lógicos](http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:6vetores:video01_bot89-2020-04-07_07.52.00.mp4).
+#' 
+#' ## Exercícios
+#' 
+#' * Resolva o exercício [102.04 Biomassa de Árvores](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=19).
+#' * Resolva o exercício [102.02 Sequências](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=12).
+#' * Resolva o exercício [102.03 Conta de Luz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=4).
+#' * Resolva o exercício [102.01 Área Basal](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=17).
+#' * Resolva o exercício [102.05 Variância na Unha](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=5).
+#' * Resolva o exercício [101.03 Objetos de Data](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=18).
+#' 
