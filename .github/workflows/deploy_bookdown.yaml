@@ -15,7 +15,7 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Install R packages
-        run: Rscript -e 'install.packages(c("rmarkdown","bookdown", "dplyr", "printr", "ggplot2", "magrittr", "tidyr", "purrr", "knitr", "kableExtra", "tibble", "readr", "ape", "maps"))'
+        run: Rscript -e 'install.packages(c("rmarkdown","bookdown", "knitr", "printr", "dplyr", "ggplot2", "magrittr", "tidyr", "readr", "purrr", "tibble", "kableExtra", "ape", "maps", "vegan", "labdsv"))'
       - name: Render Book as gitbook
         run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
       - name: Render Book as epub

@@ -1,6 +1,6 @@
-#' # Material suplementar {#mat-sup}
+#' # (APPENDIX) Apêndice {-}
 #' 
-#' ## Base R vs. Tidyverse
+#' # Base R vs. Tidyverse {#base-tidyverse}
 #' 
 ## ---- eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE-------------
 suppressMessages(library("dplyr"))
@@ -18,7 +18,7 @@ suppressMessages(library("tibble"))
 #' 
 #' ![Porcentagem de visitas às questões pertinentes a algumas linguagens de programação na plataforma *Stack Overflow*. Dados obtidos apenas de países desenvolvidos segundo o Banco Mundial. Nota-se o aumento quase linear referente à linguagem R a partir do ano 2014. Figura extraída desta postagem: <https://stackoverflow.blog/2017/10/10/impressive-growth-r/>](https://149351115.v2.pressablecdn.com/wp-content/uploads/2017/10/plot_tags_time-1-675x675.png)
 #' 
-#' ### O que é o Tidyverse?^[Texto publicado originalmente no blog de R.O.Perdiz (https://ricardoperdiz.com/post/2020-04-08-basertidyverse/tidyverse/)]
+#' ## O que é o Tidyverse?^[Texto publicado originalmente no blog de R.O.Perdiz (https://ricardoperdiz.com/post/2020-04-08-basertidyverse/tidyverse/)]
 #' 
 #' O [Tidyverse](https://www.tidyverse.org/) é um conjunto de pacotes de R desenvolvidos para a ciência de dados.
 #' Todos os pacotes compartilham uma mesma filosofia e gramática da linguagem. Por exemplo, a estrutura das funções é sempre a mesma:
@@ -33,7 +33,7 @@ suppressMessages(library("tibble"))
 #' 
 #' Pretendemos aqui apresentar apenas funcionalidades básicas de dois dos pacotes deste universo, e mostrar como se tornam poderosas quando integrados ao mesmo fluxo de trabalho.
 #' 
-#' #### `dplyr` e `ggplot2`, símbolos do Tidyverse
+#' ### `dplyr` e `ggplot2`, símbolos do Tidyverse
 #' 
 #' Talvez os pacotes mais conhecidos deste universo sejam o `dplyr` e o `ggplot2`.
 #' Enquanto o primeiro é especializado na manipulação de dados, o segundo é voltado para a produção de plots.
@@ -44,7 +44,7 @@ suppressMessages(library("tibble"))
 #' Dentro desta nova sintaxe em R, o operador `+` ganhou uma nova função.
 #' Nas próximas seções, vamos ver alguns exemplos práticos utilizando esses dois pacotes.
 #' 
-#' ### Usando o `dplyr`
+#' ## Usando o `dplyr`
 #' 
 #' Vamos utilizar o famoso conjunto `iris`^[O famoso conjunto de dados `iris` consiste de observações de comprimentos e larguras de sépalas e pétalas de `r length(unique(iris$Species))` espécies de *Iris*, um gênero de plantas herbáceas da família Iridaceae. O conjunto de dados possui `r nrow(iris)` linhas e `r ncol(iris)` colunas. Para quem quiser saber mais sobre esses dados, leia [aqui](https://archive.ics.uci.edu/ml/datasets/Iris).] para aprender a manipular os dados com as ferramentas do `dplyr`.
 #' 
@@ -77,7 +77,7 @@ knitr::kable(
 )
 
 #' 
-#' #### Selecionando colunas com `select()`
+#' ### Selecionando colunas com `select()`
 #' 
 #' Agora, vamos utilizar a função `select()` para selecionar colunas. Ela funciona da seguinte maneira:
 #' 
@@ -112,7 +112,7 @@ head(
 )
 
 #' 
-#' #### Filtrando dados com `filter()`
+#' ### Filtrando dados com `filter()`
 #' 
 #' Se desejamos filtrar os dados segundo alguma informação, devemos utilizar a função `filter()`.
 #' Por exemplo, se quiser checar os dados de pétalas apenas para a espécie `setosa`, fazemos assim:
@@ -142,7 +142,7 @@ head(
 )
 
 #' 
-#' #### Destrinchando as funções `group_by` e `summarise`
+#' ### Destrinchando as funções `group_by` e `summarise`
 #' 
 #' As funções `group_by` e `summarise` resumem o propósito do pacote `dplyr`, pois permitem em poucas linhas de comando sumariar os dados, e partem do princípio, muito presente no R através das funções da família `apply`, chamado **split-apply-combine** que, em tradução livre, pode ser entendido como uma sequência lógica de ação: quebre em grupos, aplique uma função, e combine os resultados.
 #' Vamos partir para o uso dessas funções agrupando os dados em função da coluna `Species` e calculando a média do comprimento das pétalas (variável `Petal.Length`):
@@ -204,7 +204,7 @@ iris_sumario <- summarise(iris_grouped, N = n(), sepala_l_media = mean(Sepal.Len
 head(iris_sumario, 10)
 
 #' 
-#' ### O operador `%>%` e o encadeamento de ações
+#' ## O operador `%>%` e o encadeamento de ações
 #' 
 #' Notem que nada do que vimos até aqui parece ser muito relevante se comparamos com o que pode ser feito com o pacote `base` do R. Vejamos:
 #' 
@@ -255,7 +255,7 @@ head(
 #' Será? Vamos tentar entender isso na prática.
 #' Vamos retomar os exemplos acima com a introdução do operador `%>%` e usá-lo para efetuar dois conjuntos de comandos, expostos abaixo:
 #' 
-#' #### Conjunto de comandos 1 {#com1}
+#' ### Conjunto de comandos 1 {#com1}
 #' 
 #' ```
 #' # Chamar o data.frame `iris`, então...
@@ -265,7 +265,7 @@ head(
 #' # Atribui o resultado dessa operação a um objeto chamado `res1`
 #' ```
 #' 
-#' #### Conjunto de comandos 2 {#com2}
+#' ### Conjunto de comandos 2 {#com2}
 #' 
 #' ```
 #' # Chamar o data.frame `iris`, então...
@@ -372,7 +372,7 @@ res2
 #' Por fim, o código é lido de dentro para fora, um sentido nada intuitivo.
 #' Foi pensando em tornar a leitura do código mais fácil que o autor decidiu criar este operador na linguagem R, uma vez que essa lógica já é extensivamente utilizada em algumas outras linguagens de programação, como `F#` (representada como `|>` e o `bash` (e similares) (representada como `|`).
 #' 
-#' #### Resumo do operador `%>%`: {#pipe}
+#' ### Resumo do operador `%>%`: {#pipe}
 #' 
 #' * transforma a leitura do código da **esquerda** para a **direita**;
 #' 
@@ -380,7 +380,7 @@ res2
 #' 
 #' * facilita a leitura do código, pois transforma a própria escrita em uma receita.
 #' 
-#' ### Usando o `ggplot2`
+#' ## Usando o `ggplot2`
 #' 
 #' O pacote `ggplot2` funciona de maneira diferente da função `plot()` do pacote `base` do R, pois trabalha em camadas.
 #' Similarmente ao pacote `dplyr`, começamos com o `data.frame` que desejamos plotar, contudo, passos posteriores são bem diferentes, e se assemelham mais ao uso do operador `%>%` do pacote `magrittr`.
@@ -456,12 +456,12 @@ meugrafico + facet_wrap(~Species)
 #' Passemos para a seção abaixo.  
 #' 
 #' 
-#' ### `dplyr` e `ggplot2` em conjunto
+#' ## `dplyr` e `ggplot2` em conjunto
 #' 
 #' Durante uma análise exploratória de dados, muitas perguntas surgem com a análise de gráficos simples, que podemos criar com poucas linhas de comando.
 #' Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjunto de dados `iris`, vamos fazer uma exploração muito breve nesses dados.  
 #' 
-#' #### Gráfico de espalhamento
+#' ### Gráfico de espalhamento
 #' 
 ## ---- eval = TRUE-------------------------------------------------------------
 iris %>%
@@ -472,7 +472,7 @@ iris %>%
   ylab("Comprimento de sépala (cm)")
 
 #' 
-#' #### Diagrama de caixas
+#' ### Diagrama de caixas
 #' 
 ## ---- eval = TRUE-------------------------------------------------------------
 iris %>%
@@ -483,7 +483,7 @@ iris %>%
   ylab("Comprimento de sépala (cm)")
 
 #' 
-#' #### Histograma
+#' ### Histograma
 #' 
 ## ---- eval = TRUE-------------------------------------------------------------
 iris %>%
@@ -495,7 +495,7 @@ iris %>%
   facet_wrap(~Species)
 
 #' 
-#' ### Comparando o mesmo conjunto de ações entre `base` R e `dplyr` {#baser}
+#' ## Comparando o mesmo conjunto de ações entre `base` R e `dplyr` {#baser}
 #' 
 #' Abaixo, para efeitos de comparação, executamos as mesmas ações usando os pacotes `base` e `dplyr`; ao utilizar o `dplyr`, também fizemos uso do operador `%>%`.  
 #' 
@@ -567,7 +567,7 @@ tgraf
 #' Postagens futuras abordarão com mais detalhes outros usos deste operador e de alguns outros inclusos no mesmo pacote, porém com funções levemente diferentes.
 #' 
 #' 
-#' #### E o uso do operador `%>%` com o pacote `base`? 
+#' ### E o uso do operador `%>%` com o pacote `base`? 
 #' 
 #' Apesar de termos explorado até aqui o uso do operador `%>%` apenas com o pacote `dplyr`, ele pode ser utilizado com qualquer função no R. Vamos retormar o exemplo da [seção acima](#baser) com comandos do pacote `base` do R, porém adicionando o operador `%>%` na manipulação dos dados:
 #' 
@@ -593,7 +593,7 @@ res2
 #' 
 #' Reparem que, mesmo utilizando o operador `%>%`, algumas transformações realizadas com **poucas linhas de código** com o pacote `dplyr` em uma cadeia de comandos (o chamado `pipeline` em inglês) não são possíveis com o uso do pacote `base` do R, notadamente a criação de colunas, o rearranjo de colunas, e o sumário de dados.  
 #' 
-#' ### Tidyverse, um resumo
+#' ## Tidyverse, um resumo
 #' 
 #' David Robinson, autor do pacote [broom](https://github.com/tidymodels/broom), um dos membros do tidyverse, explica em sua postagem [**Teach the tidyverse to beginners**](http://varianceexplained.org/r/teach-tidyverse/) que sua preferência por ensinar as ferramentas dos pacotes pertencentes ao tidyverse primeiramente a seus alunos se deve à compatibilidade da filosofia de ensino deste universo com o que ele acredita que seja ideal em uma filosofia de ensino: **deve haver uma, preferencialmente apenas uma, maneira óbvia de se fazer**, mote emprestado do guia de 19 princípios da linguagem de programação Python, conhecido como [Zen of Python](https://en.wikipedia.org/wiki/Zen_of_Python).
 #' Essa filosofia se contrapõe, por exemplo, ao mote da linguagem Perl, que é `Há sempre mais de uma maneira de se fazer` (nota pessoal: Isso pode ser observado na linguagem R, são sempre múltiplos os caminhos para se chegar a um resultado).  
@@ -601,9 +601,7 @@ res2
 #' O mesmo autor também afirma nesta postagem que talvez um fluxo de trabalho comum aos alunos de cursos de ciência de dados seja:
 #' 
 #' * trabalhar com dados interessantes e reais;
-#' 
 #' * Criar gráficos informativos e atrativos;
-#' 
 #' * Chegar a conclusões úteis.
 #' 
 #' Finalizando, ele conclui dizendo que o *tidyverse* oferece ferramentas a seus usuários que tornam esse caminho mais suave.  
@@ -620,133 +618,10 @@ res2
 #' O que podemos afirmar é que qualquer pacote de R, com exceção do pacote `base`, foi construído em cima das funcionalidades deste último, logo, sem este pacote, não estaríamos nem aqui falando de funcionalidades do `dplyr` e afins.  
 #' 
 #' Quisemos aqui apresentar funcionalidades básicas de alguns pacotes que podem ser adotadas ou não pelos alunos, e mostrar como podem ser incorporadas no fluxo diário das manipulações de dados.
-#' Caso queiram ver manipulações mais complexas em tabelas utilizando as ferramentas do tidyverse, convido-os a checarem estas duas postagens: [importando e manipulando dados no R](https://ricardoperdiz.com/post/2020_03_29_r-obtendo-plotando-dados/obtendo-dados-e-plotando-mapas-no-r-versao-3/), e um [tutorial para gerar o mapa de distribuição de Macrolobium aracaense Farroñay](https://ricardoperdiz.com/post/2020_03_29_r-map-farronayetal-2018/mapa-macrolobium/).
-#' 
-#' ## Baixar e descomprimir um arquivo zip usando o R
-#' 
-#' Caso você queira baixar e descomprimir um arquivo `.zip` no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
-#' Utilizaremos um arquivo utilizado na seção \@ref(#obj-complexos).  
-#' 
-## ---- opts.label='evalF'------------------------------------------------------
-# grava o endereco do arquivo em um objeto
-arq_zip_url <- "http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip"
-# cria um diretorio temporario
-dirtemp <- tempdir()
-# cria um arquivo temporario para arquivar esse zip
-arq_temp <- tempfile(tmpdir = dirtemp, fileext = ".zip")
-# baixa o arquivo para dentro do arquivo temporario
-download.file(arq_zip_url, arq_temp)
-
-# Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`
-# agora utilizaremos a funcao `unzip()` para descomprimir o arquivo
-
-# pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta
-fname <- unzip(arq_temp, list = TRUE)$Name[1]
-nomes_arqs <- unzip(arq_temp, list = TRUE)
-class(nomes_arqs) # e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo
-str(nomes_arqs)
-nomes_arqs
-# Descomprime o arquivo zip para a pasta temporaria
-unzip(arq_temp, files = nome_pasta, exdir = dirtemp, overwrite = TRUE)
-# caminho completo do arquivo extraido
-caminho_completo <- file.path(dirtemp, nome_pasta)
-caminho_completo
-
-# lista arquivos dentro do caminho contido em caminho_completo
-list.files(paste0(caminho_completo, "/."), all.files = TRUE)
-
+#' Caso queiram ver manipulações mais complexas em tabelas utilizando as ferramentas do tidyverse, convido-os a checarem estas duas postagens: [importando e manipulando dados no R](https://ricardoperdiz.com/post/2020_03_29_r-obtendo-plotando-dados/obtendo-dados-e-plotando-mapas-no-r-versao-3/), e um [tutorial para gerar o mapa de distribuição de Macrolobium aracaense Farroñay](https://ricardoperdiz.com/post/2020_03_29_r-map-farronayetal-2018/mapa-macrolobium/).  
 #' 
 #' 
-#' ## Aulas em vídeo
-#' 
-#' Gravamos vídeos para muitas aulas da disciplina [Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89)](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio) do [Programa de Pós-Graduação em Ciências Biológicas (Botânica)](http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/) do INPA.
-#' Elas estão agrupadas abaixo para facilitar a visualização e o entendimento dos tópicos abordados.  
-#' 
-#' ### Importando e exportando dados
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/3OYkXsoAHS4")
-
-#' 
-#' ### Criação de vetores
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/qXSZkGoDk1Y")
-
-#' 
-#' ### Classes de vetores e fatores
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/CAXnQpYgJ3Y")
-
-#' 
-#' ### Sequências numéricas e repetições, operações e funções com vetores
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/PJ02yj0gnWc")
-
-#' 
-#' ### Listas
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/gBGFGslcbfU")
-
-#' 
-#' ### Criando matrizes
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/cA4ETA6qfB4")
-
-#' 
-#' ### Criando dataframes, e operações importantes em matrizes e dataframes
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/27HgQHV5zBs")
-
-#' 
-#' ### Indexação de matrizes e dataframes
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/CJILnDzVviQ")
-
-#' 
-#' ### Condicionais
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/8Z_k02PwQZc")
-
-#' 
-#' ### Funções da família `apply(")`
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/Fs0is2251Sw")
-
-#' 
-#' ### Funções de manipulação de pasta e arquivos
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/TbY5nEQTwLw")
-
-#' 
-#' ### Funções de manipulação de texto - parte 01
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/at5XpBAT1sI")
-
-#' 
-#' ### Funções de manipulação de texto - parte 02
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/j6O6e96qmEc")
-
-#' 
-#' ### Objetos complexos
-#' 
-## ---- echo = FALSE------------------------------------------------------------
-knitr::include_url("https://www.youtube.com/embed/hvWJr0khuwc")
-
-#' 
-#' ## Para saber mais sobre o **Tidyverse**: {#sabermais-tidyverse}
+#' ## Para saber mais: {#sabermais-tidyverse}
 #' 
 #' As postagens abaixo variam entre posições favoráveis ou desfavoráveis ao Tidyverse.
 #' Abrangem desde opiniões pessoais sobre o porquê de não ensinar essas ferramentas aos iniciantes na linguagem a questões de performance computacional desse universo quando comparado com o base R.
