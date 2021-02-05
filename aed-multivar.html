@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>14 AED de multivariadas | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="14 AED de multivariadas | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/LABOTAM.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="14 AED de multivariadas | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini (INPA)" />
+<meta name="author" content="Ricardo de Oliveira Perdiz - ricardoperdiz@yahoo.com" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="aed-bivar.html"/>
+<link rel="next" href="base-tidyverse.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estrutura-do-livro"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-os-autores"><i class="fa fa-check"></i>Sobre os autores</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pré-requisitos"><i class="fa fa-check"></i>Pré-requisitos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar"><i class="fa fa-check"></i>O que é o R e por qual razão você deve se preocupar em programar</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-r-em-poucas-palavras"><i class="fa fa-check"></i>O R em poucas palavras</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-que-programar"><i class="fa fa-check"></i>Por que programar?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#análise-exploratória-de-dados-aed"><i class="fa fa-check"></i>Análise exploratória de dados (AED)</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-é-aed-e-por-que-fazer-aed"><i class="fa fa-check"></i>O que é AED e por que fazer AED?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos-da-aed"><i class="fa fa-check"></i>Objetivos da AED</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#para-ler"><i class="fa fa-check"></i>Para ler</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Parte I</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#dicas-de-erros-comuns-de-sintaxe-da-linguagem-r"><i class="fa fa-check"></i><b>1.7</b> Dicas de erros comuns de sintaxe da linguagem R</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#parênteses"><i class="fa fa-check"></i><b>1.7.1</b> Parênteses</a></li>
+<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#vírgulas"><i class="fa fa-check"></i><b>1.7.2</b> Vírgulas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#aspas"><i class="fa fa-check"></i><b>1.7.3</b> Aspas</a></li>
+<li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#números"><i class="fa fa-check"></i><b>1.7.4</b> Números</a></li>
+<li class="chapter" data-level="1.7.5" data-path="intro.html"><a href="intro.html#nomes-de-objetos"><i class="fa fa-check"></i><b>1.7.5</b> Nomes de objetos</a></li>
+<li class="chapter" data-level="1.7.6" data-path="intro.html"><a href="intro.html#atribuição-de-objetos"><i class="fa fa-check"></i><b>1.7.6</b> Atribuição de objetos</a></li>
+<li class="chapter" data-level="1.7.7" data-path="intro.html"><a href="intro.html#busque-entender-as-partes"><i class="fa fa-check"></i><b>1.7.7</b> Busque entender as partes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.8</b> O R como calculadora</a><ul>
+<li class="chapter" data-level="1.8.1" data-path="intro.html"><a href="intro.html#operadores"><i class="fa fa-check"></i><b>1.8.1</b> Operadores</a></li>
+<li class="chapter" data-level="1.8.2" data-path="intro.html"><a href="intro.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.8.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="1.8.3" data-path="intro.html"><a href="intro.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.8.3</b> Funções e constantes matemáticas</a></li>
+<li class="chapter" data-level="1.8.4" data-path="intro.html"><a href="intro.html#valor-na"><i class="fa fa-check"></i><b>1.8.4</b> NA e valores afins</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a><ul>
+<li class="chapter" data-level="2.1" data-path="vetores.html"><a href="vetores.html#vetores-e-operações-vetoriais-i"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="vetores.html"><a href="vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores.html"><a href="vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="vetores.html"><a href="vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="2.3" data-path="vetores.html"><a href="vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
+<li class="chapter" data-level="2.4" data-path="vetores.html"><a href="vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="2.5" data-path="vetores.html"><a href="vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="vetores.html"><a href="vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="2.5.2" data-path="vetores.html"><a href="vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="vetores.html"><a href="vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="vetores.html"><a href="vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetores.html"><a href="vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetores.html"><a href="vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="vetores.html"><a href="vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.1.1" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="3.1.2" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="mat-dframe.html"><a href="mat-dframe.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="mat-dframe.html"><a href="mat-dframe.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="mat-dframe.html"><a href="mat-dframe.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importanto e exportando dados no R</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="3.4.4" data-path="mat-dframe.html"><a href="mat-dframe.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mat-dframe.html"><a href="mat-dframe.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a><ul>
+<li class="chapter" data-level="4.1" data-path="lista-objcompl.html"><a href="lista-objcompl.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
+<li class="chapter" data-level="4.2" data-path="lista-objcompl.html"><a href="lista-objcompl.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a><ul>
+<li class="chapter" data-level="5.1" data-path="func-graf.html"><a href="func-graf.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="func-graf.html"><a href="func-graf.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="5.1.3" data-path="func-graf.html"><a href="func-graf.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="5.1.4" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="func-graf.html"><a href="func-graf.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
+<li class="chapter" data-level="5.1.6" data-path="func-graf.html"><a href="func-graf.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="func-graf.html"><a href="func-graf.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
+<li class="chapter" data-level="5.2.2" data-path="func-graf.html"><a href="func-graf.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
+<li class="chapter" data-level="5.2.3" data-path="func-graf.html"><a href="func-graf.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
+<li class="chapter" data-level="5.2.4" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="func-graf.html"><a href="func-graf.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="func-graf.html"><a href="func-graf.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="func-graf.html"><a href="func-graf.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="5.3.4" data-path="func-graf.html"><a href="func-graf.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="func-graf.html"><a href="func-graf.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="func-graf.html"><a href="func-graf.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="func-graf.html"><a href="func-graf.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="5.4.2" data-path="func-graf.html"><a href="func-graf.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="func-graf.html"><a href="func-graf.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="func-graf.html"><a href="func-graf.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="5.4.5" data-path="func-graf.html"><a href="func-graf.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="5.4.6" data-path="func-graf.html"><a href="func-graf.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="func-graf.html"><a href="func-graf.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="5.4.8" data-path="func-graf.html"><a href="func-graf.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="func-graf.html"><a href="func-graf.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="func-graf.html"><a href="func-graf.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="func-graf.html"><a href="func-graf.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="func-graf.html"><a href="func-graf.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="func-graf.html"><a href="func-graf.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="func-graf.html"><a href="func-graf.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="5.5.6" data-path="func-graf.html"><a href="func-graf.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="5.5.7" data-path="func-graf.html"><a href="func-graf.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="func-graf.html"><a href="func-graf.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="func-graf.html"><a href="func-graf.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="func-graf.html"><a href="func-graf.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="func-graf.html"><a href="func-graf.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a><ul>
+<li class="chapter" data-level="6.1" data-path="iter-cflux.html"><a href="iter-cflux.html#func-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a><ul>
+<li class="chapter" data-level="6.1.1" data-path="iter-cflux.html"><a href="iter-cflux.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="6.1.2" data-path="iter-cflux.html"><a href="iter-cflux.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="6.1.3" data-path="iter-cflux.html"><a href="iter-cflux.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="iter-cflux.html"><a href="iter-cflux.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="6.4.2" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="iter-cflux.html"><a href="iter-cflux.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a><ul>
+<li class="chapter" data-level="7.1" data-path="sumar-dados.html"><a href="sumar-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="7.2" data-path="sumar-dados.html"><a href="sumar-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="7.3" data-path="sumar-dados.html"><a href="sumar-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="sumar-dados.html"><a href="sumar-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="sumar-dados.html"><a href="sumar-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="sumar-dados.html"><a href="sumar-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="7.4.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="sumar-dados.html"><a href="sumar-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a><ul>
+<li class="chapter" data-level="8.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
+<li class="chapter" data-level="8.1.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
+<li class="chapter" data-level="8.1.4" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
+<li class="chapter" data-level="8.1.5" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
+<li class="chapter" data-level="8.1.6" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
+<li class="chapter" data-level="8.1.7" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
+<li class="chapter" data-level="8.1.8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
+<li class="chapter" data-level="8.1.9" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
+<li class="chapter" data-level="8.1.10" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
+<li class="chapter" data-level="8.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a><ul>
+<li class="chapter" data-level="9.1" data-path="amost-aleat.html"><a href="amost-aleat.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="9.2" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="amost-aleat.html"><a href="amost-aleat.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a><ul>
+<li class="chapter" data-level="10.1" data-path="extr-dados.html"><a href="extr-dados.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="extr-dados.html"><a href="extr-dados.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="10.1.2" data-path="extr-dados.html"><a href="extr-dados.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="10.1.3" data-path="extr-dados.html"><a href="extr-dados.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="extr-dados.html"><a href="extr-dados.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="extr-dados.html"><a href="extr-dados.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="10.2.2" data-path="extr-dados.html"><a href="extr-dados.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="10.2.3" data-path="extr-dados.html"><a href="extr-dados.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="10.2.4" data-path="extr-dados.html"><a href="extr-dados.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="10.2.5" data-path="extr-dados.html"><a href="extr-dados.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="extr-dados.html"><a href="extr-dados.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="extr-dados.html"><a href="extr-dados.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
+<li class="chapter" data-level="10.3.2" data-path="extr-dados.html"><a href="extr-dados.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="extr-dados.html"><a href="extr-dados.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
+<li class="chapter" data-level="10.4.2" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Parte II</b></span></li>
+<li class="chapter" data-level="11" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html"><i class="fa fa-check"></i><b>11</b> Checagem dos dados</a><ul>
+<li class="chapter" data-level="11.1" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#tem-valores-ausentes"><i class="fa fa-check"></i><b>11.1</b> Tem valores ausentes?</a></li>
+<li class="chapter" data-level="11.2" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#colunas-com-fatores"><i class="fa fa-check"></i><b>11.2</b> Colunas com fatores</a></li>
+<li class="chapter" data-level="11.3" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#para-saber-mais-1"><i class="fa fa-check"></i><b>11.3</b> Para saber mais</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="aed-univar.html"><a href="aed-univar.html"><i class="fa fa-check"></i><b>12</b> AED de univariadas</a><ul>
+<li class="chapter" data-level="12.1" data-path="aed-univar.html"><a href="aed-univar.html#qual-a-distribuição-dos-valores-numéricos"><i class="fa fa-check"></i><b>12.1</b> Qual a distribuição dos valores numéricos?</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="aed-univar.html"><a href="aed-univar.html#dados-do-tutorial"><i class="fa fa-check"></i><b>12.1.1</b> Dados do tutorial</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="aed-univar.html"><a href="aed-univar.html#tabelas-de-variáveis-categóricas"><i class="fa fa-check"></i><b>12.2</b> Tabelas de variáveis categóricas</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="aed-univar.html"><a href="aed-univar.html#resumo-de-gráficos-univariados"><i class="fa fa-check"></i><b>12.2.1</b> Resumo de gráficos univariados</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="aed-univar.html"><a href="aed-univar.html#as-variáveis-têm-distribuição-normal"><i class="fa fa-check"></i><b>12.3</b> As variáveis têm distribuição normal?</a></li>
+<li class="chapter" data-level="12.4" data-path="aed-univar.html"><a href="aed-univar.html#sabermais-aed-univariadas"><i class="fa fa-check"></i><b>12.4</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="aed-bivar.html"><a href="aed-bivar.html"><i class="fa fa-check"></i><b>13</b> AED de bivariadas</a><ul>
+<li class="chapter" data-level="13.1" data-path="aed-bivar.html"><a href="aed-bivar.html#dados-do-tutorial-1"><i class="fa fa-check"></i><b>13.1</b> Dados do tutorial</a></li>
+<li class="chapter" data-level="13.2" data-path="aed-bivar.html"><a href="aed-bivar.html#fatores-e-contagens"><i class="fa fa-check"></i><b>13.2</b> Fatores e contagens</a></li>
+<li class="chapter" data-level="13.3" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-fator"><i class="fa fa-check"></i><b>13.3</b> Variável numérica vs. fator</a></li>
+<li class="chapter" data-level="13.4" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-numérica"><i class="fa fa-check"></i><b>13.4</b> Variável numérica vs. numérica</a></li>
+<li class="chapter" data-level="13.5" data-path="aed-bivar.html"><a href="aed-bivar.html#outros-gráficos-bivariados"><i class="fa fa-check"></i><b>13.5</b> Outros gráficos bivariados</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="aed-multivar.html"><a href="aed-multivar.html"><i class="fa fa-check"></i><b>14</b> AED de multivariadas</a><ul>
+<li class="chapter" data-level="14.1" data-path="aed-multivar.html"><a href="aed-multivar.html#matrizes-de-distância"><i class="fa fa-check"></i><b>14.1</b> Matrizes de distância</a></li>
+<li class="chapter" data-level="14.2" data-path="aed-multivar.html"><a href="aed-multivar.html#ordenação-com-matrizes-de-distância"><i class="fa fa-check"></i><b>14.2</b> Ordenação com matrizes de distância</a></li>
+<li class="chapter" data-level="14.3" data-path="aed-multivar.html"><a href="aed-multivar.html#escalonamento-não-métrico-multimensional-nmds"><i class="fa fa-check"></i><b>14.3</b> Escalonamento Não-Métrico Multimensional (NMDS)</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="aed-multivar.html"><a href="aed-multivar.html#análises-de-agrupamento"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.1</b> Exemplo florístico</a></li>
+<li class="chapter" data-level="14.4.2" data-path="aed-multivar.html"><a href="aed-multivar.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.2</b> Análise de Coordenadas Principais (PCoA)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="aed-multivar.html"><a href="aed-multivar.html#componentes-principais-pca"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndice</b></span></li>
+<li class="chapter" data-level="A" data-path="base-tidyverse.html"><a href="base-tidyverse.html"><i class="fa fa-check"></i><b>A</b> Base R vs. Tidyverse</a><ul>
+<li class="chapter" data-level="A.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>A.1</b> O que é o Tidyverse?</a><ul>
+<li class="chapter" data-level="A.1.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-símbolos-do-tidyverse"><i class="fa fa-check"></i><b>A.1.1</b> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-dplyr"><i class="fa fa-check"></i><b>A.2</b> Usando o <code>dplyr</code></a><ul>
+<li class="chapter" data-level="A.2.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#selecionando-colunas-com-select"><i class="fa fa-check"></i><b>A.2.1</b> Selecionando colunas com <code>select()</code></a></li>
+<li class="chapter" data-level="A.2.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#filtrando-dados-com-filter"><i class="fa fa-check"></i><b>A.2.2</b> Filtrando dados com <code>filter()</code></a></li>
+<li class="chapter" data-level="A.2.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#destrinchando-as-funções-group_by-e-summarise"><i class="fa fa-check"></i><b>A.2.3</b> Destrinchando as funções <code>group_by</code> e <code>summarise</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>A.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a><ul>
+<li class="chapter" data-level="A.3.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com1"><i class="fa fa-check"></i><b>A.3.1</b> Conjunto de comandos 1</a></li>
+<li class="chapter" data-level="A.3.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com2"><i class="fa fa-check"></i><b>A.3.2</b> Conjunto de comandos 2</a></li>
+<li class="chapter" data-level="A.3.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#pipe"><i class="fa fa-check"></i><b>A.3.3</b> Resumo do operador <code>%&gt;%</code>:</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>A.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="A.5" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>A.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a><ul>
+<li class="chapter" data-level="A.5.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#gráfico-de-espalhamento"><i class="fa fa-check"></i><b>A.5.1</b> Gráfico de espalhamento</a></li>
+<li class="chapter" data-level="A.5.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#diagrama-de-caixas"><i class="fa fa-check"></i><b>A.5.2</b> Diagrama de caixas</a></li>
+<li class="chapter" data-level="A.5.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#histograma"><i class="fa fa-check"></i><b>A.5.3</b> Histograma</a></li>
+</ul></li>
+<li class="chapter" data-level="A.6" data-path="base-tidyverse.html"><a href="base-tidyverse.html#baser"><i class="fa fa-check"></i><b>A.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a><ul>
+<li class="chapter" data-level="A.6.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#e-o-uso-do-operador-com-o-pacote-base"><i class="fa fa-check"></i><b>A.6.1</b> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?</a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="base-tidyverse.html"><a href="base-tidyverse.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>A.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="A.8" data-path="base-tidyverse.html"><a href="base-tidyverse.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>A.8</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="unzip.html"><a href="unzip.html"><i class="fa fa-check"></i><b>B</b> Baixar e descomprimir um arquivo</a></li>
+<li class="chapter" data-level="C" data-path="videos.html"><a href="videos.html"><i class="fa fa-check"></i><b>C</b> Aulas em vídeo</a><ul>
+<li class="chapter" data-level="C.1" data-path="videos.html"><a href="videos.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>C.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="C.2" data-path="videos.html"><a href="videos.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>C.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="C.3" data-path="videos.html"><a href="videos.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>C.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="C.4" data-path="videos.html"><a href="videos.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>C.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="C.5" data-path="videos.html"><a href="videos.html#listas-1"><i class="fa fa-check"></i><b>C.5</b> Listas</a></li>
+<li class="chapter" data-level="C.6" data-path="videos.html"><a href="videos.html#criando-matrizes-1"><i class="fa fa-check"></i><b>C.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="C.7" data-path="videos.html"><a href="videos.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.8" data-path="videos.html"><a href="videos.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.9" data-path="videos.html"><a href="videos.html#condicionais-1"><i class="fa fa-check"></i><b>C.9</b> Condicionais</a></li>
+<li class="chapter" data-level="C.10" data-path="videos.html"><a href="videos.html#funções-da-família-apply"><i class="fa fa-check"></i><b>C.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="C.11" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>C.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="C.12" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>C.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="C.13" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="C.14" data-path="videos.html"><a href="videos.html#objetos-complexos"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aed-multivar" class="section level1">
+<h1><span class="header-section-number">14</span> AED de multivariadas</h1>
+<div id="matrizes-de-distância" class="section level2">
+<h2><span class="header-section-number">14.1</span> Matrizes de distância</h2>
+<p>Matrizes de distância ou dissimilaridade são muito usadas em AEDs multivariadas.
+Por exemplo, para estimar a similaridade entre diferentes comunidades vegetais segundo a presença ou ausência de espécies (ou um índice de similaridade que leva em conta as abundâncias relativas); para estimar a similaridade entre espécies ou a relação entre similaridade genética ou morfológica e distância geográfica etc.</p>
+<p>A função <code>dist()</code> é a mais básica do R para calcular dissimilaridades entre objetos.
+Ela calcula dissimilaridades segundo diferentes métodos (argumento <code>method</code>).
+Há também a função <code>vegdist()</code> do pacote <code>vegan</code> que faz a mesma coisa, mas tem índices de dissimilaridade que <code>dist()</code> não implementa, muito dos quais muito usados em ecologia de comunidades.</p>
+<p>Busque ler o <code>?</code> dessas duas funções (execute <code>?dist</code> e <code>?vegdist</code> no console), atentando para os diferentes índices de dissimilaridade.
+Na função <code>vegdist</code>, você encontra os principais <strong>índices de dissimilaridade</strong> usados em ecologia.</p>
+<p>Para entender o que essas funções fazem, vamos ver um exemplo simples de cálculo de distância euclidiana, que é o método padrão de <code>dist()</code>.</p>
+<div class="sourceCode" id="cb1742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1742-1"><a href="aed-multivar.html#cb1742-1"></a><span class="co"># usando o método euclidiano</span></span>
+<span id="cb1742-2"><a href="aed-multivar.html#cb1742-2"></a></span>
+<span id="cb1742-3"><a href="aed-multivar.html#cb1742-3"></a><span class="co"># plota um gráfico vazio com coordenadas x e y de 1 a 10</span></span>
+<span id="cb1742-4"><a href="aed-multivar.html#cb1742-4"></a><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1742-5"><a href="aed-multivar.html#cb1742-5"></a></span>
+<span id="cb1742-6"><a href="aed-multivar.html#cb1742-6"></a><span class="co"># adiciona dois pontos:</span></span>
+<span id="cb1742-7"><a href="aed-multivar.html#cb1742-7"></a><span class="co"># um na coordenada 4,4</span></span>
+<span id="cb1742-8"><a href="aed-multivar.html#cb1742-8"></a><span class="kw">points</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb1742-9"><a href="aed-multivar.html#cb1742-9"></a><span class="co"># outro na coordenada x=8, y=8</span></span>
+<span id="cb1742-10"><a href="aed-multivar.html#cb1742-10"></a><span class="kw">points</span>(<span class="dv">8</span>, <span class="dv">8</span>, <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1742-11"><a href="aed-multivar.html#cb1742-11"></a><span class="co"># a distancia euclidiana entre eles é dada por essa linha</span></span>
+<span id="cb1742-12"><a href="aed-multivar.html#cb1742-12"></a><span class="kw">segments</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb1742-13"><a href="aed-multivar.html#cb1742-13"></a><span class="co"># essa linha é a hipotenusa do triângulo</span></span>
+<span id="cb1742-14"><a href="aed-multivar.html#cb1742-14"></a><span class="kw">polygon</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">4</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">4</span>), <span class="dt">density =</span> <span class="dv">40</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-482-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1743-1"><a href="aed-multivar.html#cb1743-1"></a><span class="co"># portanto a distancia entre os pontos, por Pitágoras, é</span></span>
+<span id="cb1743-2"><a href="aed-multivar.html#cb1743-2"></a><span class="co"># sqrt(hipotenusa) = sum(catetoA^2+catetoB^2)</span></span>
+<span id="cb1743-3"><a href="aed-multivar.html#cb1743-3"></a>d &lt;-<span class="st"> </span><span class="kw">sqrt</span>((<span class="dv">8</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span>)<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">8</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span>)<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb1743-4"><a href="aed-multivar.html#cb1743-4"></a></span>
+<span id="cb1743-5"><a href="aed-multivar.html#cb1743-5"></a><span class="co"># agora usando a função dist</span></span>
+<span id="cb1743-6"><a href="aed-multivar.html#cb1743-6"></a><span class="co"># coloco as coordenadas dos dois pontos acima num data.frame</span></span>
+<span id="cb1743-7"><a href="aed-multivar.html#cb1743-7"></a>pontos &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">X =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">8</span>), <span class="dt">Y =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">8</span>))</span>
+<span id="cb1743-8"><a href="aed-multivar.html#cb1743-8"></a>pontos</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+X
+</th>
+<th style="text-align:right;">
+Y
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1744-1"><a href="aed-multivar.html#cb1744-1"></a><span class="co"># calcula a distancia euclidiana para essas variáveis (X e Y)</span></span>
+<span id="cb1744-2"><a href="aed-multivar.html#cb1744-2"></a><span class="kw">dist</span>(pontos, <span class="dt">method =</span> <span class="st">&quot;eucl&quot;</span>)</span></code></pre></div>
+<pre><code>##          1
+## 2 5.656854</code></pre>
+<div class="sourceCode" id="cb1746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1746-1"><a href="aed-multivar.html#cb1746-1"></a><span class="co"># entao isso é verdadeiro</span></span>
+<span id="cb1746-2"><a href="aed-multivar.html#cb1746-2"></a>d <span class="op">==</span><span class="st"> </span><span class="kw">dist</span>(pontos, <span class="dt">method =</span> <span class="st">&quot;eucl&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="ordenação-com-matrizes-de-distância" class="section level2">
+<h2><span class="header-section-number">14.2</span> Ordenação com matrizes de distância</h2>
+<p>Reduzir espaços multivariados em poucas dimensões a partir de matrizes de distância é útil quando nossas variáveis não têm distribuição normal, que é uma das premissas da <em>Análise de Componentes Principais</em> (PCA) e outros métodos de ordenação paramétricos.</p>
+<p>Se você parte de uma matriz de distância, pode fazer ordenações multivariadas com dados não normais ou mesmo dados categóricos e semi-quantitativos, desde que com eles você possa calcular uma matriz de distância.</p>
+</div>
+<div id="escalonamento-não-métrico-multimensional-nmds" class="section level2">
+<h2><span class="header-section-number">14.3</span> Escalonamento Não-Métrico Multimensional (NMDS)</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Multidimensional_scaling">NMDS</a> é uma técnica de ordenação multivariada que permite visualizar graficamente distâncias entre objetos.
+No R há várias funções que executam isso: <code>isoMDS()</code>; <code>cmdscale()</code>; e <code>nmds()</code> e <code>bestnmds()</code> do pacote <code>labdsv</code> <span class="citation">(Roberts <a href="#ref-R-labdsv" role="doc-biblioref">2019</a>)</span>.
+Vamos usar a função <code>bestnmds()</code> nos exemplos abaixo.
+Para entender, veja um exemplo para distâncias geográficas entre cidades na região norte do Brasil. Se queremos representar graficamente distâncias geográficas, estaremos de certa forma reproduzindo um mapa:</p>
+<p>Vamos utilizar o conjunto de <a href="https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv">dados contendo coordenadas geográficas de municípios do Brasil</a> para esta prática, utilizado na seção <a href="mat-dframe.html#import-dados">3.4.2</a>.</p>
+<div class="sourceCode" id="cb1748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1748-1"><a href="aed-multivar.html#cb1748-1"></a><span class="co"># visualizando distancias usando NMDS</span></span>
+<span id="cb1748-2"><a href="aed-multivar.html#cb1748-2"></a><span class="co"># Vamos usar o arquivo com coordenadas dos municipios brasileiros</span></span>
+<span id="cb1748-3"><a href="aed-multivar.html#cb1748-3"></a>muni &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">header =</span> T, <span class="dt">as.is =</span> T, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1749-1"><a href="aed-multivar.html#cb1749-1"></a><span class="co"># para simplificar vamos pegar apenas algumas cidades da região norte</span></span>
+<span id="cb1749-2"><a href="aed-multivar.html#cb1749-2"></a>cids &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Rio Branco&quot;</span>, <span class="st">&quot;Cruzeiro do Sul&quot;</span>, <span class="st">&quot;Tabatinga&quot;</span>, <span class="st">&quot;São Gabriel da Cachoeira&quot;</span>, <span class="st">&quot;Manaus&quot;</span>, <span class="st">&quot;Santarém&quot;</span>, <span class="st">&quot;Porto Velho&quot;</span>, <span class="st">&quot;Humaitá&quot;</span>, <span class="st">&quot;Belém&quot;</span>, <span class="st">&quot;Macapá&quot;</span>, <span class="st">&quot;Marabá&quot;</span>, <span class="st">&quot;Boa Vista&quot;</span>)</span>
+<span id="cb1749-3"><a href="aed-multivar.html#cb1749-3"></a></span>
+<span id="cb1749-4"><a href="aed-multivar.html#cb1749-4"></a><span class="co"># filtrando os dados</span></span>
+<span id="cb1749-5"><a href="aed-multivar.html#cb1749-5"></a>vl &lt;-<span class="st"> </span>muni<span class="op">$</span>Municipio <span class="op">%in%</span><span class="st"> </span>cids</span>
+<span id="cb1749-6"><a href="aed-multivar.html#cb1749-6"></a>muni &lt;-<span class="st"> </span>muni[vl, ]</span>
+<span id="cb1749-7"><a href="aed-multivar.html#cb1749-7"></a></span>
+<span id="cb1749-8"><a href="aed-multivar.html#cb1749-8"></a><span class="co"># calcula a distancia geografica entre essas cidades (em graus de latitude).</span></span>
+<span id="cb1749-9"><a href="aed-multivar.html#cb1749-9"></a><span class="co"># Idealmente deveríamos converter latitude e longitude em décimos de graus para UTM para obter distancias em km ou m.</span></span>
+<span id="cb1749-10"><a href="aed-multivar.html#cb1749-10"></a>mdist &lt;-<span class="st"> </span><span class="kw">dist</span>(muni[, <span class="kw">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>)], <span class="dt">method =</span> <span class="st">&quot;euclidean&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1750-1"><a href="aed-multivar.html#cb1750-1"></a><span class="co"># calculando um nmds em dois eixos (reduzindo a variação na matriz em dois eixos)</span></span>
+<span id="cb1750-2"><a href="aed-multivar.html#cb1750-2"></a>?nmds</span></code></pre></div>
+<p>Vamos agora instalar o pacote e carregar o pacote <code>labdsv</code>:</p>
+<div class="sourceCode" id="cb1751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1751-1"><a href="aed-multivar.html#cb1751-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;labdsv&quot;</span>)</span>
+<span id="cb1751-2"><a href="aed-multivar.html#cb1751-2"></a><span class="kw">library</span>(<span class="st">&quot;labdsv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1752-1"><a href="aed-multivar.html#cb1752-1"></a>onmds &lt;-<span class="st"> </span><span class="kw">bestnmds</span>(mdist, <span class="dt">k =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##  [1] 3.739034e-13 8.167216e-03 2.228642e+01 3.791436e+01 6.603351e-03
+##  [6] 6.029306e-03 2.109747e+01 9.041554e-03 4.415954e-03 4.861851e-01
+## [11] 4.001459e-03 8.141675e-03 9.111469e-03 3.737914e+01 6.265940e-03
+## [16] 4.124426e+01 9.818992e+00 2.702450e+01 3.316186e-03 3.712228e+01
+## 
+## best result = 1
+## with stress = 3.739034e-13</code></pre>
+<div class="sourceCode" id="cb1754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1754-1"><a href="aed-multivar.html#cb1754-1"></a><span class="co"># veja a estrutura do resultado</span></span>
+<span id="cb1754-2"><a href="aed-multivar.html#cb1754-2"></a><span class="kw">str</span>(onmds)</span></code></pre></div>
+<pre><code>## List of 3
+##  $ points: num [1:21, 1:2] -18.2 -12.9 17.3 -14.7 -16.4 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:21] &quot;3&quot; &quot;14&quot; &quot;74&quot; &quot;135&quot; ...
+##   .. ..$ : NULL
+##  $ stress: num 3.74e-13
+##  $ type  : chr &quot;NMDS&quot;
+##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;dsvord&quot; &quot;nmds&quot;
+##  - attr(*, &quot;call&quot;)= language bestnmds(dis = mdist, k = 2)
+##  - attr(*, &quot;timestamp&quot;)= chr &quot;Fri Feb  5 05:52:22 2021&quot;</code></pre>
+<div class="sourceCode" id="cb1756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1756-1"><a href="aed-multivar.html#cb1756-1"></a><span class="co"># o valor do stress indica o ajuste. Se o stress for 0, o ajuste é perfeito:</span></span>
+<span id="cb1756-2"><a href="aed-multivar.html#cb1756-2"></a><span class="co"># a posição dos pontos é proporcional a distância entre eles</span></span>
+<span id="cb1756-3"><a href="aed-multivar.html#cb1756-3"></a>onmds<span class="op">$</span>stress</span></code></pre></div>
+<pre><code>## [1] 3.739034e-13</code></pre>
+<div class="sourceCode" id="cb1758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1758-1"><a href="aed-multivar.html#cb1758-1"></a><span class="co"># quanto da variação foi explicada?</span></span>
+<span id="cb1758-2"><a href="aed-multivar.html#cb1758-2"></a><span class="co"># essa pergunta a gente faz com PCA, não faz sentido fazer com NMDS.</span></span>
+<span id="cb1758-3"><a href="aed-multivar.html#cb1758-3"></a><span class="co"># Mas, se você quer ter uma ideia de quanto um eixo capturou da variação,</span></span>
+<span id="cb1758-4"><a href="aed-multivar.html#cb1758-4"></a><span class="co"># pode correlacionar a matriz de distancia original com uma matriz de distancia</span></span>
+<span id="cb1758-5"><a href="aed-multivar.html#cb1758-5"></a><span class="co"># gerada pelos valores dos eixos nmds</span></span>
+<span id="cb1758-6"><a href="aed-multivar.html#cb1758-6"></a></span>
+<span id="cb1758-7"><a href="aed-multivar.html#cb1758-7"></a><span class="co"># pega os valores dos eixos NMDS</span></span>
+<span id="cb1758-8"><a href="aed-multivar.html#cb1758-8"></a>ptsnmds &lt;-<span class="st"> </span>onmds<span class="op">$</span>points</span>
+<span id="cb1758-9"><a href="aed-multivar.html#cb1758-9"></a><span class="co"># calcula a distancia</span></span>
+<span id="cb1758-10"><a href="aed-multivar.html#cb1758-10"></a>adist &lt;-<span class="st"> </span><span class="kw">dist</span>(ptsnmds)</span>
+<span id="cb1758-11"><a href="aed-multivar.html#cb1758-11"></a><span class="co"># qual a correlacao entre essas matrizes de distancia?</span></span>
+<span id="cb1758-12"><a href="aed-multivar.html#cb1758-12"></a><span class="kw">cor</span>(mdist, adist)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb1760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1760-1"><a href="aed-multivar.html#cb1760-1"></a><span class="co"># por isso o stress é baixo</span></span>
+<span id="cb1760-2"><a href="aed-multivar.html#cb1760-2"></a></span>
+<span id="cb1760-3"><a href="aed-multivar.html#cb1760-3"></a><span class="co"># vamos comparar graficamente:</span></span>
+<span id="cb1760-4"><a href="aed-multivar.html#cb1760-4"></a><span class="co"># divide o dispositivo em duas partes</span></span>
+<span id="cb1760-5"><a href="aed-multivar.html#cb1760-5"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb1760-6"><a href="aed-multivar.html#cb1760-6"></a><span class="co"># adiciona limite no eixo X e y</span></span>
+<span id="cb1760-7"><a href="aed-multivar.html#cb1760-7"></a>xl &lt;-<span class="st"> </span><span class="kw">range</span>(ptsnmds[, <span class="dv">1</span>]) <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb1760-8"><a href="aed-multivar.html#cb1760-8"></a>yl &lt;-<span class="st"> </span><span class="kw">range</span>(ptsnmds[, <span class="dv">2</span>]) <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb1760-9"><a href="aed-multivar.html#cb1760-9"></a><span class="co"># plota pontos</span></span>
+<span id="cb1760-10"><a href="aed-multivar.html#cb1760-10"></a><span class="kw">plot</span>(ptsnmds, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;NMDS 1&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;NMDS 2&quot;</span>, <span class="dt">xlim =</span> xl, <span class="dt">ylim =</span> yl, <span class="dt">cex =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1760-11"><a href="aed-multivar.html#cb1760-11"></a><span class="co"># adiciona o nome das cidades</span></span>
+<span id="cb1760-12"><a href="aed-multivar.html#cb1760-12"></a><span class="kw">text</span>(ptsnmds, <span class="dt">labels =</span> muni<span class="op">$</span>Municipio, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">pos =</span> <span class="dv">4</span>)</span>
+<span id="cb1760-13"><a href="aed-multivar.html#cb1760-13"></a></span>
+<span id="cb1760-14"><a href="aed-multivar.html#cb1760-14"></a>xl &lt;-<span class="st"> </span><span class="kw">range</span>(muni<span class="op">$</span>Longitude) <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">5</span>)</span>
+<span id="cb1760-15"><a href="aed-multivar.html#cb1760-15"></a>yl &lt;-<span class="st"> </span><span class="kw">range</span>(muni<span class="op">$</span>Latitude) <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb1760-16"><a href="aed-multivar.html#cb1760-16"></a><span class="kw">plot</span>(muni<span class="op">$</span>Longitude, muni<span class="op">$</span>Latitude, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Longitude&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Latitude&quot;</span>, <span class="dt">xlim =</span> xl, <span class="dt">ylim =</span> yl, <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">cex =</span> <span class="fl">0.5</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1760-17"><a href="aed-multivar.html#cb1760-17"></a><span class="kw">text</span>(muni<span class="op">$</span>Longitude, muni<span class="op">$</span>Latitude, <span class="dt">labels =</span> muni<span class="op">$</span>Municipio, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">pos =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-489-1.png" width="672" /></p>
+<div id="exemplo-com-dados-morfológicos" class="section level3">
+<h3><span class="header-section-number">14.3.1</span> Exemplo com dados morfológicos</h3>
+<p>Um exemplo de NMDS para mostra a similaridade entre indivíduos por variáveis morfológicas usando os dados de <code>iris</code> do R.</p>
+<div class="sourceCode" id="cb1761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1761-1"><a href="aed-multivar.html#cb1761-1"></a><span class="co"># apaga todos os objetos</span></span>
+<span id="cb1761-2"><a href="aed-multivar.html#cb1761-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb1761-3"><a href="aed-multivar.html#cb1761-3"></a><span class="co"># agora vamos usar os dados de iris</span></span>
+<span id="cb1761-4"><a href="aed-multivar.html#cb1761-4"></a><span class="kw">head</span>(iris)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1762-1"><a href="aed-multivar.html#cb1762-1"></a><span class="co"># vamos apresentar a similaridade entre as instancias de iris</span></span>
+<span id="cb1762-2"><a href="aed-multivar.html#cb1762-2"></a><span class="co"># a partir de uma matriz de distancia morfológica</span></span></code></pre></div>
+<div class="sourceCode" id="cb1763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1763-1"><a href="aed-multivar.html#cb1763-1"></a><span class="co"># calcula a distancia morfológica</span></span>
+<span id="cb1763-2"><a href="aed-multivar.html#cb1763-2"></a>?dist</span></code></pre></div>
+<div class="sourceCode" id="cb1764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1764-1"><a href="aed-multivar.html#cb1764-1"></a>dmorfo &lt;-<span class="st"> </span><span class="kw">dist</span>(iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">method =</span> <span class="st">&quot;eucl&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1765-1"><a href="aed-multivar.html#cb1765-1"></a><span class="co"># calculando um nmds em dois eixos</span></span>
+<span id="cb1765-2"><a href="aed-multivar.html#cb1765-2"></a>onmds &lt;-<span class="st"> </span><span class="kw">bestnmds</span>(dmorfo, <span class="dt">k =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1766-1"><a href="aed-multivar.html#cb1766-1"></a><span class="co"># ops objetos 102 e 143 devem ser identificos</span></span>
+<span id="cb1766-2"><a href="aed-multivar.html#cb1766-2"></a>iris[<span class="kw">c</span>(<span class="dv">102</span>, <span class="dv">143</span>), ]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+102
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+2.7
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+143
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+2.7
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1767-1"><a href="aed-multivar.html#cb1767-1"></a><span class="co"># entao eliminamos 1, porque senao nao funciona</span></span>
+<span id="cb1767-2"><a href="aed-multivar.html#cb1767-2"></a>iris2 &lt;-<span class="st"> </span>iris[<span class="op">-</span><span class="dv">102</span>, ]</span>
+<span id="cb1767-3"><a href="aed-multivar.html#cb1767-3"></a></span>
+<span id="cb1767-4"><a href="aed-multivar.html#cb1767-4"></a><span class="co"># calculamos novamente a distancia</span></span>
+<span id="cb1767-5"><a href="aed-multivar.html#cb1767-5"></a>dmorfo &lt;-<span class="st"> </span><span class="kw">dist</span>(iris2[, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">method =</span> <span class="st">&quot;eucl&quot;</span>)</span>
+<span id="cb1767-6"><a href="aed-multivar.html#cb1767-6"></a></span>
+<span id="cb1767-7"><a href="aed-multivar.html#cb1767-7"></a><span class="co"># calculando um nmds em dois eixos</span></span>
+<span id="cb1767-8"><a href="aed-multivar.html#cb1767-8"></a>onmds &lt;-<span class="st"> </span><span class="kw">bestnmds</span>(dmorfo, <span class="dt">k =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##  [1]  2.579978  4.458694 41.520632 41.555761 41.520587  4.948589  4.013174
+##  [8] 43.071355 41.519703  2.736034  3.497708 41.570742 41.491774 42.453384
+## [15]  4.129211  4.151471  4.132042 42.339835  3.865368  5.638501
+## 
+## best result = 1
+## with stress = 2.579978</code></pre>
+<div class="sourceCode" id="cb1769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1769-1"><a href="aed-multivar.html#cb1769-1"></a><span class="co"># veja a estrutura do resultado</span></span>
+<span id="cb1769-2"><a href="aed-multivar.html#cb1769-2"></a><span class="kw">str</span>(onmds)</span></code></pre></div>
+<pre><code>## List of 3
+##  $ points: num [1:149, 1:2] -2.67 -2.71 -2.87 -2.74 -2.72 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:149] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##   .. ..$ : NULL
+##  $ stress: num 2.58
+##  $ type  : chr &quot;NMDS&quot;
+##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;dsvord&quot; &quot;nmds&quot;
+##  - attr(*, &quot;call&quot;)= language bestnmds(dis = dmorfo, k = 2)
+##  - attr(*, &quot;timestamp&quot;)= chr &quot;Fri Feb  5 05:52:32 2021&quot;</code></pre>
+<div class="sourceCode" id="cb1771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1771-1"><a href="aed-multivar.html#cb1771-1"></a><span class="co"># o valor do stress indica o ajuste. Se stress for 0, o ajuste é perfeito</span></span>
+<span id="cb1771-2"><a href="aed-multivar.html#cb1771-2"></a>onmds<span class="op">$</span>stress</span></code></pre></div>
+<pre><code>## [1] 2.579978</code></pre>
+<div class="sourceCode" id="cb1773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1773-1"><a href="aed-multivar.html#cb1773-1"></a><span class="co"># quanto da variação foi explicada?</span></span>
+<span id="cb1773-2"><a href="aed-multivar.html#cb1773-2"></a><span class="co"># essa pergunta a gente faz com PCA, não faz sentido fazer com NMDS.</span></span>
+<span id="cb1773-3"><a href="aed-multivar.html#cb1773-3"></a><span class="co"># Mas, se você quer ter uma ideia de quanto um eixo capturou da variação,</span></span>
+<span id="cb1773-4"><a href="aed-multivar.html#cb1773-4"></a><span class="co"># pode correlacionar a matriz de distancia original</span></span>
+<span id="cb1773-5"><a href="aed-multivar.html#cb1773-5"></a><span class="co"># com uma matriz de distancia gerada pelos valores dos eixos nmds</span></span>
+<span id="cb1773-6"><a href="aed-multivar.html#cb1773-6"></a></span>
+<span id="cb1773-7"><a href="aed-multivar.html#cb1773-7"></a><span class="co"># pega os valores dos eixos NMDS</span></span>
+<span id="cb1773-8"><a href="aed-multivar.html#cb1773-8"></a>ptsnmds &lt;-<span class="st"> </span>onmds<span class="op">$</span>points</span>
+<span id="cb1773-9"><a href="aed-multivar.html#cb1773-9"></a><span class="co"># cada linha nessa tabela corresponde</span></span>
+<span id="cb1773-10"><a href="aed-multivar.html#cb1773-10"></a><span class="co"># à mesma linha na tabela iris2</span></span>
+<span id="cb1773-11"><a href="aed-multivar.html#cb1773-11"></a><span class="kw">head</span>(ptsnmds)</span></code></pre></div>
+<table>
+<tbody>
+<tr>
+<td style="text-align:right;">
+-2.673344
+</td>
+<td style="text-align:right;">
+0.2751282
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-2.705573
+</td>
+<td style="text-align:right;">
+-0.1645018
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-2.866471
+</td>
+<td style="text-align:right;">
+-0.0970515
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-2.737119
+</td>
+<td style="text-align:right;">
+-0.2591412
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-2.717433
+</td>
+<td style="text-align:right;">
+0.2980718
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-2.296804
+</td>
+<td style="text-align:right;">
+0.6687755
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1774-1"><a href="aed-multivar.html#cb1774-1"></a><span class="co"># essas colunas são os dois eixos NMDS</span></span>
+<span id="cb1774-2"><a href="aed-multivar.html#cb1774-2"></a></span>
+<span id="cb1774-3"><a href="aed-multivar.html#cb1774-3"></a><span class="co"># isso deve ser verdadeiro</span></span>
+<span id="cb1774-4"><a href="aed-multivar.html#cb1774-4"></a><span class="kw">nrow</span>(ptsnmds) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(iris2)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb1776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1776-1"><a href="aed-multivar.html#cb1776-1"></a><span class="co"># calcula a distancia entre os pontos pelos eixos NMDS</span></span>
+<span id="cb1776-2"><a href="aed-multivar.html#cb1776-2"></a>adist &lt;-<span class="st"> </span><span class="kw">dist</span>(ptsnmds)</span>
+<span id="cb1776-3"><a href="aed-multivar.html#cb1776-3"></a><span class="co"># qual a correlacao entre essa matriz e a original?</span></span>
+<span id="cb1776-4"><a href="aed-multivar.html#cb1776-4"></a><span class="kw">cor</span>(dmorfo, adist)</span></code></pre></div>
+<pre><code>## [1] 0.9988093</code></pre>
+<div class="sourceCode" id="cb1778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1778-1"><a href="aed-multivar.html#cb1778-1"></a><span class="co"># por isso o stress é baixo, a correlação é alta</span></span>
+<span id="cb1778-2"><a href="aed-multivar.html#cb1778-2"></a></span>
+<span id="cb1778-3"><a href="aed-multivar.html#cb1778-3"></a><span class="co"># vamos visualizar isso graficamente</span></span>
+<span id="cb1778-4"><a href="aed-multivar.html#cb1778-4"></a><span class="co"># divide o dispositivo em dois</span></span>
+<span id="cb1778-5"><a href="aed-multivar.html#cb1778-5"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb1778-6"><a href="aed-multivar.html#cb1778-6"></a>cores &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="kw">as.numeric</span>(iris2<span class="op">$</span>Species)]</span>
+<span id="cb1778-7"><a href="aed-multivar.html#cb1778-7"></a><span class="kw">plot</span>(ptsnmds, <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> cores, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">xlab =</span> <span class="st">&quot;NMDS 1&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;NMDS 2&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-494-1.png" width="672" /></p>
+<p>Agora vamos fazer com outro índice de distância chamado <em>gower</em>, por exemplo, que é um bom índice quando se tem dados semiquantitativos na matriz (não é o caso aqui).
+Vamos carregar o pacote <code>vegan</code> <span class="citation">(Oksanen et al. <a href="#ref-R-vegan" role="doc-biblioref">2020</a>)</span></p>
+<div class="sourceCode" id="cb1779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1779-1"><a href="aed-multivar.html#cb1779-1"></a><span class="kw">library</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1780-1"><a href="aed-multivar.html#cb1780-1"></a>dmorfo2 &lt;-<span class="st"> </span><span class="kw">vegdist</span>(iris2[, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">method =</span> <span class="st">&quot;gower&quot;</span>)</span>
+<span id="cb1780-2"><a href="aed-multivar.html#cb1780-2"></a>onmds2 &lt;-<span class="st"> </span><span class="kw">bestnmds</span>(dmorfo2, <span class="dt">k =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##  [1]  5.053877 41.002721  6.369942 41.496207 41.453574 41.491817  5.064538
+##  [8]  6.568341  5.068719 41.411067 41.570011  8.576588 41.569481  5.065891
+## [15] 41.409785  5.072946  5.079160 43.038167 41.588018 41.586368
+## 
+## best result = 1
+## with stress = 5.053877</code></pre>
+<div class="sourceCode" id="cb1782"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1782-1"><a href="aed-multivar.html#cb1782-1"></a>ptsnmds2 &lt;-<span class="st"> </span>onmds2<span class="op">$</span>points</span>
+<span id="cb1782-2"><a href="aed-multivar.html#cb1782-2"></a><span class="kw">plot</span>(ptsnmds2, <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> cores, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">xlab =</span> <span class="st">&quot;NMDS 1&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;NMDS 2&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-496-1.png" width="672" /></p>
+</div>
+</div>
+<div id="análises-de-agrupamento" class="section level2">
+<h2><span class="header-section-number">14.4</span> Análises de agrupamento</h2>
+<p>A função <code>hclust()</code> faz uma análise de agrupamento a partir de uma matriz de distância e segundo um método.
+Gera um objeto de classe <code>hclust</code> que contem a estrutura hierárquica da similaridade entre os seus dados (a hierarquia dada pela distância mais o método de agrupamento).</p>
+<p>Em análises de agrupamento, é normal lidar com objetos de classe <code>dendrogram</code>.
+Podemos converter alguns objetos para esta classe usando a função <code>as.dendrogram()</code>, que facilita a geração de gráficos.</p>
+<p>Outra classe importante é <code>phylo</code>, utilizada em objetos que contenham árvores filogenéticas (pacote <code>ape</code> de <span class="citation">Paradis et al. (<a href="#ref-R-ape" role="doc-biblioref">2020</a>)</span>).
+Há a função <code>as.phylo()</code> que pode converter um objeto <code>hclust</code> para classe <code>phylo</code> e manipular o dendrograma como se fosse uma filogenia.
+Também facilita a geração de gráficos.</p>
+<div class="sourceCode" id="cb1783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1783-1"><a href="aed-multivar.html#cb1783-1"></a><span class="co"># Vamos usar o arquivo com coordenadas dos municipios brasileiros</span></span>
+<span id="cb1783-2"><a href="aed-multivar.html#cb1783-2"></a>muni &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="dt">header =</span> T, <span class="dt">as.is =</span> T, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1784-1"><a href="aed-multivar.html#cb1784-1"></a><span class="co"># para simplificar vamos pegar apenas algumas cidades da região norte</span></span>
+<span id="cb1784-2"><a href="aed-multivar.html#cb1784-2"></a>cids &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Rio Branco&quot;</span>, <span class="st">&quot;Cruzeiro do Sul&quot;</span>, <span class="st">&quot;Tabatinga&quot;</span>, <span class="st">&quot;São Gabriel da Cachoeira&quot;</span>, <span class="st">&quot;Manaus&quot;</span>, <span class="st">&quot;Santarém&quot;</span>, <span class="st">&quot;Porto Velho&quot;</span>, <span class="st">&quot;Humaitá&quot;</span>, <span class="st">&quot;Belém&quot;</span>, <span class="st">&quot;Macapá&quot;</span>, <span class="st">&quot;Marabá&quot;</span>, <span class="st">&quot;Boa Vista&quot;</span>)</span>
+<span id="cb1784-3"><a href="aed-multivar.html#cb1784-3"></a></span>
+<span id="cb1784-4"><a href="aed-multivar.html#cb1784-4"></a><span class="co"># filtrando os dados</span></span>
+<span id="cb1784-5"><a href="aed-multivar.html#cb1784-5"></a>vl &lt;-<span class="st"> </span>muni<span class="op">$</span>Municipio <span class="op">%in%</span><span class="st"> </span>cids <span class="op">&amp;</span><span class="st"> </span>muni<span class="op">$</span>Regiao <span class="op">==</span><span class="st"> &quot;Norte&quot;</span></span>
+<span id="cb1784-6"><a href="aed-multivar.html#cb1784-6"></a>muni &lt;-<span class="st"> </span>muni[vl, ]</span>
+<span id="cb1784-7"><a href="aed-multivar.html#cb1784-7"></a><span class="kw">rownames</span>(muni) &lt;-<span class="st"> </span>muni<span class="op">$</span>Municipio</span>
+<span id="cb1784-8"><a href="aed-multivar.html#cb1784-8"></a></span>
+<span id="cb1784-9"><a href="aed-multivar.html#cb1784-9"></a><span class="co"># calcula a distancia geografica entre essas cidades (em graus de latitude)</span></span>
+<span id="cb1784-10"><a href="aed-multivar.html#cb1784-10"></a>mdist &lt;-<span class="st"> </span><span class="kw">dist</span>(muni[, <span class="kw">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>)], <span class="dt">method =</span> <span class="st">&quot;euclidean&quot;</span>)</span>
+<span id="cb1784-11"><a href="aed-multivar.html#cb1784-11"></a></span>
+<span id="cb1784-12"><a href="aed-multivar.html#cb1784-12"></a><span class="co"># fazendo uma analise de agrupamento</span></span></code></pre></div>
+<div class="sourceCode" id="cb1785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1785-1"><a href="aed-multivar.html#cb1785-1"></a><span class="co"># veja o help de hclust e também</span></span>
+<span id="cb1785-2"><a href="aed-multivar.html#cb1785-2"></a><span class="co"># os diferente métodos de agrupamento</span></span>
+<span id="cb1785-3"><a href="aed-multivar.html#cb1785-3"></a>?hclust</span></code></pre></div>
+<div class="sourceCode" id="cb1786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1786-1"><a href="aed-multivar.html#cb1786-1"></a><span class="co"># agrupamento pelo método da mínima variância</span></span>
+<span id="cb1786-2"><a href="aed-multivar.html#cb1786-2"></a>gp &lt;-<span class="st"> </span><span class="kw">hclust</span>(mdist, <span class="dt">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb1786-3"><a href="aed-multivar.html#cb1786-3"></a><span class="co"># visualizando</span></span>
+<span id="cb1786-4"><a href="aed-multivar.html#cb1786-4"></a><span class="kw">plot</span>(gp, <span class="dt">main =</span> <span class="st">&quot;Cidades da região norte&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Distância geográfica (dd)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-501-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1787-1"><a href="aed-multivar.html#cb1787-1"></a><span class="co"># usando UPGMA</span></span>
+<span id="cb1787-2"><a href="aed-multivar.html#cb1787-2"></a>gp2 &lt;-<span class="st"> </span><span class="kw">hclust</span>(mdist, <span class="dt">method =</span> <span class="st">&quot;average&quot;</span>)</span>
+<span id="cb1787-3"><a href="aed-multivar.html#cb1787-3"></a><span class="kw">plot</span>(gp2, <span class="dt">hang =</span> <span class="fl">0.1</span>, <span class="dt">main =</span> <span class="st">&quot;Cidades da região norte&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Distância geográfica (dd)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-501-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1788-1"><a href="aed-multivar.html#cb1788-1"></a><span class="co"># usando o método de agrupamento pelos centroides</span></span>
+<span id="cb1788-2"><a href="aed-multivar.html#cb1788-2"></a>gp3 &lt;-<span class="st"> </span><span class="kw">hclust</span>(mdist, <span class="dt">method =</span> <span class="st">&quot;centroid&quot;</span>)</span>
+<span id="cb1788-3"><a href="aed-multivar.html#cb1788-3"></a><span class="kw">plot</span>(gp3, <span class="dt">hang =</span> <span class="fl">0.1</span>, <span class="dt">main =</span> <span class="st">&quot;Cidades da região norte&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Distância geográfica (dd)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-501-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1789-1"><a href="aed-multivar.html#cb1789-1"></a><span class="co"># teste outros métodos (entenda eles)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1790-1"><a href="aed-multivar.html#cb1790-1"></a><span class="co"># AGORA TRABALHANDO O RESULTADO DE hclust COMO UM OBJETO DE CLASSE PHYLO (de filogenia) do pacote ape</span></span>
+<span id="cb1790-2"><a href="aed-multivar.html#cb1790-2"></a><span class="kw">library</span>(<span class="st">&quot;ape&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1791-1"><a href="aed-multivar.html#cb1791-1"></a>?plot.phylo</span></code></pre></div>
+<div class="sourceCode" id="cb1792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1792-1"><a href="aed-multivar.html#cb1792-1"></a><span class="kw">plot</span>(<span class="kw">as.phylo</span>(gp), <span class="dt">type =</span> <span class="st">&quot;phylogram&quot;</span>, <span class="dt">label.offset =</span> <span class="fl">0.1</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1792-2"><a href="aed-multivar.html#cb1792-2"></a><span class="kw">axis</span>(<span class="dt">side =</span> <span class="dv">1</span>)</span>
+<span id="cb1792-3"><a href="aed-multivar.html#cb1792-3"></a><span class="kw">mtext</span>(<span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">line =</span> <span class="fl">2.5</span>, <span class="dt">text =</span> <span class="st">&quot;Distância geográfica&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-504-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1793-1"><a href="aed-multivar.html#cb1793-1"></a><span class="co"># ou entao, como cladograma, e nao usando o comprimento dos ramos (i.e. as distancias)</span></span>
+<span id="cb1793-2"><a href="aed-multivar.html#cb1793-2"></a><span class="kw">plot</span>(<span class="kw">as.phylo</span>(gp), <span class="dt">type =</span> <span class="st">&quot;cladogram&quot;</span>, <span class="dt">label.offset =</span> <span class="fl">0.1</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">use.edge.length =</span> F)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-504-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1794"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1794-1"><a href="aed-multivar.html#cb1794-1"></a><span class="co"># ou entao, radial, com distancias</span></span>
+<span id="cb1794-2"><a href="aed-multivar.html#cb1794-2"></a><span class="kw">plot</span>(<span class="kw">as.phylo</span>(gp), <span class="dt">type =</span> <span class="st">&quot;radial&quot;</span>, <span class="dt">label.offset =</span> <span class="fl">0.1</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">use.edge.length =</span> T)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-504-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1795-1"><a href="aed-multivar.html#cb1795-1"></a><span class="co"># usando comprimento dos ramos (distancias+relacoes)</span></span>
+<span id="cb1795-2"><a href="aed-multivar.html#cb1795-2"></a><span class="kw">plot</span>(<span class="kw">as.phylo</span>(gp), <span class="dt">type =</span> <span class="st">&quot;phylogram&quot;</span>, <span class="dt">label.offset =</span> <span class="fl">0.1</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">use.edge.length =</span> T)</span>
+<span id="cb1795-3"><a href="aed-multivar.html#cb1795-3"></a><span class="kw">axis</span>(<span class="dt">side =</span> <span class="dv">1</span>)</span>
+<span id="cb1795-4"><a href="aed-multivar.html#cb1795-4"></a><span class="kw">mtext</span>(<span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">line =</span> <span class="fl">2.5</span>, <span class="dt">text =</span> <span class="st">&quot;Distância geográfica&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-504-4.png" width="672" /></p>
+<div class="sourceCode" id="cb1796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1796-1"><a href="aed-multivar.html#cb1796-1"></a><span class="co"># nao usando o comprimento dos ramos (relacoes apenas)</span></span>
+<span id="cb1796-2"><a href="aed-multivar.html#cb1796-2"></a><span class="kw">plot</span>(<span class="kw">as.phylo</span>(gp), <span class="dt">type =</span> <span class="st">&quot;phylogram&quot;</span>, <span class="dt">label.offset =</span> <span class="fl">0.1</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">use.edge.length =</span> F, <span class="dt">edge.color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">edge.width =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-504-5.png" width="672" /></p>
+<div id="exemplo-florístico" class="section level3">
+<h3><span class="header-section-number">14.4.1</span> Exemplo florístico</h3>
+<p>Vamos explorar a similaridade florística entre parcelas com os dados de caixetais novamente.</p>
+<div class="sourceCode" id="cb1797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1797-1"><a href="aed-multivar.html#cb1797-1"></a>caixeta &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">header =</span> T, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1798-1"><a href="aed-multivar.html#cb1798-1"></a><span class="kw">head</span>(caixeta)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+local
+</th>
+<th style="text-align:right;">
+parcela
+</th>
+<th style="text-align:right;">
+arvore
+</th>
+<th style="text-align:right;">
+fuste
+</th>
+<th style="text-align:right;">
+cap
+</th>
+<th style="text-align:right;">
+h
+</th>
+<th style="text-align:left;">
+especie
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+720
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+Syagrus romanzoffianus
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+200
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Tabebuia cassinoides
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+750
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:left;">
+indet.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+320
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1799-1"><a href="aed-multivar.html#cb1799-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
+<pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
+<div class="sourceCode" id="cb1801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1801-1"><a href="aed-multivar.html#cb1801-1"></a><span class="co"># vamos visualizar a similaridade florística entre parcelas</span></span>
+<span id="cb1801-2"><a href="aed-multivar.html#cb1801-2"></a><span class="co"># entao geramos uma tabela de parcela vs. especies</span></span>
+<span id="cb1801-3"><a href="aed-multivar.html#cb1801-3"></a><span class="co"># primeiro um vetor com valores únicos para local+parcela</span></span>
+<span id="cb1801-4"><a href="aed-multivar.html#cb1801-4"></a><span class="co"># porque o número da parcela repete entre locais</span></span>
+<span id="cb1801-5"><a href="aed-multivar.html#cb1801-5"></a>parcelas &lt;-<span class="st"> </span><span class="kw">paste</span>(caixeta<span class="op">$</span>local, caixeta<span class="op">$</span>parcela, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb1801-6"><a href="aed-multivar.html#cb1801-6"></a>tb &lt;-<span class="st"> </span><span class="kw">table</span>(parcelas, <span class="dt">especies =</span> caixeta<span class="op">$</span>especie)</span>
+<span id="cb1801-7"><a href="aed-multivar.html#cb1801-7"></a>tb[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Alchornea triplinervia
+</th>
+<th style="text-align:right;">
+Andira fraxinifolia
+</th>
+<th style="text-align:right;">
+bombacaceae
+</th>
+<th style="text-align:right;">
+Cabralea canjerana
+</th>
+<th style="text-align:right;">
+Callophyllum brasiliensis
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chauas-1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas-2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas-3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas-4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas-5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jureia-1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jureia-2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jureia-3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jureia-4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jureia-5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+retiro-1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+retiro-2
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+retiro-3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+retiro-4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+retiro-5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1802-1"><a href="aed-multivar.html#cb1802-1"></a><span class="kw">dim</span>(tb)</span></code></pre></div>
+<pre><code>## [1] 15 43</code></pre>
+<div class="sourceCode" id="cb1804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1804-1"><a href="aed-multivar.html#cb1804-1"></a><span class="co"># essa tabela contém o número de indivíduos de cada espécie</span></span>
+<span id="cb1804-2"><a href="aed-multivar.html#cb1804-2"></a><span class="co"># em cada parcela</span></span>
+<span id="cb1804-3"><a href="aed-multivar.html#cb1804-3"></a></span>
+<span id="cb1804-4"><a href="aed-multivar.html#cb1804-4"></a><span class="co"># calculando um índice de distancia de Jaccard para dados de presença e ausência</span></span>
+<span id="cb1804-5"><a href="aed-multivar.html#cb1804-5"></a></span>
+<span id="cb1804-6"><a href="aed-multivar.html#cb1804-6"></a><span class="co"># transformando em uma tabela de presença e ausencia</span></span>
+<span id="cb1804-7"><a href="aed-multivar.html#cb1804-7"></a>tb2 &lt;-<span class="st"> </span>tb</span>
+<span id="cb1804-8"><a href="aed-multivar.html#cb1804-8"></a>tb2[tb2 <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb1805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1805-1"><a href="aed-multivar.html#cb1805-1"></a><span class="kw">library</span>(<span class="st">&quot;vegan&quot;</span>) <span class="co"># precisa desse pacote</span></span></code></pre></div>
+<div class="sourceCode" id="cb1806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1806-1"><a href="aed-multivar.html#cb1806-1"></a>?vegdist</span></code></pre></div>
+<div class="sourceCode" id="cb1807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1807-1"><a href="aed-multivar.html#cb1807-1"></a>djac &lt;-<span class="st"> </span><span class="kw">vegdist</span>(tb2, <span class="dt">method =</span> <span class="st">&quot;jaccard&quot;</span>)</span>
+<span id="cb1807-2"><a href="aed-multivar.html#cb1807-2"></a><span class="kw">class</span>(djac)</span></code></pre></div>
+<pre><code>## [1] &quot;dist&quot;</code></pre>
+<div class="sourceCode" id="cb1809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1809-1"><a href="aed-multivar.html#cb1809-1"></a><span class="co"># é uma matriz de distancia entre parcela</span></span>
+<span id="cb1809-2"><a href="aed-multivar.html#cb1809-2"></a><span class="kw">as.matrix</span>(djac)[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+chauas-1
+</th>
+<th style="text-align:right;">
+chauas-2
+</th>
+<th style="text-align:right;">
+chauas-3
+</th>
+<th style="text-align:right;">
+chauas-4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chauas-1
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.7500000
+</td>
+<td style="text-align:right;">
+0.80
+</td>
+<td style="text-align:right;">
+0.8181818
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas-2
+</td>
+<td style="text-align:right;">
+0.7500000
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:right;">
+0.5714286
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas-3
+</td>
+<td style="text-align:right;">
+0.8000000
+</td>
+<td style="text-align:right;">
+0.5000000
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.2500000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas-4
+</td>
+<td style="text-align:right;">
+0.8181818
+</td>
+<td style="text-align:right;">
+0.5714286
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1810-1"><a href="aed-multivar.html#cb1810-1"></a><span class="co"># podemos fazer um NMDS com isso</span></span>
+<span id="cb1810-2"><a href="aed-multivar.html#cb1810-2"></a><span class="kw">library</span>(<span class="st">&quot;labdsv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1811-1"><a href="aed-multivar.html#cb1811-1"></a>onmds &lt;-<span class="st"> </span><span class="kw">bestnmds</span>(djac, <span class="dt">k =</span> <span class="dv">2</span>)</span>
+<span id="cb1811-2"><a href="aed-multivar.html#cb1811-2"></a><span class="co"># parcelas 3 e 5 tem exatamente as mesmas espécies</span></span>
+<span id="cb1811-3"><a href="aed-multivar.html#cb1811-3"></a><span class="co"># vamos com colocar um valor super pequeno para essa distancia (quase zero)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1812-1"><a href="aed-multivar.html#cb1812-1"></a>djac[djac <span class="op">==</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="fl">0.0000000000000000001</span></span>
+<span id="cb1812-2"><a href="aed-multivar.html#cb1812-2"></a></span>
+<span id="cb1812-3"><a href="aed-multivar.html#cb1812-3"></a><span class="co"># agora funciona</span></span>
+<span id="cb1812-4"><a href="aed-multivar.html#cb1812-4"></a>onmds &lt;-<span class="st"> </span><span class="kw">bestnmds</span>(djac, <span class="dt">k =</span> <span class="dv">2</span>)</span>
+<span id="cb1812-5"><a href="aed-multivar.html#cb1812-5"></a></span>
+<span id="cb1812-6"><a href="aed-multivar.html#cb1812-6"></a><span class="co"># plotando o resultado</span></span>
+<span id="cb1812-7"><a href="aed-multivar.html#cb1812-7"></a></span>
+<span id="cb1812-8"><a href="aed-multivar.html#cb1812-8"></a><span class="co"># pega cores e simbolos segundo o local</span></span>
+<span id="cb1812-9"><a href="aed-multivar.html#cb1812-9"></a>ll &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">local =</span> caixeta<span class="op">$</span>local, parcelas)</span>
+<span id="cb1812-10"><a href="aed-multivar.html#cb1812-10"></a>ll &lt;-<span class="st"> </span><span class="kw">unique</span>(ll)</span>
+<span id="cb1812-11"><a href="aed-multivar.html#cb1812-11"></a><span class="kw">rownames</span>(ll) &lt;-<span class="st"> </span>ll<span class="op">$</span>parcelas</span>
+<span id="cb1812-12"><a href="aed-multivar.html#cb1812-12"></a>ll</span></code></pre></div>
+<div class="sourceCode" id="cb1813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1813-1"><a href="aed-multivar.html#cb1813-1"></a>rn &lt;-<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">as.matrix</span>(tb2))</span>
+<span id="cb1813-2"><a href="aed-multivar.html#cb1813-2"></a>locais &lt;-<span class="st"> </span>ll[rn, <span class="st">&quot;local&quot;</span>]</span>
+<span id="cb1813-3"><a href="aed-multivar.html#cb1813-3"></a></span>
+<span id="cb1813-4"><a href="aed-multivar.html#cb1813-4"></a>cores &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="kw">as.numeric</span>(locais)]</span>
+<span id="cb1813-5"><a href="aed-multivar.html#cb1813-5"></a>pchs &lt;-<span class="st"> </span>(<span class="dv">21</span><span class="op">:</span><span class="dv">23</span>)[<span class="kw">as.numeric</span>(locais)]</span>
+<span id="cb1813-6"><a href="aed-multivar.html#cb1813-6"></a><span class="kw">plot</span>(onmds<span class="op">$</span>points, <span class="dt">pch =</span> pchs, <span class="dt">bg =</span> cores, <span class="dt">xlab =</span> <span class="st">&quot;NMDS1&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;NMDS2&quot;</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1814-1"><a href="aed-multivar.html#cb1814-1"></a><span class="co"># ERRO AQUi - INVESTIGAR</span></span>
+<span id="cb1814-2"><a href="aed-multivar.html#cb1814-2"></a><span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend =</span> <span class="kw">levels</span>(locais), <span class="dt">pch =</span> <span class="dv">21</span><span class="op">:</span><span class="dv">23</span>, <span class="dt">pt.bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">inset =</span> <span class="fl">0.05</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">pt.cex =</span> <span class="fl">1.5</span>, <span class="dt">y.intersp =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1815-1"><a href="aed-multivar.html#cb1815-1"></a><span class="co"># agora olhando na forma de agrupamento</span></span>
+<span id="cb1815-2"><a href="aed-multivar.html#cb1815-2"></a>cluster &lt;-<span class="st"> </span><span class="kw">hclust</span>(djac, <span class="dt">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb1815-3"><a href="aed-multivar.html#cb1815-3"></a><span class="kw">plot</span>(cluster, <span class="dt">ylab =</span> <span class="st">&quot;Dissimilaridade Florística (Jaccard)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1816-1"><a href="aed-multivar.html#cb1816-1"></a><span class="co"># melhorando a figura</span></span>
+<span id="cb1816-2"><a href="aed-multivar.html#cb1816-2"></a><span class="co"># primeiro converto para phylo</span></span>
+<span id="cb1816-3"><a href="aed-multivar.html#cb1816-3"></a><span class="co"># é uma forma de fazer isso</span></span>
+<span id="cb1816-4"><a href="aed-multivar.html#cb1816-4"></a><span class="co"># veja também ?dendrogram</span></span>
+<span id="cb1816-5"><a href="aed-multivar.html#cb1816-5"></a><span class="kw">library</span>(<span class="st">&quot;ape&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1817-1"><a href="aed-multivar.html#cb1817-1"></a>pcl &lt;-<span class="st"> </span><span class="kw">as.phylo</span>(cluster)</span>
+<span id="cb1817-2"><a href="aed-multivar.html#cb1817-2"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb1817-3"><a href="aed-multivar.html#cb1817-3"></a><span class="kw">plot</span>(pcl, <span class="dt">tip.color =</span> cores, <span class="dt">label.offset =</span> <span class="fl">0.02</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1817-4"><a href="aed-multivar.html#cb1817-4"></a><span class="co"># pontos</span></span>
+<span id="cb1817-5"><a href="aed-multivar.html#cb1817-5"></a><span class="kw">tiplabels</span>(<span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">frame =</span> <span class="ot">NULL</span>, <span class="dt">bg =</span> cores)</span>
+<span id="cb1817-6"><a href="aed-multivar.html#cb1817-6"></a><span class="co"># eixo</span></span>
+<span id="cb1817-7"><a href="aed-multivar.html#cb1817-7"></a><span class="kw">axisPhylo</span>()</span>
+<span id="cb1817-8"><a href="aed-multivar.html#cb1817-8"></a><span class="co"># nome do eixo</span></span>
+<span id="cb1817-9"><a href="aed-multivar.html#cb1817-9"></a><span class="kw">mtext</span>(<span class="dt">text =</span> <span class="st">&quot;Jaccard índice (0 ou 1)&quot;</span>, <span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">line =</span> <span class="fl">2.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1818-1"><a href="aed-multivar.html#cb1818-1"></a><span class="co"># ERRO AQUi - INVESTIGAR</span></span>
+<span id="cb1818-2"><a href="aed-multivar.html#cb1818-2"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">legend =</span> <span class="kw">levels</span>(locais), <span class="dt">pch =</span> <span class="dv">21</span><span class="op">:</span><span class="dv">23</span>, <span class="dt">pt.bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">inset =</span> <span class="fl">0.01</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">pt.cex =</span> <span class="fl">1.5</span>, <span class="dt">y.intersp =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1819-1"><a href="aed-multivar.html#cb1819-1"></a><span class="co"># ERRO AQUi - INVESTIGAR</span></span>
+<span id="cb1819-2"><a href="aed-multivar.html#cb1819-2"></a><span class="co">#########################</span></span>
+<span id="cb1819-3"><a href="aed-multivar.html#cb1819-3"></a><span class="co"># agora fazendo a mesma coisa considerando a abundancia (usamos o indice de sorensen)</span></span>
+<span id="cb1819-4"><a href="aed-multivar.html#cb1819-4"></a><span class="co"># nosso objeto com abundancia por parcela é tb</span></span>
+<span id="cb1819-5"><a href="aed-multivar.html#cb1819-5"></a>tb[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
+<span id="cb1819-6"><a href="aed-multivar.html#cb1819-6"></a></span>
+<span id="cb1819-7"><a href="aed-multivar.html#cb1819-7"></a><span class="co"># sorensen (bray na convencao do R)</span></span>
+<span id="cb1819-8"><a href="aed-multivar.html#cb1819-8"></a>dsor &lt;-<span class="st"> </span><span class="kw">vegdist</span>(tb, <span class="dt">method =</span> <span class="st">&quot;bray&quot;</span>)</span>
+<span id="cb1819-9"><a href="aed-multivar.html#cb1819-9"></a>onmds2 &lt;-<span class="st"> </span><span class="kw">bestnmds</span>(dsor, <span class="dt">k =</span> <span class="dv">2</span>)</span>
+<span id="cb1819-10"><a href="aed-multivar.html#cb1819-10"></a><span class="kw">plot</span>(onmds2<span class="op">$</span>points, <span class="dt">pch =</span> pchs, <span class="dt">bg =</span> cores, <span class="dt">xlab =</span> <span class="st">&quot;NMDS1&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;NMDS2&quot;</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>)</span>
+<span id="cb1819-11"><a href="aed-multivar.html#cb1819-11"></a><span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend =</span> <span class="kw">levels</span>(locais), <span class="dt">pch =</span> <span class="dv">21</span><span class="op">:</span><span class="dv">23</span>, <span class="dt">pt.bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">inset =</span> <span class="fl">0.05</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">pt.cex =</span> <span class="fl">1.5</span>, <span class="dt">y.intersp =</span> <span class="fl">1.5</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1819-12"><a href="aed-multivar.html#cb1819-12"></a></span>
+<span id="cb1819-13"><a href="aed-multivar.html#cb1819-13"></a><span class="co"># agrupamento</span></span>
+<span id="cb1819-14"><a href="aed-multivar.html#cb1819-14"></a>cluster2 &lt;-<span class="st"> </span><span class="kw">hclust</span>(dsor, <span class="dt">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb1819-15"><a href="aed-multivar.html#cb1819-15"></a>pcl2 &lt;-<span class="st"> </span><span class="kw">as.phylo</span>(cluster2)</span>
+<span id="cb1819-16"><a href="aed-multivar.html#cb1819-16"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb1819-17"><a href="aed-multivar.html#cb1819-17"></a><span class="kw">plot</span>(pcl2, <span class="dt">tip.color =</span> cores, <span class="dt">label.offset =</span> <span class="fl">0.02</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1819-18"><a href="aed-multivar.html#cb1819-18"></a><span class="kw">tiplabels</span>(<span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">frame =</span> <span class="ot">NULL</span>, <span class="dt">bg =</span> cores)</span>
+<span id="cb1819-19"><a href="aed-multivar.html#cb1819-19"></a><span class="kw">axisPhylo</span>()</span>
+<span id="cb1819-20"><a href="aed-multivar.html#cb1819-20"></a><span class="kw">mtext</span>(<span class="dt">text =</span> <span class="st">&quot;Sorensen índice (com abundância)&quot;</span>, <span class="dt">side =</span> <span class="dv">1</span>, <span class="dt">line =</span> <span class="fl">2.5</span>)</span>
+<span id="cb1819-21"><a href="aed-multivar.html#cb1819-21"></a><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="dt">legend =</span> <span class="kw">levels</span>(locais), <span class="dt">pch =</span> <span class="dv">21</span><span class="op">:</span><span class="dv">23</span>, <span class="dt">pt.bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">inset =</span> <span class="fl">0.01</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">cex =</span> <span class="dv">1</span>, <span class="dt">pt.cex =</span> <span class="fl">1.5</span>, <span class="dt">y.intersp =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+</div>
+<div id="análise-de-coordenadas-principais-pcoa" class="section level3">
+<h3><span class="header-section-number">14.4.2</span> Análise de Coordenadas Principais (PCoA)</h3>
+<p>A função <code>capscale()</code>faz uma análise de coordenadas principais (ou escalonamento multidimensional métrico ou clássico).
+É parecida com uma Análise de Componentes Principais (PCA), mas é baseada em matrizes de distância.
+Indica os efeitos das variáveis (parâmetro ‘’species’’) sobre os eixos.
+Já a função <code>ordiplot()</code> do pacote <code>vegan</code> <span class="citation">(Oksanen et al. <a href="#ref-R-vegan" role="doc-biblioref">2020</a>)</span> permite graficar uma ordenação e os efeitos das variáveis (<code>sites</code> vs. <code>species</code>).</p>
+<p>Leiam aqui uma <a href="http://occamstypewriter.org/boboh/2012/01/17/pca_and_pcoa_explained/">comparação entre PCA e PCoA</a></p>
+<div class="sourceCode" id="cb1820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1820-1"><a href="aed-multivar.html#cb1820-1"></a><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</span>
+<span id="cb1820-2"><a href="aed-multivar.html#cb1820-2"></a><span class="kw">library</span>(<span class="st">&quot;vegan&quot;</span>)</span>
+<span id="cb1820-3"><a href="aed-multivar.html#cb1820-3"></a><span class="co"># análise de coordenadas principais</span></span>
+<span id="cb1820-4"><a href="aed-multivar.html#cb1820-4"></a>dt &lt;-<span class="st"> </span>iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</span>
+<span id="cb1820-5"><a href="aed-multivar.html#cb1820-5"></a>mypcoa &lt;-<span class="st"> </span><span class="kw">capscale</span>(dt <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">distance =</span> <span class="st">&quot;gower&quot;</span>, <span class="dt">add =</span> F)</span>
+<span id="cb1820-6"><a href="aed-multivar.html#cb1820-6"></a></span>
+<span id="cb1820-7"><a href="aed-multivar.html#cb1820-7"></a><span class="co"># quando da variação está explicado pelos eixos</span></span>
+<span id="cb1820-8"><a href="aed-multivar.html#cb1820-8"></a>resumo &lt;-<span class="st"> </span><span class="kw">summary</span>(mypcoa)</span>
+<span id="cb1820-9"><a href="aed-multivar.html#cb1820-9"></a>var.expl &lt;-<span class="st"> </span>resumo<span class="op">$</span>cont<span class="op">$</span>importance</span>
+<span id="cb1820-10"><a href="aed-multivar.html#cb1820-10"></a><span class="co"># veja a proporção cumulativa dos primeiros cinco eixos</span></span>
+<span id="cb1820-11"><a href="aed-multivar.html#cb1820-11"></a>var.expl[<span class="st">&quot;Cumulative Proportion&quot;</span>, ][<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>##      MDS1      MDS2      MDS3      MDS4      MDS5 
+## 0.7468617 0.8614730 0.8946967 0.9148675 0.9289785</code></pre>
+<div class="sourceCode" id="cb1822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1822-1"><a href="aed-multivar.html#cb1822-1"></a><span class="co"># pega a proporção explicada por cada eixo</span></span>
+<span id="cb1822-2"><a href="aed-multivar.html#cb1822-2"></a>tt &lt;-<span class="st"> </span>var.expl[<span class="st">&quot;Proportion Explained&quot;</span>, ][<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
+<span id="cb1822-3"><a href="aed-multivar.html#cb1822-3"></a>tt &lt;-<span class="st"> </span>tt <span class="op">*</span><span class="st"> </span><span class="dv">100</span></span>
+<span id="cb1822-4"><a href="aed-multivar.html#cb1822-4"></a><span class="co"># gera um gráfico de barras com isso</span></span>
+<span id="cb1822-5"><a href="aed-multivar.html#cb1822-5"></a><span class="kw">barplot</span>(tt, <span class="dt">xlab =</span> <span class="st">&quot;Eixos MDS&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Variação explicada %&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-521-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1823-1"><a href="aed-multivar.html#cb1823-1"></a><span class="co"># fazendo uma figura com ordiplot</span></span>
+<span id="cb1823-2"><a href="aed-multivar.html#cb1823-2"></a><span class="co"># veja o help</span></span>
+<span id="cb1823-3"><a href="aed-multivar.html#cb1823-3"></a>?ordiplot</span></code></pre></div>
+<div class="sourceCode" id="cb1824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1824-1"><a href="aed-multivar.html#cb1824-1"></a><span class="co"># define cor e simbolo por especie</span></span>
+<span id="cb1824-2"><a href="aed-multivar.html#cb1824-2"></a>tx &lt;-<span class="st"> </span><span class="kw">as.factor</span>(iris<span class="op">$</span>Species)</span>
+<span id="cb1824-3"><a href="aed-multivar.html#cb1824-3"></a><span class="co"># simbolos para os níveis</span></span>
+<span id="cb1824-4"><a href="aed-multivar.html#cb1824-4"></a>upchs &lt;-<span class="st"> </span><span class="dv">21</span><span class="op">:</span><span class="dv">23</span></span>
+<span id="cb1824-5"><a href="aed-multivar.html#cb1824-5"></a><span class="co"># cores para os níveis</span></span>
+<span id="cb1824-6"><a href="aed-multivar.html#cb1824-6"></a>cores &lt;-<span class="st"> </span><span class="kw">rainbow</span>(<span class="kw">length</span>(<span class="kw">levels</span>(tx)), <span class="dt">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1824-7"><a href="aed-multivar.html#cb1824-7"></a></span>
+<span id="cb1824-8"><a href="aed-multivar.html#cb1824-8"></a><span class="co"># gera a figura</span></span>
+<span id="cb1824-9"><a href="aed-multivar.html#cb1824-9"></a>fig &lt;-<span class="st"> </span><span class="kw">ordiplot</span>(mypcoa, <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1824-10"><a href="aed-multivar.html#cb1824-10"></a><span class="co"># adiciona os pontos de cada linha</span></span>
+<span id="cb1824-11"><a href="aed-multivar.html#cb1824-11"></a><span class="kw">points</span>(fig, <span class="st">&quot;sites&quot;</span>, <span class="dt">pch =</span> upchs[<span class="kw">as.numeric</span>(tx)], <span class="dt">bg =</span> cores[<span class="kw">as.numeric</span>(tx)], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb1824-12"><a href="aed-multivar.html#cb1824-12"></a></span>
+<span id="cb1824-13"><a href="aed-multivar.html#cb1824-13"></a><span class="co"># pega os scores das variáveis</span></span>
+<span id="cb1824-14"><a href="aed-multivar.html#cb1824-14"></a><span class="co"># que mostram os efeitos das variáveis usadas</span></span>
+<span id="cb1824-15"><a href="aed-multivar.html#cb1824-15"></a>mls &lt;-<span class="st"> </span><span class="kw">scores</span>(mypcoa, <span class="dt">display =</span> <span class="st">&quot;species&quot;</span>)</span>
+<span id="cb1824-16"><a href="aed-multivar.html#cb1824-16"></a>mls</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+MDS1
+</th>
+<th style="text-align:right;">
+MDS2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:right;">
+2.0020165
+</td>
+<td style="text-align:right;">
+-1.1230766
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:right;">
+-0.4980034
+</td>
+<td style="text-align:right;">
+-1.8451477
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:right;">
+4.7366457
+</td>
+<td style="text-align:right;">
+0.1241131
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:right;">
+2.0004259
+</td>
+<td style="text-align:right;">
+-0.1699399
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1825-1"><a href="aed-multivar.html#cb1825-1"></a><span class="co"># plota flechas para esses efeitos</span></span>
+<span id="cb1825-2"><a href="aed-multivar.html#cb1825-2"></a><span class="kw">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, mls[, <span class="dv">1</span>] <span class="op">*</span><span class="st"> </span><span class="fl">0.8</span>, mls[, <span class="dv">2</span>] <span class="op">*</span><span class="st"> </span><span class="fl">0.8</span>, <span class="dt">length =</span> <span class="fl">0.05</span>, <span class="dt">angle =</span> <span class="dv">20</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb1825-3"><a href="aed-multivar.html#cb1825-3"></a><span class="kw">text</span>(mls[, <span class="dv">1</span>] <span class="op">*</span><span class="st"> </span><span class="fl">0.8</span>, mls[, <span class="dv">2</span>] <span class="op">*</span><span class="st"> </span><span class="fl">0.8</span>, <span class="dt">labels =</span> <span class="kw">rownames</span>(mls), <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">pos =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-523-1.png" width="672" /></p>
+</div>
+</div>
+<div id="componentes-principais-pca" class="section level2">
+<h2><span class="header-section-number">14.5</span> Componentes Principais (PCA)</h2>
+<p><a href="https://pt.wikipedia.org/wiki/An%C3%A1lise_de_componentes_principais">Análise de Componentes Principais (PCA)</a> é o método mais conhecido de ordenação, mas diferentemente dos métodos que se baseiam em matrizes de distância (ver abaixo) que são mais flexíveis e menos exigentes quanto à premissas estatísticas, a ordenação com PCA tem as seguintes limitações:</p>
+<ul>
+<li><p>Os componentes principais são independentes apenas se os dados possuirem <strong>distribuição normal conjuntamente</strong>;</p></li>
+<li><p>A PCA é sensível à escala relativa das variáveis originais.</p></li>
+</ul>
+<p>Um exemplo:</p>
+<div class="sourceCode" id="cb1826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1826-1"><a href="aed-multivar.html#cb1826-1"></a><span class="kw">library</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1827-1"><a href="aed-multivar.html#cb1827-1"></a><span class="co"># análise de componentes principais</span></span>
+<span id="cb1827-2"><a href="aed-multivar.html#cb1827-2"></a>?prcomp</span></code></pre></div>
+<div class="sourceCode" id="cb1828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1828-1"><a href="aed-multivar.html#cb1828-1"></a>dt &lt;-<span class="st"> </span>iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1829-1"><a href="aed-multivar.html#cb1829-1"></a>meu.pca &lt;-<span class="st"> </span><span class="kw">prcomp</span>(dt, <span class="dt">scale. =</span> T, <span class="dt">tol =</span> <span class="dv">0</span>, <span class="dt">retx =</span> T)</span>
+<span id="cb1829-2"><a href="aed-multivar.html#cb1829-2"></a><span class="co"># entenda os argumentos usados</span></span>
+<span id="cb1829-3"><a href="aed-multivar.html#cb1829-3"></a></span>
+<span id="cb1829-4"><a href="aed-multivar.html#cb1829-4"></a><span class="co"># classe gerada</span></span>
+<span id="cb1829-5"><a href="aed-multivar.html#cb1829-5"></a><span class="kw">class</span>(meu.pca)</span></code></pre></div>
+<pre><code>## [1] &quot;prcomp&quot;</code></pre>
+<div class="sourceCode" id="cb1831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1831-1"><a href="aed-multivar.html#cb1831-1"></a><span class="co"># elementos do resultado</span></span>
+<span id="cb1831-2"><a href="aed-multivar.html#cb1831-2"></a><span class="kw">names</span>(meu.pca)</span></code></pre></div>
+<pre><code>## [1] &quot;sdev&quot;     &quot;rotation&quot; &quot;center&quot;   &quot;scale&quot;    &quot;x&quot;</code></pre>
+<div class="sourceCode" id="cb1833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1833-1"><a href="aed-multivar.html#cb1833-1"></a><span class="co"># fazendo uma figura com ordiplot</span></span>
+<span id="cb1833-2"><a href="aed-multivar.html#cb1833-2"></a><span class="co"># veja o help</span></span>
+<span id="cb1833-3"><a href="aed-multivar.html#cb1833-3"></a>?ordiplot</span></code></pre></div>
+<div class="sourceCode" id="cb1834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1834-1"><a href="aed-multivar.html#cb1834-1"></a><span class="co"># quando da variação está explicado pelos eixos</span></span>
+<span id="cb1834-2"><a href="aed-multivar.html#cb1834-2"></a>resumo &lt;-<span class="st"> </span><span class="kw">summary</span>(meu.pca)</span>
+<span id="cb1834-3"><a href="aed-multivar.html#cb1834-3"></a>var.expl &lt;-<span class="st"> </span>resumo<span class="op">$</span>importance</span>
+<span id="cb1834-4"><a href="aed-multivar.html#cb1834-4"></a><span class="co"># veja a proporção cumulativa dos eixos gerados</span></span>
+<span id="cb1834-5"><a href="aed-multivar.html#cb1834-5"></a>var.expl[<span class="st">&quot;Cumulative Proportion&quot;</span>, ]</span></code></pre></div>
+<pre><code>##     PC1     PC2     PC3     PC4 
+## 0.72962 0.95813 0.99482 1.00000</code></pre>
+<div class="sourceCode" id="cb1836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1836-1"><a href="aed-multivar.html#cb1836-1"></a><span class="co"># quatro eixos explicam 100% da variacao</span></span>
+<span id="cb1836-2"><a href="aed-multivar.html#cb1836-2"></a><span class="co"># pega a proporção explicada por cada eixo</span></span>
+<span id="cb1836-3"><a href="aed-multivar.html#cb1836-3"></a>tt &lt;-<span class="st"> </span>var.expl[<span class="st">&quot;Proportion of Variance&quot;</span>, ]</span>
+<span id="cb1836-4"><a href="aed-multivar.html#cb1836-4"></a>tt &lt;-<span class="st"> </span>tt <span class="op">*</span><span class="st"> </span><span class="dv">100</span></span>
+<span id="cb1836-5"><a href="aed-multivar.html#cb1836-5"></a><span class="co"># gera um gráfico de barras com isso</span></span>
+<span id="cb1836-6"><a href="aed-multivar.html#cb1836-6"></a><span class="kw">barplot</span>(tt, <span class="dt">xlab =</span> <span class="st">&quot;Eixos PCA&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Variação explicada %&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-529-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1837-1"><a href="aed-multivar.html#cb1837-1"></a><span class="co"># define cor e simbolo por especie</span></span>
+<span id="cb1837-2"><a href="aed-multivar.html#cb1837-2"></a>tx &lt;-<span class="st"> </span><span class="kw">as.factor</span>(iris<span class="op">$</span>Species)</span>
+<span id="cb1837-3"><a href="aed-multivar.html#cb1837-3"></a><span class="co"># simbolos para os níveis</span></span>
+<span id="cb1837-4"><a href="aed-multivar.html#cb1837-4"></a>upchs &lt;-<span class="st"> </span><span class="dv">21</span><span class="op">:</span><span class="dv">23</span></span>
+<span id="cb1837-5"><a href="aed-multivar.html#cb1837-5"></a><span class="co"># cores para os níveis</span></span>
+<span id="cb1837-6"><a href="aed-multivar.html#cb1837-6"></a>cores &lt;-<span class="st"> </span><span class="kw">rainbow</span>(<span class="kw">length</span>(<span class="kw">levels</span>(tx)), <span class="dt">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1837-7"><a href="aed-multivar.html#cb1837-7"></a></span>
+<span id="cb1837-8"><a href="aed-multivar.html#cb1837-8"></a><span class="co"># gera a figura</span></span>
+<span id="cb1837-9"><a href="aed-multivar.html#cb1837-9"></a>fig &lt;-<span class="st"> </span><span class="kw">ordiplot</span>(meu.pca, <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1837-10"><a href="aed-multivar.html#cb1837-10"></a><span class="co"># adiciona os pontos de cada linha</span></span>
+<span id="cb1837-11"><a href="aed-multivar.html#cb1837-11"></a><span class="kw">points</span>(fig, <span class="st">&quot;sites&quot;</span>, <span class="dt">pch =</span> upchs[<span class="kw">as.numeric</span>(tx)], <span class="dt">bg =</span> cores[<span class="kw">as.numeric</span>(tx)], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb1837-12"><a href="aed-multivar.html#cb1837-12"></a></span>
+<span id="cb1837-13"><a href="aed-multivar.html#cb1837-13"></a><span class="co"># pega os scores das variaveis</span></span>
+<span id="cb1837-14"><a href="aed-multivar.html#cb1837-14"></a><span class="co"># que mostram os efeitos das variáveis usadas</span></span>
+<span id="cb1837-15"><a href="aed-multivar.html#cb1837-15"></a>mls &lt;-<span class="st"> </span><span class="kw">scores</span>(meu.pca, <span class="dt">display =</span> <span class="st">&quot;species&quot;</span>)</span>
+<span id="cb1837-16"><a href="aed-multivar.html#cb1837-16"></a>mls</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+PC1
+</th>
+<th style="text-align:right;">
+PC2
+</th>
+<th style="text-align:right;">
+PC3
+</th>
+<th style="text-align:right;">
+PC4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Sepal.Length
+</td>
+<td style="text-align:right;">
+0.5210659
+</td>
+<td style="text-align:right;">
+-0.3774176
+</td>
+<td style="text-align:right;">
+0.7195664
+</td>
+<td style="text-align:right;">
+0.2612863
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sepal.Width
+</td>
+<td style="text-align:right;">
+-0.2693474
+</td>
+<td style="text-align:right;">
+-0.9232957
+</td>
+<td style="text-align:right;">
+-0.2443818
+</td>
+<td style="text-align:right;">
+-0.1235096
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Length
+</td>
+<td style="text-align:right;">
+0.5804131
+</td>
+<td style="text-align:right;">
+-0.0244916
+</td>
+<td style="text-align:right;">
+-0.1421264
+</td>
+<td style="text-align:right;">
+-0.8014492
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petal.Width
+</td>
+<td style="text-align:right;">
+0.5648565
+</td>
+<td style="text-align:right;">
+-0.0669420
+</td>
+<td style="text-align:right;">
+-0.6342727
+</td>
+<td style="text-align:right;">
+0.5235971
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1838-1"><a href="aed-multivar.html#cb1838-1"></a><span class="co"># plota flexas para esses efeitos</span></span>
+<span id="cb1838-2"><a href="aed-multivar.html#cb1838-2"></a>ft &lt;-<span class="st"> </span><span class="dv">2</span> <span class="co"># para aumentar as flexas um pouco</span></span>
+<span id="cb1838-3"><a href="aed-multivar.html#cb1838-3"></a><span class="kw">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, mls[, <span class="dv">1</span>] <span class="op">*</span><span class="st"> </span>ft, mls[, <span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>ft, <span class="dt">length =</span> <span class="fl">0.05</span>, <span class="dt">angle =</span> <span class="dv">20</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb1838-4"><a href="aed-multivar.html#cb1838-4"></a><span class="kw">text</span>(mls[, <span class="dv">1</span>] <span class="op">*</span><span class="st"> </span>ft, mls[, <span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>ft, <span class="dt">labels =</span> <span class="kw">rownames</span>(mls), <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">cex =</span> <span class="fl">0.8</span>, <span class="dt">pos =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-529-2.png" width="672" /></p>
+
+</div>
+</div>
+
+
+
+<h3>Referências</h3>
+<div id="refs" class="references">
+<div id="ref-R-vegan">
+<p>Oksanen, Jari, F. Guillaume Blanchet, Michael Friendly, Roeland Kindt, Pierre Legendre, Dan McGlinn, Peter R. Minchin, et al. 2020. <em>vegan: Community Ecology Package</em>. <a href="https://CRAN.R-project.org/package=vegan">https://CRAN.R-project.org/package=vegan</a>.</p>
+</div>
+<div id="ref-R-ape">
+<p>Paradis, Emmanuel, Simon Blomberg, Ben Bolker, Joseph Brown, Santiago Claramunt, Julien Claude, Hoa Sien Cuong, et al. 2020. <em>ape: Analyses of Phylogenetics and Evolution</em>. <a href="http://ape-package.ird.fr/">http://ape-package.ird.fr/</a>.</p>
+</div>
+<div id="ref-R-labdsv">
+<p>Roberts, David W. 2019. <em>labdsv: Ordination and Multivariate Analysis for Ecology</em>. <a href="http://ecology.msu.montana.edu/labdsv/R">http://ecology.msu.montana.edu/labdsv/R</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="aed-bivar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="base-tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/14-aed_checamultivar.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/14-aed_checamultivar.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
