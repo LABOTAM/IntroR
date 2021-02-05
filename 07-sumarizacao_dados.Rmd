@@ -558,4 +558,13 @@ tab1[antilinhas, ]
 * [Join in R](http://www.datasciencemadesimple.com/join-in-r-merge-in-r/);
 * [Tudo sobre Joins (merge) em R](https://www.fulljoin.com.br/posts/2016-05-12-tudo-sobre-joins/);
 * [Join com dplyr](https://rpubs.com/CristianaFreitas/311735);
-* [Entendendo o JOIN do SQL (ou Junções)](https://www.sqlfromhell.com/entendendo-join-sql/) - Obtive as imagens aqui apresentadas desta página. Há uma boa explicação com SQL como pano de fundo para operações de junções de tabela.
+* [Entendendo o JOIN do SQL (ou Junções)](https://www.sqlfromhell.com/entendendo-join-sql/) - Obtive as imagens aqui apresentadas desta página. Há uma boa explicação com SQL como pano de fundo para operações de junções de tabela.  
+
+## Exercícios
+
+* Resolva o exercício [104.01 Sintetizando dados](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=14).
+* Resolva o exercício [103.05 Classes de Objetos](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=21).
+* Resolva o exercício [103.04 Lendo e salvando seus dados ](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=22).
+* Resolva o exercício [103.06 Acrescentando dados](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=24).
+* Resolva o exercício [103.8 De vetor a data.frame ordenado](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=35).
+

@@ -205,5 +205,9 @@ axis(side = 2, at = dq12, labels = paste(round(dq12 * 100, 0), "%", sep = ""), l
 
 ## Para saber mais: {#sabermais-distribuicoes}
 
-(1) [Probability distributions](http://www.r-tutor.com/elementary-statistics/probability-distributions)
-  
+(1) [Probability distributions](http://www.r-tutor.com/elementary-statistics/probability-distributions).  
+
+## Exercícios
+
+* Resolva o exercício [103.7 Cara ou coroa](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=34).
+* Resolva o exercício [103.9 Lembrando matrizes e listas](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=37).

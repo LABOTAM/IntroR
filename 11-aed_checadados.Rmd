@@ -296,8 +296,3 @@ table(avesc$fisionomia)
 str(avesc)
 summary(avesc)
 ```
-
-
-## Para saber mais
-
-* [Apostila USP-BIE-5782](http://ecologia.ib.usp.br/bie5782/doku.php?id=bie5782:02_tutoriais:tutorial4:start)
