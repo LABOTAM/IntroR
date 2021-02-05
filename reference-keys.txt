@@ -227,6 +227,9 @@ ordenação-com-matrizes-de-distância
 escalonamento-não-métrico-multimensional-nmds
 exemplo-com-dados-morfológicos
 análises-de-agrupamento
+agrupamento-pelo-método-da-mínima-variância
+agrupamento-por-upgma
+agrupamento-por-centróides
 exemplo-florístico
 análise-de-coordenadas-principais-pcoa
 componentes-principais-pca

@@ -385,8 +385,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.3.1" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos</a></li>
 </ul></li>
 <li class="chapter" data-level="14.4" data-path="aed-multivar.html"><a href="aed-multivar.html#análises-de-agrupamento"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento</a><ul>
-<li class="chapter" data-level="14.4.1" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.1</b> Exemplo florístico</a></li>
-<li class="chapter" data-level="14.4.2" data-path="aed-multivar.html"><a href="aed-multivar.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.2</b> Análise de Coordenadas Principais (PCoA)</a></li>
+<li class="chapter" data-level="14.4.1" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-pelo-método-da-mínima-variância"><i class="fa fa-check"></i><b>14.4.1</b> Agrupamento pelo método da mínima variância</a></li>
+<li class="chapter" data-level="14.4.2" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-upgma"><i class="fa fa-check"></i><b>14.4.2</b> Agrupamento por UPGMA</a></li>
+<li class="chapter" data-level="14.4.3" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-centróides"><i class="fa fa-check"></i><b>14.4.3</b> Agrupamento por centróides</a></li>
+<li class="chapter" data-level="14.4.4" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.4</b> Exemplo florístico</a></li>
+<li class="chapter" data-level="14.4.5" data-path="aed-multivar.html"><a href="aed-multivar.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.5</b> Análise de Coordenadas Principais (PCoA)</a></li>
 </ul></li>
 <li class="chapter" data-level="14.5" data-path="aed-multivar.html"><a href="aed-multivar.html#componentes-principais-pca"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)</a></li>
 </ul></li>
@@ -459,32 +462,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">B</span> Baixar e descomprimir um arquivo</h1>
 <p>Caso você queira baixar e descomprimir um arquivo <code>.zip</code> no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
 Utilizaremos um arquivo utilizado na seção <a href="lista-objcompl.html#obj-complexos">4.2</a>.</p>
-<div class="sourceCode" id="cb1894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1894-1"><a href="unzip.html#cb1894-1"></a><span class="co"># grava o endereco do arquivo em um objeto</span></span>
-<span id="cb1894-2"><a href="unzip.html#cb1894-2"></a>arq_zip_url &lt;-<span class="st"> &quot;http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip&quot;</span></span>
-<span id="cb1894-3"><a href="unzip.html#cb1894-3"></a><span class="co"># cria um diretorio temporario</span></span>
-<span id="cb1894-4"><a href="unzip.html#cb1894-4"></a>dirtemp &lt;-<span class="st"> </span><span class="kw">tempdir</span>()</span>
-<span id="cb1894-5"><a href="unzip.html#cb1894-5"></a><span class="co"># cria um arquivo temporario para arquivar esse zip</span></span>
-<span id="cb1894-6"><a href="unzip.html#cb1894-6"></a>arq_temp &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">tmpdir =</span> dirtemp, <span class="dt">fileext =</span> <span class="st">&quot;.zip&quot;</span>)</span>
-<span id="cb1894-7"><a href="unzip.html#cb1894-7"></a><span class="co"># baixa o arquivo para dentro do arquivo temporario</span></span>
-<span id="cb1894-8"><a href="unzip.html#cb1894-8"></a><span class="kw">download.file</span>(arq_zip_url, arq_temp)</span>
-<span id="cb1894-9"><a href="unzip.html#cb1894-9"></a></span>
-<span id="cb1894-10"><a href="unzip.html#cb1894-10"></a><span class="co"># Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`</span></span>
-<span id="cb1894-11"><a href="unzip.html#cb1894-11"></a><span class="co"># agora utilizaremos a funcao `unzip()` para descomprimir o arquivo</span></span>
-<span id="cb1894-12"><a href="unzip.html#cb1894-12"></a></span>
-<span id="cb1894-13"><a href="unzip.html#cb1894-13"></a><span class="co"># pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta</span></span>
-<span id="cb1894-14"><a href="unzip.html#cb1894-14"></a>fname &lt;-<span class="st"> </span><span class="kw">unzip</span>(arq_temp, <span class="dt">list =</span> <span class="ot">TRUE</span>)<span class="op">$</span>Name[<span class="dv">1</span>]</span>
-<span id="cb1894-15"><a href="unzip.html#cb1894-15"></a>nomes_arqs &lt;-<span class="st"> </span><span class="kw">unzip</span>(arq_temp, <span class="dt">list =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb1894-16"><a href="unzip.html#cb1894-16"></a><span class="kw">class</span>(nomes_arqs) <span class="co"># e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo</span></span>
-<span id="cb1894-17"><a href="unzip.html#cb1894-17"></a><span class="kw">str</span>(nomes_arqs)</span>
-<span id="cb1894-18"><a href="unzip.html#cb1894-18"></a>nomes_arqs</span>
-<span id="cb1894-19"><a href="unzip.html#cb1894-19"></a><span class="co"># Descomprime o arquivo zip para a pasta temporaria</span></span>
-<span id="cb1894-20"><a href="unzip.html#cb1894-20"></a><span class="kw">unzip</span>(arq_temp, <span class="dt">files =</span> nome_pasta, <span class="dt">exdir =</span> dirtemp, <span class="dt">overwrite =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb1894-21"><a href="unzip.html#cb1894-21"></a><span class="co"># caminho completo do arquivo extraido</span></span>
-<span id="cb1894-22"><a href="unzip.html#cb1894-22"></a>caminho_completo &lt;-<span class="st"> </span><span class="kw">file.path</span>(dirtemp, nome_pasta)</span>
-<span id="cb1894-23"><a href="unzip.html#cb1894-23"></a>caminho_completo</span>
-<span id="cb1894-24"><a href="unzip.html#cb1894-24"></a></span>
-<span id="cb1894-25"><a href="unzip.html#cb1894-25"></a><span class="co"># lista arquivos dentro do caminho contido em caminho_completo</span></span>
-<span id="cb1894-26"><a href="unzip.html#cb1894-26"></a><span class="kw">list.files</span>(<span class="kw">paste0</span>(caminho_completo, <span class="st">&quot;/.&quot;</span>), <span class="dt">all.files =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1898-1"><a href="unzip.html#cb1898-1"></a><span class="co"># grava o endereco do arquivo em um objeto</span></span>
+<span id="cb1898-2"><a href="unzip.html#cb1898-2"></a>arq_zip_url &lt;-<span class="st"> &quot;http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip&quot;</span></span>
+<span id="cb1898-3"><a href="unzip.html#cb1898-3"></a><span class="co"># cria um diretorio temporario</span></span>
+<span id="cb1898-4"><a href="unzip.html#cb1898-4"></a>dirtemp &lt;-<span class="st"> </span><span class="kw">tempdir</span>()</span>
+<span id="cb1898-5"><a href="unzip.html#cb1898-5"></a><span class="co"># cria um arquivo temporario para arquivar esse zip</span></span>
+<span id="cb1898-6"><a href="unzip.html#cb1898-6"></a>arq_temp &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">tmpdir =</span> dirtemp, <span class="dt">fileext =</span> <span class="st">&quot;.zip&quot;</span>)</span>
+<span id="cb1898-7"><a href="unzip.html#cb1898-7"></a><span class="co"># baixa o arquivo para dentro do arquivo temporario</span></span>
+<span id="cb1898-8"><a href="unzip.html#cb1898-8"></a><span class="kw">download.file</span>(arq_zip_url, arq_temp)</span>
+<span id="cb1898-9"><a href="unzip.html#cb1898-9"></a></span>
+<span id="cb1898-10"><a href="unzip.html#cb1898-10"></a><span class="co"># Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`</span></span>
+<span id="cb1898-11"><a href="unzip.html#cb1898-11"></a><span class="co"># agora utilizaremos a funcao `unzip()` para descomprimir o arquivo</span></span>
+<span id="cb1898-12"><a href="unzip.html#cb1898-12"></a></span>
+<span id="cb1898-13"><a href="unzip.html#cb1898-13"></a><span class="co"># pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta</span></span>
+<span id="cb1898-14"><a href="unzip.html#cb1898-14"></a>fname &lt;-<span class="st"> </span><span class="kw">unzip</span>(arq_temp, <span class="dt">list =</span> <span class="ot">TRUE</span>)<span class="op">$</span>Name[<span class="dv">1</span>]</span>
+<span id="cb1898-15"><a href="unzip.html#cb1898-15"></a>nomes_arqs &lt;-<span class="st"> </span><span class="kw">unzip</span>(arq_temp, <span class="dt">list =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1898-16"><a href="unzip.html#cb1898-16"></a><span class="kw">class</span>(nomes_arqs) <span class="co"># e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo</span></span>
+<span id="cb1898-17"><a href="unzip.html#cb1898-17"></a><span class="kw">str</span>(nomes_arqs)</span>
+<span id="cb1898-18"><a href="unzip.html#cb1898-18"></a>nomes_arqs</span>
+<span id="cb1898-19"><a href="unzip.html#cb1898-19"></a><span class="co"># Descomprime o arquivo zip para a pasta temporaria</span></span>
+<span id="cb1898-20"><a href="unzip.html#cb1898-20"></a><span class="kw">unzip</span>(arq_temp, <span class="dt">files =</span> nome_pasta, <span class="dt">exdir =</span> dirtemp, <span class="dt">overwrite =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1898-21"><a href="unzip.html#cb1898-21"></a><span class="co"># caminho completo do arquivo extraido</span></span>
+<span id="cb1898-22"><a href="unzip.html#cb1898-22"></a>caminho_completo &lt;-<span class="st"> </span><span class="kw">file.path</span>(dirtemp, nome_pasta)</span>
+<span id="cb1898-23"><a href="unzip.html#cb1898-23"></a>caminho_completo</span>
+<span id="cb1898-24"><a href="unzip.html#cb1898-24"></a></span>
+<span id="cb1898-25"><a href="unzip.html#cb1898-25"></a><span class="co"># lista arquivos dentro do caminho contido em caminho_completo</span></span>
+<span id="cb1898-26"><a href="unzip.html#cb1898-26"></a><span class="kw">list.files</span>(<span class="kw">paste0</span>(caminho_completo, <span class="st">&quot;/.&quot;</span>), <span class="dt">all.files =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 
 </div>
             </section>
