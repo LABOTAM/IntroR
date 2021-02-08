@@ -141,6 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estrutura-do-livro"><i class="fa fa-check"></i>Estrutura do livro</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-os-autores"><i class="fa fa-check"></i>Sobre os autores</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pré-requisitos"><i class="fa fa-check"></i>Pré-requisitos</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
@@ -472,12 +473,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="subtitle"><em>Disciplina BOT89 - PPGBOT INPA</em></h2>
 <p class="author"><em><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=alunos:a.vicentini:inicio">Alberto Vicentini</a> (<a href="http://portal.inpa.gov.br/">INPA</a>)</em></p>
 <p class="author"><em><a href="https://ricardoperdiz.com">Ricardo de Oliveira Perdiz</a> - ricardoperdiz@yahoo.com</em></p>
-<p class="date"><em>Última atualização: 2021-02-05</em></p>
+<p class="date"><em>Última atualização: 2021-02-08</em></p>
 </div>
 <div id="prefácio" class="section level1 unnumbered">
 <h1>Prefácio</h1>
-<p>Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89)</a> do <a href="http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/">Programa de Pós-Graduação em Ciências Biológicas (Botânica)</a> do INPA.
-Porém, devido ao seu conteúdo abrangente, pode ser utilizado por qualquer pessoa que escolha conhecer esta linguagem para utilizá-la no dia a dia.</p>
+<p>Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89) do <a href="http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/">Programa de Pós-Graduação em Ciências Biológicas (Botânica)</a> do INPA, ofertada desde o ano de 2011.</p>
+<p>Inicialmente, a disciplina consistiu de uma modificação da documentação do curso de <a href="http://ecor.ib.usp.br/doku.php">Introdução à Linguagem R</a> oferecida pelo <a href="https://posecologia.ib.usp.br/">Programa de Pós-graduação em Ecologia</a> do Instituto de Biociências da Universidade de São Paulo, atualmente ministrada pelo professor Dr. <a href="http://labtrop.ib.usp.br/">Alexandre Adalardo de Oliveira</a>, e que contem aulas de autoria dos professores Drs. A. A. de Oliveira, <a href="http://cmq.esalq.usp.br/">João Luís Ferreira Batista</a>, <a href="http://ecologia.ib.usp.br/let/doku.php?id=prado:start">Paulo Inácio K. L. Prado</a>, e <a href="https://sites.ffclrp.usp.br/ficus/equipe.htm">Rodrigo Augusto Santinelo Pereira</a> <span class="citation">(Batista, I., e Oliveira <a href="#ref-Batista2009" role="doc-biblioref">2009</a>)</span>.
+Como exemplo, parte dos dados (dados de <a href="https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/aves_cerrado.csv">avistamento de aves no Cerrado</a> e <a href="https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/caixeta.csv">Levantamento em Caixetais</a>) utilizados em nossas aulas são originários desta disciplina da Ecologia da USP.</p>
+<p>Modificações nessa estrutura foram feitas por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
+Ricardo Perdiz transpôs as aulas originais formatadas em <code>dokuwiki</code> para o formato <a href="https://rmarkdown.rstudio.com/">Rmarkdown</a>.
+Também fez correções e acrescentou (poucos) novos conteúdos.</p>
 <p>Nossa meta é prover uma introdução básica
 <!-- (a) passar uma noção geral sobre dados e metadados e como criar e manter um banco de dados de forma simples e organizada e que facilite seu uso posterior; -->
 da linguagem de programação R, que é extremamente poderosa para manipulação de dados, análises estatísticas, produção de gráficos e de documentos dinâmicos, e cujo domínio oferece um grande ganho de produtividade a todo cientista e facilita o entendimento de métodos analíticos.
@@ -485,7 +490,7 @@ Ressaltamos que <strong>isto não é um curso de estatística</strong>.</p>
 <div id="estrutura-do-livro" class="section level2 unnumbered">
 <h2>Estrutura do livro</h2>
 <div class="infobox warning">
-<p><strong>Nota</strong>: Este livro está em constante atualização. Os capítulos de 1 a 10 estão relativamente estáveis e devem passar por poucas mudanças daqui para a frente. Você pode encontrar os arquivos de <strong>Rmarkdown</strong> que geraram este livro no endereço <a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main">https://github.com/LABOTAM/LABOTAM.github.io/tree/main</a>. Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para <a href="https://github.com/LABOTAM/LABOTAM.github.io/issues">abrir um problema no repositório do livro</a>. Grato!</p>
+<p><strong>Nota</strong>: Este livro está em constante atualização. Você pode encontrar os arquivos de <strong>Rmarkdown</strong> que geraram este livro no endereço <a href="https://github.com/LABOTAM/LABOTAM.github.io/tree/main">https://github.com/LABOTAM/LABOTAM.github.io/tree/main</a>. Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para <a href="https://github.com/LABOTAM/LABOTAM.github.io/issues">abrir um problema no repositório do livro</a>. Grato!</p>
 </div>
 <p>O livro está dividido em três partes.
 A primeira parte contem 10 capítulos e aborda os ensinamentos básicos para o usuário aprender a usar a linguagem como uma ferramenta científica.</p>
@@ -524,10 +529,16 @@ Os capítulos abaixo exemplificam algumas ferramentas do R para fazer AED:</p>
 </div>
 <div id="sobre-os-autores" class="section level2 unnumbered">
 <h2>Sobre os autores</h2>
-<p>O texto deste livro foi escrito e aprimorado majoritariamente (mais de 90%) por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
-Essas aulas podem ser visualizadas no endereço <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio">http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio</a>.
-Ricardo Perdiz transpôs as aulas originais formatadas em <code>dokuwiki</code> para o formato <a href="https://rmarkdown.rstudio.com/">Rmarkdown</a>. Também corrigiu alguns detalhes e acrescentou novos conteúdos.</p>
+<p>Alberto é doutor em Ecologia, Evolução e Sistemática, com uma ênfase em Evolução pela Universidade do Missouri, Saint Louis (University of Missouri Saint Louis).
+É cientista do Instituto Nacional de Pesquisas da Amazônia (INPA) desde o ano de 2009.
+Ministra anualmente disciplinas ligadas ao Programa de pós-graduação em Ciências Biológicas do INPA, como <strong>Preparação de dados para análises Estáticas - Introdução ao uso de linguagem R (BOT-89)</strong>, <strong>Delineamento Experimental e Amostral (BOT-90)</strong>, e <strong>Teoria e Prática de Sistemática Filogenética (BOT-99)</strong>.
+É colíder do grupo de pesquisa <a href="http://dgp.cnpq.br/dgp/espelhogrupo/38425">Ecologia e Evolução de Plantas da Amazônia</a> do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).</p>
+<p>Ricardo Perdiz é doutor em Ciências Biológicas pelo INPA e foi orientado de A. Vicentini em seu doutorado.</p>
 <!-- incluir aqui a autores.Rmd - pedir ao Beto para revisar o texto XXX-->
+</div>
+<div id="agradecimentos" class="section level2 unnumbered">
+<h2>Agradecimentos</h2>
+<p>Agradecemos aos Drs. Alexandre Oliveira, João Luís Ferreira Batista, Paulo Inácio K. L. Prado, e Rodrigo Augusto Santinelo Pereira, por permitirem o uso de conteúdo parcial da disciplina introdutória ministrada por eles na USP como base para a criação deste livro.</p>
 </div>
 <div id="pré-requisitos" class="section level2 unnumbered">
 <h2>Pré-requisitos</h2>
@@ -770,6 +781,9 @@ Leia com atenção o enunciado de cada exercício antes de iniciar a construir o
 
 <h3>Referências</h3>
 <div id="refs" class="references">
+<div id="ref-Batista2009">
+<p>Batista, J. L. F., Prado P. I., e A. A. Oliveira, eds. 2009. <em>Introdução ao R - Uma Apostila online</em>. Universidade de São Paulo. <a href="http://ecologia.ib.usp.br/bie5782">http://ecologia.ib.usp.br/bie5782</a>.</p>
+</div>
 <div id="ref-Chalometal2012">
 <p>Chalom, A., M. Salles, P. I. Prado, e A. Adalardo. 2012. <em>notaR - Um sistema para notas automatizadas em cursos que utilizam a linguagem R (Version 2.0)</em>. <a href="https://github.com/lageIBUSP/notaR">https://github.com/lageIBUSP/notaR</a>.</p>
 </div>
