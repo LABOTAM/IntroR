@@ -87,7 +87,7 @@ pegavalor <- function(x, referencias) {
 
 ### Passo 03 - Usando a função
 
-Vamos utilizar dados de exemplo para testar a função. Baixe o arquivo presente neste endereço (http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=analises:baixandoespecimenes:pegados_dados_exemplo.csv).
+Vamos utilizar dados de exemplo para testar a função. Baixe o arquivo presente neste endereço (https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/pegados_dados_exemplo.csv).
 Ele apresenta uma coluna com notas de exsicatas para ilustrar nosso exemplo.  
 
 ```{r, opts.label='evalF'}

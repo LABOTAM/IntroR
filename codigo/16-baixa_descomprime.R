@@ -3,9 +3,9 @@
 #' Caso você queira baixar e descomprimir um arquivo `.zip` no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
 #' Utilizaremos um arquivo utilizado na seção \@ref(obj-complexos).  
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ---- opts.label='evalF'---------------
 # grava o endereco do arquivo em um objeto
-arq_zip_url <- "http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:2lists:municipiosshape.zip"
+arq_zip_url <- "https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosshape.zip"
 # cria um diretorio temporario
 dirtemp <- tempdir()
 # cria um arquivo temporario para arquivar esse zip
