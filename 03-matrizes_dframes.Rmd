@@ -720,7 +720,7 @@ str(dd6) # diferentemente do objeto anterior, não há mais fatores
 # podemos usar um endereco da internet para baixar um arquivo
 dd7 <-
   read.table(
-    "http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv",
+    "https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv",
     sep = "\t",
     header = TRUE
   )
@@ -750,7 +750,7 @@ dim(dd7)
 Como no pacote `base`, também podemos ler arquivos diretamente da rede:
 
 ```{r, echo = TRUE, eval = FALSE}
-rr2 <- read_delim("http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv", delim = "\t")
+rr2 <- read_delim("https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv", delim = "\t")
 rr2
 ```
 
@@ -776,7 +776,7 @@ dt1
 Também podemos ler arquivos diretamente da rede, providenciando um endereço que contenha um arquivo de texto simples:
 
 ```{r, echo = TRUE, eval = FALSE}
-dt2 <- fread("http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=disciplinas:bot89_2013:exercicio08:municipiosbrasil.csv")
+dt2 <- fread("https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv")
 dt2
 ```
 

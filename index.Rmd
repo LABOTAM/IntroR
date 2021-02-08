@@ -59,8 +59,14 @@ purrr::walk2(
 
 # Prefácio {-}
 
-Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina [Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89)](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio) do [Programa de Pós-Graduação em Ciências Biológicas (Botânica)](http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/) do INPA.
-Porém, devido ao seu conteúdo abrangente, pode ser utilizado por qualquer pessoa que escolha conhecer esta linguagem para utilizá-la no dia a dia.  
+Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89) do [Programa de Pós-Graduação em Ciências Biológicas (Botânica)](http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/) do INPA, ofertada desde o ano de 2011.  
+
+Inicialmente, a disciplina consistiu de uma modificação da documentação do curso de [Introdução à Linguagem R](http://ecor.ib.usp.br/doku.php) oferecida pelo [Programa de Pós-graduação em Ecologia](https://posecologia.ib.usp.br/) do Instituto de Biociências da Universidade de São Paulo, atualmente ministrada pelo professor Dr. [Alexandre Adalardo de Oliveira](http://labtrop.ib.usp.br/), e que contem aulas de autoria dos professores Drs. A. A. de Oliveira, [João Luís Ferreira Batista](http://cmq.esalq.usp.br/), [Paulo Inácio K. L. Prado](http://ecologia.ib.usp.br/let/doku.php?id=prado:start), e [Rodrigo Augusto Santinelo Pereira](https://sites.ffclrp.usp.br/ficus/equipe.htm) [@Batista2009].
+Como exemplo, parte dos dados (dados de [avistamento de aves no Cerrado](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/aves_cerrado.csv) e [Levantamento em Caixetais](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/caixeta.csv)) utilizados em nossas aulas são originários desta disciplina da Ecologia da USP.  
+
+Modificações nessa estrutura foram feitas por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
+Ricardo Perdiz transpôs as aulas originais formatadas em `dokuwiki` para o formato [Rmarkdown](https://rmarkdown.rstudio.com/).
+Também fez correções e acrescentou (poucos) novos conteúdos.  
 
 Nossa meta é prover uma introdução básica 
 <!-- (a) passar uma noção geral sobre dados e metadados e como criar e manter um banco de dados de forma simples e organizada e que facilite seu uso posterior; -->
@@ -71,7 +77,7 @@ Ressaltamos que **isto não é um curso de estatística**.
 
 ::: {.infobox .warning data-latex="warning"}
 
-**Nota**: Este livro está em constante atualização. Os capítulos de 1 a 10 estão relativamente estáveis e devem passar por poucas mudanças daqui para a frente. Você pode encontrar os arquivos de **Rmarkdown** que geraram este livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/LABOTAM.github.io/issues). Grato!
+**Nota**: Este livro está em constante atualização. Você pode encontrar os arquivos de **Rmarkdown** que geraram este livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/LABOTAM.github.io/issues). Grato!
 
 :::
 
@@ -112,12 +118,20 @@ Por fim, temos o apêndice contendo materiais suplementares:
 
 ## Sobre os autores {-}
 
-O texto deste livro foi escrito e aprimorado majoritariamente (mais de 90%) por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
-Essas aulas podem ser visualizadas no endereço [http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio).
-Ricardo Perdiz transpôs as aulas originais formatadas em `dokuwiki` para o formato [Rmarkdown](https://rmarkdown.rstudio.com/). Também corrigiu alguns detalhes e acrescentou novos conteúdos.  
+Alberto é doutor em Ecologia, Evolução e Sistemática, com uma ênfase em Evolução pela Universidade do Missouri, Saint Louis (University of Missouri Saint Louis).
+É cientista do Instituto Nacional de Pesquisas da Amazônia (INPA) desde o ano de 2009.
+Ministra anualmente disciplinas ligadas ao Programa de pós-graduação em Ciências Biológicas do INPA, como **Preparação de dados para análises Estáticas - Introdução ao uso de linguagem R (BOT-89)**, **Delineamento Experimental e Amostral (BOT-90)**, e **Teoria e Prática de Sistemática Filogenética (BOT-99)**.
+É colíder do grupo de pesquisa [Ecologia e Evolução de Plantas da Amazônia](http://dgp.cnpq.br/dgp/espelhogrupo/38425) do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).  
+
+Ricardo Perdiz é doutor em Ciências Biológicas pelo INPA e foi orientado de A. Vicentini em seu doutorado.  
 
 
 <!-- incluir aqui a autores.Rmd - pedir ao Beto para revisar o texto XXX-->
+
+## Agradecimentos {-}
+
+Agradecemos aos Drs. Alexandre Oliveira, João Luís Ferreira Batista, Paulo Inácio K. L. Prado, e Rodrigo Augusto Santinelo Pereira, por permitirem o uso de conteúdo parcial da disciplina introdutória ministrada por eles na USP como base para a criação deste livro.  
+
 
 ## Pré-requisitos {-}
 

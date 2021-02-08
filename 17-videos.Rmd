@@ -1,6 +1,6 @@
 # Aulas em vídeo {#videos}
 
-Gravamos vídeos para muitas aulas da disciplina [Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89)](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89:inicio) do [Programa de Pós-Graduação em Ciências Biológicas (Botânica)](http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/) do INPA.
+Gravamos vídeoaulas para a maior parte do material aqui ofertado.
 Elas estão agrupadas abaixo para facilitar a visualização e o entendimento dos tópicos abordados.  
 
 ## Importando e exportando dados
