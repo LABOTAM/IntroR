@@ -11,7 +11,6 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
     edit: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s
-    # download: ["epub"]
     download: null
 bookdown::epub_book:
   # dev: svglite
