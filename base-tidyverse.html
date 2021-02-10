@@ -146,6 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="0.0.1" data-path="index.html"><a href="index.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i><b>0.0.1</b> Baixe os pacotes abaixo</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
@@ -167,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#base-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
@@ -509,7 +510,7 @@ Nas próximas seções, vamos ver alguns exemplos práticos utilizando esses doi
 <p>Vamos utilizar o famoso conjunto <code>iris</code><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> para aprender a manipular os dados com as ferramentas do <code>dplyr</code>.</p>
 <p>Vamos aprender brevemente como funcionam as principais funções deste pacote (Tabela <a href="base-tidyverse.html#tab:dplyrtb">A.1</a>).
 Primeiro vamos carregar o pacote para a sessão de trabalho:</p>
-<div class="sourceCode" id="cb1843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1843-1"><a href="base-tidyverse.html#cb1843-1"></a><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1849-1"><a href="base-tidyverse.html#cb1849-1"></a><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:dplyrtb">Tabela A.1: </span>Principais funções do pacote R <code>dplyr</code>.
@@ -582,10 +583,10 @@ agrupa os dados segundo grupos
 <li><p>primeiro, utiliza-se como primeiro argumento o nome do <code>data.frame</code> que se deseja trabalhar; em nosso caso, o <code>data.frame</code> se chama <code>iris</code>: <code>select(iris, ...)</code>;</p></li>
 <li><p>depois, colocamos no lugar de <code>...</code> o nome das colunas que desejamos selecionar, <strong>sem aspas</strong>. Por exemplo, se quisermos selecionar a coluna das espécie, fazemos assim:</p></li>
 </ul>
-<div class="sourceCode" id="cb1844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1844-1"><a href="base-tidyverse.html#cb1844-1"></a><span class="kw">head</span>(</span>
-<span id="cb1844-2"><a href="base-tidyverse.html#cb1844-2"></a>  <span class="kw">select</span>(iris, Species),</span>
-<span id="cb1844-3"><a href="base-tidyverse.html#cb1844-3"></a>  <span class="dv">10</span></span>
-<span id="cb1844-4"><a href="base-tidyverse.html#cb1844-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1850-1"><a href="base-tidyverse.html#cb1850-1"></a><span class="kw">head</span>(</span>
+<span id="cb1850-2"><a href="base-tidyverse.html#cb1850-2"></a>  <span class="kw">select</span>(iris, Species),</span>
+<span id="cb1850-3"><a href="base-tidyverse.html#cb1850-3"></a>  <span class="dv">10</span></span>
+<span id="cb1850-4"><a href="base-tidyverse.html#cb1850-4"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -648,10 +649,10 @@ setosa
 </tbody>
 </table>
 <p>Ou se quisermos a coluna de comprimento de pétala mais a coluna das espécies:</p>
-<div class="sourceCode" id="cb1845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1845-1"><a href="base-tidyverse.html#cb1845-1"></a><span class="kw">head</span>(</span>
-<span id="cb1845-2"><a href="base-tidyverse.html#cb1845-2"></a>  <span class="kw">select</span>(iris, Petal.Length, Species),</span>
-<span id="cb1845-3"><a href="base-tidyverse.html#cb1845-3"></a>  <span class="dv">10</span></span>
-<span id="cb1845-4"><a href="base-tidyverse.html#cb1845-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1851-1"><a href="base-tidyverse.html#cb1851-1"></a><span class="kw">head</span>(</span>
+<span id="cb1851-2"><a href="base-tidyverse.html#cb1851-2"></a>  <span class="kw">select</span>(iris, Petal.Length, Species),</span>
+<span id="cb1851-3"><a href="base-tidyverse.html#cb1851-3"></a>  <span class="dv">10</span></span>
+<span id="cb1851-4"><a href="base-tidyverse.html#cb1851-4"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -749,10 +750,10 @@ setosa
 <p>Também podemos utilizar funções auxiliares para executar buscas nos nomes das colunas segundo determinados padrões.
 Entre essas funções auxiliares, destacamos a função <code>contains()</code>.
 Por exemplo, se quisermos selecionar todas as variáveis que contêm “Petal” em seus nomes:</p>
-<div class="sourceCode" id="cb1846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1846-1"><a href="base-tidyverse.html#cb1846-1"></a><span class="kw">head</span>(</span>
-<span id="cb1846-2"><a href="base-tidyverse.html#cb1846-2"></a>  <span class="kw">select</span>(iris, <span class="kw">contains</span>(<span class="st">&quot;Petal&quot;</span>)),</span>
-<span id="cb1846-3"><a href="base-tidyverse.html#cb1846-3"></a>  <span class="dv">10</span></span>
-<span id="cb1846-4"><a href="base-tidyverse.html#cb1846-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1852-1"><a href="base-tidyverse.html#cb1852-1"></a><span class="kw">head</span>(</span>
+<span id="cb1852-2"><a href="base-tidyverse.html#cb1852-2"></a>  <span class="kw">select</span>(iris, <span class="kw">contains</span>(<span class="st">&quot;Petal&quot;</span>)),</span>
+<span id="cb1852-3"><a href="base-tidyverse.html#cb1852-3"></a>  <span class="dv">10</span></span>
+<span id="cb1852-4"><a href="base-tidyverse.html#cb1852-4"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -852,10 +853,10 @@ Petal.Width
 <h3><span class="header-section-number">A.2.2</span> Filtrando dados com <code>filter()</code></h3>
 <p>Se desejamos filtrar os dados segundo alguma informação, devemos utilizar a função <code>filter()</code>.
 Por exemplo, se quiser checar os dados de pétalas apenas para a espécie <code>setosa</code>, fazemos assim:</p>
-<div class="sourceCode" id="cb1847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1847-1"><a href="base-tidyverse.html#cb1847-1"></a><span class="kw">head</span>(</span>
-<span id="cb1847-2"><a href="base-tidyverse.html#cb1847-2"></a>  <span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>),</span>
-<span id="cb1847-3"><a href="base-tidyverse.html#cb1847-3"></a>  <span class="dv">10</span></span>
-<span id="cb1847-4"><a href="base-tidyverse.html#cb1847-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1853-1"><a href="base-tidyverse.html#cb1853-1"></a><span class="kw">head</span>(</span>
+<span id="cb1853-2"><a href="base-tidyverse.html#cb1853-2"></a>  <span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>),</span>
+<span id="cb1853-3"><a href="base-tidyverse.html#cb1853-3"></a>  <span class="dv">10</span></span>
+<span id="cb1853-4"><a href="base-tidyverse.html#cb1853-4"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1050,10 +1051,10 @@ setosa
 </tbody>
 </table>
 <p>Ou então quais amostras da espécie <code>virginica</code> possuem comprimento de sépala maior que 7 cm:</p>
-<div class="sourceCode" id="cb1848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1848-1"><a href="base-tidyverse.html#cb1848-1"></a><span class="kw">head</span>(</span>
-<span id="cb1848-2"><a href="base-tidyverse.html#cb1848-2"></a>  <span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>, Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>),</span>
-<span id="cb1848-3"><a href="base-tidyverse.html#cb1848-3"></a>  <span class="dv">10</span></span>
-<span id="cb1848-4"><a href="base-tidyverse.html#cb1848-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1854-1"><a href="base-tidyverse.html#cb1854-1"></a><span class="kw">head</span>(</span>
+<span id="cb1854-2"><a href="base-tidyverse.html#cb1854-2"></a>  <span class="kw">filter</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>, Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>),</span>
+<span id="cb1854-3"><a href="base-tidyverse.html#cb1854-3"></a>  <span class="dv">10</span></span>
+<span id="cb1854-4"><a href="base-tidyverse.html#cb1854-4"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1248,10 +1249,10 @@ virginica
 </tbody>
 </table>
 <p>E se quisermos adicionar uma coluna em <code>iris</code> que consiste na razão entre o comprimento da pétala pelo comprimento da sépala? Chamaremos nossa nova coluna de <code>razaopetsep</code>:</p>
-<div class="sourceCode" id="cb1849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1849-1"><a href="base-tidyverse.html#cb1849-1"></a><span class="kw">head</span>(</span>
-<span id="cb1849-2"><a href="base-tidyverse.html#cb1849-2"></a>  <span class="kw">mutate</span>(iris, <span class="dt">razaopetsep =</span> Petal.Length <span class="op">/</span><span class="st"> </span>Sepal.Length),</span>
-<span id="cb1849-3"><a href="base-tidyverse.html#cb1849-3"></a>  <span class="dv">10</span></span>
-<span id="cb1849-4"><a href="base-tidyverse.html#cb1849-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1855-1"><a href="base-tidyverse.html#cb1855-1"></a><span class="kw">head</span>(</span>
+<span id="cb1855-2"><a href="base-tidyverse.html#cb1855-2"></a>  <span class="kw">mutate</span>(iris, <span class="dt">razaopetsep =</span> Petal.Length <span class="op">/</span><span class="st"> </span>Sepal.Length),</span>
+<span id="cb1855-3"><a href="base-tidyverse.html#cb1855-3"></a>  <span class="dv">10</span></span>
+<span id="cb1855-4"><a href="base-tidyverse.html#cb1855-4"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1483,9 +1484,9 @@ setosa
 <h3><span class="header-section-number">A.2.3</span> Destrinchando as funções <code>group_by</code> e <code>summarise</code></h3>
 <p>As funções <code>group_by</code> e <code>summarise</code> resumem o propósito do pacote <code>dplyr</code>, pois permitem em poucas linhas de comando sumariar os dados, e partem do princípio, muito presente no R através das funções da família <code>apply</code>, chamado <strong>split-apply-combine</strong> que, em tradução livre, pode ser entendido como uma sequência lógica de ação: quebre em grupos, aplique uma função, e combine os resultados.
 Vamos partir para o uso dessas funções agrupando os dados em função da coluna <code>Species</code> e calculando a média do comprimento das pétalas (variável <code>Petal.Length</code>):</p>
-<div class="sourceCode" id="cb1850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1850-1"><a href="base-tidyverse.html#cb1850-1"></a>iris_grouped &lt;-<span class="st"> </span><span class="kw">group_by</span>(iris, Species)</span>
-<span id="cb1850-2"><a href="base-tidyverse.html#cb1850-2"></a>iris_sumario &lt;-<span class="st"> </span><span class="kw">summarise</span>(iris_grouped, <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span>
-<span id="cb1850-3"><a href="base-tidyverse.html#cb1850-3"></a>iris_sumario</span></code></pre></div>
+<div class="sourceCode" id="cb1856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1856-1"><a href="base-tidyverse.html#cb1856-1"></a>iris_grouped &lt;-<span class="st"> </span><span class="kw">group_by</span>(iris, Species)</span>
+<span id="cb1856-2"><a href="base-tidyverse.html#cb1856-2"></a>iris_sumario &lt;-<span class="st"> </span><span class="kw">summarise</span>(iris_grouped, <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb1856-3"><a href="base-tidyverse.html#cb1856-3"></a>iris_sumario</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1527,10 +1528,10 @@ virginica
 <p>Vamos destrinchar o que fizemos acima.
 A função <code>group_by</code> os dados em função de alguma ou algumas variáveis.
 Essa função geralmente é utilizada em conjunto com a função <code>summarise</code> para gerar sumários estatísticos de uma ou mais variáveis.</p>
-<div class="sourceCode" id="cb1851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1851-1"><a href="base-tidyverse.html#cb1851-1"></a><span class="kw">head</span>(</span>
-<span id="cb1851-2"><a href="base-tidyverse.html#cb1851-2"></a>  <span class="kw">group_by</span>(iris, Species),</span>
-<span id="cb1851-3"><a href="base-tidyverse.html#cb1851-3"></a>  <span class="dv">10</span></span>
-<span id="cb1851-4"><a href="base-tidyverse.html#cb1851-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1857-1"><a href="base-tidyverse.html#cb1857-1"></a><span class="kw">head</span>(</span>
+<span id="cb1857-2"><a href="base-tidyverse.html#cb1857-2"></a>  <span class="kw">group_by</span>(iris, Species),</span>
+<span id="cb1857-3"><a href="base-tidyverse.html#cb1857-3"></a>  <span class="dv">10</span></span>
+<span id="cb1857-4"><a href="base-tidyverse.html#cb1857-4"></a>)</span></code></pre></div>
 <pre><code>## [90m# A tibble: 10 x 5[39m
 ## [90m# Groups:   Species [1][39m
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -1550,8 +1551,8 @@ Essa função geralmente é utilizada em conjunto com a função <code>summarise
 <p>Ela informa que o objeto gerado a partir de <code>group_by</code> está agrupado ao redor da variável <code>Species</code>.
 Pensando no pacote <code>base</code>, é como pensar que a variável <code>Species</code> é o argumento <code>INDEX</code> da função <code>tapply()</code>: todos os cálculos a partir desse objeto ocorrerão em função dessa variável.
 Após agrupar os dados, nós colocamos esse <code>data.frame</code> agrupado via <code>group_by()</code>, <code>iris_grouped &lt;- group_by(iris, Species)</code>, como primeiro argumento da função <code>summarise()</code> para então calcular a média do comprimento de pétala:</p>
-<div class="sourceCode" id="cb1854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1854-1"><a href="base-tidyverse.html#cb1854-1"></a>iris_grouped &lt;-<span class="st"> </span><span class="kw">group_by</span>(iris, Species)</span>
-<span id="cb1854-2"><a href="base-tidyverse.html#cb1854-2"></a><span class="kw">summarise</span>(iris_grouped, <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1860-1"><a href="base-tidyverse.html#cb1860-1"></a>iris_grouped &lt;-<span class="st"> </span><span class="kw">group_by</span>(iris, Species)</span>
+<span id="cb1860-2"><a href="base-tidyverse.html#cb1860-2"></a><span class="kw">summarise</span>(iris_grouped, <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1595,7 +1596,7 @@ virginica
 <p>Quantas amostras por espécies existem nesse conjunto de dados?</p>
 </blockquote>
 <p>Utilizaremos a função <code>n()</code>, que pertence ao mesmo pacote <code>dplyr</code>, para contar o número de grupos. Vejamos:</p>
-<div class="sourceCode" id="cb1855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1855-1"><a href="base-tidyverse.html#cb1855-1"></a><span class="kw">summarise</span>(iris_grouped, <span class="kw">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb1861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1861-1"><a href="base-tidyverse.html#cb1861-1"></a><span class="kw">summarise</span>(iris_grouped, <span class="kw">n</span>())</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1637,7 +1638,7 @@ virginica
 <blockquote>
 <p>Médias de comprimento de sépalas e pétalas</p>
 </blockquote>
-<div class="sourceCode" id="cb1856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1856-1"><a href="base-tidyverse.html#cb1856-1"></a><span class="kw">summarise</span>(iris_grouped, <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1862-1"><a href="base-tidyverse.html#cb1862-1"></a><span class="kw">summarise</span>(iris_grouped, <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1676,7 +1677,7 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1857-1"><a href="base-tidyverse.html#cb1857-1"></a><span class="kw">summarise</span>(iris_grouped, <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1863-1"><a href="base-tidyverse.html#cb1863-1"></a><span class="kw">summarise</span>(iris_grouped, <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1718,8 +1719,8 @@ virginica
 <blockquote>
 <p>Todas as operações anteriores na mesma linha de comando:</p>
 </blockquote>
-<div class="sourceCode" id="cb1858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1858-1"><a href="base-tidyverse.html#cb1858-1"></a>iris_sumario &lt;-<span class="st"> </span><span class="kw">summarise</span>(iris_grouped, <span class="dt">N =</span> <span class="kw">n</span>(), <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span>
-<span id="cb1858-2"><a href="base-tidyverse.html#cb1858-2"></a><span class="kw">head</span>(iris_sumario, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1864-1"><a href="base-tidyverse.html#cb1864-1"></a>iris_sumario &lt;-<span class="st"> </span><span class="kw">summarise</span>(iris_grouped, <span class="dt">N =</span> <span class="kw">n</span>(), <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>), <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb1864-2"><a href="base-tidyverse.html#cb1864-2"></a><span class="kw">head</span>(iris_sumario, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1787,23 +1788,23 @@ virginica
 <div id="o-operador-e-o-encadeamento-de-ações" class="section level2">
 <h2><span class="header-section-number">A.3</span> O operador <code>%&gt;%</code> e o encadeamento de ações</h2>
 <p>Notem que nada do que vimos até aqui parece ser muito relevante se comparamos com o que pode ser feito com o pacote <code>base</code> do R. Vejamos:</p>
-<div class="sourceCode" id="cb1859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1859-1"><a href="base-tidyverse.html#cb1859-1"></a><span class="co"># Queremos selecionar colunas? Operadores `$` e `[[` dao conta</span></span>
-<span id="cb1859-2"><a href="base-tidyverse.html#cb1859-2"></a><span class="kw">head</span>(</span>
-<span id="cb1859-3"><a href="base-tidyverse.html#cb1859-3"></a>  iris[, <span class="kw">which</span>(<span class="kw">names</span>(iris) <span class="op">==</span><span class="st"> &quot;Species&quot;</span>)],</span>
-<span id="cb1859-4"><a href="base-tidyverse.html#cb1859-4"></a>  <span class="dv">10</span></span>
-<span id="cb1859-5"><a href="base-tidyverse.html#cb1859-5"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1865-1"><a href="base-tidyverse.html#cb1865-1"></a><span class="co"># Queremos selecionar colunas? Operadores `$` e `[[` dao conta</span></span>
+<span id="cb1865-2"><a href="base-tidyverse.html#cb1865-2"></a><span class="kw">head</span>(</span>
+<span id="cb1865-3"><a href="base-tidyverse.html#cb1865-3"></a>  iris[, <span class="kw">which</span>(<span class="kw">names</span>(iris) <span class="op">==</span><span class="st"> &quot;Species&quot;</span>)],</span>
+<span id="cb1865-4"><a href="base-tidyverse.html#cb1865-4"></a>  <span class="dv">10</span></span>
+<span id="cb1865-5"><a href="base-tidyverse.html#cb1865-5"></a>)</span></code></pre></div>
 <pre><code>##  [1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa
 ## Levels: setosa versicolor virginica</code></pre>
-<div class="sourceCode" id="cb1861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1861-1"><a href="base-tidyverse.html#cb1861-1"></a><span class="kw">head</span>(</span>
-<span id="cb1861-2"><a href="base-tidyverse.html#cb1861-2"></a>  iris[, <span class="st">&quot;Sepal.Length&quot;</span>],</span>
-<span id="cb1861-3"><a href="base-tidyverse.html#cb1861-3"></a>  <span class="dv">10</span></span>
-<span id="cb1861-4"><a href="base-tidyverse.html#cb1861-4"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1867-1"><a href="base-tidyverse.html#cb1867-1"></a><span class="kw">head</span>(</span>
+<span id="cb1867-2"><a href="base-tidyverse.html#cb1867-2"></a>  iris[, <span class="st">&quot;Sepal.Length&quot;</span>],</span>
+<span id="cb1867-3"><a href="base-tidyverse.html#cb1867-3"></a>  <span class="dv">10</span></span>
+<span id="cb1867-4"><a href="base-tidyverse.html#cb1867-4"></a>)</span></code></pre></div>
 <pre><code>##  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9</code></pre>
-<div class="sourceCode" id="cb1863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1863-1"><a href="base-tidyverse.html#cb1863-1"></a><span class="co"># Filtrar linhas? Vetores lógicos em conjunto com o operador `[[` em um data.frame resolvem o problema</span></span>
-<span id="cb1863-2"><a href="base-tidyverse.html#cb1863-2"></a><span class="kw">head</span>(</span>
-<span id="cb1863-3"><a href="base-tidyverse.html#cb1863-3"></a>  iris[iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>iris<span class="op">$</span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>, ],</span>
-<span id="cb1863-4"><a href="base-tidyverse.html#cb1863-4"></a>  <span class="dv">10</span></span>
-<span id="cb1863-5"><a href="base-tidyverse.html#cb1863-5"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1869-1"><a href="base-tidyverse.html#cb1869-1"></a><span class="co"># Filtrar linhas? Vetores lógicos em conjunto com o operador `[[` em um data.frame resolvem o problema</span></span>
+<span id="cb1869-2"><a href="base-tidyverse.html#cb1869-2"></a><span class="kw">head</span>(</span>
+<span id="cb1869-3"><a href="base-tidyverse.html#cb1869-3"></a>  iris[iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>iris<span class="op">$</span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>, ],</span>
+<span id="cb1869-4"><a href="base-tidyverse.html#cb1869-4"></a>  <span class="dv">10</span></span>
+<span id="cb1869-5"><a href="base-tidyverse.html#cb1869-5"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2029,11 +2030,11 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1864-1"><a href="base-tidyverse.html#cb1864-1"></a><span class="co"># Ou podemos filtrar também usando a função `subset`:</span></span>
-<span id="cb1864-2"><a href="base-tidyverse.html#cb1864-2"></a><span class="kw">head</span>(</span>
-<span id="cb1864-3"><a href="base-tidyverse.html#cb1864-3"></a>  <span class="kw">subset</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>iris<span class="op">$</span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>),</span>
-<span id="cb1864-4"><a href="base-tidyverse.html#cb1864-4"></a>  <span class="dv">10</span></span>
-<span id="cb1864-5"><a href="base-tidyverse.html#cb1864-5"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1870-1"><a href="base-tidyverse.html#cb1870-1"></a><span class="co"># Ou podemos filtrar também usando a função `subset`:</span></span>
+<span id="cb1870-2"><a href="base-tidyverse.html#cb1870-2"></a><span class="kw">head</span>(</span>
+<span id="cb1870-3"><a href="base-tidyverse.html#cb1870-3"></a>  <span class="kw">subset</span>(iris, Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>iris<span class="op">$</span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>),</span>
+<span id="cb1870-4"><a href="base-tidyverse.html#cb1870-4"></a>  <span class="dv">10</span></span>
+<span id="cb1870-5"><a href="base-tidyverse.html#cb1870-5"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2259,13 +2260,13 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1865-1"><a href="base-tidyverse.html#cb1865-1"></a><span class="co"># Criar novas colunas? Podemos atribuir novas colunas a qualquer data.frame existente usando o operador `$` para criar uma nova coluna qualquer</span></span>
-<span id="cb1865-2"><a href="base-tidyverse.html#cb1865-2"></a>iris_novo &lt;-<span class="st"> </span>iris</span>
-<span id="cb1865-3"><a href="base-tidyverse.html#cb1865-3"></a>iris_novo<span class="op">$</span>razaopetsep &lt;-<span class="st"> </span>iris_novo<span class="op">$</span>Petal.Length <span class="op">/</span><span class="st"> </span>iris_novo<span class="op">$</span>Sepal.Length</span>
-<span id="cb1865-4"><a href="base-tidyverse.html#cb1865-4"></a><span class="kw">head</span>(</span>
-<span id="cb1865-5"><a href="base-tidyverse.html#cb1865-5"></a>  iris_novo,</span>
-<span id="cb1865-6"><a href="base-tidyverse.html#cb1865-6"></a>  <span class="dv">10</span></span>
-<span id="cb1865-7"><a href="base-tidyverse.html#cb1865-7"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1871-1"><a href="base-tidyverse.html#cb1871-1"></a><span class="co"># Criar novas colunas? Podemos atribuir novas colunas a qualquer data.frame existente usando o operador `$` para criar uma nova coluna qualquer</span></span>
+<span id="cb1871-2"><a href="base-tidyverse.html#cb1871-2"></a>iris_novo &lt;-<span class="st"> </span>iris</span>
+<span id="cb1871-3"><a href="base-tidyverse.html#cb1871-3"></a>iris_novo<span class="op">$</span>razaopetsep &lt;-<span class="st"> </span>iris_novo<span class="op">$</span>Petal.Length <span class="op">/</span><span class="st"> </span>iris_novo<span class="op">$</span>Sepal.Length</span>
+<span id="cb1871-4"><a href="base-tidyverse.html#cb1871-4"></a><span class="kw">head</span>(</span>
+<span id="cb1871-5"><a href="base-tidyverse.html#cb1871-5"></a>  iris_novo,</span>
+<span id="cb1871-6"><a href="base-tidyverse.html#cb1871-6"></a>  <span class="dv">10</span></span>
+<span id="cb1871-7"><a href="base-tidyverse.html#cb1871-7"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2492,14 +2493,14 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1866-1"><a href="base-tidyverse.html#cb1866-1"></a><span class="co"># Sumariar resultados - Aqui temos um pouco mais de trabalho, porem nada muito complexo</span></span>
-<span id="cb1866-2"><a href="base-tidyverse.html#cb1866-2"></a>iris_count &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(iris<span class="op">$</span>Species))</span>
-<span id="cb1866-3"><a href="base-tidyverse.html#cb1866-3"></a><span class="kw">names</span>(iris_count) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Species&quot;</span>, <span class="st">&quot;N&quot;</span>)</span>
-<span id="cb1866-4"><a href="base-tidyverse.html#cb1866-4"></a>iris_sumario2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(iris_count, <span class="dt">sepala_c_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="dt">sepala_l_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Width, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="dt">petala_c_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Petal.Length, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="dt">petala_l_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Petal.Width, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>))</span>
-<span id="cb1866-5"><a href="base-tidyverse.html#cb1866-5"></a><span class="kw">head</span>(</span>
-<span id="cb1866-6"><a href="base-tidyverse.html#cb1866-6"></a>  iris_sumario2,</span>
-<span id="cb1866-7"><a href="base-tidyverse.html#cb1866-7"></a>  <span class="dv">10</span></span>
-<span id="cb1866-8"><a href="base-tidyverse.html#cb1866-8"></a>) <span class="co"># comparem o resultado do objeto `iris_sumario2` com os de `iris_sumario` criado com as funcoes do pacote `dplyr`</span></span></code></pre></div>
+<div class="sourceCode" id="cb1872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1872-1"><a href="base-tidyverse.html#cb1872-1"></a><span class="co"># Sumariar resultados - Aqui temos um pouco mais de trabalho, porem nada muito complexo</span></span>
+<span id="cb1872-2"><a href="base-tidyverse.html#cb1872-2"></a>iris_count &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(iris<span class="op">$</span>Species))</span>
+<span id="cb1872-3"><a href="base-tidyverse.html#cb1872-3"></a><span class="kw">names</span>(iris_count) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Species&quot;</span>, <span class="st">&quot;N&quot;</span>)</span>
+<span id="cb1872-4"><a href="base-tidyverse.html#cb1872-4"></a>iris_sumario2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(iris_count, <span class="dt">sepala_c_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Length, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="dt">sepala_l_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Sepal.Width, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="dt">petala_c_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Petal.Length, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="dt">petala_l_media =</span> <span class="kw">tapply</span>(iris<span class="op">$</span>Petal.Width, iris<span class="op">$</span>Species, <span class="st">&quot;mean&quot;</span>))</span>
+<span id="cb1872-5"><a href="base-tidyverse.html#cb1872-5"></a><span class="kw">head</span>(</span>
+<span id="cb1872-6"><a href="base-tidyverse.html#cb1872-6"></a>  iris_sumario2,</span>
+<span id="cb1872-7"><a href="base-tidyverse.html#cb1872-7"></a>  <span class="dv">10</span></span>
+<span id="cb1872-8"><a href="base-tidyverse.html#cb1872-8"></a>) <span class="co"># comparem o resultado do objeto `iris_sumario2` com os de `iris_sumario` criado com as funcoes do pacote `dplyr`</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2619,22 +2620,22 @@ Vamos retomar os exemplos acima com a introdução do operador <code>%&gt;%</cod
 # Sumariar os dados para obter o número total de observações, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`, e a média do índice da razão entre o comprimento de pétalas e o comprimento de sépalas, nomeando-a como `media_razaopetsep`, então ...
 # Atribui o resultado dessa operação a um objeto chamado `res2`</code></pre>
 <p>Primeiramente, carreguemos o pacote <code>magrittr</code>:</p>
-<div class="sourceCode" id="cb1869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1869-1"><a href="base-tidyverse.html#cb1869-1"></a><span class="kw">library</span>(<span class="st">&quot;magrittr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1875-1"><a href="base-tidyverse.html#cb1875-1"></a><span class="kw">library</span>(<span class="st">&quot;magrittr&quot;</span>)</span></code></pre></div>
 <p>Executando o conjunto de <a href="base-tidyverse.html#com1">comandos 1</a>, temos:</p>
-<div class="sourceCode" id="cb1870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1870-1"><a href="base-tidyverse.html#cb1870-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
-<span id="cb1870-2"><a href="base-tidyverse.html#cb1870-2"></a>res1 &lt;-</span>
-<span id="cb1870-3"><a href="base-tidyverse.html#cb1870-3"></a><span class="st">  </span>iris <span class="op">%&gt;%</span></span>
-<span id="cb1870-4"><a href="base-tidyverse.html#cb1870-4"></a><span class="st">  </span><span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
-<span id="cb1870-5"><a href="base-tidyverse.html#cb1870-5"></a><span class="st">  </span><span class="kw">select</span>(Species, Petal.Length, Sepal.Length) <span class="op">%&gt;%</span></span>
-<span id="cb1870-6"><a href="base-tidyverse.html#cb1870-6"></a><span class="st">  </span><span class="co"># Agrupar os dados em função de `Species`, então ...</span></span>
-<span id="cb1870-7"><a href="base-tidyverse.html#cb1870-7"></a><span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span></span>
-<span id="cb1870-8"><a href="base-tidyverse.html#cb1870-8"></a><span class="st">  </span><span class="co"># Sumariar os dados para obter o número de observações por grupo, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, e o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`</span></span>
-<span id="cb1870-9"><a href="base-tidyverse.html#cb1870-9"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
-<span id="cb1870-10"><a href="base-tidyverse.html#cb1870-10"></a>    <span class="dt">N =</span> <span class="kw">n</span>(),</span>
-<span id="cb1870-11"><a href="base-tidyverse.html#cb1870-11"></a>    <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
-<span id="cb1870-12"><a href="base-tidyverse.html#cb1870-12"></a>    <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb1870-13"><a href="base-tidyverse.html#cb1870-13"></a>  )</span>
-<span id="cb1870-14"><a href="base-tidyverse.html#cb1870-14"></a>res1</span></code></pre></div>
+<div class="sourceCode" id="cb1876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1876-1"><a href="base-tidyverse.html#cb1876-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
+<span id="cb1876-2"><a href="base-tidyverse.html#cb1876-2"></a>res1 &lt;-</span>
+<span id="cb1876-3"><a href="base-tidyverse.html#cb1876-3"></a><span class="st">  </span>iris <span class="op">%&gt;%</span></span>
+<span id="cb1876-4"><a href="base-tidyverse.html#cb1876-4"></a><span class="st">  </span><span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
+<span id="cb1876-5"><a href="base-tidyverse.html#cb1876-5"></a><span class="st">  </span><span class="kw">select</span>(Species, Petal.Length, Sepal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1876-6"><a href="base-tidyverse.html#cb1876-6"></a><span class="st">  </span><span class="co"># Agrupar os dados em função de `Species`, então ...</span></span>
+<span id="cb1876-7"><a href="base-tidyverse.html#cb1876-7"></a><span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span></span>
+<span id="cb1876-8"><a href="base-tidyverse.html#cb1876-8"></a><span class="st">  </span><span class="co"># Sumariar os dados para obter o número de observações por grupo, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, e o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`</span></span>
+<span id="cb1876-9"><a href="base-tidyverse.html#cb1876-9"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
+<span id="cb1876-10"><a href="base-tidyverse.html#cb1876-10"></a>    <span class="dt">N =</span> <span class="kw">n</span>(),</span>
+<span id="cb1876-11"><a href="base-tidyverse.html#cb1876-11"></a>    <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb1876-12"><a href="base-tidyverse.html#cb1876-12"></a>    <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1876-13"><a href="base-tidyverse.html#cb1876-13"></a>  )</span>
+<span id="cb1876-14"><a href="base-tidyverse.html#cb1876-14"></a>res1</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2698,24 +2699,24 @@ virginica
 </tbody>
 </table>
 <p>Fazendo o mesmo com o conjunto de <a href="base-tidyverse.html#com2">comandos 2</a>, temos:</p>
-<div class="sourceCode" id="cb1871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1871-1"><a href="base-tidyverse.html#cb1871-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
-<span id="cb1871-2"><a href="base-tidyverse.html#cb1871-2"></a>res2 &lt;-</span>
-<span id="cb1871-3"><a href="base-tidyverse.html#cb1871-3"></a><span class="st">  </span>iris <span class="op">%&gt;%</span></span>
-<span id="cb1871-4"><a href="base-tidyverse.html#cb1871-4"></a><span class="st">  </span><span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
-<span id="cb1871-5"><a href="base-tidyverse.html#cb1871-5"></a><span class="st">  </span><span class="kw">select</span>(Species, Petal.Length, Sepal.Length) <span class="op">%&gt;%</span></span>
-<span id="cb1871-6"><a href="base-tidyverse.html#cb1871-6"></a><span class="st">  </span><span class="co"># Filtrar os dados para conter apenas a espécie `virginica` e espécimes com comprimento de sépala maior que 7 cm, então ...</span></span>
-<span id="cb1871-7"><a href="base-tidyverse.html#cb1871-7"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>) <span class="op">%&gt;%</span></span>
-<span id="cb1871-8"><a href="base-tidyverse.html#cb1871-8"></a><span class="st">  </span><span class="co"># Criar uma nova coluna chamada `razaopetsep` que contenha a razão entre os comprimentos de pétala e sépala, então ...</span></span>
-<span id="cb1871-9"><a href="base-tidyverse.html#cb1871-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
-<span id="cb1871-10"><a href="base-tidyverse.html#cb1871-10"></a>    <span class="dt">razaopetsep =</span> Petal.Length <span class="op">/</span><span class="st"> </span>Sepal.Length</span>
-<span id="cb1871-11"><a href="base-tidyverse.html#cb1871-11"></a>  ) <span class="op">%&gt;%</span></span>
-<span id="cb1871-12"><a href="base-tidyverse.html#cb1871-12"></a><span class="st">  </span><span class="co"># Sumariar os dados para obter o número total de observações, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`, e a média do índice da razão entre o comprimento de pétalas e o comprimento de sépalas, nomeando-a como `media_razaopetsep`</span></span>
-<span id="cb1871-13"><a href="base-tidyverse.html#cb1871-13"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
-<span id="cb1871-14"><a href="base-tidyverse.html#cb1871-14"></a>    <span class="dt">N =</span> <span class="kw">n</span>(),</span>
-<span id="cb1871-15"><a href="base-tidyverse.html#cb1871-15"></a>    <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
-<span id="cb1871-16"><a href="base-tidyverse.html#cb1871-16"></a>    <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb1871-17"><a href="base-tidyverse.html#cb1871-17"></a>  )</span>
-<span id="cb1871-18"><a href="base-tidyverse.html#cb1871-18"></a>res2</span></code></pre></div>
+<div class="sourceCode" id="cb1877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1877-1"><a href="base-tidyverse.html#cb1877-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
+<span id="cb1877-2"><a href="base-tidyverse.html#cb1877-2"></a>res2 &lt;-</span>
+<span id="cb1877-3"><a href="base-tidyverse.html#cb1877-3"></a><span class="st">  </span>iris <span class="op">%&gt;%</span></span>
+<span id="cb1877-4"><a href="base-tidyverse.html#cb1877-4"></a><span class="st">  </span><span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
+<span id="cb1877-5"><a href="base-tidyverse.html#cb1877-5"></a><span class="st">  </span><span class="kw">select</span>(Species, Petal.Length, Sepal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1877-6"><a href="base-tidyverse.html#cb1877-6"></a><span class="st">  </span><span class="co"># Filtrar os dados para conter apenas a espécie `virginica` e espécimes com comprimento de sépala maior que 7 cm, então ...</span></span>
+<span id="cb1877-7"><a href="base-tidyverse.html#cb1877-7"></a><span class="st">  </span><span class="kw">filter</span>(Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1877-8"><a href="base-tidyverse.html#cb1877-8"></a><span class="st">  </span><span class="co"># Criar uma nova coluna chamada `razaopetsep` que contenha a razão entre os comprimentos de pétala e sépala, então ...</span></span>
+<span id="cb1877-9"><a href="base-tidyverse.html#cb1877-9"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb1877-10"><a href="base-tidyverse.html#cb1877-10"></a>    <span class="dt">razaopetsep =</span> Petal.Length <span class="op">/</span><span class="st"> </span>Sepal.Length</span>
+<span id="cb1877-11"><a href="base-tidyverse.html#cb1877-11"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb1877-12"><a href="base-tidyverse.html#cb1877-12"></a><span class="st">  </span><span class="co"># Sumariar os dados para obter o número total de observações, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`, e a média do índice da razão entre o comprimento de pétalas e o comprimento de sépalas, nomeando-a como `media_razaopetsep`</span></span>
+<span id="cb1877-13"><a href="base-tidyverse.html#cb1877-13"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
+<span id="cb1877-14"><a href="base-tidyverse.html#cb1877-14"></a>    <span class="dt">N =</span> <span class="kw">n</span>(),</span>
+<span id="cb1877-15"><a href="base-tidyverse.html#cb1877-15"></a>    <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb1877-16"><a href="base-tidyverse.html#cb1877-16"></a>    <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1877-17"><a href="base-tidyverse.html#cb1877-17"></a>  )</span>
+<span id="cb1877-18"><a href="base-tidyverse.html#cb1877-18"></a>res2</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2751,28 +2752,28 @@ Por isso, eu fiz questão de incluir em ambos os conjuntos de comandos, <a href=
 <p>Um ponto importante que deve ser levado em consideração é que o uso do operador <code>%&gt;%</code> permite que escondamos o <code>data.frame</code> de entrada nas funções.
 Vejamos na prática para entender.
 Suponha que nós queiramos selecionar apenas as colunas <code>Species</code> e <code>Petal.Length</code> de <code>iris</code>. Podemos executar isso de duas maneiras, todas com o mesmo resultado:</p>
-<div class="sourceCode" id="cb1872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1872-1"><a href="base-tidyverse.html#cb1872-1"></a><span class="co"># podemos representar iris de três maneiras utilizando o operador `%&gt;%`</span></span>
-<span id="cb1872-2"><a href="base-tidyverse.html#cb1872-2"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Species, Petal.Length) <span class="co"># como temos feito ate aqui</span></span>
-<span id="cb1872-3"><a href="base-tidyverse.html#cb1872-3"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(., Species, Petal.Length) <span class="co"># explicitamos que `iris` esta dentro de select por meio do `.`</span></span></code></pre></div>
+<div class="sourceCode" id="cb1878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1878-1"><a href="base-tidyverse.html#cb1878-1"></a><span class="co"># podemos representar iris de três maneiras utilizando o operador `%&gt;%`</span></span>
+<span id="cb1878-2"><a href="base-tidyverse.html#cb1878-2"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Species, Petal.Length) <span class="co"># como temos feito ate aqui</span></span>
+<span id="cb1878-3"><a href="base-tidyverse.html#cb1878-3"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(., Species, Petal.Length) <span class="co"># explicitamos que `iris` esta dentro de select por meio do `.`</span></span></code></pre></div>
 <p>Isso pode ficar mais fácil de entender com outro exemplo. Suponha que tenhamos o vetor <code>meuvetor &lt;- c(1:20)</code> e queiramos obter o somatório deste vetor. Podemos executar isso de três maneiras utilizando o operador <code>%&gt;%</code>:</p>
-<div class="sourceCode" id="cb1873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1873-1"><a href="base-tidyverse.html#cb1873-1"></a>meuvetor &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)</span>
-<span id="cb1873-2"><a href="base-tidyverse.html#cb1873-2"></a>meuvetor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>(.) <span class="co"># representando o vetor na forma de um `.`</span></span>
-<span id="cb1873-3"><a href="base-tidyverse.html#cb1873-3"></a>meuvetor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() <span class="co"># deixando a funcao vazia</span></span>
-<span id="cb1873-4"><a href="base-tidyverse.html#cb1873-4"></a>meuvetor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() <span class="co"># sem parenteses e sem o `.`. O que?????</span></span></code></pre></div>
+<div class="sourceCode" id="cb1879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1879-1"><a href="base-tidyverse.html#cb1879-1"></a>meuvetor &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)</span>
+<span id="cb1879-2"><a href="base-tidyverse.html#cb1879-2"></a>meuvetor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>(.) <span class="co"># representando o vetor na forma de um `.`</span></span>
+<span id="cb1879-3"><a href="base-tidyverse.html#cb1879-3"></a>meuvetor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() <span class="co"># deixando a funcao vazia</span></span>
+<span id="cb1879-4"><a href="base-tidyverse.html#cb1879-4"></a>meuvetor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() <span class="co"># sem parenteses e sem o `.`. O que?????</span></span></code></pre></div>
 <p>Todas as maneiras acima executam e geram o mesmo resultado, 210. Essa multiplicidade de maneiras de expor o data.frame (ou o vetor no exemplo acima) é alvo de críticas por parte de alguns estudiosos, devido ao pacote <code>magrittr</code> não exigir que o argumento seja explícito quando usamos o operador <code>%&gt;%</code> (vejam uma boa argumentação nesta postagem de <a href="http://www.win-vector.com/blog/2018/03/r-tip-make-arguments-explicit-in-magrittr-dplyr-pipelines/">John Mount</a>).</p>
 <p>Vale ressaltar que poderíamos muito bem encadear todas as ações executadas acima sem o operador <code>%&gt;%</code>, porém perderíamos a chance de ler o código da esquerda para a direita, oportunidade ofertada pelo uso do operador. Vejamos, usando o conjunto de comandos 2:</p>
-<div class="sourceCode" id="cb1874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1874-1"><a href="base-tidyverse.html#cb1874-1"></a><span class="kw">summarise</span>(</span>
-<span id="cb1874-2"><a href="base-tidyverse.html#cb1874-2"></a>  <span class="kw">mutate</span>(</span>
-<span id="cb1874-3"><a href="base-tidyverse.html#cb1874-3"></a>    <span class="kw">filter</span>(</span>
-<span id="cb1874-4"><a href="base-tidyverse.html#cb1874-4"></a>      <span class="kw">select</span>(iris, Species, Petal.Length, Sepal.Length),</span>
-<span id="cb1874-5"><a href="base-tidyverse.html#cb1874-5"></a>      Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span></span>
-<span id="cb1874-6"><a href="base-tidyverse.html#cb1874-6"></a>    ),</span>
-<span id="cb1874-7"><a href="base-tidyverse.html#cb1874-7"></a>    <span class="dt">razaopetsep =</span> Petal.Length <span class="op">/</span><span class="st"> </span>Sepal.Length</span>
-<span id="cb1874-8"><a href="base-tidyverse.html#cb1874-8"></a>  ),</span>
-<span id="cb1874-9"><a href="base-tidyverse.html#cb1874-9"></a>  <span class="dt">N =</span> <span class="kw">n</span>(),</span>
-<span id="cb1874-10"><a href="base-tidyverse.html#cb1874-10"></a>  <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
-<span id="cb1874-11"><a href="base-tidyverse.html#cb1874-11"></a>  <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb1874-12"><a href="base-tidyverse.html#cb1874-12"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1880-1"><a href="base-tidyverse.html#cb1880-1"></a><span class="kw">summarise</span>(</span>
+<span id="cb1880-2"><a href="base-tidyverse.html#cb1880-2"></a>  <span class="kw">mutate</span>(</span>
+<span id="cb1880-3"><a href="base-tidyverse.html#cb1880-3"></a>    <span class="kw">filter</span>(</span>
+<span id="cb1880-4"><a href="base-tidyverse.html#cb1880-4"></a>      <span class="kw">select</span>(iris, Species, Petal.Length, Sepal.Length),</span>
+<span id="cb1880-5"><a href="base-tidyverse.html#cb1880-5"></a>      Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Sepal.Length <span class="op">&gt;</span><span class="st"> </span><span class="dv">7</span></span>
+<span id="cb1880-6"><a href="base-tidyverse.html#cb1880-6"></a>    ),</span>
+<span id="cb1880-7"><a href="base-tidyverse.html#cb1880-7"></a>    <span class="dt">razaopetsep =</span> Petal.Length <span class="op">/</span><span class="st"> </span>Sepal.Length</span>
+<span id="cb1880-8"><a href="base-tidyverse.html#cb1880-8"></a>  ),</span>
+<span id="cb1880-9"><a href="base-tidyverse.html#cb1880-9"></a>  <span class="dt">N =</span> <span class="kw">n</span>(),</span>
+<span id="cb1880-10"><a href="base-tidyverse.html#cb1880-10"></a>  <span class="dt">petala_l_media =</span> <span class="kw">mean</span>(Petal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</span>
+<span id="cb1880-11"><a href="base-tidyverse.html#cb1880-11"></a>  <span class="dt">sepala_l_media =</span> <span class="kw">mean</span>(Sepal.Length, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1880-12"><a href="base-tidyverse.html#cb1880-12"></a>)</span></code></pre></div>
 <p>Reparem que o código fica mais difícil de ser lido, pois temos de identificar primeiro quem é o <code>data.frame</code> que serve de entrada para a função <code>summarise</code>.
 Depois, há outros desafios, como entender o que cada função faz, e em qual ordem.
 Por fim, o código é lido de dentro para fora, um sentido nada intuitivo.
@@ -2877,27 +2878,27 @@ Divide os gráficos segundo categoria especificada
 A função básica do pacote é <code>ggplot()</code>: nela, informamos nosso conjunto de dados no primeiro argumento.
 Após o primeiro passo, fazemos uso de funções para plotar dados em forma de um espalhamento (scatterplots usando a função <code>geom_point()</code>), gráficos de barra (<code>geom_bar</code>), diagramas de caixa (<code>geom_boxplot()</code>), entre outras.
 Vejamos na prática como funciona:</p>
-<div class="sourceCode" id="cb1875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1875-1"><a href="base-tidyverse.html#cb1875-1"></a><span class="co"># um grafico de espalhamento da variavel Sepal.Length no eixo X e Petal.Length no eixo Y utilizando o conjunto de dados iris</span></span>
-<span id="cb1875-2"><a href="base-tidyverse.html#cb1875-2"></a><span class="kw">ggplot</span>(iris) <span class="op">+</span></span>
-<span id="cb1875-3"><a href="base-tidyverse.html#cb1875-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length))</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-565-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1881-1"><a href="base-tidyverse.html#cb1881-1"></a><span class="co"># um grafico de espalhamento da variavel Sepal.Length no eixo X e Petal.Length no eixo Y utilizando o conjunto de dados iris</span></span>
+<span id="cb1881-2"><a href="base-tidyverse.html#cb1881-2"></a><span class="kw">ggplot</span>(iris) <span class="op">+</span></span>
+<span id="cb1881-3"><a href="base-tidyverse.html#cb1881-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length))</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-567-1.png" width="672" /></p>
 <p>Dentro das funções que plotam os dados efetivamente (e.g., <code>geom_point()</code>, <code>geom_boxplot()</code>), devemos sempre usar a função <code>aes()</code>: nela inserimos os eixos <code>x</code> e <code>y</code>, informando sempre o nome das colunas <em>sem aspas</em>.
 Se quisermos colorir os pontos em função das espécies, fazemos:</p>
-<div class="sourceCode" id="cb1876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1876-1"><a href="base-tidyverse.html#cb1876-1"></a><span class="kw">ggplot</span>(iris) <span class="op">+</span></span>
-<span id="cb1876-2"><a href="base-tidyverse.html#cb1876-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length, <span class="dt">color =</span> Species))</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-566-1.png" width="672" /></p>
-<p>Por trabalhar em camadas, podemos atribuir os resultados dessas operações a objetos. Por exemplo, vamos passar o resultado da ação acima para um objeto <code>meugrafico</code> e mudar os temas do gráfico:</p>
-<div class="sourceCode" id="cb1877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1877-1"><a href="base-tidyverse.html#cb1877-1"></a>meugrafico &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris) <span class="op">+</span></span>
-<span id="cb1877-2"><a href="base-tidyverse.html#cb1877-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length, <span class="dt">color =</span> Species))</span></code></pre></div>
-<div class="sourceCode" id="cb1878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1878-1"><a href="base-tidyverse.html#cb1878-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="co"># Existem varios outros temas pre-definidos no ggplot2</span></span></code></pre></div>
+<div class="sourceCode" id="cb1882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1882-1"><a href="base-tidyverse.html#cb1882-1"></a><span class="kw">ggplot</span>(iris) <span class="op">+</span></span>
+<span id="cb1882-2"><a href="base-tidyverse.html#cb1882-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length, <span class="dt">color =</span> Species))</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-568-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1879-1"><a href="base-tidyverse.html#cb1879-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="co"># Para utilizar os outros temas, e so verificar o help de funcoes que comecam com theme_OUTROSnomes</span></span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-569-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1880-1"><a href="base-tidyverse.html#cb1880-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">theme_void</span>() <span class="co"># - existem, por exemplo, os temas theme_grey, theme_classic, theme_light etc</span></span></code></pre></div>
+<p>Por trabalhar em camadas, podemos atribuir os resultados dessas operações a objetos. Por exemplo, vamos passar o resultado da ação acima para um objeto <code>meugrafico</code> e mudar os temas do gráfico:</p>
+<div class="sourceCode" id="cb1883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1883-1"><a href="base-tidyverse.html#cb1883-1"></a>meugrafico &lt;-<span class="st"> </span><span class="kw">ggplot</span>(iris) <span class="op">+</span></span>
+<span id="cb1883-2"><a href="base-tidyverse.html#cb1883-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length, <span class="dt">color =</span> Species))</span></code></pre></div>
+<div class="sourceCode" id="cb1884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1884-1"><a href="base-tidyverse.html#cb1884-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="co"># Existem varios outros temas pre-definidos no ggplot2</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-570-1.png" width="672" /></p>
-<p>Podemos facilmente também gerar um gráfico para cada espécie utilizando a função <code>facet_wrap()</code>:</p>
-<div class="sourceCode" id="cb1881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1881-1"><a href="base-tidyverse.html#cb1881-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb1885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1885-1"><a href="base-tidyverse.html#cb1885-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="co"># Para utilizar os outros temas, e so verificar o help de funcoes que comecam com theme_OUTROSnomes</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-571-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1886-1"><a href="base-tidyverse.html#cb1886-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">theme_void</span>() <span class="co"># - existem, por exemplo, os temas theme_grey, theme_classic, theme_light etc</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-572-1.png" width="672" /></p>
+<p>Podemos facilmente também gerar um gráfico para cada espécie utilizando a função <code>facet_wrap()</code>:</p>
+<div class="sourceCode" id="cb1887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1887-1"><a href="base-tidyverse.html#cb1887-1"></a>meugrafico <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Species)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-573-1.png" width="672" /></p>
 <p>Não temos a intenção de cobrir todo o uso do pacote <code>ggplot2</code> nesta postagem. Existem muitas páginas com excelentes tutoriais na internet que podem ser visitadas para um maior aprofundamento nas ferramentas deste pacote (vejam abaixo na seção <a href="base-tidyverse.html#sabermais-tidyverse"><strong>Para saber mais</strong></a>).
 Queremos aqui demonstrar o uso concomitante do pacote <code>ggplot2</code> dentro de uma linha de trabalho associada ao pacote <code>dplyr</code>.
 Passemos para a seção abaixo.</p>
@@ -2908,46 +2909,46 @@ Passemos para a seção abaixo.</p>
 Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjunto de dados <code>iris</code>, vamos fazer uma exploração muito breve nesses dados.</p>
 <div id="gráfico-de-espalhamento" class="section level3">
 <h3><span class="header-section-number">A.5.1</span> Gráfico de espalhamento</h3>
-<div class="sourceCode" id="cb1882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1882-1"><a href="base-tidyverse.html#cb1882-1"></a>iris <span class="op">%&gt;%</span></span>
-<span id="cb1882-2"><a href="base-tidyverse.html#cb1882-2"></a><span class="st">  </span><span class="kw">select</span>(Species, Sepal.Width, Sepal.Length) <span class="op">%&gt;%</span></span>
-<span id="cb1882-3"><a href="base-tidyverse.html#cb1882-3"></a><span class="st">  </span><span class="kw">ggplot</span>(.) <span class="op">+</span><span class="st"> </span><span class="co"># lembrem-se que o data.frame com colunas selecionadas acima aqui e representado por um `.`</span></span>
-<span id="cb1882-4"><a href="base-tidyverse.html#cb1882-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">y =</span> Sepal.Length, <span class="dt">color =</span> Species)) <span class="op">+</span></span>
-<span id="cb1882-5"><a href="base-tidyverse.html#cb1882-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="op">+</span></span>
-<span id="cb1882-6"><a href="base-tidyverse.html#cb1882-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-572-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1888-1"><a href="base-tidyverse.html#cb1888-1"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb1888-2"><a href="base-tidyverse.html#cb1888-2"></a><span class="st">  </span><span class="kw">select</span>(Species, Sepal.Width, Sepal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1888-3"><a href="base-tidyverse.html#cb1888-3"></a><span class="st">  </span><span class="kw">ggplot</span>(.) <span class="op">+</span><span class="st"> </span><span class="co"># lembrem-se que o data.frame com colunas selecionadas acima aqui e representado por um `.`</span></span>
+<span id="cb1888-4"><a href="base-tidyverse.html#cb1888-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">y =</span> Sepal.Length, <span class="dt">color =</span> Species)) <span class="op">+</span></span>
+<span id="cb1888-5"><a href="base-tidyverse.html#cb1888-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="op">+</span></span>
+<span id="cb1888-6"><a href="base-tidyverse.html#cb1888-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-574-1.png" width="672" /></p>
 </div>
 <div id="diagrama-de-caixas" class="section level3">
 <h3><span class="header-section-number">A.5.2</span> Diagrama de caixas</h3>
-<div class="sourceCode" id="cb1883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1883-1"><a href="base-tidyverse.html#cb1883-1"></a>iris <span class="op">%&gt;%</span></span>
-<span id="cb1883-2"><a href="base-tidyverse.html#cb1883-2"></a><span class="st">  </span><span class="kw">select</span>(Species, Sepal.Length) <span class="op">%&gt;%</span></span>
-<span id="cb1883-3"><a href="base-tidyverse.html#cb1883-3"></a><span class="st">  </span><span class="kw">ggplot</span>(.) <span class="op">+</span></span>
-<span id="cb1883-4"><a href="base-tidyverse.html#cb1883-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span></span>
-<span id="cb1883-5"><a href="base-tidyverse.html#cb1883-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Espécies de Iris&quot;</span>) <span class="op">+</span></span>
-<span id="cb1883-6"><a href="base-tidyverse.html#cb1883-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-573-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1889-1"><a href="base-tidyverse.html#cb1889-1"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb1889-2"><a href="base-tidyverse.html#cb1889-2"></a><span class="st">  </span><span class="kw">select</span>(Species, Sepal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1889-3"><a href="base-tidyverse.html#cb1889-3"></a><span class="st">  </span><span class="kw">ggplot</span>(.) <span class="op">+</span></span>
+<span id="cb1889-4"><a href="base-tidyverse.html#cb1889-4"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Species, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> Species)) <span class="op">+</span></span>
+<span id="cb1889-5"><a href="base-tidyverse.html#cb1889-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Espécies de Iris&quot;</span>) <span class="op">+</span></span>
+<span id="cb1889-6"><a href="base-tidyverse.html#cb1889-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-575-1.png" width="672" /></p>
 </div>
 <div id="histograma" class="section level3">
 <h3><span class="header-section-number">A.5.3</span> Histograma</h3>
-<div class="sourceCode" id="cb1884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1884-1"><a href="base-tidyverse.html#cb1884-1"></a>iris <span class="op">%&gt;%</span></span>
-<span id="cb1884-2"><a href="base-tidyverse.html#cb1884-2"></a><span class="st">  </span><span class="kw">select</span>(Species, Sepal.Width) <span class="op">%&gt;%</span></span>
-<span id="cb1884-3"><a href="base-tidyverse.html#cb1884-3"></a><span class="st">  </span><span class="kw">ggplot</span>(.) <span class="op">+</span></span>
-<span id="cb1884-4"><a href="base-tidyverse.html#cb1884-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">fill =</span> Species)) <span class="op">+</span></span>
-<span id="cb1884-5"><a href="base-tidyverse.html#cb1884-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="op">+</span></span>
-<span id="cb1884-6"><a href="base-tidyverse.html#cb1884-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequência&quot;) +</span></span>
-<span id="cb1884-7"><a href="base-tidyverse.html#cb1884-7"></a><span class="st">  facet_wrap(~Species)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1890-1"><a href="base-tidyverse.html#cb1890-1"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb1890-2"><a href="base-tidyverse.html#cb1890-2"></a><span class="st">  </span><span class="kw">select</span>(Species, Sepal.Width) <span class="op">%&gt;%</span></span>
+<span id="cb1890-3"><a href="base-tidyverse.html#cb1890-3"></a><span class="st">  </span><span class="kw">ggplot</span>(.) <span class="op">+</span></span>
+<span id="cb1890-4"><a href="base-tidyverse.html#cb1890-4"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">fill =</span> Species)) <span class="op">+</span></span>
+<span id="cb1890-5"><a href="base-tidyverse.html#cb1890-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="op">+</span></span>
+<span id="cb1890-6"><a href="base-tidyverse.html#cb1890-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequência&quot;) +</span></span>
+<span id="cb1890-7"><a href="base-tidyverse.html#cb1890-7"></a><span class="st">  facet_wrap(~Species)</span></span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-574-1.png" width="672" /></p>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-576-1.png" width="672" /></p>
 </div>
 </div>
 <div id="baser" class="section level2">
 <h2><span class="header-section-number">A.6</span> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></h2>
 <p>Abaixo, para efeitos de comparação, executamos as mesmas ações usando os pacotes <code>base</code> e <code>dplyr</code>; ao utilizar o <code>dplyr</code>, também fizemos uso do operador <code>%&gt;%</code>.</p>
-<div class="sourceCode" id="cb1886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1886-1"><a href="base-tidyverse.html#cb1886-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
-<span id="cb1886-2"><a href="base-tidyverse.html#cb1886-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
-<span id="cb1886-3"><a href="base-tidyverse.html#cb1886-3"></a><span class="co"># filtra os dados em iris</span></span>
-<span id="cb1886-4"><a href="base-tidyverse.html#cb1886-4"></a><span class="co">## quem tem sepala menor que 6 cm e tem petala maior que 5 cm?</span></span>
-<span id="cb1886-5"><a href="base-tidyverse.html#cb1886-5"></a>iris2 &lt;-<span class="st"> </span><span class="kw">subset</span>(iris, Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>Petal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>)</span>
-<span id="cb1886-6"><a href="base-tidyverse.html#cb1886-6"></a><span class="kw">head</span>(iris2, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1892-1"><a href="base-tidyverse.html#cb1892-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
+<span id="cb1892-2"><a href="base-tidyverse.html#cb1892-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb1892-3"><a href="base-tidyverse.html#cb1892-3"></a><span class="co"># filtra os dados em iris</span></span>
+<span id="cb1892-4"><a href="base-tidyverse.html#cb1892-4"></a><span class="co">## quem tem sepala menor que 6 cm e tem petala maior que 5 cm?</span></span>
+<span id="cb1892-5"><a href="base-tidyverse.html#cb1892-5"></a>iris2 &lt;-<span class="st"> </span><span class="kw">subset</span>(iris, Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>Petal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>)</span>
+<span id="cb1892-6"><a href="base-tidyverse.html#cb1892-6"></a><span class="kw">head</span>(iris2, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3141,12 +3142,12 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1887-1"><a href="base-tidyverse.html#cb1887-1"></a><span class="co"># checa as dimensoes do novo objeto</span></span>
-<span id="cb1887-2"><a href="base-tidyverse.html#cb1887-2"></a><span class="kw">dim</span>(iris2)</span></code></pre></div>
+<div class="sourceCode" id="cb1893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1893-1"><a href="base-tidyverse.html#cb1893-1"></a><span class="co"># checa as dimensoes do novo objeto</span></span>
+<span id="cb1893-2"><a href="base-tidyverse.html#cb1893-2"></a><span class="kw">dim</span>(iris2)</span></code></pre></div>
 <pre><code>## [1] 78  5</code></pre>
-<div class="sourceCode" id="cb1889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1889-1"><a href="base-tidyverse.html#cb1889-1"></a><span class="co"># ordena os dados segundo comprimento da petala</span></span>
-<span id="cb1889-2"><a href="base-tidyverse.html#cb1889-2"></a>iris_ord &lt;-<span class="st"> </span>iris2[<span class="kw">order</span>(iris2<span class="op">$</span>Petal.Length), ]</span>
-<span id="cb1889-3"><a href="base-tidyverse.html#cb1889-3"></a><span class="kw">head</span>(iris_ord, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1895-1"><a href="base-tidyverse.html#cb1895-1"></a><span class="co"># ordena os dados segundo comprimento da petala</span></span>
+<span id="cb1895-2"><a href="base-tidyverse.html#cb1895-2"></a>iris_ord &lt;-<span class="st"> </span>iris2[<span class="kw">order</span>(iris2<span class="op">$</span>Petal.Length), ]</span>
+<span id="cb1895-3"><a href="base-tidyverse.html#cb1895-3"></a><span class="kw">head</span>(iris_ord, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3372,12 +3373,12 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1890-1"><a href="base-tidyverse.html#cb1890-1"></a><span class="co"># muda a ordem das colunas, colocando a coluna Species primeiro</span></span>
-<span id="cb1890-2"><a href="base-tidyverse.html#cb1890-2"></a>colsp &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">colnames</span>(iris_ord) <span class="op">==</span><span class="st"> &quot;Species&quot;</span>) <span class="co"># qual a posicao da coluna Species?</span></span>
-<span id="cb1890-3"><a href="base-tidyverse.html#cb1890-3"></a>irisf &lt;-<span class="st"> </span>iris_ord[, <span class="kw">c</span>(colsp, (<span class="kw">which</span>(<span class="op">!</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(iris_ord)) <span class="op">%in%</span><span class="st"> </span>colsp)))]</span>
-<span id="cb1890-4"><a href="base-tidyverse.html#cb1890-4"></a><span class="co"># cria uma nova coluna de razao entre comprimento da sepala e comprimento da petala</span></span>
-<span id="cb1890-5"><a href="base-tidyverse.html#cb1890-5"></a>irisf<span class="op">$</span>razao_sepall_petall &lt;-<span class="st"> </span>irisf<span class="op">$</span>Sepal.Length <span class="op">/</span><span class="st"> </span>irisf<span class="op">$</span>Petal.Length</span>
-<span id="cb1890-6"><a href="base-tidyverse.html#cb1890-6"></a><span class="kw">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1896-1"><a href="base-tidyverse.html#cb1896-1"></a><span class="co"># muda a ordem das colunas, colocando a coluna Species primeiro</span></span>
+<span id="cb1896-2"><a href="base-tidyverse.html#cb1896-2"></a>colsp &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">colnames</span>(iris_ord) <span class="op">==</span><span class="st"> &quot;Species&quot;</span>) <span class="co"># qual a posicao da coluna Species?</span></span>
+<span id="cb1896-3"><a href="base-tidyverse.html#cb1896-3"></a>irisf &lt;-<span class="st"> </span>iris_ord[, <span class="kw">c</span>(colsp, (<span class="kw">which</span>(<span class="op">!</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(iris_ord)) <span class="op">%in%</span><span class="st"> </span>colsp)))]</span>
+<span id="cb1896-4"><a href="base-tidyverse.html#cb1896-4"></a><span class="co"># cria uma nova coluna de razao entre comprimento da sepala e comprimento da petala</span></span>
+<span id="cb1896-5"><a href="base-tidyverse.html#cb1896-5"></a>irisf<span class="op">$</span>razao_sepall_petall &lt;-<span class="st"> </span>irisf<span class="op">$</span>Sepal.Length <span class="op">/</span><span class="st"> </span>irisf<span class="op">$</span>Petal.Length</span>
+<span id="cb1896-6"><a href="base-tidyverse.html#cb1896-6"></a><span class="kw">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3636,15 +3637,15 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1891-1"><a href="base-tidyverse.html#cb1891-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
-<span id="cb1891-2"><a href="base-tidyverse.html#cb1891-2"></a>mean_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb1891-3"><a href="base-tidyverse.html#cb1891-3"></a>mean_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb1891-4"><a href="base-tidyverse.html#cb1891-4"></a>sd_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
-<span id="cb1891-5"><a href="base-tidyverse.html#cb1891-5"></a>sd_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
-<span id="cb1891-6"><a href="base-tidyverse.html#cb1891-6"></a>res &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mean_pl)</span>
-<span id="cb1891-7"><a href="base-tidyverse.html#cb1891-7"></a>res2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(res, <span class="dt">media_razao =</span> mean_raz[, <span class="dv">-1</span>], <span class="dt">desvio_pl =</span> sd_pl[, <span class="dv">-1</span>], <span class="dt">desvio_raz =</span> sd_raz[, <span class="dv">-1</span>])</span>
-<span id="cb1891-8"><a href="base-tidyverse.html#cb1891-8"></a><span class="kw">names</span>(res2)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;media_pl&quot;</span></span>
-<span id="cb1891-9"><a href="base-tidyverse.html#cb1891-9"></a>res2</span></code></pre></div>
+<div class="sourceCode" id="cb1897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1897-1"><a href="base-tidyverse.html#cb1897-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
+<span id="cb1897-2"><a href="base-tidyverse.html#cb1897-2"></a>mean_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1897-3"><a href="base-tidyverse.html#cb1897-3"></a>mean_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1897-4"><a href="base-tidyverse.html#cb1897-4"></a>sd_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1897-5"><a href="base-tidyverse.html#cb1897-5"></a>sd_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1897-6"><a href="base-tidyverse.html#cb1897-6"></a>res &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mean_pl)</span>
+<span id="cb1897-7"><a href="base-tidyverse.html#cb1897-7"></a>res2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(res, <span class="dt">media_razao =</span> mean_raz[, <span class="dv">-1</span>], <span class="dt">desvio_pl =</span> sd_pl[, <span class="dv">-1</span>], <span class="dt">desvio_raz =</span> sd_raz[, <span class="dv">-1</span>])</span>
+<span id="cb1897-8"><a href="base-tidyverse.html#cb1897-8"></a><span class="kw">names</span>(res2)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;media_pl&quot;</span></span>
+<span id="cb1897-9"><a href="base-tidyverse.html#cb1897-9"></a>res2</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3719,22 +3720,22 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1892-1"><a href="base-tidyverse.html#cb1892-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
-<span id="cb1892-2"><a href="base-tidyverse.html#cb1892-2"></a><span class="kw">plot</span>(irisf<span class="op">$</span>Sepal.Length, irisf<span class="op">$</span>Petal.Length, <span class="dt">col =</span> irisf<span class="op">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb1898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1898-1"><a href="base-tidyverse.html#cb1898-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
+<span id="cb1898-2"><a href="base-tidyverse.html#cb1898-2"></a><span class="kw">plot</span>(irisf<span class="op">$</span>Sepal.Length, irisf<span class="op">$</span>Petal.Length, <span class="dt">col =</span> irisf<span class="op">$</span>Species)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/baser-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1893-1"><a href="base-tidyverse.html#cb1893-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
-<span id="cb1893-2"><a href="base-tidyverse.html#cb1893-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
-<span id="cb1893-3"><a href="base-tidyverse.html#cb1893-3"></a><span class="co"># chama os pacotes tidyverse</span></span>
-<span id="cb1893-4"><a href="base-tidyverse.html#cb1893-4"></a><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co"># o pacote para manipular dados</span></span>
-<span id="cb1893-5"><a href="base-tidyverse.html#cb1893-5"></a><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># o pacote para plotar graficos</span></span>
-<span id="cb1893-6"><a href="base-tidyverse.html#cb1893-6"></a><span class="co"># utilizando a filosofia tidyverse, utilizarei o pipe (&quot; %&gt;% &quot;)</span></span>
-<span id="cb1893-7"><a href="base-tidyverse.html#cb1893-7"></a>iris2t &lt;-<span class="st"> </span><span class="co"># salvamos o objeto como `iris2t` para diferenciar do salvo acima</span></span>
-<span id="cb1893-8"><a href="base-tidyverse.html#cb1893-8"></a><span class="st">  </span>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># chama os dados e passa para a funcao abaixo</span></span>
-<span id="cb1893-9"><a href="base-tidyverse.html#cb1893-9"></a><span class="st">  </span><span class="kw">filter</span>(Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>Petal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># quem tem sepala menor que 6 cm E petala maior que 5 cm?</span></span>
-<span id="cb1893-10"><a href="base-tidyverse.html#cb1893-10"></a><span class="st">  </span><span class="kw">arrange</span>(Petal.Length) <span class="op">%&gt;%</span></span>
-<span id="cb1893-11"><a href="base-tidyverse.html#cb1893-11"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">razao_sepall_petall =</span> Sepal.Length <span class="op">/</span><span class="st"> </span>Petal.Length) <span class="op">%&gt;%</span></span>
-<span id="cb1893-12"><a href="base-tidyverse.html#cb1893-12"></a><span class="st">  </span><span class="kw">select</span>(Species, <span class="kw">everything</span>()) <span class="co"># reordena as colunas</span></span>
-<span id="cb1893-13"><a href="base-tidyverse.html#cb1893-13"></a><span class="kw">head</span>(iris2t, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1899-1"><a href="base-tidyverse.html#cb1899-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
+<span id="cb1899-2"><a href="base-tidyverse.html#cb1899-2"></a><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</span>
+<span id="cb1899-3"><a href="base-tidyverse.html#cb1899-3"></a><span class="co"># chama os pacotes tidyverse</span></span>
+<span id="cb1899-4"><a href="base-tidyverse.html#cb1899-4"></a><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co"># o pacote para manipular dados</span></span>
+<span id="cb1899-5"><a href="base-tidyverse.html#cb1899-5"></a><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># o pacote para plotar graficos</span></span>
+<span id="cb1899-6"><a href="base-tidyverse.html#cb1899-6"></a><span class="co"># utilizando a filosofia tidyverse, utilizarei o pipe (&quot; %&gt;% &quot;)</span></span>
+<span id="cb1899-7"><a href="base-tidyverse.html#cb1899-7"></a>iris2t &lt;-<span class="st"> </span><span class="co"># salvamos o objeto como `iris2t` para diferenciar do salvo acima</span></span>
+<span id="cb1899-8"><a href="base-tidyverse.html#cb1899-8"></a><span class="st">  </span>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># chama os dados e passa para a funcao abaixo</span></span>
+<span id="cb1899-9"><a href="base-tidyverse.html#cb1899-9"></a><span class="st">  </span><span class="kw">filter</span>(Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>Petal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># quem tem sepala menor que 6 cm E petala maior que 5 cm?</span></span>
+<span id="cb1899-10"><a href="base-tidyverse.html#cb1899-10"></a><span class="st">  </span><span class="kw">arrange</span>(Petal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1899-11"><a href="base-tidyverse.html#cb1899-11"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">razao_sepall_petall =</span> Sepal.Length <span class="op">/</span><span class="st"> </span>Petal.Length) <span class="op">%&gt;%</span></span>
+<span id="cb1899-12"><a href="base-tidyverse.html#cb1899-12"></a><span class="st">  </span><span class="kw">select</span>(Species, <span class="kw">everything</span>()) <span class="co"># reordena as colunas</span></span>
+<span id="cb1899-13"><a href="base-tidyverse.html#cb1899-13"></a><span class="kw">head</span>(iris2t, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3961,16 +3962,16 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1894-1"><a href="base-tidyverse.html#cb1894-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
-<span id="cb1894-2"><a href="base-tidyverse.html#cb1894-2"></a>res_t &lt;-<span class="st"> </span>iris2t <span class="op">%&gt;%</span></span>
-<span id="cb1894-3"><a href="base-tidyverse.html#cb1894-3"></a><span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># agrupa dados pela coluna Species</span></span>
-<span id="cb1894-4"><a href="base-tidyverse.html#cb1894-4"></a><span class="st">  </span><span class="kw">summarise</span>( <span class="co"># sumarisa dados de acordo com os grupo estabelecidos acima</span></span>
-<span id="cb1894-5"><a href="base-tidyverse.html#cb1894-5"></a>    <span class="dt">mean_pl =</span> <span class="kw">mean</span>(Petal.Length), <span class="co"># media da coluna comp de petala</span></span>
-<span id="cb1894-6"><a href="base-tidyverse.html#cb1894-6"></a>    <span class="dt">mean_raz =</span> <span class="kw">mean</span>(razao_sepall_petall), <span class="co"># media da coluna razao de comp de sepala/petala</span></span>
-<span id="cb1894-7"><a href="base-tidyverse.html#cb1894-7"></a>    <span class="dt">sd_pl =</span> <span class="kw">sd</span>(Petal.Length), <span class="co"># desvio do comp da petala</span></span>
-<span id="cb1894-8"><a href="base-tidyverse.html#cb1894-8"></a>    <span class="dt">sd_raz =</span> <span class="kw">sd</span>(razao_sepall_petall)</span>
-<span id="cb1894-9"><a href="base-tidyverse.html#cb1894-9"></a>  ) <span class="co"># desvio do comp da sepala</span></span>
-<span id="cb1894-10"><a href="base-tidyverse.html#cb1894-10"></a><span class="kw">head</span>(res_t, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1900-1"><a href="base-tidyverse.html#cb1900-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
+<span id="cb1900-2"><a href="base-tidyverse.html#cb1900-2"></a>res_t &lt;-<span class="st"> </span>iris2t <span class="op">%&gt;%</span></span>
+<span id="cb1900-3"><a href="base-tidyverse.html#cb1900-3"></a><span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># agrupa dados pela coluna Species</span></span>
+<span id="cb1900-4"><a href="base-tidyverse.html#cb1900-4"></a><span class="st">  </span><span class="kw">summarise</span>( <span class="co"># sumarisa dados de acordo com os grupo estabelecidos acima</span></span>
+<span id="cb1900-5"><a href="base-tidyverse.html#cb1900-5"></a>    <span class="dt">mean_pl =</span> <span class="kw">mean</span>(Petal.Length), <span class="co"># media da coluna comp de petala</span></span>
+<span id="cb1900-6"><a href="base-tidyverse.html#cb1900-6"></a>    <span class="dt">mean_raz =</span> <span class="kw">mean</span>(razao_sepall_petall), <span class="co"># media da coluna razao de comp de sepala/petala</span></span>
+<span id="cb1900-7"><a href="base-tidyverse.html#cb1900-7"></a>    <span class="dt">sd_pl =</span> <span class="kw">sd</span>(Petal.Length), <span class="co"># desvio do comp da petala</span></span>
+<span id="cb1900-8"><a href="base-tidyverse.html#cb1900-8"></a>    <span class="dt">sd_raz =</span> <span class="kw">sd</span>(razao_sepall_petall)</span>
+<span id="cb1900-9"><a href="base-tidyverse.html#cb1900-9"></a>  ) <span class="co"># desvio do comp da sepala</span></span>
+<span id="cb1900-10"><a href="base-tidyverse.html#cb1900-10"></a><span class="kw">head</span>(res_t, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4045,25 +4046,25 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1895-1"><a href="base-tidyverse.html#cb1895-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
-<span id="cb1895-2"><a href="base-tidyverse.html#cb1895-2"></a>tgraf &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris2t) <span class="op">+</span></span>
-<span id="cb1895-3"><a href="base-tidyverse.html#cb1895-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length, <span class="dt">color =</span> Species))</span>
-<span id="cb1895-4"><a href="base-tidyverse.html#cb1895-4"></a>tgraf</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-575-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1901-1"><a href="base-tidyverse.html#cb1901-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
+<span id="cb1901-2"><a href="base-tidyverse.html#cb1901-2"></a>tgraf &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> iris2t) <span class="op">+</span></span>
+<span id="cb1901-3"><a href="base-tidyverse.html#cb1901-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Length, <span class="dt">color =</span> Species))</span>
+<span id="cb1901-4"><a href="base-tidyverse.html#cb1901-4"></a>tgraf</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-577-1.png" width="672" /></p>
 <p>Vejam que os resultados são iguais, com exceção da estética diferente proporcionada pelo pacote <code>ggplot2</code>.
 Porém, há uma mudança notável em como a manipulação dos dados é feita quando utilizamos o operador <code>%&gt;%</code> dentro do fluxo de trabalho, como <a href="base-tidyverse.html#pipe">resumido acima</a>: a leitura é feita da esquerda para a direita, podemos reduzir a criação de objetos intermediários na área de trabalho, e o código pode ser lido com mais clareza.
 Postagens futuras abordarão com mais detalhes outros usos deste operador e de alguns outros inclusos no mesmo pacote, porém com funções levemente diferentes.</p>
 <div id="e-o-uso-do-operador-com-o-pacote-base" class="section level3">
 <h3><span class="header-section-number">A.6.1</span> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?</h3>
 <p>Apesar de termos explorado até aqui o uso do operador <code>%&gt;%</code> apenas com o pacote <code>dplyr</code>, ele pode ser utilizado com qualquer função no R. Vamos retormar o exemplo da <a href="base-tidyverse.html#baser">seção acima</a> com comandos do pacote <code>base</code> do R, porém adicionando o operador <code>%&gt;%</code> na manipulação dos dados:</p>
-<div class="sourceCode" id="cb1896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1896-1"><a href="base-tidyverse.html#cb1896-1"></a>iris_ord &lt;-</span>
-<span id="cb1896-2"><a href="base-tidyverse.html#cb1896-2"></a><span class="st">  </span>iris <span class="op">%&gt;%</span></span>
-<span id="cb1896-3"><a href="base-tidyverse.html#cb1896-3"></a><span class="st">  </span><span class="kw">subset</span>(Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>Petal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># filtramos os dados com a funcao subset()</span></span>
-<span id="cb1896-4"><a href="base-tidyverse.html#cb1896-4"></a><span class="st">  </span>.[<span class="kw">order</span>(.<span class="op">$</span>Petal.Length), ] <span class="co"># usamos o `.` para representar o data.frame filtrado no passo anterior</span></span>
-<span id="cb1896-5"><a href="base-tidyverse.html#cb1896-5"></a>colsp &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">colnames</span>(iris_ord) <span class="op">==</span><span class="st"> &quot;Species&quot;</span>)</span>
-<span id="cb1896-6"><a href="base-tidyverse.html#cb1896-6"></a>irisf &lt;-<span class="st"> </span>iris_ord[, <span class="kw">c</span>(colsp, (<span class="kw">which</span>(<span class="op">!</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(iris_ord)) <span class="op">%in%</span><span class="st"> </span>colsp)))]</span>
-<span id="cb1896-7"><a href="base-tidyverse.html#cb1896-7"></a>irisf<span class="op">$</span>razao_sepall_petall &lt;-<span class="st"> </span>irisf<span class="op">$</span>Sepal.Length <span class="op">/</span><span class="st"> </span>irisf<span class="op">$</span>Petal.Length</span>
-<span id="cb1896-8"><a href="base-tidyverse.html#cb1896-8"></a><span class="kw">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1902-1"><a href="base-tidyverse.html#cb1902-1"></a>iris_ord &lt;-</span>
+<span id="cb1902-2"><a href="base-tidyverse.html#cb1902-2"></a><span class="st">  </span>iris <span class="op">%&gt;%</span></span>
+<span id="cb1902-3"><a href="base-tidyverse.html#cb1902-3"></a><span class="st">  </span><span class="kw">subset</span>(Sepal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span>Petal.Length <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># filtramos os dados com a funcao subset()</span></span>
+<span id="cb1902-4"><a href="base-tidyverse.html#cb1902-4"></a><span class="st">  </span>.[<span class="kw">order</span>(.<span class="op">$</span>Petal.Length), ] <span class="co"># usamos o `.` para representar o data.frame filtrado no passo anterior</span></span>
+<span id="cb1902-5"><a href="base-tidyverse.html#cb1902-5"></a>colsp &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">colnames</span>(iris_ord) <span class="op">==</span><span class="st"> &quot;Species&quot;</span>)</span>
+<span id="cb1902-6"><a href="base-tidyverse.html#cb1902-6"></a>irisf &lt;-<span class="st"> </span>iris_ord[, <span class="kw">c</span>(colsp, (<span class="kw">which</span>(<span class="op">!</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(iris_ord)) <span class="op">%in%</span><span class="st"> </span>colsp)))]</span>
+<span id="cb1902-7"><a href="base-tidyverse.html#cb1902-7"></a>irisf<span class="op">$</span>razao_sepall_petall &lt;-<span class="st"> </span>irisf<span class="op">$</span>Sepal.Length <span class="op">/</span><span class="st"> </span>irisf<span class="op">$</span>Petal.Length</span>
+<span id="cb1902-8"><a href="base-tidyverse.html#cb1902-8"></a><span class="kw">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -4322,14 +4323,14 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1897-1"><a href="base-tidyverse.html#cb1897-1"></a>mean_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb1897-2"><a href="base-tidyverse.html#cb1897-2"></a>mean_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb1897-3"><a href="base-tidyverse.html#cb1897-3"></a>sd_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
-<span id="cb1897-4"><a href="base-tidyverse.html#cb1897-4"></a>sd_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
-<span id="cb1897-5"><a href="base-tidyverse.html#cb1897-5"></a>res &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mean_pl)</span>
-<span id="cb1897-6"><a href="base-tidyverse.html#cb1897-6"></a>res2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(res, <span class="dt">media_razao =</span> mean_raz[, <span class="dv">-1</span>], <span class="dt">desvio_pl =</span> sd_pl[, <span class="dv">-1</span>], <span class="dt">desvio_raz =</span> sd_raz[, <span class="dv">-1</span>])</span>
-<span id="cb1897-7"><a href="base-tidyverse.html#cb1897-7"></a><span class="kw">names</span>(res2)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;media_pl&quot;</span></span>
-<span id="cb1897-8"><a href="base-tidyverse.html#cb1897-8"></a>res2</span></code></pre></div>
+<div class="sourceCode" id="cb1903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1903-1"><a href="base-tidyverse.html#cb1903-1"></a>mean_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1903-2"><a href="base-tidyverse.html#cb1903-2"></a>mean_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1903-3"><a href="base-tidyverse.html#cb1903-3"></a>sd_pl &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>Petal.Length, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1903-4"><a href="base-tidyverse.html#cb1903-4"></a>sd_raz &lt;-<span class="st"> </span><span class="kw">aggregate</span>(irisf<span class="op">$</span>razao_sepall_petall, <span class="kw">list</span>(<span class="dt">Species =</span> irisf<span class="op">$</span>Species), <span class="dt">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1903-5"><a href="base-tidyverse.html#cb1903-5"></a>res &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(mean_pl)</span>
+<span id="cb1903-6"><a href="base-tidyverse.html#cb1903-6"></a>res2 &lt;-<span class="st"> </span><span class="kw">cbind</span>(res, <span class="dt">media_razao =</span> mean_raz[, <span class="dv">-1</span>], <span class="dt">desvio_pl =</span> sd_pl[, <span class="dv">-1</span>], <span class="dt">desvio_raz =</span> sd_raz[, <span class="dv">-1</span>])</span>
+<span id="cb1903-7"><a href="base-tidyverse.html#cb1903-7"></a><span class="kw">names</span>(res2)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;media_pl&quot;</span></span>
+<span id="cb1903-8"><a href="base-tidyverse.html#cb1903-8"></a>res2</span></code></pre></div>
 <table>
 <thead>
 <tr>

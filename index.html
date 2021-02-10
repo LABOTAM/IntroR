@@ -146,6 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="0.0.1" data-path="index.html"><a href="index.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i><b>0.0.1</b> Baixe os pacotes abaixo</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
@@ -167,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#base-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
@@ -473,7 +474,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="subtitle"><em>Disciplina BOT89 - PPGBOT INPA</em></h2>
 <p class="author"><em><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=alunos:a.vicentini:inicio">Alberto Vicentini</a> (<a href="http://portal.inpa.gov.br/">INPA</a>)</em></p>
 <p class="author"><em><a href="https://ricardoperdiz.com">Ricardo de Oliveira Perdiz</a> - ricardoperdiz@yahoo.com</em></p>
-<p class="date"><em>Última atualização: 2021-02-08</em></p>
+<p class="date"><em>Última atualização: 2021-02-10</em></p>
 </div>
 <div id="prefácio" class="section level1 unnumbered">
 <h1>Prefácio</h1>
@@ -560,9 +561,19 @@ Desta forma, providenciamos duas maneiras de o leitor deste livro fazer bem uso 
 Ademais, ambientes de desenvolvimento integrado (do inglês <em>Integrated Development Environment</em>, <strong>IDE</strong>) como este software têm o objetivo de prover ao usuário mais ferramentas na interação entre o código e o resultado da execução do código, além de facilitar o uso de ferramentas alternativas para construção de texto mesclado com códigos (e.g., LaTeX, Markdown etc), o que permite uma dinamicidade na construção de textos acadêmicos.</p>
 <p>Existem outras alternativas de software, tais como o <a href="https://atom.io/">Atom</a> e o <a href="https://code.visualstudio.com/">Visual Studio Code</a>. Fique à vontade para escolher.</p>
 </div>
+<div id="baixe-os-pacotes-abaixo" class="section level3">
+<h3><span class="header-section-number">0.0.1</span> Baixe os pacotes abaixo</h3>
+<p>Serão necessários o uso de alguns pacotes de R (veja seção <a href="intro.html#base-pacotes">1.3</a> para entender o que são pacotes de R) para poder fazer uso tanto do repositório localmente quanto fazer uso das próprias aulas.
+Então, rode o comando abaixo para instalar esses pacotes em seu computador:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;rmarkdown&#39;</span>, <span class="st">&#39;bookdown&#39;</span>, <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;kableExtra&#39;</span>, <span class="st">&#39;ape&#39;</span>, <span class="st">&#39;labdsv&#39;</span>, <span class="st">&#39;vegan&#39;</span>, <span class="st">&#39;maps&#39;</span>, <span class="st">&#39;readxl&#39;</span>, <span class="st">&#39;readr&#39;</span>, <span class="st">&#39;data.table&#39;</span>, <span class="st">&#39;rgdal&#39;</span>, <span class="st">&#39;taxize&#39;</span>))</span></code></pre></div>
+<p>Há uma lista de pacotes que serão utilizados apenas no apêndice <a href="base-tidyverse.html#base-tidyverse">A</a>.
+Eles não são necessários para acompanhar o curso, mas caso você chegue a este apêndice, eles serão necessários.
+Portanto, caso queira já instalá-los, execute o comando abaixo:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&#39;ggplot2&#39;</span>, <span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;tibble&#39;</span>, <span class="st">&#39;tidyr&#39;</span>, <span class="st">&#39;purrr&#39;</span>, <span class="st">&#39;magrittr&#39;</span>))</span></code></pre></div>
+</div>
 <div id="baixe-o-repositório-para-seu-computador" class="section level3 unnumbered">
 <h3>Baixe o repositório para seu computador</h3>
-<p>Acesse a <a href="">página do repositório</a> contendo os códigos fontes deste livro (Fig. <a href="index.html#fig:repo">0.1</a>).</p>
+<p>Acesse a <a href="https://github.com/LABOTAM/LABOTAM.github.io">página do repositório</a> contendo os código fonte deste livro (Fig. <a href="index.html#fig:repo">0.1</a>).</p>
 <div class="figure"><span id="fig:repo"></span>
 <img src="figuras/repo.png" alt="Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro."  />
 <p class="caption">
@@ -678,7 +689,7 @@ Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repo
 <blockquote>
 <p><em>Uma das coisas mais importantes que você (como cientista) pode fazer é dedicar um tempo para aprender uma linguagem de programação de verdade. Aprender a programar é como aprender outro idioma: exige tempo e treinamento, e não há resultados práticos imediatos. Mas se você supera essa primeira subida íngreme da curva de aprendizado, os ganhos como cientista são enormes. Programar não vai apenas livrar você da camisa de força dos pacotes estatísticos, mas também irá aguçar suas habilidades analíticas e ampliar os horizontes de modelagem (..) e estatística</em> <span class="citation">(Gotelli e Ellison <a href="#ref-Gotelli2013" role="doc-biblioref">2013</a>)</span>.</p>
 </blockquote>
-<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
 <img src="figuras/aprendizadogeekvsnongeek.png" alt="Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek)." width="101%" />
 <p class="caption">
 Figura 0.3: Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek).

@@ -146,6 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="0.0.1" data-path="index.html"><a href="index.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i><b>0.0.1</b> Baixe os pacotes abaixo</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
@@ -167,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#base-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
@@ -479,20 +480,20 @@ Ou seja, diferentes variáveis tem o mesmo padrão?</p>
 <div id="dados-do-tutorial-1" class="section level2">
 <h2><span class="header-section-number">13.1</span> Dados do tutorial</h2>
 <p>Vamos importar novamente os conjuntos de dados de <a href="https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/aves_cerrado.csv">avistamento de aves do cerrado</a> (utilizado no capítulo <a href="aed-checa-dados.html#aed-checa-dados">11</a>) e de <a href="https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/caixeta.csv">parcelas em caixetais</a> (utilizado no capítulo <a href="sumar-dados.html#sumar-dados">7</a>):</p>
-<div class="sourceCode" id="cb1648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1648-1"><a href="aed-bivar.html#cb1648-1"></a><span class="co">## Lendo a planilha com read.table</span></span>
-<span id="cb1648-2"><a href="aed-bivar.html#cb1648-2"></a>avesc &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;aves_cerrado.csv&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>, <span class="dt">header =</span> T, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">as.is =</span> T, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb1649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1649-1"><a href="aed-bivar.html#cb1649-1"></a>caixeta &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;caixeta.csv&quot;</span>) <span class="co">## arquivo caixeta.csv deve estar no diretorio de trabalho</span></span>
-<span id="cb1649-2"><a href="aed-bivar.html#cb1649-2"></a><span class="co"># note que mantemos todos os argumentos padrão (veja o formato do arquivo caixeta)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1654-1"><a href="aed-bivar.html#cb1654-1"></a><span class="co">## Lendo a planilha com read.table</span></span>
+<span id="cb1654-2"><a href="aed-bivar.html#cb1654-2"></a>avesc &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;aves_cerrado.csv&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>, <span class="dt">header =</span> T, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">as.is =</span> T, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1655-1"><a href="aed-bivar.html#cb1655-1"></a>caixeta &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;caixeta.csv&quot;</span>) <span class="co">## arquivo caixeta.csv deve estar no diretorio de trabalho</span></span>
+<span id="cb1655-2"><a href="aed-bivar.html#cb1655-2"></a><span class="co"># note que mantemos todos os argumentos padrão (veja o formato do arquivo caixeta)</span></span></code></pre></div>
 </div>
 <div id="fatores-e-contagens" class="section level2">
 <h2><span class="header-section-number">13.2</span> Fatores e contagens</h2>
 <p>Já vimos a função <code>table()</code> para contar valores em fatores e vetores em casos de <a href="aed-univar.html#aed-univar">univariados</a>.
 Podemos usar a mesma função para gerar tabelas de contingência entre dois ou mais fatores.</p>
-<div class="sourceCode" id="cb1650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1650-1"><a href="aed-bivar.html#cb1650-1"></a><span class="co">## Numero de fustes de cada especie por local</span></span>
-<span id="cb1650-2"><a href="aed-bivar.html#cb1650-2"></a>tb &lt;-<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie, caixeta<span class="op">$</span>local)</span>
-<span id="cb1650-3"><a href="aed-bivar.html#cb1650-3"></a><span class="kw">class</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1656-1"><a href="aed-bivar.html#cb1656-1"></a><span class="co">## Numero de fustes de cada especie por local</span></span>
+<span id="cb1656-2"><a href="aed-bivar.html#cb1656-2"></a>tb &lt;-<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie, caixeta<span class="op">$</span>local)</span>
+<span id="cb1656-3"><a href="aed-bivar.html#cb1656-3"></a><span class="kw">class</span>(tb)</span></code></pre></div>
 <pre><code>## [1] &quot;table&quot;</code></pre>
-<div class="sourceCode" id="cb1652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1652-1"><a href="aed-bivar.html#cb1652-1"></a>tb</span></code></pre></div>
+<div class="sourceCode" id="cb1658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1658-1"><a href="aed-bivar.html#cb1658-1"></a>tb</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1114,13 +1115,13 @@ Tibouchina nutticeps
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1653-1"><a href="aed-bivar.html#cb1653-1"></a><span class="co"># convertemos num data.frame</span></span>
-<span id="cb1653-2"><a href="aed-bivar.html#cb1653-2"></a>tb &lt;-<span class="st"> </span><span class="kw">as.data.frame.matrix</span>(tb)</span>
-<span id="cb1653-3"><a href="aed-bivar.html#cb1653-3"></a><span class="kw">class</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1659-1"><a href="aed-bivar.html#cb1659-1"></a><span class="co"># convertemos num data.frame</span></span>
+<span id="cb1659-2"><a href="aed-bivar.html#cb1659-2"></a>tb &lt;-<span class="st"> </span><span class="kw">as.data.frame.matrix</span>(tb)</span>
+<span id="cb1659-3"><a href="aed-bivar.html#cb1659-3"></a><span class="kw">class</span>(tb)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1655-1"><a href="aed-bivar.html#cb1655-1"></a><span class="co"># calculo o total de individuos por especie</span></span>
-<span id="cb1655-2"><a href="aed-bivar.html#cb1655-2"></a>total &lt;-<span class="st"> </span><span class="kw">apply</span>(tb, <span class="dv">1</span>, sum)</span>
-<span id="cb1655-3"><a href="aed-bivar.html#cb1655-3"></a>total</span></code></pre></div>
+<div class="sourceCode" id="cb1661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1661-1"><a href="aed-bivar.html#cb1661-1"></a><span class="co"># calculo o total de individuos por especie</span></span>
+<span id="cb1661-2"><a href="aed-bivar.html#cb1661-2"></a>total &lt;-<span class="st"> </span><span class="kw">apply</span>(tb, <span class="dv">1</span>, sum)</span>
+<span id="cb1661-3"><a href="aed-bivar.html#cb1661-3"></a>total</span></code></pre></div>
 <pre><code>##    Alchornea triplinervia       Andira fraxinifolia               bombacaceae 
 ##                        15                         4                         1 
 ##        Cabralea canjerana Callophyllum brasiliensis  Calophyllum brasiliensis 
@@ -1151,9 +1152,9 @@ Tibouchina nutticeps
 ##                         1                        10                       698 
 ##      Tibouchina nutticeps 
 ##                         2</code></pre>
-<div class="sourceCode" id="cb1657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1657-1"><a href="aed-bivar.html#cb1657-1"></a><span class="co"># ordeno minha tabela orginal pelo total em ordem decrescente de abundância</span></span>
-<span id="cb1657-2"><a href="aed-bivar.html#cb1657-2"></a>tb &lt;-<span class="st"> </span>tb[<span class="kw">order</span>(total, <span class="dt">decreasing =</span> T), ]</span>
-<span id="cb1657-3"><a href="aed-bivar.html#cb1657-3"></a><span class="kw">head</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1663-1"><a href="aed-bivar.html#cb1663-1"></a><span class="co"># ordeno minha tabela orginal pelo total em ordem decrescente de abundância</span></span>
+<span id="cb1663-2"><a href="aed-bivar.html#cb1663-2"></a>tb &lt;-<span class="st"> </span>tb[<span class="kw">order</span>(total, <span class="dt">decreasing =</span> T), ]</span>
+<span id="cb1663-3"><a href="aed-bivar.html#cb1663-3"></a><span class="kw">head</span>(tb)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1257,10 +1258,10 @@ Alchornea triplinervia
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1658-1"><a href="aed-bivar.html#cb1658-1"></a><span class="co"># se eu quiser uma tabela de presença e ausência</span></span>
-<span id="cb1658-2"><a href="aed-bivar.html#cb1658-2"></a><span class="co"># bastaria substituir os valores&gt;0 por 1</span></span>
-<span id="cb1658-3"><a href="aed-bivar.html#cb1658-3"></a>tb[tb <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb1658-4"><a href="aed-bivar.html#cb1658-4"></a><span class="kw">head</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1664-1"><a href="aed-bivar.html#cb1664-1"></a><span class="co"># se eu quiser uma tabela de presença e ausência</span></span>
+<span id="cb1664-2"><a href="aed-bivar.html#cb1664-2"></a><span class="co"># bastaria substituir os valores&gt;0 por 1</span></span>
+<span id="cb1664-3"><a href="aed-bivar.html#cb1664-3"></a>tb[tb <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>] &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb1664-4"><a href="aed-bivar.html#cb1664-4"></a><span class="kw">head</span>(tb)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1364,19 +1365,19 @@ Alchornea triplinervia
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1659-1"><a href="aed-bivar.html#cb1659-1"></a><span class="co"># assim, agora eu posso saber quantas especie por localidade</span></span>
-<span id="cb1659-2"><a href="aed-bivar.html#cb1659-2"></a><span class="kw">apply</span>(tb, <span class="dv">2</span>, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb1665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1665-1"><a href="aed-bivar.html#cb1665-1"></a><span class="co"># assim, agora eu posso saber quantas especie por localidade</span></span>
+<span id="cb1665-2"><a href="aed-bivar.html#cb1665-2"></a><span class="kw">apply</span>(tb, <span class="dv">2</span>, sum)</span></code></pre></div>
 <pre><code>## chauas jureia retiro 
 ##     13     22     13</code></pre>
 <p>A função <code>xtabs()</code> tabula dados de frequência.</p>
-<div class="sourceCode" id="cb1661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1661-1"><a href="aed-bivar.html#cb1661-1"></a><span class="co">## xtabs: tabulacao de dados de frequencia</span></span>
-<span id="cb1661-2"><a href="aed-bivar.html#cb1661-2"></a><span class="co">## Vamos usar  Dataframe dos sobreviventes dos sobreviventes e mortos do Titanic</span></span>
-<span id="cb1661-3"><a href="aed-bivar.html#cb1661-3"></a>?Titanic <span class="co"># veja o que são esses dados</span></span></code></pre></div>
-<div class="sourceCode" id="cb1662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1662-1"><a href="aed-bivar.html#cb1662-1"></a><span class="kw">data</span>(<span class="st">&quot;Titanic&quot;</span>) <span class="co"># puxamos esse dado</span></span>
-<span id="cb1662-2"><a href="aed-bivar.html#cb1662-2"></a><span class="kw">class</span>(Titanic)</span></code></pre></div>
+<div class="sourceCode" id="cb1667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1667-1"><a href="aed-bivar.html#cb1667-1"></a><span class="co">## xtabs: tabulacao de dados de frequencia</span></span>
+<span id="cb1667-2"><a href="aed-bivar.html#cb1667-2"></a><span class="co">## Vamos usar  Dataframe dos sobreviventes dos sobreviventes e mortos do Titanic</span></span>
+<span id="cb1667-3"><a href="aed-bivar.html#cb1667-3"></a>?Titanic <span class="co"># veja o que são esses dados</span></span></code></pre></div>
+<div class="sourceCode" id="cb1668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1668-1"><a href="aed-bivar.html#cb1668-1"></a><span class="kw">data</span>(<span class="st">&quot;Titanic&quot;</span>) <span class="co"># puxamos esse dado</span></span>
+<span id="cb1668-2"><a href="aed-bivar.html#cb1668-2"></a><span class="kw">class</span>(Titanic)</span></code></pre></div>
 <pre><code>## [1] &quot;table&quot;</code></pre>
-<div class="sourceCode" id="cb1664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1664-1"><a href="aed-bivar.html#cb1664-1"></a>tit &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(Titanic) <span class="co"># converte em data.frame</span></span>
-<span id="cb1664-2"><a href="aed-bivar.html#cb1664-2"></a><span class="kw">head</span>(tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1670-1"><a href="aed-bivar.html#cb1670-1"></a>tit &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(Titanic) <span class="co"># converte em data.frame</span></span>
+<span id="cb1670-2"><a href="aed-bivar.html#cb1670-2"></a><span class="kw">head</span>(tit)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1502,20 +1503,20 @@ No
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1665-1"><a href="aed-bivar.html#cb1665-1"></a><span class="co"># classe de passageiros</span></span>
-<span id="cb1665-2"><a href="aed-bivar.html#cb1665-2"></a><span class="kw">names</span>(tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1671-1"><a href="aed-bivar.html#cb1671-1"></a><span class="co"># classe de passageiros</span></span>
+<span id="cb1671-2"><a href="aed-bivar.html#cb1671-2"></a><span class="kw">names</span>(tit)</span></code></pre></div>
 <pre><code>## [1] &quot;Class&quot;    &quot;Sex&quot;      &quot;Age&quot;      &quot;Survived&quot; &quot;Freq&quot;</code></pre>
-<div class="sourceCode" id="cb1667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1667-1"><a href="aed-bivar.html#cb1667-1"></a><span class="kw">str</span>(tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1673-1"><a href="aed-bivar.html#cb1673-1"></a><span class="kw">str</span>(tit)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    32 obs. of  5 variables:
 ##  $ Class   : Factor w/ 4 levels &quot;1st&quot;,&quot;2nd&quot;,&quot;3rd&quot;,..: 1 2 3 4 1 2 3 4 1 2 ...
 ##  $ Sex     : Factor w/ 2 levels &quot;Male&quot;,&quot;Female&quot;: 1 1 1 1 2 2 2 2 1 1 ...
 ##  $ Age     : Factor w/ 2 levels &quot;Child&quot;,&quot;Adult&quot;: 1 1 1 1 1 1 1 1 2 2 ...
 ##  $ Survived: Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Freq    : num  0 0 35 0 0 0 17 0 118 154 ...</code></pre>
-<div class="sourceCode" id="cb1669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1669-1"><a href="aed-bivar.html#cb1669-1"></a><span class="co">## Quanto sobreviventes por sexo?</span></span></code></pre></div>
-<div class="sourceCode" id="cb1670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1670-1"><a href="aed-bivar.html#cb1670-1"></a><span class="co">## Precisamos da funcao xtabs</span></span>
-<span id="cb1670-2"><a href="aed-bivar.html#cb1670-2"></a>?xtabs <span class="co"># veja o help dessa funcão:</span></span></code></pre></div>
-<div class="sourceCode" id="cb1671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1671-1"><a href="aed-bivar.html#cb1671-1"></a><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data =</span> tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1675-1"><a href="aed-bivar.html#cb1675-1"></a><span class="co">## Quanto sobreviventes por sexo?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1676-1"><a href="aed-bivar.html#cb1676-1"></a><span class="co">## Precisamos da funcao xtabs</span></span>
+<span id="cb1676-2"><a href="aed-bivar.html#cb1676-2"></a>?xtabs <span class="co"># veja o help dessa funcão:</span></span></code></pre></div>
+<div class="sourceCode" id="cb1677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1677-1"><a href="aed-bivar.html#cb1677-1"></a><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data =</span> tit)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1554,9 +1555,9 @@ Female
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1672-1"><a href="aed-bivar.html#cb1672-1"></a><span class="co"># em porcentagem</span></span>
-<span id="cb1672-2"><a href="aed-bivar.html#cb1672-2"></a>tb &lt;-<span class="st"> </span><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data =</span> tit)</span>
-<span id="cb1672-3"><a href="aed-bivar.html#cb1672-3"></a><span class="kw">prop.table</span>(tb, <span class="dt">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1678-1"><a href="aed-bivar.html#cb1678-1"></a><span class="co"># em porcentagem</span></span>
+<span id="cb1678-2"><a href="aed-bivar.html#cb1678-2"></a>tb &lt;-<span class="st"> </span><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data =</span> tit)</span>
+<span id="cb1678-3"><a href="aed-bivar.html#cb1678-3"></a><span class="kw">prop.table</span>(tb, <span class="dt">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1595,8 +1596,8 @@ Female
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1673-1"><a href="aed-bivar.html#cb1673-1"></a><span class="co"># ou, se preferir</span></span>
-<span id="cb1673-2"><a href="aed-bivar.html#cb1673-2"></a><span class="kw">round</span>(<span class="kw">prop.table</span>(tb, <span class="dt">margin =</span> <span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1679-1"><a href="aed-bivar.html#cb1679-1"></a><span class="co"># ou, se preferir</span></span>
+<span id="cb1679-2"><a href="aed-bivar.html#cb1679-2"></a><span class="kw">round</span>(<span class="kw">prop.table</span>(tb, <span class="dt">margin =</span> <span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1635,8 +1636,8 @@ Female
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1674-1"><a href="aed-bivar.html#cb1674-1"></a><span class="co"># Quanto sobreviventes por classe de viagem?</span></span>
-<span id="cb1674-2"><a href="aed-bivar.html#cb1674-2"></a><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Class <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data =</span> tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1680-1"><a href="aed-bivar.html#cb1680-1"></a><span class="co"># Quanto sobreviventes por classe de viagem?</span></span>
+<span id="cb1680-2"><a href="aed-bivar.html#cb1680-2"></a><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Class <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data =</span> tit)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1697,13 +1698,13 @@ Crew
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1675-1"><a href="aed-bivar.html#cb1675-1"></a><span class="co"># note que na primeira classe 203 sobreviveram</span></span>
-<span id="cb1675-2"><a href="aed-bivar.html#cb1675-2"></a><span class="co"># eu poderia ter perguntado isso assim:</span></span>
-<span id="cb1675-3"><a href="aed-bivar.html#cb1675-3"></a><span class="kw">sum</span>(tit[tit<span class="op">$</span>Class <span class="op">==</span><span class="st"> &quot;1st&quot;</span> <span class="op">&amp;</span><span class="st"> </span>tit<span class="op">$</span>Survived <span class="op">==</span><span class="st"> &quot;Yes&quot;</span>, <span class="st">&quot;Freq&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1681-1"><a href="aed-bivar.html#cb1681-1"></a><span class="co"># note que na primeira classe 203 sobreviveram</span></span>
+<span id="cb1681-2"><a href="aed-bivar.html#cb1681-2"></a><span class="co"># eu poderia ter perguntado isso assim:</span></span>
+<span id="cb1681-3"><a href="aed-bivar.html#cb1681-3"></a><span class="kw">sum</span>(tit[tit<span class="op">$</span>Class <span class="op">==</span><span class="st"> &quot;1st&quot;</span> <span class="op">&amp;</span><span class="st"> </span>tit<span class="op">$</span>Survived <span class="op">==</span><span class="st"> &quot;Yes&quot;</span>, <span class="st">&quot;Freq&quot;</span>])</span></code></pre></div>
 <pre><code>## [1] 203</code></pre>
-<div class="sourceCode" id="cb1677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1677-1"><a href="aed-bivar.html#cb1677-1"></a><span class="co"># ou seja, a funcao xtabs calculou a soma da frequencia</span></span>
-<span id="cb1677-2"><a href="aed-bivar.html#cb1677-2"></a><span class="co"># porcentagem</span></span>
-<span id="cb1677-3"><a href="aed-bivar.html#cb1677-3"></a><span class="kw">prop.table</span>(<span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Class <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data =</span> tit), <span class="dt">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1683-1"><a href="aed-bivar.html#cb1683-1"></a><span class="co"># ou seja, a funcao xtabs calculou a soma da frequencia</span></span>
+<span id="cb1683-2"><a href="aed-bivar.html#cb1683-2"></a><span class="co"># porcentagem</span></span>
+<span id="cb1683-3"><a href="aed-bivar.html#cb1683-3"></a><span class="kw">prop.table</span>(<span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Class <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data =</span> tit), <span class="dt">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1764,9 +1765,9 @@ Crew
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1678-1"><a href="aed-bivar.html#cb1678-1"></a><span class="co">## E para combinacoes de mais de duas variaveis</span></span>
-<span id="cb1678-2"><a href="aed-bivar.html#cb1678-2"></a>tb2 &lt;-<span class="st"> </span><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Class <span class="op">+</span><span class="st"> </span>Survived <span class="op">+</span><span class="st"> </span>Sex, <span class="dt">data =</span> tit)</span>
-<span id="cb1678-3"><a href="aed-bivar.html#cb1678-3"></a>tb2 <span class="co"># veja o resultado e observe duas virgulas</span></span></code></pre></div>
+<div class="sourceCode" id="cb1684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1684-1"><a href="aed-bivar.html#cb1684-1"></a><span class="co">## E para combinacoes de mais de duas variaveis</span></span>
+<span id="cb1684-2"><a href="aed-bivar.html#cb1684-2"></a>tb2 &lt;-<span class="st"> </span><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>Class <span class="op">+</span><span class="st"> </span>Survived <span class="op">+</span><span class="st"> </span>Sex, <span class="dt">data =</span> tit)</span>
+<span id="cb1684-3"><a href="aed-bivar.html#cb1684-3"></a>tb2 <span class="co"># veja o resultado e observe duas virgulas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1991,7 +1992,7 @@ Male
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1679-1"><a href="aed-bivar.html#cb1679-1"></a>tb2[, , <span class="dv">1</span>] <span class="co"># para Female</span></span></code></pre></div>
+<div class="sourceCode" id="cb1685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1685-1"><a href="aed-bivar.html#cb1685-1"></a>tb2[, , <span class="dv">1</span>] <span class="co"># para Female</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2052,7 +2053,7 @@ Crew
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1680-1"><a href="aed-bivar.html#cb1680-1"></a>tb2[, , <span class="dv">2</span>] <span class="co"># para Male</span></span></code></pre></div>
+<div class="sourceCode" id="cb1686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1686-1"><a href="aed-bivar.html#cb1686-1"></a>tb2[, , <span class="dv">2</span>] <span class="co"># para Male</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2113,15 +2114,15 @@ Crew
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1681-1"><a href="aed-bivar.html#cb1681-1"></a><span class="co"># note que não vimos isso antes, tb2, neste caso é um array, que um objeto que pode ter múltiplas dimensões, por isso as duas vírgulas, porque tem 3 dimensoes</span></span></code></pre></div>
+<div class="sourceCode" id="cb1687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1687-1"><a href="aed-bivar.html#cb1687-1"></a><span class="co"># note que não vimos isso antes, tb2, neste caso é um array, que um objeto que pode ter múltiplas dimensões, por isso as duas vírgulas, porque tem 3 dimensoes</span></span></code></pre></div>
 </div>
 <div id="variável-numérica-vs.-fator" class="section level2">
 <h2><span class="header-section-number">13.3</span> Variável numérica vs. fator</h2>
 <p>A função <code>tapply()</code> faz uso de uma função sobre sobre um vetor numérico para cada categoria de um fator.
 A função <code>aggregate()</code> faz o mesmo, mas permite múltiplos fatores e retorna um <code>data.frame</code>.</p>
-<div class="sourceCode" id="cb1682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1682-1"><a href="aed-bivar.html#cb1682-1"></a><span class="co">## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores</span></span>
-<span id="cb1682-2"><a href="aed-bivar.html#cb1682-2"></a>?tapply <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb1683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1683-1"><a href="aed-bivar.html#cb1683-1"></a><span class="kw">head</span>(avesc) <span class="co"># se nao tem isso, importe novamente o arquivo aves_cerrado</span></span></code></pre></div>
+<div class="sourceCode" id="cb1688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1688-1"><a href="aed-bivar.html#cb1688-1"></a><span class="co">## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores</span></span>
+<span id="cb1688-2"><a href="aed-bivar.html#cb1688-2"></a>?tapply <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb1689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1689-1"><a href="aed-bivar.html#cb1689-1"></a><span class="kw">head</span>(avesc) <span class="co"># se nao tem isso, importe novamente o arquivo aves_cerrado</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2246,28 +2247,28 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1684-1"><a href="aed-bivar.html#cb1684-1"></a><span class="co"># número de individuos de carcara por fisionomia</span></span>
-<span id="cb1684-2"><a href="aed-bivar.html#cb1684-2"></a><span class="kw">tapply</span>(avesc<span class="op">$</span>carcara, avesc<span class="op">$</span>fisionomia, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb1690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1690-1"><a href="aed-bivar.html#cb1690-1"></a><span class="co"># número de individuos de carcara por fisionomia</span></span>
+<span id="cb1690-2"><a href="aed-bivar.html#cb1690-2"></a><span class="kw">tapply</span>(avesc<span class="op">$</span>carcara, avesc<span class="op">$</span>fisionomia, sum)</span></code></pre></div>
 <pre><code>##  CC  ce  Ce  CL 
 ## 212  14 291  NA</code></pre>
-<div class="sourceCode" id="cb1686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1686-1"><a href="aed-bivar.html#cb1686-1"></a><span class="co"># numero de individuos de urubo por fisionomia</span></span>
-<span id="cb1686-2"><a href="aed-bivar.html#cb1686-2"></a><span class="kw">tapply</span>(avesc<span class="op">$</span>urubu, avesc<span class="op">$</span>fisionomia, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb1692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1692-1"><a href="aed-bivar.html#cb1692-1"></a><span class="co"># numero de individuos de urubo por fisionomia</span></span>
+<span id="cb1692-2"><a href="aed-bivar.html#cb1692-2"></a><span class="kw">tapply</span>(avesc<span class="op">$</span>urubu, avesc<span class="op">$</span>fisionomia, sum)</span></code></pre></div>
 <pre><code>##  CC  ce  Ce  CL 
 ## 299  13  NA 298</code></pre>
-<div class="sourceCode" id="cb1688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1688-1"><a href="aed-bivar.html#cb1688-1"></a><span class="co"># numero médio de seriemas por localidade+fisionomia</span></span>
-<span id="cb1688-2"><a href="aed-bivar.html#cb1688-2"></a><span class="kw">tapply</span>(avesc<span class="op">$</span>seriema, avesc<span class="op">$</span>fisionomia, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb1694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1694-1"><a href="aed-bivar.html#cb1694-1"></a><span class="co"># numero médio de seriemas por localidade+fisionomia</span></span>
+<span id="cb1694-2"><a href="aed-bivar.html#cb1694-2"></a><span class="kw">tapply</span>(avesc<span class="op">$</span>seriema, avesc<span class="op">$</span>fisionomia, mean)</span></code></pre></div>
 <pre><code>##  CC  ce  Ce  CL 
 ##  NA 4.0  NA 5.6</code></pre>
-<div class="sourceCode" id="cb1690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1690-1"><a href="aed-bivar.html#cb1690-1"></a><span class="co">## &quot;Tabelas dinamicas&quot;: funcao aggregate</span></span>
-<span id="cb1690-2"><a href="aed-bivar.html#cb1690-2"></a><span class="co">## Criar data.frame com altura media dos fustes por especie e por local</span></span></code></pre></div>
-<div class="sourceCode" id="cb1691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1691-1"><a href="aed-bivar.html#cb1691-1"></a>?aggregate <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb1692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1692-1"><a href="aed-bivar.html#cb1692-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1696-1"><a href="aed-bivar.html#cb1696-1"></a><span class="co">## &quot;Tabelas dinamicas&quot;: funcao aggregate</span></span>
+<span id="cb1696-2"><a href="aed-bivar.html#cb1696-2"></a><span class="co">## Criar data.frame com altura media dos fustes por especie e por local</span></span></code></pre></div>
+<div class="sourceCode" id="cb1697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1697-1"><a href="aed-bivar.html#cb1697-1"></a>?aggregate <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb1698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1698-1"><a href="aed-bivar.html#cb1698-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
-<div class="sourceCode" id="cb1694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1694-1"><a href="aed-bivar.html#cb1694-1"></a><span class="co"># circunferencia máxima por especie</span></span>
-<span id="cb1694-2"><a href="aed-bivar.html#cb1694-2"></a>ob1 &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>cap, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> max)</span>
-<span id="cb1694-3"><a href="aed-bivar.html#cb1694-3"></a><span class="kw">class</span>(ob1) <span class="co"># obtenho um data frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb1700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1700-1"><a href="aed-bivar.html#cb1700-1"></a><span class="co"># circunferencia máxima por especie</span></span>
+<span id="cb1700-2"><a href="aed-bivar.html#cb1700-2"></a>ob1 &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>cap, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> max)</span>
+<span id="cb1700-3"><a href="aed-bivar.html#cb1700-3"></a><span class="kw">class</span>(ob1) <span class="co"># obtenho um data frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1696-1"><a href="aed-bivar.html#cb1696-1"></a><span class="kw">head</span>(ob1)</span></code></pre></div>
+<div class="sourceCode" id="cb1702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1702-1"><a href="aed-bivar.html#cb1702-1"></a><span class="kw">head</span>(ob1)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2330,11 +2331,11 @@ Calophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1697-1"><a href="aed-bivar.html#cb1697-1"></a><span class="co"># neste caso também poderia fazer assim</span></span>
-<span id="cb1697-2"><a href="aed-bivar.html#cb1697-2"></a>ob2 &lt;-<span class="st"> </span><span class="kw">tapply</span>(caixeta<span class="op">$</span>h, caixeta<span class="op">$</span>especie, max)</span>
-<span id="cb1697-3"><a href="aed-bivar.html#cb1697-3"></a><span class="kw">class</span>(ob2) <span class="co"># mas neste caso nos temos um array (um vetor unidimensional)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1703-1"><a href="aed-bivar.html#cb1703-1"></a><span class="co"># neste caso também poderia fazer assim</span></span>
+<span id="cb1703-2"><a href="aed-bivar.html#cb1703-2"></a>ob2 &lt;-<span class="st"> </span><span class="kw">tapply</span>(caixeta<span class="op">$</span>h, caixeta<span class="op">$</span>especie, max)</span>
+<span id="cb1703-3"><a href="aed-bivar.html#cb1703-3"></a><span class="kw">class</span>(ob2) <span class="co"># mas neste caso nos temos um array (um vetor unidimensional)</span></span></code></pre></div>
 <pre><code>## [1] &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb1699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1699-1"><a href="aed-bivar.html#cb1699-1"></a>ob2[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1705-1"><a href="aed-bivar.html#cb1705-1"></a>ob2[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##    Alchornea triplinervia       Andira fraxinifolia               bombacaceae 
 ##                       140                        90                       150 
 ##        Cabralea canjerana Callophyllum brasiliensis  Calophyllum brasiliensis 
@@ -2343,9 +2344,9 @@ Calophyllum brasiliensis
 ##                        70                       100                       110 
 ##      Cryptocaria moschata 
 ##                       140</code></pre>
-<div class="sourceCode" id="cb1701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1701-1"><a href="aed-bivar.html#cb1701-1"></a><span class="co"># mas se eu quiser por localidade e por especie, preciso usar aggregate</span></span>
-<span id="cb1701-2"><a href="aed-bivar.html#cb1701-2"></a>caixeta.alt &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>h, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">local =</span> caixeta<span class="op">$</span>local, <span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> max)</span>
-<span id="cb1701-3"><a href="aed-bivar.html#cb1701-3"></a><span class="kw">head</span>(caixeta.alt)</span></code></pre></div>
+<div class="sourceCode" id="cb1707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1707-1"><a href="aed-bivar.html#cb1707-1"></a><span class="co"># mas se eu quiser por localidade e por especie, preciso usar aggregate</span></span>
+<span id="cb1707-2"><a href="aed-bivar.html#cb1707-2"></a>caixeta.alt &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>h, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">local =</span> caixeta<span class="op">$</span>local, <span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> max)</span>
+<span id="cb1707-3"><a href="aed-bivar.html#cb1707-3"></a><span class="kw">head</span>(caixeta.alt)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2429,14 +2430,14 @@ Callophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1702-1"><a href="aed-bivar.html#cb1702-1"></a><span class="co">## Vamos calcular a area basal (soma da area de todo os fustes)</span></span>
-<span id="cb1702-2"><a href="aed-bivar.html#cb1702-2"></a><span class="co">## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:</span></span>
-<span id="cb1702-3"><a href="aed-bivar.html#cb1702-3"></a>caixeta<span class="op">$</span>ab &lt;-<span class="st"> </span>caixeta<span class="op">$</span>cap<span class="op">^</span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span><span class="dv">4</span> <span class="op">*</span><span class="st"> </span>pi</span>
-<span id="cb1702-4"><a href="aed-bivar.html#cb1702-4"></a><span class="co">## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes</span></span>
-<span id="cb1702-5"><a href="aed-bivar.html#cb1702-5"></a>caixeta<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>ab, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">local =</span> caixeta<span class="op">$</span>local, <span class="dt">parcela =</span> caixeta<span class="op">$</span>parcela, <span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> sum)</span>
-<span id="cb1702-6"><a href="aed-bivar.html#cb1702-6"></a><span class="kw">class</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1708-1"><a href="aed-bivar.html#cb1708-1"></a><span class="co">## Vamos calcular a area basal (soma da area de todo os fustes)</span></span>
+<span id="cb1708-2"><a href="aed-bivar.html#cb1708-2"></a><span class="co">## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:</span></span>
+<span id="cb1708-3"><a href="aed-bivar.html#cb1708-3"></a>caixeta<span class="op">$</span>ab &lt;-<span class="st"> </span>caixeta<span class="op">$</span>cap<span class="op">^</span><span class="dv">2</span> <span class="op">/</span><span class="st"> </span><span class="dv">4</span> <span class="op">*</span><span class="st"> </span>pi</span>
+<span id="cb1708-4"><a href="aed-bivar.html#cb1708-4"></a><span class="co">## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes</span></span>
+<span id="cb1708-5"><a href="aed-bivar.html#cb1708-5"></a>caixeta<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">aggregate</span>(caixeta<span class="op">$</span>ab, <span class="dt">by =</span> <span class="kw">list</span>(<span class="dt">local =</span> caixeta<span class="op">$</span>local, <span class="dt">parcela =</span> caixeta<span class="op">$</span>parcela, <span class="dt">especie =</span> caixeta<span class="op">$</span>especie), <span class="dt">FUN =</span> sum)</span>
+<span id="cb1708-6"><a href="aed-bivar.html#cb1708-6"></a><span class="kw">class</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1704-1"><a href="aed-bivar.html#cb1704-1"></a><span class="kw">head</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1710-1"><a href="aed-bivar.html#cb1710-1"></a><span class="kw">head</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2551,17 +2552,17 @@ Qual a colinearidade dos meus dados?</p>
 </div>
 <p>Para entender a razão e a importância dessas perguntas, veja a definição na <a href="https://en.wikipedia.org/wiki/Multicollinearity">WikiPedia</a> sobre o efeito de colinearidade em regressões múltiplas.</p>
 <p>A função <code>pairs()</code> mostra as correlações das variáveis par a par de maneira gráfica, que podem ser estimadas por meio da função <code>cor()</code>.</p>
-<div class="sourceCode" id="cb1705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1705-1"><a href="aed-bivar.html#cb1705-1"></a><span class="co">## Exemplos de Graficos bivariados</span></span>
-<span id="cb1705-2"><a href="aed-bivar.html#cb1705-2"></a><span class="co">## boxplot (já vimos o que isso significa)</span></span>
-<span id="cb1705-3"><a href="aed-bivar.html#cb1705-3"></a><span class="co"># mostra a variacao do avistamento de urubus nas diferentes fisionomias</span></span>
-<span id="cb1705-4"><a href="aed-bivar.html#cb1705-4"></a><span class="kw">boxplot</span>(cap <span class="op">~</span><span class="st"> </span>local, <span class="dt">data =</span> caixeta)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1706-1"><a href="aed-bivar.html#cb1706-1"></a><span class="co"># ou poderia escrever assim</span></span>
-<span id="cb1706-2"><a href="aed-bivar.html#cb1706-2"></a><span class="kw">boxplot</span>(caixeta<span class="op">$</span>cap <span class="op">~</span><span class="st"> </span>caixeta<span class="op">$</span>local)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-2.png" width="672" /></p>
-<div class="sourceCode" id="cb1707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1707-1"><a href="aed-bivar.html#cb1707-1"></a><span class="co"># note o valor extremo em jureia</span></span>
-<span id="cb1707-2"><a href="aed-bivar.html#cb1707-2"></a>vl &lt;-<span class="st"> </span>caixeta<span class="op">$</span>local <span class="op">==</span><span class="st"> &quot;jureia&quot;</span> <span class="op">&amp;</span><span class="st"> </span>caixeta<span class="op">$</span>cap <span class="op">&gt;</span><span class="st"> </span><span class="dv">1500</span></span>
-<span id="cb1707-3"><a href="aed-bivar.html#cb1707-3"></a>caixeta[vl, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1711-1"><a href="aed-bivar.html#cb1711-1"></a><span class="co">## Exemplos de Graficos bivariados</span></span>
+<span id="cb1711-2"><a href="aed-bivar.html#cb1711-2"></a><span class="co">## boxplot (já vimos o que isso significa)</span></span>
+<span id="cb1711-3"><a href="aed-bivar.html#cb1711-3"></a><span class="co"># mostra a variacao do avistamento de urubus nas diferentes fisionomias</span></span>
+<span id="cb1711-4"><a href="aed-bivar.html#cb1711-4"></a><span class="kw">boxplot</span>(cap <span class="op">~</span><span class="st"> </span>local, <span class="dt">data =</span> caixeta)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1712-1"><a href="aed-bivar.html#cb1712-1"></a><span class="co"># ou poderia escrever assim</span></span>
+<span id="cb1712-2"><a href="aed-bivar.html#cb1712-2"></a><span class="kw">boxplot</span>(caixeta<span class="op">$</span>cap <span class="op">~</span><span class="st"> </span>caixeta<span class="op">$</span>local)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1713-1"><a href="aed-bivar.html#cb1713-1"></a><span class="co"># note o valor extremo em jureia</span></span>
+<span id="cb1713-2"><a href="aed-bivar.html#cb1713-2"></a>vl &lt;-<span class="st"> </span>caixeta<span class="op">$</span>local <span class="op">==</span><span class="st"> &quot;jureia&quot;</span> <span class="op">&amp;</span><span class="st"> </span>caixeta<span class="op">$</span>cap <span class="op">&gt;</span><span class="st"> </span><span class="dv">1500</span></span>
+<span id="cb1713-3"><a href="aed-bivar.html#cb1713-3"></a>caixeta[vl, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2625,40 +2626,40 @@ Calophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1708-1"><a href="aed-bivar.html#cb1708-1"></a><span class="co">## espalhagrama</span></span>
-<span id="cb1708-2"><a href="aed-bivar.html#cb1708-2"></a><span class="kw">plot</span>(h <span class="op">~</span><span class="st"> </span>cap, <span class="dt">data =</span> caixeta) <span class="co"># usando formula e especificacao dos dados</span></span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-3.png" width="672" /></p>
-<div class="sourceCode" id="cb1709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1709-1"><a href="aed-bivar.html#cb1709-1"></a><span class="co"># apenas para jureia</span></span>
-<span id="cb1709-2"><a href="aed-bivar.html#cb1709-2"></a><span class="kw">plot</span>(h <span class="op">~</span><span class="st"> </span>cap, <span class="dt">data =</span> caixeta, <span class="dt">subset =</span> local <span class="op">==</span><span class="st"> &quot;jureia&quot;</span>)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-4.png" width="672" /></p>
-<div class="sourceCode" id="cb1710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1710-1"><a href="aed-bivar.html#cb1710-1"></a><span class="kw">plot</span>(caixeta<span class="op">$</span>h <span class="op">~</span><span class="st"> </span>caixeta<span class="op">$</span>cap) <span class="co"># usando formula sem especificacao dos dados</span></span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-5.png" width="672" /></p>
-<div class="sourceCode" id="cb1711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1711-1"><a href="aed-bivar.html#cb1711-1"></a><span class="kw">plot</span>(caixeta<span class="op">$</span>cap, caixeta<span class="op">$</span>h) <span class="co"># especificando eixos separadamente (veja inversao)</span></span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-6.png" width="672" /></p>
-<div class="sourceCode" id="cb1712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1712-1"><a href="aed-bivar.html#cb1712-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1714-1"><a href="aed-bivar.html#cb1714-1"></a><span class="co">## espalhagrama</span></span>
+<span id="cb1714-2"><a href="aed-bivar.html#cb1714-2"></a><span class="kw">plot</span>(h <span class="op">~</span><span class="st"> </span>cap, <span class="dt">data =</span> caixeta) <span class="co"># usando formula e especificacao dos dados</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1715-1"><a href="aed-bivar.html#cb1715-1"></a><span class="co"># apenas para jureia</span></span>
+<span id="cb1715-2"><a href="aed-bivar.html#cb1715-2"></a><span class="kw">plot</span>(h <span class="op">~</span><span class="st"> </span>cap, <span class="dt">data =</span> caixeta, <span class="dt">subset =</span> local <span class="op">==</span><span class="st"> &quot;jureia&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-4.png" width="672" /></p>
+<div class="sourceCode" id="cb1716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1716-1"><a href="aed-bivar.html#cb1716-1"></a><span class="kw">plot</span>(caixeta<span class="op">$</span>h <span class="op">~</span><span class="st"> </span>caixeta<span class="op">$</span>cap) <span class="co"># usando formula sem especificacao dos dados</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-5.png" width="672" /></p>
+<div class="sourceCode" id="cb1717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1717-1"><a href="aed-bivar.html#cb1717-1"></a><span class="kw">plot</span>(caixeta<span class="op">$</span>cap, caixeta<span class="op">$</span>h) <span class="co"># especificando eixos separadamente (veja inversao)</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-6.png" width="672" /></p>
+<div class="sourceCode" id="cb1718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1718-1"><a href="aed-bivar.html#cb1718-1"></a><span class="kw">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;
 ## [8] &quot;ab&quot;</code></pre>
-<div class="sourceCode" id="cb1714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1714-1"><a href="aed-bivar.html#cb1714-1"></a><span class="co"># mostra linha de tendencia da relacao</span></span>
-<span id="cb1714-2"><a href="aed-bivar.html#cb1714-2"></a><span class="kw">scatter.smooth</span>(caixeta<span class="op">$</span>cap, caixeta<span class="op">$</span>h)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-7.png" width="672" /></p>
-<div class="sourceCode" id="cb1715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1715-1"><a href="aed-bivar.html#cb1715-1"></a><span class="co">## pairs</span></span>
-<span id="cb1715-2"><a href="aed-bivar.html#cb1715-2"></a><span class="co">## Matriz de espalhagramas das medidas das arvores no dataframe iris</span></span>
-<span id="cb1715-3"><a href="aed-bivar.html#cb1715-3"></a><span class="kw">data</span>(iris)</span>
-<span id="cb1715-4"><a href="aed-bivar.html#cb1715-4"></a><span class="kw">names</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb1720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1720-1"><a href="aed-bivar.html#cb1720-1"></a><span class="co"># mostra linha de tendencia da relacao</span></span>
+<span id="cb1720-2"><a href="aed-bivar.html#cb1720-2"></a><span class="kw">scatter.smooth</span>(caixeta<span class="op">$</span>cap, caixeta<span class="op">$</span>h)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-7.png" width="672" /></p>
+<div class="sourceCode" id="cb1721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1721-1"><a href="aed-bivar.html#cb1721-1"></a><span class="co">## pairs</span></span>
+<span id="cb1721-2"><a href="aed-bivar.html#cb1721-2"></a><span class="co">## Matriz de espalhagramas das medidas das arvores no dataframe iris</span></span>
+<span id="cb1721-3"><a href="aed-bivar.html#cb1721-3"></a><span class="kw">data</span>(iris)</span>
+<span id="cb1721-4"><a href="aed-bivar.html#cb1721-4"></a><span class="kw">names</span>(iris)</span></code></pre></div>
 <pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
-<div class="sourceCode" id="cb1717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1717-1"><a href="aed-bivar.html#cb1717-1"></a><span class="kw">pairs</span>(iris) <span class="co"># todas as variaveis</span></span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-8.png" width="672" /></p>
-<div class="sourceCode" id="cb1718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1718-1"><a href="aed-bivar.html#cb1718-1"></a><span class="kw">pairs</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)], ) <span class="co"># menos a ultima coluna = especie</span></span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-9.png" width="672" /></p>
-<div class="sourceCode" id="cb1719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1719-1"><a href="aed-bivar.html#cb1719-1"></a><span class="co"># colorindo por especie</span></span>
-<span id="cb1719-2"><a href="aed-bivar.html#cb1719-2"></a><span class="kw">pairs</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)], <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="kw">unclass</span>(iris<span class="op">$</span>Species)])</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-472-10.png" width="672" /></p>
-<div class="sourceCode" id="cb1720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1720-1"><a href="aed-bivar.html#cb1720-1"></a>?unclass <span class="co"># remove o atributo classe do objeto, então especies viram números</span></span></code></pre></div>
-<div class="sourceCode" id="cb1721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1721-1"><a href="aed-bivar.html#cb1721-1"></a><span class="co"># poderia fazer assim, tendo em vista que iris$Species é um fator:</span></span>
-<span id="cb1721-2"><a href="aed-bivar.html#cb1721-2"></a><span class="kw">pairs</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)], <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="kw">as.numeric</span>(iris<span class="op">$</span>Species)])</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1722-1"><a href="aed-bivar.html#cb1722-1"></a><span class="co">## Essa figura é basicamente a expressao grafica da matriz de correlações entre todas as variáveis:</span></span>
-<span id="cb1722-2"><a href="aed-bivar.html#cb1722-2"></a><span class="kw">cor</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)])</span></code></pre></div>
+<div class="sourceCode" id="cb1723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1723-1"><a href="aed-bivar.html#cb1723-1"></a><span class="kw">pairs</span>(iris) <span class="co"># todas as variaveis</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-8.png" width="672" /></p>
+<div class="sourceCode" id="cb1724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1724-1"><a href="aed-bivar.html#cb1724-1"></a><span class="kw">pairs</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)], ) <span class="co"># menos a ultima coluna = especie</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-9.png" width="672" /></p>
+<div class="sourceCode" id="cb1725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1725-1"><a href="aed-bivar.html#cb1725-1"></a><span class="co"># colorindo por especie</span></span>
+<span id="cb1725-2"><a href="aed-bivar.html#cb1725-2"></a><span class="kw">pairs</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)], <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="kw">unclass</span>(iris<span class="op">$</span>Species)])</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-474-10.png" width="672" /></p>
+<div class="sourceCode" id="cb1726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1726-1"><a href="aed-bivar.html#cb1726-1"></a>?unclass <span class="co"># remove o atributo classe do objeto, então especies viram números</span></span></code></pre></div>
+<div class="sourceCode" id="cb1727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1727-1"><a href="aed-bivar.html#cb1727-1"></a><span class="co"># poderia fazer assim, tendo em vista que iris$Species é um fator:</span></span>
+<span id="cb1727-2"><a href="aed-bivar.html#cb1727-2"></a><span class="kw">pairs</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)], <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="kw">as.numeric</span>(iris<span class="op">$</span>Species)])</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-476-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1728-1"><a href="aed-bivar.html#cb1728-1"></a><span class="co">## Essa figura é basicamente a expressao grafica da matriz de correlações entre todas as variáveis:</span></span>
+<span id="cb1728-2"><a href="aed-bivar.html#cb1728-2"></a><span class="kw">cor</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)])</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2749,47 +2750,47 @@ Petal.Width
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1723-1"><a href="aed-bivar.html#cb1723-1"></a><span class="co"># veja que essa matriz é simétrica e a diagonal tem valores =1, pois a correlação entre a variável e ela mesma é 100%</span></span>
-<span id="cb1723-2"><a href="aed-bivar.html#cb1723-2"></a>tbcor &lt;-<span class="st"> </span><span class="kw">cor</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)])</span>
-<span id="cb1723-3"><a href="aed-bivar.html#cb1723-3"></a><span class="co"># na diagnoal</span></span>
-<span id="cb1723-4"><a href="aed-bivar.html#cb1723-4"></a><span class="kw">diag</span>(tbcor)</span></code></pre></div>
+<div class="sourceCode" id="cb1729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1729-1"><a href="aed-bivar.html#cb1729-1"></a><span class="co"># veja que essa matriz é simétrica e a diagonal tem valores =1, pois a correlação entre a variável e ela mesma é 100%</span></span>
+<span id="cb1729-2"><a href="aed-bivar.html#cb1729-2"></a>tbcor &lt;-<span class="st"> </span><span class="kw">cor</span>(iris[, <span class="op">-</span><span class="kw">ncol</span>(iris)])</span>
+<span id="cb1729-3"><a href="aed-bivar.html#cb1729-3"></a><span class="co"># na diagnoal</span></span>
+<span id="cb1729-4"><a href="aed-bivar.html#cb1729-4"></a><span class="kw">diag</span>(tbcor)</span></code></pre></div>
 <pre><code>## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
 ##            1            1            1            1</code></pre>
-<div class="sourceCode" id="cb1725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1725-1"><a href="aed-bivar.html#cb1725-1"></a><span class="co"># acima da diagonal</span></span>
-<span id="cb1725-2"><a href="aed-bivar.html#cb1725-2"></a>vacima &lt;-<span class="st"> </span>tbcor[<span class="kw">upper.tri</span>(tbcor)]</span>
-<span id="cb1725-3"><a href="aed-bivar.html#cb1725-3"></a><span class="co"># abaixo da diagonal</span></span>
-<span id="cb1725-4"><a href="aed-bivar.html#cb1725-4"></a>vabaixo &lt;-<span class="st"> </span>tbcor[<span class="kw">lower.tri</span>(tbcor)]</span>
-<span id="cb1725-5"><a href="aed-bivar.html#cb1725-5"></a><span class="co"># entao, se é simétrica, os vetores contém os mesmos valores (a ordem não é a mesma por isso o sort)</span></span>
-<span id="cb1725-6"><a href="aed-bivar.html#cb1725-6"></a><span class="kw">sort</span>(vacima) <span class="op">==</span><span class="st"> </span><span class="kw">sort</span>(vabaixo)</span></code></pre></div>
+<div class="sourceCode" id="cb1731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1731-1"><a href="aed-bivar.html#cb1731-1"></a><span class="co"># acima da diagonal</span></span>
+<span id="cb1731-2"><a href="aed-bivar.html#cb1731-2"></a>vacima &lt;-<span class="st"> </span>tbcor[<span class="kw">upper.tri</span>(tbcor)]</span>
+<span id="cb1731-3"><a href="aed-bivar.html#cb1731-3"></a><span class="co"># abaixo da diagonal</span></span>
+<span id="cb1731-4"><a href="aed-bivar.html#cb1731-4"></a>vabaixo &lt;-<span class="st"> </span>tbcor[<span class="kw">lower.tri</span>(tbcor)]</span>
+<span id="cb1731-5"><a href="aed-bivar.html#cb1731-5"></a><span class="co"># entao, se é simétrica, os vetores contém os mesmos valores (a ordem não é a mesma por isso o sort)</span></span>
+<span id="cb1731-6"><a href="aed-bivar.html#cb1731-6"></a><span class="kw">sort</span>(vacima) <span class="op">==</span><span class="st"> </span><span class="kw">sort</span>(vabaixo)</span></code></pre></div>
 <pre><code>## [1] TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
 </div>
 <div id="outros-gráficos-bivariados" class="section level2">
 <h2><span class="header-section-number">13.5</span> Outros gráficos bivariados</h2>
 <p>As funções <code>xyplot()</code> e <code>bwplot()</code> são oriundas do pacote <code>lattice</code> <span class="citation">(Sarkar <a href="#ref-R-lattice" role="doc-biblioref">2020</a>)</span> e permitem visualizar rapidamente relações entre variáveis por subgrupos de forma simples e rápida.</p>
-<div class="sourceCode" id="cb1727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1727-1"><a href="aed-bivar.html#cb1727-1"></a><span class="co"># muitas funções do R interpretam formulas, que é uma forma simbólica curta para designar coisas complexas</span></span>
-<span id="cb1727-2"><a href="aed-bivar.html#cb1727-2"></a>?formula <span class="co"># leia com atenção a sessão de detalhes de como você pode especificar formulas, se ainda não fez isso, pois isso é uma forma de indicar ao R um modelo para graficar</span></span></code></pre></div>
-<div class="sourceCode" id="cb1728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1728-1"><a href="aed-bivar.html#cb1728-1"></a><span class="co"># no objeto iris</span></span>
-<span id="cb1728-2"><a href="aed-bivar.html#cb1728-2"></a><span class="kw">plot</span>(Sepal.Length <span class="op">+</span><span class="st"> </span>Sepal.Width <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">13</span>))</span>
-<span id="cb1728-3"><a href="aed-bivar.html#cb1728-3"></a><span class="kw">plot</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris, <span class="dt">add =</span> T, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb1728-4"><a href="aed-bivar.html#cb1728-4"></a><span class="kw">plot</span>(Sepal.Width <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris, <span class="dt">add =</span> T, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb1728-5"><a href="aed-bivar.html#cb1728-5"></a><span class="co"># ou seja a primeira figura é o mesmo que fazer:</span></span>
-<span id="cb1728-6"><a href="aed-bivar.html#cb1728-6"></a>tt &lt;-<span class="st"> </span>iris<span class="op">$</span>Sepal.Length <span class="op">+</span><span class="st"> </span>iris<span class="op">$</span>Sepal.Width</span>
-<span id="cb1728-7"><a href="aed-bivar.html#cb1728-7"></a><span class="kw">plot</span>(tt <span class="op">~</span><span class="st"> </span>iris<span class="op">$</span>Species, <span class="dt">add =</span> T, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-476-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1729-1"><a href="aed-bivar.html#cb1729-1"></a><span class="co"># pois neste caso estamos plotando boxplots e a distribuicao dos valores da interacao entre comprimento e largura é basicamente a soma dos valores</span></span></code></pre></div>
-<div class="sourceCode" id="cb1730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1730-1"><a href="aed-bivar.html#cb1730-1"></a><span class="co">## Graficos condicionados com o pacotec lattice</span></span>
-<span id="cb1730-2"><a href="aed-bivar.html#cb1730-2"></a><span class="kw">library</span>(<span class="st">&quot;lattice&quot;</span>) <span class="co"># carregue o pacote</span></span></code></pre></div>
-<div class="sourceCode" id="cb1731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1731-1"><a href="aed-bivar.html#cb1731-1"></a><span class="co"># qual a relacao entre comprimento de sepalas e comprimento de petalas por especie?</span></span>
-<span id="cb1731-2"><a href="aed-bivar.html#cb1731-2"></a>?xyplot <span class="co"># veja o help dessa funcao</span></span></code></pre></div>
-<div class="sourceCode" id="cb1732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1732-1"><a href="aed-bivar.html#cb1732-1"></a><span class="kw">xyplot</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Petal.Length <span class="op">|</span><span class="st"> </span>Species, <span class="dt">data =</span> iris)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-479-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1733-1"><a href="aed-bivar.html#cb1733-1"></a><span class="co"># ou mais complexo. Qual a relação entre as quatro variaveis em iris, por especie?</span></span>
-<span id="cb1733-2"><a href="aed-bivar.html#cb1733-2"></a><span class="kw">xyplot</span>(Sepal.Length <span class="op">+</span><span class="st"> </span>Sepal.Width <span class="op">~</span><span class="st"> </span>Petal.Length <span class="op">+</span><span class="st"> </span>Petal.Width <span class="op">|</span><span class="st"> </span>Species, <span class="dt">data =</span> iris, <span class="dt">scales =</span> <span class="st">&quot;sliced&quot;</span>, <span class="dt">auto.key =</span> T)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-479-2.png" width="672" /></p>
-<div class="sourceCode" id="cb1734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1734-1"><a href="aed-bivar.html#cb1734-1"></a><span class="co"># note que neste caso as correlacoes estao individualizadas por espécie e que as cores representam as relações das variáveis par par</span></span></code></pre></div>
-<div class="sourceCode" id="cb1735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1735-1"><a href="aed-bivar.html#cb1735-1"></a>?bwplot <span class="co"># para multiplos boxplots</span></span></code></pre></div>
-<div class="sourceCode" id="cb1736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1736-1"><a href="aed-bivar.html#cb1736-1"></a><span class="co">## um data.frame com as duas especies mais abundantes do caixetal</span></span>
-<span id="cb1736-2"><a href="aed-bivar.html#cb1736-2"></a><span class="kw">head</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1733-1"><a href="aed-bivar.html#cb1733-1"></a><span class="co"># muitas funções do R interpretam formulas, que é uma forma simbólica curta para designar coisas complexas</span></span>
+<span id="cb1733-2"><a href="aed-bivar.html#cb1733-2"></a>?formula <span class="co"># leia com atenção a sessão de detalhes de como você pode especificar formulas, se ainda não fez isso, pois isso é uma forma de indicar ao R um modelo para graficar</span></span></code></pre></div>
+<div class="sourceCode" id="cb1734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1734-1"><a href="aed-bivar.html#cb1734-1"></a><span class="co"># no objeto iris</span></span>
+<span id="cb1734-2"><a href="aed-bivar.html#cb1734-2"></a><span class="kw">plot</span>(Sepal.Length <span class="op">+</span><span class="st"> </span>Sepal.Width <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">13</span>))</span>
+<span id="cb1734-3"><a href="aed-bivar.html#cb1734-3"></a><span class="kw">plot</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris, <span class="dt">add =</span> T, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1734-4"><a href="aed-bivar.html#cb1734-4"></a><span class="kw">plot</span>(Sepal.Width <span class="op">~</span><span class="st"> </span>Species, <span class="dt">data =</span> iris, <span class="dt">add =</span> T, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1734-5"><a href="aed-bivar.html#cb1734-5"></a><span class="co"># ou seja a primeira figura é o mesmo que fazer:</span></span>
+<span id="cb1734-6"><a href="aed-bivar.html#cb1734-6"></a>tt &lt;-<span class="st"> </span>iris<span class="op">$</span>Sepal.Length <span class="op">+</span><span class="st"> </span>iris<span class="op">$</span>Sepal.Width</span>
+<span id="cb1734-7"><a href="aed-bivar.html#cb1734-7"></a><span class="kw">plot</span>(tt <span class="op">~</span><span class="st"> </span>iris<span class="op">$</span>Species, <span class="dt">add =</span> T, <span class="dt">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-478-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1735-1"><a href="aed-bivar.html#cb1735-1"></a><span class="co"># pois neste caso estamos plotando boxplots e a distribuicao dos valores da interacao entre comprimento e largura é basicamente a soma dos valores</span></span></code></pre></div>
+<div class="sourceCode" id="cb1736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1736-1"><a href="aed-bivar.html#cb1736-1"></a><span class="co">## Graficos condicionados com o pacote lattice</span></span>
+<span id="cb1736-2"><a href="aed-bivar.html#cb1736-2"></a><span class="kw">library</span>(<span class="st">&quot;lattice&quot;</span>) <span class="co"># carregue o pacote</span></span></code></pre></div>
+<div class="sourceCode" id="cb1737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1737-1"><a href="aed-bivar.html#cb1737-1"></a><span class="co"># qual a relacao entre comprimento de sepalas e comprimento de petalas por especie?</span></span>
+<span id="cb1737-2"><a href="aed-bivar.html#cb1737-2"></a>?xyplot <span class="co"># veja o help dessa funcao</span></span></code></pre></div>
+<div class="sourceCode" id="cb1738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1738-1"><a href="aed-bivar.html#cb1738-1"></a><span class="kw">xyplot</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Petal.Length <span class="op">|</span><span class="st"> </span>Species, <span class="dt">data =</span> iris)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-481-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1739-1"><a href="aed-bivar.html#cb1739-1"></a><span class="co"># ou mais complexo. Qual a relação entre as quatro variaveis em iris, por especie?</span></span>
+<span id="cb1739-2"><a href="aed-bivar.html#cb1739-2"></a><span class="kw">xyplot</span>(Sepal.Length <span class="op">+</span><span class="st"> </span>Sepal.Width <span class="op">~</span><span class="st"> </span>Petal.Length <span class="op">+</span><span class="st"> </span>Petal.Width <span class="op">|</span><span class="st"> </span>Species, <span class="dt">data =</span> iris, <span class="dt">scales =</span> <span class="st">&quot;sliced&quot;</span>, <span class="dt">auto.key =</span> T)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-481-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1740-1"><a href="aed-bivar.html#cb1740-1"></a><span class="co"># note que neste caso as correlacoes estao individualizadas por espécie e que as cores representam as relações das variáveis par par</span></span></code></pre></div>
+<div class="sourceCode" id="cb1741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1741-1"><a href="aed-bivar.html#cb1741-1"></a>?bwplot <span class="co"># para multiplos boxplots</span></span></code></pre></div>
+<div class="sourceCode" id="cb1742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1742-1"><a href="aed-bivar.html#cb1742-1"></a><span class="co">## um data.frame com as duas especies mais abundantes do caixetal</span></span>
+<span id="cb1742-2"><a href="aed-bivar.html#cb1742-2"></a><span class="kw">head</span>(caixeta)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2978,22 +2979,22 @@ Myrcia sulfiflora
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1737-1"><a href="aed-bivar.html#cb1737-1"></a>tb &lt;-<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie)</span>
-<span id="cb1737-2"><a href="aed-bivar.html#cb1737-2"></a>maisabund &lt;-<span class="st"> </span><span class="kw">names</span>(tb[<span class="kw">order</span>(tb, <span class="dt">decreasing =</span> T)][<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span>
-<span id="cb1737-3"><a href="aed-bivar.html#cb1737-3"></a>maisabund</span></code></pre></div>
+<div class="sourceCode" id="cb1743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1743-1"><a href="aed-bivar.html#cb1743-1"></a>tb &lt;-<span class="st"> </span><span class="kw">table</span>(caixeta<span class="op">$</span>especie)</span>
+<span id="cb1743-2"><a href="aed-bivar.html#cb1743-2"></a>maisabund &lt;-<span class="st"> </span><span class="kw">names</span>(tb[<span class="kw">order</span>(tb, <span class="dt">decreasing =</span> T)][<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</span>
+<span id="cb1743-3"><a href="aed-bivar.html#cb1743-3"></a>maisabund</span></code></pre></div>
 <pre><code>## [1] &quot;Tabebuia cassinoides&quot; &quot;Myrcia sulfiflora&quot;</code></pre>
-<div class="sourceCode" id="cb1739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1739-1"><a href="aed-bivar.html#cb1739-1"></a><span class="co"># filtra os dados orginais para essas especies</span></span>
-<span id="cb1739-2"><a href="aed-bivar.html#cb1739-2"></a>caixeta2 &lt;-<span class="st"> </span>caixeta[caixeta<span class="op">$</span>especie <span class="op">%in%</span><span class="st"> </span>maisabund, ]</span>
-<span id="cb1739-3"><a href="aed-bivar.html#cb1739-3"></a></span>
-<span id="cb1739-4"><a href="aed-bivar.html#cb1739-4"></a><span class="co"># distribuicao dos valores de altura por local para cada especie</span></span>
-<span id="cb1739-5"><a href="aed-bivar.html#cb1739-5"></a><span class="kw">bwplot</span>(h <span class="op">~</span><span class="st"> </span>local <span class="op">|</span><span class="st"> </span>especie, <span class="dt">data =</span> caixeta2)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-481-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1740-1"><a href="aed-bivar.html#cb1740-1"></a><span class="co"># distribuicao dos valores de cap por classes de altura, por especie</span></span>
-<span id="cb1740-2"><a href="aed-bivar.html#cb1740-2"></a><span class="kw">bwplot</span>(h <span class="op">~</span><span class="st"> </span>cap <span class="op">|</span><span class="st"> </span>especie, <span class="dt">data =</span> caixeta2)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-481-2.png" width="672" /></p>
-<div class="sourceCode" id="cb1741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1741-1"><a href="aed-bivar.html#cb1741-1"></a><span class="co"># relacao altura vs cap por especie e por local</span></span>
-<span id="cb1741-2"><a href="aed-bivar.html#cb1741-2"></a><span class="kw">xyplot</span>(h <span class="op">~</span><span class="st"> </span>cap <span class="op">|</span><span class="st"> </span>especie <span class="op">+</span><span class="st"> </span>local, <span class="dt">data =</span> caixeta2, <span class="dt">auto.key =</span> T)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-481-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1745-1"><a href="aed-bivar.html#cb1745-1"></a><span class="co"># filtra os dados orginais para essas especies</span></span>
+<span id="cb1745-2"><a href="aed-bivar.html#cb1745-2"></a>caixeta2 &lt;-<span class="st"> </span>caixeta[caixeta<span class="op">$</span>especie <span class="op">%in%</span><span class="st"> </span>maisabund, ]</span>
+<span id="cb1745-3"><a href="aed-bivar.html#cb1745-3"></a></span>
+<span id="cb1745-4"><a href="aed-bivar.html#cb1745-4"></a><span class="co"># distribuicao dos valores de altura por local para cada especie</span></span>
+<span id="cb1745-5"><a href="aed-bivar.html#cb1745-5"></a><span class="kw">bwplot</span>(h <span class="op">~</span><span class="st"> </span>local <span class="op">|</span><span class="st"> </span>especie, <span class="dt">data =</span> caixeta2)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-483-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1746-1"><a href="aed-bivar.html#cb1746-1"></a><span class="co"># distribuicao dos valores de cap por classes de altura, por especie</span></span>
+<span id="cb1746-2"><a href="aed-bivar.html#cb1746-2"></a><span class="kw">bwplot</span>(h <span class="op">~</span><span class="st"> </span>cap <span class="op">|</span><span class="st"> </span>especie, <span class="dt">data =</span> caixeta2)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-483-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1747-1"><a href="aed-bivar.html#cb1747-1"></a><span class="co"># relacao altura vs cap por especie e por local</span></span>
+<span id="cb1747-2"><a href="aed-bivar.html#cb1747-2"></a><span class="kw">xyplot</span>(h <span class="op">~</span><span class="st"> </span>cap <span class="op">|</span><span class="st"> </span>especie <span class="op">+</span><span class="st"> </span>local, <span class="dt">data =</span> caixeta2, <span class="dt">auto.key =</span> T)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-483-3.png" width="672" /></p>
 
 </div>
 </div>

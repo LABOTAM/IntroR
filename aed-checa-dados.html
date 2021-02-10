@@ -146,6 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="0.0.1" data-path="index.html"><a href="index.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i><b>0.0.1</b> Baixe os pacotes abaixo</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
@@ -167,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-base-e-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#base-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
@@ -482,14 +483,14 @@ Já vimos como utilizar essas funções na parte I deste livro.</p>
 </ul>
 </div>
 <p>Vamos começar importando os dados ao R:</p>
-<div class="sourceCode" id="cb1449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1449-1"><a href="aed-checa-dados.html#cb1449-1"></a><span class="co">## Lendo a planilha com read.table</span></span>
-<span id="cb1449-2"><a href="aed-checa-dados.html#cb1449-2"></a>avesc &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;aves_cerrado.csv&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>, <span class="dt">header =</span> T, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">as.is =</span> T, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1455-1"><a href="aed-checa-dados.html#cb1455-1"></a><span class="co">## Lendo a planilha com read.table</span></span>
+<span id="cb1455-2"><a href="aed-checa-dados.html#cb1455-2"></a>avesc &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;aves_cerrado.csv&quot;</span>, <span class="dt">row.names =</span> <span class="dv">1</span>, <span class="dt">header =</span> T, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">as.is =</span> T, <span class="dt">na.strings =</span> <span class="kw">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
 <p>Repare no argumento <code>na.strings</code> da função <code>read.table()</code>.
 Ele é importante na importação de dados pois garante a codificação de valores ausentes usando a constante lógica <code>NA</code> do R.
 Se você não definir isso, o padrão é reconhecer apenas células que tenham o texto <strong>NA</strong> como valor faltante.
 Veja também o uso do argumento <code>as.is = TRUE</code>, que indica que não se deve converter colunas de texto em fatores (ou você pode usar o argumento <code>stringsAsFactors</code> para isso; este mesmo argumento é utilizado também na função <code>data.frame()</code>).
 Vamos ver as primeiras 10 linhas do objeto <code>avesc</code>:</p>
-<div class="sourceCode" id="cb1450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1450-1"><a href="aed-checa-dados.html#cb1450-1"></a><span class="kw">head</span>(avesc, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1456-1"><a href="aed-checa-dados.html#cb1456-1"></a><span class="kw">head</span>(avesc, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -683,12 +684,12 @@ Ce
 </tbody>
 </table>
 <p>Vamos criar uma cópia para usarmos depois.</p>
-<div class="sourceCode" id="cb1451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1451-1"><a href="aed-checa-dados.html#cb1451-1"></a>aves2 &lt;-<span class="st"> </span>avesc</span></code></pre></div>
+<div class="sourceCode" id="cb1457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1457-1"><a href="aed-checa-dados.html#cb1457-1"></a>aves2 &lt;-<span class="st"> </span>avesc</span></code></pre></div>
 <p>É sempre bom verificar se os dados foram importados corretamente.
 É sempre um bom procedimento checarmos as dimensões do objeto com a função <code>dim()</code>, primeiras e últimas linhas e colunas do objeto com funções <code>head()</code> e <code>tail()</code> respectivamente</p>
-<div class="sourceCode" id="cb1452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1452-1"><a href="aed-checa-dados.html#cb1452-1"></a><span class="kw">dim</span>(avesc) <span class="co"># a dimensao do objeto (linhas e colunas)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1458-1"><a href="aed-checa-dados.html#cb1458-1"></a><span class="kw">dim</span>(avesc) <span class="co"># a dimensao do objeto (linhas e colunas)</span></span></code></pre></div>
 <pre><code>## [1] 60  4</code></pre>
-<div class="sourceCode" id="cb1454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1454-1"><a href="aed-checa-dados.html#cb1454-1"></a><span class="kw">head</span>(avesc, <span class="dv">3</span>) <span class="co"># a cabeca do objeto (tres primeiras linhas)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1460-1"><a href="aed-checa-dados.html#cb1460-1"></a><span class="kw">head</span>(avesc, <span class="dv">3</span>) <span class="co"># a cabeca do objeto (tres primeiras linhas)</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -762,7 +763,7 @@ Ce
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1455-1"><a href="aed-checa-dados.html#cb1455-1"></a><span class="kw">tail</span>(avesc, <span class="dv">3</span>) <span class="co"># a cauda do objeto (tres ultimas linhas)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1461-1"><a href="aed-checa-dados.html#cb1461-1"></a><span class="kw">tail</span>(avesc, <span class="dv">3</span>) <span class="co"># a cauda do objeto (tres ultimas linhas)</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -836,7 +837,7 @@ CL
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1456-1"><a href="aed-checa-dados.html#cb1456-1"></a>avesc[<span class="kw">nrow</span>(avesc), ] <span class="co"># ultima linha</span></span></code></pre></div>
+<div class="sourceCode" id="cb1462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1462-1"><a href="aed-checa-dados.html#cb1462-1"></a>avesc[<span class="kw">nrow</span>(avesc), ] <span class="co"># ultima linha</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -878,8 +879,8 @@ CL
 </table>
 <p>Parece que está tudo certo!
 Vamos checar a estrutura do objeto:</p>
-<div class="sourceCode" id="cb1457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1457-1"><a href="aed-checa-dados.html#cb1457-1"></a><span class="co"># mostra a estrutura do data.frame</span></span>
-<span id="cb1457-2"><a href="aed-checa-dados.html#cb1457-2"></a><span class="kw">str</span>(avesc)</span></code></pre></div>
+<div class="sourceCode" id="cb1463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1463-1"><a href="aed-checa-dados.html#cb1463-1"></a><span class="co"># mostra a estrutura do data.frame</span></span>
+<span id="cb1463-2"><a href="aed-checa-dados.html#cb1463-2"></a><span class="kw">str</span>(avesc)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    60 obs. of  4 variables:
 ##  $ fisionomia: chr  &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; ...
 ##  $ urubu     : int  5 7 5 3 4 NA 6 4 2 5 ...
@@ -887,8 +888,8 @@ Vamos checar a estrutura do objeto:</p>
 ##  $ seriema   : int  6 6 4 5 4 NA 4 10 6 7 ...</code></pre>
 <p>Reparem que há uma variável de texto (<code>chr</code>) e três variáveis de números inteiros (<code>int</code>).
 Próximo passo é sempre checar um sumário estatístico das variáveis presentes no objeto usando a função <code>summary()</code>:</p>
-<div class="sourceCode" id="cb1459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1459-1"><a href="aed-checa-dados.html#cb1459-1"></a><span class="co"># mostra um resumo da variacao nas colunas</span></span>
-<span id="cb1459-2"><a href="aed-checa-dados.html#cb1459-2"></a><span class="kw">summary</span>(avesc)</span></code></pre></div>
+<div class="sourceCode" id="cb1465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1465-1"><a href="aed-checa-dados.html#cb1465-1"></a><span class="co"># mostra um resumo da variacao nas colunas</span></span>
+<span id="cb1465-2"><a href="aed-checa-dados.html#cb1465-2"></a><span class="kw">summary</span>(avesc)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1033,16 +1034,16 @@ Ou seja, o que significam valores ausentes no seu conjunto de dados?</p>
 </div>
 <p>Podemos utilizar a função <code>is.na()</code> para encontrar a constante lógica <code>NA</code>, ou seja, a constante que indica valores ausentes (reveja o uso da função <code>is.na()</code> na seção <a href="vetores.html#filtro-dados-ausentes">2.6.3</a>).
 Vejam o <code>?</code> da constante lógica <code>NA</code> para entender o significado dela no R:</p>
-<div class="sourceCode" id="cb1460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1460-1"><a href="aed-checa-dados.html#cb1460-1"></a>?<span class="ot">NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb1466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1466-1"><a href="aed-checa-dados.html#cb1466-1"></a>?<span class="ot">NA</span></span></code></pre></div>
 <p>Continuemos de onde paramos na seção anterior.
 Vimos que há a presença de <code>NA</code> no <code>data.frame</code> <code>avesc</code>.
 Chequemos quais registros (linhas) têm valores <code>NA</code>.
 Vamos checar primeiramanete a variável <code>avesc$urubu</code>:</p>
-<div class="sourceCode" id="cb1461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1461-1"><a href="aed-checa-dados.html#cb1461-1"></a>avesc<span class="op">$</span>urubu <span class="op">==</span><span class="st"> </span><span class="ot">NA</span> <span class="co">## erro: não retorna verdadeiro ou falso</span></span>
-<span id="cb1461-2"><a href="aed-checa-dados.html#cb1461-2"></a>avesc[avesc<span class="op">$</span>urubu <span class="op">==</span><span class="st"> </span><span class="ot">NA</span>, ] <span class="co">## também não funciona</span></span></code></pre></div>
+<div class="sourceCode" id="cb1467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1467-1"><a href="aed-checa-dados.html#cb1467-1"></a>avesc<span class="op">$</span>urubu <span class="op">==</span><span class="st"> </span><span class="ot">NA</span> <span class="co">## erro: não retorna verdadeiro ou falso</span></span>
+<span id="cb1467-2"><a href="aed-checa-dados.html#cb1467-2"></a>avesc[avesc<span class="op">$</span>urubu <span class="op">==</span><span class="st"> </span><span class="ot">NA</span>, ] <span class="co">## também não funciona</span></span></code></pre></div>
 <p>Reparem que os comandos acima, apesar de funcionarem, não respondem à nossa pergunta que é saber quais linhas possuem <code>NA</code>.
 Para isso, devemos nos valer da função <code>is.na()</code>:</p>
-<div class="sourceCode" id="cb1462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1462-1"><a href="aed-checa-dados.html#cb1462-1"></a><span class="kw">is.na</span>(avesc) <span class="co"># pergunta em todo o data frame: quem é NA?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1468-1"><a href="aed-checa-dados.html#cb1468-1"></a><span class="kw">is.na</span>(avesc) <span class="co"># pergunta em todo o data frame: quem é NA?</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2085,7 +2086,7 @@ FALSE
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1463-1"><a href="aed-checa-dados.html#cb1463-1"></a><span class="op">!</span><span class="kw">is.na</span>(avesc) <span class="co"># inverte: quem não é NA?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1469-1"><a href="aed-checa-dados.html#cb1469-1"></a><span class="op">!</span><span class="kw">is.na</span>(avesc) <span class="co"># inverte: quem não é NA?</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3128,7 +3129,7 @@ TRUE
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1464-1"><a href="aed-checa-dados.html#cb1464-1"></a>avesc[<span class="op">!</span><span class="kw">is.na</span>(avesc)]</span></code></pre></div>
+<div class="sourceCode" id="cb1470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1470-1"><a href="aed-checa-dados.html#cb1470-1"></a>avesc[<span class="op">!</span><span class="kw">is.na</span>(avesc)]</span></code></pre></div>
 <pre><code>##   [1] &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot;
 ##  [16] &quot;Ce&quot; &quot;Ce&quot; &quot;ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot;
 ##  [31] &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot;
@@ -3151,36 +3152,36 @@ Checamos qual é o tamanho total de valores presentes no objeto <code>avesc</cod
 Temos então um número total de 240 valores possíveis em <code>avesc</code>.
 E comparamos essa valor com o número de valores não faltantes em <code>avesc</code> através da expressão <code>length(avesc[!is.na(avesc)])</code>, que retorna 236.
 Portanto, se não houver valores faltantes, a primeira expressão abaixo deve retornar verdadeiro (<code>TRUE</code>), e falso (<code>FALSE</code>) se houver valores faltantes:</p>
-<div class="sourceCode" id="cb1466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1466-1"><a href="aed-checa-dados.html#cb1466-1"></a>(<span class="kw">nrow</span>(avesc) <span class="op">*</span><span class="st"> </span><span class="kw">ncol</span>(avesc)) <span class="op">==</span><span class="st"> </span><span class="kw">length</span>(avesc[<span class="op">!</span><span class="kw">is.na</span>(avesc)])</span></code></pre></div>
+<div class="sourceCode" id="cb1472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1472-1"><a href="aed-checa-dados.html#cb1472-1"></a>(<span class="kw">nrow</span>(avesc) <span class="op">*</span><span class="st"> </span><span class="kw">ncol</span>(avesc)) <span class="op">==</span><span class="st"> </span><span class="kw">length</span>(avesc[<span class="op">!</span><span class="kw">is.na</span>(avesc)])</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Então quantos valores faltantes existem em nossos dados?</p>
-<div class="sourceCode" id="cb1468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1468-1"><a href="aed-checa-dados.html#cb1468-1"></a><span class="co"># ou então, o número de valores NA no data.frame é de:</span></span>
-<span id="cb1468-2"><a href="aed-checa-dados.html#cb1468-2"></a>(<span class="kw">nrow</span>(avesc) <span class="op">*</span><span class="st"> </span><span class="kw">ncol</span>(avesc)) <span class="op">-</span><span class="st"> </span><span class="kw">length</span>(avesc[<span class="op">!</span><span class="kw">is.na</span>(avesc)])</span></code></pre></div>
+<div class="sourceCode" id="cb1474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1474-1"><a href="aed-checa-dados.html#cb1474-1"></a><span class="co"># ou então, o número de valores NA no data.frame é de:</span></span>
+<span id="cb1474-2"><a href="aed-checa-dados.html#cb1474-2"></a>(<span class="kw">nrow</span>(avesc) <span class="op">*</span><span class="st"> </span><span class="kw">ncol</span>(avesc)) <span class="op">-</span><span class="st"> </span><span class="kw">length</span>(avesc[<span class="op">!</span><span class="kw">is.na</span>(avesc)])</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>O procedimento adotado acima pode ser difícil de entender.
 Fazer essa pergunta por colunas torna o entendimento mais fácil:</p>
-<div class="sourceCode" id="cb1470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1470-1"><a href="aed-checa-dados.html#cb1470-1"></a><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu) <span class="co"># quais são NA, vetor lógico</span></span></code></pre></div>
+<div class="sourceCode" id="cb1476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1476-1"><a href="aed-checa-dados.html#cb1476-1"></a><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu) <span class="co"># quais são NA, vetor lógico</span></span></code></pre></div>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb1472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1472-1"><a href="aed-checa-dados.html#cb1472-1"></a><span class="co"># mesmo que</span></span>
-<span id="cb1472-2"><a href="aed-checa-dados.html#cb1472-2"></a><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu) <span class="op">==</span><span class="st"> </span>T</span></code></pre></div>
+<div class="sourceCode" id="cb1478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1478-1"><a href="aed-checa-dados.html#cb1478-1"></a><span class="co"># mesmo que</span></span>
+<span id="cb1478-2"><a href="aed-checa-dados.html#cb1478-2"></a><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu) <span class="op">==</span><span class="st"> </span>T</span></code></pre></div>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb1474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1474-1"><a href="aed-checa-dados.html#cb1474-1"></a><span class="co"># e o contrário é (quem não é NA)</span></span>
-<span id="cb1474-2"><a href="aed-checa-dados.html#cb1474-2"></a><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu) <span class="op">==</span><span class="st"> </span>F</span></code></pre></div>
+<div class="sourceCode" id="cb1480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1480-1"><a href="aed-checa-dados.html#cb1480-1"></a><span class="co"># e o contrário é (quem não é NA)</span></span>
+<span id="cb1480-2"><a href="aed-checa-dados.html#cb1480-2"></a><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu) <span class="op">==</span><span class="st"> </span>F</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [37]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb1476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1476-1"><a href="aed-checa-dados.html#cb1476-1"></a><span class="co"># ou simplesmente</span></span>
-<span id="cb1476-2"><a href="aed-checa-dados.html#cb1476-2"></a><span class="op">!</span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)</span></code></pre></div>
+<div class="sourceCode" id="cb1482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1482-1"><a href="aed-checa-dados.html#cb1482-1"></a><span class="co"># ou simplesmente</span></span>
+<span id="cb1482-2"><a href="aed-checa-dados.html#cb1482-2"></a><span class="op">!</span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
@@ -3188,19 +3189,19 @@ Fazer essa pergunta por colunas torna o entendimento mais fácil:</p>
 ## [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
 <p>Vetores lógicos <code>TRUE</code> e <code>FALSE</code> podem ser somados. <code>TRUE</code> corresponde a 1, e <code>FALSE</code> a 0.
 Usando o resultado de <code>is.na(avesc$urubu)</code> (ou qualquer outra variável de <code>avesc</code>) junto à função <code>sum()</code>, teremos então o número de valores faltantes na variável escolhida:</p>
-<div class="sourceCode" id="cb1478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1478-1"><a href="aed-checa-dados.html#cb1478-1"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)) <span class="co"># quantos sao?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1484-1"><a href="aed-checa-dados.html#cb1484-1"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)) <span class="co"># quantos sao?</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb1480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1480-1"><a href="aed-checa-dados.html#cb1480-1"></a><span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)) <span class="co"># quantos não são?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1486-1"><a href="aed-checa-dados.html#cb1486-1"></a><span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)) <span class="co"># quantos não são?</span></span></code></pre></div>
 <pre><code>## [1] 59</code></pre>
-<div class="sourceCode" id="cb1482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1482-1"><a href="aed-checa-dados.html#cb1482-1"></a><span class="co"># e, isso é verdadeiro, né?</span></span>
-<span id="cb1482-2"><a href="aed-checa-dados.html#cb1482-2"></a>(<span class="kw">sum</span>(<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)) <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu))) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(avesc)</span></code></pre></div>
+<div class="sourceCode" id="cb1488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1488-1"><a href="aed-checa-dados.html#cb1488-1"></a><span class="co"># e, isso é verdadeiro, né?</span></span>
+<span id="cb1488-2"><a href="aed-checa-dados.html#cb1488-2"></a>(<span class="kw">sum</span>(<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)) <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu))) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(avesc)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Podemos perguntar quais posições do vetor lógico oriundo de <code>is.na(avesc$urubu)</code> são correspondentes a <code>NA</code> por meio da função <code>which()</code>.
 Teremos como resposta um vetor de números inteiros indicando o número das linhas com valores <code>NA</code> na <code>urubu</code>:</p>
-<div class="sourceCode" id="cb1484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1484-1"><a href="aed-checa-dados.html#cb1484-1"></a><span class="kw">which</span>(<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)) <span class="co"># vetor com indices das posições que são NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb1490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1490-1"><a href="aed-checa-dados.html#cb1490-1"></a><span class="kw">which</span>(<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)) <span class="co"># vetor com indices das posições que são NA</span></span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p>Vamos utilizar agora este resultado para filtrar o <code>data.frame</code> <code>avesc</code> e checar que linha é essa:</p>
-<div class="sourceCode" id="cb1486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1486-1"><a href="aed-checa-dados.html#cb1486-1"></a>avesc[<span class="kw">which</span>(<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)), ] <span class="co"># mesma coisa, mas precisa de uma segunda função, então menos parcimonioso</span></span></code></pre></div>
+<div class="sourceCode" id="cb1492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1492-1"><a href="aed-checa-dados.html#cb1492-1"></a>avesc[<span class="kw">which</span>(<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)), ] <span class="co"># mesma coisa, mas precisa de uma segunda função, então menos parcimonioso</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3241,7 +3242,7 @@ NA
 </tbody>
 </table>
 <p>Podemos filtrar também sem a função <code>which()</code>, usando apenas os vetores lógicos <code>TRUE</code> e <code>FALSE</code> oriundos da função <code>is.na()</code>:</p>
-<div class="sourceCode" id="cb1487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1487-1"><a href="aed-checa-dados.html#cb1487-1"></a>avesc[<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu), ] <span class="co"># mostra as linhas completas para os registros com NA na coluna urubu</span></span></code></pre></div>
+<div class="sourceCode" id="cb1493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1493-1"><a href="aed-checa-dados.html#cb1493-1"></a>avesc[<span class="kw">is.na</span>(avesc<span class="op">$</span>urubu), ] <span class="co"># mostra as linhas completas para os registros com NA na coluna urubu</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3281,11 +3282,11 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1488-1"><a href="aed-checa-dados.html#cb1488-1"></a><span class="co">## para ver se tem NA em uma das tres colunas com nomes de aves: usamos o operador | (quer dizer &#39;ou&#39;)</span></span>
-<span id="cb1488-2"><a href="aed-checa-dados.html#cb1488-2"></a>meufiltro &lt;-<span class="st"> </span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu) <span class="op">|</span><span class="st"> </span><span class="kw">is.na</span>(avesc<span class="op">$</span>carcara) <span class="op">|</span><span class="st"> </span><span class="kw">is.na</span>(avesc<span class="op">$</span>seriema)</span>
-<span id="cb1488-3"><a href="aed-checa-dados.html#cb1488-3"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(avesc)) <span class="co"># soma dos valores NA nas tres colunas</span></span></code></pre></div>
+<div class="sourceCode" id="cb1494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1494-1"><a href="aed-checa-dados.html#cb1494-1"></a><span class="co">## para ver se tem NA em uma das tres colunas com nomes de aves: usamos o operador | (quer dizer &#39;ou&#39;)</span></span>
+<span id="cb1494-2"><a href="aed-checa-dados.html#cb1494-2"></a>meufiltro &lt;-<span class="st"> </span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu) <span class="op">|</span><span class="st"> </span><span class="kw">is.na</span>(avesc<span class="op">$</span>carcara) <span class="op">|</span><span class="st"> </span><span class="kw">is.na</span>(avesc<span class="op">$</span>seriema)</span>
+<span id="cb1494-3"><a href="aed-checa-dados.html#cb1494-3"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(avesc)) <span class="co"># soma dos valores NA nas tres colunas</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb1490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1490-1"><a href="aed-checa-dados.html#cb1490-1"></a>avesc[meufiltro, ] <span class="co"># mostra todas as linhas que tem algum valor NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb1496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1496-1"><a href="aed-checa-dados.html#cb1496-1"></a>avesc[meufiltro, ] <span class="co"># mostra todas as linhas que tem algum valor NA</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3359,26 +3360,26 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1491-1"><a href="aed-checa-dados.html#cb1491-1"></a><span class="co"># Esses valores NA, na verdade são AUSENCIA da ave (não avistamento) numa determinada localidade (linha no dado). Portanto, NA neste caso deveria ser de fato 0.</span></span>
-<span id="cb1491-2"><a href="aed-checa-dados.html#cb1491-2"></a></span>
-<span id="cb1491-3"><a href="aed-checa-dados.html#cb1491-3"></a><span class="co">## Então, vamos corrigir estes valores</span></span>
-<span id="cb1491-4"><a href="aed-checa-dados.html#cb1491-4"></a>vl &lt;-<span class="st"> </span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)</span>
-<span id="cb1491-5"><a href="aed-checa-dados.html#cb1491-5"></a><span class="co">## Podemos ver os valores de vários jeitos</span></span>
-<span id="cb1491-6"><a href="aed-checa-dados.html#cb1491-6"></a>avesc<span class="op">$</span>urubu[vl] <span class="co"># assim</span></span></code></pre></div>
+<div class="sourceCode" id="cb1497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1497-1"><a href="aed-checa-dados.html#cb1497-1"></a><span class="co"># Esses valores NA, na verdade são AUSENCIA da ave (não avistamento) numa determinada localidade (linha no dado). Portanto, NA neste caso deveria ser de fato 0.</span></span>
+<span id="cb1497-2"><a href="aed-checa-dados.html#cb1497-2"></a></span>
+<span id="cb1497-3"><a href="aed-checa-dados.html#cb1497-3"></a><span class="co">## Então, vamos corrigir estes valores</span></span>
+<span id="cb1497-4"><a href="aed-checa-dados.html#cb1497-4"></a>vl &lt;-<span class="st"> </span><span class="kw">is.na</span>(avesc<span class="op">$</span>urubu)</span>
+<span id="cb1497-5"><a href="aed-checa-dados.html#cb1497-5"></a><span class="co">## Podemos ver os valores de vários jeitos</span></span>
+<span id="cb1497-6"><a href="aed-checa-dados.html#cb1497-6"></a>avesc<span class="op">$</span>urubu[vl] <span class="co"># assim</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb1493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1493-1"><a href="aed-checa-dados.html#cb1493-1"></a>avesc[vl, <span class="st">&quot;urubu&quot;</span>] <span class="co"># ou assim</span></span></code></pre></div>
+<div class="sourceCode" id="cb1499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1499-1"><a href="aed-checa-dados.html#cb1499-1"></a>avesc[vl, <span class="st">&quot;urubu&quot;</span>] <span class="co"># ou assim</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb1495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1495-1"><a href="aed-checa-dados.html#cb1495-1"></a>avesc[, <span class="st">&quot;urubu&quot;</span>][vl] <span class="co"># ou assim...</span></span></code></pre></div>
+<div class="sourceCode" id="cb1501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1501-1"><a href="aed-checa-dados.html#cb1501-1"></a>avesc[, <span class="st">&quot;urubu&quot;</span>][vl] <span class="co"># ou assim...</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb1497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1497-1"><a href="aed-checa-dados.html#cb1497-1"></a><span class="co"># se podemos ver, podemos atribuir 0 para esse valor ausentes</span></span>
-<span id="cb1497-2"><a href="aed-checa-dados.html#cb1497-2"></a>avesc<span class="op">$</span>urubu[vl] &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb1497-3"><a href="aed-checa-dados.html#cb1497-3"></a></span>
-<span id="cb1497-4"><a href="aed-checa-dados.html#cb1497-4"></a><span class="co">## Continuando, para as outras aves, mostrando variacoes de códigos</span></span>
-<span id="cb1497-5"><a href="aed-checa-dados.html#cb1497-5"></a>avesc<span class="op">$</span>carcara[<span class="kw">is.na</span>(avesc<span class="op">$</span>carcara)] &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb1497-6"><a href="aed-checa-dados.html#cb1497-6"></a>avesc<span class="op">$</span>seriema[<span class="kw">is.na</span>(avesc<span class="op">$</span>seriema) <span class="op">==</span><span class="st"> </span>T] &lt;-<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb1497-7"><a href="aed-checa-dados.html#cb1497-7"></a></span>
-<span id="cb1497-8"><a href="aed-checa-dados.html#cb1497-8"></a><span class="co">## Verificando se substituimos corretamente</span></span>
-<span id="cb1497-9"><a href="aed-checa-dados.html#cb1497-9"></a>avesc[meufiltro, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1503-1"><a href="aed-checa-dados.html#cb1503-1"></a><span class="co"># se podemos ver, podemos atribuir 0 para esse valor ausentes</span></span>
+<span id="cb1503-2"><a href="aed-checa-dados.html#cb1503-2"></a>avesc<span class="op">$</span>urubu[vl] &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb1503-3"><a href="aed-checa-dados.html#cb1503-3"></a></span>
+<span id="cb1503-4"><a href="aed-checa-dados.html#cb1503-4"></a><span class="co">## Continuando, para as outras aves, mostrando variacoes de códigos</span></span>
+<span id="cb1503-5"><a href="aed-checa-dados.html#cb1503-5"></a>avesc<span class="op">$</span>carcara[<span class="kw">is.na</span>(avesc<span class="op">$</span>carcara)] &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb1503-6"><a href="aed-checa-dados.html#cb1503-6"></a>avesc<span class="op">$</span>seriema[<span class="kw">is.na</span>(avesc<span class="op">$</span>seriema) <span class="op">==</span><span class="st"> </span>T] &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb1503-7"><a href="aed-checa-dados.html#cb1503-7"></a></span>
+<span id="cb1503-8"><a href="aed-checa-dados.html#cb1503-8"></a><span class="co">## Verificando se substituimos corretamente</span></span>
+<span id="cb1503-9"><a href="aed-checa-dados.html#cb1503-9"></a>avesc[meufiltro, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3452,8 +3453,8 @@ CL
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1498-1"><a href="aed-checa-dados.html#cb1498-1"></a><span class="co"># poderiamos ter feito a mudanca de uma vez</span></span>
-<span id="cb1498-2"><a href="aed-checa-dados.html#cb1498-2"></a>aves2[meufiltro, ] <span class="co"># a cópia que fiz no início</span></span></code></pre></div>
+<div class="sourceCode" id="cb1504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1504-1"><a href="aed-checa-dados.html#cb1504-1"></a><span class="co"># poderiamos ter feito a mudanca de uma vez</span></span>
+<span id="cb1504-2"><a href="aed-checa-dados.html#cb1504-2"></a>aves2[meufiltro, ] <span class="co"># a cópia que fiz no início</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3527,12 +3528,12 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1499-1"><a href="aed-checa-dados.html#cb1499-1"></a>aves2[meufiltro, ][<span class="kw">is.na</span>(aves2[meufiltro, ])] <span class="co"># visualizo só os NAs</span></span></code></pre></div>
+<div class="sourceCode" id="cb1505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1505-1"><a href="aed-checa-dados.html#cb1505-1"></a>aves2[meufiltro, ][<span class="kw">is.na</span>(aves2[meufiltro, ])] <span class="co"># visualizo só os NAs</span></span></code></pre></div>
 <pre><code>## [1] NA NA NA NA</code></pre>
-<div class="sourceCode" id="cb1501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1501-1"><a href="aed-checa-dados.html#cb1501-1"></a>aves2[meufiltro, ][<span class="kw">is.na</span>(aves2[meufiltro, ])] &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># atribuo 0</span></span>
-<span id="cb1501-2"><a href="aed-checa-dados.html#cb1501-2"></a></span>
-<span id="cb1501-3"><a href="aed-checa-dados.html#cb1501-3"></a><span class="co">## Agora esses valores são zero, certo?</span></span>
-<span id="cb1501-4"><a href="aed-checa-dados.html#cb1501-4"></a>avesc[avesc<span class="op">$</span>urubu <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>avesc<span class="op">$</span>carcara <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>avesc<span class="op">$</span>seriema <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1507-1"><a href="aed-checa-dados.html#cb1507-1"></a>aves2[meufiltro, ][<span class="kw">is.na</span>(aves2[meufiltro, ])] &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># atribuo 0</span></span>
+<span id="cb1507-2"><a href="aed-checa-dados.html#cb1507-2"></a></span>
+<span id="cb1507-3"><a href="aed-checa-dados.html#cb1507-3"></a><span class="co">## Agora esses valores são zero, certo?</span></span>
+<span id="cb1507-4"><a href="aed-checa-dados.html#cb1507-4"></a>avesc[avesc<span class="op">$</span>urubu <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>avesc<span class="op">$</span>carcara <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>avesc<span class="op">$</span>seriema <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3615,19 +3616,19 @@ CL
 <p>Temos algumas funções úteis para se trabalhar com fatores.
 A primeira delas se chama <code>table()</code> e é responsável por fazer contagens de valores em fatores ou vetores de texto.
 Já as funções <code>factor()</code> e <code>as.factor()</code> permitem criar ou definir fatores.</p>
-<div class="sourceCode" id="cb1502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1502-1"><a href="aed-checa-dados.html#cb1502-1"></a><span class="co"># agora vamos ver a nossa coluna fisionomia, que não importamos como fator</span></span>
-<span id="cb1502-2"><a href="aed-checa-dados.html#cb1502-2"></a><span class="kw">str</span>(avesc)</span></code></pre></div>
+<div class="sourceCode" id="cb1508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1508-1"><a href="aed-checa-dados.html#cb1508-1"></a><span class="co"># agora vamos ver a nossa coluna fisionomia, que não importamos como fator</span></span>
+<span id="cb1508-2"><a href="aed-checa-dados.html#cb1508-2"></a><span class="kw">str</span>(avesc)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    60 obs. of  4 variables:
 ##  $ fisionomia: chr  &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; ...
 ##  $ urubu     : num  5 7 5 3 4 0 6 4 2 5 ...
 ##  $ carcara   : num  18 7 14 12 16 20 19 21 11 9 ...
 ##  $ seriema   : num  6 6 4 5 4 0 4 10 6 7 ...</code></pre>
-<div class="sourceCode" id="cb1504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1504-1"><a href="aed-checa-dados.html#cb1504-1"></a>avesc<span class="op">$</span>fisionomia</span></code></pre></div>
+<div class="sourceCode" id="cb1510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1510-1"><a href="aed-checa-dados.html#cb1510-1"></a>avesc<span class="op">$</span>fisionomia</span></code></pre></div>
 <pre><code>##  [1] &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot;
 ## [16] &quot;Ce&quot; &quot;Ce&quot; &quot;ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot;
 ## [31] &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot;
 ## [46] &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot;</code></pre>
-<div class="sourceCode" id="cb1506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1506-1"><a href="aed-checa-dados.html#cb1506-1"></a><span class="kw">class</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
+<div class="sourceCode" id="cb1512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1512-1"><a href="aed-checa-dados.html#cb1512-1"></a><span class="kw">class</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>As categorias da variável <code>avesc$fisionomia</code> significam:</p>
 <ul>
@@ -3636,7 +3637,7 @@ Já as funções <code>factor()</code> e <code>as.factor()</code> permitem criar
 <li>“Ce” = cerrado.</li>
 </ul>
 <p>Vamos tabular essa coluna e verificar quantos valores temos para cada categoria:</p>
-<div class="sourceCode" id="cb1508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1508-1"><a href="aed-checa-dados.html#cb1508-1"></a><span class="kw">table</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
+<div class="sourceCode" id="cb1514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1514-1"><a href="aed-checa-dados.html#cb1514-1"></a><span class="kw">table</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3676,11 +3677,11 @@ A falta de padronização em dados biológicos tabulados é muito frequente, e t
 Por isso, fique sempre atento à padronização e a checagem de dados durante a AED.<br />
 <!-- Busquem qualquer conjunto de dados próprios e procurem a coluna de nome científico, por exemplo. --></p>
 <p>Antes de proceder com a correção, vamos fazer uma cópia da variável <code>avesc$fisionomia</code> para fins deste exercício:</p>
-<div class="sourceCode" id="cb1509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1509-1"><a href="aed-checa-dados.html#cb1509-1"></a>fisionomia.copia &lt;-<span class="st"> </span>avesc<span class="op">$</span>fisionomia</span></code></pre></div>
+<div class="sourceCode" id="cb1515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1515-1"><a href="aed-checa-dados.html#cb1515-1"></a>fisionomia.copia &lt;-<span class="st"> </span>avesc<span class="op">$</span>fisionomia</span></code></pre></div>
 <p>Digamos que o padrão deve ser <code>Ce</code>, então vamos filtrar os valores presentes em <code>avesc</code> que não correspondem a <code>Ce</code>, isto é, o valor <code>ce</code>:</p>
-<div class="sourceCode" id="cb1510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1510-1"><a href="aed-checa-dados.html#cb1510-1"></a>vl &lt;-<span class="st"> </span>avesc<span class="op">$</span>fisionomia <span class="op">==</span><span class="st"> &quot;ce&quot;</span> <span class="co"># quem tem esse valor</span></span>
-<span id="cb1510-2"><a href="aed-checa-dados.html#cb1510-2"></a>avesc<span class="op">$</span>fisionomia[vl] &lt;-<span class="st"> &quot;Ce&quot;</span> <span class="co"># corrigindo</span></span>
-<span id="cb1510-3"><a href="aed-checa-dados.html#cb1510-3"></a><span class="kw">table</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
+<div class="sourceCode" id="cb1516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1516-1"><a href="aed-checa-dados.html#cb1516-1"></a>vl &lt;-<span class="st"> </span>avesc<span class="op">$</span>fisionomia <span class="op">==</span><span class="st"> &quot;ce&quot;</span> <span class="co"># quem tem esse valor</span></span>
+<span id="cb1516-2"><a href="aed-checa-dados.html#cb1516-2"></a>avesc<span class="op">$</span>fisionomia[vl] &lt;-<span class="st"> &quot;Ce&quot;</span> <span class="co"># corrigindo</span></span>
+<span id="cb1516-3"><a href="aed-checa-dados.html#cb1516-3"></a><span class="kw">table</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3710,13 +3711,13 @@ CL
 </tbody>
 </table>
 <p>Tendo em vista que a diferença é apenas de capitalização entre <code>ce</code> e <code>Ce</code>, poderíamos ter feito simplesmente o exposto abaixo para efeito de correção:</p>
-<div class="sourceCode" id="cb1511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1511-1"><a href="aed-checa-dados.html#cb1511-1"></a>avesc<span class="op">$</span>fisionomia &lt;-<span class="st"> </span>fisionomia.copia <span class="co"># volto ao valor original</span></span></code></pre></div>
+<div class="sourceCode" id="cb1517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1517-1"><a href="aed-checa-dados.html#cb1517-1"></a>avesc<span class="op">$</span>fisionomia &lt;-<span class="st"> </span>fisionomia.copia <span class="co"># volto ao valor original</span></span></code></pre></div>
 <p>Primeiro, usamos a cópia dos valores originais e o atribuímos aos valores modificados.
 Em seguida, mudamos a capitalização das palavras para caixa alta com a função <code>toupper()</code>.
 Em seguida, tabulamos as categorias:</p>
-<div class="sourceCode" id="cb1512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1512-1"><a href="aed-checa-dados.html#cb1512-1"></a><span class="co"># corrijo, simplesmente mudando tudo para maiúsculo:</span></span>
-<span id="cb1512-2"><a href="aed-checa-dados.html#cb1512-2"></a>avesc<span class="op">$</span>fisionomia &lt;-<span class="st"> </span><span class="kw">toupper</span>(avesc<span class="op">$</span>fisionomia)</span>
-<span id="cb1512-3"><a href="aed-checa-dados.html#cb1512-3"></a><span class="kw">table</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
+<div class="sourceCode" id="cb1518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1518-1"><a href="aed-checa-dados.html#cb1518-1"></a><span class="co"># corrijo, simplesmente mudando tudo para maiúsculo:</span></span>
+<span id="cb1518-2"><a href="aed-checa-dados.html#cb1518-2"></a>avesc<span class="op">$</span>fisionomia &lt;-<span class="st"> </span><span class="kw">toupper</span>(avesc<span class="op">$</span>fisionomia)</span>
+<span id="cb1518-3"><a href="aed-checa-dados.html#cb1518-3"></a><span class="kw">table</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3746,20 +3747,20 @@ CL
 </tbody>
 </table>
 <p>Porém, se nós tivéssemos importado os dados transformando vetores de texto como fatores, por meio dos argumentos <code>as.is = FALSE</code> OU <code>stringsAsFactors = FALSE</code>, poderíamos proceder da seguinte maneira:</p>
-<div class="sourceCode" id="cb1513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1513-1"><a href="aed-checa-dados.html#cb1513-1"></a><span class="co"># digamos no entanto, que eu tivesse importado a coluna como fator</span></span>
-<span id="cb1513-2"><a href="aed-checa-dados.html#cb1513-2"></a>avesc<span class="op">$</span>fisionomia &lt;-<span class="st"> </span><span class="kw">as.factor</span>(fisionomia.copia)</span>
-<span id="cb1513-3"><a href="aed-checa-dados.html#cb1513-3"></a><span class="kw">class</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
+<div class="sourceCode" id="cb1519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1519-1"><a href="aed-checa-dados.html#cb1519-1"></a><span class="co"># digamos no entanto, que eu tivesse importado a coluna como fator</span></span>
+<span id="cb1519-2"><a href="aed-checa-dados.html#cb1519-2"></a>avesc<span class="op">$</span>fisionomia &lt;-<span class="st"> </span><span class="kw">as.factor</span>(fisionomia.copia)</span>
+<span id="cb1519-3"><a href="aed-checa-dados.html#cb1519-3"></a><span class="kw">class</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb1515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1515-1"><a href="aed-checa-dados.html#cb1515-1"></a><span class="kw">levels</span>(avesc<span class="op">$</span>fisionomia) <span class="co"># os níveis ou categorias do fator</span></span></code></pre></div>
+<div class="sourceCode" id="cb1521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1521-1"><a href="aed-checa-dados.html#cb1521-1"></a><span class="kw">levels</span>(avesc<span class="op">$</span>fisionomia) <span class="co"># os níveis ou categorias do fator</span></span></code></pre></div>
 <pre><code>## [1] &quot;CC&quot; &quot;ce&quot; &quot;Ce&quot; &quot;CL&quot;</code></pre>
-<div class="sourceCode" id="cb1517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1517-1"><a href="aed-checa-dados.html#cb1517-1"></a><span class="co"># isso é verdadeiro, certo?:</span></span>
-<span id="cb1517-2"><a href="aed-checa-dados.html#cb1517-2"></a><span class="kw">sort</span>(<span class="kw">unique</span>(avesc<span class="op">$</span>fisionomia)) <span class="op">==</span><span class="st"> </span><span class="kw">levels</span>(<span class="kw">as.factor</span>(avesc<span class="op">$</span>fisionomia))</span></code></pre></div>
+<div class="sourceCode" id="cb1523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1523-1"><a href="aed-checa-dados.html#cb1523-1"></a><span class="co"># isso é verdadeiro, certo?:</span></span>
+<span id="cb1523-2"><a href="aed-checa-dados.html#cb1523-2"></a><span class="kw">sort</span>(<span class="kw">unique</span>(avesc<span class="op">$</span>fisionomia)) <span class="op">==</span><span class="st"> </span><span class="kw">levels</span>(<span class="kw">as.factor</span>(avesc<span class="op">$</span>fisionomia))</span></code></pre></div>
 <pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb1519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1519-1"><a href="aed-checa-dados.html#cb1519-1"></a><span class="co"># sendo um fator, para corrigir, eu precisaria apenas:</span></span>
-<span id="cb1519-2"><a href="aed-checa-dados.html#cb1519-2"></a><span class="kw">levels</span>(avesc<span class="op">$</span>fisionomia)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Ce&quot;</span></span>
-<span id="cb1519-3"><a href="aed-checa-dados.html#cb1519-3"></a><span class="kw">levels</span>(avesc<span class="op">$</span>fisionomia) <span class="co"># pronto, corrigido</span></span></code></pre></div>
+<div class="sourceCode" id="cb1525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1525-1"><a href="aed-checa-dados.html#cb1525-1"></a><span class="co"># sendo um fator, para corrigir, eu precisaria apenas:</span></span>
+<span id="cb1525-2"><a href="aed-checa-dados.html#cb1525-2"></a><span class="kw">levels</span>(avesc<span class="op">$</span>fisionomia)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;Ce&quot;</span></span>
+<span id="cb1525-3"><a href="aed-checa-dados.html#cb1525-3"></a><span class="kw">levels</span>(avesc<span class="op">$</span>fisionomia) <span class="co"># pronto, corrigido</span></span></code></pre></div>
 <pre><code>## [1] &quot;CC&quot; &quot;Ce&quot; &quot;CL&quot;</code></pre>
-<div class="sourceCode" id="cb1521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1521-1"><a href="aed-checa-dados.html#cb1521-1"></a><span class="kw">table</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
+<div class="sourceCode" id="cb1527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1527-1"><a href="aed-checa-dados.html#cb1527-1"></a><span class="kw">table</span>(avesc<span class="op">$</span>fisionomia)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3788,14 +3789,14 @@ CL
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1522-1"><a href="aed-checa-dados.html#cb1522-1"></a><span class="co">## Verificando novamente</span></span>
-<span id="cb1522-2"><a href="aed-checa-dados.html#cb1522-2"></a><span class="kw">str</span>(avesc)</span></code></pre></div>
+<div class="sourceCode" id="cb1528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1528-1"><a href="aed-checa-dados.html#cb1528-1"></a><span class="co">## Verificando novamente</span></span>
+<span id="cb1528-2"><a href="aed-checa-dados.html#cb1528-2"></a><span class="kw">str</span>(avesc)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    60 obs. of  4 variables:
 ##  $ fisionomia: Factor w/ 3 levels &quot;CC&quot;,&quot;Ce&quot;,&quot;CL&quot;: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ urubu     : num  5 7 5 3 4 0 6 4 2 5 ...
 ##  $ carcara   : num  18 7 14 12 16 20 19 21 11 9 ...
 ##  $ seriema   : num  6 6 4 5 4 0 4 10 6 7 ...</code></pre>
-<div class="sourceCode" id="cb1524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1524-1"><a href="aed-checa-dados.html#cb1524-1"></a><span class="kw">summary</span>(avesc)</span></code></pre></div>
+<div class="sourceCode" id="cb1530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1530-1"><a href="aed-checa-dados.html#cb1530-1"></a><span class="kw">summary</span>(avesc)</span></code></pre></div>
 <table>
 <thead>
 <tr>
