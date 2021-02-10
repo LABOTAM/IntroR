@@ -1,0 +1,15 @@
+citHeader("Para citar o livro `Curso básico de introdução à linguagem R` em publicações use:")
+
+citEntry(
+  entry = 'book',
+  title = 'Curso básico de introdução à linguagem R',
+  author = 'Alberto Vicentini and Ricardo Perdiz',
+  address = 'Manaus, Amazonas',
+  year = '2021',
+  url = 'https://labotam.github.io/',
+  textVersion = paste(
+    'Alberto Vicentini e Ricardo Perdiz (2021).',
+    'Curso básico de introdução à linguagem R.',
+    'Disponível em <https://labotam.github.io/>.'
+  )
+)

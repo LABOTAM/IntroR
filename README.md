@@ -23,3 +23,10 @@ em trabalho disponível em
 
 [![CC BY-SA
 4.0](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+
+# Citação
+
+Para citar o livro `Curso básico de introdução à linguagem R` em
+publicações use:
+
+    Alberto Vicentini e Ricardo Perdiz (2021). Curso básico de introdução à linguagem R. Disponível em <https://labotam.github.io/>. Acesso em DIA MÊS ANO.

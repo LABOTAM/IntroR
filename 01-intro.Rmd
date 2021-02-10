@@ -38,7 +38,7 @@ Este é o conceito mais importante para entender o R.
 Para começar, digite algumas coisas no Console do seu R ou RStudio.
 Por exemplo, digite uma fórmula matemática simples no console e o execute:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 3 + 5 + 10
 ```
 
@@ -47,7 +47,7 @@ Portanto, números são interpretados como números pelo console.
 
 Agora vamos criar um objeto simples chamado `objnum` e atribuir texto a ele:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 objum <- "vou colocar um texto dentro do meu primeiro objeto" # enter
 objum # enter
 ```
@@ -55,7 +55,7 @@ objum # enter
 Vejam que `objum` é o nome do meu primeiro objeto, e tem como conteúdo o texto que nós atribuímos a ele.
 Nós poderíamos ter chamado `objum` de qualquer coisa (sem espaços em branco):
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 banana <- "vou colocar um texto dentro do meu primeiro objeto"
 banana
 # mesma coisa né?
@@ -63,14 +63,14 @@ banana
 
 Um objeto também pode virar outro objeto. Vejamos abaixo:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 objdois <- objum
 objdois # pegou o conteúdo que eu coloquei em objum
 ```
 
 Podemos guardar resultados de contas em um objeto:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 objtres <- 3 + 5 + 10
 objtres
 ```
@@ -109,7 +109,7 @@ ls # note que não digitei os parênteses e ao digitar isso verei o script que e
 ls(sorted = FALSE) # ele mostra os objetos na ordem que foram criados
 ```
 
-## R-base e pacotes
+## R-base e pacotes {#base-pacotes}
 
 Como vimos acima, um script do tipo função é um objeto que executa um conjunto de comandos e recebe argumentos que modificam o que o script realiza. Existem dois tipos de funções:
 
@@ -325,7 +325,7 @@ Ao concatenar elementos ou ao adicionar valores em argumentos de funções, é n
 Caso contrário ... mais um erro!
 Tentem executar o código abaixo:
 
-```{r, eval = FALSE}
+```{r, error = TRUE}
 numeros <- c(1, 5, 6 7, 8)
 ```
 
@@ -366,7 +366,7 @@ obj2 <- "18"
 
 Isso não vai funcionar porque `obj2` não é um número.
 
-```{r, eval = FALSE}
+```{r, error = TRUE}
 obj2 + 1
 ```
 
@@ -376,7 +376,7 @@ Caso você insista em rodar, receberá a seguinte mensagem: `Error in obj2 + 1 :
 
 Nomes de objetos não podem ter espaço em branco e aspas são ignoradas:
 
-```{r, eval = FALSE}
+```{r, error = TRUE}
 obj 1 = "meutexto" #nao vai funcionar
 ```
 
@@ -390,7 +390,7 @@ obj1
 ```
 
 
-```{r, eval = FALSE}
+```{r, error = TRUE}
 obj"1" = "meu texto" #nao vai funcionar
 ```
 
@@ -498,61 +498,61 @@ O R é uma calculadora potente. Os exemplos abaixo mostram a informação básic
 Vamos testar os operadores abaixo.
 Execute cada operação, linha a linha:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 3 + 3
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 3 - 3
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 3 * 3
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 3 / 3
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 3^3
 ```
 
 Objetos numéricos podem ser usados nas fórmulas aritméticas:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # atribua um valor a um ou mais objetos
 obj <- 3
 obj2 <- 3
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # utilize objetos para fazer contas
 obj + obj2
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 obj - obj2
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 obj * obj2
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 obj / obj2
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 obj^obj2
 ```
 
@@ -561,7 +561,7 @@ obj^obj2
 O uso de parênteses permite construir qualquer lógica de precedência no cálculo.
 Vamos atribuir valores a três objetos e fazer operações matemáticas com eles para exemplificar:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 o1 <- 2
 o2 <- 4
 o3 <- 3
@@ -569,22 +569,22 @@ o3 <- 3
 
 Os resultados não serão os mesmos para:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 o1 * o2^o3 - 1 # =127
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 o1 * o2^(o3 - 1) # =32
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 (o1 * o2)^o3 - 1 # =511
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 (o1 * o2)^(o3 - 1) # =64
 ```
 
@@ -608,68 +608,68 @@ Veja o `?` para qualquer uma das funções abaixo e siga os links relacionados p
 
 Veremos adiante que essas funções e operações matemáticas são aplicáveis à vetores.  
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # Raiz quadrada
 sqrt(9)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # valor absoluto
 abs(-12)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 abs(-66)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 abs(66)
 ```
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # logaritmo
 log(10) # Logaritmo natural
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 log(10, base = 10) # Logbase 10
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 log10(10) # Também log de base 10
 ```
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # funções trigonométricas
 pi # é uma constante do R, um objeto chamado "pi" que tem o valor de 3.141593
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 sin(0.5 * pi) # Seno
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 cos(2 * pi) # Coseno
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 asin(1) # Arco seno (radianos)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 asin(1) / pi * 180
 ```
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # arredondamentos
 # dois valores
 a <- 3.51
@@ -677,35 +677,35 @@ b <- 3.49
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # para o valor mais alto (ceiling = teto)
 ceiling(a)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 ceiling(b)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # para o valor mais baixo (floor = chão)
 floor(a)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 floor(b)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # arredonda dependendo se casa decimal é maior ou menor que 0.5
 round(a)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 round(b)
 ```
 
@@ -726,39 +726,39 @@ Frequentemente no R, quando você realiza uma operação errada ou inválida, o 
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # um valor infinito negativo
 -5 / 0
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # um valor infinito positivo
 10 / 0
 ```
 Note que o símbolo `Inf` serve como valor:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 
 500000000000000000 / Inf
 ```
 
 Ele pode ser atribuído a um objeto:
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # e que posso atribui-lo a um objeto
 mf <- Inf
 500 / mf
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # valor inválido/inexistente
 sqrt(-1)
 ```
 
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
 # valores ausentes entram na matemática
 2 * NA
 2 * NaN
