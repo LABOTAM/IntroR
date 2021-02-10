@@ -22,3 +22,11 @@ Baseado em trabalho disponível em <https://github.com/LABOTAM/LABOTAM.github.io
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
 [cc-by-sa-image]: https://i.creativecommons.org/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+
+# Citação
+
+Para citar o livro `Curso básico de introdução à linguagem R` em publicações use:
+
+```
+Alberto Vicentini e Ricardo Perdiz (2021). Curso básico de introdução à linguagem R. Disponível em <https://labotam.github.io/>. Acesso em DIA MÊS ANO.
+```
