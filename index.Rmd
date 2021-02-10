@@ -38,7 +38,7 @@ sapply(libs, library, logical.return = T, character.only = T)
 
 ```{r build-pkg-bib, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
 knitr::write_bib(
-  c(.packages(), "readxl", "readr", "data.table", "rgdal", "taxize", "lattice"),
+  c(.packages(), "readxl", "data.table", "rgdal", "taxize", "lattice"),
   'pkg-bib.bib')
 ```
 
@@ -154,9 +154,27 @@ Ademais, ambientes de desenvolvimento integrado (do inglês *Integrated Developm
 
 Existem outras alternativas de software, tais como o [Atom](https://atom.io/) e o [Visual Studio Code](https://code.visualstudio.com/). Fique à vontade para escolher.  
 
+### Baixe os pacotes abaixo
+
+Serão necessários o uso de alguns pacotes de R (veja seção \@ref(base-pacotes) para entender o que são pacotes de R) para poder fazer uso tanto do repositório localmente quanto fazer uso das próprias aulas.
+Então, rode o comando abaixo para instalar esses pacotes em seu computador:
+
+```{r, eval = FALSE}
+install.packages(c('rmarkdown', 'bookdown', 'knitr', 'kableExtra', 'ape', 'labdsv', 'vegan', 'maps', 'readxl', 'readr', 'data.table', 'rgdal', 'taxize'))
+```
+
+Há uma lista de pacotes que serão utilizados apenas no apêndice \@ref(base-tidyverse).
+Eles não são necessários para acompanhar o curso, mas caso você chegue a este apêndice, eles serão necessários.
+Portanto, caso queira já instalá-los, execute o comando abaixo:
+
+```{r, eval =  FALSE}
+install.packages(c('ggplot2', 'dplyr', 'tibble', 'tidyr', 'purrr', 'magrittr'))
+```
+
+
 ### Baixe o repositório para seu computador {-}
 
-Acesse a [página do repositório]() contendo os códigos fontes deste livro (Fig. \@ref(fig:repo)).
+Acesse a [página do repositório](https://github.com/LABOTAM/LABOTAM.github.io) contendo os código fonte deste livro (Fig. \@ref(fig:repo)).
 
 ```{r repo, fig.cap = 'Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro.', eval = TRUE, echo = FALSE}
 knitr::include_graphics("figuras/repo.png")

@@ -265,7 +265,7 @@ plot(tt ~ iris$Species, add = T, col = "green")
 
 
 ```{r}
-## Graficos condicionados com o pacotec lattice
+## Graficos condicionados com o pacote lattice
 library("lattice") # carregue o pacote
 ```
 
