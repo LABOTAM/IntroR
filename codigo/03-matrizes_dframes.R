@@ -547,7 +547,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 
 #' 
 #' 
-#' ## Importanto e exportando dados no R
+#' ## Importando e exportando dados no R
 #' 
 #' ::: {.infobox .warning data-latex="warning"}
 #' 
