@@ -223,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
 <li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importanto-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importanto e exportando dados no R</a><ul>
+<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importando-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importando e exportando dados no R</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
 <li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
 <li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
@@ -794,17 +794,17 @@ Portanto, ao dominar a função <code>apply()</code>, você acaba por não preci
 <div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="iter-cflux.html#cb1049-1"></a><span class="co"># posso usar lapply para calcular a media desses vetores</span></span>
 <span id="cb1049-2"><a href="iter-cflux.html#cb1049-2"></a><span class="kw">lapply</span>(ml, mean) <span class="co"># note que retorna uma lista</span></span></code></pre></div>
 <pre><code>## [[1]]
-## [1] 491.48
+## [1] 427.82
 ## 
 ## [[2]]
-## [1] 43.46667
+## [1] 58.36667
 ## 
 ## [[3]]
-## [1] 1495.067</code></pre>
+## [1] 1500.389</code></pre>
 <div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="iter-cflux.html#cb1051-1"></a>lt &lt;-<span class="st"> </span><span class="kw">lapply</span>(ml, mean) <span class="co"># podemos guardar</span></span>
 <span id="cb1051-2"><a href="iter-cflux.html#cb1051-2"></a>lt &lt;-<span class="st"> </span><span class="kw">as.vector</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;numeric&quot;</span>) <span class="co"># e transformar num vetor. MODE neste caso é fundamental usar</span></span>
 <span id="cb1051-3"><a href="iter-cflux.html#cb1051-3"></a>lt</span></code></pre></div>
-<pre><code>## [1]  491.48000   43.46667 1495.06667</code></pre>
+<pre><code>## [1]  427.82000   58.36667 1500.38889</code></pre>
 </div>
 <div id="por-categoria-de-um-fator" class="section level3">
 <h3><span class="header-section-number">6.1.3</span> Por categoria de um fator</h3>

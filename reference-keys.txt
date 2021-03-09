@@ -62,7 +62,7 @@ filtrando-e-ordenando-matrizes-e-data.frames
 filtragem-de-dados
 dados-com-valores-ausentes
 ordenação-de-dados
-importanto-e-exportando-dados-no-r
+importando-e-exportando-dados-no-r
 arquivos-de-texto-simples-para-estocar-dados
 import-dados
 pacote-base-do-r
