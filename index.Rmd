@@ -123,7 +123,10 @@ Alberto é doutor em Ecologia, Evolução e Sistemática, com uma ênfase em Evo
 Ministra anualmente disciplinas ligadas ao Programa de pós-graduação em Ciências Biológicas do INPA, como **Preparação de dados para análises Estáticas - Introdução ao uso de linguagem R (BOT-89)**, **Delineamento Experimental e Amostral (BOT-90)**, e **Teoria e Prática de Sistemática Filogenética (BOT-99)**.
 É colíder do grupo de pesquisa [Ecologia e Evolução de Plantas da Amazônia](http://dgp.cnpq.br/dgp/espelhogrupo/38425) do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).  
 
-Ricardo Perdiz é doutor em Ciências Biológicas pelo INPA e foi orientado de A. Vicentini em seu doutorado.  
+Ricardo (ricardoperdiz.com) é formado em Ciências Biológicas pela Universidade Estadual de Santa Cruz (UESC), mestre em Botânica pela Universidade Estadual de Feira de Santana (UEFS) e doutor em Ciências Biológicas (Botânica) pelo INPA.  
+
+Seus principais interesses são estar e se divertir com a família, trabalhar na floresta coletando e admirando a beleza da Natureza, trabalhar no herbário e laboratório, e também adora se divertir na frente do computador analisando dados e escrevendo.
+Seu esporte favorito é o basquete e a natação, apesar de não praticar ambos há algum tempo.  
 
 
 <!-- incluir aqui a autores.Rmd - pedir ao Beto para revisar o texto XXX-->
@@ -154,7 +157,7 @@ Ademais, ambientes de desenvolvimento integrado (do inglês *Integrated Developm
 
 Existem outras alternativas de software, tais como o [Atom](https://atom.io/) e o [Visual Studio Code](https://code.visualstudio.com/). Fique à vontade para escolher.  
 
-### Baixe os pacotes abaixo
+### Baixe os pacotes abaixo {-}
 
 Serão necessários o uso de alguns pacotes de R (veja seção \@ref(base-pacotes) para entender o que são pacotes de R) para poder fazer uso tanto do repositório localmente quanto fazer uso das próprias aulas.
 Então, rode o comando abaixo para instalar esses pacotes em seu computador:

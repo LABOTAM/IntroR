@@ -1,7 +1,7 @@
 ## Descrição
 
 Este é o repositório contendo o código fonte do livro [Curso básico de
-introdução à linguagem R](https://labotam.github.io/) de Alberto
+introdução à linguagem R](https://intror.netlify.app) de Alberto
 Vicentini e Ricardo de Oliveira Perdiz.
 
 <!-- badges: start -->
@@ -14,7 +14,7 @@ online](https://github.com/LABOTAM/LABOTAM.github.io/workflows/renderbook/badge.
 
 ## Licença
 
-[Curso básico de introdução à linguagem R](https://labotam.github.io/)
+[Curso básico de introdução à linguagem R](https://intror.netlify.app)
 de Alberto Vicentini e Ricardo de Oliveira Perdiz está licenciada sob
 [Licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional
 (CC BY-SA 4.0)](http://creativecommons.org/licenses/by-sa/4.0/). Baseado
@@ -29,4 +29,4 @@ em trabalho disponível em
 Para citar o livro `Curso básico de introdução à linguagem R` em
 publicações use:
 
-    Alberto Vicentini e Ricardo Perdiz (2021). Curso básico de introdução à linguagem R. Disponível em <https://labotam.github.io/>. Acesso em DIA MÊS ANO.
+    Alberto Vicentini e Ricardo Perdiz (2021). Curso básico de introdução à linguagem R. Disponível em <https://intror.netlify.app>. Acesso em DIA MÊS ANO.
