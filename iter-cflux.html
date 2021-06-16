@@ -797,17 +797,17 @@ Portanto, ao dominar a função <code>apply()</code>, você acaba por não preci
 <div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="iter-cflux.html#cb1049-1"></a><span class="co"># posso usar lapply para calcular a media desses vetores</span></span>
 <span id="cb1049-2"><a href="iter-cflux.html#cb1049-2"></a><span class="kw">lapply</span>(ml, mean) <span class="co"># note que retorna uma lista</span></span></code></pre></div>
 <pre><code>## [[1]]
-## [1] 518.46
+## [1] 495.52
 ## 
 ## [[2]]
-## [1] 45.46667
+## [1] 51.9
 ## 
 ## [[3]]
-## [1] 1467.644</code></pre>
+## [1] 1467.667</code></pre>
 <div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="iter-cflux.html#cb1051-1"></a>lt &lt;-<span class="st"> </span><span class="kw">lapply</span>(ml, mean) <span class="co"># podemos guardar</span></span>
 <span id="cb1051-2"><a href="iter-cflux.html#cb1051-2"></a>lt &lt;-<span class="st"> </span><span class="kw">as.vector</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;numeric&quot;</span>) <span class="co"># e transformar num vetor. MODE neste caso é fundamental usar</span></span>
 <span id="cb1051-3"><a href="iter-cflux.html#cb1051-3"></a>lt</span></code></pre></div>
-<pre><code>## [1]  518.46000   45.46667 1467.64444</code></pre>
+<pre><code>## [1]  495.520   51.900 1467.667</code></pre>
 </div>
 <div id="por-categoria-de-um-fator" class="section level3">
 <h3><span class="header-section-number">6.1.3</span> Por categoria de um fator</h3>
