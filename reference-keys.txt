@@ -12,7 +12,6 @@ tab:junc-dir
 tab:semi-junc
 tab:dplyrtb
 tab:ggcom
-baixe-os-pacotes-abaixo
 intro
 console-e-scripts
 linguagem-objeto-orientada
