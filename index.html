@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,8 @@
   
 
 <link rel="next" href="intro.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -477,7 +477,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="subtitle"><em>Disciplina BOT89 - PPGBOT INPA</em></h2>
 <p class="author"><em><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=alunos:a.vicentini:inicio">Alberto Vicentini</a> (<a href="http://portal.inpa.gov.br/">INPA</a>)</em></p>
 <p class="author"><em><a href="https://ricardoperdiz.com">Ricardo de Oliveira Perdiz</a> - ricardoperdiz@yahoo.com</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>Última atualização: 2021-06-16</em></p>
+<p class="date"><em>Última atualização: 2021-10-28</em></p>
 </div>
 <div id="prefácio" class="section level1 unnumbered">
 <h1>Prefácio</h1>
@@ -539,7 +539,8 @@ Ministra anualmente disciplinas ligadas ao Programa de pós-graduação em Ciên
 É colíder do grupo de pesquisa <a href="http://dgp.cnpq.br/dgp/espelhogrupo/38425">Ecologia e Evolução de Plantas da Amazônia</a> do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).</p>
 <p>Ricardo (ricardoperdiz.com) é formado em Ciências Biológicas pela Universidade Estadual de Santa Cruz (UESC), mestre em Botânica pela Universidade Estadual de Feira de Santana (UEFS) e doutor em Ciências Biológicas (Botânica) pelo INPA.
 Seus principais interesses são estar e se divertir com a família, trabalhar na floresta coletando e admirando a beleza da Natureza, trabalhar no herbário e laboratório, e também adora se divertir na frente do computador analisando dados e escrevendo.
-Seu esporte favorito é o basquete e a natação, apesar de não praticar ambos há algum tempo.</p>
+Seu esporte favorito é o basquete e a natação, apesar de não praticar ambos há algum tempo.
+Pescar também é apreciado, apesar de o peixe não ser pescado, somente admirado!</p>
 <!-- incluir aqui a autores.Rmd - pedir ao Beto para revisar o texto XXX-->
 </div>
 <div id="agradecimentos" class="section level2 unnumbered">
@@ -579,7 +580,7 @@ Portanto, caso queira já instalá-los, execute o comando abaixo:</p>
 <div id="baixe-o-repositório-para-seu-computador" class="section level3 unnumbered">
 <h3>Baixe o repositório para seu computador</h3>
 <p>Acesse a <a href="https://github.com/LABOTAM/LABOTAM.github.io">página do repositório</a> contendo os código fonte deste livro (Fig. <a href="index.html#fig:repo">0.1</a>).</p>
-<div class="figure"><span id="fig:repo"></span>
+<div class="figure"><span style="display:block;" id="fig:repo"></span>
 <img src="figuras/repo.png" alt="Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro."  />
 <p class="caption">
 Figura 0.1: Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro.
@@ -588,7 +589,7 @@ Figura 0.1: Imagem inicial do repositório hospedado no GitHub contendo o códig
 <p>Busque um botão de cor <strong>verde</strong> chamado <em>Code</em> (Fig. <a href="index.html#fig:baixa-repo">0.2</a>).
 Clique neste botão e aparecerão algumas opções.
 Clique no botão <strong>Download Zip</strong>, destacado em vermelho na figura <a href="index.html#fig:baixa-repo">0.2</a>, e escolha onde você quer salvar o arquivo.</p>
-<div class="figure"><span id="fig:baixa-repo"></span>
+<div class="figure"><span style="display:block;" id="fig:baixa-repo"></span>
 <img src="figuras/baixa_repo.png" alt="Destaque do botão *Code* (retângulo **azul** pontilhado circundando o botão, com uma seta **azul** apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor **vermelha** destacando a opção **Download Zip**."  />
 <p class="caption">
 Figura 0.2: Destaque do botão <em>Code</em> (retângulo <strong>azul</strong> pontilhado circundando o botão, com uma seta <strong>azul</strong> apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor <strong>vermelha</strong> destacando a opção <strong>Download Zip</strong>.
@@ -694,7 +695,7 @@ Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repo
 <blockquote>
 <p><em>Uma das coisas mais importantes que você (como cientista) pode fazer é dedicar um tempo para aprender uma linguagem de programação de verdade. Aprender a programar é como aprender outro idioma: exige tempo e treinamento, e não há resultados práticos imediatos. Mas se você supera essa primeira subida íngreme da curva de aprendizado, os ganhos como cientista são enormes. Programar não vai apenas livrar você da camisa de força dos pacotes estatísticos, mas também irá aguçar suas habilidades analíticas e ampliar os horizontes de modelagem (..) e estatística</em> <span class="citation">(Gotelli e Ellison <a href="#ref-Gotelli2013" role="doc-biblioref">2013</a>)</span>.</p>
 </blockquote>
-<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
 <img src="figuras/aprendizadogeekvsnongeek.png" alt="Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek)." width="101%" />
 <p class="caption">
 Figura 0.3: Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek).
@@ -829,7 +830,6 @@ Leia com atenção o enunciado de cada exercício antes de iniciar a construir o
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -869,6 +869,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "scroll_highlight": true
