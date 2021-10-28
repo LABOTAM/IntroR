@@ -6,10 +6,10 @@ citEntry(
   author = 'Alberto Vicentini and Ricardo Perdiz',
   address = 'Manaus, Amazonas',
   year = '2021',
-  url = 'https://labotam.github.io/',
+  url = 'https://intror.netlify.app/',
   textVersion = paste(
     'Alberto Vicentini e Ricardo Perdiz (2021).',
     'Curso básico de introdução à linguagem R.',
-    'Disponível em <https://labotam.github.io/>.'
+    'Disponível em <https://intror.netlify.app/>.'
   )
 )

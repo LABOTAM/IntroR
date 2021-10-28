@@ -18,7 +18,7 @@ Parte dessa popularidade é relativamente recente, podendo ser verificada a part
 
 ![Porcentagem de visitas às questões pertinentes a algumas linguagens de programação na plataforma *Stack Overflow*. Dados obtidos apenas de países desenvolvidos segundo o Banco Mundial. Nota-se o aumento quase linear referente à linguagem R a partir do ano 2014. Figura extraída desta postagem: <https://stackoverflow.blog/2017/10/10/impressive-growth-r/>](https://149351115.v2.pressablecdn.com/wp-content/uploads/2017/10/plot_tags_time-1-675x675.png)
 
-## O que é o Tidyverse?^[Texto publicado originalmente no blog de R.O.Perdiz (https://ricardoperdiz.com/post/2020-04-08-basertidyverse/tidyverse/)]
+## O que é o Tidyverse?^[Texto publicado originalmente no blog de R.O.Perdiz (https://ricardoperdiz.com/2020/04/08/tidyverse/)]
 
 O [Tidyverse](https://www.tidyverse.org/) é um conjunto de pacotes de R desenvolvidos para a ciência de dados.
 Todos os pacotes compartilham uma mesma filosofia e gramática da linguagem. Por exemplo, a estrutura das funções é sempre a mesma:
@@ -618,7 +618,7 @@ Não vamos entrar nesse embate nesta postagem.
 O que podemos afirmar é que qualquer pacote de R, com exceção do pacote `base`, foi construído em cima das funcionalidades deste último, logo, sem este pacote, não estaríamos nem aqui falando de funcionalidades do `dplyr` e afins.  
 
 Quisemos aqui apresentar funcionalidades básicas de alguns pacotes que podem ser adotadas ou não pelos alunos, e mostrar como podem ser incorporadas no fluxo diário das manipulações de dados.
-Caso queiram ver manipulações mais complexas em tabelas utilizando as ferramentas do tidyverse, convido-os a checarem estas duas postagens: [importando e manipulando dados no R](https://ricardoperdiz.com/post/2020_03_29_r-obtendo-plotando-dados/obtendo-dados-e-plotando-mapas-no-r-versao-3/), e um [tutorial para gerar o mapa de distribuição de Macrolobium aracaense Farroñay](https://ricardoperdiz.com/post/2020_03_29_r-map-farronayetal-2018/mapa-macrolobium/).  
+Caso queiram ver manipulações mais complexas em tabelas utilizando as ferramentas do tidyverse, convido-os a checarem estas duas postagens: [importando e manipulando dados no R](https://ricardoperdiz.com/2020/03/06/obtendo-dados-e-plotando-mapas-no-r-versao-3/), e um [tutorial para gerar o mapa de distribuição de Macrolobium aracaense Farroñay](https://ricardoperdiz.com/2019/09/01/mapa-macrolobium/).  
 
 
 ## Para saber mais: {#sabermais-tidyverse}
