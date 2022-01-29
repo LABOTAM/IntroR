@@ -611,7 +611,7 @@ Por isso, recomenda-se que:
 A principal função para importar dados no R é `read.table()`.
 Ela funciona para importar arquivos em formato de texto simples (`.csv`, `.txt`).  
 
-Vamos utilizar um conjunto de [dados contendo as coordenadas geográficas dos municípios brasileiros](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv) para praticar a importação dos dados.
+Vamos utilizar um conjunto de [dados contendo as coordenadas geográficas dos municípios brasileiros](https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv) para praticar a importação dos dados.
 Baixe-o para a sua pasta de trabalho.  
 
 Em seguida, abra o arquivo com um editor de texto simples (Bloco de Notas, Notepad++, TextWrangler, gedit, etc.) e veja como ele está formatado.
@@ -720,7 +720,7 @@ str(dd6) # diferentemente do objeto anterior, não há mais fatores
 # podemos usar um endereco da internet para baixar um arquivo
 dd7 <-
   read.table(
-    "https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv",
+    "https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv",
     sep = "\t",
     header = TRUE
   )
@@ -750,7 +750,7 @@ dim(dd7)
 Como no pacote `base`, também podemos ler arquivos diretamente da rede:
 
 ```{r, echo = TRUE, eval = FALSE}
-rr2 <- read_delim("https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv", delim = "\t")
+rr2 <- read_delim("https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv", delim = "\t")
 rr2
 ```
 
@@ -776,7 +776,7 @@ dt1
 Também podemos ler arquivos diretamente da rede, providenciando um endereço que contenha um arquivo de texto simples:
 
 ```{r, echo = TRUE, eval = FALSE}
-dt2 <- fread("https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv")
+dt2 <- fread("https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv")
 dt2
 ```
 

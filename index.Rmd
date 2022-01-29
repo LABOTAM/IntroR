@@ -62,7 +62,7 @@ purrr::walk2(
 Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89) do [Programa de Pós-Graduação em Ciências Biológicas (Botânica)](http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/) do INPA, ofertada desde o ano de 2011.  
 
 Inicialmente, a disciplina consistiu de uma modificação da documentação do curso de [Introdução à Linguagem R](http://ecor.ib.usp.br/doku.php) oferecida pelo [Programa de Pós-graduação em Ecologia](https://posecologia.ib.usp.br/) do Instituto de Biociências da Universidade de São Paulo, atualmente ministrada pelo professor Dr. [Alexandre Adalardo de Oliveira](http://labtrop.ib.usp.br/), e que contem aulas de autoria dos professores Drs. A. A. de Oliveira, [João Luís Ferreira Batista](http://cmq.esalq.usp.br/), [Paulo Inácio K. L. Prado](http://ecologia.ib.usp.br/let/doku.php?id=prado:start), e [Rodrigo Augusto Santinelo Pereira](https://sites.ffclrp.usp.br/ficus/equipe.htm) [@Batista2009].
-Como exemplo, parte dos dados (dados de [avistamento de aves no Cerrado](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/aves_cerrado.csv) e [Levantamento em Caixetais](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/caixeta.csv)) utilizados em nossas aulas são originários desta disciplina da Ecologia da USP.  
+Como exemplo, parte dos dados (dados de [avistamento de aves no Cerrado](https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv) e [Levantamento em Caixetais](https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv)) utilizados em nossas aulas são originários desta disciplina da Ecologia da USP.  
 
 Modificações nessa estrutura foram feitas por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
 Ricardo Perdiz transpôs as aulas originais formatadas em `dokuwiki` para o formato [Rmarkdown](https://rmarkdown.rstudio.com/).
@@ -77,7 +77,7 @@ Ressaltamos que **isto não é um curso de estatística**.
 
 ::: {.infobox .warning data-latex="warning"}
 
-**Nota**: Este livro está em constante atualização. Você pode encontrar os arquivos de **Rmarkdown** que geraram este livro no endereço [https://github.com/LABOTAM/LABOTAM.github.io/tree/main](https://github.com/LABOTAM/LABOTAM.github.io/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/LABOTAM.github.io/issues). Grato!
+**Nota**: Este livro está em constante atualização. Você pode encontrar os arquivos de **Rmarkdown** que geraram este livro no endereço [https://github.com/LABOTAM/IntroR/tree/main](https://github.com/LABOTAM/IntroR/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/IntroR/issues). Grato!
 
 :::
 
@@ -177,7 +177,7 @@ install.packages(c('ggplot2', 'dplyr', 'tibble', 'tidyr', 'purrr', 'magrittr'))
 
 ### Baixe o repositório para seu computador {-}
 
-Acesse a [página do repositório](https://github.com/LABOTAM/LABOTAM.github.io) contendo os código fonte deste livro (Fig. \@ref(fig:repo)).
+Acesse a [página do repositório](https://github.com/LABOTAM/IntroR) contendo os código fonte deste livro (Fig. \@ref(fig:repo)).
 
 ```{r repo, fig.cap = 'Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro.', eval = TRUE, echo = FALSE}
 knitr::include_graphics("figuras/repo.png")
@@ -193,7 +193,7 @@ knitr::include_graphics("figuras/baixa_repo.png")
 
 Após baixar, descomprima este arquivo `.zip`, escolha onde você deseja guardar a pasta, e comece a acessar os arquivos.  
 
-Os arquivos contendo cada capítulo deste livro são listados abaixo e podem ser encontrados na [página inicial do repositório](https://github.com/LABOTAM/LABOTAM.github.io):
+Os arquivos contendo cada capítulo deste livro são listados abaixo e podem ser encontrados na [página inicial do repositório](https://github.com/LABOTAM/IntroR):
 
 ```{r, eval = TRUE, echo = FALSE}
 cat(capitulos, sep = "\n")
@@ -203,8 +203,8 @@ Você pode tanto utilizar os arquivos escritos em formato [Rmarkdown](http://www
 Nesses scripts, todos os pedaços de texto, incluindo cabeçalhos e comentários estão precedidos de `#'`; o que for código aparecerá sem `#'` precedentes.
 Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repositório.  
 
-```{r mostra-scrpt-r, eval = TRUE, echo = FALSE, message = FALSE, results='asis'}
-cat(paste0("* [", gsub("codigo/", "", capitulosR_output_names), "](https://github.com/LABOTAM/LABOTAM.github.io/tree/main/", capitulosR_output_names, ")"),
+```{r mostra-scrpt-r, eval=TRUE, echo=FALSE, message=FALSE, results='asis'}
+cat(paste0("* [", gsub("codigo/", "", capitulosR_output_names), "](https://github.com/LABOTAM/IntroR/tree/main/", capitulosR_output_names, ")"),
     sep = "\n")
 ```
 

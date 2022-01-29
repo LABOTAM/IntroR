@@ -3,7 +3,7 @@
 # Checagem dos dados {#aed-checa-dados}
 
 No tutorial abaixo vamos usar dados de avistamento de aves em fisionomias de cerrado.
-Baixem o arquivo contendo esses dados (https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/aves_cerrado.csv) para a sua pasta de trabalho.  
+Baixem o arquivo contendo esses dados (https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv) para a sua pasta de trabalho.  
 
 Vamos praticar neste tutorial o uso de funções que nos mostram a estrutura e resumo dos dados.
 Já vimos como utilizar essas funções na parte I deste livro.

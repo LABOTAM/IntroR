@@ -11,7 +11,7 @@ Ou seja, diferentes variáveis tem o mesmo padrão?
 
 ## Dados do tutorial
 
-Vamos importar novamente os conjuntos de dados de [avistamento de aves do cerrado](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/aves_cerrado.csv) (utilizado no capítulo \@ref(aed-checa-dados)) e de [parcelas em caixetais](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/caixeta.csv) (utilizado no capítulo \@ref(sumar-dados)):
+Vamos importar novamente os conjuntos de dados de [avistamento de aves do cerrado](https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv) (utilizado no capítulo \@ref(aed-checa-dados)) e de [parcelas em caixetais](https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv) (utilizado no capítulo \@ref(sumar-dados)):
 
 ```{r, eval = FALSE}
 ## Lendo a planilha com read.table

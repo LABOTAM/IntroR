@@ -76,7 +76,7 @@ No R há várias funções que executam isso: `isoMDS()`; `cmdscale()`; e `nmds(
 Vamos usar a função `bestnmds()` nos exemplos abaixo.
 Para entender, veja um exemplo para distâncias geográficas entre cidades na região norte do Brasil. Se queremos representar graficamente distâncias geográficas, estaremos de certa forma reproduzindo um mapa:
 
-Vamos utilizar o conjunto de [dados contendo coordenadas geográficas de municípios do Brasil](https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/municipiosbrasil.csv) para esta prática, utilizado na seção \@ref(import-dados).  
+Vamos utilizar o conjunto de [dados contendo coordenadas geográficas de municípios do Brasil](https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv) para esta prática, utilizado na seção \@ref(import-dados).  
 
 ```{r, eval = FALSE}
 # visualizando distancias usando NMDS

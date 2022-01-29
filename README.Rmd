@@ -8,14 +8,14 @@ output: md_document
 Este é o repositório contendo o código fonte do livro [Curso básico de introdução à linguagem R](https://intror.netlify.app) de Alberto Vicentini e Ricardo de Oliveira Perdiz.
 
 <!-- badges: start -->
-[![Status do livro online](https://github.com/LABOTAM/LABOTAM.github.io/workflows/renderbook/badge.svg)](https://github.com/LABOTAM/LABOTAM.github.io/actions)
+[![Status do livro online](https://github.com/LABOTAM/IntroR/workflows/renderbook/badge.svg)](https://github.com/LABOTAM/IntroR/actions)
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 <!-- badges: end -->
 
 ## Licença {-}
 
 [Curso básico de introdução à linguagem R](https://intror.netlify.app) de Alberto Vicentini e Ricardo de Oliveira Perdiz está licenciada sob [Licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional (CC BY-SA 4.0) ][cc-by-sa].
-Baseado em trabalho disponível em <https://github.com/LABOTAM/LABOTAM.github.io>.
+Baseado em trabalho disponível em <https://github.com/LABOTAM/IntroR>.
 
 [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
