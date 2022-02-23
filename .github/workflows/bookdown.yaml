@@ -30,7 +30,7 @@ jobs:
           restore-keys: bookdown-
 
       - name: Install R packages
-        run: Rscript -e 'install.packages(c("rmarkdown","bookdown", "knitr", "printr", "dplyr", "ggplot2", "magrittr", "tidyr", "readr", "purrr", "tibble", "kableExtra", "ape", "maps", "vegan", "labdsv"))'
+        run: Rscript -e 'install.packages(c("rmarkdown","bookdown", "knitr", "printr", "dplyr", "ggplot2", "magrittr", "tidyr", "readr", "purrr", "tibble", "kableExtra", "ape", "maps", "vegan", "labdsv"), dependencies = c("Depends"))'
 
       - name: Render Book as gitbook
         run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
