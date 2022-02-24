@@ -1,0 +1,2664 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 AED de univariadas | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.24.9 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 AED de univariadas | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/LABOTAM.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 AED de univariadas | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini (INPA)" />
+<meta name="author" content="Ricardo de Oliveira Perdiz - ricardoperdiz@yahoo.com" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="aed-checa-dados.html"/>
+<link rel="next" href="aed-bivar.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#prefácio">Prefácio<span></span></a>
+<ul>
+<li><a href="index.html#estrutura-do-livro">Estrutura do livro<span></span></a></li>
+<li><a href="index.html#sobre-os-autores">Sobre os autores<span></span></a></li>
+<li><a href="index.html#agradecimentos">Agradecimentos<span></span></a></li>
+<li><a href="index.html#pré-requisitos">Pré-requisitos<span></span></a></li>
+<li><a href="index.html#caso-você-possua-um-computador">Caso você possua um computador<span></span></a>
+<ul>
+<li><a href="index.html#instale-o-r">Instale o R<span></span></a></li>
+<li><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide">Instale um ambiente de desenvolvimento integrado - IDE<span></span></a></li>
+<li><a href="index.html#baixe-os-pacotes-abaixo">Baixe os pacotes abaixo<span></span></a></li>
+<li><a href="index.html#baixe-o-repositório-para-seu-computador">Baixe o repositório para seu computador<span></span></a></li>
+</ul></li>
+<li><a href="index.html#caso-você-não-possua-um-computador">Caso você não possua um computador<span></span></a></li>
+<li><a href="index.html#o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar">O que é o R e por qual razão você deve se preocupar em programar<span></span></a>
+<ul>
+<li><a href="index.html#o-r-em-poucas-palavras">O R em poucas palavras<span></span></a></li>
+<li><a href="index.html#por-que-programar">Por que programar?<span></span></a></li>
+</ul></li>
+<li><a href="index.html#análise-exploratória-de-dados-aed">Análise exploratória de dados (AED)<span></span></a>
+<ul>
+<li><a href="index.html#o-que-é-aed-e-por-que-fazer-aed">O que é AED e por que fazer AED?<span></span></a></li>
+<li><a href="index.html#objetivos-da-aed">Objetivos da AED<span></span></a></li>
+<li><a href="index.html#para-ler">Para ler<span></span></a></li>
+</ul></li>
+<li><a href="index.html#exercícios-no-notar">Exercícios no <strong>notaR</strong><span></span></a>
+<ul>
+<li><a href="index.html#conhecendo-o-notar">Conhecendo o <strong>notaR</strong><span></span></a></li>
+</ul></li>
+<li><a href="index.html#referências-úteis">Referências úteis<span></span></a></li>
+</ul></li>
+<li class="part"><span><b>I Parte I<span></span></b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#base-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho<span></span></a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#dicas-de-erros-comuns-de-sintaxe-da-linguagem-r"><i class="fa fa-check"></i><b>1.7</b> Dicas de erros comuns de sintaxe da linguagem R<span></span></a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#parênteses"><i class="fa fa-check"></i><b>1.7.1</b> Parênteses<span></span></a></li>
+<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#vírgulas"><i class="fa fa-check"></i><b>1.7.2</b> Vírgulas<span></span></a></li>
+<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#aspas"><i class="fa fa-check"></i><b>1.7.3</b> Aspas<span></span></a></li>
+<li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#números"><i class="fa fa-check"></i><b>1.7.4</b> Números<span></span></a></li>
+<li class="chapter" data-level="1.7.5" data-path="intro.html"><a href="intro.html#nomes-de-objetos"><i class="fa fa-check"></i><b>1.7.5</b> Nomes de objetos<span></span></a></li>
+<li class="chapter" data-level="1.7.6" data-path="intro.html"><a href="intro.html#atribuição-de-objetos"><i class="fa fa-check"></i><b>1.7.6</b> Atribuição de objetos<span></span></a></li>
+<li class="chapter" data-level="1.7.7" data-path="intro.html"><a href="intro.html#busque-entender-as-partes"><i class="fa fa-check"></i><b>1.7.7</b> Busque entender as partes<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.8</b> O R como calculadora<span></span></a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="intro.html"><a href="intro.html#operadores"><i class="fa fa-check"></i><b>1.8.1</b> Operadores<span></span></a></li>
+<li class="chapter" data-level="1.8.2" data-path="intro.html"><a href="intro.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.8.2</b> Precedência de parênteses<span></span></a></li>
+<li class="chapter" data-level="1.8.3" data-path="intro.html"><a href="intro.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.8.3</b> Funções e constantes matemáticas<span></span></a></li>
+<li class="chapter" data-level="1.8.4" data-path="intro.html"><a href="intro.html#valor-na"><i class="fa fa-check"></i><b>1.8.4</b> NA e valores afins<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#exercícios"><i class="fa fa-check"></i><b>1.9</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vetores.html"><a href="vetores.html#vetores-e-operações-vetoriais-i"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="vetores.html"><a href="vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores<span></span></a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores.html"><a href="vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="vetores.html"><a href="vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="vetores.html"><a href="vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="vetores.html"><a href="vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores<span></span></a></li>
+<li class="chapter" data-level="2.5" data-path="vetores.html"><a href="vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação<span></span></a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="vetores.html"><a href="vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos<span></span></a></li>
+<li class="chapter" data-level="2.5.2" data-path="vetores.html"><a href="vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="vetores.html"><a href="vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos<span></span></a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="vetores.html"><a href="vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores<span></span></a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetores.html"><a href="vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos<span></span></a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetores.html"><a href="vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="vetores.html"><a href="vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:<span></span></a></li>
+<li class="chapter" data-level="2.8" data-path="vetores.html"><a href="vetores.html#exercícios-1"><i class="fa fa-check"></i><b>2.8</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes<span></span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code><span></span></a></li>
+<li class="chapter" data-level="3.1.3" data-path="mat-dframe.html"><a href="mat-dframe.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="mat-dframe.html"><a href="mat-dframe.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="mat-dframe.html"><a href="mat-dframe.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importando-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importando e exportando dados no R<span></span></a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados<span></span></a></li>
+<li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados<span></span></a></li>
+<li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados<span></span></a></li>
+<li class="chapter" data-level="3.4.4" data-path="mat-dframe.html"><a href="mat-dframe.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mat-dframe.html"><a href="mat-dframe.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:<span></span></a></li>
+<li class="chapter" data-level="3.6" data-path="mat-dframe.html"><a href="mat-dframe.html#exercícios-2"><i class="fa fa-check"></i><b>3.6</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lista-objcompl.html"><a href="lista-objcompl.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="lista-objcompl.html"><a href="lista-objcompl.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="func-graf.html"><a href="func-graf.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="func-graf.html"><a href="func-graf.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code><span></span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela<span></span></a></li>
+<li class="chapter" data-level="5.1.3" data-path="func-graf.html"><a href="func-graf.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos<span></span></a></li>
+<li class="chapter" data-level="5.1.4" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos<span></span></a></li>
+<li class="chapter" data-level="5.1.5" data-path="func-graf.html"><a href="func-graf.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code><span></span></a></li>
+<li class="chapter" data-level="5.1.6" data-path="func-graf.html"><a href="func-graf.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="func-graf.html"><a href="func-graf.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura<span></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="func-graf.html"><a href="func-graf.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos<span></span></a></li>
+<li class="chapter" data-level="5.2.3" data-path="func-graf.html"><a href="func-graf.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos<span></span></a></li>
+<li class="chapter" data-level="5.2.4" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code><span></span></a></li>
+<li class="chapter" data-level="5.2.5" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="func-graf.html"><a href="func-graf.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code><span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="func-graf.html"><a href="func-graf.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code><span></span></a></li>
+<li class="chapter" data-level="5.3.3" data-path="func-graf.html"><a href="func-graf.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas<span></span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="func-graf.html"><a href="func-graf.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code><span></span></a></li>
+<li class="chapter" data-level="5.3.5" data-path="func-graf.html"><a href="func-graf.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="func-graf.html"><a href="func-graf.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível<span></span></a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="func-graf.html"><a href="func-graf.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica<span></span></a></li>
+<li class="chapter" data-level="5.4.2" data-path="func-graf.html"><a href="func-graf.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.3" data-path="func-graf.html"><a href="func-graf.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.4" data-path="func-graf.html"><a href="func-graf.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.5" data-path="func-graf.html"><a href="func-graf.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.6" data-path="func-graf.html"><a href="func-graf.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.7" data-path="func-graf.html"><a href="func-graf.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.8" data-path="func-graf.html"><a href="func-graf.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="func-graf.html"><a href="func-graf.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível<span></span></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="func-graf.html"><a href="func-graf.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.2" data-path="func-graf.html"><a href="func-graf.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.3" data-path="func-graf.html"><a href="func-graf.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.4" data-path="func-graf.html"><a href="func-graf.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.5" data-path="func-graf.html"><a href="func-graf.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.6" data-path="func-graf.html"><a href="func-graf.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.7" data-path="func-graf.html"><a href="func-graf.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="func-graf.html"><a href="func-graf.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas<span></span></a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="func-graf.html"><a href="func-graf.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code><span></span></a></li>
+<li class="chapter" data-level="5.6.2" data-path="func-graf.html"><a href="func-graf.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="func-graf.html"><a href="func-graf.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:<span></span></a></li>
+<li class="chapter" data-level="5.8" data-path="func-graf.html"><a href="func-graf.html#exercícios-3"><i class="fa fa-check"></i><b>5.8</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="iter-cflux.html"><a href="iter-cflux.html#func-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code><span></span></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="iter-cflux.html"><a href="iter-cflux.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz<span></span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="iter-cflux.html"><a href="iter-cflux.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista<span></span></a></li>
+<li class="chapter" data-level="6.1.3" data-path="iter-cflux.html"><a href="iter-cflux.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais<span></span></a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code><span></span></a></li>
+<li class="chapter" data-level="6.2.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code><span></span></a></li>
+<li class="chapter" data-level="6.2.3" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações<span></span></a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code><span></span></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code><span></span></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="iter-cflux.html"><a href="iter-cflux.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções<span></span></a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I<span></span></a></li>
+<li class="chapter" data-level="6.4.2" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="iter-cflux.html"><a href="iter-cflux.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sumar-dados.html"><a href="sumar-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="sumar-dados.html"><a href="sumar-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem<span></span></a></li>
+<li class="chapter" data-level="7.3" data-path="sumar-dados.html"><a href="sumar-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas<span></span></a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="sumar-dados.html"><a href="sumar-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code><span></span></a></li>
+<li class="chapter" data-level="7.3.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="sumar-dados.html"><a href="sumar-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções<span></span></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="sumar-dados.html"><a href="sumar-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática<span></span></a></li>
+<li class="chapter" data-level="7.4.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="sumar-dados.html"><a href="sumar-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais<span></span></a></li>
+<li class="chapter" data-level="7.6" data-path="sumar-dados.html"><a href="sumar-dados.html#exercícios-4"><i class="fa fa-check"></i><b>7.6</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos<span></span></a></li>
+<li class="chapter" data-level="8.1.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos<span></span></a></li>
+<li class="chapter" data-level="8.1.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto<span></span></a></li>
+<li class="chapter" data-level="8.1.4" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco<span></span></a></li>
+<li class="chapter" data-level="8.1.5" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto<span></span></a></li>
+<li class="chapter" data-level="8.1.6" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares<span></span></a></li>
+<li class="chapter" data-level="8.1.7" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos<span></span></a></li>
+<li class="chapter" data-level="8.1.8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres<span></span></a></li>
+<li class="chapter" data-level="8.1.9" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres<span></span></a></li>
+<li class="chapter" data-level="8.1.10" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos<span></span></a></li>
+<li class="chapter" data-level="8.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="amost-aleat.html"><a href="amost-aleat.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias<span></span></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="amost-aleat.html"><a href="amost-aleat.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:<span></span></a></li>
+<li class="chapter" data-level="9.4" data-path="amost-aleat.html"><a href="amost-aleat.html#exercícios-5"><i class="fa fa-check"></i><b>9.4</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="extr-dados.html"><a href="extr-dados.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="extr-dados.html"><a href="extr-dados.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência<span></span></a></li>
+<li class="chapter" data-level="10.1.2" data-path="extr-dados.html"><a href="extr-dados.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca<span></span></a></li>
+<li class="chapter" data-level="10.1.3" data-path="extr-dados.html"><a href="extr-dados.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="extr-dados.html"><a href="extr-dados.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência<span></span></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="extr-dados.html"><a href="extr-dados.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta<span></span></a></li>
+<li class="chapter" data-level="10.2.2" data-path="extr-dados.html"><a href="extr-dados.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra<span></span></a></li>
+<li class="chapter" data-level="10.2.3" data-path="extr-dados.html"><a href="extr-dados.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat<span></span></a></li>
+<li class="chapter" data-level="10.2.4" data-path="extr-dados.html"><a href="extr-dados.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo<span></span></a></li>
+<li class="chapter" data-level="10.2.5" data-path="extr-dados.html"><a href="extr-dados.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="extr-dados.html"><a href="extr-dados.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap<span></span></a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="extr-dados.html"><a href="extr-dados.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura<span></span></a></li>
+<li class="chapter" data-level="10.3.2" data-path="extr-dados.html"><a href="extr-dados.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="extr-dados.html"><a href="extr-dados.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções<span></span></a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura<span></span></a></li>
+<li class="chapter" data-level="10.4.2" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Parte II<span></span></b></span></li>
+<li class="chapter" data-level="11" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html"><i class="fa fa-check"></i><b>11</b> Checagem dos dados<span></span></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#tem-valores-ausentes"><i class="fa fa-check"></i><b>11.1</b> Tem valores ausentes?<span></span></a></li>
+<li class="chapter" data-level="11.2" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#colunas-com-fatores"><i class="fa fa-check"></i><b>11.2</b> Colunas com fatores<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="aed-univar.html"><a href="aed-univar.html"><i class="fa fa-check"></i><b>12</b> AED de univariadas<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="aed-univar.html"><a href="aed-univar.html#qual-a-distribuição-dos-valores-numéricos"><i class="fa fa-check"></i><b>12.1</b> Qual a distribuição dos valores numéricos?<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="aed-univar.html"><a href="aed-univar.html#dados-do-tutorial"><i class="fa fa-check"></i><b>12.1.1</b> Dados do tutorial<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="aed-univar.html"><a href="aed-univar.html#tabelas-de-variáveis-categóricas"><i class="fa fa-check"></i><b>12.2</b> Tabelas de variáveis categóricas<span></span></a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="aed-univar.html"><a href="aed-univar.html#resumo-de-gráficos-univariados"><i class="fa fa-check"></i><b>12.2.1</b> Resumo de gráficos univariados<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="aed-univar.html"><a href="aed-univar.html#as-variáveis-têm-distribuição-normal"><i class="fa fa-check"></i><b>12.3</b> As variáveis têm distribuição normal?<span></span></a></li>
+<li class="chapter" data-level="12.4" data-path="aed-univar.html"><a href="aed-univar.html#sabermais-aed-univariadas"><i class="fa fa-check"></i><b>12.4</b> Para saber mais:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="aed-bivar.html"><a href="aed-bivar.html"><i class="fa fa-check"></i><b>13</b> AED de bivariadas<span></span></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="aed-bivar.html"><a href="aed-bivar.html#dados-do-tutorial-1"><i class="fa fa-check"></i><b>13.1</b> Dados do tutorial<span></span></a></li>
+<li class="chapter" data-level="13.2" data-path="aed-bivar.html"><a href="aed-bivar.html#fatores-e-contagens"><i class="fa fa-check"></i><b>13.2</b> Fatores e contagens<span></span></a></li>
+<li class="chapter" data-level="13.3" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-fator"><i class="fa fa-check"></i><b>13.3</b> Variável numérica vs. fator<span></span></a></li>
+<li class="chapter" data-level="13.4" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-numérica"><i class="fa fa-check"></i><b>13.4</b> Variável numérica vs. numérica<span></span></a></li>
+<li class="chapter" data-level="13.5" data-path="aed-bivar.html"><a href="aed-bivar.html#outros-gráficos-bivariados"><i class="fa fa-check"></i><b>13.5</b> Outros gráficos bivariados<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="aed-multivar.html"><a href="aed-multivar.html"><i class="fa fa-check"></i><b>14</b> AED de multivariadas<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="aed-multivar.html"><a href="aed-multivar.html#matrizes-de-distância"><i class="fa fa-check"></i><b>14.1</b> Matrizes de distância<span></span></a></li>
+<li class="chapter" data-level="14.2" data-path="aed-multivar.html"><a href="aed-multivar.html#ordenação-com-matrizes-de-distância"><i class="fa fa-check"></i><b>14.2</b> Ordenação com matrizes de distância<span></span></a></li>
+<li class="chapter" data-level="14.3" data-path="aed-multivar.html"><a href="aed-multivar.html#escalonamento-não-métrico-multimensional-nmds"><i class="fa fa-check"></i><b>14.3</b> Escalonamento Não-Métrico Multimensional (NMDS)<span></span></a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="aed-multivar.html"><a href="aed-multivar.html#análises-de-agrupamento"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento<span></span></a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-pelo-método-da-mínima-variância"><i class="fa fa-check"></i><b>14.4.1</b> Agrupamento pelo método da mínima variância<span></span></a></li>
+<li class="chapter" data-level="14.4.2" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-upgma"><i class="fa fa-check"></i><b>14.4.2</b> Agrupamento por UPGMA<span></span></a></li>
+<li class="chapter" data-level="14.4.3" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-centróides"><i class="fa fa-check"></i><b>14.4.3</b> Agrupamento por centróides<span></span></a></li>
+<li class="chapter" data-level="14.4.4" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.4</b> Exemplo florístico<span></span></a></li>
+<li class="chapter" data-level="14.4.5" data-path="aed-multivar.html"><a href="aed-multivar.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.5</b> Análise de Coordenadas Principais (PCoA)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="aed-multivar.html"><a href="aed-multivar.html#componentes-principais-pca"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)<span></span></a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndice<span></span></b></span></li>
+<li class="chapter" data-level="A" data-path="base-tidyverse.html"><a href="base-tidyverse.html"><i class="fa fa-check"></i><b>A</b> Base R vs. Tidyverse<span></span></a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>A.1</b> O que é o Tidyverse?<span></span></a>
+<ul>
+<li class="chapter" data-level="A.1.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-símbolos-do-tidyverse"><i class="fa fa-check"></i><b>A.1.1</b> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-dplyr"><i class="fa fa-check"></i><b>A.2</b> Usando o <code>dplyr</code><span></span></a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#selecionando-colunas-com-select"><i class="fa fa-check"></i><b>A.2.1</b> Selecionando colunas com <code>select()</code><span></span></a></li>
+<li class="chapter" data-level="A.2.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#filtrando-dados-com-filter"><i class="fa fa-check"></i><b>A.2.2</b> Filtrando dados com <code>filter()</code><span></span></a></li>
+<li class="chapter" data-level="A.2.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#destrinchando-as-funções-group_by-e-summarise"><i class="fa fa-check"></i><b>A.2.3</b> Destrinchando as funções <code>group_by</code> e <code>summarise</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>A.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações<span></span></a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com1"><i class="fa fa-check"></i><b>A.3.1</b> Conjunto de comandos 1<span></span></a></li>
+<li class="chapter" data-level="A.3.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com2"><i class="fa fa-check"></i><b>A.3.2</b> Conjunto de comandos 2<span></span></a></li>
+<li class="chapter" data-level="A.3.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#pipe"><i class="fa fa-check"></i><b>A.3.3</b> Resumo do operador <code>%&gt;%</code>:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>A.4</b> Usando o <code>ggplot2</code><span></span></a></li>
+<li class="chapter" data-level="A.5" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>A.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto<span></span></a>
+<ul>
+<li class="chapter" data-level="A.5.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#gráfico-de-espalhamento"><i class="fa fa-check"></i><b>A.5.1</b> Gráfico de espalhamento<span></span></a></li>
+<li class="chapter" data-level="A.5.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#diagrama-de-caixas"><i class="fa fa-check"></i><b>A.5.2</b> Diagrama de caixas<span></span></a></li>
+<li class="chapter" data-level="A.5.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#histograma"><i class="fa fa-check"></i><b>A.5.3</b> Histograma<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.6" data-path="base-tidyverse.html"><a href="base-tidyverse.html#baser"><i class="fa fa-check"></i><b>A.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code><span></span></a>
+<ul>
+<li class="chapter" data-level="A.6.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#e-o-uso-do-operador-com-o-pacote-base"><i class="fa fa-check"></i><b>A.6.1</b> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="base-tidyverse.html"><a href="base-tidyverse.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>A.7</b> Tidyverse, um resumo<span></span></a></li>
+<li class="chapter" data-level="A.8" data-path="base-tidyverse.html"><a href="base-tidyverse.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>A.8</b> Para saber mais:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="unzip.html"><a href="unzip.html"><i class="fa fa-check"></i><b>B</b> Baixar e descomprimir um arquivo<span></span></a></li>
+<li class="chapter" data-level="C" data-path="videos.html"><a href="videos.html"><i class="fa fa-check"></i><b>C</b> Aulas em vídeo<span></span></a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="videos.html"><a href="videos.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>C.1</b> Importando e exportando dados<span></span></a></li>
+<li class="chapter" data-level="C.2" data-path="videos.html"><a href="videos.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>C.2</b> Criação de vetores<span></span></a></li>
+<li class="chapter" data-level="C.3" data-path="videos.html"><a href="videos.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>C.3</b> Classes de vetores e fatores<span></span></a></li>
+<li class="chapter" data-level="C.4" data-path="videos.html"><a href="videos.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>C.4</b> Sequências numéricas e repetições, operações e funções com vetores<span></span></a></li>
+<li class="chapter" data-level="C.5" data-path="videos.html"><a href="videos.html#listas-1"><i class="fa fa-check"></i><b>C.5</b> Listas<span></span></a></li>
+<li class="chapter" data-level="C.6" data-path="videos.html"><a href="videos.html#criando-matrizes-1"><i class="fa fa-check"></i><b>C.6</b> Criando matrizes<span></span></a></li>
+<li class="chapter" data-level="C.7" data-path="videos.html"><a href="videos.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.7</b> Criando dataframes, e operações importantes em matrizes e dataframes<span></span></a></li>
+<li class="chapter" data-level="C.8" data-path="videos.html"><a href="videos.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.8</b> Indexação de matrizes e dataframes<span></span></a></li>
+<li class="chapter" data-level="C.9" data-path="videos.html"><a href="videos.html#condicionais-1"><i class="fa fa-check"></i><b>C.9</b> Condicionais<span></span></a></li>
+<li class="chapter" data-level="C.10" data-path="videos.html"><a href="videos.html#funções-da-família-apply"><i class="fa fa-check"></i><b>C.10</b> Funções da família <code>apply(")</code><span></span></a></li>
+<li class="chapter" data-level="C.11" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>C.11</b> Funções de manipulação de pasta e arquivos<span></span></a></li>
+<li class="chapter" data-level="C.12" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>C.12</b> Funções de manipulação de texto - parte 01<span></span></a></li>
+<li class="chapter" data-level="C.13" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02<span></span></a></li>
+<li class="chapter" data-level="C.14" data-path="videos.html"><a href="videos.html#objetos-complexos"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos<span></span></a></li>
+</ul></li>
+<li><a href="referências.html#referências">Referências<span></span></a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aed-univar" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">12</span> AED de univariadas<a href="aed-univar.html#aed-univar" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="qual-a-distribuição-dos-valores-numéricos" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Qual a distribuição dos valores numéricos?<a href="aed-univar.html#qual-a-distribuição-dos-valores-numéricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="infobox question">
+<p>Onde os dados estão centrados?
+Como eles estão espalhados?
+Eles são simétricos, i.e., a distribuição é normal? São enviesados, bi-modais?
+Existem <a href="https://en.wikipedia.org/wiki/Outlier%7Coutlier">valores extremos</a>?</p>
+</div>
+<p>Já vimos <a href="vetores.html#vetores">algumas operações matemáticas com vetores</a> e também <a href="func-graf.html#graf-alto-nivel">como usar as funções <code>hist()</code> e <code>boxplot()</code></a> para gerar figuras de distribuição de variáveis numéricas individualmente.
+Vimos também como fazer iterações usando <a href="iter-cflux.html#func-apply">funções da família <code>apply()</code></a>.
+Também já aprendemos sobre a função <code>summary()</code>, que faz um resumo de todas as variáveis nos seus dados e aqui vamos entender isso melhor, apresentando a função <code>quantile()</code>, que permite extrair os <a href="https://en.wikipedia.org/wiki/Quantile">quantis</a>, que são valores que dividem uma distribuição probabilística em intervalos iguais de probabilidade.
+Com essas ferramentas, podemos descrever a distribuição de nossas variáveis numéricas.</p>
+<div id="dados-do-tutorial" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> Dados do tutorial<a href="aed-univar.html#dados-do-tutorial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vamos importar novamente os conjuntos de dados de <a href="https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv">avistamento de aves do cerrado</a> (utilizado no capítulo <a href="aed-checa-dados.html#aed-checa-dados">11</a>) e de <a href="https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv">parcelas em caixetais</a> (utilizado no capítulo <a href="sumar-dados.html#sumar-dados">7</a>):</p>
+<div class="sourceCode" id="cb1531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1531-1"><a href="aed-univar.html#cb1531-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Lendo a planilha com read.table</span></span>
+<span id="cb1531-2"><a href="aed-univar.html#cb1531-2" aria-hidden="true" tabindex="-1"></a>avesc <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;aves_cerrado.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="at">as.is =</span> T, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1532-1"><a href="aed-univar.html#cb1532-1" aria-hidden="true" tabindex="-1"></a>caixeta <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;caixeta.csv&quot;</span>) <span class="do">## arquivo caixeta.csv deve estar no diretorio de trabalho</span></span>
+<span id="cb1532-2"><a href="aed-univar.html#cb1532-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note que mantemos todos os argumentos padrão (veja o formato do arquivo caixeta)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1533-1"><a href="aed-univar.html#cb1533-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Resumo estatistico: medias, media truncada e mediana, quantis</span></span>
+<span id="cb1533-2"><a href="aed-univar.html#cb1533-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pegando apenas as variáveis numéricas</span></span>
+<span id="cb1533-3"><a href="aed-univar.html#cb1533-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce2
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce3
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1534-1"><a href="aed-univar.html#cb1534-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos fazer um resumo estatístico da distribuição de cada uma dessas colunas</span></span>
+<span id="cb1534-2"><a href="aed-univar.html#cb1534-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+urubu
+</th>
+<th style="text-align:left;">
+carcara
+</th>
+<th style="text-align:left;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Min. : 2.00
+</td>
+<td style="text-align:left;">
+Min. : 3.00
+</td>
+<td style="text-align:left;">
+Min. : 2.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+1st Qu.: 7.00
+</td>
+<td style="text-align:left;">
+1st Qu.: 5.50
+</td>
+<td style="text-align:left;">
+1st Qu.: 4.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Median :12.00
+</td>
+<td style="text-align:left;">
+Median : 9.00
+</td>
+<td style="text-align:left;">
+Median : 5.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Mean :11.93
+</td>
+<td style="text-align:left;">
+Mean :10.25
+</td>
+<td style="text-align:left;">
+Mean : 5.345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+3rd Qu.:16.50
+</td>
+<td style="text-align:left;">
+3rd Qu.:14.00
+</td>
+<td style="text-align:left;">
+3rd Qu.: 6.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Max. :22.00
+</td>
+<td style="text-align:left;">
+Max. :24.00
+</td>
+<td style="text-align:left;">
+Max. :12.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA’s :1
+</td>
+<td style="text-align:left;">
+NA’s :1
+</td>
+<td style="text-align:left;">
+NA’s :2
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1535-1"><a href="aed-univar.html#cb1535-1" aria-hidden="true" tabindex="-1"></a><span class="co"># essa função me retorna várias estatísticas da distribuição de cada variável</span></span>
+<span id="cb1535-2"><a href="aed-univar.html#cb1535-2" aria-hidden="true" tabindex="-1"></a><span class="co"># os valores mínimos e máximos</span></span>
+<span id="cb1535-3"><a href="aed-univar.html#cb1535-3" aria-hidden="true" tabindex="-1"></a><span class="co"># a tendência central pela média e pela mediana</span></span>
+<span id="cb1535-4"><a href="aed-univar.html#cb1535-4" aria-hidden="true" tabindex="-1"></a><span class="co"># e o 1 e o 3 quartil, que juntamente com o mínimo, o máximo e mediana,</span></span>
+<span id="cb1535-5"><a href="aed-univar.html#cb1535-5" aria-hidden="true" tabindex="-1"></a><span class="co"># indicam as divisões dos dados em quatro partes identicas (vamos ver isso melhor abaixo)</span></span>
+<span id="cb1535-6"><a href="aed-univar.html#cb1535-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1535-7"><a href="aed-univar.html#cb1535-7" aria-hidden="true" tabindex="-1"></a><span class="co"># funcao summary, mas não retorna por, exemplo, o desvio padrão ou a variância das colunas.</span></span></code></pre></div>
+<div class="sourceCode" id="cb1536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1536-1"><a href="aed-univar.html#cb1536-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e não podemos fazer isso apenas com a função sd para todas as colunas</span></span>
+<span id="cb1536-2"><a href="aed-univar.html#cb1536-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]) <span class="co"># ops deprecado (eu estou trabalhando com uma matriz)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1537-1"><a href="aed-univar.html#cb1537-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas posso usar a funcao apply (para cada coluna, argumento MARGIN)</span></span>
+<span id="cb1537-2"><a href="aed-univar.html#cb1537-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, sd, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    urubu  carcara  seriema 
+## 5.429372 5.383862 2.013566</code></pre>
+<div class="sourceCode" id="cb1539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1539-1"><a href="aed-univar.html#cb1539-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary já retorna isso, mas eu poderia usar para qualquer funcao</span></span>
+<span id="cb1539-2"><a href="aed-univar.html#cb1539-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, median, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##   urubu carcara seriema 
+##      12       9       5</code></pre>
+<div class="sourceCode" id="cb1541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1541-1"><a href="aed-univar.html#cb1541-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##     urubu   carcara   seriema 
+## 11.932203 10.254237  5.344828</code></pre>
+<div class="sourceCode" id="cb1543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1543-1"><a href="aed-univar.html#cb1543-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##   urubu carcara seriema 
+##       2       3       2</code></pre>
+<div class="sourceCode" id="cb1545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1545-1"><a href="aed-univar.html#cb1545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##   urubu carcara seriema 
+##      22      24      12</code></pre>
+<div class="sourceCode" id="cb1547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1547-1"><a href="aed-univar.html#cb1547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, quantile, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+0%
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25%
+</td>
+<td style="text-align:right;">
+7.0
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+50%
+</td>
+<td style="text-align:right;">
+12.0
+</td>
+<td style="text-align:right;">
+9.0
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75%
+</td>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:right;">
+14.0
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+100%
+</td>
+<td style="text-align:right;">
+22.0
+</td>
+<td style="text-align:right;">
+24.0
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1548-1"><a href="aed-univar.html#cb1548-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que os valores dos quartis:</span></span>
+<span id="cb1548-2"><a href="aed-univar.html#cb1548-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+##  2.0  7.0 12.0 16.5 22.0</code></pre>
+<div class="sourceCode" id="cb1550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1550-1"><a href="aed-univar.html#cb1550-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aparecem também quando usamos summary, que no entanto, retorna a média artimética,</span></span>
+<span id="cb1550-2"><a href="aed-univar.html#cb1550-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que é o único valor que não é um quartil.</span></span>
+<span id="cb1550-3"><a href="aed-univar.html#cb1550-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(avesc<span class="sc">$</span>urubu)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Min.
+</th>
+<th style="text-align:right;">
+1st Qu.
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+3rd Qu.
+</th>
+<th style="text-align:right;">
+Max.
+</th>
+<th style="text-align:right;">
+NA’s
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+11.9322
+</td>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1551-1"><a href="aed-univar.html#cb1551-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para entender melhor isso vamos graficar:</span></span>
+<span id="cb1551-2"><a href="aed-univar.html#cb1551-2" aria-hidden="true" tabindex="-1"></a><span class="co"># primeiro num histograma</span></span>
+<span id="cb1551-3"><a href="aed-univar.html#cb1551-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(avesc<span class="sc">$</span>urubu, <span class="at">main =</span> <span class="st">&quot;Avistamentos de Urubu&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Número de aves observadas por local&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-442-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1552-1"><a href="aed-univar.html#cb1552-1" aria-hidden="true" tabindex="-1"></a><span class="co"># melhorando um pouco</span></span>
+<span id="cb1552-2"><a href="aed-univar.html#cb1552-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(avesc<span class="sc">$</span>urubu, <span class="at">main =</span> <span class="st">&quot;Avistamentos de Urubu&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Número de aves observadas por local&quot;</span>, <span class="at">breaks =</span> <span class="dv">22</span>, <span class="at">col =</span> <span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb1552-3"><a href="aed-univar.html#cb1552-3" aria-hidden="true" tabindex="-1"></a><span class="co"># agora adicionamos em azul os quartis</span></span>
+<span id="cb1552-4"><a href="aed-univar.html#cb1552-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">quantile</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb1552-5"><a href="aed-univar.html#cb1552-5" aria-hidden="true" tabindex="-1"></a><span class="co"># note que as barras azuis estão igualmente espaçadas no eixo X, pois elas dividem a distribuição em partes iguais</span></span>
+<span id="cb1552-6"><a href="aed-univar.html#cb1552-6" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos plotar a média</span></span>
+<span id="cb1552-7"><a href="aed-univar.html#cb1552-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dotted&quot;</span>, <span class="at">lwd =</span> <span class="dv">6</span>)</span>
+<span id="cb1552-8"><a href="aed-univar.html#cb1552-8" aria-hidden="true" tabindex="-1"></a><span class="co"># e a mediana</span></span>
+<span id="cb1552-9"><a href="aed-univar.html#cb1552-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">median</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dotted&quot;</span>, <span class="at">lwd =</span> <span class="dv">6</span>)</span>
+<span id="cb1552-10"><a href="aed-univar.html#cb1552-10" aria-hidden="true" tabindex="-1"></a><span class="co"># note como a mediana é equivalente ao quartil que indica 50% na divisão simétrica dos dados e que neste caso a diferença entre média e mediana é muito pequena, pois os dados são bem simétricos em relação à tendência central</span></span>
+<span id="cb1552-11"><a href="aed-univar.html#cb1552-11" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos adicionar o desvio padrão:</span></span>
+<span id="cb1552-12"><a href="aed-univar.html#cb1552-12" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">sd</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">mean</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1552-13"><a href="aed-univar.html#cb1552-13" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">sd</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1552-14"><a href="aed-univar.html#cb1552-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">c</span>(v1, v2), <span class="at">col =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;solid&quot;</span>, <span class="at">lwd =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-442-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1553-1"><a href="aed-univar.html#cb1553-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora com um box plot:</span></span>
+<span id="cb1553-2"><a href="aed-univar.html#cb1553-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(avesc<span class="sc">$</span>urubu)</span>
+<span id="cb1553-3"><a href="aed-univar.html#cb1553-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">quantile</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-442-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1554-1"><a href="aed-univar.html#cb1554-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Média truncada = e.g. TIRANDO 10% DOS VALORES NOS EXTREMOS (posso ver como muda, caso tenha valores extremos, vai mudar muito)</span></span>
+<span id="cb1554-2"><a href="aed-univar.html#cb1554-2" aria-hidden="true" tabindex="-1"></a>?mean <span class="co"># veja o argumento trim</span></span></code></pre></div>
+<div class="sourceCode" id="cb1555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1555-1"><a href="aed-univar.html#cb1555-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, mean, <span class="at">trim =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># truncando</span></span></code></pre></div>
+<pre><code>##     urubu   carcara   seriema 
+## 12.000000  9.897959  5.145833</code></pre>
+<div class="sourceCode" id="cb1557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1557-1"><a href="aed-univar.html#cb1557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, mean, <span class="at">trim =</span> <span class="dv">0</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># sem truncar</span></span></code></pre></div>
+<pre><code>##     urubu   carcara   seriema 
+## 11.932203 10.254237  5.344828</code></pre>
+<div class="sourceCode" id="cb1559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1559-1"><a href="aed-univar.html#cb1559-1" aria-hidden="true" tabindex="-1"></a><span class="co"># valores de quantils em outras probabilidades</span></span>
+<span id="cb1559-2"><a href="aed-univar.html#cb1559-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(avesc<span class="sc">$</span>urubu, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># a cada 10%</span></span></code></pre></div>
+<pre><code>##   0%  10%  20%  30%  40%  50%  60%  70%  80%  90% 100% 
+##  2.0  5.0  6.0  8.0 11.0 12.0 13.8 16.0 17.4 19.0 22.0</code></pre>
+<div class="sourceCode" id="cb1561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1561-1"><a href="aed-univar.html#cb1561-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(caixeta) <span class="co"># dimensões</span></span></code></pre></div>
+<pre><code>## [1] 1027    7</code></pre>
+<div class="sourceCode" id="cb1563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1563-1"><a href="aed-univar.html#cb1563-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta) <span class="co"># colunas</span></span></code></pre></div>
+<pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
+<div class="sourceCode" id="cb1565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1565-1"><a href="aed-univar.html#cb1565-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta) <span class="co"># cabeça</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+local
+</th>
+<th style="text-align:right;">
+parcela
+</th>
+<th style="text-align:right;">
+arvore
+</th>
+<th style="text-align:right;">
+fuste
+</th>
+<th style="text-align:right;">
+cap
+</th>
+<th style="text-align:right;">
+h
+</th>
+<th style="text-align:left;">
+especie
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+720
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+Syagrus romanzoffianus
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+200
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Tabebuia cassinoides
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+750
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:left;">
+indet.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+320
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1566-1"><a href="aed-univar.html#cb1566-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(caixeta)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    1027 obs. of  7 variables:
+##  $ local  : chr  &quot;chauas&quot; &quot;chauas&quot; &quot;chauas&quot; &quot;chauas&quot; ...
+##  $ parcela: int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ arvore : int  1 3 4 5 6 7 8 9 10 10 ...
+##  $ fuste  : int  1 1 1 1 1 1 1 1 1 2 ...
+##  $ cap    : int  210 170 720 200 750 320 480 240 290 310 ...
+##  $ h      : int  80 80 70 80 170 80 160 140 120 120 ...
+##  $ especie: chr  &quot;Myrcia sulfiflora&quot; &quot;Myrcia sulfiflora&quot; &quot;Syagrus romanzoffianus&quot; &quot;Tabebuia cassinoides&quot; ...</code></pre>
+<div class="sourceCode" id="cb1568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1568-1"><a href="aed-univar.html#cb1568-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos calcular o DAP a partid o CAP (circunferencia a altura do peito)</span></span>
+<span id="cb1568-2"><a href="aed-univar.html#cb1568-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1568-3"><a href="aed-univar.html#cb1568-3" aria-hidden="true" tabindex="-1"></a><span class="co"># se cap = 2*pi*dap/2   portanto  dap = cap/pi</span></span>
+<span id="cb1568-4"><a href="aed-univar.html#cb1568-4" aria-hidden="true" tabindex="-1"></a>dap <span class="ot">&lt;-</span> caixeta<span class="sc">$</span>cap <span class="sc">/</span> pi</span>
+<span id="cb1568-5"><a href="aed-univar.html#cb1568-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dap) <span class="co"># veja  distribuição diametrica desses dados (é uma típica log-normal)</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-445-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1569-1"><a href="aed-univar.html#cb1569-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adicionando a nova coluna aos dados</span></span>
+<span id="cb1569-2"><a href="aed-univar.html#cb1569-2" aria-hidden="true" tabindex="-1"></a>caixeta<span class="sc">$</span>dap <span class="ot">&lt;-</span> dap</span>
+<span id="cb1569-3"><a href="aed-univar.html#cb1569-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta, <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+local
+</th>
+<th style="text-align:right;">
+parcela
+</th>
+<th style="text-align:right;">
+arvore
+</th>
+<th style="text-align:right;">
+fuste
+</th>
+<th style="text-align:right;">
+cap
+</th>
+<th style="text-align:right;">
+h
+</th>
+<th style="text-align:left;">
+especie
+</th>
+<th style="text-align:right;">
+dap
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+66.84508
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+54.11268
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1570-1"><a href="aed-univar.html#cb1570-1" aria-hidden="true" tabindex="-1"></a><span class="co"># resume localidade</span></span>
+<span id="cb1570-2"><a href="aed-univar.html#cb1570-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(caixeta<span class="sc">$</span>local)</span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb1572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1572-1"><a href="aed-univar.html#cb1572-1" aria-hidden="true" tabindex="-1"></a><span class="co"># altura das arvore em cada localidade</span></span>
+<span id="cb1572-2"><a href="aed-univar.html#cb1572-2" aria-hidden="true" tabindex="-1"></a>chauas.h <span class="ot">&lt;-</span> caixeta[caixeta<span class="sc">$</span>local <span class="sc">==</span> <span class="st">&quot;chauas&quot;</span>, <span class="st">&quot;h&quot;</span>]</span>
+<span id="cb1572-3"><a href="aed-univar.html#cb1572-3" aria-hidden="true" tabindex="-1"></a>jureia.h <span class="ot">&lt;-</span> caixeta[caixeta<span class="sc">$</span>local <span class="sc">==</span> <span class="st">&quot;jureia&quot;</span>, <span class="st">&quot;h&quot;</span>]</span>
+<span id="cb1572-4"><a href="aed-univar.html#cb1572-4" aria-hidden="true" tabindex="-1"></a>retiro.h <span class="ot">&lt;-</span> caixeta[caixeta<span class="sc">$</span>local <span class="sc">==</span> <span class="st">&quot;retiro&quot;</span>, <span class="st">&quot;h&quot;</span>]</span>
+<span id="cb1572-5"><a href="aed-univar.html#cb1572-5" aria-hidden="true" tabindex="-1"></a><span class="co"># para a localidade chauas</span></span>
+<span id="cb1572-6"><a href="aed-univar.html#cb1572-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(chauas.h, <span class="at">breaks =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-445-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1573-1"><a href="aed-univar.html#cb1573-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ops tem um valor extremo, que era um erro</span></span>
+<span id="cb1573-2"><a href="aed-univar.html#cb1573-2" aria-hidden="true" tabindex="-1"></a>chauas.h[chauas.h <span class="sc">&gt;</span> <span class="dv">300</span>]</span></code></pre></div>
+<pre><code>## [1] 480</code></pre>
+<div class="sourceCode" id="cb1575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1575-1"><a href="aed-univar.html#cb1575-1" aria-hidden="true" tabindex="-1"></a><span class="co"># deveria ser 48</span></span>
+<span id="cb1575-2"><a href="aed-univar.html#cb1575-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h) <span class="co"># um valor extremo de todo o conjunto de dados</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-445-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1576-1"><a href="aed-univar.html#cb1576-1" aria-hidden="true" tabindex="-1"></a>chauas.h[chauas.h <span class="sc">&gt;</span> <span class="dv">300</span>] <span class="ot">&lt;-</span> <span class="dv">48</span> <span class="co"># corrigimos esse valor</span></span>
+<span id="cb1576-2"><a href="aed-univar.html#cb1576-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(chauas.h)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-445-4.png" width="672" /></p>
+<div class="sourceCode" id="cb1577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1577-1"><a href="aed-univar.html#cb1577-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(jureia.h)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-445-5.png" width="672" /></p>
+<div class="sourceCode" id="cb1578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1578-1"><a href="aed-univar.html#cb1578-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(retiro.h)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-445-6.png" width="672" /></p>
+<div class="sourceCode" id="cb1579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1579-1"><a href="aed-univar.html#cb1579-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(chauas.h) <span class="co"># aplitude de variacao</span></span></code></pre></div>
+<pre><code>## [1]  20 230</code></pre>
+<div class="sourceCode" id="cb1581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1581-1"><a href="aed-univar.html#cb1581-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(jureia.h)</span></code></pre></div>
+<pre><code>## [1]  30 220</code></pre>
+<div class="sourceCode" id="cb1583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1583-1"><a href="aed-univar.html#cb1583-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(retiro.h)</span></code></pre></div>
+<pre><code>## [1]   5 170</code></pre>
+<div class="sourceCode" id="cb1585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1585-1"><a href="aed-univar.html#cb1585-1" aria-hidden="true" tabindex="-1"></a>xl <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">250</span>) <span class="co"># limitando o grafico aos extremos de todo o conjunto de dados</span></span>
+<span id="cb1585-2"><a href="aed-univar.html#cb1585-2" aria-hidden="true" tabindex="-1"></a>yl <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">150</span>)</span>
+<span id="cb1585-3"><a href="aed-univar.html#cb1585-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(chauas.h, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlim =</span> xl, <span class="at">ylim =</span> yl)</span>
+<span id="cb1585-4"><a href="aed-univar.html#cb1585-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(jureia.h, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1585-5"><a href="aed-univar.html#cb1585-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(retiro.h, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-445-7.png" width="672" /></p>
+<div class="sourceCode" id="cb1586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1586-1"><a href="aed-univar.html#cb1586-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas seria melhor ver cada distribuicao individualmente por localidade</span></span>
+<span id="cb1586-2"><a href="aed-univar.html#cb1586-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dividimos o dispositivo em 3 linhas e uma coluna</span></span>
+<span id="cb1586-3"><a href="aed-univar.html#cb1586-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb1586-4"><a href="aed-univar.html#cb1586-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(chauas.h, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">xlim =</span> xl, <span class="at">ylim =</span> yl, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb1586-5"><a href="aed-univar.html#cb1586-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(jureia.h, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">xlim =</span> xl, <span class="at">ylim =</span> yl, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1586-6"><a href="aed-univar.html#cb1586-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(retiro.h, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">xlim =</span> xl, <span class="at">ylim =</span> yl, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-445-8.png" width="672" /></p>
+<div class="sourceCode" id="cb1587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1587-1"><a href="aed-univar.html#cb1587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)) <span class="co"># retorna o dispositivo</span></span></code></pre></div>
+</div>
+</div>
+<div id="tabelas-de-variáveis-categóricas" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Tabelas de variáveis categóricas<a href="aed-univar.html#tabelas-de-variáveis-categóricas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A função <code>table()</code> permite contar valores em fatores e vetores e você pode <a href="func-graf.html#graf-alto-nivel">relembrar como usar a função <code>barplot()</code></a> para gerar gráficos de barra simples:</p>
+<div class="sourceCode" id="cb1588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1588-1"><a href="aed-univar.html#cb1588-1" aria-hidden="true" tabindex="-1"></a><span class="co"># continuando com os dados de caixeta.csv</span></span>
+<span id="cb1588-2"><a href="aed-univar.html#cb1588-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+local
+</th>
+<th style="text-align:right;">
+parcela
+</th>
+<th style="text-align:right;">
+arvore
+</th>
+<th style="text-align:right;">
+fuste
+</th>
+<th style="text-align:right;">
+cap
+</th>
+<th style="text-align:right;">
+h
+</th>
+<th style="text-align:left;">
+especie
+</th>
+<th style="text-align:right;">
+dap
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+66.84508
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+54.11268
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+720
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+Syagrus romanzoffianus
+</td>
+<td style="text-align:right;">
+229.18312
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+200
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Tabebuia cassinoides
+</td>
+<td style="text-align:right;">
+63.66198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+750
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:left;">
+indet.1
+</td>
+<td style="text-align:right;">
+238.73241
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+320
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+101.85916
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1589-1"><a href="aed-univar.html#cb1589-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tem a coluna especie</span></span>
+<span id="cb1589-2"><a href="aed-univar.html#cb1589-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1589-3"><a href="aed-univar.html#cb1589-3" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)</span></span>
+<span id="cb1589-4"><a href="aed-univar.html#cb1589-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>especie)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Alchornea triplinervia
+</th>
+<th style="text-align:right;">
+Andira fraxinifolia
+</th>
+<th style="text-align:right;">
+bombacaceae
+</th>
+<th style="text-align:right;">
+Cabralea canjerana
+</th>
+<th style="text-align:right;">
+Callophyllum brasiliensis
+</th>
+<th style="text-align:right;">
+Calophyllum brasiliensis
+</th>
+<th style="text-align:right;">
+Cecropia sp
+</th>
+<th style="text-align:right;">
+Coussapoa macrocarpa
+</th>
+<th style="text-align:right;">
+Coussapoa micropoda
+</th>
+<th style="text-align:right;">
+Cryptocaria moschata
+</th>
+<th style="text-align:right;">
+Cyathea sp
+</th>
+<th style="text-align:right;">
+Eugenia oblongata
+</th>
+<th style="text-align:right;">
+eugenia3
+</th>
+<th style="text-align:right;">
+fabaceae1
+</th>
+<th style="text-align:right;">
+Ficus sp
+</th>
+<th style="text-align:right;">
+Gomidesia sp
+</th>
+<th style="text-align:right;">
+Ilex durosa
+</th>
+<th style="text-align:right;">
+Ilex sp
+</th>
+<th style="text-align:right;">
+indet.1
+</th>
+<th style="text-align:right;">
+indet.2
+</th>
+<th style="text-align:right;">
+indet.3
+</th>
+<th style="text-align:right;">
+Inga sp
+</th>
+<th style="text-align:right;">
+Jacaranda puberula
+</th>
+<th style="text-align:right;">
+jussara
+</th>
+<th style="text-align:right;">
+Matayba sp
+</th>
+<th style="text-align:right;">
+Mela 1
+</th>
+<th style="text-align:right;">
+Mela 2
+</th>
+<th style="text-align:right;">
+Myrcia sulfiflora
+</th>
+<th style="text-align:right;">
+Myrtaceae 3
+</th>
+<th style="text-align:right;">
+myrtaceae1
+</th>
+<th style="text-align:right;">
+myrtaceae2
+</th>
+<th style="text-align:right;">
+myrtaceae4
+</th>
+<th style="text-align:right;">
+Pera glabrata
+</th>
+<th style="text-align:right;">
+Persea sp
+</th>
+<th style="text-align:right;">
+Pisonia sp
+</th>
+<th style="text-align:right;">
+Psidium sp
+</th>
+<th style="text-align:right;">
+Simplocos sp
+</th>
+<th style="text-align:right;">
+Solanum sp1
+</th>
+<th style="text-align:right;">
+Solanum sp2
+</th>
+<th style="text-align:right;">
+Syagrus romanzoffianus
+</th>
+<th style="text-align:right;">
+Tabebuia 1
+</th>
+<th style="text-align:right;">
+Tabebuia cassinoides
+</th>
+<th style="text-align:right;">
+Tibouchina nutticeps
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+698
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1590-1"><a href="aed-univar.html#cb1590-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="co"># quais são as tres especies mais abundantes</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Tabebuia cassinoides
+</th>
+<th style="text-align:right;">
+Myrcia sulfiflora
+</th>
+<th style="text-align:right;">
+Mela 1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+698
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+63
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1591-1"><a href="aed-univar.html#cb1591-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>local) <span class="co"># quantas localidades?</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+chauas
+</th>
+<th style="text-align:right;">
+jureia
+</th>
+<th style="text-align:right;">
+retiro
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+426
+</td>
+<td style="text-align:right;">
+241
+</td>
+<td style="text-align:right;">
+360
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1592-1"><a href="aed-univar.html#cb1592-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Graficos de barra para representar uma tabela</span></span>
+<span id="cb1592-2"><a href="aed-univar.html#cb1592-2" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">no.readonly =</span> <span class="cn">TRUE</span>) <span class="co"># pega parametros gráficos atual</span></span>
+<span id="cb1592-3"><a href="aed-univar.html#cb1592-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">0</span>)) <span class="co"># mudando as margens</span></span>
+<span id="cb1592-4"><a href="aed-univar.html#cb1592-4" aria-hidden="true" tabindex="-1"></a>vv <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)</span>
+<span id="cb1592-5"><a href="aed-univar.html#cb1592-5" aria-hidden="true" tabindex="-1"></a>vv[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># cinco especies mais abundantes</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Tabebuia cassinoides
+</th>
+<th style="text-align:right;">
+Myrcia sulfiflora
+</th>
+<th style="text-align:right;">
+Mela 1
+</th>
+<th style="text-align:right;">
+jussara
+</th>
+<th style="text-align:right;">
+Psidium sp
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+698
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1593-1"><a href="aed-univar.html#cb1593-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico de barras disso</span></span>
+<span id="cb1593-2"><a href="aed-univar.html#cb1593-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(vv, <span class="at">cex.names =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-446-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1594-1"><a href="aed-univar.html#cb1594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las =</span> <span class="dv">2</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1</span>)) <span class="co"># mudando margens e orientacao dos eixos</span></span>
+<span id="cb1594-2"><a href="aed-univar.html#cb1594-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T), <span class="at">cex.names =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-446-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1595-1"><a href="aed-univar.html#cb1595-1" aria-hidden="true" tabindex="-1"></a><span class="co"># muita coisa, pegando apenas as especies mais abundantes</span></span>
+<span id="cb1595-2"><a href="aed-univar.html#cb1595-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], <span class="at">cex.names =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-446-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1596-1"><a href="aed-univar.html#cb1596-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note como Tabebuia cassonoides é muito mais abundante que qualquer outra espécie nessas comunidades</span></span>
+<span id="cb1596-2"><a href="aed-univar.html#cb1596-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1596-3"><a href="aed-univar.html#cb1596-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(op) <span class="co"># volta aos parametros</span></span>
+<span id="cb1596-4"><a href="aed-univar.html#cb1596-4" aria-hidden="true" tabindex="-1"></a><span class="co"># numero de individuos por localidade</span></span>
+<span id="cb1596-5"><a href="aed-univar.html#cb1596-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>local), <span class="at">ylab =</span> <span class="st">&quot;Número de indivíduos&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-446-4.png" width="672" /></p>
+<div id="resumo-de-gráficos-univariados" class="section level3 hasAnchor" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Resumo de gráficos univariados<a href="aed-univar.html#resumo-de-gráficos-univariados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Além das funções gráficas apresentadas acima, vamos ver aqui as funções <code>dotchart()</code> e <code>stripchart()</code>, úteis para visualizar dados brutos.</p>
+<div class="sourceCode" id="cb1597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1597-1"><a href="aed-univar.html#cb1597-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para visualizar dados brutos</span></span>
+<span id="cb1597-2"><a href="aed-univar.html#cb1597-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+local
+</th>
+<th style="text-align:right;">
+parcela
+</th>
+<th style="text-align:right;">
+arvore
+</th>
+<th style="text-align:right;">
+fuste
+</th>
+<th style="text-align:right;">
+cap
+</th>
+<th style="text-align:right;">
+h
+</th>
+<th style="text-align:left;">
+especie
+</th>
+<th style="text-align:right;">
+dap
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+66.84508
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+54.11268
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+720
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+Syagrus romanzoffianus
+</td>
+<td style="text-align:right;">
+229.18312
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+200
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Tabebuia cassinoides
+</td>
+<td style="text-align:right;">
+63.66198
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+750
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:left;">
+indet.1
+</td>
+<td style="text-align:right;">
+238.73241
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+320
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+101.85916
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1598-1"><a href="aed-univar.html#cb1598-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plotar a coluna altura (h)</span></span>
+<span id="cb1598-2"><a href="aed-univar.html#cb1598-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(caixeta<span class="sc">$</span>h, <span class="at">xlab =</span> <span class="st">&quot;Observações&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Altura (m)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-447-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1599-1"><a href="aed-univar.html#cb1599-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que o único valor extremos fica super evidente</span></span>
+<span id="cb1599-2"><a href="aed-univar.html#cb1599-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1599-3"><a href="aed-univar.html#cb1599-3" aria-hidden="true" tabindex="-1"></a><span class="co"># poderíamos usar a função dotchart para isso</span></span>
+<span id="cb1599-4"><a href="aed-univar.html#cb1599-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dotchart</span>(caixeta<span class="sc">$</span>h, <span class="at">ylab =</span> <span class="st">&quot;Observações&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Altura (m)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-447-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1600-1"><a href="aed-univar.html#cb1600-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inversão dos eixos..</span></span>
+<span id="cb1600-2"><a href="aed-univar.html#cb1600-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos corrigir o valor extremo</span></span>
+<span id="cb1600-3"><a href="aed-univar.html#cb1600-3" aria-hidden="true" tabindex="-1"></a>caixeta[<span class="fu">which</span>(caixeta<span class="sc">$</span>h <span class="sc">&gt;</span> <span class="dv">300</span>), <span class="st">&quot;h&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">48</span></span>
+<span id="cb1600-4"><a href="aed-univar.html#cb1600-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1600-5"><a href="aed-univar.html#cb1600-5" aria-hidden="true" tabindex="-1"></a><span class="co"># faz um boxplot disso</span></span>
+<span id="cb1600-6"><a href="aed-univar.html#cb1600-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(caixeta<span class="sc">$</span>h) <span class="co"># já vimos isso, mas note os pontos isolados dos boxes (caixas), esses são valores isolados, meio fora da distribuicao</span></span>
+<span id="cb1600-7"><a href="aed-univar.html#cb1600-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(caixeta<span class="sc">$</span>h) <span class="co"># ve os quartis e média</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Min.
+</th>
+<th style="text-align:right;">
+1st Qu.
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+3rd Qu.
+</th>
+<th style="text-align:right;">
+Max.
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+89.86173
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+230
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1601-1"><a href="aed-univar.html#cb1601-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota a mediana</span></span>
+<span id="cb1601-2"><a href="aed-univar.html#cb1601-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">median</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb1601-3"><a href="aed-univar.html#cb1601-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plota todos os quartis</span></span>
+<span id="cb1601-4"><a href="aed-univar.html#cb1601-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">quantile</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-447-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1602-1"><a href="aed-univar.html#cb1602-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ve em forma de histograma</span></span>
+<span id="cb1602-2"><a href="aed-univar.html#cb1602-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">20</span>)</span>
+<span id="cb1602-3"><a href="aed-univar.html#cb1602-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plota os quartis</span></span>
+<span id="cb1602-4"><a href="aed-univar.html#cb1602-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">quantile</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-447-4.png" width="672" /></p>
+<div class="sourceCode" id="cb1603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1603-1"><a href="aed-univar.html#cb1603-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(caixeta)</span></code></pre></div>
+<pre><code>## [1] 1027    8</code></pre>
+<div class="sourceCode" id="cb1605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1605-1"><a href="aed-univar.html#cb1605-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ve o histograma na forma de pontos:</span></span>
+<span id="cb1605-2"><a href="aed-univar.html#cb1605-2" aria-hidden="true" tabindex="-1"></a>?stripchart</span></code></pre></div>
+<div class="sourceCode" id="cb1606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1606-1"><a href="aed-univar.html#cb1606-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(caixeta<span class="sc">$</span>h, <span class="at">method =</span> <span class="st">&quot;stack&quot;</span>, <span class="at">jitter =</span> <span class="dv">0</span>, <span class="at">offset =</span> <span class="dv">1</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">nrow</span>(caixeta)), <span class="at">xlab =</span> <span class="st">&quot;altura (cm)&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-449-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1607-1"><a href="aed-univar.html#cb1607-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Numa tela só boxplot, histograma, densidade e stripchart</span></span>
+<span id="cb1607-2"><a href="aed-univar.html#cb1607-2" aria-hidden="true" tabindex="-1"></a>olp <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">no.readonly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1607-3"><a href="aed-univar.html#cb1607-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">0</span>))</span>
+<span id="cb1607-4"><a href="aed-univar.html#cb1607-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(caixeta<span class="sc">$</span>h)</span>
+<span id="cb1607-5"><a href="aed-univar.html#cb1607-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h)</span>
+<span id="cb1607-6"><a href="aed-univar.html#cb1607-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stats<span class="sc">::</span><span class="fu">density</span>(caixeta<span class="sc">$</span>h))</span>
+<span id="cb1607-7"><a href="aed-univar.html#cb1607-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(caixeta<span class="sc">$</span>h, <span class="at">method =</span> <span class="st">&quot;stack&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-449-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1608-1"><a href="aed-univar.html#cb1608-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(olp) <span class="co"># resgata parametros graficos originais</span></span>
+<span id="cb1608-2"><a href="aed-univar.html#cb1608-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1608-3"><a href="aed-univar.html#cb1608-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Histograma com diferentes larguras de barras</span></span>
+<span id="cb1608-4"><a href="aed-univar.html#cb1608-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>), <span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb1608-5"><a href="aed-univar.html#cb1608-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">main =</span> <span class="st">&quot;Default&quot;</span>)</span>
+<span id="cb1608-6"><a href="aed-univar.html#cb1608-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">5</span>, <span class="at">main =</span> <span class="st">&quot;Cinco break-points&quot;</span>)</span>
+<span id="cb1608-7"><a href="aed-univar.html#cb1608-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">&quot;Dez break-points&quot;</span>)</span>
+<span id="cb1608-8"><a href="aed-univar.html#cb1608-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">15</span>, <span class="at">main =</span> <span class="st">&quot;Quinze break-points&quot;</span>)</span>
+<span id="cb1608-9"><a href="aed-univar.html#cb1608-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main =</span> <span class="st">&quot;Vinte break-points&quot;</span>, <span class="at">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
+<span id="cb1608-10"><a href="aed-univar.html#cb1608-10" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(olp)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-449-3.png" width="672" /></p>
+</div>
+</div>
+<div id="as-variáveis-têm-distribuição-normal" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> As variáveis têm distribuição normal?<a href="aed-univar.html#as-variáveis-têm-distribuição-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A função <code>density()</code> que juntamente com <code>hist()</code>, que você já conhece, permite visualizar a densidade probabilística de uma variável numérica, ou seja descreve a <a href="https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_probabilidade">distribuição de probabilidade</a>, isto é, a chance de uma variável assumir um valor ao longo de um espaço (densidade) de valores.</p>
+<p>A função <code>dnorm()</code> permite obter a densidade probabilistica de uma distribuição normal teórica, para a mesma média e mesmo desvio padrão dos teus dados.
+Com isso você pode visualizar a distribuição dos seus dados e sobrepor a isso como seria a distribuição se os seus dados fossem normais.</p>
+<div class="sourceCode" id="cb1609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1609-1"><a href="aed-univar.html#cb1609-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(olp)</span></code></pre></div>
+<div class="sourceCode" id="cb1610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1610-1"><a href="aed-univar.html#cb1610-1" aria-hidden="true" tabindex="-1"></a>?density <span class="co"># veja o help disso</span></span></code></pre></div>
+<div class="sourceCode" id="cb1611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1611-1"><a href="aed-univar.html#cb1611-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota a densidade probabilistica = a curva da probabilidade da variável assumir certos valores de altura</span></span>
+<span id="cb1611-2"><a href="aed-univar.html#cb1611-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stats<span class="sc">::</span><span class="fu">density</span>(caixeta<span class="sc">$</span>h))</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-452-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1612-1"><a href="aed-univar.html#cb1612-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Histograma com área = 1 e density probabilistica sobreposta (argumento prob=TRUE, muda o eixo y)</span></span>
+<span id="cb1612-2"><a href="aed-univar.html#cb1612-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">prob =</span> T, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="fu">max</span>(caixeta<span class="sc">$</span>h) <span class="sc">+</span> <span class="dv">5</span>))</span>
+<span id="cb1612-3"><a href="aed-univar.html#cb1612-3" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona a linha da densidade</span></span>
+<span id="cb1612-4"><a href="aed-univar.html#cb1612-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(stats<span class="sc">::</span><span class="fu">density</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb1612-5"><a href="aed-univar.html#cb1612-5" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona a média</span></span>
+<span id="cb1612-6"><a href="aed-univar.html#cb1612-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="st">&quot;solid&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-452-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1613-1"><a href="aed-univar.html#cb1613-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que na média a densidade probabilística é maior que nas caudas da distribuição</span></span>
+<span id="cb1613-2"><a href="aed-univar.html#cb1613-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1613-3"><a href="aed-univar.html#cb1613-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos adicionar sobre nossa distribuicao REAL a densidade probabilistica para uma distribuição normal com media e desvio igual ao dado</span></span></code></pre></div>
+<div class="sourceCode" id="cb1614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1614-1"><a href="aed-univar.html#cb1614-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Adicionando uma curva da normal aos graficos</span></span>
+<span id="cb1614-2"><a href="aed-univar.html#cb1614-2" aria-hidden="true" tabindex="-1"></a>?dnorm <span class="co"># veja o help dessa função e suas variantes. veremos isso melhor abaixo</span></span></code></pre></div>
+<div class="sourceCode" id="cb1615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1615-1"><a href="aed-univar.html#cb1615-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pega a densidade probabilística de uma distribuição normal teórica, para quantis de seu interesse, segundo uma média e um desvio padrão</span></span>
+<span id="cb1615-2"><a href="aed-univar.html#cb1615-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.25</span>), <span class="at">mean =</span> <span class="fu">mean</span>(caixeta<span class="sc">$</span>h), <span class="at">sd =</span> <span class="fu">sd</span>(caixeta<span class="sc">$</span>h)) <span class="co"># esses são os valores que a distribuição probabilistica assume, numa distribuição normal que tem o mesma média e a mesmo desvio padrão que os seus dados</span></span></code></pre></div>
+<pre><code>## [1] 0.0003251756 0.0003317476 0.0003384336 0.0003452351 0.0003521537</code></pre>
+<div class="sourceCode" id="cb1617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1617-1"><a href="aed-univar.html#cb1617-1" aria-hidden="true" tabindex="-1"></a>?curve <span class="co"># veja que curve depende de uma função, ela traça a curva de uma f(x), num intervalo especificado de x (que foi plotado por hist)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1618-1"><a href="aed-univar.html#cb1618-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">prob =</span> T, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="fu">max</span>(caixeta<span class="sc">$</span>h) <span class="sc">+</span> <span class="dv">5</span>))</span>
+<span id="cb1618-2"><a href="aed-univar.html#cb1618-2" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona a linha da densidade</span></span>
+<span id="cb1618-3"><a href="aed-univar.html#cb1618-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(stats<span class="sc">::</span><span class="fu">density</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb1618-4"><a href="aed-univar.html#cb1618-4" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona a média</span></span>
+<span id="cb1618-5"><a href="aed-univar.html#cb1618-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="st">&quot;solid&quot;</span>)</span>
+<span id="cb1618-6"><a href="aed-univar.html#cb1618-6" aria-hidden="true" tabindex="-1"></a><span class="co"># combinamos as coisas e adicionamos a distribuição</span></span>
+<span id="cb1618-7"><a href="aed-univar.html#cb1618-7" aria-hidden="true" tabindex="-1"></a><span class="co"># teórica sobre os nosso dados</span></span>
+<span id="cb1618-8"><a href="aed-univar.html#cb1618-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Usamos a funcao curve,</span></span>
+<span id="cb1618-9"><a href="aed-univar.html#cb1618-9" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="at">expr =</span> <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="fu">mean</span>(caixeta<span class="sc">$</span>h), <span class="at">sd =</span> <span class="fu">sd</span>(caixeta<span class="sc">$</span>h)), <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-456-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1619-1"><a href="aed-univar.html#cb1619-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que os dados neste caso seguem bem uma curva normal.</span></span>
+<span id="cb1619-2"><a href="aed-univar.html#cb1619-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Portanto, mesmo sem fazer um teste, essa figura sugere que os dados de altura do caixetal é normal</span></span></code></pre></div>
+<p>As funções <code>qqnorm()</code> e <code>qqline()</code> permitem visualizar rapidamente se uma variável qualquer segue uma distribuição normal, ao compara os valores dos quantis empíricos (observados), com valores dos quantis teóricos (i.e. esperados por uma distribuição normal).
+A função <code>rnorm()</code> gera um conjunto de dados aleatórios que tem distribuição normal.</p>
+<div class="sourceCode" id="cb1620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1620-1"><a href="aed-univar.html#cb1620-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Teste de normalidade</span></span>
+<span id="cb1620-2"><a href="aed-univar.html#cb1620-2" aria-hidden="true" tabindex="-1"></a><span class="do">######################################</span></span>
+<span id="cb1620-3"><a href="aed-univar.html#cb1620-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Exemplo para o qqplot</span></span>
+<span id="cb1620-4"><a href="aed-univar.html#cb1620-4" aria-hidden="true" tabindex="-1"></a><span class="do">##########################################</span></span>
+<span id="cb1620-5"><a href="aed-univar.html#cb1620-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1620-6"><a href="aed-univar.html#cb1620-6" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos simular valores</span></span>
+<span id="cb1620-7"><a href="aed-univar.html#cb1620-7" aria-hidden="true" tabindex="-1"></a>?rnorm <span class="co"># funcao que gera valores aleatórios que seguem uma distribuicao normal</span></span></code></pre></div>
+<div class="sourceCode" id="cb1621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1621-1"><a href="aed-univar.html#cb1621-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Sorteio de 100 valores de uma normal com media=30 e desvio-padrao=3</span></span>
+<span id="cb1621-2"><a href="aed-univar.html#cb1621-2" aria-hidden="true" tabindex="-1"></a>zz <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">3</span>)</span>
+<span id="cb1621-3"><a href="aed-univar.html#cb1621-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(zz)</span></code></pre></div>
+<pre><code>## [1] 30.03516</code></pre>
+<div class="sourceCode" id="cb1623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1623-1"><a href="aed-univar.html#cb1623-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(zz)</span></code></pre></div>
+<pre><code>## [1] 2.666064</code></pre>
+<div class="sourceCode" id="cb1625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1625-1"><a href="aed-univar.html#cb1625-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(zz)</span></code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<div class="sourceCode" id="cb1627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1627-1"><a href="aed-univar.html#cb1627-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(zz, <span class="at">prob =</span> T)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-458-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1628-1"><a href="aed-univar.html#cb1628-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Valores  arredondados para 2 casa, e ordenados</span></span>
+<span id="cb1628-2"><a href="aed-univar.html#cb1628-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">3</span>), <span class="dv">2</span>))</span>
+<span id="cb1628-3"><a href="aed-univar.html#cb1628-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Inspecionando os 5 primeiros e ultimos valores</span></span>
+<span id="cb1628-4"><a href="aed-univar.html#cb1628-4" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 24.18 24.33 24.33 24.72 25.15</code></pre>
+<div class="sourceCode" id="cb1630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1630-1"><a href="aed-univar.html#cb1630-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">95</span><span class="sc">:</span><span class="dv">100</span>]</span></code></pre></div>
+<pre><code>## [1] 35.50 35.69 35.73 35.78 36.48 38.45</code></pre>
+<div class="sourceCode" id="cb1632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1632-1"><a href="aed-univar.html#cb1632-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Calculo do percentil de cada valor</span></span>
+<span id="cb1632-2"><a href="aed-univar.html#cb1632-2" aria-hidden="true" tabindex="-1"></a><span class="co"># relembre a funcao order (ela retorna os indices dos valores ordenados)</span></span>
+<span id="cb1632-3"><a href="aed-univar.html#cb1632-3" aria-hidden="true" tabindex="-1"></a><span class="fu">order</span>(x) <span class="co"># veja que os indices estao sequenciais, porque geramos um vetor já pre-ordenado</span></span></code></pre></div>
+<pre><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+##  [91]  91  92  93  94  95  96  97  98  99 100</code></pre>
+<div class="sourceCode" id="cb1634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1634-1"><a href="aed-univar.html#cb1634-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculamos o percentil de cada valor, que é uma medida que indica o valor abaixo do qual uma certa porcentagem de observações existe. Por exemplo, o vigézimo percentil tem um valor, abaixo do qual 20% das observações são encontradas</span></span>
+<span id="cb1634-2"><a href="aed-univar.html#cb1634-2" aria-hidden="true" tabindex="-1"></a>px <span class="ot">&lt;-</span> <span class="fu">order</span>(x) <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb1634-3"><a href="aed-univar.html#cb1634-3" aria-hidden="true" tabindex="-1"></a>px</span></code></pre></div>
+<pre><code>##   [1] 0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.10 0.11 0.12 0.13 0.14 0.15
+##  [16] 0.16 0.17 0.18 0.19 0.20 0.21 0.22 0.23 0.24 0.25 0.26 0.27 0.28 0.29 0.30
+##  [31] 0.31 0.32 0.33 0.34 0.35 0.36 0.37 0.38 0.39 0.40 0.41 0.42 0.43 0.44 0.45
+##  [46] 0.46 0.47 0.48 0.49 0.50 0.51 0.52 0.53 0.54 0.55 0.56 0.57 0.58 0.59 0.60
+##  [61] 0.61 0.62 0.63 0.64 0.65 0.66 0.67 0.68 0.69 0.70 0.71 0.72 0.73 0.74 0.75
+##  [76] 0.76 0.77 0.78 0.79 0.80 0.81 0.82 0.83 0.84 0.85 0.86 0.87 0.88 0.89 0.90
+##  [91] 0.91 0.92 0.93 0.94 0.95 0.96 0.97 0.98 0.99 1.00</code></pre>
+<div class="sourceCode" id="cb1636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1636-1"><a href="aed-univar.html#cb1636-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vejamos a correspondencia</span></span>
+<span id="cb1636-2"><a href="aed-univar.html#cb1636-2" aria-hidden="true" tabindex="-1"></a><span class="co"># quantos valores são menores que o percentil 0.2 (ou 20%)?</span></span>
+<span id="cb1636-3"><a href="aed-univar.html#cb1636-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(px <span class="sc">&lt;</span> <span class="fl">0.2</span>) <span class="co"># obviamente 19 se temos apenas 100 valores no nosso vetor</span></span></code></pre></div>
+<pre><code>## [1] 19</code></pre>
+<div class="sourceCode" id="cb1638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1638-1"><a href="aed-univar.html#cb1638-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quais valores são esses</span></span>
+<span id="cb1638-2"><a href="aed-univar.html#cb1638-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">order</span>(x)][px <span class="sc">&lt;=</span> <span class="fl">0.2</span>]</span></code></pre></div>
+<pre><code>##  [1] 24.18 24.33 24.33 24.72 25.15 25.20 25.65 26.00 26.17 26.26 26.51 26.60
+## [13] 26.62 26.79 26.93 26.96 27.07 27.28 27.31 27.31</code></pre>
+<div class="sourceCode" id="cb1640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1640-1"><a href="aed-univar.html#cb1640-1" aria-hidden="true" tabindex="-1"></a><span class="co"># qual o valor do percentil</span></span>
+<span id="cb1640-2"><a href="aed-univar.html#cb1640-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">order</span>(x)][px <span class="sc">==</span> <span class="fl">0.2</span>]</span></code></pre></div>
+<pre><code>## [1] 27.31</code></pre>
+<div class="sourceCode" id="cb1642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1642-1"><a href="aed-univar.html#cb1642-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb1642-2"><a href="aed-univar.html#cb1642-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> x[<span class="fu">order</span>(x)][px <span class="sc">==</span> <span class="fl">0.2</span>], <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-458-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1643-1"><a href="aed-univar.html#cb1643-1" aria-hidden="true" tabindex="-1"></a><span class="co"># as barras com valores menores ou iguais que o do percentil (linha vermelha), totalizam 20% das observações.</span></span>
+<span id="cb1643-2"><a href="aed-univar.html#cb1643-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1643-3"><a href="aed-univar.html#cb1643-3" aria-hidden="true" tabindex="-1"></a><span class="co"># com os percentis dos valores do dado original, podemos pegar a densidade probabilistica esperada se a distribuicao fosse normal</span></span>
+<span id="cb1643-4"><a href="aed-univar.html#cb1643-4" aria-hidden="true" tabindex="-1"></a>q.norm.x <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(px, <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">sd =</span> <span class="fu">sd</span>(x))</span>
+<span id="cb1643-5"><a href="aed-univar.html#cb1643-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1643-6"><a href="aed-univar.html#cb1643-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Juntando valores originais, os percentis e os valores esperados em um dataframe, para facilitar a visualizacao</span></span>
+<span id="cb1643-7"><a href="aed-univar.html#cb1643-7" aria-hidden="true" tabindex="-1"></a>qq.plot.x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">percentil =</span> px, <span class="at">q.norm =</span> q.norm.x)</span>
+<span id="cb1643-8"><a href="aed-univar.html#cb1643-8" aria-hidden="true" tabindex="-1"></a>qq.plot.x[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+x
+</th>
+<th style="text-align:right;">
+percentil
+</th>
+<th style="text-align:right;">
+q.norm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+24.18
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+22.79771
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24.33
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:right;">
+23.63630
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24.33
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+24.16836
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24.72
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+24.56860
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.15
+</td>
+<td style="text-align:right;">
+0.05
+</td>
+<td style="text-align:right;">
+24.89417
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1644-1"><a href="aed-univar.html#cb1644-1" aria-hidden="true" tabindex="-1"></a>qq.plot.x[<span class="dv">95</span><span class="sc">:</span><span class="dv">100</span>, ]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+x
+</th>
+<th style="text-align:right;">
+percentil
+</th>
+<th style="text-align:right;">
+q.norm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+95
+</td>
+<td style="text-align:right;">
+35.50
+</td>
+<td style="text-align:right;">
+0.95
+</td>
+<td style="text-align:right;">
+35.01423
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+96
+</td>
+<td style="text-align:right;">
+35.69
+</td>
+<td style="text-align:right;">
+0.96
+</td>
+<td style="text-align:right;">
+35.33980
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+97
+</td>
+<td style="text-align:right;">
+35.73
+</td>
+<td style="text-align:right;">
+0.97
+</td>
+<td style="text-align:right;">
+35.74004
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+98
+</td>
+<td style="text-align:right;">
+35.78
+</td>
+<td style="text-align:right;">
+0.98
+</td>
+<td style="text-align:right;">
+36.27210
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+99
+</td>
+<td style="text-align:right;">
+36.48
+</td>
+<td style="text-align:right;">
+0.99
+</td>
+<td style="text-align:right;">
+37.11069
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+100
+</td>
+<td style="text-align:right;">
+38.45
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+Inf
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1645-1"><a href="aed-univar.html#cb1645-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(qq.plot.x)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+x
+</th>
+<th style="text-align:right;">
+percentil
+</th>
+<th style="text-align:right;">
+q.norm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+24.18
+</td>
+<td style="text-align:right;">
+0.01
+</td>
+<td style="text-align:right;">
+22.79771
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24.33
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:right;">
+23.63630
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24.33
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+24.16836
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+24.72
+</td>
+<td style="text-align:right;">
+0.04
+</td>
+<td style="text-align:right;">
+24.56860
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.15
+</td>
+<td style="text-align:right;">
+0.05
+</td>
+<td style="text-align:right;">
+24.89417
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25.20
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:right;">
+25.17129
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1646-1"><a href="aed-univar.html#cb1646-1" aria-hidden="true" tabindex="-1"></a><span class="do">## com isso eu posso comparar meus valores observados com os valores esperados se a distribuição fosse normal</span></span>
+<span id="cb1646-2"><a href="aed-univar.html#cb1646-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x <span class="sc">~</span> q.norm, <span class="at">data =</span> qq.plot.x, <span class="at">xlab =</span> <span class="st">&quot;Quantis Esperados&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Valores Observados&quot;</span>)</span>
+<span id="cb1646-3"><a href="aed-univar.html#cb1646-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="co"># relacao esperada, caso os dados venham de uma populacao normal</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-458-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1647-1"><a href="aed-univar.html#cb1647-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que a correlação é fortíssima, porque os usados no exemplo eram de fato normais, portanto, nenhuma surpresa nisso</span></span></code></pre></div>
+<div class="sourceCode" id="cb1648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1648-1"><a href="aed-univar.html#cb1648-1" aria-hidden="true" tabindex="-1"></a><span class="do">## A funcao qqnorm ja faz isto de uma vez para voce:</span></span>
+<span id="cb1648-2"><a href="aed-univar.html#cb1648-2" aria-hidden="true" tabindex="-1"></a>?qqnorm <span class="co"># veja o help</span></span></code></pre></div>
+<div class="sourceCode" id="cb1649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1649-1"><a href="aed-univar.html#cb1649-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(x)</span>
+<span id="cb1649-2"><a href="aed-univar.html#cb1649-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(x, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-460-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1650-1"><a href="aed-univar.html#cb1650-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suponha um dado não normal</span></span>
+<span id="cb1650-2"><a href="aed-univar.html#cb1650-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um exemplo lognormal (nao é uma distribuicao normal)</span></span>
+<span id="cb1650-3"><a href="aed-univar.html#cb1650-3" aria-hidden="true" tabindex="-1"></a>xlogn <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="fu">nrow</span>(avesc), <span class="at">meanlog =</span> <span class="dv">30</span>, <span class="at">sdlog =</span> <span class="dv">1</span>)</span>
+<span id="cb1650-4"><a href="aed-univar.html#cb1650-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(xlogn, <span class="at">prob =</span> T, <span class="at">breaks =</span> <span class="dv">20</span>)</span>
+<span id="cb1650-5"><a href="aed-univar.html#cb1650-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(stats<span class="sc">::</span><span class="fu">density</span>(xlogn), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-460-2.png" width="672" /></p>
+<div class="sourceCode" id="cb1651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1651-1"><a href="aed-univar.html#cb1651-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nao é uma cuva normal, certo?</span></span>
+<span id="cb1651-2"><a href="aed-univar.html#cb1651-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1651-3"><a href="aed-univar.html#cb1651-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra o QQ Plot nessa situação (veja como os pontos saem da linha)</span></span>
+<span id="cb1651-4"><a href="aed-univar.html#cb1651-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(xlogn)</span>
+<span id="cb1651-5"><a href="aed-univar.html#cb1651-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(xlogn, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-460-3.png" width="672" /></p>
+<div class="sourceCode" id="cb1652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1652-1"><a href="aed-univar.html#cb1652-1" aria-hidden="true" tabindex="-1"></a><span class="co"># entao vamos ver em dados reais</span></span>
+<span id="cb1652-2"><a href="aed-univar.html#cb1652-2" aria-hidden="true" tabindex="-1"></a><span class="co"># altura, já vimos antes, tem distribuição bem normal</span></span>
+<span id="cb1652-3"><a href="aed-univar.html#cb1652-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(caixeta<span class="sc">$</span>h)</span>
+<span id="cb1652-4"><a href="aed-univar.html#cb1652-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(caixeta<span class="sc">$</span>h, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-460-4.png" width="672" /></p>
+<div class="sourceCode" id="cb1653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1653-1"><a href="aed-univar.html#cb1653-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cap por outro lado, é mais log normal</span></span>
+<span id="cb1653-2"><a href="aed-univar.html#cb1653-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(caixeta<span class="sc">$</span>cap)</span>
+<span id="cb1653-3"><a href="aed-univar.html#cb1653-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(caixeta<span class="sc">$</span>cap, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-460-5.png" width="672" /></p>
+</div>
+<div id="sabermais-aed-univariadas" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Para saber mais:<a href="aed-univar.html#sabermais-aed-univariadas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89_2013:exercicio07">Exercicio AED Univariadas</a>.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="aed-checa-dados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aed-bivar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/12-aed_checaunivar.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/12-aed_checaunivar.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

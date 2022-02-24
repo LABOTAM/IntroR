@@ -1,0 +1,4072 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Checagem dos dados | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.24.9 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Checagem dos dados | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/LABOTAM.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Checagem dos dados | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini (INPA)" />
+<meta name="author" content="Ricardo de Oliveira Perdiz - ricardoperdiz@yahoo.com" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="extr-dados.html"/>
+<link rel="next" href="aed-univar.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#prefácio">Prefácio<span></span></a>
+<ul>
+<li><a href="index.html#estrutura-do-livro">Estrutura do livro<span></span></a></li>
+<li><a href="index.html#sobre-os-autores">Sobre os autores<span></span></a></li>
+<li><a href="index.html#agradecimentos">Agradecimentos<span></span></a></li>
+<li><a href="index.html#pré-requisitos">Pré-requisitos<span></span></a></li>
+<li><a href="index.html#caso-você-possua-um-computador">Caso você possua um computador<span></span></a>
+<ul>
+<li><a href="index.html#instale-o-r">Instale o R<span></span></a></li>
+<li><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide">Instale um ambiente de desenvolvimento integrado - IDE<span></span></a></li>
+<li><a href="index.html#baixe-os-pacotes-abaixo">Baixe os pacotes abaixo<span></span></a></li>
+<li><a href="index.html#baixe-o-repositório-para-seu-computador">Baixe o repositório para seu computador<span></span></a></li>
+</ul></li>
+<li><a href="index.html#caso-você-não-possua-um-computador">Caso você não possua um computador<span></span></a></li>
+<li><a href="index.html#o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar">O que é o R e por qual razão você deve se preocupar em programar<span></span></a>
+<ul>
+<li><a href="index.html#o-r-em-poucas-palavras">O R em poucas palavras<span></span></a></li>
+<li><a href="index.html#por-que-programar">Por que programar?<span></span></a></li>
+</ul></li>
+<li><a href="index.html#análise-exploratória-de-dados-aed">Análise exploratória de dados (AED)<span></span></a>
+<ul>
+<li><a href="index.html#o-que-é-aed-e-por-que-fazer-aed">O que é AED e por que fazer AED?<span></span></a></li>
+<li><a href="index.html#objetivos-da-aed">Objetivos da AED<span></span></a></li>
+<li><a href="index.html#para-ler">Para ler<span></span></a></li>
+</ul></li>
+<li><a href="index.html#exercícios-no-notar">Exercícios no <strong>notaR</strong><span></span></a>
+<ul>
+<li><a href="index.html#conhecendo-o-notar">Conhecendo o <strong>notaR</strong><span></span></a></li>
+</ul></li>
+<li><a href="index.html#referências-úteis">Referências úteis<span></span></a></li>
+</ul></li>
+<li class="part"><span><b>I Parte I<span></span></b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#base-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho<span></span></a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#dicas-de-erros-comuns-de-sintaxe-da-linguagem-r"><i class="fa fa-check"></i><b>1.7</b> Dicas de erros comuns de sintaxe da linguagem R<span></span></a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#parênteses"><i class="fa fa-check"></i><b>1.7.1</b> Parênteses<span></span></a></li>
+<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#vírgulas"><i class="fa fa-check"></i><b>1.7.2</b> Vírgulas<span></span></a></li>
+<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#aspas"><i class="fa fa-check"></i><b>1.7.3</b> Aspas<span></span></a></li>
+<li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#números"><i class="fa fa-check"></i><b>1.7.4</b> Números<span></span></a></li>
+<li class="chapter" data-level="1.7.5" data-path="intro.html"><a href="intro.html#nomes-de-objetos"><i class="fa fa-check"></i><b>1.7.5</b> Nomes de objetos<span></span></a></li>
+<li class="chapter" data-level="1.7.6" data-path="intro.html"><a href="intro.html#atribuição-de-objetos"><i class="fa fa-check"></i><b>1.7.6</b> Atribuição de objetos<span></span></a></li>
+<li class="chapter" data-level="1.7.7" data-path="intro.html"><a href="intro.html#busque-entender-as-partes"><i class="fa fa-check"></i><b>1.7.7</b> Busque entender as partes<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.8</b> O R como calculadora<span></span></a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="intro.html"><a href="intro.html#operadores"><i class="fa fa-check"></i><b>1.8.1</b> Operadores<span></span></a></li>
+<li class="chapter" data-level="1.8.2" data-path="intro.html"><a href="intro.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.8.2</b> Precedência de parênteses<span></span></a></li>
+<li class="chapter" data-level="1.8.3" data-path="intro.html"><a href="intro.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.8.3</b> Funções e constantes matemáticas<span></span></a></li>
+<li class="chapter" data-level="1.8.4" data-path="intro.html"><a href="intro.html#valor-na"><i class="fa fa-check"></i><b>1.8.4</b> NA e valores afins<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#exercícios"><i class="fa fa-check"></i><b>1.9</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vetores.html"><a href="vetores.html#vetores-e-operações-vetoriais-i"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="vetores.html"><a href="vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores<span></span></a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores.html"><a href="vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="vetores.html"><a href="vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="vetores.html"><a href="vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="vetores.html"><a href="vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores<span></span></a></li>
+<li class="chapter" data-level="2.5" data-path="vetores.html"><a href="vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação<span></span></a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="vetores.html"><a href="vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos<span></span></a></li>
+<li class="chapter" data-level="2.5.2" data-path="vetores.html"><a href="vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="vetores.html"><a href="vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos<span></span></a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="vetores.html"><a href="vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores<span></span></a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetores.html"><a href="vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos<span></span></a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetores.html"><a href="vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="vetores.html"><a href="vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:<span></span></a></li>
+<li class="chapter" data-level="2.8" data-path="vetores.html"><a href="vetores.html#exercícios-1"><i class="fa fa-check"></i><b>2.8</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes<span></span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code><span></span></a></li>
+<li class="chapter" data-level="3.1.3" data-path="mat-dframe.html"><a href="mat-dframe.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="mat-dframe.html"><a href="mat-dframe.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="mat-dframe.html"><a href="mat-dframe.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados<span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importando-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importando e exportando dados no R<span></span></a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados<span></span></a></li>
+<li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados<span></span></a></li>
+<li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados<span></span></a></li>
+<li class="chapter" data-level="3.4.4" data-path="mat-dframe.html"><a href="mat-dframe.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mat-dframe.html"><a href="mat-dframe.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:<span></span></a></li>
+<li class="chapter" data-level="3.6" data-path="mat-dframe.html"><a href="mat-dframe.html#exercícios-2"><i class="fa fa-check"></i><b>3.6</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lista-objcompl.html"><a href="lista-objcompl.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="lista-objcompl.html"><a href="lista-objcompl.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="func-graf.html"><a href="func-graf.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="func-graf.html"><a href="func-graf.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code><span></span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela<span></span></a></li>
+<li class="chapter" data-level="5.1.3" data-path="func-graf.html"><a href="func-graf.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos<span></span></a></li>
+<li class="chapter" data-level="5.1.4" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos<span></span></a></li>
+<li class="chapter" data-level="5.1.5" data-path="func-graf.html"><a href="func-graf.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code><span></span></a></li>
+<li class="chapter" data-level="5.1.6" data-path="func-graf.html"><a href="func-graf.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="func-graf.html"><a href="func-graf.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura<span></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="func-graf.html"><a href="func-graf.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos<span></span></a></li>
+<li class="chapter" data-level="5.2.3" data-path="func-graf.html"><a href="func-graf.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos<span></span></a></li>
+<li class="chapter" data-level="5.2.4" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code><span></span></a></li>
+<li class="chapter" data-level="5.2.5" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="func-graf.html"><a href="func-graf.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code><span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="func-graf.html"><a href="func-graf.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code><span></span></a></li>
+<li class="chapter" data-level="5.3.3" data-path="func-graf.html"><a href="func-graf.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas<span></span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="func-graf.html"><a href="func-graf.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code><span></span></a></li>
+<li class="chapter" data-level="5.3.5" data-path="func-graf.html"><a href="func-graf.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="func-graf.html"><a href="func-graf.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível<span></span></a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="func-graf.html"><a href="func-graf.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica<span></span></a></li>
+<li class="chapter" data-level="5.4.2" data-path="func-graf.html"><a href="func-graf.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.3" data-path="func-graf.html"><a href="func-graf.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.4" data-path="func-graf.html"><a href="func-graf.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.5" data-path="func-graf.html"><a href="func-graf.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.6" data-path="func-graf.html"><a href="func-graf.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.7" data-path="func-graf.html"><a href="func-graf.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code><span></span></a></li>
+<li class="chapter" data-level="5.4.8" data-path="func-graf.html"><a href="func-graf.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="func-graf.html"><a href="func-graf.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível<span></span></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="func-graf.html"><a href="func-graf.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.2" data-path="func-graf.html"><a href="func-graf.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.3" data-path="func-graf.html"><a href="func-graf.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.4" data-path="func-graf.html"><a href="func-graf.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.5" data-path="func-graf.html"><a href="func-graf.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.6" data-path="func-graf.html"><a href="func-graf.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.7" data-path="func-graf.html"><a href="func-graf.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="func-graf.html"><a href="func-graf.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas<span></span></a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="func-graf.html"><a href="func-graf.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code><span></span></a></li>
+<li class="chapter" data-level="5.6.2" data-path="func-graf.html"><a href="func-graf.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="func-graf.html"><a href="func-graf.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:<span></span></a></li>
+<li class="chapter" data-level="5.8" data-path="func-graf.html"><a href="func-graf.html#exercícios-3"><i class="fa fa-check"></i><b>5.8</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="iter-cflux.html"><a href="iter-cflux.html#func-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code><span></span></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="iter-cflux.html"><a href="iter-cflux.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz<span></span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="iter-cflux.html"><a href="iter-cflux.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista<span></span></a></li>
+<li class="chapter" data-level="6.1.3" data-path="iter-cflux.html"><a href="iter-cflux.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais<span></span></a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code><span></span></a></li>
+<li class="chapter" data-level="6.2.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code><span></span></a></li>
+<li class="chapter" data-level="6.2.3" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações<span></span></a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code><span></span></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code><span></span></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="iter-cflux.html"><a href="iter-cflux.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções<span></span></a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I<span></span></a></li>
+<li class="chapter" data-level="6.4.2" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="iter-cflux.html"><a href="iter-cflux.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sumar-dados.html"><a href="sumar-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="sumar-dados.html"><a href="sumar-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem<span></span></a></li>
+<li class="chapter" data-level="7.3" data-path="sumar-dados.html"><a href="sumar-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas<span></span></a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="sumar-dados.html"><a href="sumar-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code><span></span></a></li>
+<li class="chapter" data-level="7.3.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="sumar-dados.html"><a href="sumar-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções<span></span></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="sumar-dados.html"><a href="sumar-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática<span></span></a></li>
+<li class="chapter" data-level="7.4.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="sumar-dados.html"><a href="sumar-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais<span></span></a></li>
+<li class="chapter" data-level="7.6" data-path="sumar-dados.html"><a href="sumar-dados.html#exercícios-4"><i class="fa fa-check"></i><b>7.6</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos<span></span></a></li>
+<li class="chapter" data-level="8.1.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos<span></span></a></li>
+<li class="chapter" data-level="8.1.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto<span></span></a></li>
+<li class="chapter" data-level="8.1.4" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco<span></span></a></li>
+<li class="chapter" data-level="8.1.5" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto<span></span></a></li>
+<li class="chapter" data-level="8.1.6" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares<span></span></a></li>
+<li class="chapter" data-level="8.1.7" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos<span></span></a></li>
+<li class="chapter" data-level="8.1.8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres<span></span></a></li>
+<li class="chapter" data-level="8.1.9" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres<span></span></a></li>
+<li class="chapter" data-level="8.1.10" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos<span></span></a></li>
+<li class="chapter" data-level="8.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="amost-aleat.html"><a href="amost-aleat.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados<span></span></a></li>
+<li class="chapter" data-level="9.2" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias<span></span></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="amost-aleat.html"><a href="amost-aleat.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:<span></span></a></li>
+<li class="chapter" data-level="9.4" data-path="amost-aleat.html"><a href="amost-aleat.html#exercícios-5"><i class="fa fa-check"></i><b>9.4</b> Exercícios<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="extr-dados.html"><a href="extr-dados.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="extr-dados.html"><a href="extr-dados.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência<span></span></a></li>
+<li class="chapter" data-level="10.1.2" data-path="extr-dados.html"><a href="extr-dados.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca<span></span></a></li>
+<li class="chapter" data-level="10.1.3" data-path="extr-dados.html"><a href="extr-dados.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="extr-dados.html"><a href="extr-dados.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência<span></span></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="extr-dados.html"><a href="extr-dados.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta<span></span></a></li>
+<li class="chapter" data-level="10.2.2" data-path="extr-dados.html"><a href="extr-dados.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra<span></span></a></li>
+<li class="chapter" data-level="10.2.3" data-path="extr-dados.html"><a href="extr-dados.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat<span></span></a></li>
+<li class="chapter" data-level="10.2.4" data-path="extr-dados.html"><a href="extr-dados.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo<span></span></a></li>
+<li class="chapter" data-level="10.2.5" data-path="extr-dados.html"><a href="extr-dados.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="extr-dados.html"><a href="extr-dados.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap<span></span></a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="extr-dados.html"><a href="extr-dados.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura<span></span></a></li>
+<li class="chapter" data-level="10.3.2" data-path="extr-dados.html"><a href="extr-dados.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="extr-dados.html"><a href="extr-dados.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções<span></span></a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura<span></span></a></li>
+<li class="chapter" data-level="10.4.2" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Parte II<span></span></b></span></li>
+<li class="chapter" data-level="11" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html"><i class="fa fa-check"></i><b>11</b> Checagem dos dados<span></span></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#tem-valores-ausentes"><i class="fa fa-check"></i><b>11.1</b> Tem valores ausentes?<span></span></a></li>
+<li class="chapter" data-level="11.2" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#colunas-com-fatores"><i class="fa fa-check"></i><b>11.2</b> Colunas com fatores<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="aed-univar.html"><a href="aed-univar.html"><i class="fa fa-check"></i><b>12</b> AED de univariadas<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="aed-univar.html"><a href="aed-univar.html#qual-a-distribuição-dos-valores-numéricos"><i class="fa fa-check"></i><b>12.1</b> Qual a distribuição dos valores numéricos?<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="aed-univar.html"><a href="aed-univar.html#dados-do-tutorial"><i class="fa fa-check"></i><b>12.1.1</b> Dados do tutorial<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="aed-univar.html"><a href="aed-univar.html#tabelas-de-variáveis-categóricas"><i class="fa fa-check"></i><b>12.2</b> Tabelas de variáveis categóricas<span></span></a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="aed-univar.html"><a href="aed-univar.html#resumo-de-gráficos-univariados"><i class="fa fa-check"></i><b>12.2.1</b> Resumo de gráficos univariados<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="aed-univar.html"><a href="aed-univar.html#as-variáveis-têm-distribuição-normal"><i class="fa fa-check"></i><b>12.3</b> As variáveis têm distribuição normal?<span></span></a></li>
+<li class="chapter" data-level="12.4" data-path="aed-univar.html"><a href="aed-univar.html#sabermais-aed-univariadas"><i class="fa fa-check"></i><b>12.4</b> Para saber mais:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="aed-bivar.html"><a href="aed-bivar.html"><i class="fa fa-check"></i><b>13</b> AED de bivariadas<span></span></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="aed-bivar.html"><a href="aed-bivar.html#dados-do-tutorial-1"><i class="fa fa-check"></i><b>13.1</b> Dados do tutorial<span></span></a></li>
+<li class="chapter" data-level="13.2" data-path="aed-bivar.html"><a href="aed-bivar.html#fatores-e-contagens"><i class="fa fa-check"></i><b>13.2</b> Fatores e contagens<span></span></a></li>
+<li class="chapter" data-level="13.3" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-fator"><i class="fa fa-check"></i><b>13.3</b> Variável numérica vs. fator<span></span></a></li>
+<li class="chapter" data-level="13.4" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-numérica"><i class="fa fa-check"></i><b>13.4</b> Variável numérica vs. numérica<span></span></a></li>
+<li class="chapter" data-level="13.5" data-path="aed-bivar.html"><a href="aed-bivar.html#outros-gráficos-bivariados"><i class="fa fa-check"></i><b>13.5</b> Outros gráficos bivariados<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="aed-multivar.html"><a href="aed-multivar.html"><i class="fa fa-check"></i><b>14</b> AED de multivariadas<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="aed-multivar.html"><a href="aed-multivar.html#matrizes-de-distância"><i class="fa fa-check"></i><b>14.1</b> Matrizes de distância<span></span></a></li>
+<li class="chapter" data-level="14.2" data-path="aed-multivar.html"><a href="aed-multivar.html#ordenação-com-matrizes-de-distância"><i class="fa fa-check"></i><b>14.2</b> Ordenação com matrizes de distância<span></span></a></li>
+<li class="chapter" data-level="14.3" data-path="aed-multivar.html"><a href="aed-multivar.html#escalonamento-não-métrico-multimensional-nmds"><i class="fa fa-check"></i><b>14.3</b> Escalonamento Não-Métrico Multimensional (NMDS)<span></span></a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="aed-multivar.html"><a href="aed-multivar.html#análises-de-agrupamento"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento<span></span></a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-pelo-método-da-mínima-variância"><i class="fa fa-check"></i><b>14.4.1</b> Agrupamento pelo método da mínima variância<span></span></a></li>
+<li class="chapter" data-level="14.4.2" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-upgma"><i class="fa fa-check"></i><b>14.4.2</b> Agrupamento por UPGMA<span></span></a></li>
+<li class="chapter" data-level="14.4.3" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-centróides"><i class="fa fa-check"></i><b>14.4.3</b> Agrupamento por centróides<span></span></a></li>
+<li class="chapter" data-level="14.4.4" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.4</b> Exemplo florístico<span></span></a></li>
+<li class="chapter" data-level="14.4.5" data-path="aed-multivar.html"><a href="aed-multivar.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.5</b> Análise de Coordenadas Principais (PCoA)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="aed-multivar.html"><a href="aed-multivar.html#componentes-principais-pca"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)<span></span></a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndice<span></span></b></span></li>
+<li class="chapter" data-level="A" data-path="base-tidyverse.html"><a href="base-tidyverse.html"><i class="fa fa-check"></i><b>A</b> Base R vs. Tidyverse<span></span></a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>A.1</b> O que é o Tidyverse?<span></span></a>
+<ul>
+<li class="chapter" data-level="A.1.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-símbolos-do-tidyverse"><i class="fa fa-check"></i><b>A.1.1</b> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-dplyr"><i class="fa fa-check"></i><b>A.2</b> Usando o <code>dplyr</code><span></span></a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#selecionando-colunas-com-select"><i class="fa fa-check"></i><b>A.2.1</b> Selecionando colunas com <code>select()</code><span></span></a></li>
+<li class="chapter" data-level="A.2.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#filtrando-dados-com-filter"><i class="fa fa-check"></i><b>A.2.2</b> Filtrando dados com <code>filter()</code><span></span></a></li>
+<li class="chapter" data-level="A.2.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#destrinchando-as-funções-group_by-e-summarise"><i class="fa fa-check"></i><b>A.2.3</b> Destrinchando as funções <code>group_by</code> e <code>summarise</code><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>A.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações<span></span></a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com1"><i class="fa fa-check"></i><b>A.3.1</b> Conjunto de comandos 1<span></span></a></li>
+<li class="chapter" data-level="A.3.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com2"><i class="fa fa-check"></i><b>A.3.2</b> Conjunto de comandos 2<span></span></a></li>
+<li class="chapter" data-level="A.3.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#pipe"><i class="fa fa-check"></i><b>A.3.3</b> Resumo do operador <code>%&gt;%</code>:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>A.4</b> Usando o <code>ggplot2</code><span></span></a></li>
+<li class="chapter" data-level="A.5" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>A.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto<span></span></a>
+<ul>
+<li class="chapter" data-level="A.5.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#gráfico-de-espalhamento"><i class="fa fa-check"></i><b>A.5.1</b> Gráfico de espalhamento<span></span></a></li>
+<li class="chapter" data-level="A.5.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#diagrama-de-caixas"><i class="fa fa-check"></i><b>A.5.2</b> Diagrama de caixas<span></span></a></li>
+<li class="chapter" data-level="A.5.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#histograma"><i class="fa fa-check"></i><b>A.5.3</b> Histograma<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.6" data-path="base-tidyverse.html"><a href="base-tidyverse.html#baser"><i class="fa fa-check"></i><b>A.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code><span></span></a>
+<ul>
+<li class="chapter" data-level="A.6.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#e-o-uso-do-operador-com-o-pacote-base"><i class="fa fa-check"></i><b>A.6.1</b> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="base-tidyverse.html"><a href="base-tidyverse.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>A.7</b> Tidyverse, um resumo<span></span></a></li>
+<li class="chapter" data-level="A.8" data-path="base-tidyverse.html"><a href="base-tidyverse.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>A.8</b> Para saber mais:<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="unzip.html"><a href="unzip.html"><i class="fa fa-check"></i><b>B</b> Baixar e descomprimir um arquivo<span></span></a></li>
+<li class="chapter" data-level="C" data-path="videos.html"><a href="videos.html"><i class="fa fa-check"></i><b>C</b> Aulas em vídeo<span></span></a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="videos.html"><a href="videos.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>C.1</b> Importando e exportando dados<span></span></a></li>
+<li class="chapter" data-level="C.2" data-path="videos.html"><a href="videos.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>C.2</b> Criação de vetores<span></span></a></li>
+<li class="chapter" data-level="C.3" data-path="videos.html"><a href="videos.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>C.3</b> Classes de vetores e fatores<span></span></a></li>
+<li class="chapter" data-level="C.4" data-path="videos.html"><a href="videos.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>C.4</b> Sequências numéricas e repetições, operações e funções com vetores<span></span></a></li>
+<li class="chapter" data-level="C.5" data-path="videos.html"><a href="videos.html#listas-1"><i class="fa fa-check"></i><b>C.5</b> Listas<span></span></a></li>
+<li class="chapter" data-level="C.6" data-path="videos.html"><a href="videos.html#criando-matrizes-1"><i class="fa fa-check"></i><b>C.6</b> Criando matrizes<span></span></a></li>
+<li class="chapter" data-level="C.7" data-path="videos.html"><a href="videos.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.7</b> Criando dataframes, e operações importantes em matrizes e dataframes<span></span></a></li>
+<li class="chapter" data-level="C.8" data-path="videos.html"><a href="videos.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.8</b> Indexação de matrizes e dataframes<span></span></a></li>
+<li class="chapter" data-level="C.9" data-path="videos.html"><a href="videos.html#condicionais-1"><i class="fa fa-check"></i><b>C.9</b> Condicionais<span></span></a></li>
+<li class="chapter" data-level="C.10" data-path="videos.html"><a href="videos.html#funções-da-família-apply"><i class="fa fa-check"></i><b>C.10</b> Funções da família <code>apply(")</code><span></span></a></li>
+<li class="chapter" data-level="C.11" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>C.11</b> Funções de manipulação de pasta e arquivos<span></span></a></li>
+<li class="chapter" data-level="C.12" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>C.12</b> Funções de manipulação de texto - parte 01<span></span></a></li>
+<li class="chapter" data-level="C.13" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02<span></span></a></li>
+<li class="chapter" data-level="C.14" data-path="videos.html"><a href="videos.html#objetos-complexos"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos<span></span></a></li>
+</ul></li>
+<li><a href="referências.html#referências">Referências<span></span></a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aed-checa-dados" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Checagem dos dados<a href="aed-checa-dados.html#aed-checa-dados" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>No tutorial abaixo vamos usar dados de avistamento de aves em fisionomias de cerrado.
+Baixem o arquivo contendo esses dados (<a href="https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv" class="uri">https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv</a>) para a sua pasta de trabalho.</p>
+<p>Vamos praticar neste tutorial o uso de funções que nos mostram a estrutura e resumo dos dados.
+Já vimos como utilizar essas funções na parte I deste livro.</p>
+<div class="infobox idea">
+<ul>
+<li><code>str()</code> - mostra a estrutura do objeto dos dados;</li>
+<li><code>head()</code> e <code>tail()</code>- mostra a cabeça ou a cauda da sua tabela de dados, respectivamente;</li>
+<li><code>summary()</code> - faz um resumo de todas as variáveis nos seus dados.</li>
+</ul>
+</div>
+<p>Vamos começar importando os dados ao R:</p>
+<div class="sourceCode" id="cb1455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1455-1"><a href="aed-checa-dados.html#cb1455-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Lendo a planilha com read.table</span></span>
+<span id="cb1455-2"><a href="aed-checa-dados.html#cb1455-2" aria-hidden="true" tabindex="-1"></a>avesc <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;aves_cerrado.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="at">as.is =</span> T, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<p>Repare no argumento <code>na.strings</code> da função <code>read.table()</code>.
+Ele é importante na importação de dados pois garante a codificação de valores ausentes usando a constante lógica <code>NA</code> do R.
+Se você não definir isso, o padrão é reconhecer apenas células que tenham o texto <strong>NA</strong> como valor faltante.
+Veja também o uso do argumento <code>as.is = TRUE</code>, que indica que não se deve converter colunas de texto em fatores (ou você pode usar o argumento <code>stringsAsFactors</code> para isso; este mesmo argumento é utilizado também na função <code>data.frame()</code>).
+Vamos ver as primeiras 10 linhas do objeto <code>avesc</code>:</p>
+<div class="sourceCode" id="cb1456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1456-1"><a href="aed-checa-dados.html#cb1456-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avesc, <span class="dv">10</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce1
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce2
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce3
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce4
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce5
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce7
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce8
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce9
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce10
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+</tbody>
+</table>
+<p>Vamos criar uma cópia para usarmos depois.</p>
+<div class="sourceCode" id="cb1457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1457-1"><a href="aed-checa-dados.html#cb1457-1" aria-hidden="true" tabindex="-1"></a>aves2 <span class="ot">&lt;-</span> avesc</span></code></pre></div>
+<p>É sempre bom verificar se os dados foram importados corretamente.
+É sempre um bom procedimento checarmos as dimensões do objeto com a função <code>dim()</code>, primeiras e últimas linhas e colunas do objeto com funções <code>head()</code> e <code>tail()</code> respectivamente</p>
+<div class="sourceCode" id="cb1458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1458-1"><a href="aed-checa-dados.html#cb1458-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(avesc) <span class="co"># a dimensao do objeto (linhas e colunas)</span></span></code></pre></div>
+<pre><code>## [1] 60  4</code></pre>
+<div class="sourceCode" id="cb1460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1460-1"><a href="aed-checa-dados.html#cb1460-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avesc, <span class="dv">3</span>) <span class="co"># a cabeca do objeto (tres primeiras linhas)</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce1
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce2
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce3
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1461-1"><a href="aed-checa-dados.html#cb1461-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(avesc, <span class="dv">3</span>) <span class="co"># a cauda do objeto (tres ultimas linhas)</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+CL18
+</td>
+<td style="text-align:left;">
+CL
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL19
+</td>
+<td style="text-align:left;">
+CL
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL20
+</td>
+<td style="text-align:left;">
+CL
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1462-1"><a href="aed-checa-dados.html#cb1462-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="fu">nrow</span>(avesc), ] <span class="co"># ultima linha</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+CL20
+</td>
+<td style="text-align:left;">
+CL
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+<p>Parece que está tudo certo!
+Vamos checar a estrutura do objeto:</p>
+<div class="sourceCode" id="cb1463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1463-1"><a href="aed-checa-dados.html#cb1463-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra a estrutura do data.frame</span></span>
+<span id="cb1463-2"><a href="aed-checa-dados.html#cb1463-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(avesc)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    60 obs. of  4 variables:
+##  $ fisionomia: chr  &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; ...
+##  $ urubu     : int  5 7 5 3 4 NA 6 4 2 5 ...
+##  $ carcara   : int  18 7 14 12 16 20 19 21 11 9 ...
+##  $ seriema   : int  6 6 4 5 4 NA 4 10 6 7 ...</code></pre>
+<p>Reparem que há uma variável de texto (<code>chr</code>) e três variáveis de números inteiros (<code>int</code>).
+Próximo passo é sempre checar um sumário estatístico das variáveis presentes no objeto usando a função <code>summary()</code>:</p>
+<div class="sourceCode" id="cb1465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1465-1"><a href="aed-checa-dados.html#cb1465-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra um resumo da variacao nas colunas</span></span>
+<span id="cb1465-2"><a href="aed-checa-dados.html#cb1465-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(avesc)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:left;">
+urubu
+</th>
+<th style="text-align:left;">
+carcara
+</th>
+<th style="text-align:left;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Length:60
+</td>
+<td style="text-align:left;">
+Min. : 2.00
+</td>
+<td style="text-align:left;">
+Min. : 3.00
+</td>
+<td style="text-align:left;">
+Min. : 2.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Class :character
+</td>
+<td style="text-align:left;">
+1st Qu.: 7.00
+</td>
+<td style="text-align:left;">
+1st Qu.: 5.50
+</td>
+<td style="text-align:left;">
+1st Qu.: 4.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Mode :character
+</td>
+<td style="text-align:left;">
+Median :12.00
+</td>
+<td style="text-align:left;">
+Median : 9.00
+</td>
+<td style="text-align:left;">
+Median : 5.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Mean :11.93
+</td>
+<td style="text-align:left;">
+Mean :10.25
+</td>
+<td style="text-align:left;">
+Mean : 5.345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+3rd Qu.:16.50
+</td>
+<td style="text-align:left;">
+3rd Qu.:14.00
+</td>
+<td style="text-align:left;">
+3rd Qu.: 6.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Max. :22.00
+</td>
+<td style="text-align:left;">
+Max. :24.00
+</td>
+<td style="text-align:left;">
+Max. :12.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA’s :1
+</td>
+<td style="text-align:left;">
+NA’s :1
+</td>
+<td style="text-align:left;">
+NA’s :2
+</td>
+</tr>
+</tbody>
+</table>
+<p>Há indicação de presença de valores <code>NA</code> nas variáveis numéricas, que são valores faltantes.</p>
+<div id="tem-valores-ausentes" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Tem valores ausentes?<a href="aed-checa-dados.html#tem-valores-ausentes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="infobox question">
+<p>Há valores ausentes em nossos dados?
+Eles são mesmo faltantes?
+Ou seja, o que significam valores ausentes no seu conjunto de dados?</p>
+</div>
+<p>Podemos utilizar a função <code>is.na()</code> para encontrar a constante lógica <code>NA</code>, ou seja, a constante que indica valores ausentes (reveja o uso da função <code>is.na()</code> na seção <a href="vetores.html#filtro-dados-ausentes">2.6.3</a>).
+Vejam o <code>?</code> da constante lógica <code>NA</code> para entender o significado dela no R:</p>
+<div class="sourceCode" id="cb1466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1466-1"><a href="aed-checa-dados.html#cb1466-1" aria-hidden="true" tabindex="-1"></a>?<span class="cn">NA</span></span></code></pre></div>
+<p>Continuemos de onde paramos na seção anterior.
+Vimos que há a presença de <code>NA</code> no <code>data.frame</code> <code>avesc</code>.
+Chequemos quais registros (linhas) têm valores <code>NA</code>.
+Vamos checar primeiramanete a variável <code>avesc$urubu</code>:</p>
+<div class="sourceCode" id="cb1467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1467-1"><a href="aed-checa-dados.html#cb1467-1" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>urubu <span class="sc">==</span> <span class="cn">NA</span> <span class="do">## erro: não retorna verdadeiro ou falso</span></span>
+<span id="cb1467-2"><a href="aed-checa-dados.html#cb1467-2" aria-hidden="true" tabindex="-1"></a>avesc[avesc<span class="sc">$</span>urubu <span class="sc">==</span> <span class="cn">NA</span>, ] <span class="do">## também não funciona</span></span></code></pre></div>
+<p>Reparem que os comandos acima, apesar de funcionarem, não respondem à nossa pergunta que é saber quais linhas possuem <code>NA</code>.
+Para isso, devemos nos valer da função <code>is.na()</code>:</p>
+<div class="sourceCode" id="cb1468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1468-1"><a href="aed-checa-dados.html#cb1468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc) <span class="co"># pergunta em todo o data frame: quem é NA?</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:left;">
+urubu
+</th>
+<th style="text-align:left;">
+carcara
+</th>
+<th style="text-align:left;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce2
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce3
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce4
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce5
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce7
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce8
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce9
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce10
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce11
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce12
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce13
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce14
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce15
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce16
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce17
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce18
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce19
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce20
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC2
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC3
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC4
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC5
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC6
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC7
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC8
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC9
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC10
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC11
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC12
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC13
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC14
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC15
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC16
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC17
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC18
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC19
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC20
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL2
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL3
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL4
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL5
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL6
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL7
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL8
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL9
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL10
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL11
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL12
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL13
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL14
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL15
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL16
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL17
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL18
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL19
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL20
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1469-1"><a href="aed-checa-dados.html#cb1469-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(avesc) <span class="co"># inverte: quem não é NA?</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:left;">
+urubu
+</th>
+<th style="text-align:left;">
+carcara
+</th>
+<th style="text-align:left;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce1
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce2
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce3
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce4
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce5
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce7
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce8
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce9
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce10
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce11
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce12
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce13
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce14
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce15
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce16
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce17
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce18
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce19
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce20
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC1
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC2
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC3
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC4
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC5
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC6
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC7
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC8
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC9
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC10
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC11
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC12
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC13
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC14
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC15
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC16
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC17
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC18
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC19
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC20
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL1
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL2
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL3
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL4
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL5
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL6
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL7
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL8
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL9
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL10
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL11
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL12
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL13
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL14
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL15
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL16
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL17
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL18
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL19
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL20
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1470-1"><a href="aed-checa-dados.html#cb1470-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="sc">!</span><span class="fu">is.na</span>(avesc)]</span></code></pre></div>
+<pre><code>##   [1] &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot;
+##  [16] &quot;Ce&quot; &quot;Ce&quot; &quot;ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot;
+##  [31] &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot;
+##  [46] &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot;
+##  [61] &quot; 5&quot; &quot; 7&quot; &quot; 5&quot; &quot; 3&quot; &quot; 4&quot; &quot; 6&quot; &quot; 4&quot; &quot; 2&quot; &quot; 5&quot; &quot; 6&quot; &quot; 6&quot; &quot; 7&quot; &quot; 6&quot; &quot; 5&quot; &quot; 5&quot;
+##  [76] &quot; 3&quot; &quot;13&quot; &quot; 8&quot; &quot; 7&quot; &quot;22&quot; &quot;10&quot; &quot;17&quot; &quot;16&quot; &quot;20&quot; &quot;18&quot; &quot;16&quot; &quot;14&quot; &quot;12&quot; &quot;15&quot; &quot; 9&quot;
+##  [91] &quot;11&quot; &quot;20&quot; &quot;18&quot; &quot; 8&quot; &quot;15&quot; &quot;17&quot; &quot;17&quot; &quot;12&quot; &quot;12&quot; &quot;11&quot; &quot;10&quot; &quot;19&quot; &quot;15&quot; &quot;13&quot; &quot;12&quot;
+## [106] &quot;16&quot; &quot;13&quot; &quot;19&quot; &quot;19&quot; &quot;11&quot; &quot;18&quot; &quot;15&quot; &quot;19&quot; &quot;13&quot; &quot;16&quot; &quot;10&quot; &quot;12&quot; &quot;18&quot; &quot;19&quot; &quot;18&quot;
+## [121] &quot; 7&quot; &quot;14&quot; &quot;12&quot; &quot;16&quot; &quot;20&quot; &quot;19&quot; &quot;21&quot; &quot;11&quot; &quot; 9&quot; &quot;12&quot; &quot;24&quot; &quot;17&quot; &quot;16&quot; &quot;15&quot; &quot;12&quot;
+## [136] &quot;14&quot; &quot;14&quot; &quot;21&quot; &quot;13&quot; &quot; 8&quot; &quot;16&quot; &quot;14&quot; &quot;16&quot; &quot;10&quot; &quot; 7&quot; &quot; 8&quot; &quot; 8&quot; &quot; 7&quot; &quot;14&quot; &quot;11&quot;
+## [151] &quot;12&quot; &quot;11&quot; &quot;11&quot; &quot; 7&quot; &quot;14&quot; &quot; 8&quot; &quot;14&quot; &quot; 7&quot; &quot; 9&quot; &quot; 3&quot; &quot; 5&quot; &quot; 5&quot; &quot; 8&quot; &quot; 6&quot; &quot; 5&quot;
+## [166] &quot; 5&quot; &quot; 3&quot; &quot; 5&quot; &quot; 3&quot; &quot; 3&quot; &quot; 6&quot; &quot; 4&quot; &quot; 4&quot; &quot; 5&quot; &quot; 3&quot; &quot; 6&quot; &quot; 5&quot; &quot; 4&quot; &quot; 6&quot; &quot; 6&quot;
+## [181] &quot; 4&quot; &quot; 5&quot; &quot; 4&quot; &quot; 4&quot; &quot;10&quot; &quot; 6&quot; &quot; 7&quot; &quot; 8&quot; &quot; 5&quot; &quot; 6&quot; &quot; 4&quot; &quot; 6&quot; &quot; 8&quot; &quot; 3&quot; &quot; 4&quot;
+## [196] &quot; 2&quot; &quot; 4&quot; &quot; 5&quot; &quot; 3&quot; &quot; 3&quot; &quot; 6&quot; &quot; 3&quot; &quot; 5&quot; &quot; 4&quot; &quot; 4&quot; &quot; 4&quot; &quot; 8&quot; &quot; 4&quot; &quot; 4&quot; &quot; 3&quot;
+## [211] &quot; 6&quot; &quot; 5&quot; &quot; 5&quot; &quot; 6&quot; &quot; 6&quot; &quot;12&quot; &quot; 9&quot; &quot; 6&quot; &quot; 5&quot; &quot; 4&quot; &quot; 6&quot; &quot; 4&quot; &quot; 5&quot; &quot; 6&quot; &quot; 5&quot;
+## [226] &quot; 4&quot; &quot; 9&quot; &quot; 7&quot; &quot; 5&quot; &quot; 4&quot; &quot; 6&quot; &quot; 2&quot; &quot;10&quot; &quot; 7&quot; &quot; 4&quot; &quot; 4&quot;</code></pre>
+<p>Proceder com o último comando gera um resultado confuso, pois o <code>data.frame</code> é convertido em um vetor de dimensão de 236 valores.
+Podemos investigar da maneira abaixo.
+Checamos qual é o tamanho total de valores presentes no objeto <code>avesc</code>, multiplicando o número de linhas pelo número de colunas através da expressão <code>(nrow(avesc) * ncol(avesc))</code>.
+Temos então um número total de 240 valores possíveis em <code>avesc</code>.
+E comparamos essa valor com o número de valores não faltantes em <code>avesc</code> através da expressão <code>length(avesc[!is.na(avesc)])</code>, que retorna 236.
+Portanto, se não houver valores faltantes, a primeira expressão abaixo deve retornar verdadeiro (<code>TRUE</code>), e falso (<code>FALSE</code>) se houver valores faltantes:</p>
+<div class="sourceCode" id="cb1472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1472-1"><a href="aed-checa-dados.html#cb1472-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">nrow</span>(avesc) <span class="sc">*</span> <span class="fu">ncol</span>(avesc)) <span class="sc">==</span> <span class="fu">length</span>(avesc[<span class="sc">!</span><span class="fu">is.na</span>(avesc)])</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Então quantos valores faltantes existem em nossos dados?</p>
+<div class="sourceCode" id="cb1474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1474-1"><a href="aed-checa-dados.html#cb1474-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou então, o número de valores NA no data.frame é de:</span></span>
+<span id="cb1474-2"><a href="aed-checa-dados.html#cb1474-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">nrow</span>(avesc) <span class="sc">*</span> <span class="fu">ncol</span>(avesc)) <span class="sc">-</span> <span class="fu">length</span>(avesc[<span class="sc">!</span><span class="fu">is.na</span>(avesc)])</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>O procedimento adotado acima pode ser difícil de entender.
+Fazer essa pergunta por colunas torna o entendimento mais fácil:</p>
+<div class="sourceCode" id="cb1476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1476-1"><a href="aed-checa-dados.html#cb1476-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="co"># quais são NA, vetor lógico</span></span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb1478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1478-1"><a href="aed-checa-dados.html#cb1478-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mesmo que</span></span>
+<span id="cb1478-2"><a href="aed-checa-dados.html#cb1478-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="sc">==</span> T</span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb1480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1480-1"><a href="aed-checa-dados.html#cb1480-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e o contrário é (quem não é NA)</span></span>
+<span id="cb1480-2"><a href="aed-checa-dados.html#cb1480-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="sc">==</span> F</span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [37]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb1482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1482-1"><a href="aed-checa-dados.html#cb1482-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou simplesmente</span></span>
+<span id="cb1482-2"><a href="aed-checa-dados.html#cb1482-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)</span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [37]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<p>Vetores lógicos <code>TRUE</code> e <code>FALSE</code> podem ser somados. <code>TRUE</code> corresponde a 1, e <code>FALSE</code> a 0.
+Usando o resultado de <code>is.na(avesc$urubu)</code> (ou qualquer outra variável de <code>avesc</code>) junto à função <code>sum()</code>, teremos então o número de valores faltantes na variável escolhida:</p>
+<div class="sourceCode" id="cb1484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1484-1"><a href="aed-checa-dados.html#cb1484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="co"># quantos sao?</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb1486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1486-1"><a href="aed-checa-dados.html#cb1486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="co"># quantos não são?</span></span></code></pre></div>
+<pre><code>## [1] 59</code></pre>
+<div class="sourceCode" id="cb1488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1488-1"><a href="aed-checa-dados.html#cb1488-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e, isso é verdadeiro, né?</span></span>
+<span id="cb1488-2"><a href="aed-checa-dados.html#cb1488-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">sum</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="sc">+</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu))) <span class="sc">==</span> <span class="fu">nrow</span>(avesc)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Podemos perguntar quais posições do vetor lógico oriundo de <code>is.na(avesc$urubu)</code> são correspondentes a <code>NA</code> por meio da função <code>which()</code>.
+Teremos como resposta um vetor de números inteiros indicando o número das linhas com valores <code>NA</code> na <code>urubu</code>:</p>
+<div class="sourceCode" id="cb1490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1490-1"><a href="aed-checa-dados.html#cb1490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="co"># vetor com indices das posições que são NA</span></span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>Vamos utilizar agora este resultado para filtrar o <code>data.frame</code> <code>avesc</code> e checar que linha é essa:</p>
+<div class="sourceCode" id="cb1492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1492-1"><a href="aed-checa-dados.html#cb1492-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="fu">which</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)), ] <span class="co"># mesma coisa, mas precisa de uma segunda função, então menos parcimonioso</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<p>Podemos filtrar também sem a função <code>which()</code>, usando apenas os vetores lógicos <code>TRUE</code> e <code>FALSE</code> oriundos da função <code>is.na()</code>:</p>
+<div class="sourceCode" id="cb1493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1493-1"><a href="aed-checa-dados.html#cb1493-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu), ] <span class="co"># mostra as linhas completas para os registros com NA na coluna urubu</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1494-1"><a href="aed-checa-dados.html#cb1494-1" aria-hidden="true" tabindex="-1"></a><span class="do">## para ver se tem NA em uma das tres colunas com nomes de aves: usamos o operador | (quer dizer &#39;ou&#39;)</span></span>
+<span id="cb1494-2"><a href="aed-checa-dados.html#cb1494-2" aria-hidden="true" tabindex="-1"></a>meufiltro <span class="ot">&lt;-</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="sc">|</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>carcara) <span class="sc">|</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>seriema)</span>
+<span id="cb1494-3"><a href="aed-checa-dados.html#cb1494-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(avesc)) <span class="co"># soma dos valores NA nas tres colunas</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb1496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1496-1"><a href="aed-checa-dados.html#cb1496-1" aria-hidden="true" tabindex="-1"></a>avesc[meufiltro, ] <span class="co"># mostra todas as linhas que tem algum valor NA</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC5
+</td>
+<td style="text-align:left;">
+CC
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL9
+</td>
+<td style="text-align:left;">
+CL
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1497-1"><a href="aed-checa-dados.html#cb1497-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Esses valores NA, na verdade são AUSENCIA da ave (não avistamento) numa determinada localidade (linha no dado). Portanto, NA neste caso deveria ser de fato 0.</span></span>
+<span id="cb1497-2"><a href="aed-checa-dados.html#cb1497-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1497-3"><a href="aed-checa-dados.html#cb1497-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Então, vamos corrigir estes valores</span></span>
+<span id="cb1497-4"><a href="aed-checa-dados.html#cb1497-4" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)</span>
+<span id="cb1497-5"><a href="aed-checa-dados.html#cb1497-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Podemos ver os valores de vários jeitos</span></span>
+<span id="cb1497-6"><a href="aed-checa-dados.html#cb1497-6" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>urubu[vl] <span class="co"># assim</span></span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb1499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1499-1"><a href="aed-checa-dados.html#cb1499-1" aria-hidden="true" tabindex="-1"></a>avesc[vl, <span class="st">&quot;urubu&quot;</span>] <span class="co"># ou assim</span></span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb1501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1501-1"><a href="aed-checa-dados.html#cb1501-1" aria-hidden="true" tabindex="-1"></a>avesc[, <span class="st">&quot;urubu&quot;</span>][vl] <span class="co"># ou assim...</span></span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb1503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1503-1"><a href="aed-checa-dados.html#cb1503-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se podemos ver, podemos atribuir 0 para esse valor ausentes</span></span>
+<span id="cb1503-2"><a href="aed-checa-dados.html#cb1503-2" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>urubu[vl] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1503-3"><a href="aed-checa-dados.html#cb1503-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1503-4"><a href="aed-checa-dados.html#cb1503-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Continuando, para as outras aves, mostrando variacoes de códigos</span></span>
+<span id="cb1503-5"><a href="aed-checa-dados.html#cb1503-5" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>carcara[<span class="fu">is.na</span>(avesc<span class="sc">$</span>carcara)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1503-6"><a href="aed-checa-dados.html#cb1503-6" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>seriema[<span class="fu">is.na</span>(avesc<span class="sc">$</span>seriema) <span class="sc">==</span> T] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1503-7"><a href="aed-checa-dados.html#cb1503-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1503-8"><a href="aed-checa-dados.html#cb1503-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Verificando se substituimos corretamente</span></span>
+<span id="cb1503-9"><a href="aed-checa-dados.html#cb1503-9" aria-hidden="true" tabindex="-1"></a>avesc[meufiltro, ]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC5
+</td>
+<td style="text-align:left;">
+CC
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL9
+</td>
+<td style="text-align:left;">
+CL
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1504-1"><a href="aed-checa-dados.html#cb1504-1" aria-hidden="true" tabindex="-1"></a><span class="co"># poderiamos ter feito a mudanca de uma vez</span></span>
+<span id="cb1504-2"><a href="aed-checa-dados.html#cb1504-2" aria-hidden="true" tabindex="-1"></a>aves2[meufiltro, ] <span class="co"># a cópia que fiz no início</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC5
+</td>
+<td style="text-align:left;">
+CC
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL9
+</td>
+<td style="text-align:left;">
+CL
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1505-1"><a href="aed-checa-dados.html#cb1505-1" aria-hidden="true" tabindex="-1"></a>aves2[meufiltro, ][<span class="fu">is.na</span>(aves2[meufiltro, ])] <span class="co"># visualizo só os NAs</span></span></code></pre></div>
+<pre><code>## [1] NA NA NA NA</code></pre>
+<div class="sourceCode" id="cb1507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1507-1"><a href="aed-checa-dados.html#cb1507-1" aria-hidden="true" tabindex="-1"></a>aves2[meufiltro, ][<span class="fu">is.na</span>(aves2[meufiltro, ])] <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># atribuo 0</span></span>
+<span id="cb1507-2"><a href="aed-checa-dados.html#cb1507-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1507-3"><a href="aed-checa-dados.html#cb1507-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Agora esses valores são zero, certo?</span></span>
+<span id="cb1507-4"><a href="aed-checa-dados.html#cb1507-4" aria-hidden="true" tabindex="-1"></a>avesc[avesc<span class="sc">$</span>urubu <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> avesc<span class="sc">$</span>carcara <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> avesc<span class="sc">$</span>seriema <span class="sc">==</span> <span class="dv">0</span>, ]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC5
+</td>
+<td style="text-align:left;">
+CC
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL9
+</td>
+<td style="text-align:left;">
+CL
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="colunas-com-fatores" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Colunas com fatores<a href="aed-checa-dados.html#colunas-com-fatores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="infobox question">
+<p>As colunas com fatores estão codificadas corretamente?</p>
+</div>
+<p>Temos algumas funções úteis para se trabalhar com fatores.
+A primeira delas se chama <code>table()</code> e é responsável por fazer contagens de valores em fatores ou vetores de texto.
+Já as funções <code>factor()</code> e <code>as.factor()</code> permitem criar ou definir fatores.</p>
+<div class="sourceCode" id="cb1508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1508-1"><a href="aed-checa-dados.html#cb1508-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora vamos ver a nossa coluna fisionomia, que não importamos como fator</span></span>
+<span id="cb1508-2"><a href="aed-checa-dados.html#cb1508-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(avesc)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    60 obs. of  4 variables:
+##  $ fisionomia: chr  &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; ...
+##  $ urubu     : num  5 7 5 3 4 0 6 4 2 5 ...
+##  $ carcara   : num  18 7 14 12 16 20 19 21 11 9 ...
+##  $ seriema   : num  6 6 4 5 4 0 4 10 6 7 ...</code></pre>
+<div class="sourceCode" id="cb1510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1510-1"><a href="aed-checa-dados.html#cb1510-1" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>fisionomia</span></code></pre></div>
+<pre><code>##  [1] &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot;
+## [16] &quot;Ce&quot; &quot;Ce&quot; &quot;ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot;
+## [31] &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot;
+## [46] &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot;</code></pre>
+<div class="sourceCode" id="cb1512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1512-1"><a href="aed-checa-dados.html#cb1512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(avesc<span class="sc">$</span>fisionomia)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>As categorias da variável <code>avesc$fisionomia</code> significam:</p>
+<ul>
+<li>“CL” = campo limpo;</li>
+<li>“CC” = campo cerrado;</li>
+<li>“Ce” = cerrado.</li>
+</ul>
+<p>Vamos tabular essa coluna e verificar quantos valores temos para cada categoria:</p>
+<div class="sourceCode" id="cb1514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1514-1"><a href="aed-checa-dados.html#cb1514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(avesc<span class="sc">$</span>fisionomia)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+CC
+</th>
+<th style="text-align:right;">
+ce
+</th>
+<th style="text-align:right;">
+Ce
+</th>
+<th style="text-align:right;">
+CL
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+</tbody>
+</table>
+<p>Reparem que a categoria <code>ce</code> e <code>Ce</code> são tratadas como diferentes pois o R<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> interpreta letras minúsculas e maiúsculas diferentemente.
+A falta de padronização em dados biológicos tabulados é muito frequente, e trabalhar com scripts permite ao usuário documentar todas as mudanças em etapas que precedem o momento da análise.
+Por isso, fique sempre atento à padronização e a checagem de dados durante a AED.<br />
+<!-- Busquem qualquer conjunto de dados próprios e procurem a coluna de nome científico, por exemplo. --></p>
+<p>Antes de proceder com a correção, vamos fazer uma cópia da variável <code>avesc$fisionomia</code> para fins deste exercício:</p>
+<div class="sourceCode" id="cb1515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1515-1"><a href="aed-checa-dados.html#cb1515-1" aria-hidden="true" tabindex="-1"></a>fisionomia.copia <span class="ot">&lt;-</span> avesc<span class="sc">$</span>fisionomia</span></code></pre></div>
+<p>Digamos que o padrão deve ser <code>Ce</code>, então vamos filtrar os valores presentes em <code>avesc</code> que não correspondem a <code>Ce</code>, isto é, o valor <code>ce</code>:</p>
+<div class="sourceCode" id="cb1516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1516-1"><a href="aed-checa-dados.html#cb1516-1" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> avesc<span class="sc">$</span>fisionomia <span class="sc">==</span> <span class="st">&quot;ce&quot;</span> <span class="co"># quem tem esse valor</span></span>
+<span id="cb1516-2"><a href="aed-checa-dados.html#cb1516-2" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>fisionomia[vl] <span class="ot">&lt;-</span> <span class="st">&quot;Ce&quot;</span> <span class="co"># corrigindo</span></span>
+<span id="cb1516-3"><a href="aed-checa-dados.html#cb1516-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(avesc<span class="sc">$</span>fisionomia)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+CC
+</th>
+<th style="text-align:right;">
+Ce
+</th>
+<th style="text-align:right;">
+CL
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+</tbody>
+</table>
+<p>Tendo em vista que a diferença é apenas de capitalização entre <code>ce</code> e <code>Ce</code>, poderíamos ter feito simplesmente o exposto abaixo para efeito de correção:</p>
+<div class="sourceCode" id="cb1517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1517-1"><a href="aed-checa-dados.html#cb1517-1" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>fisionomia <span class="ot">&lt;-</span> fisionomia.copia <span class="co"># volto ao valor original</span></span></code></pre></div>
+<p>Primeiro, usamos a cópia dos valores originais e o atribuímos aos valores modificados.
+Em seguida, mudamos a capitalização das palavras para caixa alta com a função <code>toupper()</code>.
+Em seguida, tabulamos as categorias:</p>
+<div class="sourceCode" id="cb1518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1518-1"><a href="aed-checa-dados.html#cb1518-1" aria-hidden="true" tabindex="-1"></a><span class="co"># corrijo, simplesmente mudando tudo para maiúsculo:</span></span>
+<span id="cb1518-2"><a href="aed-checa-dados.html#cb1518-2" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>fisionomia <span class="ot">&lt;-</span> <span class="fu">toupper</span>(avesc<span class="sc">$</span>fisionomia)</span>
+<span id="cb1518-3"><a href="aed-checa-dados.html#cb1518-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(avesc<span class="sc">$</span>fisionomia)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+CC
+</th>
+<th style="text-align:right;">
+CE
+</th>
+<th style="text-align:right;">
+CL
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+</tbody>
+</table>
+<p>Porém, se nós tivéssemos importado os dados transformando vetores de texto como fatores, por meio dos argumentos <code>as.is = FALSE</code> OU <code>stringsAsFactors = FALSE</code>, poderíamos proceder da seguinte maneira:</p>
+<div class="sourceCode" id="cb1519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1519-1"><a href="aed-checa-dados.html#cb1519-1" aria-hidden="true" tabindex="-1"></a><span class="co"># digamos no entanto, que eu tivesse importado a coluna como fator</span></span>
+<span id="cb1519-2"><a href="aed-checa-dados.html#cb1519-2" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>fisionomia <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(fisionomia.copia)</span>
+<span id="cb1519-3"><a href="aed-checa-dados.html#cb1519-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(avesc<span class="sc">$</span>fisionomia)</span></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<div class="sourceCode" id="cb1521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1521-1"><a href="aed-checa-dados.html#cb1521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(avesc<span class="sc">$</span>fisionomia) <span class="co"># os níveis ou categorias do fator</span></span></code></pre></div>
+<pre><code>## [1] &quot;CC&quot; &quot;ce&quot; &quot;Ce&quot; &quot;CL&quot;</code></pre>
+<div class="sourceCode" id="cb1523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1523-1"><a href="aed-checa-dados.html#cb1523-1" aria-hidden="true" tabindex="-1"></a><span class="co"># isso é verdadeiro, certo?:</span></span>
+<span id="cb1523-2"><a href="aed-checa-dados.html#cb1523-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">unique</span>(avesc<span class="sc">$</span>fisionomia)) <span class="sc">==</span> <span class="fu">levels</span>(<span class="fu">as.factor</span>(avesc<span class="sc">$</span>fisionomia))</span></code></pre></div>
+<pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
+<div class="sourceCode" id="cb1525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1525-1"><a href="aed-checa-dados.html#cb1525-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sendo um fator, para corrigir, eu precisaria apenas:</span></span>
+<span id="cb1525-2"><a href="aed-checa-dados.html#cb1525-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(avesc<span class="sc">$</span>fisionomia)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Ce&quot;</span></span>
+<span id="cb1525-3"><a href="aed-checa-dados.html#cb1525-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(avesc<span class="sc">$</span>fisionomia) <span class="co"># pronto, corrigido</span></span></code></pre></div>
+<pre><code>## [1] &quot;CC&quot; &quot;Ce&quot; &quot;CL&quot;</code></pre>
+<div class="sourceCode" id="cb1527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1527-1"><a href="aed-checa-dados.html#cb1527-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(avesc<span class="sc">$</span>fisionomia)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+CC
+</th>
+<th style="text-align:right;">
+Ce
+</th>
+<th style="text-align:right;">
+CL
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1528-1"><a href="aed-checa-dados.html#cb1528-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Verificando novamente</span></span>
+<span id="cb1528-2"><a href="aed-checa-dados.html#cb1528-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(avesc)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    60 obs. of  4 variables:
+##  $ fisionomia: Factor w/ 3 levels &quot;CC&quot;,&quot;Ce&quot;,&quot;CL&quot;: 2 2 2 2 2 2 2 2 2 2 ...
+##  $ urubu     : num  5 7 5 3 4 0 6 4 2 5 ...
+##  $ carcara   : num  18 7 14 12 16 20 19 21 11 9 ...
+##  $ seriema   : num  6 6 4 5 4 0 4 10 6 7 ...</code></pre>
+<div class="sourceCode" id="cb1530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1530-1"><a href="aed-checa-dados.html#cb1530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(avesc)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+fisionomia
+</th>
+<th style="text-align:left;">
+urubu
+</th>
+<th style="text-align:left;">
+carcara
+</th>
+<th style="text-align:left;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+CC:20
+</td>
+<td style="text-align:left;">
+Min. : 0.00
+</td>
+<td style="text-align:left;">
+Min. : 0.00
+</td>
+<td style="text-align:left;">
+Min. : 0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Ce:20
+</td>
+<td style="text-align:left;">
+1st Qu.: 6.75
+</td>
+<td style="text-align:left;">
+1st Qu.: 5.00
+</td>
+<td style="text-align:left;">
+1st Qu.: 4.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+CL:20
+</td>
+<td style="text-align:left;">
+Median :12.00
+</td>
+<td style="text-align:left;">
+Median : 9.00
+</td>
+<td style="text-align:left;">
+Median : 5.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Mean :11.73
+</td>
+<td style="text-align:left;">
+Mean :10.08
+</td>
+<td style="text-align:left;">
+Mean : 5.167
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+3rd Qu.:16.25
+</td>
+<td style="text-align:left;">
+3rd Qu.:14.00
+</td>
+<td style="text-align:left;">
+3rd Qu.: 6.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Max. :22.00
+</td>
+<td style="text-align:left;">
+Max. :24.00
+</td>
+<td style="text-align:left;">
+Max. :12.000
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p>Isso ocorre na maioria das linguagens de programação. Vejam esta postagem: <a href="https://softwareengineering.stackexchange.com/questions/9965/why-is-there-still-case-sensitivity-in-some-programming-languages" class="uri">https://softwareengineering.stackexchange.com/questions/9965/why-is-there-still-case-sensitivity-in-some-programming-languages</a>.<a href="aed-checa-dados.html#fnref6" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="extr-dados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aed-univar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/11-aed_checadados.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/11-aed_checadados.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
