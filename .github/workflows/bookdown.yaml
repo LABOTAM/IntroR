@@ -57,6 +57,10 @@ jobs:
         run: bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook",quiet = TRUE)
         shell: Rscript {0}
 
+      # - name: Render Book as epub
+      #   run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::epub_book")'
+        # shell: Rscript {0}
+
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@4.1.4
@@ -64,9 +68,3 @@ jobs:
           branch: gh-pages
           folder: _book
 
-      #
-      # - name: Render Book as gitbook
-      #   run: Rscript -e 'library("bookdown");bookdown::render_book("index.Rmd", "bookdown::gitbook")'
-      #
-      # - name: Render Book as epub
-      #   run: Rscript -e 'library("bookdown");bookdown::render_book("index.Rmd", "bookdown::epub_book")'
