@@ -33,7 +33,7 @@ jobs:
 
       - name: "[Custom block] [Linux] Install spatial libraries"
         if: runner.os == 'Linux'
-        run: sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev
+        run: sudo apt-get install gdal-bin libgdal-dev libproj-dev libgeos-dev proj-bin libudunits2-dev
 
       - uses: r-lib/actions/setup-renv@v2
 
@@ -54,7 +54,7 @@ jobs:
           restore-keys: bookdown-
 
       - name: Build site
-        run: bookdown::render_book("index.Rmd", quiet = TRUE)
+        run: bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook",quiet = TRUE)
         shell: Rscript {0}
 
       - name: Deploy to GitHub pages 🚀
