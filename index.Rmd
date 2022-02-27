@@ -14,7 +14,7 @@ link-citations: true
 links-as-notes: true
 colorlinks: true
 lang: pt-br
-github-repo: LABOTAM/LABOTAM.github.io 
+github-repo: LABOTAM/IntroR
 description: "Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica."
 ---
 

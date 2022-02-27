@@ -241,7 +241,7 @@ novoiris <- cbind(iris, sppinfo[iris$Species, ])
 novoiris
 ```
 
-## Junção de tabelas utilizando funções^[Texto publicado originalmente no blog de R.O.Perdiz (https://ricardoperdiz.com/2020/04/23/juncao-tbl/)]
+## Junção de tabelas utilizando funções^[Texto publicado originalmente no blog de R.O.Perdiz (https://www.ricardoperdiz.com/blog/2020-04-juncao-tbl/)]
 
 ```{r setup-juncao-tabelas, eval = TRUE, include = FALSE}
 colorize <- function(x, color) {

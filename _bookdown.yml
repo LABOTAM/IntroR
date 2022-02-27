@@ -3,8 +3,8 @@ book_filename: "bot89-introR"
 # clean: ["bot89-introR.bbl"]
 new_session: no
 delete_merged_file: true
-edit: https://github.com/LABOTAM/LABOTAM.github.io/blob/main/%s
-view: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s
+edit: https://github.com/LABOTAM/IntroR/blob/main/%s
+view: https://github.com/LABOTAM/IntroR/edit/main/%s
 language:
   label:
     fig: 'Figura '
