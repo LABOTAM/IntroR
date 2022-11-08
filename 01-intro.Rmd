@@ -7,12 +7,12 @@ Use o R via RStudio, é mais simples.
 Busque executar cada script linha por linha, procurando entender o que cada linha faz e o que cada comando representa.
 E para cada função nova, busque a [ajuda do R](#help), leia o que significam cada um dos argumentos.
 Altere os argumentos das funções e veja o que acontece.
-Explore!  
+Explore!
 
 
 ## Console e scripts
 
-As figuras abaixo mostram imagens relativamente similares ao que os usuários do R padrão (Figura \@ref(fig:pad-r)) e RStudio (Figura \@ref(fig:studio-r)) verão ao iniciarem esses programas.  
+As figuras abaixo mostram imagens relativamente similares ao que os usuários do R padrão (Figura \@ref(fig:pad-r)) e RStudio (Figura \@ref(fig:studio-r)) verão ao iniciarem esses programas.
 
 ```{r pad-r, out.width="101%", fig.cap = ' Imagem de uma sessão do R para Mac OSX com um janela de script aberta além do console.', eval = TRUE, echo = FALSE}
 knitr::include_graphics("figuras/r_padrao.png")
@@ -33,7 +33,7 @@ knitr::include_graphics("figuras/rstudio.png")
 A chave para entender o R é que trata-se de uma linguagem.
 Uma linguagem para manipular objetos [@VenablesRipley2002].
 Um objeto é identificado por uma palavra e veremos ao longo do curso que existem vários tipos de objetos.
-Este é o conceito mais importante para entender o R.  
+Este é o conceito mais importante para entender o R.
 
 Para começar, digite algumas coisas no Console do seu R ou RStudio.
 Por exemplo, digite uma fórmula matemática simples no console e o execute:
@@ -43,7 +43,7 @@ Por exemplo, digite uma fórmula matemática simples no console e o execute:
 ```
 
 O console retornou 18, isto é, o R funcionou como uma calculadora.
-Portanto, números são interpretados como números pelo console.  
+Portanto, números são interpretados como números pelo console.
 
 Agora vamos criar um objeto simples chamado `objnum` e atribuir texto a ele:
 
@@ -77,19 +77,19 @@ objtres
 
 Note que o código exposto acima é geralmente o que está contido em um [script](https://pt.wikipedia.org/wiki/Linguagem_de_script), ou seja, a sequência de códigos que você escreveu e que o R interpretará para realizar o que foi dito.
 Se você copiar e colar o trecho (ou os trechos) de código acima em um arquivo `.R`, você poderá executá-los tantas vezes quanto quiser.
-Copie então todos os trechos de código expostos até então para a janela do script e salve-o como `script01.R` em alguma pasta no seu computador.  
+Copie então todos os trechos de código expostos até então para a janela do script e salve-o como `script01.R` em alguma pasta no seu computador.
 
 Note também que dependendo do está incluso no script, o código apresenta cores diferentes para comentários, objetos, e símbolos de atribuição.
 Isso ajuda a entender os elementos da sintaxe (vocabulário e gramática do R).
-IDE's também mostram isso de forma colorida.  
+IDE's também mostram isso de forma colorida.
 
 Note também que, à direita do símbolo `#`, o texto no código acima fica cinza.
 Este símbolo indica ao R que todo texto começando no `#` deve ser interpretado como texto apenas, e não como código.
-Comentar códigos é uma prática que deve ser tornar rotineira a fim de facilitar o entendimento de cada script.  
+Comentar códigos é uma prática que deve ser tornar rotineira a fim de facilitar o entendimento de cada script.
 
 Se você já está escrevendo um script num arquivo e não no console, selecione todo o texto na sua janela de script e digite `Control+R` (Windows), ou `Command+Enter` (Mac).
 O conteúdo do script será executado no Console.
-Note que o símbolo `#` não é interpretado pelo console.  
+Note que o símbolo `#` não é interpretado pelo console.
 
 O R vem com vários scripts prontos, que são funções que executam alguma coisa.
 Esses scripts são objetos de classe **função**, pois eles contêm um conjunto de códigos que utilizam parâmetros para executar um conjunto de passos.
@@ -127,7 +127,7 @@ install.packages("ape")
 ```
 
 Para trabalhar com pacotes você primeiro precisa definir um repositório, ou seja, um servidor, de vários disponíveis (espelhos do repositório oficial), de onde o R buscará o pacote desejado.
-Pode-se também o menu do R ou do RStudio para instalar pacotes e definir um repositório padrão para sua instalação.  
+Pode-se também o menu do R ou do RStudio para instalar pacotes e definir um repositório padrão para sua instalação.
 
 Como tudo no R, você pode executar comandos que estão no menu usando funções.
 Por exemplo, ao invés de usarmos o menu do R para definir um repositório e instalar um pacote, vamos executar estas ações por meio de um script:
@@ -141,7 +141,7 @@ install.packages("ape", dependencies = TRUE) # instala o pacote Ape
 ## Ajuda no R {#help}
 
 Toda função no R, oriunda tanto do pacote base ou dos pacotes extras, possui um pedaço de texto chamado de "ajuda" e que possui uma instrução sobre a utilização da mesma.
-Para obter esta instrução, é muito fácil. 
+Para obter esta instrução, é muito fácil.
 Basta executar uma das seguintes opções:
 
 ```{r, opts.label='evalF'}
@@ -157,7 +157,7 @@ Ao digitar uma das opções acima, o R vai abrir uma janela (no RStudio, vai col
 ?ls
 ```
 
-Todos esses trechos de ajuda (`?`) do R têm a mesma estrutura e devem ser acessados constantemente para o bom entendimento do funcionamento das funções e seus argumentos.  
+Todos esses trechos de ajuda (`?`) do R têm a mesma estrutura e devem ser acessados constantemente para o bom entendimento do funcionamento das funções e seus argumentos.
 
 ## Área de trabalho vs. Pasta de Trabalho
 
@@ -182,7 +182,7 @@ ls() # note que não sobrou nenhum objeto
 getwd() # o nome desta função é abreviação de "get working directory" ou seja "pega a pasta de trabalho definida". A resposta deste código varia dependendo do seu sistema operacional. Mas a função retorna o caminho completo da pasta de trabalho atual
 ```
 
-Toda vez que você usar o R, é uma boa prática primeiramente definir a *pasta de trabalho*, que é o local no seu computador onde você guarda os arquivos relacionados ao seu projeto (dados, scripts, resultados etc.).  
+Toda vez que você usar o R, é uma boa prática primeiramente definir a *pasta de trabalho*, que é o local no seu computador onde você guarda os arquivos relacionados ao seu projeto (dados, scripts, resultados etc.).
 
 Você pode definir a *pasta de trabalho* usando o menu do R (`Arquivo ⇒ Diretório de Trabalho` no Windows; ou `Misc ⇒ Muda Pasta de Trabalho` no Mac).
 Ou você pode usar uma função:
@@ -241,7 +241,7 @@ load(file = "meusObjetos.Rdata") # puxa os objetos neste arquivo que está na su
 ls() # veja novamente os objetos na sua área de trabalho: Todos os objetos são listados. Se fizer isso e já houver objetos com o mesmo nome na sua área de trabalho, estes serão sobrepostos.
 ```
 
-Portanto, *Área de Trabalho* e *Pasta de Trabalho* são dois conceitos fundamentais que você precisa entender bem, pois define como e onde você estará salvando informação quando usar o R, tanto em termos de objetos (área de trabalho) como em termos de arquivos (pasta de trabalho).  
+Portanto, *Área de Trabalho* e *Pasta de Trabalho* são dois conceitos fundamentais que você precisa entender bem, pois define como e onde você estará salvando informação quando usar o R, tanto em termos de objetos (área de trabalho) como em termos de arquivos (pasta de trabalho).
 
 Se você digita `q()`, que é a função para sair do R, ele geralmente lhe pergunta se você quer salvar os objetos numa área de trabalho padrão (que o R puxa quando você o inicia):
 
@@ -271,24 +271,24 @@ ls() # os objetos foram criados como especificado no script
 
 ## Dicas de organização do trabalho
 
-Você irá manipular diversos arquivos durante a execução de qualquer projeto e precisa organizar os arquivos para não se perder e poder voltar a eles quando necessário.  
+Você irá manipular diversos arquivos durante a execução de qualquer projeto e precisa organizar os arquivos para não se perder e poder voltar a eles quando necessário.
 
 A grande vantagem de realizar a análise de dados, produção de figuras etc, no R é criar um processo replicável, e é preciso ser bem organizado com os arquivos para poder reutilizar o processo com novos dados ou adaptá-lo para novas análises.
 Isso implica, entre outras coisas, em:
 
-* Organizar o projeto em uma pasta no seu computador exclusiva para ele;  
+* Organizar o projeto em uma pasta no seu computador exclusiva para ele;
 
-* Definir um critério lógico para dar nome aos arquivos do projeto;  
+* Definir um critério lógico para dar nome aos arquivos do projeto;
 
-* Organizar arquivos em subpastas segundo a necessidade, por exemplo, uma subpasta para dados, outra para figuras, outras para tabelas geradas e outros resultados. Pode inclusive colocar a criação dessas pastas nos scripts do R, que ele cria na pasta de trabalho ('getwd()') que deve ser a pasta do seu projeto através de (funções do R para manipular arquivos e pastas);  
+* Organizar arquivos em subpastas segundo a necessidade, por exemplo, uma subpasta para dados, outra para figuras, outras para tabelas geradas e outros resultados. Pode inclusive colocar a criação dessas pastas nos scripts do R, que ele cria na pasta de trabalho ('getwd()') que deve ser a pasta do seu projeto através de (funções do R para manipular arquivos e pastas);
 
-* O código dos seus scripts devem ser escritos de forma genérica para que ele possa ser usado com qualquer outro conjunto de dados que tenha a mesma estrutura que os seus (variáveis). Ou seja, o código deve ser escrito não em função do conteúdo dos seus dados mas apenas na estrutura (i.e. as colunas dos seus dados) deles. Esta é a chave para uma programação eficiente e para a replicabilidade. Isso significa que um resultado obtido a partir dos seus dados não deve ser manualmente atribuído a nenhum objeto no script, apenas atribuído a partir do objeto contendo o resultado.  
+* O código dos seus scripts devem ser escritos de forma genérica para que ele possa ser usado com qualquer outro conjunto de dados que tenha a mesma estrutura que os seus (variáveis). Ou seja, o código deve ser escrito não em função do conteúdo dos seus dados mas apenas na estrutura (i.e. as colunas dos seus dados) deles. Esta é a chave para uma programação eficiente e para a replicabilidade. Isso significa que um resultado obtido a partir dos seus dados não deve ser manualmente atribuído a nenhum objeto no script, apenas atribuído a partir do objeto contendo o resultado.
 
 A definição da pasta de trabalho (**working directory**) é fundamental simplificar a leitura de dados e salvar arquivos sem se preocupar com o caminho completo (**full path**) para cada arquivo, mas apenas o caminho relativo (**relative path**). Por exemplo, um arquivo numa pasta de projeto pode ter como caminho completo `/home/usuario/Desktop/meuprojeto/dados/morfometricos.xlsx`, e o caminho relativo à pasta de trabalho seria apenas `dados/morfometricos.xlsx`.
-Da mesma forma para salvar resultados a partir do R.  
+Da mesma forma para salvar resultados a partir do R.
 
 O [RStudio](https://rstudio.com/) [@rstudio] facilita esse processo para você, permitindo que você crie um projeto.
-Um projeto basicamente consiste em definir uma pasta de trabalho para que, toda vez que você abrí-lo, a pasta que contem o arquivo de término `.Rproj` seja a sua pasta de trabalho. Alternativamente, você pode simplesmente indicar a pasta de trabalho toda vez que iniciar uma atividade utilizando as funções `setwd()` no console ou em um script.  
+Um projeto basicamente consiste em definir uma pasta de trabalho para que, toda vez que você abrí-lo, a pasta que contem o arquivo de término `.Rproj` seja a sua pasta de trabalho. Alternativamente, você pode simplesmente indicar a pasta de trabalho toda vez que iniciar uma atividade utilizando as funções `setwd()` no console ou em um script.
 
 ## Dicas de erros comuns de sintaxe da linguagem R
 
@@ -485,7 +485,7 @@ O R é uma calculadora potente. Os exemplos abaixo mostram a informação básic
 
 ### Operadores
 
-* Operadores de atribuição: 
+* Operadores de atribuição:
 
   + use `=` ou `<-` ou `->` para atribuir __valor__ a __objeto__ ou objeto a objeto
 
@@ -591,7 +591,7 @@ o1 * o2^(o3 - 1) # =32
 ### Funções e constantes matemáticas
 
 Algumas operações aritméticas podem ser realizadas com algumas funções genéricas que apresentamos no exemplo de código abaixo.
-Veja o `?` para qualquer uma das funções abaixo e siga os links relacionados para ver todas as possibilidades dessas funções genéricas de uso genérico.  
+Veja o `?` para qualquer uma das funções abaixo e siga os links relacionados para ver todas as possibilidades dessas funções genéricas de uso genérico.
 
 ```{r, echo = TRUE, eval = FALSE}
 ?srqt
@@ -606,7 +606,7 @@ Veja o `?` para qualquer uma das funções abaixo e siga os links relacionados p
 ?round
 ```
 
-Veremos adiante que essas funções e operações matemáticas são aplicáveis à vetores.  
+Veremos adiante que essas funções e operações matemáticas são aplicáveis à vetores.
 
 ```{r}
 # Raiz quadrada
@@ -712,7 +712,7 @@ round(b)
 ### NA e valores afins {#valor-na}
 
 Frequentemente no R, quando você realiza uma operação errada ou inválida, o R retorna um dos seguintes códigos (constantes lógicas), que **são entendidos pelo R como esses valores** e portanto podem ser usados na atribuição à objetos:
-  
+
 *  `NA` = valores ausentes (faltando);
 
 *  `NAN` ou not a number = valores inválidos;
@@ -768,5 +768,5 @@ sqrt(-1)
 
 Como prática, vamos iniciar com dois exercícios do **notaR** para que você se familiarize tanto com a linguagem R quanto com o sistema **notaR**:
 
-* Resolva o exercício [101.01 Bem vindo ao notaR](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=29).
-* Resolva o exercício [101.05 Remoção Com Critério](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=15).
+* Resolva o exercício [101.01 Bem vindo ao notaR](http://notar.ib.usp.br/exercicio/29).
+* Resolva o exercício [101.05 Remoção Com Critério](http://notar.ib.usp.br/exercicio/15).

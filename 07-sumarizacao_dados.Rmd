@@ -562,9 +562,9 @@ tab1[antilinhas, ]
 
 ## Exercícios
 
-* Resolva o exercício [104.01 Sintetizando dados](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=14).
-* Resolva o exercício [103.05 Classes de Objetos](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=21).
-* Resolva o exercício [103.04 Lendo e salvando seus dados ](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=22).
-* Resolva o exercício [103.06 Acrescentando dados](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=24).
-* Resolva o exercício [103.8 De vetor a data.frame ordenado](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=35).
+* Resolva o exercício [104.01 Sintetizando dados](http://notar.ib.usp.br/exercicio/14).
+* Resolva o exercício [103.05 Classes de Objetos](http://notar.ib.usp.br/exercicio/21).
+* Resolva o exercício [103.04 Lendo e salvando seus dados ](http://notar.ib.usp.br/exercicio/22).
+* Resolva o exercício [103.06 Acrescentando dados](http://notar.ib.usp.br/exercicio/24).
+* Resolva o exercício [103.8 De vetor a data.frame ordenado](http://notar.ib.usp.br/exercicio/35).
 

@@ -926,7 +926,7 @@ dd2[1:5]
 #' 
 #' ## Exercícios
 #' 
-#' * Resolva o exercício [103.01 Distância entre cidades](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=23).
-#' * Resolva o exercício [103.02 Criação de um data frame](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=2).
-#' * Resolva o exercício [103.03 Criando uma Matriz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=13).
+#' * Resolva o exercício [103.01 Distância entre cidades](http://notar.ib.usp.br/exercicio/23).
+#' * Resolva o exercício [103.02 Criação de um data frame](http://notar.ib.usp.br/exercicio/2).
+#' * Resolva o exercício [103.03 Criando uma Matriz](http://notar.ib.usp.br/exercicio/13).
 #' 

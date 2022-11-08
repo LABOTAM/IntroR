@@ -768,5 +768,5 @@ sqrt(-1)
 #' 
 #' Como prática, vamos iniciar com dois exercícios do **notaR** para que você se familiarize tanto com a linguagem R quanto com o sistema **notaR**:
 #' 
-#' * Resolva o exercício [101.01 Bem vindo ao notaR](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=29).
-#' * Resolva o exercício [101.05 Remoção Com Critério](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=15).
+#' * Resolva o exercício [101.01 Bem vindo ao notaR](http://notar.ib.usp.br/exercicio/29).
+#' * Resolva o exercício [101.05 Remoção Com Critério](http://notar.ib.usp.br/exercicio/15).

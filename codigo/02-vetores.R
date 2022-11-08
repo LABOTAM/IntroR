@@ -780,10 +780,10 @@ v5
 #' 
 #' ## Exercícios
 #' 
-#' * Resolva o exercício [102.04 Biomassa de Árvores](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=19).
-#' * Resolva o exercício [102.02 Sequências](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=12).
-#' * Resolva o exercício [102.03 Conta de Luz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=4).
-#' * Resolva o exercício [102.01 Área Basal](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=17).
-#' * Resolva o exercício [102.05 Variância na Unha](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=5).
-#' * Resolva o exercício [101.03 Objetos de Data](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=18).
+#' * Resolva o exercício [102.04 Biomassa de Árvores](http://notar.ib.usp.br/exercicio/19).
+#' * Resolva o exercício [102.02 Sequências](http://notar.ib.usp.br/exercicio/12).
+#' * Resolva o exercício [102.03 Conta de Luz](http://notar.ib.usp.br/exercicio/4).
+#' * Resolva o exercício [102.01 Área Basal](http://notar.ib.usp.br/exercicio/17).
+#' * Resolva o exercício [102.05 Variância na Unha](http://notar.ib.usp.br/exercicio/5).
+#' * Resolva o exercício [101.03 Objetos de Data](http://notar.ib.usp.br/exercicio/18).
 #' 

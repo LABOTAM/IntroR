@@ -305,28 +305,28 @@ Leia com atenção o enunciado de cada exercício antes de iniciar a construir o
 
 Uma lista de todos os exercícios **notaR** incluídos neste livro está relacionada abaixo:
 
-* Resolva o exercício [101.01 Bem vindo ao notaR](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=29).
-* Resolva o exercício [101.05 Remoção Com Critério](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=15).
-* Resolva o exercício [102.04 Biomassa de Árvores](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=19).
-* Resolva o exercício [102.02 Sequências](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=12).
-* Resolva o exercício [102.03 Conta de Luz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=4).
-* Resolva o exercício [102.01 Área Basal](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=17).
-* Resolva o exercício [102.05 Variância na Unha](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=5).
-* Resolva o exercício [101.03 Objetos de Data](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=18).
-* Resolva o exercício [103.01 Distância entre cidades](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=23).
-* Resolva o exercício [103.02 Criação de um data frame](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=2).
-* Resolva o exercício [103.03 Criando uma Matriz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=13).
-* Resolva o exercício [302.02 Histogramas (frequência)](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=66).
-* Resolva o exercício [302.07 Gráficos com trechos selecionados do data.frame/matriz](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=71).
-* Resolva o exercício [302.04 Box-plots](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=67).
-* Resolva o exercício [302.05 Gráficos de dispersão](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=69).
-* Resolva o exercício [302.06 Matriz de dispersão](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=70).
-* Resolva o exercício [Editando parâmetros gráficos](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=75).
-* Resolva o exercício [104.01 Sintetizando dados](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=14).
-* Resolva o exercício [103.05 Classes de Objetos](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=21).
-* Resolva o exercício [103.04 Lendo e salvando seus dados ](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=22).
-* Resolva o exercício [103.7 Cara ou coroa](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=34).
-* Resolva o exercício [103.9 Lembrando matrizes e listas](http://www.lage.ib.usp.br/notar/exercicio.php?exerc=37).
+* Resolva o exercício [101.01 Bem vindo ao notaR](http://notar.ib.usp.br/exercicio/29).
+* Resolva o exercício [101.05 Remoção Com Critério](http://notar.ib.usp.br/exercicio/15).
+* Resolva o exercício [102.04 Biomassa de Árvores](http://notar.ib.usp.br/exercicio/19).
+* Resolva o exercício [102.02 Sequências](http://notar.ib.usp.br/exercicio/12).
+* Resolva o exercício [102.03 Conta de Luz](http://notar.ib.usp.br/exercicio/4).
+* Resolva o exercício [102.01 Área Basal](http://notar.ib.usp.br/exercicio/17).
+* Resolva o exercício [102.05 Variância na Unha](http://notar.ib.usp.br/exercicio/5).
+* Resolva o exercício [101.03 Objetos de Data](http://notar.ib.usp.br/exercicio/18).
+* Resolva o exercício [103.01 Distância entre cidades](http://notar.ib.usp.br/exercicio/23).
+* Resolva o exercício [103.02 Criação de um data frame](http://notar.ib.usp.br/exercicio/2).
+* Resolva o exercício [103.03 Criando uma Matriz](http://notar.ib.usp.br/exercicio/13).
+* Resolva o exercício [302.02 Histogramas (frequência)](http://notar.ib.usp.br/exercicio/66).
+* Resolva o exercício [302.07 Gráficos com trechos selecionados do data.frame/matriz](http://notar.ib.usp.br/exercicio/71).
+* Resolva o exercício [302.04 Box-plots](http://notar.ib.usp.br/exercicio/67).
+* Resolva o exercício [302.05 Gráficos de dispersão](http://notar.ib.usp.br/exercicio/69).
+* Resolva o exercício [302.06 Matriz de dispersão](http://notar.ib.usp.br/exercicio/70).
+* Resolva o exercício [Editando parâmetros gráficos](http://notar.ib.usp.br/exercicio/75).
+* Resolva o exercício [104.01 Sintetizando dados](http://notar.ib.usp.br/exercicio/14).
+* Resolva o exercício [103.05 Classes de Objetos](http://notar.ib.usp.br/exercicio/21).
+* Resolva o exercício [103.04 Lendo e salvando seus dados ](http://notar.ib.usp.br/exercicio/22).
+* Resolva o exercício [103.7 Cara ou coroa](http://notar.ib.usp.br/exercicio/34).
+* Resolva o exercício [103.9 Lembrando matrizes e listas](http://notar.ib.usp.br/exercicio/37).
 
 <!-- Alunos inscritos na disciplina precisam estar autenticados para fazer os exercícios obrigatórios. O login de cada aluno inscrito na disciplina é o seu email informado na inscrição e a senha será informada pelos professores. Outros exercícios são opcionais e qualquer pessoa pode entrar no site e fazer exercícios sem autenticação. -->
 <!-- Avaliação será baseada em: -->
