@@ -3,7 +3,7 @@ title: "Curso básico de introdução à linguagem R"
 subtitle: "Disciplina BOT89 - PPGBOT INPA"
 author:
   - "[Alberto Vicentini](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=alunos:a.vicentini:inicio) ([INPA](http://portal.inpa.gov.br/))"
-  - "[Ricardo de Oliveira Perdiz](https://ricardoperdiz.com) - ricardoperdiz\\@yahoo.com"
+  - "[Ricardo de Oliveira Perdiz](https://www.ricardoperdiz.com) - ricardoperdiz\\@yahoo.com"
 date: "Última atualização: `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
