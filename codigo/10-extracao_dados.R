@@ -22,7 +22,7 @@
 #' Teremos duas categorias que desejamos separar: arvoreta e árvore.
 #' Vamos primeiro criar uma lista de referência usando a construção `obj[[nome.da.categoria]] = c(palavras.a.buscar)`.
 #' 
-## ----listas-ref-exemplo--------------------------------------------
+## ----listas-ref-exemplo------------------------------------------------
 referencias <- list()
 referencias[["arvoreta"]] <- c("arvoreta", "treelet", "arvore pequena", "arbolito", "small tree")
 referencias[["árvore"]] <- c("arvore", "tree", "rvore", "arvo", "arbol", "avore")
@@ -37,7 +37,7 @@ referencias
 #' Primeiro criaremos uma função `removeacentos()`, que pega um texto ou vetor de textos e remove acentos.
 #' Isso é útil porque é frequente a mesma palavra aparecer com e sem acentos, por isso é melhor ignorar acentos nas comparações.  
 #' 
-## ----removeacentos-------------------------------------------------
+## ----removeacentos-----------------------------------------------------
 removeacentos <- function(x) {
   # remove acentos
   xx <- iconv(x, to = "ASCII//TRANSLIT")
@@ -50,7 +50,7 @@ removeacentos <- function(x) {
 #' Nesta função, o argumento `x` é um vetor  de classe `character` de comprimento igual a **1** contendo o texto original a ser explorado.
 #' O segundo argumento da função, `referencias`, é uma lista de comprimento maior ou igual a **1** referente as categorias a serem buscadas no elemento `x`:
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 pegavalor <- function(x, referencias) {
   acategoria <- NA # objeto onde armazena a categoria caso encontre em x
   x <- x[!is.na(x)] # elimina elementos NA em x
@@ -87,26 +87,26 @@ pegavalor <- function(x, referencias) {
 #' 
 #' ### Passo 03 - Usando a função
 #' 
-#' Vamos utilizar dados de exemplo para testar a função. Baixe o arquivo presente neste endereço (https://github.com/LABOTAM/LABOTAM.github.io/blob/main/dados/pegados_dados_exemplo.csv).
+#' Vamos utilizar dados de exemplo para testar a função. Baixe o arquivo presente neste endereço (https://github.com/LABOTAM/IntroR/blob/main/dados/pegados_dados_exemplo.csv).
 #' Ele apresenta uma coluna com notas de exsicatas para ilustrar nosso exemplo.  
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 # voce já deve ter os seguinte objetos: pegavalor(), removeacentos(), referencias
 # le o arquivo de exemplo
 dados <- read.table(file = "pegados_dados_exemplo.csv", sep = "\t", as.is = TRUE, na.strings = c("NA", "NULL", ""), header = TRUE)
 
 #' 
-## ---- include = FALSE, eval = TRUE---------------------------------
+## ---- include = FALSE, eval = TRUE-------------------------------------
 load("dados/pegados_dados_exemplo.rda")
 
 #' 
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 txt.org <- dados$NOTAS_ORIGINAL # coluna com dados de notas (cada linha é um registro)
 head(txt.org)
 
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 habito <- sapply(txt.org, pegavalor, referencias = referencias)
 table(habito) # o que estiver NA significa que ele não encontrou as palavras em referencias.
 # adiciona com uma nova coluna em dados
@@ -125,7 +125,7 @@ dados$HABITO <- habito
 #' 
 #' ### Hábito da planta
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 habito.refs <- list()
 habito.refs[["liana herbácea"]] <- c("erva trepadeira", "trepadeira", "liana herbácea", "liana herbacea", "erva liana", "rastejante", "vine", "scandent vine", "erva liana")
 habito.refs[["liana lenhosa"]] <- c("cipó", "liana", "liana sublenhosa", "liana lenhosa")
@@ -143,7 +143,7 @@ habito.refs[["erva"]] <- c("erva", "herbace", "terrestre", "herbacia", "herb")
 #' 
 #' ### Estado de fertilidade da amostra
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 fertilidade.refs <- list()
 fertilidade.refs[["flores"]] <- c(" flor", " petal", " flôr", " pétala", " estigma", " sépal", " sepal", " bract", " flower", " bráctea", "sicônio", "siconio", " estgimas", " espadice", " espádice", " ovário", "ovario", " tépala", " antera", " estame", "tepala", "Pétal", "Tépal", "Sépal", "espata", "corolla", "anthers")
 fertilidade.refs[["botões"]] <- c(" botão", " botões", " botao", " botao", " bud")
@@ -153,7 +153,7 @@ fertilidade.refs[["estéril"]] <- c("Estéril", "Sterile")
 #' 
 #' ### Classes de hábitat
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 habitat.refs <- list()
 habitat.refs[["Floresta ciliar"]] <- c("Riverbank", "beria de rio", "beira de rio", "berra de rio", " ciliar", "galeria", "Gallery forest", "margem alta do igarap")
 habitat.refs[["Floresta de igapó"]] <- c("igapo", "margin of black water igarapé")
@@ -173,7 +173,7 @@ habitat.refs[["Campo rupestre"]] <- c("Campo rupestre")
 #' 
 #' ### Textura do solo
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 solo.refs <- list()
 solo.refs[["pedregoso"]] <- c("pedregos", "pedral", "rock")
 solo.refs[["areno-argiloso"]] <- c("areno-argilos", "areno argilos", "arenoso-argiloso", "arenoso argiloso", "argilo-arenoso", "argilo arenoso", "areno-arcill")
@@ -184,7 +184,7 @@ solo.refs[["siltoso"]] <- c(" silte", " silt")
 #' 
 #' ### Exsudato
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 exsudato.refs <- list()
 exsudato.refs[["látex"]] <- c("latex", "látex")
 exsudato.refs[["resina"]] <- c("resina")
@@ -198,7 +198,7 @@ exsudato.refs[["exsudato"]] <- c("exsudato", "exsudação", "exsudate")
 #' 
 #' ### Altura
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 pegaaltura <- function(x) {
   x <- gsub("\\+/-", "", x)
   x <- gsub("  ", " ", x)
@@ -306,7 +306,7 @@ pegaaltura <- function(x) {
 #' 
 #' ### DAP
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 pegadap <- function(x) {
   x <- gsub("\\+/-", "", x)
   x <- gsub("  ", " ", x)
@@ -395,19 +395,19 @@ pegadap <- function(x) {
 #' 
 #' Vamos utilizar o conjunto `dados` carregado acima para utilizar as funções que criamos anteriormente:
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 txt.org <- as.vector(dados$NOTAS) # sua coluna com dados descritivos
 
 #' 
 #' ### Obtendo valores de altura
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 # aplica a funcao
 alts <- sapply(txt.org, pegaaltura)
 head(alts)
 
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 names(alts) <- NULL
 # quais valores viraram NA (ou seja, não encontrou um valor de altura)
 txt.org[is.na(alts)]
@@ -420,14 +420,14 @@ dados$ALTURAm <- alts
 #' 
 #' ### Obtendo valores de DAP
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 # aplica a funcao
 daps <- sapply(txt.org, pegadap)
 head(daps)
 
 #' 
 #' 
-## ------------------------------------------------------------------
+## ----------------------------------------------------------------------
 names(daps) <- NULL
 # quais valores viraram NA (ou seja, não encontrou um valor de dap)
 txt.org[is.na(daps)]

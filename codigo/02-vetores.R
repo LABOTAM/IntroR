@@ -10,7 +10,7 @@
 #' A função `c()` é usada na criação de vetores, pois combina ou concatena elementos.
 #' Podemos concatenar números:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # um vetor de números
 v1 <- c(3, 3.14, pi, 37.5, 38)
 v1
@@ -18,20 +18,20 @@ v1
 #' 
 #' Podemos concatenar textos:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v2 <- c("a", "banana", "maça", "pera", "jabuticaba")
 v2
 
 #' Podemos concatenar valores lógicos (veremos adiante como isso é importante):
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v3 <- c(TRUE, TRUE, FALSE, FALSE)
 v3
 
 #' 
 #' Podemos abreviar os valores lógicos `TRUE` como `T` e `FALSE` como `F`:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # c(TRUE, TRUE, FALSE, FALSE) e o mesmo que
 v4 <- c(T, T, F, F)
 v4
@@ -39,21 +39,21 @@ v4
 #' 
 #' Vejamos se `v3` é semelhante a `v4`:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v3 == v4
 
 #' 
 #' Note que `TRUE` e `FALSE` são valores lógicos e essas palavras são entendidas apenas como tal quando em maiúsculas e sem aspas `"` pelo R.
 #' Tente executar o comando abaixo para ver o que acontece quando utilizamos esses valores em letras minúsculas:
 #' 
-## ---- echo = TRUE, eval = FALSE------------------------------------
+## ---- echo = TRUE, eval = FALSE----------------------------------------
 ## v5 <- c(true, true, false, false)
 
 #' 
 #' O R retorna a mensagem de erro `Error: object 'true' not found` pois ele procura pelo primeiro objeto de nosso vetor ` c(true, true, false, false)` na área de trabalho e, ao não encontrar, ele retorna esta mensagem de erro, justamente por não compreender `true` como um vetor lógico, e sim como um objeto!
 #' Se nós atribuímos valores a esses objetos, então a concatenação funciona, podendo assim atribuirmos este vetor ao objeto `v5` (ou com qualquer nome que desejamos):
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 true <- TRUE
 false <- FALSE
 v5 <- c(true, true, false, false)
@@ -64,20 +64,20 @@ v5
 #' São objetos que concatenam valores de texto, isto é, são vetores de texto.
 #' Vejamos abaixo alguns deles:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # essas constantes do R são vetores de texto
 LETTERS # letras maiusculas
 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 letters # letras minusculuas
 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 month.abb # meses abreviados
 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 month.name # meses por extenso
 
 #' 
@@ -85,67 +85,67 @@ month.name # meses por extenso
 #' 
 #' É possível criar vetores numéricos usando a função `seq()` ou o operador `:`.
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # usando o :
 1:10 # cria uma sequencia de números inteiros 1 a 10
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 20:0 # cria uma sequencia de números inteiros 20 a 0
 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 0:-20 # cria uma sequencia de números inteiros 0 a -20
 
 #' 
 #' usando a função `seq()` temos maior controle das sequências:
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 ?seq # veja o help da função
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 seq(from = 1, to = 10, by = 0.5) # de 1 a 0 a cada 0.5
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 seq(from = 10, to = 0, by = -0.5) # de 10 a 0 a cada 0.5
 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 seq(from = 100, to = 0, length.out = 10) # 10 valores igualmente espaçados de 100 a 0
 
 #' 
 #' É possível criar vetores repetindo valores através da função `rep()`:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # para números
 rep(5, times = 3) # cria um vetor com três elementos de valor 5
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 rep(1:5, times = 3) # cria um vetor com três repetições da sequência de 1 a 5
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 rep(1:5, each = 3) # cria um vetor repetindo três vezes cada elemento da sequência de 1 a 5
 
 #' 
 #' Podemos também utilizar a função `rep()` com vetores de texto:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # para textos
 obj <- c("banana", "maça", "pera")
 rep(obj, times = 3)
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 rep(obj, each = 3)
 
 #' 
@@ -153,20 +153,20 @@ rep(obj, each = 3)
 #' 
 #' Todas as operações aplicadas a um vetor são aplicadas a cada um de seus elementos:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 meuvetor <- 1:5 # uma sequencia de 1 a 5
 mv2 <- meuvetor * 3 # uma sequencia onde cada valor de meuvetor foi multiplicado por 3
 mv2
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 mv2 <- meuvetor / 3 # uma sequencia onde cada valor de meuvetor foi divido por 3
 mv2
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # se usar uma função matemática com um vetor ela afetará cada elemento indivualmente
 meuvetor <- c(49, 25, 16, 4, 1)
 sqrt(meuvetor) # raiz quadrada de cada elemento em meuvetor
@@ -175,19 +175,19 @@ sqrt(meuvetor) # raiz quadrada de cada elemento em meuvetor
 #' Operações com dois ou mais vetores são pareadas.
 #' Se os vetores têm o mesmo comprimento (mesmo número de elementos), então a operação é feita par a par, na ordem em que os elementos aparecem no vetor:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v1 <- c(1, 5, 10, 15)
 v2 <- c(2, 4, 8, 16)
 v1 + v2 # soma dos valores individuais e pareados
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v1 * v2
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v1^v2
 
 #' 
@@ -199,7 +199,7 @@ v1^v2
 #' 
 #' A mais simples operação para entender a regra da reciclagem é a operação entre um vetor longo e um vetor atômico de um único valor:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v1 <- c(1, 5, 10, 15) # vetor com 4 elementos
 v2 <- 2 # vetor com 1 elemento
 v1 * v2 # cada elemento de v1 é multiplicado pelo único valor do vetor2
@@ -208,13 +208,13 @@ v1 * v2 # cada elemento de v1 é multiplicado pelo único valor do vetor2
 #' 
 #' Mas a reciclagem se aplica em todos os casos de operação entre vetores de tamanhos diferentes:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v1 <- c(1, 5, 10, 15) # vetor com 4 elementos
 v2 <- c(3, 2) # vetor com 2 elemento
 v1 * v2 # os valores de v1 são multiplicados par a par pelos valores de v2. Como v2 tem apenas 2 elementos, eles são repetidos 1 vez
 
 #' 
-## ---- include = FALSE----------------------------------------------
+## ---- include = FALSE--------------------------------------------------
 ob <- rep(c(0, 1), each = 5)
 oc <- 1:3
 
@@ -222,7 +222,7 @@ oc <- 1:3
 #' 
 #' Quanto temos vetores de tamanhos não múltiplos entre si, como por exemplo o objeto `ob` de tamanho `r length(ob)` e o objeto `oc` de tamanho `r length(oc)`, o R executa a operação, porém retorna uma mensagem de alerta em que diz que o vetor de tamanho maior (`ob`) não é múltiplo do vetor de tamanho menor (`oc`):
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 ob <- rep(c(0, 1), each = 5)
 oc <- 1:3
 ob * oc
@@ -235,47 +235,47 @@ ob * oc
 #' 
 #' * `length()` e `sort()` - comprimento e ordenação de vetores
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 meuvetor <- 10:1
 mv2 <- seq(30, 99, by = 3)
 length(meuvetor) # quantos elementos tem meu vetor1
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 length(mv2) # quantos elementos tem meu vetor2
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 length(meuvetor) / length(mv2) # operação com os resultados
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 mvord <- sort(meuvetor) # ordena os elementos em ordem crescente
 mvord
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 sort(mvord, decreasing = TRUE) # ordena os elementos em ordem decrescentes
 
 #' 
 #' * `mean()`, `sd()`, `min()`, `sum()` etc. - funções de estatística descritiva:
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 ?mean # veja ajuda de uma dessas funções e navegue por outras
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v1 <- c(2, 4, 6, 8, 4, 3, 5, 7)
 sum(v1) # soma de todos os valores
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 mean(v1) # média aritimética dos valores
 median(v1) # valor da mediana
 sd(v1) # desvio padrão
@@ -308,12 +308,12 @@ cumsum(v1) # soma cumulativa dos valores
 #' 
 #' A função `class()` nos permite saber a classe de um objeto do R.
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 ?class # veja o help dessa funcao
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v1 <- 1:20 # um vetor de números inteiros
 class(v1)
 
@@ -335,7 +335,7 @@ v4
 #' As funções genéricas `is.[class]()` permitem você perguntar se um vetor é de uma determinada classe (`is?`).
 #' Ao utilizar essas funções, o R retornará um vetor lógico, ou seja, verdadeiro ou falso dependendo da classe do objeto:
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v1 <- 1:20 # um vetor de números inteiros
 is.integer(v1) # verdadeiro
 is.numeric(v1) # também verdadeiro porque números inteiros também são números
@@ -356,7 +356,7 @@ is.character(v4) # falso
 #' As funções genéricas `as.[class]()` (as = 'como uma?') permitem você converter um vetor de uma classe para outra.
 #' Em alguns casos, isso faz sentido; em outros, o retorno será de valores inexistentes (`NA`) ou não numéricos (`NaN`).
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # conversão total
 v1 <- 1:20 # um vetor de números inteiros
 as.character(v1) # converte para texto um vetor numérico
@@ -387,7 +387,7 @@ min(v4)
 #' 
 #' * `as.factor()` e  `as.vector()` - para converter entre fator e vetor.
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # um exemplo de um vetor de palavras
 mvv <- c("abacate", "banama", "mamão", "uva")
 # repetindo cada fruta 3 vezes
@@ -413,7 +413,7 @@ as.numeric(mvv) # nao pode fazer a mesma coisa com um vetor de palavras
 #' A função `as.Date()` converte um vetor de trecho em um objeto de classe `date`.
 #' Datas são uma classe especial, que permite operações artiméticas para calcular distâncias temporais.
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # muitas vezes queremos calcular tempo entre duas observações, como por exemplo, entre duas medições consecutivas num estudo sobre crescimento de plantas
 
 # Qual a diferença em dias entre duas datas?
@@ -422,7 +422,7 @@ data2 <- "17/04/2016"
 
 #' 
 #' 
-## ---- echo = TRUE, eval = FALSE------------------------------------
+## ---- echo = TRUE, eval = FALSE----------------------------------------
 ## # eu nao posso simplesmente subtrair esses valores
 ## data2 - data1
 
@@ -431,20 +431,20 @@ data2 <- "17/04/2016"
 #' Vejam que a classe dos objetos criados acima são do tipo "texto" (`character`):
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 class(data1)
 class(data2)
 
 #' Porém, se convertermos esses objetos para a classe `Date`, então poderemos fazer operações matemáticas com eles:
 #' 
-## ---- echo = TRUE, eval = FALSE------------------------------------
+## ---- echo = TRUE, eval = FALSE----------------------------------------
 ## # mas o R tem um classe para datas
 ## # entao fazemos a conversao
 ## ?as.Date # veja o help dessa função
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 data1 <- as.Date(data1, format = "%d/%m/%Y")
 data2 <- as.Date(data2, format = "%d/%m/%Y")
 # agora a classe mudou
@@ -482,7 +482,7 @@ as.Date(data3, format = "%Y-%m-%d")
 #' 
 #' ### Usando índices numéricos
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # um vetor simples
 v1 <- 1:10
 v1[1] # valor na posição/índice 1
@@ -502,13 +502,13 @@ v1[8] # valor na posição/índice 8
 #' Podemos atribuir nomes aos elementos do vetor usando a função `names()`.
 #' Uma outra função útil se chama `paste()`, muito utilizada na manipulação de textos.  
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 ?paste # veja o help da função paste
 ?names # veja o help da função names
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # um vetor simples
 v1 <- 1:10
 # criando um vetor para usar como nomes
@@ -568,7 +568,7 @@ v3["nome8"] # o indice de nome pega o mesmo valor (PRESERVA)
 #' <!-- Há funções úteis que auxiliam na filtragem de dados utilizando valores lógicos. -->
 #' <!-- A primeira se chama `grep()`, que busca parte de palavras em um vetor, e a segunda chama-se `duplicated()`, que busca valores repetidos.   -->
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # um vetor numerico
 v1 <- 1:20
 # quais valores de v1 são maiores ou iguais a 10
@@ -613,7 +613,7 @@ paste(round(prop * 100), "%", sep = "")
 #'   
 #' Podemos usar também vetores de texto e fatores em conjunto com operadores lógicos.  
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # E VETORES DE TEXTO?
 v1 <- rep(c("banana", "pera", "laranja", "limão"), 10)
 v1 # um vetor de palavras
@@ -642,7 +642,7 @@ sum(v2 %in% v1) # quantos são (apenas laranja e pera, abacate não está)
 #' * `!` - inverte os valores da pergunta
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # um vetor
 v1 <- 1:20
 v1
@@ -678,7 +678,7 @@ sum(v1 %in% c("banana", "pera"))
 #' Vetores lógicos podem ser usados como índices (Seção \@ref(indexacao)) para filtrar elementos de um vetor.
 #' É através deste conceito que podemos filtrar dados de matrizes e criar subconjunto de dados.  
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # um vetor com sequencia de 1 a 100
 v1 <- 1:100
 
@@ -696,12 +696,12 @@ v1[p2] # valores que satisfazem as duas perguntas
 #' A função `grep()` permite a busca de uma palavra (ou pedaço dela) em um vetor de palavras.
 #' Mais de uma palavra pode ser buscada ao mesmo tempo.  
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 ?grep # veja o help dessa função e seus argumentos
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # um vetor de palavras
 v1 <- rep(c("banana", "pera", "laranja", "limão"), 5)
 grep("an", v1) # quais elementos tem a palavra 'an' no nome?
@@ -725,12 +725,12 @@ unique(v1[vl]) # valores únicos desse vetor
 #' A resposta da função é um vetor lógico indicando quem é e quem não é `NA`.
 #' Há uma outra função chamada `na.omit()` que elimina valores `NA` de um vetor.  
 #' 
-## ---- opts.label='evalF'-------------------------------------------
+## ---- opts.label='evalF'-----------------------------------------------
 ?is.na # veja o help
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 # um vetor com NAs
 v1 <- c(NA, NA, 1, 2, 3, 4, 5, 6)
 is.na(v1) # quem é NA?
@@ -739,13 +739,13 @@ v2
 
 #' 
 #' 
-## ---- echo = TRUE, eval = FALSE------------------------------------
+## ---- echo = TRUE, eval = FALSE----------------------------------------
 ## # isso também pode ser feito com na.omit()
 ## ?na.omit # veja o help dessa função
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE-------------------------------------
+## ---- echo = TRUE, eval = TRUE-----------------------------------------
 v3 <- na.omit(v1)
 v3 # a diferença é que criou um objeto de classe na.omit
 v3 <- as.vector(v3) # isso elimina a diferença, convertendo em vetor
