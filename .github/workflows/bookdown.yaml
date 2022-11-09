@@ -19,7 +19,7 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -27,44 +27,22 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install libcurl on Linux
-        if: runner.os == 'Linux'
-        run: sudo apt-get update -y && sudo apt-get install -y libcurl4-openssl-dev
-
-      - name: "[Custom block] [Linux] Install spatial libraries"
-        if: runner.os == 'Linux'
-        run: sudo apt-get install gdal-bin libgdal-dev libproj-dev libgeos-dev proj-bin libudunits2-dev
-
       - uses: r-lib/actions/setup-renv@v2
 
-      # - uses: r-lib/actions/setup-r-dependencies@v2
-      #   with:
-      #     cache-version: 2
-      #     extra-packages: |
-      #       any::curl
-      #     needs: |
-      #     website
-      #     coverage
-
       - name: Cache bookdown results
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: _bookdown_files
           key: bookdown-${{ hashFiles('**/*Rmd') }}
           restore-keys: bookdown-
 
       - name: Build site
-        run: bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook",quiet = TRUE)
+        run: bookdown::render_book("index.Rmd", quiet = TRUE)
         shell: Rscript {0}
-
-      # - name: Render Book as epub
-      #   run: Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::epub_book")'
-        # shell: Rscript {0}
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
           folder: _book
-
