@@ -274,3 +274,4 @@ funções-de-manipulação-de-pasta-e-arquivos
 funções-de-manipulação-de-texto---parte-01
 funções-de-manipulação-de-texto---parte-02
 objetos-complexos
+chernoff

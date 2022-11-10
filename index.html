@@ -529,6 +529,7 @@ div.csl-indent {
 <li class="chapter" data-level="C.13" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02</a></li>
 <li class="chapter" data-level="C.14" data-path="videos.html"><a href="videos.html#objetos-complexos"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos</a></li>
 </ul></li>
+<li class="chapter" data-level="D" data-path="chernoff.html"><a href="chernoff.html"><i class="fa fa-check"></i><b>D</b> Caras de Chernoff</a></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
@@ -555,7 +556,7 @@ div.csl-indent {
 <h2 class="subtitle"><em>Disciplina BOT89 - PPGBOT INPA</em></h2>
 <p class="author"><em><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=alunos:a.vicentini:inicio">Alberto Vicentini</a> (<a href="http://portal.inpa.gov.br/">INPA</a>)</em></p>
 <p class="author"><em><a href="https://www.ricardoperdiz.com">Ricardo de Oliveira Perdiz</a> - ricardoperdiz@yahoo.com</em></p>
-<p class="date"><em>Última atualização: 2022-11-09</em></p>
+<p class="date"><em>Última atualização: 2022-11-10</em></p>
 </div>
 <div id="prefácio" class="section level1 unnumbered hasAnchor">
 <h1>Prefácio<a href="index.html#prefácio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -602,7 +603,9 @@ Os capítulos abaixo exemplificam algumas ferramentas do R para fazer AED:</p>
 <ul>
 <li><strong>Apêndice <a href="base-tidyverse.html#base-tidyverse">A</a></strong> inclui uma discussão breve sobre o universo de pacotes conhecidos como <a href="https://www.tidyverse.org/">Tidyverse</a>, comparando-os com o pacote <code>base</code> do R.</li>
 <li><strong>Apêndice <a href="unzip.html#unzip">B</a></strong> apresenta um tutorial para baixar e descomprimir arquivos <code>.zip</code> dentro R.</li>
-<li><strong>Apêndice <a href="videos.html#videos">C</a></strong> apresenta uma lista de vídeos gravados por nós, autores, abordando diversos tópicos deste livro e que podem auxiliar o aprendizado da linguagem.</li>
+<li><strong>Apêndice <a href="videos.html#videos">C</a></strong> apresenta uma lista de vídeos gravados por nós, autores, abordando diversos tópicos deste livro e que podem auxiliar o aprendizado da linguagem.<br />
+</li>
+<li><strong>Apêndice <a href="chernoff.html#chernoff">D</a></strong> apresenta um código para gerar as <a href="http://www.fics.edu.br/index.php/augusto_guzzo/article/view/67/78">caras de Chernoff</a>, que é uma maneira divertida de aprender a lidar com dados multivariados.</li>
 </ul>
 <!-- Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro. -->
 <!-- Ao optar por esse caminho, você será levado à página do código fonte e poderá editar o arquivo diretamente no GitHub. -->
@@ -692,7 +695,8 @@ Figura 0.2: Destaque do botão <em>Code</em> (retângulo <strong>azul</strong> p
 ## 15-tidyverse.Rmd
 ## 16-baixa_descomprime.Rmd
 ## 17-videos.Rmd
-## 18-referencias.Rmd</code></pre>
+## 18-chernoff.Rmd
+## 19-referencias.Rmd</code></pre>
 <p>Você pode tanto utilizar os arquivos escritos em formato <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio">Rmarkdown</a> e executar os códigos em cada célula de código (<strong>code chunks</strong>) ou usar os scripts contidos na pasta <code>codigo</code>, que nada mais são do que os capítulos do livro convertidos para um script de R, isto é, em formato <code>.R</code>.
 Nesses scripts, todos os pedaços de texto, incluindo cabeçalhos e comentários estão precedidos de <code>#'</code>; o que for código aparecerá sem <code>#'</code> precedentes.
 Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repositório.</p>
@@ -714,7 +718,8 @@ Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repo
 <li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/15-tidyverse.R">15-tidyverse.R</a></li>
 <li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/16-baixa_descomprime.R">16-baixa_descomprime.R</a></li>
 <li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/17-videos.R">17-videos.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/18-referencias.R">18-referencias.R</a></li>
+<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/18-chernoff.R">18-chernoff.R</a></li>
+<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/19-referencias.R">19-referencias.R</a></li>
 </ul>
 </div>
 </div>

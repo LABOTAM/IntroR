@@ -529,6 +529,7 @@ div.csl-indent {
 <li class="chapter" data-level="C.13" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02</a></li>
 <li class="chapter" data-level="C.14" data-path="videos.html"><a href="videos.html#objetos-complexos"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos</a></li>
 </ul></li>
+<li class="chapter" data-level="D" data-path="chernoff.html"><a href="chernoff.html"><i class="fa fa-check"></i><b>D</b> Caras de Chernoff</a></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
@@ -3105,10 +3106,10 @@ Species
 <tbody>
 <tr>
 <td style="text-align:left;">
-7
+18
 </td>
 <td style="text-align:right;">
-4.6
+5.1
 </td>
 <td style="text-align:right;">
 NA
@@ -3125,67 +3126,7 @@ setosa
 </tr>
 <tr>
 <td style="text-align:left;">
-29
-</td>
-<td style="text-align:right;">
-5.2
-</td>
-<td style="text-align:right;">
-3.4
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-39
-</td>
-<td style="text-align:right;">
-4.4
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-1.3
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-40
-</td>
-<td style="text-align:right;">
-5.1
-</td>
-<td style="text-align:right;">
-3.4
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-46
+25
 </td>
 <td style="text-align:right;">
 4.8
@@ -3194,10 +3135,10 @@ setosa
 NA
 </td>
 <td style="text-align:right;">
-1.4
+1.9
 </td>
 <td style="text-align:right;">
-0.3
+0.2
 </td>
 <td style="text-align:left;">
 setosa
@@ -3205,19 +3146,79 @@ setosa
 </tr>
 <tr>
 <td style="text-align:left;">
-53
+32
 </td>
 <td style="text-align:right;">
-6.9
+5.4
+</td>
+<td style="text-align:right;">
+3.4
 </td>
 <td style="text-align:right;">
 NA
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+36
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+38
 </td>
 <td style="text-align:right;">
 4.9
 </td>
 <td style="text-align:right;">
-1.5
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+56
+</td>
+<td style="text-align:right;">
+5.7
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1.3
 </td>
 <td style="text-align:left;">
 versicolor
@@ -3225,56 +3226,16 @@ versicolor
 </tr>
 <tr>
 <td style="text-align:left;">
-57
+70
 </td>
 <td style="text-align:right;">
-6.3
-</td>
-<td style="text-align:right;">
-3.3
+5.6
 </td>
 <td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
-1.6
-</td>
-<td style="text-align:left;">
-versicolor
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-63
-</td>
-<td style="text-align:right;">
-6.0
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-4.0
-</td>
-<td style="text-align:right;">
-1.0
-</td>
-<td style="text-align:left;">
-versicolor
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-81
-</td>
-<td style="text-align:right;">
-5.5
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
+3.9
 </td>
 <td style="text-align:right;">
 1.1
@@ -3285,19 +3246,19 @@ versicolor
 </tr>
 <tr>
 <td style="text-align:left;">
-84
+74
 </td>
 <td style="text-align:right;">
-6.0
+6.1
+</td>
+<td style="text-align:right;">
+2.8
 </td>
 <td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
-5.1
-</td>
-<td style="text-align:right;">
-1.6
+1.2
 </td>
 <td style="text-align:left;">
 versicolor
@@ -3305,19 +3266,79 @@ versicolor
 </tr>
 <tr>
 <td style="text-align:left;">
-86
+85
 </td>
 <td style="text-align:right;">
-6.0
-</td>
-<td style="text-align:right;">
-3.4
+5.4
 </td>
 <td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
-1.6
+4.5
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:left;">
+versicolor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+90
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:left;">
+versicolor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+93
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+1.2
+</td>
+<td style="text-align:left;">
+versicolor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+98
+</td>
+<td style="text-align:right;">
+6.2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+4.3
+</td>
+<td style="text-align:right;">
+1.3
 </td>
 <td style="text-align:left;">
 versicolor
@@ -3331,10 +3352,10 @@ versicolor
 7.1
 </td>
 <td style="text-align:right;">
-NA
+3.0
 </td>
 <td style="text-align:right;">
-5.9
+NA
 </td>
 <td style="text-align:right;">
 2.1
@@ -3345,13 +3366,13 @@ virginica
 </tr>
 <tr>
 <td style="text-align:left;">
-109
+104
 </td>
 <td style="text-align:right;">
-6.7
+6.3
 </td>
 <td style="text-align:right;">
-2.5
+2.9
 </td>
 <td style="text-align:right;">
 NA
@@ -3365,19 +3386,19 @@ virginica
 </tr>
 <tr>
 <td style="text-align:left;">
-111
+108
 </td>
 <td style="text-align:right;">
-6.5
+7.3
+</td>
+<td style="text-align:right;">
+2.9
 </td>
 <td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
-5.1
-</td>
-<td style="text-align:right;">
-2.0
+1.8
 </td>
 <td style="text-align:left;">
 virginica
@@ -3385,19 +3406,59 @@ virginica
 </tr>
 <tr>
 <td style="text-align:left;">
-120
+116
 </td>
 <td style="text-align:right;">
-6.0
-</td>
-<td style="text-align:right;">
-2.2
+6.4
 </td>
 <td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
-1.5
+5.3
+</td>
+<td style="text-align:right;">
+2.3
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+125
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+3.3
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+126
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1.8
 </td>
 <td style="text-align:left;">
 virginica
@@ -3411,73 +3472,13 @@ virginica
 6.2
 </td>
 <td style="text-align:right;">
-2.8
+NA
 </td>
 <td style="text-align:right;">
-NA
+4.8
 </td>
 <td style="text-align:right;">
 1.8
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-128
-</td>
-<td style="text-align:right;">
-6.1
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-1.8
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-130
-</td>
-<td style="text-align:right;">
-7.2
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-1.6
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-135
-</td>
-<td style="text-align:right;">
-6.1
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-5.6
-</td>
-<td style="text-align:right;">
-1.4
 </td>
 <td style="text-align:left;">
 virginica
