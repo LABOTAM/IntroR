@@ -2,7 +2,7 @@
 #' 
 #' # Base R vs. Tidyverse {#base-tidyverse}
 #' 
-## ---- eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE------
+## ---- eval = TRUE, echo = FALSE, warning = FALSE, message = FALSE----------------------------------
 suppressMessages(library("dplyr"))
 suppressMessages(library("ggplot2"))
 suppressMessages(library("tidyr"))
@@ -51,11 +51,11 @@ suppressMessages(library("tibble"))
 #' Vamos aprender brevemente como funcionam as principais funções deste pacote (Tabela \@ref(tab:dplyrtb)).
 #' Primeiro vamos carregar o pacote para a sessão de trabalho:
 #' 
-## ----eval = FALSE------------------------------------------------------
+## ----eval = FALSE----------------------------------------------------------------------------------
 ## library("dplyr")
 
 #' 
-## ----dplyrtb, eval = TRUE, echo = FALSE--------------------------------
+## ----dplyrtb, eval = TRUE, echo = FALSE------------------------------------------------------------
 knitr::kable(
   tibble::tribble(
     ~"Função",
@@ -85,7 +85,7 @@ knitr::kable(
 #' 
 #' * depois, colocamos no lugar de `...` o nome das colunas que desejamos selecionar, **sem aspas**. Por exemplo, se quisermos selecionar a coluna das espécie, fazemos assim:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 head(
   select(iris, Species),
   10
@@ -94,7 +94,7 @@ head(
 #' 
 #' Ou se quisermos a coluna de comprimento de pétala mais a coluna das espécies:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 head(
   select(iris, Petal.Length, Species),
   10
@@ -105,7 +105,7 @@ head(
 #' Entre essas funções auxiliares, destacamos a função `contains()`.
 #' Por exemplo, se quisermos selecionar todas as variáveis que contêm "Petal" em seus nomes:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 head(
   select(iris, contains("Petal")),
   10
@@ -117,7 +117,7 @@ head(
 #' Se desejamos filtrar os dados segundo alguma informação, devemos utilizar a função `filter()`.
 #' Por exemplo, se quiser checar os dados de pétalas apenas para a espécie `setosa`, fazemos assim:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 head(
   filter(iris, Species == "setosa"),
   10
@@ -126,7 +126,7 @@ head(
 #' 
 #' Ou então quais amostras da espécie `virginica` possuem comprimento de sépala maior que 7 cm:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 head(
   filter(iris, Species == "virginica", Sepal.Length > 7),
   10
@@ -135,7 +135,7 @@ head(
 #' 
 #' E se quisermos adicionar uma coluna em `iris` que consiste na razão entre o comprimento da pétala pelo comprimento da sépala? Chamaremos nossa nova coluna de `razaopetsep`:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 head(
   mutate(iris, razaopetsep = Petal.Length / Sepal.Length),
   10
@@ -147,7 +147,7 @@ head(
 #' As funções `group_by` e `summarise` resumem o propósito do pacote `dplyr`, pois permitem em poucas linhas de comando sumariar os dados, e partem do princípio, muito presente no R através das funções da família `apply`, chamado **split-apply-combine** que, em tradução livre, pode ser entendido como uma sequência lógica de ação: quebre em grupos, aplique uma função, e combine os resultados.
 #' Vamos partir para o uso dessas funções agrupando os dados em função da coluna `Species` e calculando a média do comprimento das pétalas (variável `Petal.Length`):
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 iris_grouped <- group_by(iris, Species)
 iris_sumario <- summarise(iris_grouped, petala_l_media = mean(Petal.Length, na.rm = TRUE))
 iris_sumario
@@ -157,7 +157,7 @@ iris_sumario
 #' A função `group_by` os dados em função de alguma ou algumas variáveis.
 #' Essa função geralmente é utilizada em conjunto com a função `summarise` para gerar sumários estatísticos de uma ou mais variáveis.
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 head(
   group_by(iris, Species),
   10
@@ -174,7 +174,7 @@ head(
 #' Pensando no pacote `base`, é como pensar que a variável `Species` é o argumento `INDEX` da função `tapply()`: todos os cálculos a partir desse objeto ocorrerão em função dessa variável.
 #' Após agrupar os dados, nós colocamos esse `data.frame` agrupado via `group_by()`, `iris_grouped <- group_by(iris, Species)`, como primeiro argumento da função `summarise()` para então calcular a média do comprimento de pétala:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 iris_grouped <- group_by(iris, Species)
 summarise(iris_grouped, petala_l_media = mean(Petal.Length, na.rm = TRUE))
 
@@ -185,13 +185,13 @@ summarise(iris_grouped, petala_l_media = mean(Petal.Length, na.rm = TRUE))
 #' 
 #' Utilizaremos a função `n()`, que pertence ao mesmo pacote `dplyr`, para contar o número de grupos. Vejamos:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 summarise(iris_grouped, n())
 
 #' 
 #' > Médias de comprimento de sépalas e pétalas
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 summarise(iris_grouped, sepala_l_media = mean(Sepal.Length, na.rm = TRUE))
 
 summarise(iris_grouped, petala_l_media = mean(Petal.Length, na.rm = TRUE))
@@ -199,7 +199,7 @@ summarise(iris_grouped, petala_l_media = mean(Petal.Length, na.rm = TRUE))
 #' 
 #' > Todas as operações anteriores na mesma linha de comando:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 iris_sumario <- summarise(iris_grouped, N = n(), sepala_l_media = mean(Sepal.Length, na.rm = TRUE), petala_l_media = mean(Petal.Length, na.rm = TRUE))
 head(iris_sumario, 10)
 
@@ -208,7 +208,7 @@ head(iris_sumario, 10)
 #' 
 #' Notem que nada do que vimos até aqui parece ser muito relevante se comparamos com o que pode ser feito com o pacote `base` do R. Vejamos:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 # Queremos selecionar colunas? Operadores `$` e `[[` dao conta
 head(
   iris[, which(names(iris) == "Species")],
@@ -278,13 +278,13 @@ head(
 #' 
 #' Primeiramente, carreguemos o pacote `magrittr`:
 #' 
-## ---- eval = FALSE-----------------------------------------------------
+## ---- eval = FALSE---------------------------------------------------------------------------------
 ## library("magrittr")
 
 #' 
 #' Executando o conjunto de [comandos 1](#com1), temos:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 # Chamar o data.frame `iris`, então...
 res1 <-
   iris %>%
@@ -303,7 +303,7 @@ res1
 #' 
 #' Fazendo o mesmo com o conjunto de [comandos 2](#com2), temos:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 # Chamar o data.frame `iris`, então...
 res2 <-
   iris %>%
@@ -333,7 +333,7 @@ res2
 #' Vejamos na prática para entender.
 #' Suponha que nós queiramos selecionar apenas as colunas `Species` e `Petal.Length` de `iris`. Podemos executar isso de duas maneiras, todas com o mesmo resultado:
 #' 
-## ---- eval = FALSE-----------------------------------------------------
+## ---- eval = FALSE---------------------------------------------------------------------------------
 ## # podemos representar iris de três maneiras utilizando o operador `%>%`
 ## iris %>% select(Species, Petal.Length) # como temos feito ate aqui
 ## iris %>% select(., Species, Petal.Length) # explicitamos que `iris` esta dentro de select por meio do `.`
@@ -341,7 +341,7 @@ res2
 #' 
 #' Isso pode ficar mais fácil de entender com outro exemplo. Suponha que tenhamos o vetor `meuvetor <- c(1:20)` e queiramos obter o somatório deste vetor. Podemos executar isso de três maneiras utilizando o operador `%>%`:
 #' 
-## ---- eval = FALSE-----------------------------------------------------
+## ---- eval = FALSE---------------------------------------------------------------------------------
 ## meuvetor <- c(1:20)
 ## meuvetor %>% sum(.) # representando o vetor na forma de um `.`
 ## meuvetor %>% sum() # deixando a funcao vazia
@@ -352,7 +352,7 @@ res2
 #' 
 #' Vale ressaltar que poderíamos muito bem encadear todas as ações executadas acima sem o operador `%>%`, porém perderíamos a chance de ler o código da esquerda para a direita, oportunidade ofertada pelo uso do operador. Vejamos, usando o conjunto de comandos 2:
 #' 
-## ---- eval = FALSE-----------------------------------------------------
+## ---- eval = FALSE---------------------------------------------------------------------------------
 ## summarise(
 ##   mutate(
 ##     filter(
@@ -386,7 +386,7 @@ res2
 #' Similarmente ao pacote `dplyr`, começamos com o `data.frame` que desejamos plotar, contudo, passos posteriores são bem diferentes, e se assemelham mais ao uso do operador `%>%` do pacote `magrittr`.
 #' No `ggplot2`, utilizamos o operador `+` para adicionar as camadas.  
 #' 
-## ----ggcom, echo = FALSE, eval = TRUE----------------------------------
+## ----ggcom, echo = FALSE, eval = TRUE--------------------------------------------------------------
 knitr::kable(
   tibble::tribble(
     ~"Função", ~"O que faz",
@@ -409,7 +409,7 @@ knitr::kable(
 #' Após o primeiro passo, fazemos uso de funções para plotar dados em forma de um espalhamento (scatterplots usando a função `geom_point()`), gráficos de barra (`geom_bar`), diagramas de caixa (`geom_boxplot()`), entre outras.
 #' Vejamos na prática como funciona:  
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 # um grafico de espalhamento da variavel Sepal.Length no eixo X e Petal.Length no eixo Y utilizando o conjunto de dados iris
 ggplot(iris) +
   geom_point(aes(x = Sepal.Length, y = Petal.Length))
@@ -418,36 +418,36 @@ ggplot(iris) +
 #' Dentro das funções que plotam os dados efetivamente (e.g., `geom_point()`, `geom_boxplot()`), devemos sempre usar a função `aes()`: nela inserimos os eixos `x` e `y`, informando sempre o nome das colunas *sem aspas*.
 #' Se quisermos colorir os pontos em função das espécies, fazemos:  
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 ggplot(iris) +
   geom_point(aes(x = Sepal.Length, y = Petal.Length, color = Species))
 
 #' 
 #' Por trabalhar em camadas, podemos atribuir os resultados dessas operações a objetos. Por exemplo, vamos passar o resultado da ação acima para um objeto `meugrafico` e mudar os temas do gráfico:  
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 meugrafico <- ggplot(iris) +
   geom_point(aes(x = Sepal.Length, y = Petal.Length, color = Species))
 
 #' 
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 meugrafico + theme_bw() # Existem varios outros temas pre-definidos no ggplot2
 
 #' 
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 meugrafico + theme_minimal() # Para utilizar os outros temas, e so verificar o help de funcoes que comecam com theme_OUTROSnomes
 
 #' 
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 meugrafico + theme_void() # - existem, por exemplo, os temas theme_grey, theme_classic, theme_light etc
 
 #' 
 #' Podemos facilmente também gerar um gráfico para cada espécie utilizando a função `facet_wrap()`:  
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 meugrafico + facet_wrap(~Species)
 
 #' 
@@ -463,7 +463,7 @@ meugrafico + facet_wrap(~Species)
 #' 
 #' ### Gráfico de espalhamento
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 iris %>%
   select(Species, Sepal.Width, Sepal.Length) %>%
   ggplot(.) + # lembrem-se que o data.frame com colunas selecionadas acima aqui e representado por um `.`
@@ -474,7 +474,7 @@ iris %>%
 #' 
 #' ### Diagrama de caixas
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 iris %>%
   select(Species, Sepal.Length) %>%
   ggplot(.) +
@@ -485,7 +485,7 @@ iris %>%
 #' 
 #' ### Histograma
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 iris %>%
   select(Species, Sepal.Width) %>%
   ggplot(.) +
@@ -500,7 +500,7 @@ iris %>%
 #' Abaixo, para efeitos de comparação, executamos as mesmas ações usando os pacotes `base` e `dplyr`; ao utilizar o `dplyr`, também fizemos uso do operador `%>%`.  
 #' 
 #' 
-## ----baser, eval = TRUE------------------------------------------------
+## ----baser, eval = TRUE----------------------------------------------------------------------------
 # para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero
 rm(list = ls())
 # filtra os dados em iris
@@ -531,7 +531,7 @@ res2
 plot(irisf$Sepal.Length, irisf$Petal.Length, col = irisf$Species)
 
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 # para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero
 rm(list = ls())
 # chama os pacotes tidyverse
@@ -571,7 +571,7 @@ tgraf
 #' 
 #' Apesar de termos explorado até aqui o uso do operador `%>%` apenas com o pacote `dplyr`, ele pode ser utilizado com qualquer função no R. Vamos retormar o exemplo da [seção acima](#baser) com comandos do pacote `base` do R, porém adicionando o operador `%>%` na manipulação dos dados:
 #' 
-## ---- eval = TRUE------------------------------------------------------
+## ---- eval = TRUE----------------------------------------------------------------------------------
 iris_ord <-
   iris %>%
   subset(Sepal.Length < 6 & Petal.Length < 5) %>% # filtramos os dados com a funcao subset()

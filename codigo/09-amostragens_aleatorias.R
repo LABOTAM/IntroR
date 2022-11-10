@@ -4,13 +4,13 @@
 #' 
 #' A função `sample()` aleatoriza valores em um vetor, com ou sem repetição, ou amostra um certo número de valores aleatoriamente de um vetor de valores.  
 #' 
-## ---- opts.label='evalF'-----------------------------------------------
+## ---- opts.label='evalF'---------------------------------------------------------------------------
 # ALEATORIZANDO DADOS SEM AMOSTRAGEM
 ?sample
 
 #' 
 #' 
-## ----------------------------------------------------------------------
+## --------------------------------------------------------------------------------------------------
 # suponha um vetor de numeros
 v1 <- 1:20
 v1 # os numeros sao sequenciais
@@ -41,7 +41,7 @@ table(sample(LETTERS, replace = T))
 #' 
 #' Amostraremos `N` valores de um vetor qualquer:  
 #' 
-## ----------------------------------------------------------------------
+## --------------------------------------------------------------------------------------------------
 # agora amostra um número qualquer de valores de um vetor qualquer:
 umvetor <- seq(from = 0, to = 1000, by = 0.1)
 length(umvetor)
@@ -73,7 +73,7 @@ hist(outraamostra, density = 10, add = T, col = "black")
 #' * [Distribuição log-normal](https://en.wikipedia.org/wiki/Log-normal_distribution).  
 #' 
 #' 
-## ---- opts.label='evalF'-----------------------------------------------
+## ---- opts.label='evalF'---------------------------------------------------------------------------
 # veja no R o help para as funções para as diferentes distribuições disponíveis no R.
 ?Distributions
 
@@ -86,11 +86,11 @@ hist(outraamostra, density = 10, add = T, col = "black")
 #' 
 #' Esta função permite gerar essa distribuição de valores aleatórios que seguem uma distribuição normal se soubermos a média e o desvio padrão.  
 #' 
-## ---- eval = FALSE-----------------------------------------------------
+## ---- eval = FALSE---------------------------------------------------------------------------------
 ## ?rnorm # veja o help da função
 
 #' 
-## ----------------------------------------------------------------------
+## --------------------------------------------------------------------------------------------------
 amedia <- 14.4
 osd <- 1
 # vamos gerar 1000 valores aleatórios com essa distribuição
@@ -116,13 +116,13 @@ lines(stats::density(quadris), col = "red", lwd = 2)
 #' :::
 #' 
 #' 
-## ---- opts.label='evalF'-----------------------------------------------
+## ---- opts.label='evalF'---------------------------------------------------------------------------
 # veja o help dessa função
 ?pnorm
 
 #' 
 #' 
-## ----------------------------------------------------------------------
+## --------------------------------------------------------------------------------------------------
 # qual o percentil/quantil da distribuição que é maior que 15 polegadas
 # quem não cabe no assento?
 qMaior15in <- pnorm(q = 15, mean = 14.4, sd = 1, lower.tail = F)
@@ -161,7 +161,7 @@ polygon(xxp, yyp, col = "red")
 #' :::
 #' 
 #' 
-## ----------------------------------------------------------------------
+## --------------------------------------------------------------------------------------------------
 # agora fazemos o inverso da função pnorm, ao inves de informar o quantil,
 # informamos o percentil
 qnorm(p = 0.95, mean = 14.4, sd = 1)
@@ -189,7 +189,7 @@ hist(quadris[quadris < tamanho95], prob = T, add = T, col = "red")
 #' :::
 #' 
 #' 
-## ----------------------------------------------------------------------
+## --------------------------------------------------------------------------------------------------
 dq12 <- dnorm(x = 12, mean = 14.4, sd = 1)
 dq12
 # mostra na figura
