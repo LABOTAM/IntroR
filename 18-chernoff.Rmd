@@ -1,7 +1,7 @@
-# Carinhas de Chernoff {#chernoff}
+# Caras de Chernoff {#chernoff}
 
 ```{r}
-#as carinhas de Chernoff são geradas pelo pacote
+#as carinhas de Chernoff são geradas pelo pacote TeachingDemos
 library("TeachingDemos")
 
 #uma matriz com variaveis
