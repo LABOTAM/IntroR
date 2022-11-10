@@ -20,25 +20,25 @@
 #' 
 #' Vamos importar novamente os conjuntos de dados de [avistamento de aves do cerrado](https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv) (utilizado no capítulo \@ref(aed-checa-dados)) e de [parcelas em caixetais](https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv) (utilizado no capítulo \@ref(sumar-dados)):
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## ## Lendo a planilha com read.table
 ## avesc <- read.table("aves_cerrado.csv", row.names = 1, header = T, sep = ";", dec = ",", as.is = T, na.strings = c("NA", "", "NULL"))
 
 #' 
-## ---- include = FALSE------------------------------------------------------------------------------
+## ---- include = FALSE-----------------------------------------
 load("dados/aves_cerrado.rda")
 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## caixeta <- read.csv("caixeta.csv") ## arquivo caixeta.csv deve estar no diretorio de trabalho
 ## # note que mantemos todos os argumentos padrão (veja o formato do arquivo caixeta)
 
 #' 
-## ---- include = FALSE, message=FALSE---------------------------------------------------------------
+## ---- include = FALSE, message=FALSE--------------------------
 load("dados/caixeta.rda")
 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 ## Resumo estatistico: medias, media truncada e mediana, quantis
 # pegando apenas as variáveis numéricas
 head(avesc[, 2:4])
@@ -56,13 +56,13 @@ summary(avesc[, 2:4])
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## # e não podemos fazer isso apenas com a função sd para todas as colunas
 ## sd(avesc[, 2:4]) # ops deprecado (eu estou trabalhando com uma matriz)
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 # mas posso usar a funcao apply (para cada coluna, argumento MARGIN)
 apply(avesc[, 2:4], 2, sd, na.rm = TRUE)
 
@@ -75,7 +75,7 @@ apply(avesc[, 2:4], 2, quantile, na.rm = TRUE)
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 # note que os valores dos quartis:
 quantile(avesc$urubu, na.rm = TRUE)
 # aparecem também quando usamos summary, que no entanto, retorna a média artimética,
@@ -106,13 +106,13 @@ abline(h = quantile(avesc$urubu, na.rm = TRUE), col = "blue", lwd = 2)
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## # Média truncada = e.g. TIRANDO 10% DOS VALORES NOS EXTREMOS (posso ver como muda, caso tenha valores extremos, vai mudar muito)
 ## ?mean # veja o argumento trim
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 apply(avesc[, 2:4], 2, mean, trim = 0.1, na.rm = TRUE) # truncando
 apply(avesc[, 2:4], 2, mean, trim = 0, na.rm = TRUE) # sem truncar
 
@@ -123,7 +123,7 @@ quantile(avesc$urubu, probs = seq(from = 0, to = 1, by = 0.1), na.rm = TRUE) # a
 #' 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 dim(caixeta) # dimensões
 names(caixeta) # colunas
 head(caixeta) # cabeça
@@ -175,7 +175,7 @@ par(mfrow = c(1, 1)) # retorna o dispositivo
 #' 
 #' A função `table()` permite contar valores em fatores e vetores e você pode [relembrar como usar a função `barplot()`](#graf-alto-nivel) para gerar gráficos de barra simples:
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 # continuando com os dados de caixeta.csv
 head(caixeta)
 # tem a coluna especie
@@ -207,7 +207,7 @@ barplot(table(caixeta$local), ylab = "Número de indivíduos")
 #' 
 #' Além das funções gráficas apresentadas acima, vamos ver aqui as funções `dotchart()` e `stripchart()`, úteis para visualizar dados brutos.
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 # para visualizar dados brutos
 head(caixeta)
 
@@ -239,13 +239,13 @@ dim(caixeta)
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## # ve o histograma na forma de pontos:
 ## ?stripchart
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 stripchart(caixeta$h, method = "stack", jitter = 0, offset = 1, ylim = c(0, nrow(caixeta)), xlab = "altura (cm)")
 
 ## Numa tela só boxplot, histograma, densidade e stripchart
@@ -274,17 +274,17 @@ par(olp)
 #' A função `dnorm()` permite obter a densidade probabilistica de uma distribuição normal teórica, para a mesma média e mesmo desvio padrão dos teus dados.
 #' Com isso você pode visualizar a distribuição dos seus dados e sobrepor a isso como seria a distribuição se os seus dados fossem normais.
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 par(olp)
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## ?density # veja o help disso
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 # plota a densidade probabilistica = a curva da probabilidade da variável assumir certos valores de altura
 plot(stats::density(caixeta$h))
 ## Histograma com área = 1 e density probabilistica sobreposta (argumento prob=TRUE, muda o eixo y)
@@ -299,24 +299,24 @@ abline(v = mean(caixeta$h), col = "green", lwd = 2, lty = "solid")
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## ## Adicionando uma curva da normal aos graficos
 ## ?dnorm # veja o help dessa função e suas variantes. veremos isso melhor abaixo
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 # pega a densidade probabilística de uma distribuição normal teórica, para quantis de seu interesse, segundo uma média e um desvio padrão
 dnorm(seq(0, 1, by = 0.25), mean = mean(caixeta$h), sd = sd(caixeta$h)) # esses são os valores que a distribuição probabilistica assume, numa distribuição normal que tem o mesma média e a mesmo desvio padrão que os seus dados
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## ?curve # veja que curve depende de uma função, ela traça a curva de uma f(x), num intervalo especificado de x (que foi plotado por hist)
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 hist(caixeta$h, prob = T, breaks = 30, xlim = c(-1, max(caixeta$h) + 5))
 # adiciona a linha da densidade
 lines(stats::density(caixeta$h), col = "red", lwd = 2)
@@ -334,7 +334,7 @@ curve(expr = dnorm(x, mean = mean(caixeta$h), sd = sd(caixeta$h)), add = T, col 
 #' As funções `qqnorm()` e `qqline()` permitem visualizar rapidamente se uma variável qualquer segue uma distribuição normal, ao compara os valores dos quantis empíricos (observados), com valores dos quantis teóricos (i.e. esperados por uma distribuição normal).
 #' A função `rnorm()` gera um conjunto de dados aleatórios que tem distribuição normal.
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## # Teste de normalidade
 ## ######################################
 ## ## Exemplo para o qqplot
@@ -345,7 +345,7 @@ curve(expr = dnorm(x, mean = mean(caixeta$h), sd = sd(caixeta$h)), add = T, col 
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 ## Sorteio de 100 valores de uma normal com media=30 e desvio-padrao=3
 zz <- rnorm(100, 30, 3)
 mean(zz)
@@ -393,12 +393,12 @@ abline(0, 1, col = "red") # relacao esperada, caso os dados venham de uma popula
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE--------------------------------------------
 ## ## A funcao qqnorm ja faz isto de uma vez para voce:
 ## ?qqnorm # veja o help
 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 qqnorm(x)
 qqline(x, col = "red")
 

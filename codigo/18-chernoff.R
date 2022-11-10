@@ -1,6 +1,6 @@
 #' # Caras de Chernoff {#chernoff}
 #' 
-## --------------------------------------------------------------------------------------------------
+## -------------------------------------------------------------
 #as carinhas de Chernoff são geradas pelo pacote TeachingDemos
 library("TeachingDemos")
 
