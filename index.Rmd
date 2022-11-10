@@ -110,6 +110,7 @@ Por fim, temos o apêndice contendo materiais suplementares:
 * **Apêndice \@ref(base-tidyverse)** inclui uma discussão breve sobre o universo de pacotes conhecidos como [Tidyverse](https://www.tidyverse.org/), comparando-os com o pacote `base` do R.
 * **Apêndice \@ref(unzip)** apresenta um tutorial para baixar e descomprimir arquivos `.zip` dentro R.
 * **Apêndice \@ref(videos)** apresenta uma lista de vídeos gravados por nós, autores, abordando diversos tópicos deste livro e que podem auxiliar o aprendizado da linguagem.  
+* **Apêndice \@ref(chernoff)** apresenta um código para gerar as [caras de Chernoff](http://www.fics.edu.br/index.php/augusto_guzzo/article/view/67/78), que é uma maneira divertida de aprender a lidar com dados multivariados.  
 
 <!-- Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro. -->
 <!-- Ao optar por esse caminho, você será levado à página do código fonte e poderá editar o arquivo diretamente no GitHub. -->
