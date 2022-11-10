@@ -30,9 +30,10 @@ rmd_files:
     "15-tidyverse.Rmd",
     "16-baixa_descomprime.Rmd",
     "17-videos.Rmd",
+    "18-chernoff.Rmd",
     # Info da sessao para reprodutibilidade
     # "info_sessao.Rmd",
-    "18-referencias.Rmd"]
+    "19-referencias.Rmd"]
   epub: ["index.Rmd",
     "01-intro.Rmd",
     "02-vetores.Rmd",
