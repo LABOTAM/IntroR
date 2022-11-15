@@ -1,19 +1,23 @@
 --- 
 title: "Curso básico de introdução à linguagem R"
 subtitle: "Disciplina BOT89 - PPGBOT INPA"
-author:
-  - "[Alberto Vicentini](http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=alunos:a.vicentini:inicio) ([INPA](http://portal.inpa.gov.br/))"
-  - "[Ricardo de Oliveira Perdiz](https://www.ricardoperdiz.com) - ricardoperdiz\\@yahoo.com"
+author: "Alberto Vicentini e Ricardo de Oliveira Perdiz"
 date: "Última atualização: `r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
-documentclass: book
+knit: bookdown::render_book
+documentclass: krantz
+# documentclass: book
 bibliography: bot89-introR.bib
 biblio-style: apalike
 link-citations: true
 links-as-notes: true
 colorlinks: true
+always_allow_html: true
+# lot: yes
+# lof: yes
+fontsize: 12pt
 lang: pt-br
+url: 'https\://intror.netlify.app/'
 github-repo: LABOTAM/IntroR
 description: "Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica."
 ---
@@ -28,6 +32,17 @@ knitr::opts_template$set(executa = list(echo = FALSE,
 knitr::opts_template$set(executa_mostra = list(echo = TRUE,
                                                eval = TRUE))
 options(knitr.duplicate.label = "allow")
+options(
+  knitr.table.format = function() {
+    if (knitr::is_latex_output()) {
+      "latex"
+    } else if (knitr::is_html_output()) {
+      "html"
+    } else {
+      "pipe"
+    }
+  }
+)
 ```
 
 ```{r load_packages, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
@@ -42,7 +57,7 @@ knitr::write_bib(
   'pkg-bib.bib')
 ```
 
-```{r compila-readme, eval = TRUE, include = FALSE, echo = FALSE, message = FALSE}
+```{r compila-readme, eval = FALSE, include = FALSE, echo = FALSE, message = FALSE}
 rmarkdown::render("README.Rmd", output_format = "md_document", encoding = 'UTF-8')
 ```
 
@@ -61,25 +76,23 @@ purrr::walk2(
 
 Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89) do [Programa de Pós-Graduação em Ciências Biológicas (Botânica)](http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/) do INPA, ofertada desde o ano de 2011.  
 
-Inicialmente, a disciplina consistiu de uma modificação da documentação do curso de [Introdução à Linguagem R](http://ecor.ib.usp.br/doku.php) oferecida pelo [Programa de Pós-graduação em Ecologia](https://posecologia.ib.usp.br/) do Instituto de Biociências da Universidade de São Paulo, atualmente ministrada pelo professor Dr. [Alexandre Adalardo de Oliveira](http://labtrop.ib.usp.br/), e que contem aulas de autoria dos professores Drs. A. A. de Oliveira, [João Luís Ferreira Batista](http://cmq.esalq.usp.br/), [Paulo Inácio K. L. Prado](http://ecologia.ib.usp.br/let/doku.php?id=prado:start), e [Rodrigo Augusto Santinelo Pereira](https://sites.ffclrp.usp.br/ficus/equipe.htm) [@Batista2009].
+Inicialmente, a disciplina consistiu de uma modificação da documentação do curso de [Introdução à Linguagem R](http://ecor.ib.usp.br/doku.php) oferecida pelo [Programa de Pós-graduação em Ecologia](https://posecologia.ib.usp.br/) do Instituto de Biociências da Universidade de São Paulo, atualmente ministrada pelo professor Dr. [Alexandre Adalardo de Oliveira](http://labtrop.ib.usp.br/), e que contem aulas de autoria dos professores Drs. A. A. de Oliveira, [João Luís Ferreira Batista](http://cmq.esalq.usp.br/), [Paulo Inácio K. L. Prado](http://ecologia.ib.usp.br/let/doku.php?id=prado:start), e Rodrigo Augusto Santinelo Pereira [@Batista2009].
 Como exemplo, parte dos dados (dados de [avistamento de aves no Cerrado](https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv) e [Levantamento em Caixetais](https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv)) utilizados em nossas aulas são originários desta disciplina da Ecologia da USP.  
 
 Modificações nessa estrutura foram feitas por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
 Ricardo Perdiz transpôs as aulas originais formatadas em `dokuwiki` para o formato [Rmarkdown](https://rmarkdown.rstudio.com/).
 Também fez correções e acrescentou (poucos) novos conteúdos.  
 
-Nossa meta é prover uma introdução básica 
-<!-- (a) passar uma noção geral sobre dados e metadados e como criar e manter um banco de dados de forma simples e organizada e que facilite seu uso posterior; -->
-da linguagem de programação R, que é extremamente poderosa para manipulação de dados, análises estatísticas, produção de gráficos e de documentos dinâmicos, e cujo domínio oferece um grande ganho de produtividade a todo cientista e facilita o entendimento de métodos analíticos.
+Nossa meta é prover uma introdução básica da linguagem de programação R, que é extremamente poderosa para manipulação de dados, análises estatísticas, produção de gráficos e de documentos dinâmicos, e cujo domínio oferece um grande ganho de produtividade a todo cientista e facilita o entendimento de métodos analíticos.
 Ressaltamos que **isto não é um curso de estatística**.  
 
 ## Estrutura do livro {-}
 
-::: {.infobox .warning data-latex="warning"}
+```{block2, type = "rmdwarning"}
+Este livro está em constante atualização. Você pode encontrar os arquivos de Rmarkdown que geraram este livro neste endereço:
+  <https://github.com/LABOTAM/IntroR/tree/main>. Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para abrir um problema no repositório do livro: <https://github.com/LABOTAM/IntroR/issues>. Grato!
+```
 
-**Nota**: Este livro está em constante atualização. Você pode encontrar os arquivos de **Rmarkdown** que geraram este livro no endereço [https://github.com/LABOTAM/IntroR/tree/main](https://github.com/LABOTAM/IntroR/tree/main). Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para [abrir um problema no repositório do livro](https://github.com/LABOTAM/IntroR/issues). Grato!
-
-:::
 
 O livro está dividido em três partes.
 A primeira parte contem 10 capítulos e aborda os ensinamentos básicos para o usuário aprender a usar a linguagem como uma ferramenta científica.  
@@ -109,7 +122,8 @@ Por fim, temos o apêndice contendo materiais suplementares:
 
 * **Apêndice \@ref(base-tidyverse)** inclui uma discussão breve sobre o universo de pacotes conhecidos como [Tidyverse](https://www.tidyverse.org/), comparando-os com o pacote `base` do R.
 * **Apêndice \@ref(unzip)** apresenta um tutorial para baixar e descomprimir arquivos `.zip` dentro R.
-* **Apêndice \@ref(videos)** apresenta uma lista de vídeos gravados por nós, autores, abordando diversos tópicos deste livro e que podem auxiliar o aprendizado da linguagem.  
+
+* **Apêndice [videos](https://intror.netlify.app/videos.html)** apresenta uma lista de vídeos gravados por nós, autores, abordando diversos tópicos deste livro e que podem auxiliar o aprendizado da linguagem. Este apêndice está presente apenas na versão online do curso.  
 * **Apêndice \@ref(chernoff)** apresenta um código para gerar as [caras de Chernoff](http://www.fics.edu.br/index.php/augusto_guzzo/article/view/67/78), que é uma maneira divertida de aprender a lidar com dados multivariados.  
 
 <!-- Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro. -->

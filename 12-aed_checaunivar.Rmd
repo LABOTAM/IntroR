@@ -2,14 +2,14 @@
 
 ## Qual a distribuição dos valores numéricos?
 
-::: {.infobox .question data-latex="question"}
+```{block, type = "rmdquestion"}
 
 Onde os dados estão centrados?
 Como eles estão espalhados?
 Eles são simétricos, i.e., a distribuição é normal? São enviesados, bi-modais?
 Existem [valores extremos](https://en.wikipedia.org/wiki/Outlier|outlier)?
 
-:::
+```
 
 Já vimos [algumas operações matemáticas com vetores](#vetores) e também [como usar as funções `hist()` e `boxplot()`](#graf-alto-nivel) para gerar figuras de distribuição de variáveis numéricas individualmente.
 Vimos também como fazer iterações usando [funções da família `apply()`](#func-apply).
@@ -41,11 +41,19 @@ load("dados/caixeta.rda")
 ```{r}
 ## Resumo estatistico: medias, media truncada e mediana, quantis
 # pegando apenas as variáveis numéricas
-head(avesc[, 2:4])
+avesc[, 2:4]
+```
 
+```{r, eval=FALSE, echo=TRUE}
 # podemos fazer um resumo estatístico da distribuição de cada uma dessas colunas
 summary(avesc[, 2:4])
+```
 
+```{r eval=TRUE, echo=FALSE}
+kable(summary(avesc[, 2:4]))
+```
+
+```{r}
 # essa função me retorna várias estatísticas da distribuição de cada variável
 # os valores mínimos e máximos
 # a tendência central pela média e pela mediana

@@ -432,10 +432,13 @@ str(iris) #veja a estrutura
 
 Agora, vamos obter um sumário estatístico de `iris`:
 
-```{r}
+```{r, eval=FALSE, echo=TRUE}
 summary(iris) #veja o que é iris
 ```
 
+```{r eval=TRUE, echo=FALSE}
+kable(summary(iris))
+```
 
 Note que `iris$Species` contem 50 valores para três nomes e portanto eles estao sendo intepretados como categoria, isto é, é um fator.
 Vamos ver os níveis desse fator com a expressão abaixo, contida na função executada anteriormente e que desejamos destrinchar:

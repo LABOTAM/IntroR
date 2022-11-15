@@ -1,13 +1,13 @@
 # AED de bivariadas {#aed-bivar}
 
-::: {.infobox .question data-latex="question"}
+```{block, type = "rmdquestion"}
 
 Existe alguma relação entre as variáveis?
 A relação é linear?
 Há colinearidade?
 Ou seja, diferentes variáveis tem o mesmo padrão?
 
-:::
+```
 
 ## Dados do tutorial
 
@@ -41,7 +41,17 @@ Podemos usar a mesma função para gerar tabelas de contingência entre dois ou 
 ## Numero de fustes de cada especie por local
 tb <- table(caixeta$especie, caixeta$local)
 class(tb)
+```
+
+```{r, echo=TRUE, eval=FALSE}
 tb
+```
+
+```{r, echo=FALSE, eval=TRUE}
+kable(tb)
+```
+
+```{r}
 # convertemos num data.frame
 tb <- as.data.frame.matrix(tb)
 class(tb)
@@ -52,13 +62,31 @@ total
 
 # ordeno minha tabela orginal pelo total em ordem decrescente de abundância
 tb <- tb[order(total, decreasing = T), ]
-head(tb)
+```
 
+```{r, echo=TRUE, eval=FALSE}
+head(tb)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+kable(head(tb))
+```
+
+```{r}
 # se eu quiser uma tabela de presença e ausência
 # bastaria substituir os valores>0 por 1
 tb[tb > 0] <- 1
-head(tb)
+```
 
+```{r, echo=TRUE, eval=FALSE}
+head(tb)
+```
+
+```{r, echo=FALSE, eval=TRUE}
+kable(head(tb))
+```
+
+```{r}
 # assim, agora eu posso saber quantas especie por localidade
 apply(tb, 2, sum)
 ```
@@ -92,29 +120,91 @@ str(tit)
 ```
 
 
-```{r}
+```{r, eval=FALSE, echo=TRUE}
 xtabs(Freq ~ Sex + Survived, data = tit)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+kable(xtabs(Freq ~ Sex + Survived, data = tit))
+```
+
+```{r}
 # em porcentagem
 tb <- xtabs(Freq ~ Sex + Survived, data = tit)
+```
+
+```{r, eval=FALSE, echo=TRUE}
 prop.table(tb, margin = 1)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+kable(prop.table(tb, margin = 1))
+```
+
+```{r, eval=FALSE, echo=TRUE}
 # ou, se preferir
 round(prop.table(tb, margin = 1) * 100)
+```
 
+```{r, eval=TRUE, echo=FALSE}
+# ou, se preferir
+kable(round(prop.table(tb, margin = 1) * 100))
+```
+
+```{r, eval=FALSE, echo=TRUE}
 # Quanto sobreviventes por classe de viagem?
 xtabs(Freq ~ Class + Survived, data = tit)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+kable(xtabs(Freq ~ Class + Survived, data = tit))
+```
+
+```{r}
 # note que na primeira classe 203 sobreviveram
 # eu poderia ter perguntado isso assim:
 sum(tit[tit$Class == "1st" & tit$Survived == "Yes", "Freq"])
+```
+
+```{r, eval=FALSE, echo=TRUE}
 # ou seja, a funcao xtabs calculou a soma da frequencia
 # porcentagem
 prop.table(xtabs(Freq ~ Class + Survived, data = tit), margin = 1)
+```
 
+```{r, eval=TRUE, echo=FALSE}
+kable(prop.table(xtabs(Freq ~ Class + Survived, data = tit), margin = 1))
+```
+
+
+```{r}
 ## E para combinacoes de mais de duas variaveis
 tb2 <- xtabs(Freq ~ Class + Survived + Sex, data = tit)
+```
+
+
+```{r, echo=TRUE, eval=FALSE}
 tb2 # veja o resultado e observe duas virgulas
+```
+
+```{r, echo=FALSE, eval=TRUE}
+kable(tb2) # veja o resultado e observe duas virgulas
+```
+
+```{r, echo=TRUE, eval=FALSE}
 tb2[, , 1] # para Female
-tb2[, , 2] # para Male
-# note que não vimos isso antes, tb2, neste caso é um array, que um objeto que pode ter múltiplas dimensões, por isso as duas vírgulas, porque tem 3 dimensoes
+```
+
+```{r, echo=FALSE, eval=TRUE}
+kable(tb2[, , 1])
+```
+
+```{r, echo=TRUE, eval=FALSE}
+tb2[, , 2] # note que não vimos isso antes, tb2, neste caso é um array, que um objeto que pode ter múltiplas dimensões, por isso as duas vírgulas, porque tem 3 dimensoes
+```
+
+```{r, echo=FALSE, eval=TRUE}
+kable(tb2[, , 2])
 ```
 
 ## Variável numérica vs. fator
@@ -175,13 +265,13 @@ head(caixeta.2)
 ## Variável numérica vs. numérica
 
 
-::: {.infobox .question data-latex="question"}
+```{block, type = "rmdquestion"}
 
 Qual a relação entre as variáveis? É linear? 
 Que hipóteses ou interpretação biológica eu faço das relações entre as variáveis?
 Qual a colinearidade dos meus dados?
 
-:::
+```
 
 
 Para entender a razão e a importância dessas perguntas, veja a definição na [WikiPedia](https://en.wikipedia.org/wiki/Multicollinearity) sobre o efeito de colinearidade em regressões múltiplas.  

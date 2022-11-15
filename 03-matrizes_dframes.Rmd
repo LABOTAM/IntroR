@@ -20,7 +20,7 @@ Poder criar uma matriz no R é muito útil para várias finalidades como, por ex
 Matrizes podem ser criadas de diferentes formas (e.g., pode juntar matrizes pelas linhas e colunas, ou pode extrair sub-matrizes de uma matriz).
 Para criar matrizes, a função básica se chama `matrix()`:
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 # veja o help da função
 ?matrix
 
@@ -109,12 +109,12 @@ Objetos de classe `data.frame` são tabelas de dados, apresentam duas dimensões
 Quando importamos nossos dados ao R, em geral criamos objetos de classe `data.frame`.
 Para criar ou converter dados em data.frames, podemos usar as funções `data.frame()` e `as.data.frame()`.
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 ?data.frame # veja o help das funções acima
 ```
 
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 # a funcao que cria o objeto é
 data.frame(..., row.names = NULL, check.rows = FALSE, check.names = TRUE, stringsAsFactors = default.stringsAsFactors())
 
@@ -169,7 +169,7 @@ str(dz) # converte numeros para numerico e texto para character
 As funções `head()` e `tail()` mostram o cabeçalho e rodapé tanto para matrizes como para `data.frames`, respectivamente.
 Vejam o `?` dessas duas funções:
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 ?head
 ?tail
 ```
@@ -208,7 +208,15 @@ As funções `str()` e `summary()` informam a estrutura dos `data.frames` e o re
 
 ```{r}
 str(dd2) # mostra a estrutura do objeto, quais colunas, classes de colunas e total de valores
+```
+
+
+```{r, eval=FALSE, echo=TRUE}
 summary(dd2) # mostra para cada coluna a variação encontrada: estatística descritiva de variáveis numéricas, contagem por categoria de fatores, etc. Veremos isso adiante.
+```
+
+```{r, eval=TRUE, echo=FALSE}
+kable(summary(dd2))
 ```
 
 As funções `colnames()` e `rownames()` permitem VER e ATRIBUIR valores de nomes de linhas e colunas em data.frames e matrizes.
@@ -226,21 +234,42 @@ dd <- as.data.frame(mm)
 mm2 <- matrix(1:9, nrow = 3, ncol = 3)
 # e converter essa matrix para um data.frame
 dd2 <- as.data.frame(mm2)
+dd2
+```
 
+
+```{r}
 # para os objetos com nomes podemos ver os nomes
 rownames(mm)
 rownames(dd)
 colnames(mm)
 colnames(dd)
+```
 
+
+```{r}
 # para os objetos sem nomes
 rownames(mm2) # nulo, não tem nome
+```
+
+
+```{r}
 rownames(dd2) # números em formato de texto
+```
+
+
+```{r}
 colnames(mm2) # nulo, não tem nome
+```
+
+
+```{r}
 colnames(dd2) # V1 a Vncol(dd) - ele cria nomes das colunas
 # note que no caso do data.frame dd2, apesar de não ter nome de linha e coluna, o R criou uma para ele. DATA.FRAMES SEMPRE TEM NOME DE LINHAS E COLUNAS. Note que o nome das linhas apesar de números correspondentes aos índices, são de fato TEXTO
+```
 
 
+```{r}
 # essas funções permitem VER mas também permitem ATRIBUIR (modificar) nomes
 # modificando quem já tem nome (matriz, mas funciona igual para dd)
 colnames(mm) # nomes atuais
@@ -267,7 +296,7 @@ rownames(mm2)[1:2] <- "teste1" # coloque o nome teste1 para as linhas 1 e 2 FUNC
 
 Reparem que um mesmo nome de linha pode ser utilizado em mais de uma linha de uma matriz. Será que isso pode ser feito em um `data.frame`? Vejamos:
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 rownames(dd)[1:2] <- "teste1" # nao funciona, porque ele não aceita nomes repetidos de linhas em DATA.FRAMES
 ```
 
@@ -339,7 +368,7 @@ dd$coluna1 # pego a coluna 1 (note que o nome da coluna vai sem "aspas")
 
 Veja que o uso do operador `$` não funciona em matrizes:
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 mm$coluna1 # veja como não funciona para o objeto matrix
 ```
 
@@ -359,7 +388,7 @@ dd # agora tenho uma nova coluna
 ```
 
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 # ou poderia usar outra forma
 dd[, "nova2"] <- LETTERS # nao vai funcionar por estou atribuindo um vetor muito mais longo do que tenho linhas
 ```
@@ -381,7 +410,7 @@ dd
 
 Adicionar colunas em uma matriz é um pouco diferente do que se faz com um `data.frame`:
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 # primeiro nao posso usar $ porque matrix não entende isso
 class(mm) # é uma matrix
 mm$colun3 # isso nao funciona
@@ -394,7 +423,7 @@ mm[, "coluna3"] # isso funciona
 ```
 
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 mm[, 4] # isso nao existe
 mm[, 4] <- log(mm[, "coluna3"]) # isso não funciona
 ```
@@ -414,7 +443,7 @@ mm <- cbind(mm, LOGCOLUNA3 = log(mm[, "coluna3"])) # assim eu posso
 Já vimos como fazer perguntas sobre vetores (Seção \@ref(perg-vetores)) e obter vetores lógicos ou valores de índices que nos permitem extrair ou filtrar de vetores os dados que satisfazem às condições das perguntas feitas.
 Aqui vamos estender isso para objetos de classe `matrix` e `data.frame`, porque é através de vetores lógicos ou de matrizes lógicas que podemos filtrar dados de objetos bidimensionais.  
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 ?iris # veja o help do R sobre Edgar Anderson's Iris Data que explica esses dados que vem com o R
 ```
 
@@ -494,7 +523,7 @@ Para ordenar matrizes e `data.frames`, é preciso entender a diferença entre du
 
 * `order()` ordena um vetor e retorna os **índices dos valores ordenados**. É isso que deve ser utilizado para ordenar matrizes e `data.frames`.
 
-```{r, opts.label='evalF'}
+```{r, echo = TRUE, eval = FALSE}
 ?sort
 ?order
 ```
@@ -549,11 +578,11 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 
 ## Importando e exportando dados no R
 
-::: {.infobox .warning data-latex="warning"}
+```{block, type = "rmdwarning"}
 
 ATENÇÃO! Se você utiliza Windows, e no seu gerenciador de arquivos os arquivos aparecem sem **extensão** (`.csv`, `.txt`, `.doc` etc.), mude nas suas preferências para não **ocultar extensões de arquivos conhecidos**. Dessa forma você consegue ver os arquivos pelo tipo (extensão).  
 
-:::
+```
 
 Existem diversas funções para importar dados para objetos do R, incluindo funções para ler arquivos do Excel (`.xls`, ou `.xlsx`), arquivos XML, arquivos `*.DBF` etc.
 O R também tem pacotes que interagem diretamente com bancos de dados (mysql, postgres, sql etc.).
@@ -579,11 +608,11 @@ Vamos nos concentrar neste curso em lidar com arquivos deste tipo.
 
 * Casas decimais podem ser separadas por `.` ou `,`.
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 DICA: Procure saber como seus dados estão antes de tentar importá-los, de forma a indicar corretamente o delimitador e o separador das casas decimais adequados. Você evitará assim muita dor de cabeça!
 
-:::
+```
 
 
 * Datas - colunas com datas constituem um objeto de classe `date` no R, que a converte em número que pode ser usado em operações matemáticas. Dependendo de como seus dados estão formatados no original, é comum a inversão de mês com dia entre, por exemplo, o sistema inglês (MM-DD-YYYY)  e o sistema português (DD-MM-YYYY). Tenha controle disso!

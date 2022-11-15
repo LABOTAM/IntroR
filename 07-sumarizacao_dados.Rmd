@@ -50,8 +50,18 @@ names(caixeta)
 # circunferencia máxima por especie
 ob1 <- aggregate(caixeta$cap, by = list(especie = caixeta$especie), FUN = max)
 class(ob1) # obtenho um data frame
-head(ob1)
+```
 
+
+```{r, eval=FALSE, echo=TRUE}
+head(ob1)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+kable(head(ob1))
+```
+
+```{r}
 # neste caso também poderia fazer assim
 ob2 <- tapply(caixeta$h, caixeta$especie, max)
 class(ob2) # mas neste caso nos temos um array (um vetor unidimensional)
@@ -59,8 +69,17 @@ ob2[1:10]
 
 # mas se eu quiser por localidade e por especie, preciso usar aggregate
 caixeta.alt <- aggregate(caixeta$h, by = list(local = caixeta$local, especie = caixeta$especie), FUN = max)
-head(caixeta.alt)
+```
 
+```{r, eval=FALSE, echo=TRUE}
+head(caixeta.alt)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+kable(head(caixeta.alt))
+```
+
+```{r}
 ## Vamos calcular a area basal (soma da area de todo os fustes)
 
 ## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:
@@ -85,9 +104,21 @@ caixeta <- read.table("caixeta.csv", sep = ",", header = T)
 ```{r}
 names(caixeta)
 # tem a coluna especie
+```
 
+
+```{r, eval=FALSE, echo=TRUE}
 # podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)
 table(caixeta$especie)
+```
+
+
+```{r, eval=TRUE, echo=FALSE}
+kable(table(caixeta$especie))
+```
+
+
+```{r}
 # mostra as tres especies mais abundantes
 sort(table(caixeta$especie), decreasing = T)[1:3]
 
@@ -96,15 +127,38 @@ table(caixeta$local)
 
 # especie por localidade
 tb <- table(caixeta$especie, caixeta$local)
-head(tb, 3) # mostra as tres primeiras linhas
+```
 
+
+```{r, eval=FALSE, echo=TRUE}
+head(tb, 3) # mostra as tres primeiras linhas
+```
+
+```{r, eval=TRUE, echo=FALSE}
+kable(head(tb, 3)) # mostra as tres primeiras linhas
+```
+
+
+
+```{r}
 # tabela de presenca e ausencia de especie por localidade
 tb <- table(caixeta$especie, caixeta$local)
 # quem tem mais de 0 individuos está presente
 # portanto, substituo por 1
 tb[tb > 0] <- 1
-head(tb)
+```
 
+
+```{r, eval=FALSE, echo=TRUE}
+head(tb)
+```
+
+```{r, eval=TRUE, echo=FALSE}
+kable(head(tb)) # mostra as tres primeiras linhas
+```
+
+
+```{r}
 # sendo assim, posso ver o numero de especie por localidade aplicando a suma das linha que tem 1 para cada coluna
 apply(tb, 2, sum)
 ```
@@ -257,9 +311,9 @@ colorize <- function(x, color) {
   }
 }
 # carrega pacotes
-library("knitr")
-library("kableExtra")
-library("magrittr")
+# library("kableExtra")
+# library("knitr")
+# library("magrittr")
 ```
 
 O pacote `base` do R fornece uma função que executa essa ação, chamada `merge()`.
@@ -305,7 +359,7 @@ tab3 <- subset(tab1, familia %in% c("Burseraceae", "Sapindaceae"))
 ```
 
 ```{r, opts.label='executa'}
-kable(tab3, caption = "Tabela 3", row.names = FALSE)
+kable(tab3, caption = "Tabela 3")
 ```
 
 ### Maneira 3 - função `merge()`
@@ -316,21 +370,21 @@ Vamos ver abaixo 4 tipos da primeira ( [junção interna](#interna), [junção �
 
 #### Junção interna {#interna}
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 
 Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x` em que há valores em comum com `y`, e todas as colunas de `x` e `y`. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
 
-:::
+```
 
 
-![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/inner-join.png)
+![Fonte: www.sqlfromhell.com](figuras/inner-join.png)
 
 Em nosso exemplo, vamos unir as tabelas 1 e 2.
 Ambas possuem em comum os identificadores `familia` e `genero`.
 Para facilitar o entendimento, vamos verificar primeiro cada tabela com cores para checar as correspondências entre `x` e `y` nas variáveis em comum:
 
-```{r junc-interna, opts.label='executa'}
+```{r junc-interna1, opts.label='executa'}
 tab1 %>%
   dplyr::mutate(
     familia = cell_spec(familia, "html", background = ifelse(familia %in% tab2$familia, "yellow", "red")),
@@ -338,7 +392,10 @@ tab1 %>%
   ) %>%
   kable(., caption = "Tabela 1", format = "html", escape = FALSE) %>%
   kable_styling(full_width = F, position = "left") # %>% as_image(., width = 3, height= 3, file = "./juncao-interna_tab1.png")
+```
 
+
+```{r junc-interna2, opts.label='executa'}
 tab2 %>%
   dplyr::mutate(
     familia = cell_spec(familia, "html", background = ifelse(familia %in% tab1$familia, "yellow", "red")),
@@ -363,14 +420,14 @@ Revejam o conceito de [junção interna](#interna) para entender o porquê desse
 #### Junção à esquerda {#esquerda}
 
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x`, e todas as colunas de `x` e `y`. Linhas em `x` sem correspência em `y` terão valores `NA` adicionados nas novas colunas. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
 
-:::
+```
 
 
-![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/left-join.png)
+![Fonte: www.sqlfromhell.com](figuras/left-join.png)
 
 Continuaremos utilizando as tabelas 1 e 2.
 Como mostrado anteriormente, ambas possuem em comum os identificadores `familia` e `genero`.
@@ -380,7 +437,10 @@ Chequemos novamente as cores das correspondências dentro de cada identificador,
 kable(tab1, caption = "Tabela 1") %>%
   kable_styling(full_width = F, position = "left") %>%
   column_spec(1:3, background = "yellow") # %>% as_image(., width = 3, height= 3, file = "./juncao-esquerda_tab1.png")
+```
 
+
+```{r junc-esq2, opts.label='executa'}
 tab2 %>%
   dplyr::mutate(
     familia = cell_spec(familia, "html", background = ifelse(familia %in% tab1$familia, "yellow", "red")),
@@ -406,14 +466,14 @@ Revejam o conceito de [junção à esquerda](#esquerda) para entender o porquê 
 
 #### Junção à direita {#direita}
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `y`, e todas as colunas de `x` e `y`.Linhas em `y` sem correspência em `x` terão valores NA adicionados nas novas colunas. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
 
-:::
+```
 
 
-![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/right-join.png)
+![Fonte: www.sqlfromhell.com](figuras/right-join.png)
 
 De maneira oposta à junção à esquerda, na junção à direita são mantidas todas as linhas de `y`.
 Desta vez, o argumento a ser utilizado é `all.y = TRUE`.
@@ -428,7 +488,10 @@ tab1 %>%
   ) %>%
   kable(., caption = "Tabela 1", format = "html", escape = FALSE) %>%
   kable_styling(full_width = F, position = "left") # %>% as_image(., width = 3, height= 3, file = "./juncao-direita_tab1.png")
+```
 
+
+```{r junc-dir2, opts.label='executa'}
 kable(tab2, caption = "Tabela 2") %>%
   kable_styling(full_width = F, position = "left") %>%
   column_spec(1:3, background = "yellow") # %>% as_image(., width = 3, height= 3, file = "./juncao-direita_tab2.png")
@@ -447,14 +510,14 @@ Revejam o conceito de [junção à direita](#direita) para entender o porquê de
 
 #### Junção total {#total}
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 Ao juntarmos tabelas `x` e `y`, temos todas as linhas e colunas de `x` e `y`. Onde não houver valores correspondentes, valores `NA` serão colocados nesses lugares.
 
-:::
+```
 
 
-![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/outer-join.png)
+![Fonte: www.sqlfromhell.com](figuras/outer-join.png)
 
 Em uma junção total, uniremos todas as linha de `x` e `y` utilizando o argumento `all = TRUE`.
 
@@ -468,14 +531,14 @@ Revejam o conceito de [junção total](#total) para entender o porquê desse aco
 
 #### Semijunção {#semi}
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x` onde houver valores correspondentes em `y`, mantendo apenas colunas de `x`. É parecida com a junção interna, porém difere desta por nunca duplicar valores de `x`, retornando sempre apenas valores de `x` que houver uma correspondência em `y`.
 
-:::
+```
 
 
-![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/left-anti-semi-join.png)
+![Fonte: www.sqlfromhell.com](figuras/left-anti-semi-join.png)
 
 A semijunção é muito similar à junção interna, diferindo desta por não incorporar as colunas de `y`, pois apenas utiliza esta tabela para filtrar os dados de `x`, constituindo-se então em um tipo de junção que filtra variáveis.
 Neste exemplo, utilizaremos as tabelas 1 e 3.
@@ -491,8 +554,11 @@ tab1 %>%
   ) %>%
   kable(., caption = "Tabela 1", format = "html", escape = FALSE) %>%
   kable_styling(full_width = F, position = "left") # %>% as_image(., width = 3, height= 3, file = "./juncao-semi_tab1.png")
+```
 
-kable(tab3, caption = "Tabela 3", row.names = FALSE) %>%
+
+```{r semi-junc2, opts.label='executa'}
+kable(tab3, caption = "Tabela 3") %>%
   kable_styling(full_width = F, position = "left") %>%
   column_spec(1:3, background = "yellow") # %>% as_image(., width = 3, height= 3, file = "./juncao-semi_tab3.png")
 ```
@@ -535,14 +601,14 @@ tab1[linhas, ]
 
 #### Antijunção {#anti}
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 Retorna todas as linhas de `x` em que não há correspondência em `y`, mantendo apenas colunas de `x`.
 
-:::
+```
 
 
-![](https://www.sqlfromhell.com/wp-content/uploads/2018/06/right-anti-semi-join.png)
+![Fonte: www.sqlfromhell.com](figuras/right-anti-semi-join.png)
 
 Uma antijunção é ligeiramente diferente de uma semijunção pois ela retorna todas as linhas de `x` que não aparecem em y.
 Portanto, podemos utilizar o inverso de nosso vetor lógico `linhas` e utilizar este inverso para filtrar as linhas da tabela 1 e ter nossa tabela antijunção entre `x` e `y`:
