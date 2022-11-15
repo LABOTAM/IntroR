@@ -1,33 +1,37 @@
 #' # AED de bivariadas {#aed-bivar}
 #' 
-#' ::: {.infobox .question data-latex="question"}
-#' 
-#' Existe alguma relação entre as variáveis?
-#' A relação é linear?
-#' Há colinearidade?
-#' Ou seja, diferentes variáveis tem o mesmo padrão?
-#' 
-#' :::
+## 
+
+## Existe alguma relação entre as variáveis?
+
+## A relação é linear?
+
+## Há colinearidade?
+
+## Ou seja, diferentes variáveis tem o mesmo padrão?
+
+## 
+
 #' 
 #' ## Dados do tutorial
 #' 
 #' Vamos importar novamente os conjuntos de dados de [avistamento de aves do cerrado](https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv) (utilizado no capítulo \@ref(aed-checa-dados)) e de [parcelas em caixetais](https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv) (utilizado no capítulo \@ref(sumar-dados)):
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## ## Lendo a planilha com read.table
 ## avesc <- read.table("aves_cerrado.csv", row.names = 1, header = T, sep = ";", dec = ",", as.is = T, na.strings = c("NA", "", "NULL"))
 
 #' 
-## ---- include = FALSE------------------------------------------------------------------------------
+## ---- include = FALSE---------------------------------------------------------
 load("dados/aves_cerrado.rda")
 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## caixeta <- read.csv("caixeta.csv") ## arquivo caixeta.csv deve estar no diretorio de trabalho
 ## # note que mantemos todos os argumentos padrão (veja o formato do arquivo caixeta)
 
 #' 
-## ---- include = FALSE, message=FALSE---------------------------------------------------------------
+## ---- include = FALSE, message=FALSE------------------------------------------
 load("dados/caixeta.rda")
 
 #' 
@@ -37,11 +41,21 @@ load("dados/caixeta.rda")
 #' Podemos usar a mesma função para gerar tabelas de contingência entre dois ou mais fatores.  
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ## Numero de fustes de cada especie por local
 tb <- table(caixeta$especie, caixeta$local)
 class(tb)
-tb
+
+#' 
+## ---- echo=TRUE, eval=FALSE---------------------------------------------------
+## tb
+
+#' 
+## ---- echo=FALSE, eval=TRUE---------------------------------------------------
+kable(tb)
+
+#' 
+## -----------------------------------------------------------------------------
 # convertemos num data.frame
 tb <- as.data.frame.matrix(tb)
 class(tb)
@@ -52,27 +66,45 @@ total
 
 # ordeno minha tabela orginal pelo total em ordem decrescente de abundância
 tb <- tb[order(total, decreasing = T), ]
-head(tb)
 
+#' 
+## ---- echo=TRUE, eval=FALSE---------------------------------------------------
+## head(tb)
+
+#' 
+## ---- echo=FALSE, eval=TRUE---------------------------------------------------
+kable(head(tb))
+
+#' 
+## -----------------------------------------------------------------------------
 # se eu quiser uma tabela de presença e ausência
 # bastaria substituir os valores>0 por 1
 tb[tb > 0] <- 1
-head(tb)
 
+#' 
+## ---- echo=TRUE, eval=FALSE---------------------------------------------------
+## head(tb)
+
+#' 
+## ---- echo=FALSE, eval=TRUE---------------------------------------------------
+kable(head(tb))
+
+#' 
+## -----------------------------------------------------------------------------
 # assim, agora eu posso saber quantas especie por localidade
 apply(tb, 2, sum)
 
 #' 
 #' A função `xtabs()` tabula dados de frequência.  
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## ## xtabs: tabulacao de dados de frequencia
 ## ## Vamos usar  Dataframe dos sobreviventes dos sobreviventes e mortos do Titanic
 ## ?Titanic # veja o que são esses dados
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 data("Titanic") # puxamos esse dado
 class(Titanic)
 tit <- as.data.frame(Titanic) # converte em data.frame
@@ -86,35 +118,97 @@ str(tit)
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## ## Precisamos da funcao xtabs
 ## ?xtabs # veja o help dessa funcão:
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
-xtabs(Freq ~ Sex + Survived, data = tit)
+## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## xtabs(Freq ~ Sex + Survived, data = tit)
+
+#' 
+## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+kable(xtabs(Freq ~ Sex + Survived, data = tit))
+
+#' 
+## -----------------------------------------------------------------------------
 # em porcentagem
 tb <- xtabs(Freq ~ Sex + Survived, data = tit)
-prop.table(tb, margin = 1)
-# ou, se preferir
-round(prop.table(tb, margin = 1) * 100)
 
-# Quanto sobreviventes por classe de viagem?
-xtabs(Freq ~ Class + Survived, data = tit)
+#' 
+## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## prop.table(tb, margin = 1)
+
+#' 
+## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+kable(prop.table(tb, margin = 1))
+
+#' 
+## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## # ou, se preferir
+## round(prop.table(tb, margin = 1) * 100)
+
+#' 
+## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+# ou, se preferir
+kable(round(prop.table(tb, margin = 1) * 100))
+
+#' 
+## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## # Quanto sobreviventes por classe de viagem?
+## xtabs(Freq ~ Class + Survived, data = tit)
+
+#' 
+## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+kable(xtabs(Freq ~ Class + Survived, data = tit))
+
+#' 
+## -----------------------------------------------------------------------------
 # note que na primeira classe 203 sobreviveram
 # eu poderia ter perguntado isso assim:
 sum(tit[tit$Class == "1st" & tit$Survived == "Yes", "Freq"])
-# ou seja, a funcao xtabs calculou a soma da frequencia
-# porcentagem
-prop.table(xtabs(Freq ~ Class + Survived, data = tit), margin = 1)
 
+#' 
+## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## # ou seja, a funcao xtabs calculou a soma da frequencia
+## # porcentagem
+## prop.table(xtabs(Freq ~ Class + Survived, data = tit), margin = 1)
+
+#' 
+## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+kable(prop.table(xtabs(Freq ~ Class + Survived, data = tit), margin = 1))
+
+#' 
+#' 
+## -----------------------------------------------------------------------------
 ## E para combinacoes de mais de duas variaveis
 tb2 <- xtabs(Freq ~ Class + Survived + Sex, data = tit)
-tb2 # veja o resultado e observe duas virgulas
-tb2[, , 1] # para Female
-tb2[, , 2] # para Male
-# note que não vimos isso antes, tb2, neste caso é um array, que um objeto que pode ter múltiplas dimensões, por isso as duas vírgulas, porque tem 3 dimensoes
+
+#' 
+#' 
+## ---- echo=TRUE, eval=FALSE---------------------------------------------------
+## tb2 # veja o resultado e observe duas virgulas
+
+#' 
+## ---- echo=FALSE, eval=TRUE---------------------------------------------------
+kable(tb2) # veja o resultado e observe duas virgulas
+
+#' 
+## ---- echo=TRUE, eval=FALSE---------------------------------------------------
+## tb2[, , 1] # para Female
+
+#' 
+## ---- echo=FALSE, eval=TRUE---------------------------------------------------
+kable(tb2[, , 1])
+
+#' 
+## ---- echo=TRUE, eval=FALSE---------------------------------------------------
+## tb2[, , 2] # note que não vimos isso antes, tb2, neste caso é um array, que um objeto que pode ter múltiplas dimensões, por isso as duas vírgulas, porque tem 3 dimensoes
+
+#' 
+## ---- echo=FALSE, eval=TRUE---------------------------------------------------
+kable(tb2[, , 2])
 
 #' 
 #' ## Variável numérica vs. fator
@@ -122,13 +216,13 @@ tb2[, , 2] # para Male
 #' A função `tapply()` faz uso de uma função sobre sobre um vetor numérico para cada categoria de um fator.
 #' A função `aggregate()` faz o mesmo, mas permite múltiplos fatores e retorna um `data.frame`.  
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## ## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores
 ## ?tapply # veja o help dessa função
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 head(avesc) # se nao tem isso, importe novamente o arquivo aves_cerrado
 # número de individuos de carcara por fisionomia
 tapply(avesc$carcara, avesc$fisionomia, sum)
@@ -142,12 +236,12 @@ tapply(avesc$seriema, avesc$fisionomia, mean)
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## ?aggregate # veja o help dessa função
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 names(caixeta)
 # circunferencia máxima por especie
 ob1 <- aggregate(caixeta$cap, by = list(especie = caixeta$especie), FUN = max)
@@ -175,20 +269,23 @@ head(caixeta.2)
 #' ## Variável numérica vs. numérica
 #' 
 #' 
-#' ::: {.infobox .question data-latex="question"}
-#' 
-#' Qual a relação entre as variáveis? É linear? 
-#' Que hipóteses ou interpretação biológica eu faço das relações entre as variáveis?
-#' Qual a colinearidade dos meus dados?
-#' 
-#' :::
+## 
+
+## Qual a relação entre as variáveis? É linear?
+
+## Que hipóteses ou interpretação biológica eu faço das relações entre as variáveis?
+
+## Qual a colinearidade dos meus dados?
+
+## 
+
 #' 
 #' 
 #' Para entender a razão e a importância dessas perguntas, veja a definição na [WikiPedia](https://en.wikipedia.org/wiki/Multicollinearity) sobre o efeito de colinearidade em regressões múltiplas.  
 #' 
 #' A função `pairs()` mostra as correlações das variáveis par a par de maneira gráfica, que podem ser estimadas por meio da função `cor()`.  
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ## Exemplos de Graficos bivariados
 ## boxplot (já vimos o que isso significa)
 # mostra a variacao do avistamento de urubus nas diferentes fisionomias
@@ -220,12 +317,12 @@ pairs(iris[, -ncol(iris)], pch = 21, bg = c("red", "green", "blue")[unclass(iris
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## ?unclass # remove o atributo classe do objeto, então especies viram números
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # poderia fazer assim, tendo em vista que iris$Species é um fator:
 pairs(iris[, -ncol(iris)], pch = 21, bg = c("red", "green", "blue")[as.numeric(iris$Species)])
 ## Essa figura é basicamente a expressao grafica da matriz de correlações entre todas as variáveis:
@@ -246,13 +343,13 @@ sort(vacima) == sort(vabaixo)
 #' 
 #' As funções `xyplot()` e `bwplot()` são oriundas do pacote `lattice` [@R-lattice] e permitem visualizar rapidamente relações entre variáveis por subgrupos de forma simples e rápida.  
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## # muitas funções do R interpretam formulas, que é uma forma simbólica curta para designar coisas complexas
 ## ?formula # leia com atenção a sessão de detalhes de como você pode especificar formulas, se ainda não fez isso, pois isso é uma forma de indicar ao R um modelo para graficar
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # no objeto iris
 plot(Sepal.Length + Sepal.Width ~ Species, data = iris, ylim = c(0, 13))
 plot(Sepal.Length ~ Species, data = iris, add = T, col = "red", xlab = "", ylab = "", xaxt = "n", yaxt = "n")
@@ -264,19 +361,19 @@ plot(tt ~ iris$Species, add = T, col = "green")
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ## Graficos condicionados com o pacote lattice
 library("lattice") # carregue o pacote
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## # qual a relacao entre comprimento de sepalas e comprimento de petalas por especie?
 ## ?xyplot # veja o help dessa funcao
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 xyplot(Sepal.Length ~ Petal.Length | Species, data = iris)
 
 # ou mais complexo. Qual a relação entre as quatro variaveis em iris, por especie?
@@ -285,12 +382,12 @@ xyplot(Sepal.Length + Sepal.Width ~ Petal.Length + Petal.Width | Species, data =
 
 #' 
 #' 
-## ---- eval = FALSE---------------------------------------------------------------------------------
+## ---- eval = FALSE------------------------------------------------------------
 ## ?bwplot # para multiplos boxplots
 
 #' 
 #' 
-## --------------------------------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 ## um data.frame com as duas especies mais abundantes do caixetal
 head(caixeta)
 tb <- table(caixeta$especie)
