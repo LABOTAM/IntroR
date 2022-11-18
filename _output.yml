@@ -11,16 +11,16 @@ bookdown::gitbook:
         <li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
-  edit: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s
-  download: [pdf, epub]
-  sharing:
+    edit: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s
+    download: [ ["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]]
+    sharing:
       github: yes
       facebook: no
-  search:
+    search:
       engine: fuse
-# bookdown::epub_book:
-#   dev: svglite
-#   stylesheet: css/style.css
+bookdown::epub_book:
+  dev: svglite
+  stylesheet: css/style.css
 bookdown::pdf_book:
   includes:
     in_header: latex/preamble.tex
