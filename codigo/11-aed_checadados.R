@@ -1,5 +1,7 @@
 #' # (PART) Parte II {-}
 #' 
+#' Tutorial para orientar a AED a ser realizada com dados de interesse do aluno.  
+#' 
 #' # Checagem dos dados {#aed-checa-dados}
 #' 
 #' No tutorial abaixo vamos usar dados de avistamento de aves em fisionomias de cerrado.

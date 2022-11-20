@@ -5,7 +5,7 @@ Os scripts aqui relacionados mostram exemplos de como extrair informações dess
 
 ## Dados categóricos
 
-A lógica básica é simples. 
+A lógica básica é simples.
 Para cada tipo de informação (variável), buscaremos por um conjunto de palavras e suas variantes, e substituiermos todas elas por uma única palavra, criando estados de variação (**categorias**).
 É importante pensar na ordem em que a busca é feita, pois em algumas notas descritivas duas palavras podem ser encontradas e você quer apenas uma delas.
 Por exemplo, na busca por hábito você deveria buscar a palavra `epífita` antes da palavra `árvore`, porque se a coleta for de uma planta `epífita`, a palavra `árvore` pode aparecer como hospedeiro.
