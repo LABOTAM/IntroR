@@ -13,8 +13,8 @@ link-citations: true
 links-as-notes: true
 colorlinks: true
 always_allow_html: true
-# lot: yes
-# lof: yes
+lot: yes
+lof: yes
 fontsize: 12pt
 lang: pt-br
 url: 'https\://intror.netlify.app/'
@@ -122,29 +122,13 @@ Por fim, temos o apêndice contendo materiais suplementares:
 
 * **Apêndice \@ref(base-tidyverse)** inclui uma discussão breve sobre o universo de pacotes conhecidos como [Tidyverse](https://www.tidyverse.org/), comparando-os com o pacote `base` do R.
 * **Apêndice \@ref(unzip)** apresenta um tutorial para baixar e descomprimir arquivos `.zip` dentro R.
-
-* **Apêndice [videos](https://intror.netlify.app/videos.html)** apresenta uma lista de vídeos gravados por nós, autores, abordando diversos tópicos deste livro e que podem auxiliar o aprendizado da linguagem. Este apêndice está presente apenas na versão online do curso.  
+* **Apêndice \@ref(videos)** apresenta uma lista de vídeos gravados por nós, autores, abordando diversos tópicos deste livro e que podem auxiliar o aprendizado da linguagem.
 * **Apêndice \@ref(chernoff)** apresenta um código para gerar as [caras de Chernoff](http://www.fics.edu.br/index.php/augusto_guzzo/article/view/67/78), que é uma maneira divertida de aprender a lidar com dados multivariados.  
 
 <!-- Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro. -->
 <!-- Ao optar por esse caminho, você será levado à página do código fonte e poderá editar o arquivo diretamente no GitHub. -->
 <!-- Após as modificações, você terá a possibilidade de gerar um **[Pull request](https://docs.github.com/pt/github/collaborating-with-issues-and-pull-requests/about-pull-requests)** que será analisado por nós. -->
 <!-- Caso aceitemos a modificação proposta, seu nome será incluído entre os contribuidores do livro.   -->
-
-## Sobre os autores {-}
-
-Alberto é doutor em Ecologia, Evolução e Sistemática, com uma ênfase em Evolução pela Universidade do Missouri, Saint Louis (University of Missouri Saint Louis).
-É cientista do Instituto Nacional de Pesquisas da Amazônia (INPA) desde o ano de 2009.
-Ministra anualmente disciplinas ligadas ao Programa de pós-graduação em Ciências Biológicas do INPA, como **Preparação de dados para análises Estáticas - Introdução ao uso de linguagem R (BOT-89)**, **Delineamento Experimental e Amostral (BOT-90)**, e **Teoria e Prática de Sistemática Filogenética (BOT-99)**.
-É colíder do grupo de pesquisa [Ecologia e Evolução de Plantas da Amazônia](http://dgp.cnpq.br/dgp/espelhogrupo/38425) do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).  
-
-Ricardo (ricardoperdiz.com) é formado em Ciências Biológicas pela Universidade Estadual de Santa Cruz (UESC), mestre em Botânica pela Universidade Estadual de Feira de Santana (UEFS) e doutor em Ciências Biológicas (Botânica) pelo INPA.
-Seus principais interesses são estar e se divertir com a família, trabalhar na floresta coletando e admirando a beleza da Natureza, trabalhar no herbário e laboratório, e também adora se divertir na frente do computador analisando dados e escrevendo.
-Seu esporte favorito é o basquete e a natação, apesar de não praticar ambos há algum tempo.
-Pescar também é apreciado, apesar de o peixe não ser pescado, somente admirado!  
-
-
-<!-- incluir aqui a autores.Rmd - pedir ao Beto para revisar o texto XXX-->
 
 ## Agradecimentos {-}
 
@@ -194,7 +178,7 @@ install.packages(c('ggplot2', 'dplyr', 'tibble', 'tidyr', 'purrr', 'magrittr'))
 
 Acesse a [página do repositório](https://github.com/LABOTAM/IntroR) contendo os código fonte deste livro (Fig. \@ref(fig:repo)).
 
-```{r repo, fig.cap = 'Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro.', eval = TRUE, echo = FALSE}
+```{r repo, fig.cap = 'Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro.', eval = TRUE, echo = FALSE, out.width="80%"}
 knitr::include_graphics("figuras/repo.png")
 ```
 
@@ -202,7 +186,7 @@ Busque um botão de cor **verde** chamado *Code* (Fig. \@ref(fig:baixa-repo)).
 Clique neste botão e aparecerão algumas opções.
 Clique no botão **Download Zip**, destacado em vermelho na figura \@ref(fig:baixa-repo), e escolha onde você quer salvar o arquivo.
 
-```{r baixa-repo, fig.cap = 'Destaque do botão *Code* (retângulo **azul** pontilhado circundando o botão, com uma seta **azul** apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor **vermelha** destacando a opção **Download Zip**.', eval = TRUE, echo = FALSE}
+```{r baixa-repo, fig.cap = 'Destaque do botão "Code" (retângulo "azul" pontilhado circundando o botão, com uma seta "azul" apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor "vermelha" destacando a opção `Download Zip.`', eval = TRUE, echo = FALSE, out.width="60%"}
 knitr::include_graphics("figuras/baixa_repo.png")
 ```
 
