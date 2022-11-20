@@ -1,0 +1,11 @@
+# Sobre os autores {-}
+
+Alberto é doutor em Ecologia, Evolução e Sistemática, com uma ênfase em Evolução pela Universidade do Missouri, Saint Louis (University of Missouri Saint Louis).
+É cientista do Instituto Nacional de Pesquisas da Amazônia (INPA) desde o ano de 2009.
+Ministra anualmente disciplinas ligadas ao Programa de pós-graduação em Ciências Biológicas do INPA, como **Preparação de dados para análises Estáticas - Introdução ao uso de linguagem R (BOT-89)**, **Delineamento Experimental e Amostral (BOT-90)**, e **Teoria e Prática de Sistemática Filogenética (BOT-99)**.
+É colíder do grupo de pesquisa [Ecologia e Evolução de Plantas da Amazônia](http://dgp.cnpq.br/dgp/espelhogrupo/38425) do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).  
+
+[Ricardo](https://www.ricardoperdiz.com) é doutor em Ciências Biológicas (Botânica) pelo INPA.
+Seus principais interesses são estar e se divertir com a família, trabalhar na floresta coletando e admirando a beleza da Natureza, trabalhar no herbário e laboratório, e também adora se divertir na frente do computador analisando dados e escrevendo.
+Ama correr e pedalar, e também se divertir e aprender com sua filha.  
+

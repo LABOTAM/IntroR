@@ -391,8 +391,15 @@ caixeta <- read.table("caixeta.csv", sep = ",", header = T, na.strings = c("NA",
 load("dados/caixeta2.rda")
 ```
 
-```{r}
+```{r, eval=FALSE,echo=TRUE}
 head(caixeta)
+```
+
+```{r, eval=TRUE,echo=FALSE}
+kable(head(caixeta))
+```
+
+```{r}
 names(caixeta)
 
 # vamos visualizar a similaridade florística entre parcelas
@@ -401,7 +408,17 @@ names(caixeta)
 # porque o número da parcela repete entre locais
 parcelas <- paste(caixeta$local, caixeta$parcela, sep = "-")
 tb <- table(parcelas, especies = caixeta$especie)
+```
+
+```{r, eval=FALSE,echo=TRUE}
 tb[, 1:5]
+```
+
+```{r, eval=TRUE,echo=FALSE}
+kable(tb[, 1:5])
+```
+
+```{r}
 dim(tb)
 # essa tabela contém o número de indivíduos de cada espécie
 # em cada parcela
@@ -497,8 +514,12 @@ legend("topleft", legend = levels(locais), pch = 21:23, pt.bg = c("red", "green"
 
 Vamos repetir essa operação considerando a abundância de espécies por parcelas contidos no objeto `tb` (usamos o índice de Sorensen).
 
-```{r}
+```{r, eval=FALSE,echo=TRUE}
 tb[1:4, 1:5]
+```
+
+```{r, eval=TRUE,echo=FALSE}
+kable(tb[1:4, 1:5])
 ```
 
 ```{r}

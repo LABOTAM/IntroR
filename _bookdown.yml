@@ -1,8 +1,9 @@
 book_filename: "bot89-introR"
-# output_dir: _book
-# clean: ["bot89-introR.bbl"]
-new_session: no
+repo: https://github.com/LABOTAM/IntroR/
+output_dir: _book
+clean: ["pkg-bib.bib", "bot89-introR.tex"] #"bot89-introR.bbl"]
 delete_merged_file: true
+new_session: no
 edit: https://github.com/LABOTAM/IntroR/blob/main/%s
 view: https://github.com/LABOTAM/IntroR/edit/main/%s
 language:
@@ -10,9 +11,10 @@ language:
     fig: 'Figura '
     tab: 'Tabela '
   ui:
-    chapter_name: ""
+    chapter_name: "Capítulo "
 rmd_files:
-  html: ["index.Rmd",
+  latex: ["index.Rmd",
+    "00-autores.Rmd",
     "01-intro.Rmd",
     "02-vetores.Rmd",
     "03-matrizes_dframes.Rmd",
@@ -29,12 +31,32 @@ rmd_files:
     "14-aed_checamultivar.Rmd",
     "15-tidyverse.Rmd",
     "16-baixa_descomprime.Rmd",
-    "17-videos.Rmd",
+    "17-videos_pdf.Rmd",
     "18-chernoff.Rmd",
-    # Info da sessao para reprodutibilidade
-    # "info_sessao.Rmd",
+    "19-referencias.Rmd"]
+  html: ["index.Rmd",
+    "00-autores.Rmd",
+    "01-intro.Rmd",
+    "02-vetores.Rmd",
+    "03-matrizes_dframes.Rmd",
+    "04-listas_objComplexos.Rmd",
+    "05-funcoes_graficas.Rmd",
+    "06-iteracoes_controleFluxo.Rmd",
+    "07-sumarizacao_dados.Rmd",
+    "08-manip_txt_arqs_pasta.Rmd",
+    "09-amostragens_aleatorias.Rmd",
+    "10-extracao_dados.Rmd",
+    "11-aed_checadados.Rmd",
+    "12-aed_checaunivar.Rmd",
+    "13-aed_checabivar.Rmd",
+    "14-aed_checamultivar.Rmd",
+    "15-tidyverse.Rmd",
+    "16-baixa_descomprime.Rmd",
+    "17-videos_html.Rmd",
+    "18-chernoff.Rmd",
     "19-referencias.Rmd"]
   epub: ["index.Rmd",
+    "00-autores.Rmd",
     "01-intro.Rmd",
     "02-vetores.Rmd",
     "03-matrizes_dframes.Rmd",
@@ -51,8 +73,6 @@ rmd_files:
     "14-aed_checamultivar.Rmd",
     "15-tidyverse.Rmd",
     "16-baixa_descomprime.Rmd",
-    "17-videos.Rmd",
+    "17-videos_pdf.Rmd",
     "18-chernoff.Rmd",
-    # Info da sessao para reprodutibilidade
-    # "info_sessao.Rmd",
     "19-referencias.Rmd"]

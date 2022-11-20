@@ -362,21 +362,21 @@ gsub("\\+", "MAIS", txt) # funciona
 
 Algumas classes de caracteres podem ser utilizadas em buscas com expressões regulares:
 
-* [0-9] - busca números no vetor de caracteres;
+* `[0-9]` - busca números no vetor de caracteres;
 
-* [a-z] - busca apenas caracteres minúsculos no vetor de caracteres;
+* `[a-z]` - busca apenas caracteres minúsculos no vetor de caracteres;
 
-* [A-Z] - busca apenas caracteres maiúsculos no vetor de caracteres;
+* `[A-Z]` - busca apenas caracteres maiúsculos no vetor de caracteres;
 
-* [a-zA-Z] - busca caracteres do alfabeto no vetor de caracteres;
+* `[a-zA-Z]` - busca caracteres do alfabeto no vetor de caracteres;
 
-* [^a-zA-Z] - busca não alfabéticos no vetor de caracteres;
+* `[^a-zA-Z]` - busca não alfabéticos no vetor de caracteres;
 
-* [a-zA-Z0-9] - busca elementos alfa-numéricos no vetor de caracteres;
+* `[a-zA-Z0-9]` - busca elementos alfa-numéricos no vetor de caracteres;
 
-* [ \t\n\r\f\v] - busca espaçamentos no vetor de caracteres. Espaçamentos podem ser quebras de linha, tabulações etc;
+* `[ \t\n\r\f\v]` - busca espaçamentos no vetor de caracteres. Espaçamentos podem ser quebras de linha, tabulações etc;
 
-* []$*+.?[^{|(#%&~_/⇔✬!,:;❵\")}@-] - busca caracteres de pontuação no vetor de caracteres.
+* `[]$*+.?[^{|(#%&~_/⇔✬!,:;❵\")}@-]` - busca caracteres de pontuação no vetor de caracteres.  
 
 Perceb-se que estas classes permitem fazer buscas complexas.
 Suponha que você precisa substituir todos os valores que não contenham letras ou números por `NA`:

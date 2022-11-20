@@ -1,4 +1,8 @@
+\mainmatter
+
 # (PART) Parte I {-}
+
+Um passo a passo para conhecer a sintaxe básica da linguagem de programação e o potencial de usar o R como ferramenta científica.  
 
 # Conceitos introdutórios {#intro}
 
@@ -9,12 +13,11 @@ E para cada função nova, busque a [ajuda do R](#help), leia o que significam c
 Altere os argumentos das funções e veja o que acontece.
 Explore!
 
-
 ## Console e scripts
 
 As figuras abaixo mostram imagens relativamente similares ao que os usuários do R padrão (Figura \@ref(fig:pad-r)) e RStudio (Figura \@ref(fig:studio-r)) verão ao iniciarem esses programas.
 
-```{r pad-r, out.width="101%", fig.cap = ' Imagem de uma sessão do R para Mac OSX com um janela de script aberta além do console.', eval = TRUE, echo = FALSE}
+```{r pad-r, out.width="101%", fig.cap = ' Imagem de uma sessão do R para Mac OSX com um janela de script aberta além do console.', eval = TRUE, echo = FALSE, out.width="33%"}
 knitr::include_graphics("figuras/r_padrao.png")
 ```
 
@@ -432,10 +435,13 @@ str(iris) #veja a estrutura
 
 Agora, vamos obter um sumário estatístico de `iris`:
 
-```{r}
+```{r, eval=FALSE, echo=TRUE}
 summary(iris) #veja o que é iris
 ```
 
+```{r eval=TRUE, echo=FALSE}
+kable(summary(iris))
+```
 
 Note que `iris$Species` contem 50 valores para três nomes e portanto eles estao sendo intepretados como categoria, isto é, é um fator.
 Vamos ver os níveis desse fator com a expressão abaixo, contida na função executada anteriormente e que desejamos destrinchar:

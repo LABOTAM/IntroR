@@ -1,7 +1,8 @@
 bookdown::gitbook:
-  # highlight: tango
+  dev: svglite
+  css: css/style.css
+  split_by: section
   highlight: pygments
-  css: style.css
   config:
     toc:
       collapse: subsection
@@ -9,20 +10,29 @@ bookdown::gitbook:
       before: |
         <li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
     edit: https://github.com/LABOTAM/LABOTAM.github.io/edit/main/%s
-    download: null
+    download: [ ["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]]
+    sharing:
+      github: yes
+      facebook: no
+    search:
+      engine: fuse
 bookdown::epub_book:
-  # dev: svglite
-  stylesheet: style.css
-# bookdown::pdf_book:
-  # includes:
-  #   in_header: preamble.tex
-  # latex_engine: xelatex
-  # citation_package: natbib
-  # keep_tex: yes
-  # # dev: "cairo_pdf"
-  # toc_depth: 3
-  # toc_unnumbered: no
-  # toc_appendix: yes
-  # quote_footer: ["\\VA{", "}{}"]
+  dev: svglite
+  stylesheet: css/style.css
+bookdown::pdf_book:
+  includes:
+    in_header: latex/preamble.tex
+    # before_body: latex/before_body.tex
+    after_body: latex/after_body.tex
+  keep_tex: yes
+  dev: "cairo_pdf"
+  latex_engine: xelatex
+  citation_package: natbib
+  template: null
+  pandoc_args: --top-level-division=chapter
+  toc_depth: 3
+  toc_unnumbered: no
+  toc_appendix: yes
+  quote_footer: ["\\VA{", "}{}"]

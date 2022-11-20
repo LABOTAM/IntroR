@@ -109,11 +109,11 @@ lines(stats::density(quadris), col = "red", lwd = 2)
 
 Esta função permite responder à pergunta:
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 Qual percentual de pessoas não cabe em um assento de 15 polegadas?
 
-:::
+```
 
 
 ```{r, opts.label='evalF'}
@@ -154,11 +154,11 @@ polygon(xxp, yyp, col = "red")
 
 Esta função permite responder à pergunta:
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 Qual largura de assento garante que 95% da população caberá?
 
-:::
+```
 
 
 ```{r}
@@ -182,11 +182,11 @@ A função `dnorm()` gera a densidade probabilística para um conjunto de valore
 Podemos responder à pergunta:
 
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 Qual a densidade probabilística para um valor de quadril de 12 polegadas? Ou seja, qual a probabilidade de amostrar na população uma pessoa com quadril de 12 polegadas?
 
-:::
+```
 
 
 ```{r}

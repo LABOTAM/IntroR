@@ -1,5 +1,7 @@
 # (PART) Parte II {-}
 
+Tutorial para orientar a AED a ser realizada com dados de interesse do aluno.  
+
 # Checagem dos dados {#aed-checa-dados}
 
 No tutorial abaixo vamos usar dados de avistamento de aves em fisionomias de cerrado.
@@ -8,13 +10,13 @@ Baixem o arquivo contendo esses dados (https://github.com/LABOTAM/IntroR/blob/ma
 Vamos praticar neste tutorial o uso de funções que nos mostram a estrutura e resumo dos dados.
 Já vimos como utilizar essas funções na parte I deste livro.
 
-::: {.infobox .idea data-latex="idea"}
+```{block, type = "rmdidea"}
 
 * `str()` - mostra a estrutura do objeto dos dados;
 * `head()` e `tail()`- mostra a cabeça ou a cauda da sua tabela de dados, respectivamente;
 * `summary()` - faz um resumo de todas as variáveis nos seus dados.  
 
-:::
+```
 
 
 Vamos começar importando os dados ao R:
@@ -67,22 +69,27 @@ str(avesc)
 Reparem que há uma variável de texto (`chr`) e três variáveis de números inteiros (`int`).
 Próximo passo é sempre checar um sumário estatístico das variáveis presentes no objeto usando a função `summary()`:
 
-```{r}
+```{r, eval=FALSE, echo=TRUE}
 # mostra um resumo da variacao nas colunas
 summary(avesc)
 ```
+
+```{r eval=TRUE, echo=FALSE}
+kable(summary(avesc))
+```
+
 
 Há indicação de presença de valores `NA` nas variáveis numéricas, que são valores faltantes.
 
 ## Tem valores ausentes?
 
-::: {.infobox .question data-latex="question"}
+```{block, type = "rmdquestion"}
 
 Há valores ausentes em nossos dados?
 Eles são mesmo faltantes?
 Ou seja, o que significam valores ausentes no seu conjunto de dados?
 
-:::
+```
 
 
 Podemos utilizar a função `is.na()` para encontrar a constante lógica `NA`, ou seja, a constante que indica valores ausentes (reveja o uso da função `is.na()` na seção \@ref(filtro-dados-ausentes)).
@@ -207,11 +214,11 @@ avesc[avesc$urubu == 0 | avesc$carcara == 0 | avesc$seriema == 0, ]
 
 ## Colunas com fatores
 
-::: {.infobox .question data-latex="question"}
+```{block, type = "rmdquestion"}
 
 As colunas com fatores estão codificadas corretamente?
 
-:::
+```
 
 
 Temos algumas funções úteis para se trabalhar com fatores.
@@ -294,5 +301,12 @@ table(avesc$fisionomia)
 
 ## Verificando novamente
 str(avesc)
+```
+
+```{r, eval=FALSE, echo=TRUE}
 summary(avesc)
+```
+
+```{r eval=TRUE, echo=FALSE}
+kable(summary(avesc))
 ```
