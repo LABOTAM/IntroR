@@ -11,9 +11,10 @@ language:
     fig: 'Figura '
     tab: 'Tabela '
   ui:
-    chapter_name: ""
+    chapter_name: "Capítulo "
 rmd_files:
   latex: ["index.Rmd",
+    "00-autores.Rmd",
     "01-intro.Rmd",
     "02-vetores.Rmd",
     "03-matrizes_dframes.Rmd",
@@ -30,12 +31,11 @@ rmd_files:
     "14-aed_checamultivar.Rmd",
     "15-tidyverse.Rmd",
     "16-baixa_descomprime.Rmd",
-    # "17-videos.Rmd",
+    "17-videos_pdf.Rmd",
     "18-chernoff.Rmd",
-    # # Info da sessao para reprodutibilidade
-    # # "info_sessao.Rmd",
     "19-referencias.Rmd"]
   html: ["index.Rmd",
+    "00-autores.Rmd",
     "01-intro.Rmd",
     "02-vetores.Rmd",
     "03-matrizes_dframes.Rmd",
@@ -52,12 +52,11 @@ rmd_files:
     "14-aed_checamultivar.Rmd",
     "15-tidyverse.Rmd",
     "16-baixa_descomprime.Rmd",
-    "17-videos.Rmd",
+    "17-videos_html.Rmd",
     "18-chernoff.Rmd",
-    # Info da sessao para reprodutibilidade
-    # "info_sessao.Rmd",
     "19-referencias.Rmd"]
   epub: ["index.Rmd",
+    "00-autores.Rmd",
     "01-intro.Rmd",
     "02-vetores.Rmd",
     "03-matrizes_dframes.Rmd",
@@ -74,8 +73,6 @@ rmd_files:
     "14-aed_checamultivar.Rmd",
     "15-tidyverse.Rmd",
     "16-baixa_descomprime.Rmd",
-    # "17-videos.Rmd",
+    "17-videos_pdf.Rmd",
     "18-chernoff.Rmd",
-    # Info da sessao para reprodutibilidade
-    # "info_sessao.Rmd",
     "19-referencias.Rmd"]
