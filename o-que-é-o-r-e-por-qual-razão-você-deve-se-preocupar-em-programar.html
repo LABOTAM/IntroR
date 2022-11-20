@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>O que é o R e por qual razão você deve se preocupar em programar | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="O que é o R e por qual razão você deve se preocupar em programar | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/IntroR" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="O que é o R e por qual razão você deve se preocupar em programar | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini e Ricardo de Oliveira Perdiz" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="caso-você-não-possua-um-computador.html"/>
+<link rel="next" href="análise-exploratória-de-dados-aed.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
+<ul>
+<li class="chapter" data-level="" data-path="estrutura-do-livro.html"><a href="estrutura-do-livro.html"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="" data-path="agradecimentos.html"><a href="agradecimentos.html"><i class="fa fa-check"></i>Agradecimentos</a></li>
+<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i>Pré-requisitos</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html"><i class="fa fa-check"></i>Caso você possua um computador</a>
+<ul>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i>Baixe os pacotes abaixo</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="caso-você-não-possua-um-computador.html"><a href="caso-você-não-possua-um-computador.html"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><i class="fa fa-check"></i>O que é o R e por qual razão você deve se preocupar em programar</a>
+<ul>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#o-r-em-poucas-palavras"><i class="fa fa-check"></i>O R em poucas palavras</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#por-que-programar"><i class="fa fa-check"></i>Por que programar?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html"><i class="fa fa-check"></i>Análise exploratória de dados (AED)</a>
+<ul>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#o-que-é-aed-e-por-que-fazer-aed"><i class="fa fa-check"></i>O que é AED e por que fazer AED?</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#objetivos-da-aed"><i class="fa fa-check"></i>Objetivos da AED</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#para-ler"><i class="fa fa-check"></i>Para ler</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercícios-no-notar.html"><a href="exercícios-no-notar.html"><i class="fa fa-check"></i>Exercícios no <strong>notaR</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="exercícios-no-notar.html"><a href="exercícios-no-notar.html#conhecendo-o-notar"><i class="fa fa-check"></i>Conhecendo o <strong>notaR</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências-úteis.html"><a href="referências-úteis.html"><i class="fa fa-check"></i>Referências úteis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sobre-os-autores.html"><a href="sobre-os-autores.html"><i class="fa fa-check"></i>Sobre os autores</a></li>
+<li class="part"><span><b>I Parte I</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="console-e-scripts.html"><a href="console-e-scripts.html"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="1.2" data-path="linguagem-objeto-orientada.html"><a href="linguagem-objeto-orientada.html"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="1.3" data-path="base-pacotes.html"><a href="base-pacotes.html"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="1.5" data-path="área-de-trabalho-vs.-pasta-de-trabalho.html"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="1.6" data-path="dicas-de-organização-do-trabalho.html"><a href="dicas-de-organização-do-trabalho.html"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="1.7" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><i class="fa fa-check"></i><b>1.7</b> Dicas de erros comuns de sintaxe da linguagem R</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#parênteses"><i class="fa fa-check"></i><b>1.7.1</b> Parênteses</a></li>
+<li class="chapter" data-level="1.7.2" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#vírgulas"><i class="fa fa-check"></i><b>1.7.2</b> Vírgulas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#aspas"><i class="fa fa-check"></i><b>1.7.3</b> Aspas</a></li>
+<li class="chapter" data-level="1.7.4" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#números"><i class="fa fa-check"></i><b>1.7.4</b> Números</a></li>
+<li class="chapter" data-level="1.7.5" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#nomes-de-objetos"><i class="fa fa-check"></i><b>1.7.5</b> Nomes de objetos</a></li>
+<li class="chapter" data-level="1.7.6" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#atribuição-de-objetos"><i class="fa fa-check"></i><b>1.7.6</b> Atribuição de objetos</a></li>
+<li class="chapter" data-level="1.7.7" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#busque-entender-as-partes"><i class="fa fa-check"></i><b>1.7.7</b> Busque entender as partes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html"><i class="fa fa-check"></i><b>1.8</b> O R como calculadora</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#operadores"><i class="fa fa-check"></i><b>1.8.1</b> Operadores</a></li>
+<li class="chapter" data-level="1.8.2" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.8.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="1.8.3" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.8.3</b> Funções e constantes matemáticas</a></li>
+<li class="chapter" data-level="1.8.4" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#valor-na"><i class="fa fa-check"></i><b>1.8.4</b> NA e valores afins</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="exercícios.html"><a href="exercícios.html"><i class="fa fa-check"></i><b>1.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="operações-matemáticas-com-vetores.html"><a href="operações-matemáticas-com-vetores.html"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="2.3" data-path="funções-com-vetores.html"><a href="funções-com-vetores.html"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
+<li class="chapter" data-level="2.4" data-path="classes.html"><a href="classes.html"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="2.5" data-path="indexacao.html"><a href="indexacao.html"><i class="fa fa-check"></i><b>2.5</b> Indexação</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="indexacao.html"><a href="indexacao.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="2.5.2" data-path="indexacao.html"><a href="indexacao.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="sabermais-vetores.html"><a href="sabermais-vetores.html"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
+<li class="chapter" data-level="2.8" data-path="exercícios-1.html"><a href="exercícios-1.html"><i class="fa fa-check"></i><b>2.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="3.1.2" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="3.3.2" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html"><i class="fa fa-check"></i><b>3.4</b> Importando e exportando dados no R</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="3.4.2" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="3.4.3" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="3.4.4" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="sabermais-indexacao-matrizes-dframes.html"><a href="sabermais-indexacao-matrizes-dframes.html"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
+<li class="chapter" data-level="3.6" data-path="exercícios-2.html"><a href="exercícios-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
+<li class="chapter" data-level="4.2" data-path="obj-complexos.html"><a href="obj-complexos.html"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="5.1.3" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="5.1.4" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
+<li class="chapter" data-level="5.1.6" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
+<li class="chapter" data-level="5.2.2" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
+<li class="chapter" data-level="5.2.3" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
+<li class="chapter" data-level="5.2.4" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="5.3.4" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="5.4.2" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="5.4.5" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="5.4.6" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="5.4.8" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="5.5.6" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="5.5.7" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="sabermais-disp-grafico.html"><a href="sabermais-disp-grafico.html"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
+<li class="chapter" data-level="5.8" data-path="exercícios-3.html"><a href="exercícios-3.html"><i class="fa fa-check"></i><b>5.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="func-apply.html"><a href="func-apply.html"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="func-apply.html"><a href="func-apply.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="6.1.2" data-path="func-apply.html"><a href="func-apply.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="6.1.3" data-path="func-apply.html"><a href="func-apply.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="condicionais.html"><a href="condicionais.html"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="condicionais.html"><a href="condicionais.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="condicionais.html"><a href="condicionais.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="condicionais.html"><a href="condicionais.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="iteracoes.html"><a href="iteracoes.html"><i class="fa fa-check"></i><b>6.3</b> Iterações</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="6.4.2" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="sabermais-condic.html"><a href="sabermais-condic.html"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="tabela-dinamica.html"><a href="tabela-dinamica.html"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="7.2" data-path="tabelas-de-contagem.html"><a href="tabelas-de-contagem.html"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="7.3" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="7.4.2" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="para-saber-mais.html"><a href="para-saber-mais.html"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
+<li class="chapter" data-level="7.6" data-path="exercícios-4.html"><a href="exercícios-4.html"><i class="fa fa-check"></i><b>7.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
+<li class="chapter" data-level="8.1.3" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
+<li class="chapter" data-level="8.1.4" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
+<li class="chapter" data-level="8.1.5" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
+<li class="chapter" data-level="8.1.6" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
+<li class="chapter" data-level="8.1.7" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
+<li class="chapter" data-level="8.1.8" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
+<li class="chapter" data-level="8.1.9" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
+<li class="chapter" data-level="8.1.10" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="manipulação-de-pastas-e-arquivos.html"><a href="manipulação-de-pastas-e-arquivos.html"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
+<li class="chapter" data-level="8.3" data-path="sabermais-manip-txt-arqs-fld.html"><a href="sabermais-manip-txt-arqs-fld.html"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="funções-para-gerar-permutações-e-simular-dados.html"><a href="funções-para-gerar-permutações-e-simular-dados.html"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="9.2" data-path="distribuições-aleatórias.html"><a href="distribuições-aleatórias.html"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="distribuições-aleatórias.html"><a href="distribuições-aleatórias.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="sabermais-distribuicoes.html"><a href="sabermais-distribuicoes.html"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+<li class="chapter" data-level="9.4" data-path="exercícios-5.html"><a href="exercícios-5.html"><i class="fa fa-check"></i><b>9.4</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dados-categóricos.html"><a href="dados-categóricos.html"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="10.1.2" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="10.1.3" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="listas-ref.html"><a href="listas-ref.html"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="listas-ref.html"><a href="listas-ref.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="10.2.2" data-path="listas-ref.html"><a href="listas-ref.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="10.2.3" data-path="listas-ref.html"><a href="listas-ref.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="10.2.4" data-path="listas-ref.html"><a href="listas-ref.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="10.2.5" data-path="listas-ref.html"><a href="listas-ref.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
+<li class="chapter" data-level="10.3.2" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
+<li class="chapter" data-level="10.4.2" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Parte II</b></span></li>
+<li class="chapter" data-level="11" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html"><i class="fa fa-check"></i><b>11</b> Checagem dos dados</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="tem-valores-ausentes.html"><a href="tem-valores-ausentes.html"><i class="fa fa-check"></i><b>11.1</b> Tem valores ausentes?</a></li>
+<li class="chapter" data-level="11.2" data-path="colunas-com-fatores.html"><a href="colunas-com-fatores.html"><i class="fa fa-check"></i><b>11.2</b> Colunas com fatores</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="aed-univar.html"><a href="aed-univar.html"><i class="fa fa-check"></i><b>12</b> AED de univariadas</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="qual-a-distribuição-dos-valores-numéricos.html"><a href="qual-a-distribuição-dos-valores-numéricos.html"><i class="fa fa-check"></i><b>12.1</b> Qual a distribuição dos valores numéricos?</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="qual-a-distribuição-dos-valores-numéricos.html"><a href="qual-a-distribuição-dos-valores-numéricos.html#dados-do-tutorial"><i class="fa fa-check"></i><b>12.1.1</b> Dados do tutorial</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="tabelas-de-variáveis-categóricas.html"><a href="tabelas-de-variáveis-categóricas.html"><i class="fa fa-check"></i><b>12.2</b> Tabelas de variáveis categóricas</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="tabelas-de-variáveis-categóricas.html"><a href="tabelas-de-variáveis-categóricas.html#resumo-de-gráficos-univariados"><i class="fa fa-check"></i><b>12.2.1</b> Resumo de gráficos univariados</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="as-variáveis-têm-distribuição-normal.html"><a href="as-variáveis-têm-distribuição-normal.html"><i class="fa fa-check"></i><b>12.3</b> As variáveis têm distribuição normal?</a></li>
+<li class="chapter" data-level="12.4" data-path="sabermais-aed-univariadas.html"><a href="sabermais-aed-univariadas.html"><i class="fa fa-check"></i><b>12.4</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="aed-bivar.html"><a href="aed-bivar.html"><i class="fa fa-check"></i><b>13</b> AED de bivariadas</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="dados-do-tutorial-1.html"><a href="dados-do-tutorial-1.html"><i class="fa fa-check"></i><b>13.1</b> Dados do tutorial</a></li>
+<li class="chapter" data-level="13.2" data-path="fatores-e-contagens.html"><a href="fatores-e-contagens.html"><i class="fa fa-check"></i><b>13.2</b> Fatores e contagens</a></li>
+<li class="chapter" data-level="13.3" data-path="variável-numérica-vs.-fator.html"><a href="variável-numérica-vs.-fator.html"><i class="fa fa-check"></i><b>13.3</b> Variável numérica vs. fator</a></li>
+<li class="chapter" data-level="13.4" data-path="variável-numérica-vs.-numérica.html"><a href="variável-numérica-vs.-numérica.html"><i class="fa fa-check"></i><b>13.4</b> Variável numérica vs. numérica</a></li>
+<li class="chapter" data-level="13.5" data-path="outros-gráficos-bivariados.html"><a href="outros-gráficos-bivariados.html"><i class="fa fa-check"></i><b>13.5</b> Outros gráficos bivariados</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="aed-multivar.html"><a href="aed-multivar.html"><i class="fa fa-check"></i><b>14</b> AED de multivariadas</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="matrizes-de-distância.html"><a href="matrizes-de-distância.html"><i class="fa fa-check"></i><b>14.1</b> Matrizes de distância</a></li>
+<li class="chapter" data-level="14.2" data-path="ordenação-com-matrizes-de-distância.html"><a href="ordenação-com-matrizes-de-distância.html"><i class="fa fa-check"></i><b>14.2</b> Ordenação com matrizes de distância</a></li>
+<li class="chapter" data-level="14.3" data-path="escalonamento-não-métrico-multimensional-nmds.html"><a href="escalonamento-não-métrico-multimensional-nmds.html"><i class="fa fa-check"></i><b>14.3</b> Escalonamento Não-Métrico Multimensional (NMDS)</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="escalonamento-não-métrico-multimensional-nmds.html"><a href="escalonamento-não-métrico-multimensional-nmds.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-pelo-método-da-mínima-variância"><i class="fa fa-check"></i><b>14.4.1</b> Agrupamento pelo método da mínima variância</a></li>
+<li class="chapter" data-level="14.4.2" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-por-upgma"><i class="fa fa-check"></i><b>14.4.2</b> Agrupamento por UPGMA</a></li>
+<li class="chapter" data-level="14.4.3" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-por-centróides"><i class="fa fa-check"></i><b>14.4.3</b> Agrupamento por centróides</a></li>
+<li class="chapter" data-level="14.4.4" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.4</b> Exemplo florístico</a></li>
+<li class="chapter" data-level="14.4.5" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.5</b> Análise de Coordenadas Principais (PCoA)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="componentes-principais-pca.html"><a href="componentes-principais-pca.html"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndice</b></span></li>
+<li class="chapter" data-level="A" data-path="base-tidyverse.html"><a href="base-tidyverse.html"><i class="fa fa-check"></i><b>A</b> Base R vs. Tidyverse</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="o-que-é-o-tidyverse.html"><a href="o-que-é-o-tidyverse.html"><i class="fa fa-check"></i><b>A.1</b> O que é o Tidyverse?</a>
+<ul>
+<li class="chapter" data-level="A.1.1" data-path="o-que-é-o-tidyverse.html"><a href="o-que-é-o-tidyverse.html#dplyr-e-ggplot2-símbolos-do-tidyverse"><i class="fa fa-check"></i><b>A.1.1</b> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html"><i class="fa fa-check"></i><b>A.2</b> Usando o <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#selecionando-colunas-com-select"><i class="fa fa-check"></i><b>A.2.1</b> Selecionando colunas com <code>select()</code></a></li>
+<li class="chapter" data-level="A.2.2" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#filtrando-dados-com-filter"><i class="fa fa-check"></i><b>A.2.2</b> Filtrando dados com <code>filter()</code></a></li>
+<li class="chapter" data-level="A.2.3" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#destrinchando-as-funções-group_by-e-summarise"><i class="fa fa-check"></i><b>A.2.3</b> Destrinchando as funções <code>group_by</code> e <code>summarise</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html"><i class="fa fa-check"></i><b>A.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#com1"><i class="fa fa-check"></i><b>A.3.1</b> Conjunto de comandos 1</a></li>
+<li class="chapter" data-level="A.3.2" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#com2"><i class="fa fa-check"></i><b>A.3.2</b> Conjunto de comandos 2</a></li>
+<li class="chapter" data-level="A.3.3" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#pipe"><i class="fa fa-check"></i><b>A.3.3</b> Resumo do operador <code>%&gt;%</code>:</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="usando-o-ggplot2.html"><a href="usando-o-ggplot2.html"><i class="fa fa-check"></i><b>A.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="A.5" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html"><i class="fa fa-check"></i><b>A.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a>
+<ul>
+<li class="chapter" data-level="A.5.1" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#gráfico-de-espalhamento"><i class="fa fa-check"></i><b>A.5.1</b> Gráfico de espalhamento</a></li>
+<li class="chapter" data-level="A.5.2" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#diagrama-de-caixas"><i class="fa fa-check"></i><b>A.5.2</b> Diagrama de caixas</a></li>
+<li class="chapter" data-level="A.5.3" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#histograma"><i class="fa fa-check"></i><b>A.5.3</b> Histograma</a></li>
+</ul></li>
+<li class="chapter" data-level="A.6" data-path="baser.html"><a href="baser.html"><i class="fa fa-check"></i><b>A.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="A.6.1" data-path="baser.html"><a href="baser.html#e-o-uso-do-operador-com-o-pacote-base"><i class="fa fa-check"></i><b>A.6.1</b> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?</a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="tidyverse-um-resumo.html"><a href="tidyverse-um-resumo.html"><i class="fa fa-check"></i><b>A.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="A.8" data-path="sabermais-tidyverse.html"><a href="sabermais-tidyverse.html"><i class="fa fa-check"></i><b>A.8</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="unzip.html"><a href="unzip.html"><i class="fa fa-check"></i><b>B</b> Baixar e descomprimir um arquivo</a></li>
+<li class="chapter" data-level="C" data-path="videos.html"><a href="videos.html"><i class="fa fa-check"></i><b>C</b> Aulas em vídeo</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="importando-e-exportando-dados.html"><a href="importando-e-exportando-dados.html"><i class="fa fa-check"></i><b>C.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="C.2" data-path="criação-de-vetores-1.html"><a href="criação-de-vetores-1.html"><i class="fa fa-check"></i><b>C.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="C.3" data-path="classes-de-vetores-e-fatores.html"><a href="classes-de-vetores-e-fatores.html"><i class="fa fa-check"></i><b>C.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="C.4" data-path="sequências-numéricas-e-repetições-operações-e-funções-com-vetores.html"><a href="sequências-numéricas-e-repetições-operações-e-funções-com-vetores.html"><i class="fa fa-check"></i><b>C.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="C.5" data-path="listas-1.html"><a href="listas-1.html"><i class="fa fa-check"></i><b>C.5</b> Listas</a></li>
+<li class="chapter" data-level="C.6" data-path="criando-matrizes-1.html"><a href="criando-matrizes-1.html"><i class="fa fa-check"></i><b>C.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="C.7" data-path="criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes.html"><a href="criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes.html"><i class="fa fa-check"></i><b>C.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.8" data-path="indexação-de-matrizes-e-dataframes.html"><a href="indexação-de-matrizes-e-dataframes.html"><i class="fa fa-check"></i><b>C.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.9" data-path="condicionais-1.html"><a href="condicionais-1.html"><i class="fa fa-check"></i><b>C.9</b> Condicionais</a></li>
+<li class="chapter" data-level="C.10" data-path="funções-da-família-apply.html"><a href="funções-da-família-apply.html"><i class="fa fa-check"></i><b>C.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="C.11" data-path="funções-de-manipulação-de-pasta-e-arquivos.html"><a href="funções-de-manipulação-de-pasta-e-arquivos.html"><i class="fa fa-check"></i><b>C.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="C.12" data-path="funções-de-manipulação-de-texto---parte-01.html"><a href="funções-de-manipulação-de-texto---parte-01.html"><i class="fa fa-check"></i><b>C.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="C.13" data-path="funções-de-manipulação-de-texto---parte-02.html"><a href="funções-de-manipulação-de-texto---parte-02.html"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="C.14" data-path="objetos-complexos.html"><a href="objetos-complexos.html"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="chernoff.html"><a href="chernoff.html"><i class="fa fa-check"></i><b>D</b> Caras de Chernoff</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar" class="section level2 unnumbered hasAnchor">
+<h2>O que é o R e por qual razão você deve se preocupar em programar<a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="o-r-em-poucas-palavras" class="section level3 unnumbered hasAnchor">
+<h3>O R em poucas palavras<a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#o-r-em-poucas-palavras" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p><em>O R é um software livre e gratuito de desenvolvimento coletivo e é muito útil para quem trabalha com ciências e precisa manipular e analisar dados, gerar gráficos e publicações dinâmicas. Tem uma comunidade enorme de usuários e colaboradores e está disponível gratuitamente em diversos repositórios espalhados pelo mundo</em> (<a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>).</p>
+</blockquote>
+<blockquote>
+<p><em>O R foi criado para permitir a melhor e mais ampla exploração de dados possível, (…) mas sempre explicando a natureza dos métodos utilizados, num formato aberto (livre) e compreensível</em> <span class="citation">(<a href="#ref-Chambers2008" role="doc-biblioref">Chambers 2008</a>)</span>.</p>
+</blockquote>
+<blockquote>
+<p><em>O R é uma linguagem de programação; você conversa com o R através de um código</em>.</p>
+</blockquote>
+<blockquote>
+<p>Por ser uma linguagem de programação, <strong>no R você pode fazer tudo</strong>. A pergunta não é sobre <strong>SE</strong> o R faz alguma coisa, mas <strong>COMO</strong> fazer no R alguma coisa. E há várias maneiras de fazer a mesma coisa no R. É fundamental aprender a falar R, pois sabendo falar você pode dizer do seu jeito.</p>
+</blockquote>
+<blockquote>
+<p><em>Todo estudante de ciências deveria aprender a programar, porque programar lhe ensina a pensar</em> (Steve Jobs). Usar o R é a melhor forma de aprender estatística porque você precisa de fato entender o que está fazendo ao escrever um código.</p>
+</blockquote>
+<blockquote>
+<p><strong>Aprender a programar é como aprender um novo idioma</strong>; aprendendo o R fica mais fácil aprender outras linguagens de programação e lhe ajuda a aprender inglês, e o inglês lhe facilita falar R.</p>
+</blockquote>
+<blockquote>
+<p><strong>O R é uma fantástica ferramenta para fazer gráficos</strong>; veja exemplos em <a href="http://www.r-graph-gallery.com" class="uri">http://www.r-graph-gallery.com</a>.</p>
+</blockquote>
+<blockquote>
+<p>Com o desenvolvimento da linguagem na última década, você pode gerar aplicativos (<a href="https://shiny.rstudio.com/">Shiny</a>) e relatório dinâmicos usando <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio">Rmarkdown</a>, facilitando a formatação gráfica e a reprodutibilidade dos seus artigos, relatórios e projetos científicos.</p>
+</blockquote>
+</div>
+<div id="por-que-programar" class="section level3 unnumbered hasAnchor">
+<h3>Por que programar?<a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#por-que-programar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>A maioria dos programas de computador não é muito boa. O código no seu laptop, televisor, telefone, carro é geralmente mal documentado, inconsistente e pouco testado. Por que isso importa para a ciência? Porque transformar dados brutos (<code>raw data</code>) em artigos científicos geralmente requer um pouco de programação, o que significa que a maioria dos cientistas escreve software (Nick Barnes, 2010, <a href="http://www.nature.com/news/2010/101013/full/467753a.html">Publish your computer code</a>, Nature News).</p>
+</blockquote>
+<blockquote>
+<p><strong>É tentador tratar todas as coisas como se fossem pregos, se a única ferramenta que você tem é um martelo</strong> (Abraham Maslow, 1996, <a href="https://en.wikipedia.org/wiki/Law_of_the_instrument">Lei do Instrumento</a>)! Liberte-se da camisa de força dos softwares de estatística que limitam as análises que você pode fazer e como pode fazer.</p>
+</blockquote>
+<blockquote>
+<p><em>Um dos objetivos da análise estatística é o de destilar um conjunto longo e complicado de dados em um número pequeno de estatísticas descritivas que façam sentido. Muitos dos pacotes estatísticos de computadores modernos, no entanto, fazem exatamente o oposto disso. Eles produzem automaticamente um número excessivo de resultados que termina sendo aceito sem crítica; pode levar à super interpretação dos dados; e incentiva o mal hábito de <strong>jogar dados e cuspir resultados</strong> (data trawling). O R, por outro lado, não lhe diz nada a não ser aquilo que você peça explicitamente</em> <span class="citation">(<a href="#ref-Crawley2007" role="doc-biblioref">Crawley 2007</a>)</span>.</p>
+</blockquote>
+<blockquote>
+<p>(…) aprender a programar é importante porque desenvolve habilidades analíticas e de resolução de problemas. É uma atividade criativa, um meio de expressar idéias abstratas. Assim, programar é divertido e é muito mais do que uma habilidade profissional. Ao projetar programas, aprendemos muitas habilidades que são importantes para todas as profissões. Essas habilidades podem ser resumidas como: (1) Leitura crítica, (2) Pensamento analítico, (3) Síntese criativa (<a href="http://programmingstage.blogspot.com.br/2012/05/why-programming-is-important.html">Why programming is important</a>).</p>
+</blockquote>
+<blockquote>
+<p><em>Uma das coisas mais importantes que você (como cientista) pode fazer é dedicar um tempo para aprender uma linguagem de programação de verdade. Aprender a programar é como aprender outro idioma: exige tempo e treinamento, e não há resultados práticos imediatos. Mas se você supera essa primeira subida íngreme da curva de aprendizado, os ganhos como cientista são enormes. Programar não vai apenas livrar você da camisa de força dos pacotes estatísticos, mas também irá aguçar suas habilidades analíticas e ampliar os horizontes de modelagem (..) e estatística</em> <span class="citation">(<a href="#ref-Gotelli2013" role="doc-biblioref">Gotelli e Ellison 2013</a>)</span>.</p>
+</blockquote>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="figuras/aprendizadogeekvsnongeek.png" alt="Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek)." width="101%" />
+<p class="caption">
+Figura 0.3: Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek).
+</p>
+</div>
+</div>
+</div>
+<h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Chambers2008" class="csl-entry">
+Chambers, John M. 2008. <em>Programming with R</em>. Editado por W. Härdle e David Hand. Springer. <a href="https://doi.org/10.1007/978-0-387-75936-4">https://doi.org/10.1007/978-0-387-75936-4</a>.
+</div>
+<div id="ref-Crawley2007" class="csl-entry">
+Crawley, Michael J. 2007. <em><span>The R book</span></em>. John Wiley &amp; Sons, Ltd. <a href="https://doi.org/10.1002/9780470515075">https://doi.org/10.1002/9780470515075</a>.
+</div>
+<div id="ref-Gotelli2013" class="csl-entry">
+Gotelli, Nicholas J., e Aaron M. Ellison. 2013. <em><span>A Primer of Ecological Statistics</span></em>. 2º ed. Sinauer Associates.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="caso-você-não-possua-um-computador.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="análise-exploratória-de-dados-aed.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
+"text": null
+},
+"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

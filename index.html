@@ -20,8 +20,7 @@
   <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
   
 
-<meta name="author" content="Alberto Vicentini (INPA)" />
-<meta name="author" content="Ricardo de Oliveira Perdiz - ricardoperdiz@yahoo.com" />
+<meta name="author" content="Alberto Vicentini e Ricardo de Oliveira Perdiz" />
 
 
 
@@ -31,7 +30,7 @@
   
   
 
-<link rel="next" href="intro.html"/>
+<link rel="next" href="estrutura-do-livro.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,8 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -146,7 +143,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -164,375 +161,375 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estrutura-do-livro"><i class="fa fa-check"></i>Estrutura do livro</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-os-autores"><i class="fa fa-check"></i>Sobre os autores</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pré-requisitos"><i class="fa fa-check"></i>Pré-requisitos</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a>
+<li class="chapter" data-level="" data-path="estrutura-do-livro.html"><a href="estrutura-do-livro.html"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="" data-path="agradecimentos.html"><a href="agradecimentos.html"><i class="fa fa-check"></i>Agradecimentos</a></li>
+<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i>Pré-requisitos</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html"><i class="fa fa-check"></i>Caso você possua um computador</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i>Baixe os pacotes abaixo</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i>Baixe os pacotes abaixo</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar"><i class="fa fa-check"></i>O que é o R e por qual razão você deve se preocupar em programar</a>
+<li class="chapter" data-level="" data-path="caso-você-não-possua-um-computador.html"><a href="caso-você-não-possua-um-computador.html"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><i class="fa fa-check"></i>O que é o R e por qual razão você deve se preocupar em programar</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-r-em-poucas-palavras"><i class="fa fa-check"></i>O R em poucas palavras</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-que-programar"><i class="fa fa-check"></i>Por que programar?</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#o-r-em-poucas-palavras"><i class="fa fa-check"></i>O R em poucas palavras</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#por-que-programar"><i class="fa fa-check"></i>Por que programar?</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#análise-exploratória-de-dados-aed"><i class="fa fa-check"></i>Análise exploratória de dados (AED)</a>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html"><i class="fa fa-check"></i>Análise exploratória de dados (AED)</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-é-aed-e-por-que-fazer-aed"><i class="fa fa-check"></i>O que é AED e por que fazer AED?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos-da-aed"><i class="fa fa-check"></i>Objetivos da AED</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#para-ler"><i class="fa fa-check"></i>Para ler</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#o-que-é-aed-e-por-que-fazer-aed"><i class="fa fa-check"></i>O que é AED e por que fazer AED?</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#objetivos-da-aed"><i class="fa fa-check"></i>Objetivos da AED</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#para-ler"><i class="fa fa-check"></i>Para ler</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#exercícios-no-notar"><i class="fa fa-check"></i>Exercícios no <strong>notaR</strong></a>
+<li class="chapter" data-level="" data-path="exercícios-no-notar.html"><a href="exercícios-no-notar.html"><i class="fa fa-check"></i>Exercícios no <strong>notaR</strong></a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conhecendo-o-notar"><i class="fa fa-check"></i>Conhecendo o <strong>notaR</strong></a></li>
+<li class="chapter" data-level="" data-path="exercícios-no-notar.html"><a href="exercícios-no-notar.html#conhecendo-o-notar"><i class="fa fa-check"></i>Conhecendo o <strong>notaR</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#referências-úteis"><i class="fa fa-check"></i>Referências úteis</a></li>
+<li class="chapter" data-level="" data-path="referências-úteis.html"><a href="referências-úteis.html"><i class="fa fa-check"></i>Referências úteis</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="sobre-os-autores.html"><a href="sobre-os-autores.html"><i class="fa fa-check"></i>Sobre os autores</a></li>
 <li class="part"><span><b>I Parte I</b></span></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#base-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
-<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#dicas-de-erros-comuns-de-sintaxe-da-linguagem-r"><i class="fa fa-check"></i><b>1.7</b> Dicas de erros comuns de sintaxe da linguagem R</a>
+<li class="chapter" data-level="1.1" data-path="console-e-scripts.html"><a href="console-e-scripts.html"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="1.2" data-path="linguagem-objeto-orientada.html"><a href="linguagem-objeto-orientada.html"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="1.3" data-path="base-pacotes.html"><a href="base-pacotes.html"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="1.5" data-path="área-de-trabalho-vs.-pasta-de-trabalho.html"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="1.6" data-path="dicas-de-organização-do-trabalho.html"><a href="dicas-de-organização-do-trabalho.html"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="1.7" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><i class="fa fa-check"></i><b>1.7</b> Dicas de erros comuns de sintaxe da linguagem R</a>
 <ul>
-<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#parênteses"><i class="fa fa-check"></i><b>1.7.1</b> Parênteses</a></li>
-<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#vírgulas"><i class="fa fa-check"></i><b>1.7.2</b> Vírgulas</a></li>
-<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#aspas"><i class="fa fa-check"></i><b>1.7.3</b> Aspas</a></li>
-<li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#números"><i class="fa fa-check"></i><b>1.7.4</b> Números</a></li>
-<li class="chapter" data-level="1.7.5" data-path="intro.html"><a href="intro.html#nomes-de-objetos"><i class="fa fa-check"></i><b>1.7.5</b> Nomes de objetos</a></li>
-<li class="chapter" data-level="1.7.6" data-path="intro.html"><a href="intro.html#atribuição-de-objetos"><i class="fa fa-check"></i><b>1.7.6</b> Atribuição de objetos</a></li>
-<li class="chapter" data-level="1.7.7" data-path="intro.html"><a href="intro.html#busque-entender-as-partes"><i class="fa fa-check"></i><b>1.7.7</b> Busque entender as partes</a></li>
+<li class="chapter" data-level="1.7.1" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#parênteses"><i class="fa fa-check"></i><b>1.7.1</b> Parênteses</a></li>
+<li class="chapter" data-level="1.7.2" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#vírgulas"><i class="fa fa-check"></i><b>1.7.2</b> Vírgulas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#aspas"><i class="fa fa-check"></i><b>1.7.3</b> Aspas</a></li>
+<li class="chapter" data-level="1.7.4" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#números"><i class="fa fa-check"></i><b>1.7.4</b> Números</a></li>
+<li class="chapter" data-level="1.7.5" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#nomes-de-objetos"><i class="fa fa-check"></i><b>1.7.5</b> Nomes de objetos</a></li>
+<li class="chapter" data-level="1.7.6" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#atribuição-de-objetos"><i class="fa fa-check"></i><b>1.7.6</b> Atribuição de objetos</a></li>
+<li class="chapter" data-level="1.7.7" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#busque-entender-as-partes"><i class="fa fa-check"></i><b>1.7.7</b> Busque entender as partes</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.8</b> O R como calculadora</a>
+<li class="chapter" data-level="1.8" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html"><i class="fa fa-check"></i><b>1.8</b> O R como calculadora</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="intro.html"><a href="intro.html#operadores"><i class="fa fa-check"></i><b>1.8.1</b> Operadores</a></li>
-<li class="chapter" data-level="1.8.2" data-path="intro.html"><a href="intro.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.8.2</b> Precedência de parênteses</a></li>
-<li class="chapter" data-level="1.8.3" data-path="intro.html"><a href="intro.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.8.3</b> Funções e constantes matemáticas</a></li>
-<li class="chapter" data-level="1.8.4" data-path="intro.html"><a href="intro.html#valor-na"><i class="fa fa-check"></i><b>1.8.4</b> NA e valores afins</a></li>
+<li class="chapter" data-level="1.8.1" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#operadores"><i class="fa fa-check"></i><b>1.8.1</b> Operadores</a></li>
+<li class="chapter" data-level="1.8.2" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.8.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="1.8.3" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.8.3</b> Funções e constantes matemáticas</a></li>
+<li class="chapter" data-level="1.8.4" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#valor-na"><i class="fa fa-check"></i><b>1.8.4</b> NA e valores afins</a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#exercícios"><i class="fa fa-check"></i><b>1.9</b> Exercícios</a></li>
+<li class="chapter" data-level="1.9" data-path="exercícios.html"><a href="exercícios.html"><i class="fa fa-check"></i><b>1.9</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="vetores.html"><a href="vetores.html#vetores-e-operações-vetoriais-i"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a>
+<li class="chapter" data-level="2.1" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="vetores.html"><a href="vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
-<li class="chapter" data-level="2.1.2" data-path="vetores.html"><a href="vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+<li class="chapter" data-level="2.1.1" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="vetores.html"><a href="vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
-<li class="chapter" data-level="2.3" data-path="vetores.html"><a href="vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
-<li class="chapter" data-level="2.4" data-path="vetores.html"><a href="vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
-<li class="chapter" data-level="2.5" data-path="vetores.html"><a href="vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação</a>
+<li class="chapter" data-level="2.2" data-path="operações-matemáticas-com-vetores.html"><a href="operações-matemáticas-com-vetores.html"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="2.3" data-path="funções-com-vetores.html"><a href="funções-com-vetores.html"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
+<li class="chapter" data-level="2.4" data-path="classes.html"><a href="classes.html"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="2.5" data-path="indexacao.html"><a href="indexacao.html"><i class="fa fa-check"></i><b>2.5</b> Indexação</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="vetores.html"><a href="vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
-<li class="chapter" data-level="2.5.2" data-path="vetores.html"><a href="vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
+<li class="chapter" data-level="2.5.1" data-path="indexacao.html"><a href="indexacao.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="2.5.2" data-path="indexacao.html"><a href="indexacao.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="vetores.html"><a href="vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a>
+<li class="chapter" data-level="2.6" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="vetores.html"><a href="vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
-<li class="chapter" data-level="2.6.2" data-path="vetores.html"><a href="vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
-<li class="chapter" data-level="2.6.3" data-path="vetores.html"><a href="vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
+<li class="chapter" data-level="2.6.1" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="vetores.html"><a href="vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
-<li class="chapter" data-level="2.8" data-path="vetores.html"><a href="vetores.html#exercícios-1"><i class="fa fa-check"></i><b>2.8</b> Exercícios</a></li>
+<li class="chapter" data-level="2.7" data-path="sabermais-vetores.html"><a href="sabermais-vetores.html"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
+<li class="chapter" data-level="2.8" data-path="exercícios-1.html"><a href="exercícios-1.html"><i class="fa fa-check"></i><b>2.8</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a>
+<li class="chapter" data-level="3.1" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
-<li class="chapter" data-level="3.1.2" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
-<li class="chapter" data-level="3.1.3" data-path="mat-dframe.html"><a href="mat-dframe.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.1" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="3.1.2" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a>
+<li class="chapter" data-level="3.2" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
-<li class="chapter" data-level="3.2.2" data-path="mat-dframe.html"><a href="mat-dframe.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
+<li class="chapter" data-level="3.2.1" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="mat-dframe.html"><a href="mat-dframe.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a>
+<li class="chapter" data-level="3.3" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
-<li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
+<li class="chapter" data-level="3.3.1" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="3.3.2" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importando-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importando e exportando dados no R</a>
+<li class="chapter" data-level="3.4" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html"><i class="fa fa-check"></i><b>3.4</b> Importando e exportando dados no R</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
-<li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
-<li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
-<li class="chapter" data-level="3.4.4" data-path="mat-dframe.html"><a href="mat-dframe.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
+<li class="chapter" data-level="3.4.1" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="3.4.2" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="3.4.3" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="3.4.4" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="mat-dframe.html"><a href="mat-dframe.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
-<li class="chapter" data-level="3.6" data-path="mat-dframe.html"><a href="mat-dframe.html#exercícios-2"><i class="fa fa-check"></i><b>3.6</b> Exercícios</a></li>
+<li class="chapter" data-level="3.5" data-path="sabermais-indexacao-matrizes-dframes.html"><a href="sabermais-indexacao-matrizes-dframes.html"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
+<li class="chapter" data-level="3.6" data-path="exercícios-2.html"><a href="exercícios-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="lista-objcompl.html"><a href="lista-objcompl.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
-<li class="chapter" data-level="4.2" data-path="lista-objcompl.html"><a href="lista-objcompl.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
+<li class="chapter" data-level="4.1" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
+<li class="chapter" data-level="4.2" data-path="obj-complexos.html"><a href="obj-complexos.html"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="func-graf.html"><a href="func-graf.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a>
+<li class="chapter" data-level="5.1" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="func-graf.html"><a href="func-graf.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
-<li class="chapter" data-level="5.1.2" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
-<li class="chapter" data-level="5.1.3" data-path="func-graf.html"><a href="func-graf.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
-<li class="chapter" data-level="5.1.4" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
-<li class="chapter" data-level="5.1.5" data-path="func-graf.html"><a href="func-graf.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
-<li class="chapter" data-level="5.1.6" data-path="func-graf.html"><a href="func-graf.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
+<li class="chapter" data-level="5.1.1" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="5.1.3" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="5.1.4" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
+<li class="chapter" data-level="5.1.6" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a>
+<li class="chapter" data-level="5.2" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="func-graf.html"><a href="func-graf.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
-<li class="chapter" data-level="5.2.2" data-path="func-graf.html"><a href="func-graf.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
-<li class="chapter" data-level="5.2.3" data-path="func-graf.html"><a href="func-graf.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
-<li class="chapter" data-level="5.2.4" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
-<li class="chapter" data-level="5.2.5" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
+<li class="chapter" data-level="5.2.1" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
+<li class="chapter" data-level="5.2.2" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
+<li class="chapter" data-level="5.2.3" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
+<li class="chapter" data-level="5.2.4" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a>
+<li class="chapter" data-level="5.3" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="func-graf.html"><a href="func-graf.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
-<li class="chapter" data-level="5.3.2" data-path="func-graf.html"><a href="func-graf.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
-<li class="chapter" data-level="5.3.3" data-path="func-graf.html"><a href="func-graf.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
-<li class="chapter" data-level="5.3.4" data-path="func-graf.html"><a href="func-graf.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
-<li class="chapter" data-level="5.3.5" data-path="func-graf.html"><a href="func-graf.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
+<li class="chapter" data-level="5.3.1" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="5.3.4" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="func-graf.html"><a href="func-graf.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a>
+<li class="chapter" data-level="5.4" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="func-graf.html"><a href="func-graf.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
-<li class="chapter" data-level="5.4.2" data-path="func-graf.html"><a href="func-graf.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
-<li class="chapter" data-level="5.4.3" data-path="func-graf.html"><a href="func-graf.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
-<li class="chapter" data-level="5.4.4" data-path="func-graf.html"><a href="func-graf.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
-<li class="chapter" data-level="5.4.5" data-path="func-graf.html"><a href="func-graf.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
-<li class="chapter" data-level="5.4.6" data-path="func-graf.html"><a href="func-graf.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
-<li class="chapter" data-level="5.4.7" data-path="func-graf.html"><a href="func-graf.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
-<li class="chapter" data-level="5.4.8" data-path="func-graf.html"><a href="func-graf.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
+<li class="chapter" data-level="5.4.1" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="5.4.2" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="5.4.5" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="5.4.6" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="5.4.8" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="func-graf.html"><a href="func-graf.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a>
+<li class="chapter" data-level="5.5" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="func-graf.html"><a href="func-graf.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
-<li class="chapter" data-level="5.5.2" data-path="func-graf.html"><a href="func-graf.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
-<li class="chapter" data-level="5.5.3" data-path="func-graf.html"><a href="func-graf.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
-<li class="chapter" data-level="5.5.4" data-path="func-graf.html"><a href="func-graf.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
-<li class="chapter" data-level="5.5.5" data-path="func-graf.html"><a href="func-graf.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
-<li class="chapter" data-level="5.5.6" data-path="func-graf.html"><a href="func-graf.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
-<li class="chapter" data-level="5.5.7" data-path="func-graf.html"><a href="func-graf.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
+<li class="chapter" data-level="5.5.1" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="5.5.6" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="5.5.7" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="func-graf.html"><a href="func-graf.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a>
+<li class="chapter" data-level="5.6" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="func-graf.html"><a href="func-graf.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
-<li class="chapter" data-level="5.6.2" data-path="func-graf.html"><a href="func-graf.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
+<li class="chapter" data-level="5.6.1" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="func-graf.html"><a href="func-graf.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
-<li class="chapter" data-level="5.8" data-path="func-graf.html"><a href="func-graf.html#exercícios-3"><i class="fa fa-check"></i><b>5.8</b> Exercícios</a></li>
+<li class="chapter" data-level="5.7" data-path="sabermais-disp-grafico.html"><a href="sabermais-disp-grafico.html"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
+<li class="chapter" data-level="5.8" data-path="exercícios-3.html"><a href="exercícios-3.html"><i class="fa fa-check"></i><b>5.8</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="iter-cflux.html"><a href="iter-cflux.html#func-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a>
+<li class="chapter" data-level="6.1" data-path="func-apply.html"><a href="func-apply.html"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="iter-cflux.html"><a href="iter-cflux.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
-<li class="chapter" data-level="6.1.2" data-path="iter-cflux.html"><a href="iter-cflux.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
-<li class="chapter" data-level="6.1.3" data-path="iter-cflux.html"><a href="iter-cflux.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
+<li class="chapter" data-level="6.1.1" data-path="func-apply.html"><a href="func-apply.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="6.1.2" data-path="func-apply.html"><a href="func-apply.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="6.1.3" data-path="func-apply.html"><a href="func-apply.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a>
+<li class="chapter" data-level="6.2" data-path="condicionais.html"><a href="condicionais.html"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
-<li class="chapter" data-level="6.2.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
-<li class="chapter" data-level="6.2.3" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
+<li class="chapter" data-level="6.2.1" data-path="condicionais.html"><a href="condicionais.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="condicionais.html"><a href="condicionais.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="condicionais.html"><a href="condicionais.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações</a>
+<li class="chapter" data-level="6.3" data-path="iteracoes.html"><a href="iteracoes.html"><i class="fa fa-check"></i><b>6.3</b> Iterações</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
-<li class="chapter" data-level="6.3.2" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
-<li class="chapter" data-level="6.3.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+<li class="chapter" data-level="6.3.1" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="iter-cflux.html"><a href="iter-cflux.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a>
+<li class="chapter" data-level="6.4" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
-<li class="chapter" data-level="6.4.2" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
+<li class="chapter" data-level="6.4.1" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="6.4.2" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="iter-cflux.html"><a href="iter-cflux.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
+<li class="chapter" data-level="6.5" data-path="sabermais-condic.html"><a href="sabermais-condic.html"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="sumar-dados.html"><a href="sumar-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
-<li class="chapter" data-level="7.2" data-path="sumar-dados.html"><a href="sumar-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
-<li class="chapter" data-level="7.3" data-path="sumar-dados.html"><a href="sumar-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a>
+<li class="chapter" data-level="7.1" data-path="tabela-dinamica.html"><a href="tabela-dinamica.html"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="7.2" data-path="tabelas-de-contagem.html"><a href="tabelas-de-contagem.html"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="7.3" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="sumar-dados.html"><a href="sumar-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
-<li class="chapter" data-level="7.3.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
+<li class="chapter" data-level="7.3.1" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="sumar-dados.html"><a href="sumar-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a>
+<li class="chapter" data-level="7.4" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a>
 <ul>
-<li class="chapter" data-level="7.4.1" data-path="sumar-dados.html"><a href="sumar-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
-<li class="chapter" data-level="7.4.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
+<li class="chapter" data-level="7.4.1" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="7.4.2" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="sumar-dados.html"><a href="sumar-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
-<li class="chapter" data-level="7.6" data-path="sumar-dados.html"><a href="sumar-dados.html#exercícios-4"><i class="fa fa-check"></i><b>7.6</b> Exercícios</a></li>
+<li class="chapter" data-level="7.5" data-path="para-saber-mais.html"><a href="para-saber-mais.html"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
+<li class="chapter" data-level="7.6" data-path="exercícios-4.html"><a href="exercícios-4.html"><i class="fa fa-check"></i><b>7.6</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a>
+<li class="chapter" data-level="8.1" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
-<li class="chapter" data-level="8.1.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
-<li class="chapter" data-level="8.1.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
-<li class="chapter" data-level="8.1.4" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
-<li class="chapter" data-level="8.1.5" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
-<li class="chapter" data-level="8.1.6" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
-<li class="chapter" data-level="8.1.7" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
-<li class="chapter" data-level="8.1.8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
-<li class="chapter" data-level="8.1.9" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
-<li class="chapter" data-level="8.1.10" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
+<li class="chapter" data-level="8.1.1" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
+<li class="chapter" data-level="8.1.3" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
+<li class="chapter" data-level="8.1.4" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
+<li class="chapter" data-level="8.1.5" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
+<li class="chapter" data-level="8.1.6" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
+<li class="chapter" data-level="8.1.7" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
+<li class="chapter" data-level="8.1.8" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
+<li class="chapter" data-level="8.1.9" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
+<li class="chapter" data-level="8.1.10" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
-<li class="chapter" data-level="8.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
+<li class="chapter" data-level="8.2" data-path="manipulação-de-pastas-e-arquivos.html"><a href="manipulação-de-pastas-e-arquivos.html"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
+<li class="chapter" data-level="8.3" data-path="sabermais-manip-txt-arqs-fld.html"><a href="sabermais-manip-txt-arqs-fld.html"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="amost-aleat.html"><a href="amost-aleat.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
-<li class="chapter" data-level="9.2" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a>
+<li class="chapter" data-level="9.1" data-path="funções-para-gerar-permutações-e-simular-dados.html"><a href="funções-para-gerar-permutações-e-simular-dados.html"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="9.2" data-path="distribuições-aleatórias.html"><a href="distribuições-aleatórias.html"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="9.2.1" data-path="distribuições-aleatórias.html"><a href="distribuições-aleatórias.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="amost-aleat.html"><a href="amost-aleat.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
-<li class="chapter" data-level="9.4" data-path="amost-aleat.html"><a href="amost-aleat.html#exercícios-5"><i class="fa fa-check"></i><b>9.4</b> Exercícios</a></li>
+<li class="chapter" data-level="9.3" data-path="sabermais-distribuicoes.html"><a href="sabermais-distribuicoes.html"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+<li class="chapter" data-level="9.4" data-path="exercícios-5.html"><a href="exercícios-5.html"><i class="fa fa-check"></i><b>9.4</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="extr-dados.html"><a href="extr-dados.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a>
+<li class="chapter" data-level="10.1" data-path="dados-categóricos.html"><a href="dados-categóricos.html"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="extr-dados.html"><a href="extr-dados.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
-<li class="chapter" data-level="10.1.2" data-path="extr-dados.html"><a href="extr-dados.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
-<li class="chapter" data-level="10.1.3" data-path="extr-dados.html"><a href="extr-dados.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+<li class="chapter" data-level="10.1.1" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="10.1.2" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="10.1.3" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="extr-dados.html"><a href="extr-dados.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a>
+<li class="chapter" data-level="10.2" data-path="listas-ref.html"><a href="listas-ref.html"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="extr-dados.html"><a href="extr-dados.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
-<li class="chapter" data-level="10.2.2" data-path="extr-dados.html"><a href="extr-dados.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
-<li class="chapter" data-level="10.2.3" data-path="extr-dados.html"><a href="extr-dados.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
-<li class="chapter" data-level="10.2.4" data-path="extr-dados.html"><a href="extr-dados.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
-<li class="chapter" data-level="10.2.5" data-path="extr-dados.html"><a href="extr-dados.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+<li class="chapter" data-level="10.2.1" data-path="listas-ref.html"><a href="listas-ref.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="10.2.2" data-path="listas-ref.html"><a href="listas-ref.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="10.2.3" data-path="listas-ref.html"><a href="listas-ref.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="10.2.4" data-path="listas-ref.html"><a href="listas-ref.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="10.2.5" data-path="listas-ref.html"><a href="listas-ref.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="extr-dados.html"><a href="extr-dados.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a>
+<li class="chapter" data-level="10.3" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="extr-dados.html"><a href="extr-dados.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
-<li class="chapter" data-level="10.3.2" data-path="extr-dados.html"><a href="extr-dados.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+<li class="chapter" data-level="10.3.1" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
+<li class="chapter" data-level="10.3.2" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="extr-dados.html"><a href="extr-dados.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a>
+<li class="chapter" data-level="10.4" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
-<li class="chapter" data-level="10.4.2" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
+<li class="chapter" data-level="10.4.1" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
+<li class="chapter" data-level="10.4.2" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Parte II</b></span></li>
 <li class="chapter" data-level="11" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html"><i class="fa fa-check"></i><b>11</b> Checagem dos dados</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#tem-valores-ausentes"><i class="fa fa-check"></i><b>11.1</b> Tem valores ausentes?</a></li>
-<li class="chapter" data-level="11.2" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#colunas-com-fatores"><i class="fa fa-check"></i><b>11.2</b> Colunas com fatores</a></li>
+<li class="chapter" data-level="11.1" data-path="tem-valores-ausentes.html"><a href="tem-valores-ausentes.html"><i class="fa fa-check"></i><b>11.1</b> Tem valores ausentes?</a></li>
+<li class="chapter" data-level="11.2" data-path="colunas-com-fatores.html"><a href="colunas-com-fatores.html"><i class="fa fa-check"></i><b>11.2</b> Colunas com fatores</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="aed-univar.html"><a href="aed-univar.html"><i class="fa fa-check"></i><b>12</b> AED de univariadas</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="aed-univar.html"><a href="aed-univar.html#qual-a-distribuição-dos-valores-numéricos"><i class="fa fa-check"></i><b>12.1</b> Qual a distribuição dos valores numéricos?</a>
+<li class="chapter" data-level="12.1" data-path="qual-a-distribuição-dos-valores-numéricos.html"><a href="qual-a-distribuição-dos-valores-numéricos.html"><i class="fa fa-check"></i><b>12.1</b> Qual a distribuição dos valores numéricos?</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="aed-univar.html"><a href="aed-univar.html#dados-do-tutorial"><i class="fa fa-check"></i><b>12.1.1</b> Dados do tutorial</a></li>
+<li class="chapter" data-level="12.1.1" data-path="qual-a-distribuição-dos-valores-numéricos.html"><a href="qual-a-distribuição-dos-valores-numéricos.html#dados-do-tutorial"><i class="fa fa-check"></i><b>12.1.1</b> Dados do tutorial</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="aed-univar.html"><a href="aed-univar.html#tabelas-de-variáveis-categóricas"><i class="fa fa-check"></i><b>12.2</b> Tabelas de variáveis categóricas</a>
+<li class="chapter" data-level="12.2" data-path="tabelas-de-variáveis-categóricas.html"><a href="tabelas-de-variáveis-categóricas.html"><i class="fa fa-check"></i><b>12.2</b> Tabelas de variáveis categóricas</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="aed-univar.html"><a href="aed-univar.html#resumo-de-gráficos-univariados"><i class="fa fa-check"></i><b>12.2.1</b> Resumo de gráficos univariados</a></li>
+<li class="chapter" data-level="12.2.1" data-path="tabelas-de-variáveis-categóricas.html"><a href="tabelas-de-variáveis-categóricas.html#resumo-de-gráficos-univariados"><i class="fa fa-check"></i><b>12.2.1</b> Resumo de gráficos univariados</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="aed-univar.html"><a href="aed-univar.html#as-variáveis-têm-distribuição-normal"><i class="fa fa-check"></i><b>12.3</b> As variáveis têm distribuição normal?</a></li>
-<li class="chapter" data-level="12.4" data-path="aed-univar.html"><a href="aed-univar.html#sabermais-aed-univariadas"><i class="fa fa-check"></i><b>12.4</b> Para saber mais:</a></li>
+<li class="chapter" data-level="12.3" data-path="as-variáveis-têm-distribuição-normal.html"><a href="as-variáveis-têm-distribuição-normal.html"><i class="fa fa-check"></i><b>12.3</b> As variáveis têm distribuição normal?</a></li>
+<li class="chapter" data-level="12.4" data-path="sabermais-aed-univariadas.html"><a href="sabermais-aed-univariadas.html"><i class="fa fa-check"></i><b>12.4</b> Para saber mais:</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="aed-bivar.html"><a href="aed-bivar.html"><i class="fa fa-check"></i><b>13</b> AED de bivariadas</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="aed-bivar.html"><a href="aed-bivar.html#dados-do-tutorial-1"><i class="fa fa-check"></i><b>13.1</b> Dados do tutorial</a></li>
-<li class="chapter" data-level="13.2" data-path="aed-bivar.html"><a href="aed-bivar.html#fatores-e-contagens"><i class="fa fa-check"></i><b>13.2</b> Fatores e contagens</a></li>
-<li class="chapter" data-level="13.3" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-fator"><i class="fa fa-check"></i><b>13.3</b> Variável numérica vs. fator</a></li>
-<li class="chapter" data-level="13.4" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-numérica"><i class="fa fa-check"></i><b>13.4</b> Variável numérica vs. numérica</a></li>
-<li class="chapter" data-level="13.5" data-path="aed-bivar.html"><a href="aed-bivar.html#outros-gráficos-bivariados"><i class="fa fa-check"></i><b>13.5</b> Outros gráficos bivariados</a></li>
+<li class="chapter" data-level="13.1" data-path="dados-do-tutorial-1.html"><a href="dados-do-tutorial-1.html"><i class="fa fa-check"></i><b>13.1</b> Dados do tutorial</a></li>
+<li class="chapter" data-level="13.2" data-path="fatores-e-contagens.html"><a href="fatores-e-contagens.html"><i class="fa fa-check"></i><b>13.2</b> Fatores e contagens</a></li>
+<li class="chapter" data-level="13.3" data-path="variável-numérica-vs.-fator.html"><a href="variável-numérica-vs.-fator.html"><i class="fa fa-check"></i><b>13.3</b> Variável numérica vs. fator</a></li>
+<li class="chapter" data-level="13.4" data-path="variável-numérica-vs.-numérica.html"><a href="variável-numérica-vs.-numérica.html"><i class="fa fa-check"></i><b>13.4</b> Variável numérica vs. numérica</a></li>
+<li class="chapter" data-level="13.5" data-path="outros-gráficos-bivariados.html"><a href="outros-gráficos-bivariados.html"><i class="fa fa-check"></i><b>13.5</b> Outros gráficos bivariados</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="aed-multivar.html"><a href="aed-multivar.html"><i class="fa fa-check"></i><b>14</b> AED de multivariadas</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="aed-multivar.html"><a href="aed-multivar.html#matrizes-de-distância"><i class="fa fa-check"></i><b>14.1</b> Matrizes de distância</a></li>
-<li class="chapter" data-level="14.2" data-path="aed-multivar.html"><a href="aed-multivar.html#ordenação-com-matrizes-de-distância"><i class="fa fa-check"></i><b>14.2</b> Ordenação com matrizes de distância</a></li>
-<li class="chapter" data-level="14.3" data-path="aed-multivar.html"><a href="aed-multivar.html#escalonamento-não-métrico-multimensional-nmds"><i class="fa fa-check"></i><b>14.3</b> Escalonamento Não-Métrico Multimensional (NMDS)</a>
+<li class="chapter" data-level="14.1" data-path="matrizes-de-distância.html"><a href="matrizes-de-distância.html"><i class="fa fa-check"></i><b>14.1</b> Matrizes de distância</a></li>
+<li class="chapter" data-level="14.2" data-path="ordenação-com-matrizes-de-distância.html"><a href="ordenação-com-matrizes-de-distância.html"><i class="fa fa-check"></i><b>14.2</b> Ordenação com matrizes de distância</a></li>
+<li class="chapter" data-level="14.3" data-path="escalonamento-não-métrico-multimensional-nmds.html"><a href="escalonamento-não-métrico-multimensional-nmds.html"><i class="fa fa-check"></i><b>14.3</b> Escalonamento Não-Métrico Multimensional (NMDS)</a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos</a></li>
+<li class="chapter" data-level="14.3.1" data-path="escalonamento-não-métrico-multimensional-nmds.html"><a href="escalonamento-não-métrico-multimensional-nmds.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="aed-multivar.html"><a href="aed-multivar.html#análises-de-agrupamento"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento</a>
+<li class="chapter" data-level="14.4" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento</a>
 <ul>
-<li class="chapter" data-level="14.4.1" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-pelo-método-da-mínima-variância"><i class="fa fa-check"></i><b>14.4.1</b> Agrupamento pelo método da mínima variância</a></li>
-<li class="chapter" data-level="14.4.2" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-upgma"><i class="fa fa-check"></i><b>14.4.2</b> Agrupamento por UPGMA</a></li>
-<li class="chapter" data-level="14.4.3" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-centróides"><i class="fa fa-check"></i><b>14.4.3</b> Agrupamento por centróides</a></li>
-<li class="chapter" data-level="14.4.4" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.4</b> Exemplo florístico</a></li>
-<li class="chapter" data-level="14.4.5" data-path="aed-multivar.html"><a href="aed-multivar.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.5</b> Análise de Coordenadas Principais (PCoA)</a></li>
+<li class="chapter" data-level="14.4.1" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-pelo-método-da-mínima-variância"><i class="fa fa-check"></i><b>14.4.1</b> Agrupamento pelo método da mínima variância</a></li>
+<li class="chapter" data-level="14.4.2" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-por-upgma"><i class="fa fa-check"></i><b>14.4.2</b> Agrupamento por UPGMA</a></li>
+<li class="chapter" data-level="14.4.3" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-por-centróides"><i class="fa fa-check"></i><b>14.4.3</b> Agrupamento por centróides</a></li>
+<li class="chapter" data-level="14.4.4" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.4</b> Exemplo florístico</a></li>
+<li class="chapter" data-level="14.4.5" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.5</b> Análise de Coordenadas Principais (PCoA)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.5" data-path="aed-multivar.html"><a href="aed-multivar.html#componentes-principais-pca"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)</a></li>
+<li class="chapter" data-level="14.5" data-path="componentes-principais-pca.html"><a href="componentes-principais-pca.html"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apêndice</b></span></li>
 <li class="chapter" data-level="A" data-path="base-tidyverse.html"><a href="base-tidyverse.html"><i class="fa fa-check"></i><b>A</b> Base R vs. Tidyverse</a>
 <ul>
-<li class="chapter" data-level="A.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>A.1</b> O que é o Tidyverse?</a>
+<li class="chapter" data-level="A.1" data-path="o-que-é-o-tidyverse.html"><a href="o-que-é-o-tidyverse.html"><i class="fa fa-check"></i><b>A.1</b> O que é o Tidyverse?</a>
 <ul>
-<li class="chapter" data-level="A.1.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-símbolos-do-tidyverse"><i class="fa fa-check"></i><b>A.1.1</b> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse</a></li>
+<li class="chapter" data-level="A.1.1" data-path="o-que-é-o-tidyverse.html"><a href="o-que-é-o-tidyverse.html#dplyr-e-ggplot2-símbolos-do-tidyverse"><i class="fa fa-check"></i><b>A.1.1</b> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse</a></li>
 </ul></li>
-<li class="chapter" data-level="A.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-dplyr"><i class="fa fa-check"></i><b>A.2</b> Usando o <code>dplyr</code></a>
+<li class="chapter" data-level="A.2" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html"><i class="fa fa-check"></i><b>A.2</b> Usando o <code>dplyr</code></a>
 <ul>
-<li class="chapter" data-level="A.2.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#selecionando-colunas-com-select"><i class="fa fa-check"></i><b>A.2.1</b> Selecionando colunas com <code>select()</code></a></li>
-<li class="chapter" data-level="A.2.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#filtrando-dados-com-filter"><i class="fa fa-check"></i><b>A.2.2</b> Filtrando dados com <code>filter()</code></a></li>
-<li class="chapter" data-level="A.2.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#destrinchando-as-funções-group_by-e-summarise"><i class="fa fa-check"></i><b>A.2.3</b> Destrinchando as funções <code>group_by</code> e <code>summarise</code></a></li>
+<li class="chapter" data-level="A.2.1" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#selecionando-colunas-com-select"><i class="fa fa-check"></i><b>A.2.1</b> Selecionando colunas com <code>select()</code></a></li>
+<li class="chapter" data-level="A.2.2" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#filtrando-dados-com-filter"><i class="fa fa-check"></i><b>A.2.2</b> Filtrando dados com <code>filter()</code></a></li>
+<li class="chapter" data-level="A.2.3" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#destrinchando-as-funções-group_by-e-summarise"><i class="fa fa-check"></i><b>A.2.3</b> Destrinchando as funções <code>group_by</code> e <code>summarise</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>A.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a>
+<li class="chapter" data-level="A.3" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html"><i class="fa fa-check"></i><b>A.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a>
 <ul>
-<li class="chapter" data-level="A.3.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com1"><i class="fa fa-check"></i><b>A.3.1</b> Conjunto de comandos 1</a></li>
-<li class="chapter" data-level="A.3.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com2"><i class="fa fa-check"></i><b>A.3.2</b> Conjunto de comandos 2</a></li>
-<li class="chapter" data-level="A.3.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#pipe"><i class="fa fa-check"></i><b>A.3.3</b> Resumo do operador <code>%&gt;%</code>:</a></li>
+<li class="chapter" data-level="A.3.1" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#com1"><i class="fa fa-check"></i><b>A.3.1</b> Conjunto de comandos 1</a></li>
+<li class="chapter" data-level="A.3.2" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#com2"><i class="fa fa-check"></i><b>A.3.2</b> Conjunto de comandos 2</a></li>
+<li class="chapter" data-level="A.3.3" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#pipe"><i class="fa fa-check"></i><b>A.3.3</b> Resumo do operador <code>%&gt;%</code>:</a></li>
 </ul></li>
-<li class="chapter" data-level="A.4" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>A.4</b> Usando o <code>ggplot2</code></a></li>
-<li class="chapter" data-level="A.5" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>A.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a>
+<li class="chapter" data-level="A.4" data-path="usando-o-ggplot2.html"><a href="usando-o-ggplot2.html"><i class="fa fa-check"></i><b>A.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="A.5" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html"><i class="fa fa-check"></i><b>A.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a>
 <ul>
-<li class="chapter" data-level="A.5.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#gráfico-de-espalhamento"><i class="fa fa-check"></i><b>A.5.1</b> Gráfico de espalhamento</a></li>
-<li class="chapter" data-level="A.5.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#diagrama-de-caixas"><i class="fa fa-check"></i><b>A.5.2</b> Diagrama de caixas</a></li>
-<li class="chapter" data-level="A.5.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#histograma"><i class="fa fa-check"></i><b>A.5.3</b> Histograma</a></li>
+<li class="chapter" data-level="A.5.1" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#gráfico-de-espalhamento"><i class="fa fa-check"></i><b>A.5.1</b> Gráfico de espalhamento</a></li>
+<li class="chapter" data-level="A.5.2" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#diagrama-de-caixas"><i class="fa fa-check"></i><b>A.5.2</b> Diagrama de caixas</a></li>
+<li class="chapter" data-level="A.5.3" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#histograma"><i class="fa fa-check"></i><b>A.5.3</b> Histograma</a></li>
 </ul></li>
-<li class="chapter" data-level="A.6" data-path="base-tidyverse.html"><a href="base-tidyverse.html#baser"><i class="fa fa-check"></i><b>A.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a>
+<li class="chapter" data-level="A.6" data-path="baser.html"><a href="baser.html"><i class="fa fa-check"></i><b>A.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a>
 <ul>
-<li class="chapter" data-level="A.6.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#e-o-uso-do-operador-com-o-pacote-base"><i class="fa fa-check"></i><b>A.6.1</b> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?</a></li>
+<li class="chapter" data-level="A.6.1" data-path="baser.html"><a href="baser.html#e-o-uso-do-operador-com-o-pacote-base"><i class="fa fa-check"></i><b>A.6.1</b> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?</a></li>
 </ul></li>
-<li class="chapter" data-level="A.7" data-path="base-tidyverse.html"><a href="base-tidyverse.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>A.7</b> Tidyverse, um resumo</a></li>
-<li class="chapter" data-level="A.8" data-path="base-tidyverse.html"><a href="base-tidyverse.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>A.8</b> Para saber mais:</a></li>
+<li class="chapter" data-level="A.7" data-path="tidyverse-um-resumo.html"><a href="tidyverse-um-resumo.html"><i class="fa fa-check"></i><b>A.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="A.8" data-path="sabermais-tidyverse.html"><a href="sabermais-tidyverse.html"><i class="fa fa-check"></i><b>A.8</b> Para saber mais:</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="unzip.html"><a href="unzip.html"><i class="fa fa-check"></i><b>B</b> Baixar e descomprimir um arquivo</a></li>
 <li class="chapter" data-level="C" data-path="videos.html"><a href="videos.html"><i class="fa fa-check"></i><b>C</b> Aulas em vídeo</a>
 <ul>
-<li class="chapter" data-level="C.1" data-path="videos.html"><a href="videos.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>C.1</b> Importando e exportando dados</a></li>
-<li class="chapter" data-level="C.2" data-path="videos.html"><a href="videos.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>C.2</b> Criação de vetores</a></li>
-<li class="chapter" data-level="C.3" data-path="videos.html"><a href="videos.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>C.3</b> Classes de vetores e fatores</a></li>
-<li class="chapter" data-level="C.4" data-path="videos.html"><a href="videos.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>C.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
-<li class="chapter" data-level="C.5" data-path="videos.html"><a href="videos.html#listas-1"><i class="fa fa-check"></i><b>C.5</b> Listas</a></li>
-<li class="chapter" data-level="C.6" data-path="videos.html"><a href="videos.html#criando-matrizes-1"><i class="fa fa-check"></i><b>C.6</b> Criando matrizes</a></li>
-<li class="chapter" data-level="C.7" data-path="videos.html"><a href="videos.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
-<li class="chapter" data-level="C.8" data-path="videos.html"><a href="videos.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.8</b> Indexação de matrizes e dataframes</a></li>
-<li class="chapter" data-level="C.9" data-path="videos.html"><a href="videos.html#condicionais-1"><i class="fa fa-check"></i><b>C.9</b> Condicionais</a></li>
-<li class="chapter" data-level="C.10" data-path="videos.html"><a href="videos.html#funções-da-família-apply"><i class="fa fa-check"></i><b>C.10</b> Funções da família <code>apply(")</code></a></li>
-<li class="chapter" data-level="C.11" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>C.11</b> Funções de manipulação de pasta e arquivos</a></li>
-<li class="chapter" data-level="C.12" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>C.12</b> Funções de manipulação de texto - parte 01</a></li>
-<li class="chapter" data-level="C.13" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02</a></li>
-<li class="chapter" data-level="C.14" data-path="videos.html"><a href="videos.html#objetos-complexos"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos</a></li>
+<li class="chapter" data-level="C.1" data-path="importando-e-exportando-dados.html"><a href="importando-e-exportando-dados.html"><i class="fa fa-check"></i><b>C.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="C.2" data-path="criação-de-vetores-1.html"><a href="criação-de-vetores-1.html"><i class="fa fa-check"></i><b>C.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="C.3" data-path="classes-de-vetores-e-fatores.html"><a href="classes-de-vetores-e-fatores.html"><i class="fa fa-check"></i><b>C.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="C.4" data-path="sequências-numéricas-e-repetições-operações-e-funções-com-vetores.html"><a href="sequências-numéricas-e-repetições-operações-e-funções-com-vetores.html"><i class="fa fa-check"></i><b>C.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="C.5" data-path="listas-1.html"><a href="listas-1.html"><i class="fa fa-check"></i><b>C.5</b> Listas</a></li>
+<li class="chapter" data-level="C.6" data-path="criando-matrizes-1.html"><a href="criando-matrizes-1.html"><i class="fa fa-check"></i><b>C.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="C.7" data-path="criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes.html"><a href="criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes.html"><i class="fa fa-check"></i><b>C.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.8" data-path="indexação-de-matrizes-e-dataframes.html"><a href="indexação-de-matrizes-e-dataframes.html"><i class="fa fa-check"></i><b>C.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.9" data-path="condicionais-1.html"><a href="condicionais-1.html"><i class="fa fa-check"></i><b>C.9</b> Condicionais</a></li>
+<li class="chapter" data-level="C.10" data-path="funções-da-família-apply.html"><a href="funções-da-família-apply.html"><i class="fa fa-check"></i><b>C.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="C.11" data-path="funções-de-manipulação-de-pasta-e-arquivos.html"><a href="funções-de-manipulação-de-pasta-e-arquivos.html"><i class="fa fa-check"></i><b>C.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="C.12" data-path="funções-de-manipulação-de-texto---parte-01.html"><a href="funções-de-manipulação-de-texto---parte-01.html"><i class="fa fa-check"></i><b>C.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="C.13" data-path="funções-de-manipulação-de-texto---parte-02.html"><a href="funções-de-manipulação-de-texto---parte-02.html"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="C.14" data-path="objetos-complexos.html"><a href="objetos-complexos.html"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos</a></li>
 </ul></li>
 <li class="chapter" data-level="D" data-path="chernoff.html"><a href="chernoff.html"><i class="fa fa-check"></i><b>D</b> Caras de Chernoff</a></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
 
 </ul>
 
@@ -554,353 +551,24 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Curso básico de introdução à linguagem R</h1>
 <h2 class="subtitle"><em>Disciplina BOT89 - PPGBOT INPA</em></h2>
-<p class="author"><em><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=alunos:a.vicentini:inicio">Alberto Vicentini</a> (<a href="http://portal.inpa.gov.br/">INPA</a>)</em></p>
-<p class="author"><em><a href="https://www.ricardoperdiz.com">Ricardo de Oliveira Perdiz</a> - ricardoperdiz@yahoo.com</em></p>
-<p class="date"><em>Última atualização: 2022-11-10</em></p>
+<p class="author"><em>Alberto Vicentini e Ricardo de Oliveira Perdiz</em></p>
+<p class="date"><em>Última atualização: 2022-11-20</em></p>
 </div>
 <div id="prefácio" class="section level1 unnumbered hasAnchor">
 <h1>Prefácio<a href="index.html#prefácio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89) do <a href="http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/">Programa de Pós-Graduação em Ciências Biológicas (Botânica)</a> do INPA, ofertada desde o ano de 2011.</p>
-<p>Inicialmente, a disciplina consistiu de uma modificação da documentação do curso de <a href="http://ecor.ib.usp.br/doku.php">Introdução à Linguagem R</a> oferecida pelo <a href="https://posecologia.ib.usp.br/">Programa de Pós-graduação em Ecologia</a> do Instituto de Biociências da Universidade de São Paulo, atualmente ministrada pelo professor Dr. <a href="http://labtrop.ib.usp.br/">Alexandre Adalardo de Oliveira</a>, e que contem aulas de autoria dos professores Drs. A. A. de Oliveira, <a href="http://cmq.esalq.usp.br/">João Luís Ferreira Batista</a>, <a href="http://ecologia.ib.usp.br/let/doku.php?id=prado:start">Paulo Inácio K. L. Prado</a>, e <a href="https://sites.ffclrp.usp.br/ficus/equipe.htm">Rodrigo Augusto Santinelo Pereira</a> <span class="citation">(<a href="#ref-Batista2009" role="doc-biblioref">Batista, I., e Oliveira 2009</a>)</span>.
+<p>Inicialmente, a disciplina consistiu de uma modificação da documentação do curso de <a href="http://ecor.ib.usp.br/doku.php">Introdução à Linguagem R</a> oferecida pelo <a href="https://posecologia.ib.usp.br/">Programa de Pós-graduação em Ecologia</a> do Instituto de Biociências da Universidade de São Paulo, atualmente ministrada pelo professor Dr. <a href="http://labtrop.ib.usp.br/">Alexandre Adalardo de Oliveira</a>, e que contem aulas de autoria dos professores Drs. A. A. de Oliveira, <a href="http://cmq.esalq.usp.br/">João Luís Ferreira Batista</a>, <a href="http://ecologia.ib.usp.br/let/doku.php?id=prado:start">Paulo Inácio K. L. Prado</a>, e Rodrigo Augusto Santinelo Pereira <span class="citation">(<a href="#ref-Batista2009" role="doc-biblioref">Batista, I., e Oliveira 2009</a>)</span>.
 Como exemplo, parte dos dados (dados de <a href="https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv">avistamento de aves no Cerrado</a> e <a href="https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv">Levantamento em Caixetais</a>) utilizados em nossas aulas são originários desta disciplina da Ecologia da USP.</p>
 <p>Modificações nessa estrutura foram feitas por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
 Ricardo Perdiz transpôs as aulas originais formatadas em <code>dokuwiki</code> para o formato <a href="https://rmarkdown.rstudio.com/">Rmarkdown</a>.
 Também fez correções e acrescentou (poucos) novos conteúdos.</p>
-<p>Nossa meta é prover uma introdução básica
-<!-- (a) passar uma noção geral sobre dados e metadados e como criar e manter um banco de dados de forma simples e organizada e que facilite seu uso posterior; -->
-da linguagem de programação R, que é extremamente poderosa para manipulação de dados, análises estatísticas, produção de gráficos e de documentos dinâmicos, e cujo domínio oferece um grande ganho de produtividade a todo cientista e facilita o entendimento de métodos analíticos.
+<p>Nossa meta é prover uma introdução básica da linguagem de programação R, que é extremamente poderosa para manipulação de dados, análises estatísticas, produção de gráficos e de documentos dinâmicos, e cujo domínio oferece um grande ganho de produtividade a todo cientista e facilita o entendimento de métodos analíticos.
 Ressaltamos que <strong>isto não é um curso de estatística</strong>.</p>
-<div id="estrutura-do-livro" class="section level2 unnumbered hasAnchor">
-<h2>Estrutura do livro<a href="index.html#estrutura-do-livro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="infobox warning">
-<p><strong>Nota</strong>: Este livro está em constante atualização. Você pode encontrar os arquivos de <strong>Rmarkdown</strong> que geraram este livro no endereço <a href="https://github.com/LABOTAM/IntroR/tree/main">https://github.com/LABOTAM/IntroR/tree/main</a>. Se você tiver alguma contribuição a fazer, seja na forma de correções, críticas, ou o desejo de contribuir ativamente com o projeto, sinta-se à vontade para <a href="https://github.com/LABOTAM/IntroR/issues">abrir um problema no repositório do livro</a>. Grato!</p>
 </div>
-<p>O livro está dividido em três partes.
-A primeira parte contem 10 capítulos e aborda os ensinamentos básicos para o usuário aprender a usar a linguagem como uma ferramenta científica.</p>
-<ul>
-<li><strong>Capítulo <a href="intro.html#intro">1</a></strong> aborda os aspectos básicos da linguagem R, o software que utilizamos para usar a linguagem, pacotes com funções, como solicitar ajuda sobre funções, dicas de organização das pastas, e o R como uma calculadora.</li>
-<li><strong>Capítulo <a href="vetores.html#vetores">2</a></strong> aborda a criação, indexação, e operações matemáticas com vetores no R.</li>
-<li><strong>Capítulo <a href="mat-dframe.html#mat-dframe">3</a></strong> aborda a criação, indexação, filtragem, importação e exportação de matrizes e data.frames.</li>
-<li><strong>Capítulo <a href="lista-objcompl.html#lista-objcompl">4</a></strong> ensina a criar, indexar, e filtrar listas e objetos complexos.</li>
-<li><strong>Capítulo <a href="func-graf.html#func-graf">5</a></strong> aborda as funções gráficas do pacote <code>base</code> do R.</li>
-<li><strong>Capítulo <a href="iter-cflux.html#iter-cflux">6</a></strong> aborda dois conceitos chave em qualquer linguagem de programação: iteração e controles de fluxo.</li>
-<li><strong>Capítulo <a href="sumar-dados.html#sumar-dados">7</a></strong> abrange o tópico de sumarização de dados, explicando tabelas de contagem, tabelas dinâmicas e junção de tabelas.<!-- NOTA! Junção de tabelas não parece se encaixar aqui, hein, Beto? --></li>
-<li><strong>Capítulo <a href="manip-txt-arq-pasta.html#manip-txt-arq-pasta">8</a></strong> ensina ferramentas básicas para a manipulação de textos, arquivos e pastas.</li>
-<li><strong>Capítulo <a href="amost-aleat.html#amost-aleat">9</a></strong> ensina de maneira breve funções para amostragens aleatórias e distribuições de valores.</li>
-<li><strong>Capítulo <a href="extr-dados.html#extr-dados">10</a></strong> abrange o uso de funções customizadas para extração de variáveis morfológicas de notas de texto obtidas de espécimes de plantas.</li>
-</ul>
-<p>A segunda parte contem tutoriais curtos de análise exploratória de dado (AED).
-A AED <strong>deve ser iniciada ainda durante a coleta de dados</strong>, pois através dela podemos conhecer nossos dados e acompanhar como estamos coletando esses dados.
-AED baseia-se largamente em técnicas visuais (gráficos) e pode levar entre 20 a 50% do tempo das análises.
-Os capítulos abaixo exemplificam algumas ferramentas do R para fazer AED:</p>
-<ul>
-<li><strong>Capítulo <a href="aed-checa-dados.html#aed-checa-dados">11</a></strong> aborda a checagem inicial dos dados.</li>
-<li><strong>Capítulo <a href="aed-univar.html#aed-univar">12</a></strong> aborda a AED em dados univariados.</li>
-<li><strong>Capítulo <a href="aed-bivar.html#aed-bivar">13</a></strong> aborda a AED em dados biivariados.</li>
-<li><strong>Capítulo <a href="aed-multivar.html#aed-multivar">14</a></strong> aborda a AED em dados multivariados.</li>
-</ul>
-<p>Por fim, temos o apêndice contendo materiais suplementares:</p>
-<ul>
-<li><strong>Apêndice <a href="base-tidyverse.html#base-tidyverse">A</a></strong> inclui uma discussão breve sobre o universo de pacotes conhecidos como <a href="https://www.tidyverse.org/">Tidyverse</a>, comparando-os com o pacote <code>base</code> do R.</li>
-<li><strong>Apêndice <a href="unzip.html#unzip">B</a></strong> apresenta um tutorial para baixar e descomprimir arquivos <code>.zip</code> dentro R.</li>
-<li><strong>Apêndice <a href="videos.html#videos">C</a></strong> apresenta uma lista de vídeos gravados por nós, autores, abordando diversos tópicos deste livro e que podem auxiliar o aprendizado da linguagem.<br />
-</li>
-<li><strong>Apêndice <a href="chernoff.html#chernoff">D</a></strong> apresenta um código para gerar as <a href="http://www.fics.edu.br/index.php/augusto_guzzo/article/view/67/78">caras de Chernoff</a>, que é uma maneira divertida de aprender a lidar com dados multivariados.</li>
-</ul>
-<!-- Outra maneira é usar a opção de editar os arquivos fonte diretamente no GitHub, acessando o botão **Edit** disponível na versão digital do livro. -->
-<!-- Ao optar por esse caminho, você será levado à página do código fonte e poderá editar o arquivo diretamente no GitHub. -->
-<!-- Após as modificações, você terá a possibilidade de gerar um **[Pull request](https://docs.github.com/pt/github/collaborating-with-issues-and-pull-requests/about-pull-requests)** que será analisado por nós. -->
-<!-- Caso aceitemos a modificação proposta, seu nome será incluído entre os contribuidores do livro.   -->
-</div>
-<div id="sobre-os-autores" class="section level2 unnumbered hasAnchor">
-<h2>Sobre os autores<a href="index.html#sobre-os-autores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Alberto é doutor em Ecologia, Evolução e Sistemática, com uma ênfase em Evolução pela Universidade do Missouri, Saint Louis (University of Missouri Saint Louis).
-É cientista do Instituto Nacional de Pesquisas da Amazônia (INPA) desde o ano de 2009.
-Ministra anualmente disciplinas ligadas ao Programa de pós-graduação em Ciências Biológicas do INPA, como <strong>Preparação de dados para análises Estáticas - Introdução ao uso de linguagem R (BOT-89)</strong>, <strong>Delineamento Experimental e Amostral (BOT-90)</strong>, e <strong>Teoria e Prática de Sistemática Filogenética (BOT-99)</strong>.
-É colíder do grupo de pesquisa <a href="http://dgp.cnpq.br/dgp/espelhogrupo/38425">Ecologia e Evolução de Plantas da Amazônia</a> do Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq).</p>
-<p>Ricardo (ricardoperdiz.com) é formado em Ciências Biológicas pela Universidade Estadual de Santa Cruz (UESC), mestre em Botânica pela Universidade Estadual de Feira de Santana (UEFS) e doutor em Ciências Biológicas (Botânica) pelo INPA.
-Seus principais interesses são estar e se divertir com a família, trabalhar na floresta coletando e admirando a beleza da Natureza, trabalhar no herbário e laboratório, e também adora se divertir na frente do computador analisando dados e escrevendo.
-Seu esporte favorito é o basquete e a natação, apesar de não praticar ambos há algum tempo.
-Pescar também é apreciado, apesar de o peixe não ser pescado, somente admirado!</p>
-<!-- incluir aqui a autores.Rmd - pedir ao Beto para revisar o texto XXX-->
-</div>
-<div id="agradecimentos" class="section level2 unnumbered hasAnchor">
-<h2>Agradecimentos<a href="index.html#agradecimentos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Agradecemos aos Drs. Alexandre Oliveira, João Luís Ferreira Batista, Paulo Inácio K. L. Prado, e Rodrigo Augusto Santinelo Pereira, por permitirem o uso de conteúdo parcial da disciplina introdutória ministrada por eles na USP como base para a criação deste livro.</p>
-</div>
-<div id="pré-requisitos" class="section level2 unnumbered hasAnchor">
-<h2>Pré-requisitos<a href="index.html#pré-requisitos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Devido ao modo como foi construído, este livro pode ser tanto lido quanto “executado”, uma vez que seus arquivos são o que chamamos de <em>Rmarkdown</em>, uma linguagem que mistura texto com código.
-Sendo assim, o livro pode ser visualizado em computadores, em celulares modernos, e em <em>tablets</em>.
-Não é necessário ter um computador próprio, apesar de que possuir um facilita o aprendizado.
-Entendemos que nosso país ainda carece de muito investimento na melhora da qualidade de vida da população em geral, o que inclui acesso facilitado aos bens de informática.
-Desta forma, providenciamos duas maneiras de o leitor deste livro fazer bem uso das informações aqui contidas.</p>
-</div>
-<div id="caso-você-possua-um-computador" class="section level2 unnumbered hasAnchor">
-<h2>Caso você possua um computador<a href="index.html#caso-você-possua-um-computador" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="instale-o-r" class="section level3 unnumbered hasAnchor">
-<h3>Instale o R<a href="index.html#instale-o-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Baixe e instale o <a href="https://www.r-project.org/">R</a>, próprio para o seu sistema operacional.</p>
-</div>
-<div id="instale-um-ambiente-de-desenvolvimento-integrado---ide" class="section level3 unnumbered hasAnchor">
-<h3>Instale um ambiente de desenvolvimento integrado - IDE<a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Recomendamos que o software <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a> seja instalado no seu computador, pois ele foi criado facilitar a interação do usuário com os múltiplos recursos oferecidos pela linguagem, em especial os inúmeros pacotes desenvolvidos por funcionários desta empresa, entre os quais se inclui o pacote <a href="https://github.com/rstudio/bookdown">bookdown</a>, utilizado para construir este livro online.
-Ademais, ambientes de desenvolvimento integrado (do inglês <em>Integrated Development Environment</em>, <strong>IDE</strong>) como este software têm o objetivo de prover ao usuário mais ferramentas na interação entre o código e o resultado da execução do código, além de facilitar o uso de ferramentas alternativas para construção de texto mesclado com códigos (e.g., LaTeX, Markdown etc), o que permite uma dinamicidade na construção de textos acadêmicos.</p>
-<p>Existem outras alternativas de software, tais como o <a href="https://atom.io/">Atom</a> e o <a href="https://code.visualstudio.com/">Visual Studio Code</a>. Fique à vontade para escolher.</p>
-</div>
-<div id="baixe-os-pacotes-abaixo" class="section level3 unnumbered hasAnchor">
-<h3>Baixe os pacotes abaixo<a href="index.html#baixe-os-pacotes-abaixo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Serão necessários o uso de alguns pacotes de R (veja seção <a href="intro.html#base-pacotes">1.3</a> para entender o que são pacotes de R) para poder fazer uso tanto do repositório localmente quanto fazer uso das próprias aulas.
-Então, rode o comando abaixo para instalar esses pacotes em seu computador:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;rmarkdown&#39;</span>, <span class="st">&#39;bookdown&#39;</span>, <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;kableExtra&#39;</span>, <span class="st">&#39;ape&#39;</span>, <span class="st">&#39;labdsv&#39;</span>, <span class="st">&#39;vegan&#39;</span>, <span class="st">&#39;maps&#39;</span>, <span class="st">&#39;readxl&#39;</span>, <span class="st">&#39;readr&#39;</span>, <span class="st">&#39;data.table&#39;</span>, <span class="st">&#39;rgdal&#39;</span>, <span class="st">&#39;taxize&#39;</span>))</span></code></pre></div>
-<p>Há uma lista de pacotes que serão utilizados apenas no apêndice <a href="base-tidyverse.html#base-tidyverse">A</a>.
-Eles não são necessários para acompanhar o curso, mas caso você chegue a este apêndice, eles serão necessários.
-Portanto, caso queira já instalá-los, execute o comando abaixo:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;ggplot2&#39;</span>, <span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;tibble&#39;</span>, <span class="st">&#39;tidyr&#39;</span>, <span class="st">&#39;purrr&#39;</span>, <span class="st">&#39;magrittr&#39;</span>))</span></code></pre></div>
-</div>
-<div id="baixe-o-repositório-para-seu-computador" class="section level3 unnumbered hasAnchor">
-<h3>Baixe o repositório para seu computador<a href="index.html#baixe-o-repositório-para-seu-computador" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Acesse a <a href="https://github.com/LABOTAM/IntroR">página do repositório</a> contendo os código fonte deste livro (Fig. <a href="index.html#fig:repo">0.1</a>).</p>
-<div class="figure"><span style="display:block;" id="fig:repo"></span>
-<img src="figuras/repo.png" alt="Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro." width="640" />
-<p class="caption">
-Figura 0.1: Imagem inicial do repositório hospedado no GitHub contendo o código fonte deste livro.
-</p>
-</div>
-<p>Busque um botão de cor <strong>verde</strong> chamado <em>Code</em> (Fig. <a href="index.html#fig:baixa-repo">0.2</a>).
-Clique neste botão e aparecerão algumas opções.
-Clique no botão <strong>Download Zip</strong>, destacado em vermelho na figura <a href="index.html#fig:baixa-repo">0.2</a>, e escolha onde você quer salvar o arquivo.</p>
-<div class="figure"><span style="display:block;" id="fig:baixa-repo"></span>
-<img src="figuras/baixa_repo.png" alt="Destaque do botão *Code* (retângulo **azul** pontilhado circundando o botão, com uma seta **azul** apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor **vermelha** destacando a opção **Download Zip**." width="640" />
-<p class="caption">
-Figura 0.2: Destaque do botão <em>Code</em> (retângulo <strong>azul</strong> pontilhado circundando o botão, com uma seta <strong>azul</strong> apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor <strong>vermelha</strong> destacando a opção <strong>Download Zip</strong>.
-</p>
-</div>
-<p>Após baixar, descomprima este arquivo <code>.zip</code>, escolha onde você deseja guardar a pasta, e comece a acessar os arquivos.</p>
-<p>Os arquivos contendo cada capítulo deste livro são listados abaixo e podem ser encontrados na <a href="https://github.com/LABOTAM/IntroR">página inicial do repositório</a>:</p>
-<pre><code>## 01-intro.Rmd
-## 02-vetores.Rmd
-## 03-matrizes_dframes.Rmd
-## 04-listas_objComplexos.Rmd
-## 05-funcoes_graficas.Rmd
-## 06-iteracoes_controleFluxo.Rmd
-## 07-sumarizacao_dados.Rmd
-## 08-manip_txt_arqs_pasta.Rmd
-## 09-amostragens_aleatorias.Rmd
-## 10-extracao_dados.Rmd
-## 11-aed_checadados.Rmd
-## 12-aed_checaunivar.Rmd
-## 13-aed_checabivar.Rmd
-## 14-aed_checamultivar.Rmd
-## 15-tidyverse.Rmd
-## 16-baixa_descomprime.Rmd
-## 17-videos.Rmd
-## 18-chernoff.Rmd
-## 19-referencias.Rmd</code></pre>
-<p>Você pode tanto utilizar os arquivos escritos em formato <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio">Rmarkdown</a> e executar os códigos em cada célula de código (<strong>code chunks</strong>) ou usar os scripts contidos na pasta <code>codigo</code>, que nada mais são do que os capítulos do livro convertidos para um script de R, isto é, em formato <code>.R</code>.
-Nesses scripts, todos os pedaços de texto, incluindo cabeçalhos e comentários estão precedidos de <code>#'</code>; o que for código aparecerá sem <code>#'</code> precedentes.
-Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repositório.</p>
-<ul>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/01-intro.R">01-intro.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/02-vetores.R">02-vetores.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/03-matrizes_dframes.R">03-matrizes_dframes.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/04-listas_objComplexos.R">04-listas_objComplexos.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/05-funcoes_graficas.R">05-funcoes_graficas.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/06-iteracoes_controleFluxo.R">06-iteracoes_controleFluxo.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/07-sumarizacao_dados.R">07-sumarizacao_dados.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/08-manip_txt_arqs_pasta.R">08-manip_txt_arqs_pasta.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/09-amostragens_aleatorias.R">09-amostragens_aleatorias.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/10-extracao_dados.R">10-extracao_dados.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/11-aed_checadados.R">11-aed_checadados.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/12-aed_checaunivar.R">12-aed_checaunivar.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/13-aed_checabivar.R">13-aed_checabivar.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/14-aed_checamultivar.R">14-aed_checamultivar.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/15-tidyverse.R">15-tidyverse.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/16-baixa_descomprime.R">16-baixa_descomprime.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/17-videos.R">17-videos.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/18-chernoff.R">18-chernoff.R</a></li>
-<li><a href="https://github.com/LABOTAM/IntroR/tree/main/codigo/19-referencias.R">19-referencias.R</a></li>
-</ul>
-</div>
-</div>
-<div id="caso-você-não-possua-um-computador" class="section level2 unnumbered hasAnchor">
-<h2>Caso você não possua um computador<a href="index.html#caso-você-não-possua-um-computador" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O Google oferece um serviço chamado <a href="https://research.google.com/colaboratory/faq.html">Google Colab</a> que pode ser utilizado em computadores, em celulares modernos com acesso à internet e possuídores de um navegador, e em tablets.</p>
-<p>Em breve, apresentaremos aqui um endereço contendo todo o conteúdo deste livro já convertido para o formato de um Jupyter Notebook, que é o modelo de arquivo utilizado pelo Google Colab.</p>
-<!-- Nós convertemos o conteúdo deste livro para um Jupyter Notebook e o colocamos nesta plataforma. -->
-<!-- Você pode acessar este arquivo pelo endereço XXX INCLUIR ENDERECO AQUI. -->
-<!-- Por ser uma ferramenta nova, nós não sabemos de possíveis erros que possam ocorrer ao executar os comandos deste livro nesta plataforma. -->
-<!-- Caso você encontre algum erro, abra um problema em nosso repositório e nos informe do ocorrido.   -->
-</div>
-<div id="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar" class="section level2 unnumbered hasAnchor">
-<h2>O que é o R e por qual razão você deve se preocupar em programar<a href="index.html#o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="o-r-em-poucas-palavras" class="section level3 unnumbered hasAnchor">
-<h3>O R em poucas palavras<a href="index.html#o-r-em-poucas-palavras" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<blockquote>
-<p><em>O R é um software livre e gratuito de desenvolvimento coletivo e é muito útil para quem trabalha com ciências e precisa manipular e analisar dados, gerar gráficos e publicações dinâmicas. Tem uma comunidade enorme de usuários e colaboradores e está disponível gratuitamente em diversos repositórios espalhados pelo mundo</em> (<a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>).</p>
-</blockquote>
-<blockquote>
-<p><em>O R foi criado para permitir a melhor e mais ampla exploração de dados possível, (…) mas sempre explicando a natureza dos métodos utilizados, num formato aberto (livre) e compreensível</em> <span class="citation">(<a href="#ref-Chambers2008" role="doc-biblioref">Chambers 2008</a>)</span>.</p>
-</blockquote>
-<blockquote>
-<p><em>O R é uma linguagem de programação; você conversa com o R através de um código</em>.</p>
-</blockquote>
-<blockquote>
-<p>Por ser uma linguagem de programação, <strong>no R você pode fazer tudo</strong>. A pergunta não é sobre <strong>SE</strong> o R faz alguma coisa, mas <strong>COMO</strong> fazer no R alguma coisa. E há várias maneiras de fazer a mesma coisa no R. É fundamental aprender a falar R, pois sabendo falar você pode dizer do seu jeito.</p>
-</blockquote>
-<blockquote>
-<p><em>Todo estudante de ciências deveria aprender a programar, porque programar lhe ensina a pensar</em> (Steve Jobs). Usar o R é a melhor forma de aprender estatística porque você precisa de fato entender o que está fazendo ao escrever um código.</p>
-</blockquote>
-<blockquote>
-<p><strong>Aprender a programar é como aprender um novo idioma</strong>; aprendendo o R fica mais fácil aprender outras linguagens de programação e lhe ajuda a aprender inglês, e o inglês lhe facilita falar R.</p>
-</blockquote>
-<blockquote>
-<p><strong>O R é uma fantástica ferramenta para fazer gráficos</strong>; veja exemplos em <a href="http://www.r-graph-gallery.com" class="uri">http://www.r-graph-gallery.com</a>.</p>
-</blockquote>
-<blockquote>
-<p>Com o desenvolvimento da linguagem na última década, você pode gerar aplicativos (<a href="https://shiny.rstudio.com/">Shiny</a>) e relatório dinâmicos usando <a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio">Rmarkdown</a>, facilitando a formatação gráfica e a reprodutibilidade dos seus artigos, relatórios e projetos científicos.</p>
-</blockquote>
-</div>
-<div id="por-que-programar" class="section level3 unnumbered hasAnchor">
-<h3>Por que programar?<a href="index.html#por-que-programar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<blockquote>
-<p>A maioria dos programas de computador não é muito boa. O código no seu laptop, televisor, telefone, carro é geralmente mal documentado, inconsistente e pouco testado. Por que isso importa para a ciência? Porque transformar dados brutos (<code>raw data</code>) em artigos científicos geralmente requer um pouco de programação, o que significa que a maioria dos cientistas escreve software (Nick Barnes, 2010, <a href="http://www.nature.com/news/2010/101013/full/467753a.html">Publish your computer code</a>, Nature News).</p>
-</blockquote>
-<blockquote>
-<p><strong>É tentador tratar todas as coisas como se fossem pregos, se a única ferramenta que você tem é um martelo</strong> (Abraham Maslow, 1996, <a href="https://en.wikipedia.org/wiki/Law_of_the_instrument">Lei do Instrumento</a>)! Liberte-se da camisa de força dos softwares de estatística que limitam as análises que você pode fazer e como pode fazer.</p>
-</blockquote>
-<blockquote>
-<p><em>Um dos objetivos da análise estatística é o de destilar um conjunto longo e complicado de dados em um número pequeno de estatísticas descritivas que façam sentido. Muitos dos pacotes estatísticos de computadores modernos, no entanto, fazem exatamente o oposto disso. Eles produzem automaticamente um número excessivo de resultados que termina sendo aceito sem crítica; pode levar à super interpretação dos dados; e incentiva o mal hábito de <strong>jogar dados e cuspir resultados</strong> (data trawling). O R, por outro lado, não lhe diz nada a não ser aquilo que você peça explicitamente</em> <span class="citation">(<a href="#ref-Crawley2007" role="doc-biblioref">Crawley 2007</a>)</span>.</p>
-</blockquote>
-<blockquote>
-<p>(…) aprender a programar é importante porque desenvolve habilidades analíticas e de resolução de problemas. É uma atividade criativa, um meio de expressar idéias abstratas. Assim, programar é divertido e é muito mais do que uma habilidade profissional. Ao projetar programas, aprendemos muitas habilidades que são importantes para todas as profissões. Essas habilidades podem ser resumidas como: (1) Leitura crítica, (2) Pensamento analítico, (3) Síntese criativa (<a href="http://programmingstage.blogspot.com.br/2012/05/why-programming-is-important.html">Why programming is important</a>).</p>
-</blockquote>
-<blockquote>
-<p><em>Uma das coisas mais importantes que você (como cientista) pode fazer é dedicar um tempo para aprender uma linguagem de programação de verdade. Aprender a programar é como aprender outro idioma: exige tempo e treinamento, e não há resultados práticos imediatos. Mas se você supera essa primeira subida íngreme da curva de aprendizado, os ganhos como cientista são enormes. Programar não vai apenas livrar você da camisa de força dos pacotes estatísticos, mas também irá aguçar suas habilidades analíticas e ampliar os horizontes de modelagem (..) e estatística</em> <span class="citation">(<a href="#ref-Gotelli2013" role="doc-biblioref">Gotelli e Ellison 2013</a>)</span>.</p>
-</blockquote>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="figuras/aprendizadogeekvsnongeek.png" alt="Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek)." width="101%" />
-<p class="caption">
-Figura 0.3: Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek).
-</p>
-</div>
-</div>
-</div>
-<div id="análise-exploratória-de-dados-aed" class="section level2 unnumbered hasAnchor">
-<h2>Análise exploratória de dados (AED)<a href="index.html#análise-exploratória-de-dados-aed" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="o-que-é-aed-e-por-que-fazer-aed" class="section level3 unnumbered hasAnchor">
-<h3>O que é AED e por que fazer AED?<a href="index.html#o-que-é-aed-e-por-que-fazer-aed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<blockquote>
-<p>Em estatística, análise exploratória de dados (AED) é uma abordagem para analisar conjuntos de dados visando resumir as suas principais características, particularmente com métodos gráficos e visuais.
-Um modelo estatístico pode ou não ser usado, mas AED objetiva principalmente ver o que os dados podem nos dizer para além da modelagem ou de testes de hipóteses. A AED foi promovida por <a href="https://en.wikipedia.org/wiki/John_Tukey">John Tukey</a> para incentivar estatísticos a explorar dados e, eventualmente, formular novas hipóteses que possam levar à nova coleta de dados e a experimentos.
-AED é diferente de análise de dados inicial (AID), que foca mais estreitamente na verificação de suposições necessárias aos modelos de testes de hipóteses, manipulação de valores ausentes e transformações de variáveis, conforme necessário.
-AED abrange AID (Texto traduzido da <a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis">WikiPedia</a>).</p>
-</blockquote>
-<p><img src="figuras/aed.png" width="100%" /></p>
-<blockquote>
-<p>Muitas vezes esquecemos como funciona a ciência e a engenharia. Idéias vêm mais frequentemente de exploração anterior do que de descargas atmosféricas. (…) <strong>Encontrar a pergunta é muitas vezes mais importante do que encontrar a resposta</strong>. Análise exploratória de dados é uma atitude, uma flexibilidade que depende de visualização gráfica, não é um conjunto de técnicas <span class="citation">(<a href="#ref-Tukey1980" role="doc-biblioref">Tukey 1980</a>)</span>.</p>
-</blockquote>
-<p>Em sistemática e taxonomia, uma ciência histórica, a análise exploratória é fundamental, pois é através dela que podemos postular boas hipóteses e usar teste de hipóteses para confirmá-las.</p>
-<blockquote>
-<p>Aplicar a análise exploratória de dados para criar hipóteses e então usar os mesmos dados para testar essas hipóteses deve ser evitado.
-Se alguém tem conhecimento <em>a priori</em> limitado, então uma abordagem válida é criar dois conjuntos de dados: aplicar exploração de dados sobre o primeiro conjunto para criar hipóteses e usar o segundo conjunto de dados para testar essas hipóteses .
-Tal processo, no entanto, só é prático para conjuntos de dados grandes.
-Independentemente da situação específica, o uso constante e a estruturação de relatórios transparentes de exploração sistemática de dados melhorariam a qualidade da pesquisa ecológica e de quaisquer recomendações que ela produziria <span class="citation">(<a href="#ref-Zuuretal2010" role="doc-biblioref">Zuur, Ieno, e Elphick 2010</a>)</span>.</p>
-</blockquote>
-<p>A análise exploratória não é <em>dragagem</em> de dados! Assume-se que o pesquisador formulou hipóteses biológicas plausíveis <em>a priori</em> amparadas pela teoria.</p>
-</div>
-<div id="objetivos-da-aed" class="section level3 unnumbered hasAnchor">
-<h3>Objetivos da AED<a href="index.html#objetivos-da-aed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Controlar a qualidade dos dados;</li>
-<li>Sugerir hipóteses para os padrões observados (novos estudos);</li>
-<li>Apoiar a escolha dos procedimentos estatísticos de testes de hipótese;</li>
-<li>Avaliar se os dados atendem às premissas dos procedimentos estatísticos escolhidos.</li>
-</ul>
-</div>
-<div id="para-ler" class="section level3 unnumbered hasAnchor">
-<h3>Para ler<a href="index.html#para-ler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dois artigos que você deveria ler: <span class="citation">Tukey (<a href="#ref-Tukey1980" role="doc-biblioref">1980</a>)</span> e <span class="citation">Zuur, Ieno, e Elphick (<a href="#ref-Zuuretal2010" role="doc-biblioref">2010</a>)</span>.</p>
-</div>
-</div>
-<div id="exercícios-no-notar" class="section level2 unnumbered hasAnchor">
-<h2>Exercícios no <strong>notaR</strong><a href="index.html#exercícios-no-notar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Ao fim de alguns capítulos, disponibilizaremos em seções chamadas <strong>Exercícios</strong> uma lista de endereços ligados ao <a href="http://www.lage.ib.usp.br/notar/index.php">notaR</a>, um sistema criado para auxiliar no aprendizado da linguagem R desenvolvido pelo laboratório de Ecologia Teórica da Universidade de São Paulo <span class="citation">(<a href="#ref-Chalometal2012" role="doc-biblioref">Chalom et al. 2012</a>)</span>.</p>
-<div id="conhecendo-o-notar" class="section level3 unnumbered hasAnchor">
-<h3>Conhecendo o <strong>notaR</strong><a href="index.html#conhecendo-o-notar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Os exercícios do notaR obrigam o usuário a construir um script de R a partir de um enunciado, acabando por fugir do tradicional <strong>copia-cola</strong> de tutoriais de R.
-Muitos exercícios no sistema não obrigam o usuário a estar autenticado (estar logado usando login e senha) no sistema para poder fazê-los.
-Leia com atenção o enunciado de cada exercício antes de iniciar a construir o seu script.</p>
-<p>Uma lista de todos os exercícios <strong>notaR</strong> incluídos neste livro está relacionada abaixo:</p>
-<ul>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/29">101.01 Bem vindo ao notaR</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/15">101.05 Remoção Com Critério</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/19">102.04 Biomassa de Árvores</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/12">102.02 Sequências</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/4">102.03 Conta de Luz</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/17">102.01 Área Basal</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/5">102.05 Variância na Unha</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/18">101.03 Objetos de Data</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/23">103.01 Distância entre cidades</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/2">103.02 Criação de um data frame</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/13">103.03 Criando uma Matriz</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/66">302.02 Histogramas (frequência)</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/71">302.07 Gráficos com trechos selecionados do data.frame/matriz</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/67">302.04 Box-plots</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/69">302.05 Gráficos de dispersão</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/70">302.06 Matriz de dispersão</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/75">Editando parâmetros gráficos</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/14">104.01 Sintetizando dados</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/21">103.05 Classes de Objetos</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/22">103.04 Lendo e salvando seus dados</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/34">103.7 Cara ou coroa</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/37">103.9 Lembrando matrizes e listas</a>.</li>
-</ul>
-<!-- Alunos inscritos na disciplina precisam estar autenticados para fazer os exercícios obrigatórios. O login de cada aluno inscrito na disciplina é o seu email informado na inscrição e a senha será informada pelos professores. Outros exercícios são opcionais e qualquer pessoa pode entrar no site e fazer exercícios sem autenticação. -->
-<!-- Avaliação será baseada em: -->
-<!-- Notas nos exercícios feitos no NotaR e indicados noTutorial de Introdução ao R. -->
-<!-- Para validar a nota precisa estar logado no sistema. -->
-<!-- Login, senha e prazos serão informados na sala virtual; -->
-<!-- Entrega de uma análise exploratória de dados, seus ou dados que serão disponibilizados para a disciplina; -->
-</div>
-</div>
-<div id="referências-úteis" class="section level2 unnumbered hasAnchor">
-<h2>Referências úteis<a href="index.html#referências-úteis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Listamos abaixo algumas referências importantes para complementar o seu estudo:</p>
-<ul>
-<li><a href="http://ecologia.ib.usp.br/bie5782/doku.php?id=bie5782:02_tutoriais:tutorial4:start">Apostila USP-BIE-5782</a>.</li>
-<li><a href="https://cran.r-project.org/doc/manuals/R-intro.html">Introdução ao R no site do R</a>.</li>
-<li><a href="https://6e938257-ec28-4b42-9917-4ed33b2f1d0b.filesusr.com/ugd/e086b2_0d0de99bbb204ca68e079b4ae11b87d6.docx?dn=A_apostila_de_introdu%C3%A7%C3%A3o_ao_R_vers%C3%A3o_6.3.1_2018.docx">Introdução ao uso do programa R de Victor Landeiro e Fabricio Baccaro</a>.</li>
-<li><a href="http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio">Relatórios dinâmicos com R Markdown</a>.</li>
-</ul>
-
-</div>
-</div>
-
-
-
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Batista2009" class="csl-entry">
-Batista, J. L. F., Prado P. I., e A. A. Oliveira, orgs. 2009. <em><span>Introdução ao R - Uma Apostila online</span></em>. Universidade de São Paulo. <a href="http://ecologia.ib.usp.br/bie5782">http://ecologia.ib.usp.br/bie5782</a>.
-</div>
-<div id="ref-Chalometal2012" class="csl-entry">
-Chalom, A., M. Salles, P. I. Prado, e A. Adalardo. 2012. <em>notaR - Um sistema para notas automatizadas em cursos que utilizam a linguagem R (Version 2.0)</em>. <a href="https://github.com/lageIBUSP/notaR">https://github.com/lageIBUSP/notaR</a>.
-</div>
-<div id="ref-Chambers2008" class="csl-entry">
-Chambers, John M. 2008. <em>Programming with R</em>. Editado por W. Härdle e David Hand. Springer. <a href="https://doi.org/10.1007/978-0-387-75936-4">https://doi.org/10.1007/978-0-387-75936-4</a>.
-</div>
-<div id="ref-Crawley2007" class="csl-entry">
-Crawley, Michael J. 2007. <em><span>The R book</span></em>. John Wiley &amp; Sons, Ltd. <a href="https://doi.org/10.1002/9780470515075">https://doi.org/10.1002/9780470515075</a>.
-</div>
-<div id="ref-Gotelli2013" class="csl-entry">
-Gotelli, Nicholas J., e Aaron M. Ellison. 2013. <em><span>A Primer of Ecological Statistics</span></em>. 2º ed. Sinauer Associates.
-</div>
-<div id="ref-Tukey1980" class="csl-entry">
-Tukey, John W. 1980. <span>"We need both exploratory and confirmatory"</span>. <em>The American Statistician</em> 34 (1): 23–25. <a href="https://doi.org/10.1080/00031305.1980.10482706">https://doi.org/10.1080/00031305.1980.10482706</a>.
-</div>
-<div id="ref-Zuuretal2010" class="csl-entry">
-Zuur, Alain F., Elena N. Ieno, e Chris S. Elphick. 2010. <span>"A protocol for data exploration to avoid common statistical problems"</span>. <em>Methods in Ecology and Evolution</em> 1 (1): 3–14. <a href="https://doi.org/10.1111/j.2041-210X.2009.00001.x">https://doi.org/10.1111/j.2041-210X.2009.00001.x</a>.
+Batista, J. L. F., Prado P. I., e A. A. Oliveira. 2009. <em><span>Introdução ao R - Uma Apostila online</span></em>. <a href="http://ecologia.ib.usp.br/bie5782">http://ecologia.ib.usp.br/bie5782</a>.
 </div>
 </div>
             </section>
@@ -909,7 +577,7 @@ Zuur, Alain F., Elena N. Ieno, e Chris S. Elphick. 2010. <span>"A protocol for d
         </div>
       </div>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estrutura-do-livro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -924,8 +592,8 @@ Zuur, Alain F., Elena N. Ieno, e Chris S. Elphick. 2010. <span>"A protocol for d
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
+"github": true,
+"facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
@@ -951,7 +619,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
 "text": null
 },
-"download": null,
+"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
 "search": {
 "engine": "fuse",
 "options": null

@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12.1 Qual a distribuição dos valores numéricos? | Curso básico de introdução à linguagem R</title>
+  <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12.1 Qual a distribuição dos valores numéricos? | Curso básico de introdução à linguagem R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  <meta name="github-repo" content="LABOTAM/IntroR" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12.1 Qual a distribuição dos valores numéricos? | Curso básico de introdução à linguagem R" />
+  
+  <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
+  
+
+<meta name="author" content="Alberto Vicentini e Ricardo de Oliveira Perdiz" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="aed-univar.html"/>
+<link rel="next" href="tabelas-de-variáveis-categóricas.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
+<ul>
+<li class="chapter" data-level="" data-path="estrutura-do-livro.html"><a href="estrutura-do-livro.html"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="" data-path="agradecimentos.html"><a href="agradecimentos.html"><i class="fa fa-check"></i>Agradecimentos</a></li>
+<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i>Pré-requisitos</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html"><i class="fa fa-check"></i>Caso você possua um computador</a>
+<ul>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i>Baixe os pacotes abaixo</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="caso-você-não-possua-um-computador.html"><a href="caso-você-não-possua-um-computador.html"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><i class="fa fa-check"></i>O que é o R e por qual razão você deve se preocupar em programar</a>
+<ul>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#o-r-em-poucas-palavras"><i class="fa fa-check"></i>O R em poucas palavras</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#por-que-programar"><i class="fa fa-check"></i>Por que programar?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html"><i class="fa fa-check"></i>Análise exploratória de dados (AED)</a>
+<ul>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#o-que-é-aed-e-por-que-fazer-aed"><i class="fa fa-check"></i>O que é AED e por que fazer AED?</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#objetivos-da-aed"><i class="fa fa-check"></i>Objetivos da AED</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#para-ler"><i class="fa fa-check"></i>Para ler</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercícios-no-notar.html"><a href="exercícios-no-notar.html"><i class="fa fa-check"></i>Exercícios no <strong>notaR</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="exercícios-no-notar.html"><a href="exercícios-no-notar.html#conhecendo-o-notar"><i class="fa fa-check"></i>Conhecendo o <strong>notaR</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências-úteis.html"><a href="referências-úteis.html"><i class="fa fa-check"></i>Referências úteis</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sobre-os-autores.html"><a href="sobre-os-autores.html"><i class="fa fa-check"></i>Sobre os autores</a></li>
+<li class="part"><span><b>I Parte I</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="console-e-scripts.html"><a href="console-e-scripts.html"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="1.2" data-path="linguagem-objeto-orientada.html"><a href="linguagem-objeto-orientada.html"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="1.3" data-path="base-pacotes.html"><a href="base-pacotes.html"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="1.5" data-path="área-de-trabalho-vs.-pasta-de-trabalho.html"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="1.6" data-path="dicas-de-organização-do-trabalho.html"><a href="dicas-de-organização-do-trabalho.html"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="1.7" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><i class="fa fa-check"></i><b>1.7</b> Dicas de erros comuns de sintaxe da linguagem R</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#parênteses"><i class="fa fa-check"></i><b>1.7.1</b> Parênteses</a></li>
+<li class="chapter" data-level="1.7.2" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#vírgulas"><i class="fa fa-check"></i><b>1.7.2</b> Vírgulas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#aspas"><i class="fa fa-check"></i><b>1.7.3</b> Aspas</a></li>
+<li class="chapter" data-level="1.7.4" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#números"><i class="fa fa-check"></i><b>1.7.4</b> Números</a></li>
+<li class="chapter" data-level="1.7.5" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#nomes-de-objetos"><i class="fa fa-check"></i><b>1.7.5</b> Nomes de objetos</a></li>
+<li class="chapter" data-level="1.7.6" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#atribuição-de-objetos"><i class="fa fa-check"></i><b>1.7.6</b> Atribuição de objetos</a></li>
+<li class="chapter" data-level="1.7.7" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#busque-entender-as-partes"><i class="fa fa-check"></i><b>1.7.7</b> Busque entender as partes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html"><i class="fa fa-check"></i><b>1.8</b> O R como calculadora</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#operadores"><i class="fa fa-check"></i><b>1.8.1</b> Operadores</a></li>
+<li class="chapter" data-level="1.8.2" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.8.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="1.8.3" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.8.3</b> Funções e constantes matemáticas</a></li>
+<li class="chapter" data-level="1.8.4" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#valor-na"><i class="fa fa-check"></i><b>1.8.4</b> NA e valores afins</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="exercícios.html"><a href="exercícios.html"><i class="fa fa-check"></i><b>1.9</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="operações-matemáticas-com-vetores.html"><a href="operações-matemáticas-com-vetores.html"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="2.3" data-path="funções-com-vetores.html"><a href="funções-com-vetores.html"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
+<li class="chapter" data-level="2.4" data-path="classes.html"><a href="classes.html"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="2.5" data-path="indexacao.html"><a href="indexacao.html"><i class="fa fa-check"></i><b>2.5</b> Indexação</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="indexacao.html"><a href="indexacao.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="2.5.2" data-path="indexacao.html"><a href="indexacao.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="sabermais-vetores.html"><a href="sabermais-vetores.html"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
+<li class="chapter" data-level="2.8" data-path="exercícios-1.html"><a href="exercícios-1.html"><i class="fa fa-check"></i><b>2.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="3.1.2" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="3.3.2" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html"><i class="fa fa-check"></i><b>3.4</b> Importando e exportando dados no R</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="3.4.2" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="3.4.3" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="3.4.4" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="sabermais-indexacao-matrizes-dframes.html"><a href="sabermais-indexacao-matrizes-dframes.html"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
+<li class="chapter" data-level="3.6" data-path="exercícios-2.html"><a href="exercícios-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
+<li class="chapter" data-level="4.2" data-path="obj-complexos.html"><a href="obj-complexos.html"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="5.1.3" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="5.1.4" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
+<li class="chapter" data-level="5.1.6" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
+<li class="chapter" data-level="5.2.2" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
+<li class="chapter" data-level="5.2.3" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
+<li class="chapter" data-level="5.2.4" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="5.3.4" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="5.4.2" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="5.4.5" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="5.4.6" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="5.4.8" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="5.5.6" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="5.5.7" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="sabermais-disp-grafico.html"><a href="sabermais-disp-grafico.html"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
+<li class="chapter" data-level="5.8" data-path="exercícios-3.html"><a href="exercícios-3.html"><i class="fa fa-check"></i><b>5.8</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="func-apply.html"><a href="func-apply.html"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="func-apply.html"><a href="func-apply.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="6.1.2" data-path="func-apply.html"><a href="func-apply.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="6.1.3" data-path="func-apply.html"><a href="func-apply.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="condicionais.html"><a href="condicionais.html"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="condicionais.html"><a href="condicionais.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="condicionais.html"><a href="condicionais.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="condicionais.html"><a href="condicionais.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="iteracoes.html"><a href="iteracoes.html"><i class="fa fa-check"></i><b>6.3</b> Iterações</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="6.4.2" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="sabermais-condic.html"><a href="sabermais-condic.html"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="tabela-dinamica.html"><a href="tabela-dinamica.html"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="7.2" data-path="tabelas-de-contagem.html"><a href="tabelas-de-contagem.html"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="7.3" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="7.4.2" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="para-saber-mais.html"><a href="para-saber-mais.html"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
+<li class="chapter" data-level="7.6" data-path="exercícios-4.html"><a href="exercícios-4.html"><i class="fa fa-check"></i><b>7.6</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
+<li class="chapter" data-level="8.1.3" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
+<li class="chapter" data-level="8.1.4" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
+<li class="chapter" data-level="8.1.5" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
+<li class="chapter" data-level="8.1.6" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
+<li class="chapter" data-level="8.1.7" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
+<li class="chapter" data-level="8.1.8" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
+<li class="chapter" data-level="8.1.9" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
+<li class="chapter" data-level="8.1.10" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="manipulação-de-pastas-e-arquivos.html"><a href="manipulação-de-pastas-e-arquivos.html"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
+<li class="chapter" data-level="8.3" data-path="sabermais-manip-txt-arqs-fld.html"><a href="sabermais-manip-txt-arqs-fld.html"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="funções-para-gerar-permutações-e-simular-dados.html"><a href="funções-para-gerar-permutações-e-simular-dados.html"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="9.2" data-path="distribuições-aleatórias.html"><a href="distribuições-aleatórias.html"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="distribuições-aleatórias.html"><a href="distribuições-aleatórias.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="sabermais-distribuicoes.html"><a href="sabermais-distribuicoes.html"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+<li class="chapter" data-level="9.4" data-path="exercícios-5.html"><a href="exercícios-5.html"><i class="fa fa-check"></i><b>9.4</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dados-categóricos.html"><a href="dados-categóricos.html"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="10.1.2" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="10.1.3" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="listas-ref.html"><a href="listas-ref.html"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="listas-ref.html"><a href="listas-ref.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="10.2.2" data-path="listas-ref.html"><a href="listas-ref.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="10.2.3" data-path="listas-ref.html"><a href="listas-ref.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="10.2.4" data-path="listas-ref.html"><a href="listas-ref.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="10.2.5" data-path="listas-ref.html"><a href="listas-ref.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
+<li class="chapter" data-level="10.3.2" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
+<li class="chapter" data-level="10.4.2" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Parte II</b></span></li>
+<li class="chapter" data-level="11" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html"><i class="fa fa-check"></i><b>11</b> Checagem dos dados</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="tem-valores-ausentes.html"><a href="tem-valores-ausentes.html"><i class="fa fa-check"></i><b>11.1</b> Tem valores ausentes?</a></li>
+<li class="chapter" data-level="11.2" data-path="colunas-com-fatores.html"><a href="colunas-com-fatores.html"><i class="fa fa-check"></i><b>11.2</b> Colunas com fatores</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="aed-univar.html"><a href="aed-univar.html"><i class="fa fa-check"></i><b>12</b> AED de univariadas</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="qual-a-distribuição-dos-valores-numéricos.html"><a href="qual-a-distribuição-dos-valores-numéricos.html"><i class="fa fa-check"></i><b>12.1</b> Qual a distribuição dos valores numéricos?</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="qual-a-distribuição-dos-valores-numéricos.html"><a href="qual-a-distribuição-dos-valores-numéricos.html#dados-do-tutorial"><i class="fa fa-check"></i><b>12.1.1</b> Dados do tutorial</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="tabelas-de-variáveis-categóricas.html"><a href="tabelas-de-variáveis-categóricas.html"><i class="fa fa-check"></i><b>12.2</b> Tabelas de variáveis categóricas</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="tabelas-de-variáveis-categóricas.html"><a href="tabelas-de-variáveis-categóricas.html#resumo-de-gráficos-univariados"><i class="fa fa-check"></i><b>12.2.1</b> Resumo de gráficos univariados</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="as-variáveis-têm-distribuição-normal.html"><a href="as-variáveis-têm-distribuição-normal.html"><i class="fa fa-check"></i><b>12.3</b> As variáveis têm distribuição normal?</a></li>
+<li class="chapter" data-level="12.4" data-path="sabermais-aed-univariadas.html"><a href="sabermais-aed-univariadas.html"><i class="fa fa-check"></i><b>12.4</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="aed-bivar.html"><a href="aed-bivar.html"><i class="fa fa-check"></i><b>13</b> AED de bivariadas</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="dados-do-tutorial-1.html"><a href="dados-do-tutorial-1.html"><i class="fa fa-check"></i><b>13.1</b> Dados do tutorial</a></li>
+<li class="chapter" data-level="13.2" data-path="fatores-e-contagens.html"><a href="fatores-e-contagens.html"><i class="fa fa-check"></i><b>13.2</b> Fatores e contagens</a></li>
+<li class="chapter" data-level="13.3" data-path="variável-numérica-vs.-fator.html"><a href="variável-numérica-vs.-fator.html"><i class="fa fa-check"></i><b>13.3</b> Variável numérica vs. fator</a></li>
+<li class="chapter" data-level="13.4" data-path="variável-numérica-vs.-numérica.html"><a href="variável-numérica-vs.-numérica.html"><i class="fa fa-check"></i><b>13.4</b> Variável numérica vs. numérica</a></li>
+<li class="chapter" data-level="13.5" data-path="outros-gráficos-bivariados.html"><a href="outros-gráficos-bivariados.html"><i class="fa fa-check"></i><b>13.5</b> Outros gráficos bivariados</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="aed-multivar.html"><a href="aed-multivar.html"><i class="fa fa-check"></i><b>14</b> AED de multivariadas</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="matrizes-de-distância.html"><a href="matrizes-de-distância.html"><i class="fa fa-check"></i><b>14.1</b> Matrizes de distância</a></li>
+<li class="chapter" data-level="14.2" data-path="ordenação-com-matrizes-de-distância.html"><a href="ordenação-com-matrizes-de-distância.html"><i class="fa fa-check"></i><b>14.2</b> Ordenação com matrizes de distância</a></li>
+<li class="chapter" data-level="14.3" data-path="escalonamento-não-métrico-multimensional-nmds.html"><a href="escalonamento-não-métrico-multimensional-nmds.html"><i class="fa fa-check"></i><b>14.3</b> Escalonamento Não-Métrico Multimensional (NMDS)</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="escalonamento-não-métrico-multimensional-nmds.html"><a href="escalonamento-não-métrico-multimensional-nmds.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-pelo-método-da-mínima-variância"><i class="fa fa-check"></i><b>14.4.1</b> Agrupamento pelo método da mínima variância</a></li>
+<li class="chapter" data-level="14.4.2" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-por-upgma"><i class="fa fa-check"></i><b>14.4.2</b> Agrupamento por UPGMA</a></li>
+<li class="chapter" data-level="14.4.3" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-por-centróides"><i class="fa fa-check"></i><b>14.4.3</b> Agrupamento por centróides</a></li>
+<li class="chapter" data-level="14.4.4" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.4</b> Exemplo florístico</a></li>
+<li class="chapter" data-level="14.4.5" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.5</b> Análise de Coordenadas Principais (PCoA)</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="componentes-principais-pca.html"><a href="componentes-principais-pca.html"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)</a></li>
+</ul></li>
+<li class="appendix"><span><b>Apêndice</b></span></li>
+<li class="chapter" data-level="A" data-path="base-tidyverse.html"><a href="base-tidyverse.html"><i class="fa fa-check"></i><b>A</b> Base R vs. Tidyverse</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="o-que-é-o-tidyverse.html"><a href="o-que-é-o-tidyverse.html"><i class="fa fa-check"></i><b>A.1</b> O que é o Tidyverse?</a>
+<ul>
+<li class="chapter" data-level="A.1.1" data-path="o-que-é-o-tidyverse.html"><a href="o-que-é-o-tidyverse.html#dplyr-e-ggplot2-símbolos-do-tidyverse"><i class="fa fa-check"></i><b>A.1.1</b> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse</a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html"><i class="fa fa-check"></i><b>A.2</b> Usando o <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#selecionando-colunas-com-select"><i class="fa fa-check"></i><b>A.2.1</b> Selecionando colunas com <code>select()</code></a></li>
+<li class="chapter" data-level="A.2.2" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#filtrando-dados-com-filter"><i class="fa fa-check"></i><b>A.2.2</b> Filtrando dados com <code>filter()</code></a></li>
+<li class="chapter" data-level="A.2.3" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#destrinchando-as-funções-group_by-e-summarise"><i class="fa fa-check"></i><b>A.2.3</b> Destrinchando as funções <code>group_by</code> e <code>summarise</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html"><i class="fa fa-check"></i><b>A.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#com1"><i class="fa fa-check"></i><b>A.3.1</b> Conjunto de comandos 1</a></li>
+<li class="chapter" data-level="A.3.2" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#com2"><i class="fa fa-check"></i><b>A.3.2</b> Conjunto de comandos 2</a></li>
+<li class="chapter" data-level="A.3.3" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#pipe"><i class="fa fa-check"></i><b>A.3.3</b> Resumo do operador <code>%&gt;%</code>:</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="usando-o-ggplot2.html"><a href="usando-o-ggplot2.html"><i class="fa fa-check"></i><b>A.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="A.5" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html"><i class="fa fa-check"></i><b>A.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a>
+<ul>
+<li class="chapter" data-level="A.5.1" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#gráfico-de-espalhamento"><i class="fa fa-check"></i><b>A.5.1</b> Gráfico de espalhamento</a></li>
+<li class="chapter" data-level="A.5.2" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#diagrama-de-caixas"><i class="fa fa-check"></i><b>A.5.2</b> Diagrama de caixas</a></li>
+<li class="chapter" data-level="A.5.3" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#histograma"><i class="fa fa-check"></i><b>A.5.3</b> Histograma</a></li>
+</ul></li>
+<li class="chapter" data-level="A.6" data-path="baser.html"><a href="baser.html"><i class="fa fa-check"></i><b>A.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="A.6.1" data-path="baser.html"><a href="baser.html#e-o-uso-do-operador-com-o-pacote-base"><i class="fa fa-check"></i><b>A.6.1</b> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?</a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="tidyverse-um-resumo.html"><a href="tidyverse-um-resumo.html"><i class="fa fa-check"></i><b>A.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="A.8" data-path="sabermais-tidyverse.html"><a href="sabermais-tidyverse.html"><i class="fa fa-check"></i><b>A.8</b> Para saber mais:</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="unzip.html"><a href="unzip.html"><i class="fa fa-check"></i><b>B</b> Baixar e descomprimir um arquivo</a></li>
+<li class="chapter" data-level="C" data-path="videos.html"><a href="videos.html"><i class="fa fa-check"></i><b>C</b> Aulas em vídeo</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="importando-e-exportando-dados.html"><a href="importando-e-exportando-dados.html"><i class="fa fa-check"></i><b>C.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="C.2" data-path="criação-de-vetores-1.html"><a href="criação-de-vetores-1.html"><i class="fa fa-check"></i><b>C.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="C.3" data-path="classes-de-vetores-e-fatores.html"><a href="classes-de-vetores-e-fatores.html"><i class="fa fa-check"></i><b>C.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="C.4" data-path="sequências-numéricas-e-repetições-operações-e-funções-com-vetores.html"><a href="sequências-numéricas-e-repetições-operações-e-funções-com-vetores.html"><i class="fa fa-check"></i><b>C.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="C.5" data-path="listas-1.html"><a href="listas-1.html"><i class="fa fa-check"></i><b>C.5</b> Listas</a></li>
+<li class="chapter" data-level="C.6" data-path="criando-matrizes-1.html"><a href="criando-matrizes-1.html"><i class="fa fa-check"></i><b>C.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="C.7" data-path="criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes.html"><a href="criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes.html"><i class="fa fa-check"></i><b>C.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.8" data-path="indexação-de-matrizes-e-dataframes.html"><a href="indexação-de-matrizes-e-dataframes.html"><i class="fa fa-check"></i><b>C.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.9" data-path="condicionais-1.html"><a href="condicionais-1.html"><i class="fa fa-check"></i><b>C.9</b> Condicionais</a></li>
+<li class="chapter" data-level="C.10" data-path="funções-da-família-apply.html"><a href="funções-da-família-apply.html"><i class="fa fa-check"></i><b>C.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="C.11" data-path="funções-de-manipulação-de-pasta-e-arquivos.html"><a href="funções-de-manipulação-de-pasta-e-arquivos.html"><i class="fa fa-check"></i><b>C.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="C.12" data-path="funções-de-manipulação-de-texto---parte-01.html"><a href="funções-de-manipulação-de-texto---parte-01.html"><i class="fa fa-check"></i><b>C.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="C.13" data-path="funções-de-manipulação-de-texto---parte-02.html"><a href="funções-de-manipulação-de-texto---parte-02.html"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="C.14" data-path="objetos-complexos.html"><a href="objetos-complexos.html"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="chernoff.html"><a href="chernoff.html"><i class="fa fa-check"></i><b>D</b> Caras de Chernoff</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso básico de introdução à linguagem R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="qual-a-distribuição-dos-valores-numéricos" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Qual a distribuição dos valores numéricos?<a href="qual-a-distribuição-dos-valores-numéricos.html#qual-a-distribuição-dos-valores-numéricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="rmdquestion">
+<p>
+Onde os dados estão centrados? Como eles estão espalhados? Eles são
+simétricos, i.e., a distribuição é normal? São enviesados, bi-modais?
+Existem <a
+href="https://en.wikipedia.org/wiki/Outlier%7Coutlier">valores
+extremos</a>?
+</p>
+</div>
+<p>Já vimos <a href="vetores.html#vetores">algumas operações matemáticas com vetores</a> e também <a href="graf-alto-nivel.html#graf-alto-nivel">como usar as funções <code>hist()</code> e <code>boxplot()</code></a> para gerar figuras de distribuição de variáveis numéricas individualmente.
+Vimos também como fazer iterações usando <a href="func-apply.html#func-apply">funções da família <code>apply()</code></a>.
+Também já aprendemos sobre a função <code>summary()</code>, que faz um resumo de todas as variáveis nos seus dados e aqui vamos entender isso melhor, apresentando a função <code>quantile()</code>, que permite extrair os <a href="https://en.wikipedia.org/wiki/Quantile">quantis</a>, que são valores que dividem uma distribuição probabilística em intervalos iguais de probabilidade.
+Com essas ferramentas, podemos descrever a distribuição de nossas variáveis numéricas.</p>
+<div id="dados-do-tutorial" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> Dados do tutorial<a href="qual-a-distribuição-dos-valores-numéricos.html#dados-do-tutorial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vamos importar novamente os conjuntos de dados de <a href="https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv">avistamento de aves do cerrado</a> (utilizado no capítulo <a href="aed-checa-dados.html#aed-checa-dados">11</a>) e de <a href="https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv">parcelas em caixetais</a> (utilizado no capítulo <a href="sumar-dados.html#sumar-dados">7</a>):</p>
+<div class="sourceCode" id="cb1538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1538-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1538-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Lendo a planilha com read.table</span></span>
+<span id="cb1538-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1538-2" aria-hidden="true" tabindex="-1"></a>avesc <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;aves_cerrado.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="at">as.is =</span> T, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1539-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1539-1" aria-hidden="true" tabindex="-1"></a>caixeta <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;caixeta.csv&quot;</span>) <span class="do">## arquivo caixeta.csv deve estar no diretorio de trabalho</span></span>
+<span id="cb1539-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1539-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note que mantemos todos os argumentos padrão (veja o formato do arquivo caixeta)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1540-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1540-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Resumo estatistico: medias, media truncada e mediana, quantis</span></span>
+<span id="cb1540-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1540-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pegando apenas as variáveis numéricas</span></span>
+<span id="cb1540-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1540-3" aria-hidden="true" tabindex="-1"></a>avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ce1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce2
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce3
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce6
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce7
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce8
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce9
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce10
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce11
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce12
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce13
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce14
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce15
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce16
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce17
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce18
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce19
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ce20
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC1
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC2
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC3
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC4
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC5
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC6
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC7
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC8
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC9
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC10
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC11
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC12
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC13
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC14
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC15
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC16
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC17
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC18
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC19
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CC20
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL1
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL2
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL3
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL4
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL5
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL6
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL7
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL8
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL9
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL10
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL12
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL13
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL14
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL15
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL16
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL17
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL18
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL19
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CL20
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1541-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1541-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos fazer um resumo estatístico da distribuição de cada uma dessas colunas</span></span>
+<span id="cb1541-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1541-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+urubu
+</th>
+<th style="text-align:left;">
+carcara
+</th>
+<th style="text-align:left;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Min. : 2.00
+</td>
+<td style="text-align:left;">
+Min. : 3.00
+</td>
+<td style="text-align:left;">
+Min. : 2.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+1st Qu.: 7.00
+</td>
+<td style="text-align:left;">
+1st Qu.: 5.50
+</td>
+<td style="text-align:left;">
+1st Qu.: 4.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Median :12.00
+</td>
+<td style="text-align:left;">
+Median : 9.00
+</td>
+<td style="text-align:left;">
+Median : 5.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Mean :11.93
+</td>
+<td style="text-align:left;">
+Mean :10.25
+</td>
+<td style="text-align:left;">
+Mean : 5.345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+3rd Qu.:16.50
+</td>
+<td style="text-align:left;">
+3rd Qu.:14.00
+</td>
+<td style="text-align:left;">
+3rd Qu.: 6.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Max. :22.00
+</td>
+<td style="text-align:left;">
+Max. :24.00
+</td>
+<td style="text-align:left;">
+Max. :12.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+NA’s :1
+</td>
+<td style="text-align:left;">
+NA’s :1
+</td>
+<td style="text-align:left;">
+NA’s :2
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1542-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1542-1" aria-hidden="true" tabindex="-1"></a><span class="co"># essa função me retorna várias estatísticas da distribuição de cada variável</span></span>
+<span id="cb1542-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1542-2" aria-hidden="true" tabindex="-1"></a><span class="co"># os valores mínimos e máximos</span></span>
+<span id="cb1542-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1542-3" aria-hidden="true" tabindex="-1"></a><span class="co"># a tendência central pela média e pela mediana</span></span>
+<span id="cb1542-4"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1542-4" aria-hidden="true" tabindex="-1"></a><span class="co"># e o 1 e o 3 quartil, que juntamente com o mínimo, o máximo e mediana,</span></span>
+<span id="cb1542-5"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1542-5" aria-hidden="true" tabindex="-1"></a><span class="co"># indicam as divisões dos dados em quatro partes identicas (vamos ver isso melhor abaixo)</span></span>
+<span id="cb1542-6"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1542-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1542-7"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1542-7" aria-hidden="true" tabindex="-1"></a><span class="co"># funcao summary, mas não retorna por, exemplo, o desvio padrão ou a variância das colunas.</span></span></code></pre></div>
+<div class="sourceCode" id="cb1543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1543-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1543-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e não podemos fazer isso apenas com a função sd para todas as colunas</span></span>
+<span id="cb1543-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1543-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]) <span class="co"># ops deprecado (eu estou trabalhando com uma matriz)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1544-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1544-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas posso usar a funcao apply (para cada coluna, argumento MARGIN)</span></span>
+<span id="cb1544-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1544-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, sd, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    urubu  carcara  seriema 
+## 5.429372 5.383862 2.013566</code></pre>
+<div class="sourceCode" id="cb1546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1546-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1546-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary já retorna isso, mas eu poderia usar para qualquer funcao</span></span>
+<span id="cb1546-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1546-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, median, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##   urubu carcara seriema 
+##      12       9       5</code></pre>
+<div class="sourceCode" id="cb1548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1548-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##     urubu   carcara   seriema 
+## 11.932203 10.254237  5.344828</code></pre>
+<div class="sourceCode" id="cb1550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1550-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1550-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, min, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##   urubu carcara seriema 
+##       2       3       2</code></pre>
+<div class="sourceCode" id="cb1552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1552-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1552-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##   urubu carcara seriema 
+##      22      24      12</code></pre>
+<div class="sourceCode" id="cb1554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1554-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1554-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, quantile, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+urubu
+</th>
+<th style="text-align:right;">
+carcara
+</th>
+<th style="text-align:right;">
+seriema
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+0%
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25%
+</td>
+<td style="text-align:right;">
+7.0
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+50%
+</td>
+<td style="text-align:right;">
+12.0
+</td>
+<td style="text-align:right;">
+9.0
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75%
+</td>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:right;">
+14.0
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+100%
+</td>
+<td style="text-align:right;">
+22.0
+</td>
+<td style="text-align:right;">
+24.0
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1555-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1555-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que os valores dos quartis:</span></span>
+<span id="cb1555-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1555-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+##  2.0  7.0 12.0 16.5 22.0</code></pre>
+<div class="sourceCode" id="cb1557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1557-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1557-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aparecem também quando usamos summary, que no entanto, retorna a média artimética,</span></span>
+<span id="cb1557-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1557-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que é o único valor que não é um quartil.</span></span>
+<span id="cb1557-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1557-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(avesc<span class="sc">$</span>urubu)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Min.
+</th>
+<th style="text-align:right;">
+1st Qu.
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+3rd Qu.
+</th>
+<th style="text-align:right;">
+Max.
+</th>
+<th style="text-align:right;">
+NA’s
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+11.9322
+</td>
+<td style="text-align:right;">
+16.5
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1558-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1558-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para entender melhor isso vamos graficar:</span></span>
+<span id="cb1558-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1558-2" aria-hidden="true" tabindex="-1"></a><span class="co"># primeiro num histograma</span></span>
+<span id="cb1558-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1558-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(avesc<span class="sc">$</span>urubu, <span class="at">main =</span> <span class="st">&quot;Avistamentos de Urubu&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Número de aves observadas por local&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-490-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb1559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1559-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-1" aria-hidden="true" tabindex="-1"></a><span class="co"># melhorando um pouco</span></span>
+<span id="cb1559-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(avesc<span class="sc">$</span>urubu, <span class="at">main =</span> <span class="st">&quot;Avistamentos de Urubu&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Número de aves observadas por local&quot;</span>, <span class="at">breaks =</span> <span class="dv">22</span>, <span class="at">col =</span> <span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb1559-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-3" aria-hidden="true" tabindex="-1"></a><span class="co"># agora adicionamos em azul os quartis</span></span>
+<span id="cb1559-4"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">quantile</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb1559-5"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-5" aria-hidden="true" tabindex="-1"></a><span class="co"># note que as barras azuis estão igualmente espaçadas no eixo X, pois elas dividem a distribuição em partes iguais</span></span>
+<span id="cb1559-6"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-6" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos plotar a média</span></span>
+<span id="cb1559-7"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dotted&quot;</span>, <span class="at">lwd =</span> <span class="dv">6</span>)</span>
+<span id="cb1559-8"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-8" aria-hidden="true" tabindex="-1"></a><span class="co"># e a mediana</span></span>
+<span id="cb1559-9"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-9" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">median</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">col =</span> <span class="st">&quot;green&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dotted&quot;</span>, <span class="at">lwd =</span> <span class="dv">6</span>)</span>
+<span id="cb1559-10"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-10" aria-hidden="true" tabindex="-1"></a><span class="co"># note como a mediana é equivalente ao quartil que indica 50% na divisão simétrica dos dados e que neste caso a diferença entre média e mediana é muito pequena, pois os dados são bem simétricos em relação à tendência central</span></span>
+<span id="cb1559-11"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-11" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos adicionar o desvio padrão:</span></span>
+<span id="cb1559-12"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-12" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">sd</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">mean</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1559-13"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-13" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">sd</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1559-14"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1559-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">c</span>(v1, v2), <span class="at">col =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;solid&quot;</span>, <span class="at">lwd =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-490-2.svg" width="672" /></p>
+<div class="sourceCode" id="cb1560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1560-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1560-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora com um box plot:</span></span>
+<span id="cb1560-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1560-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(avesc<span class="sc">$</span>urubu)</span>
+<span id="cb1560-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1560-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">quantile</span>(avesc<span class="sc">$</span>urubu, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-490-3.svg" width="672" /></p>
+<div class="sourceCode" id="cb1561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1561-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1561-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Média truncada = e.g. TIRANDO 10% DOS VALORES NOS EXTREMOS (posso ver como muda, caso tenha valores extremos, vai mudar muito)</span></span>
+<span id="cb1561-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1561-2" aria-hidden="true" tabindex="-1"></a>?mean <span class="co"># veja o argumento trim</span></span></code></pre></div>
+<div class="sourceCode" id="cb1562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1562-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1562-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, mean, <span class="at">trim =</span> <span class="fl">0.1</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># truncando</span></span></code></pre></div>
+<pre><code>##     urubu   carcara   seriema 
+## 12.000000  9.897959  5.145833</code></pre>
+<div class="sourceCode" id="cb1564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1564-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1564-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(avesc[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, mean, <span class="at">trim =</span> <span class="dv">0</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># sem truncar</span></span></code></pre></div>
+<pre><code>##     urubu   carcara   seriema 
+## 11.932203 10.254237  5.344828</code></pre>
+<div class="sourceCode" id="cb1566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1566-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1566-1" aria-hidden="true" tabindex="-1"></a><span class="co"># valores de quantils em outras probabilidades</span></span>
+<span id="cb1566-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1566-2" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(avesc<span class="sc">$</span>urubu, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># a cada 10%</span></span></code></pre></div>
+<pre><code>##   0%  10%  20%  30%  40%  50%  60%  70%  80%  90% 100% 
+##  2.0  5.0  6.0  8.0 11.0 12.0 13.8 16.0 17.4 19.0 22.0</code></pre>
+<div class="sourceCode" id="cb1568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1568-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1568-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(caixeta) <span class="co"># dimensões</span></span></code></pre></div>
+<pre><code>## [1] 1027    7</code></pre>
+<div class="sourceCode" id="cb1570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1570-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1570-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta) <span class="co"># colunas</span></span></code></pre></div>
+<pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
+<div class="sourceCode" id="cb1572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1572-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1572-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta) <span class="co"># cabeça</span></span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+local
+</th>
+<th style="text-align:right;">
+parcela
+</th>
+<th style="text-align:right;">
+arvore
+</th>
+<th style="text-align:right;">
+fuste
+</th>
+<th style="text-align:right;">
+cap
+</th>
+<th style="text-align:right;">
+h
+</th>
+<th style="text-align:left;">
+especie
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+720
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:left;">
+Syagrus romanzoffianus
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+200
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Tabebuia cassinoides
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+750
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:left;">
+indet.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+320
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1573-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1573-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(caixeta)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    1027 obs. of  7 variables:
+##  $ local  : chr  &quot;chauas&quot; &quot;chauas&quot; &quot;chauas&quot; &quot;chauas&quot; ...
+##  $ parcela: int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ arvore : int  1 3 4 5 6 7 8 9 10 10 ...
+##  $ fuste  : int  1 1 1 1 1 1 1 1 1 2 ...
+##  $ cap    : int  210 170 720 200 750 320 480 240 290 310 ...
+##  $ h      : int  80 80 70 80 170 80 160 140 120 120 ...
+##  $ especie: chr  &quot;Myrcia sulfiflora&quot; &quot;Myrcia sulfiflora&quot; &quot;Syagrus romanzoffianus&quot; &quot;Tabebuia cassinoides&quot; ...</code></pre>
+<div class="sourceCode" id="cb1575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1575-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1575-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos calcular o DAP a partid o CAP (circunferencia a altura do peito)</span></span>
+<span id="cb1575-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1575-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1575-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1575-3" aria-hidden="true" tabindex="-1"></a><span class="co"># se cap = 2*pi*dap/2   portanto  dap = cap/pi</span></span>
+<span id="cb1575-4"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1575-4" aria-hidden="true" tabindex="-1"></a>dap <span class="ot">&lt;-</span> caixeta<span class="sc">$</span>cap <span class="sc">/</span> pi</span>
+<span id="cb1575-5"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1575-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dap) <span class="co"># veja  distribuição diametrica desses dados (é uma típica log-normal)</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-493-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb1576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1576-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1576-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adicionando a nova coluna aos dados</span></span>
+<span id="cb1576-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1576-2" aria-hidden="true" tabindex="-1"></a>caixeta<span class="sc">$</span>dap <span class="ot">&lt;-</span> dap</span>
+<span id="cb1576-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1576-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta, <span class="dv">2</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+local
+</th>
+<th style="text-align:right;">
+parcela
+</th>
+<th style="text-align:right;">
+arvore
+</th>
+<th style="text-align:right;">
+fuste
+</th>
+<th style="text-align:right;">
+cap
+</th>
+<th style="text-align:right;">
+h
+</th>
+<th style="text-align:left;">
+especie
+</th>
+<th style="text-align:right;">
+dap
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+66.84508
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chauas
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:left;">
+Myrcia sulfiflora
+</td>
+<td style="text-align:right;">
+54.11268
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1577-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1577-1" aria-hidden="true" tabindex="-1"></a><span class="co"># resume localidade</span></span>
+<span id="cb1577-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1577-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(caixeta<span class="sc">$</span>local)</span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb1579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1579-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1579-1" aria-hidden="true" tabindex="-1"></a><span class="co"># altura das arvore em cada localidade</span></span>
+<span id="cb1579-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1579-2" aria-hidden="true" tabindex="-1"></a>chauas.h <span class="ot">&lt;-</span> caixeta[caixeta<span class="sc">$</span>local <span class="sc">==</span> <span class="st">&quot;chauas&quot;</span>, <span class="st">&quot;h&quot;</span>]</span>
+<span id="cb1579-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1579-3" aria-hidden="true" tabindex="-1"></a>jureia.h <span class="ot">&lt;-</span> caixeta[caixeta<span class="sc">$</span>local <span class="sc">==</span> <span class="st">&quot;jureia&quot;</span>, <span class="st">&quot;h&quot;</span>]</span>
+<span id="cb1579-4"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1579-4" aria-hidden="true" tabindex="-1"></a>retiro.h <span class="ot">&lt;-</span> caixeta[caixeta<span class="sc">$</span>local <span class="sc">==</span> <span class="st">&quot;retiro&quot;</span>, <span class="st">&quot;h&quot;</span>]</span>
+<span id="cb1579-5"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1579-5" aria-hidden="true" tabindex="-1"></a><span class="co"># para a localidade chauas</span></span>
+<span id="cb1579-6"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1579-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(chauas.h, <span class="at">breaks =</span> <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-493-2.svg" width="672" /></p>
+<div class="sourceCode" id="cb1580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1580-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1580-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ops tem um valor extremo, que era um erro</span></span>
+<span id="cb1580-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1580-2" aria-hidden="true" tabindex="-1"></a>chauas.h[chauas.h <span class="sc">&gt;</span> <span class="dv">300</span>]</span></code></pre></div>
+<pre><code>## [1] 480</code></pre>
+<div class="sourceCode" id="cb1582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1582-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1582-1" aria-hidden="true" tabindex="-1"></a><span class="co"># deveria ser 48</span></span>
+<span id="cb1582-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1582-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h) <span class="co"># um valor extremo de todo o conjunto de dados</span></span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-493-3.svg" width="672" /></p>
+<div class="sourceCode" id="cb1583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1583-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1583-1" aria-hidden="true" tabindex="-1"></a>chauas.h[chauas.h <span class="sc">&gt;</span> <span class="dv">300</span>] <span class="ot">&lt;-</span> <span class="dv">48</span> <span class="co"># corrigimos esse valor</span></span>
+<span id="cb1583-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1583-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(chauas.h)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-493-4.svg" width="672" /></p>
+<div class="sourceCode" id="cb1584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1584-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1584-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(jureia.h)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-493-5.svg" width="672" /></p>
+<div class="sourceCode" id="cb1585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1585-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1585-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(retiro.h)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-493-6.svg" width="672" /></p>
+<div class="sourceCode" id="cb1586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1586-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1586-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(chauas.h) <span class="co"># aplitude de variacao</span></span></code></pre></div>
+<pre><code>## [1]  20 230</code></pre>
+<div class="sourceCode" id="cb1588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1588-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1588-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(jureia.h)</span></code></pre></div>
+<pre><code>## [1]  30 220</code></pre>
+<div class="sourceCode" id="cb1590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1590-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1590-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(retiro.h)</span></code></pre></div>
+<pre><code>## [1]   5 170</code></pre>
+<div class="sourceCode" id="cb1592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1592-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1592-1" aria-hidden="true" tabindex="-1"></a>xl <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">250</span>) <span class="co"># limitando o grafico aos extremos de todo o conjunto de dados</span></span>
+<span id="cb1592-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1592-2" aria-hidden="true" tabindex="-1"></a>yl <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">150</span>)</span>
+<span id="cb1592-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1592-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(chauas.h, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlim =</span> xl, <span class="at">ylim =</span> yl)</span>
+<span id="cb1592-4"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1592-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(jureia.h, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1592-5"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1592-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(retiro.h, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-493-7.svg" width="672" /></p>
+<div class="sourceCode" id="cb1593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1593-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1593-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas seria melhor ver cada distribuicao individualmente por localidade</span></span>
+<span id="cb1593-2"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1593-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dividimos o dispositivo em 3 linhas e uma coluna</span></span>
+<span id="cb1593-3"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1593-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb1593-4"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1593-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(chauas.h, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">xlim =</span> xl, <span class="at">ylim =</span> yl, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span>
+<span id="cb1593-5"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1593-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(jureia.h, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">xlim =</span> xl, <span class="at">ylim =</span> yl, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1593-6"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1593-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(retiro.h, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">xlim =</span> xl, <span class="at">ylim =</span> yl, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-493-8.svg" width="672" /></p>
+<div class="sourceCode" id="cb1594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1594-1"><a href="qual-a-distribuição-dos-valores-numéricos.html#cb1594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)) <span class="co"># retorna o dispositivo</span></span></code></pre></div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="aed-univar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tabelas-de-variáveis-categóricas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/12-aed_checaunivar.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/LABOTAM/IntroR/edit/main/12-aed_checaunivar.Rmd",
+"text": null
+},
+"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

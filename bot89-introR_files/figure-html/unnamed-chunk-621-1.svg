@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='504.00pt' height='360.00pt' viewBox='0 0 504.00 360.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA='>
+    <rect x='0.00' y='0.00' width='504.00' height='360.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
+<rect x='74.40' y='59.04' width='66.21' height='225.27' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='153.85' y='249.74' width='66.21' height='34.57' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='233.30' y='274.29' width='66.21' height='10.02' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='312.74' y='278.22' width='66.21' height='6.08' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='392.19' y='280.05' width='66.21' height='4.26' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<text x='107.50' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='34.86px' lengthAdjust='spacingAndGlyphs'>MDS1</text>
+<text x='186.95' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='34.86px' lengthAdjust='spacingAndGlyphs'>MDS2</text>
+<text x='266.40' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='34.86px' lengthAdjust='spacingAndGlyphs'>MDS3</text>
+<text x='345.85' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='34.86px' lengthAdjust='spacingAndGlyphs'>MDS4</text>
+<text x='425.30' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='34.86px' lengthAdjust='spacingAndGlyphs'>MDS5</text>
+<text x='266.40' y='341.28' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='62.29px' lengthAdjust='spacingAndGlyphs'>Eixos MDS</text>
+<text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='128.11px' lengthAdjust='spacingAndGlyphs'>Variação explicada %</text>
+<line x1='59.04' y1='284.31' x2='59.04' y2='73.17' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='284.31' x2='51.84' y2='284.31' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='254.15' x2='51.84' y2='254.15' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='223.98' x2='51.84' y2='223.98' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='193.82' x2='51.84' y2='193.82' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='163.66' x2='51.84' y2='163.66' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='133.50' x2='51.84' y2='133.50' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='103.34' x2='51.84' y2='103.34' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='73.17' x2='51.84' y2='73.17' style='stroke-width: 0.75;' />
+<text transform='translate(41.76,284.31) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text transform='translate(41.76,254.15) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text transform='translate(41.76,223.98) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text transform='translate(41.76,193.82) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>30</text>
+<text transform='translate(41.76,163.66) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>40</text>
+<text transform='translate(41.76,133.50) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>50</text>
+<text transform='translate(41.76,103.34) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text transform='translate(41.76,73.17) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>70</text>
+</g>
+</svg>

@@ -4,24 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Conceitos introdutórios | Curso básico de introdução à linguagem R</title>
+  <title>Capítulo 1 Conceitos introdutórios | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Conceitos introdutórios | Curso básico de introdução à linguagem R" />
+  <meta property="og:title" content="Capítulo 1 Conceitos introdutórios | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
   <meta name="github-repo" content="LABOTAM/IntroR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Conceitos introdutórios | Curso básico de introdução à linguagem R" />
+  <meta name="twitter:title" content="Capítulo 1 Conceitos introdutórios | Curso básico de introdução à linguagem R" />
   
   <meta name="twitter:description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
   
 
-<meta name="author" content="Alberto Vicentini (INPA)" />
-<meta name="author" content="Ricardo de Oliveira Perdiz - ricardoperdiz@yahoo.com" />
+<meta name="author" content="Alberto Vicentini e Ricardo de Oliveira Perdiz" />
 
 
 
@@ -30,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="vetores.html"/>
+<link rel="prev" href="sobre-os-autores.html"/>
+<link rel="next" href="console-e-scripts.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -54,8 +53,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -146,7 +143,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -164,375 +161,375 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estrutura-do-livro"><i class="fa fa-check"></i>Estrutura do livro</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-os-autores"><i class="fa fa-check"></i>Sobre os autores</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pré-requisitos"><i class="fa fa-check"></i>Pré-requisitos</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-possua-um-computador"><i class="fa fa-check"></i>Caso você possua um computador</a>
+<li class="chapter" data-level="" data-path="estrutura-do-livro.html"><a href="estrutura-do-livro.html"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="" data-path="agradecimentos.html"><a href="agradecimentos.html"><i class="fa fa-check"></i>Agradecimentos</a></li>
+<li class="chapter" data-level="" data-path="pré-requisitos.html"><a href="pré-requisitos.html"><i class="fa fa-check"></i>Pré-requisitos</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html"><i class="fa fa-check"></i>Caso você possua um computador</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i>Baixe os pacotes abaixo</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#instale-o-r"><i class="fa fa-check"></i>Instale o R</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#instale-um-ambiente-de-desenvolvimento-integrado---ide"><i class="fa fa-check"></i>Instale um ambiente de desenvolvimento integrado - IDE</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#baixe-os-pacotes-abaixo"><i class="fa fa-check"></i>Baixe os pacotes abaixo</a></li>
+<li class="chapter" data-level="" data-path="caso-você-possua-um-computador.html"><a href="caso-você-possua-um-computador.html#baixe-o-repositório-para-seu-computador"><i class="fa fa-check"></i>Baixe o repositório para seu computador</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#caso-você-não-possua-um-computador"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar"><i class="fa fa-check"></i>O que é o R e por qual razão você deve se preocupar em programar</a>
+<li class="chapter" data-level="" data-path="caso-você-não-possua-um-computador.html"><a href="caso-você-não-possua-um-computador.html"><i class="fa fa-check"></i>Caso você não possua um computador</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><i class="fa fa-check"></i>O que é o R e por qual razão você deve se preocupar em programar</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-r-em-poucas-palavras"><i class="fa fa-check"></i>O R em poucas palavras</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#por-que-programar"><i class="fa fa-check"></i>Por que programar?</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#o-r-em-poucas-palavras"><i class="fa fa-check"></i>O R em poucas palavras</a></li>
+<li class="chapter" data-level="" data-path="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html"><a href="o-que-é-o-r-e-por-qual-razão-você-deve-se-preocupar-em-programar.html#por-que-programar"><i class="fa fa-check"></i>Por que programar?</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#análise-exploratória-de-dados-aed"><i class="fa fa-check"></i>Análise exploratória de dados (AED)</a>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html"><i class="fa fa-check"></i>Análise exploratória de dados (AED)</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-é-aed-e-por-que-fazer-aed"><i class="fa fa-check"></i>O que é AED e por que fazer AED?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos-da-aed"><i class="fa fa-check"></i>Objetivos da AED</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#para-ler"><i class="fa fa-check"></i>Para ler</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#o-que-é-aed-e-por-que-fazer-aed"><i class="fa fa-check"></i>O que é AED e por que fazer AED?</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#objetivos-da-aed"><i class="fa fa-check"></i>Objetivos da AED</a></li>
+<li class="chapter" data-level="" data-path="análise-exploratória-de-dados-aed.html"><a href="análise-exploratória-de-dados-aed.html#para-ler"><i class="fa fa-check"></i>Para ler</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#exercícios-no-notar"><i class="fa fa-check"></i>Exercícios no <strong>notaR</strong></a>
+<li class="chapter" data-level="" data-path="exercícios-no-notar.html"><a href="exercícios-no-notar.html"><i class="fa fa-check"></i>Exercícios no <strong>notaR</strong></a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#conhecendo-o-notar"><i class="fa fa-check"></i>Conhecendo o <strong>notaR</strong></a></li>
+<li class="chapter" data-level="" data-path="exercícios-no-notar.html"><a href="exercícios-no-notar.html#conhecendo-o-notar"><i class="fa fa-check"></i>Conhecendo o <strong>notaR</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#referências-úteis"><i class="fa fa-check"></i>Referências úteis</a></li>
+<li class="chapter" data-level="" data-path="referências-úteis.html"><a href="referências-úteis.html"><i class="fa fa-check"></i>Referências úteis</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="sobre-os-autores.html"><a href="sobre-os-autores.html"><i class="fa fa-check"></i>Sobre os autores</a></li>
 <li class="part"><span><b>I Parte I</b></span></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Conceitos introdutórios</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#console-e-scripts"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#linguagem-objeto-orientada"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#base-pacotes"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dicas-de-organização-do-trabalho"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
-<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#dicas-de-erros-comuns-de-sintaxe-da-linguagem-r"><i class="fa fa-check"></i><b>1.7</b> Dicas de erros comuns de sintaxe da linguagem R</a>
+<li class="chapter" data-level="1.1" data-path="console-e-scripts.html"><a href="console-e-scripts.html"><i class="fa fa-check"></i><b>1.1</b> Console e scripts</a></li>
+<li class="chapter" data-level="1.2" data-path="linguagem-objeto-orientada.html"><a href="linguagem-objeto-orientada.html"><i class="fa fa-check"></i><b>1.2</b> Linguagem objeto-orientada</a></li>
+<li class="chapter" data-level="1.3" data-path="base-pacotes.html"><a href="base-pacotes.html"><i class="fa fa-check"></i><b>1.3</b> R-base e pacotes</a></li>
+<li class="chapter" data-level="1.4" data-path="help.html"><a href="help.html"><i class="fa fa-check"></i><b>1.4</b> Ajuda no R</a></li>
+<li class="chapter" data-level="1.5" data-path="área-de-trabalho-vs.-pasta-de-trabalho.html"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html"><i class="fa fa-check"></i><b>1.5</b> Área de trabalho vs. Pasta de Trabalho</a></li>
+<li class="chapter" data-level="1.6" data-path="dicas-de-organização-do-trabalho.html"><a href="dicas-de-organização-do-trabalho.html"><i class="fa fa-check"></i><b>1.6</b> Dicas de organização do trabalho</a></li>
+<li class="chapter" data-level="1.7" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><i class="fa fa-check"></i><b>1.7</b> Dicas de erros comuns de sintaxe da linguagem R</a>
 <ul>
-<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#parênteses"><i class="fa fa-check"></i><b>1.7.1</b> Parênteses</a></li>
-<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#vírgulas"><i class="fa fa-check"></i><b>1.7.2</b> Vírgulas</a></li>
-<li class="chapter" data-level="1.7.3" data-path="intro.html"><a href="intro.html#aspas"><i class="fa fa-check"></i><b>1.7.3</b> Aspas</a></li>
-<li class="chapter" data-level="1.7.4" data-path="intro.html"><a href="intro.html#números"><i class="fa fa-check"></i><b>1.7.4</b> Números</a></li>
-<li class="chapter" data-level="1.7.5" data-path="intro.html"><a href="intro.html#nomes-de-objetos"><i class="fa fa-check"></i><b>1.7.5</b> Nomes de objetos</a></li>
-<li class="chapter" data-level="1.7.6" data-path="intro.html"><a href="intro.html#atribuição-de-objetos"><i class="fa fa-check"></i><b>1.7.6</b> Atribuição de objetos</a></li>
-<li class="chapter" data-level="1.7.7" data-path="intro.html"><a href="intro.html#busque-entender-as-partes"><i class="fa fa-check"></i><b>1.7.7</b> Busque entender as partes</a></li>
+<li class="chapter" data-level="1.7.1" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#parênteses"><i class="fa fa-check"></i><b>1.7.1</b> Parênteses</a></li>
+<li class="chapter" data-level="1.7.2" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#vírgulas"><i class="fa fa-check"></i><b>1.7.2</b> Vírgulas</a></li>
+<li class="chapter" data-level="1.7.3" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#aspas"><i class="fa fa-check"></i><b>1.7.3</b> Aspas</a></li>
+<li class="chapter" data-level="1.7.4" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#números"><i class="fa fa-check"></i><b>1.7.4</b> Números</a></li>
+<li class="chapter" data-level="1.7.5" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#nomes-de-objetos"><i class="fa fa-check"></i><b>1.7.5</b> Nomes de objetos</a></li>
+<li class="chapter" data-level="1.7.6" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#atribuição-de-objetos"><i class="fa fa-check"></i><b>1.7.6</b> Atribuição de objetos</a></li>
+<li class="chapter" data-level="1.7.7" data-path="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#busque-entender-as-partes"><i class="fa fa-check"></i><b>1.7.7</b> Busque entender as partes</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#o-r-como-calculadora"><i class="fa fa-check"></i><b>1.8</b> O R como calculadora</a>
+<li class="chapter" data-level="1.8" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html"><i class="fa fa-check"></i><b>1.8</b> O R como calculadora</a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="intro.html"><a href="intro.html#operadores"><i class="fa fa-check"></i><b>1.8.1</b> Operadores</a></li>
-<li class="chapter" data-level="1.8.2" data-path="intro.html"><a href="intro.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.8.2</b> Precedência de parênteses</a></li>
-<li class="chapter" data-level="1.8.3" data-path="intro.html"><a href="intro.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.8.3</b> Funções e constantes matemáticas</a></li>
-<li class="chapter" data-level="1.8.4" data-path="intro.html"><a href="intro.html#valor-na"><i class="fa fa-check"></i><b>1.8.4</b> NA e valores afins</a></li>
+<li class="chapter" data-level="1.8.1" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#operadores"><i class="fa fa-check"></i><b>1.8.1</b> Operadores</a></li>
+<li class="chapter" data-level="1.8.2" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#precedência-de-parênteses"><i class="fa fa-check"></i><b>1.8.2</b> Precedência de parênteses</a></li>
+<li class="chapter" data-level="1.8.3" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#funções-e-constantes-matemáticas"><i class="fa fa-check"></i><b>1.8.3</b> Funções e constantes matemáticas</a></li>
+<li class="chapter" data-level="1.8.4" data-path="o-r-como-calculadora.html"><a href="o-r-como-calculadora.html#valor-na"><i class="fa fa-check"></i><b>1.8.4</b> NA e valores afins</a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#exercícios"><i class="fa fa-check"></i><b>1.9</b> Exercícios</a></li>
+<li class="chapter" data-level="1.9" data-path="exercícios.html"><a href="exercícios.html"><i class="fa fa-check"></i><b>1.9</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="vetores.html"><a href="vetores.html"><i class="fa fa-check"></i><b>2</b> Objeto I - Vetores</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="vetores.html"><a href="vetores.html#vetores-e-operações-vetoriais-i"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a>
+<li class="chapter" data-level="2.1" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html"><i class="fa fa-check"></i><b>2.1</b> Vetores e operações vetoriais I</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="vetores.html"><a href="vetores.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
-<li class="chapter" data-level="2.1.2" data-path="vetores.html"><a href="vetores.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
+<li class="chapter" data-level="2.1.1" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html#criação-de-vetores"><i class="fa fa-check"></i><b>2.1.1</b> Criação de Vetores</a></li>
+<li class="chapter" data-level="2.1.2" data-path="vetores-e-operações-vetoriais-i.html"><a href="vetores-e-operações-vetoriais-i.html#sequências-numéricas-repetições"><i class="fa fa-check"></i><b>2.1.2</b> Sequências Numéricas &amp; Repetições</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="vetores.html"><a href="vetores.html#operações-matemáticas-com-vetores"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
-<li class="chapter" data-level="2.3" data-path="vetores.html"><a href="vetores.html#funções-com-vetores"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
-<li class="chapter" data-level="2.4" data-path="vetores.html"><a href="vetores.html#classes"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
-<li class="chapter" data-level="2.5" data-path="vetores.html"><a href="vetores.html#indexacao"><i class="fa fa-check"></i><b>2.5</b> Indexação</a>
+<li class="chapter" data-level="2.2" data-path="operações-matemáticas-com-vetores.html"><a href="operações-matemáticas-com-vetores.html"><i class="fa fa-check"></i><b>2.2</b> Operações Matemáticas com Vetores</a></li>
+<li class="chapter" data-level="2.3" data-path="funções-com-vetores.html"><a href="funções-com-vetores.html"><i class="fa fa-check"></i><b>2.3</b> Funções com Vetores</a></li>
+<li class="chapter" data-level="2.4" data-path="classes.html"><a href="classes.html"><i class="fa fa-check"></i><b>2.4</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="2.5" data-path="indexacao.html"><a href="indexacao.html"><i class="fa fa-check"></i><b>2.5</b> Indexação</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="vetores.html"><a href="vetores.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
-<li class="chapter" data-level="2.5.2" data-path="vetores.html"><a href="vetores.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
+<li class="chapter" data-level="2.5.1" data-path="indexacao.html"><a href="indexacao.html#usando-índices-numéricos"><i class="fa fa-check"></i><b>2.5.1</b> Usando índices numéricos</a></li>
+<li class="chapter" data-level="2.5.2" data-path="indexacao.html"><a href="indexacao.html#usando-índices-de-nomes"><i class="fa fa-check"></i><b>2.5.2</b> Usando índices de nomes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="vetores.html"><a href="vetores.html#vetor-operador-logico"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a>
+<li class="chapter" data-level="2.6" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html"><i class="fa fa-check"></i><b>2.6</b> Vetores e operadores lógicos</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="vetores.html"><a href="vetores.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
-<li class="chapter" data-level="2.6.2" data-path="vetores.html"><a href="vetores.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
-<li class="chapter" data-level="2.6.3" data-path="vetores.html"><a href="vetores.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
+<li class="chapter" data-level="2.6.1" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#perg-vetores"><i class="fa fa-check"></i><b>2.6.1</b> Fazendo perguntas à vetores</a></li>
+<li class="chapter" data-level="2.6.2" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#vetor-filtro-logico"><i class="fa fa-check"></i><b>2.6.2</b> Filtrando dados com vetores lógicos</a></li>
+<li class="chapter" data-level="2.6.3" data-path="vetor-operador-logico.html"><a href="vetor-operador-logico.html#filtro-dados-ausentes"><i class="fa fa-check"></i><b>2.6.3</b> Perguntando por valores ausentes - NA</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="vetores.html"><a href="vetores.html#sabermais-vetores"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
-<li class="chapter" data-level="2.8" data-path="vetores.html"><a href="vetores.html#exercícios-1"><i class="fa fa-check"></i><b>2.8</b> Exercícios</a></li>
+<li class="chapter" data-level="2.7" data-path="sabermais-vetores.html"><a href="sabermais-vetores.html"><i class="fa fa-check"></i><b>2.7</b> Para saber mais:</a></li>
+<li class="chapter" data-level="2.8" data-path="exercícios-1.html"><a href="exercícios-1.html"><i class="fa fa-check"></i><b>2.8</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="mat-dframe.html"><a href="mat-dframe.html"><i class="fa fa-check"></i><b>3</b> Objeto II - Matrizes e <code>data.frames</code></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matriz-vs.-data.frame"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a>
+<li class="chapter" data-level="3.1" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html"><i class="fa fa-check"></i><b>3.1</b> Matriz vs. <code>data.frame</code></a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
-<li class="chapter" data-level="3.1.2" data-path="mat-dframe.html"><a href="mat-dframe.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
-<li class="chapter" data-level="3.1.3" data-path="mat-dframe.html"><a href="mat-dframe.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.1" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#criando-matrizes"><i class="fa fa-check"></i><b>3.1.1</b> Criando matrizes</a></li>
+<li class="chapter" data-level="3.1.2" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#criando-data.frames"><i class="fa fa-check"></i><b>3.1.2</b> Criando <code>data.frames</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="matriz-vs.-data.html"><a href="matriz-vs.-data.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.1.3</b> Funções importantes na manipulação de matrizes e <code>data.frames</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#indexação-de-matriz-e-data.frame"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a>
+<li class="chapter" data-level="3.2" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html"><i class="fa fa-check"></i><b>3.2</b> Indexação de matriz e <code>data.frame</code></a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="mat-dframe.html"><a href="mat-dframe.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
-<li class="chapter" data-level="3.2.2" data-path="mat-dframe.html"><a href="mat-dframe.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
+<li class="chapter" data-level="3.2.1" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html#matrizes"><i class="fa fa-check"></i><b>3.2.1</b> Matrizes</a></li>
+<li class="chapter" data-level="3.2.2" data-path="indexação-de-matriz-e-data.html"><a href="indexação-de-matriz-e-data.html#data.frame"><i class="fa fa-check"></i><b>3.2.2</b> <code>data.frame</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="mat-dframe.html"><a href="mat-dframe.html#filtrando-e-ordenando-matrizes-e-data.frames"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a>
+<li class="chapter" data-level="3.3" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html"><i class="fa fa-check"></i><b>3.3</b> Filtrando e ordenando matrizes e <code>data.frames</code></a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="mat-dframe.html"><a href="mat-dframe.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
-<li class="chapter" data-level="3.3.2" data-path="mat-dframe.html"><a href="mat-dframe.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
+<li class="chapter" data-level="3.3.1" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html#filtragem-de-dados"><i class="fa fa-check"></i><b>3.3.1</b> Filtragem de dados</a></li>
+<li class="chapter" data-level="3.3.2" data-path="filtrando-e-ordenando-matrizes-e-data.html"><a href="filtrando-e-ordenando-matrizes-e-data.html#ordenação-de-dados"><i class="fa fa-check"></i><b>3.3.2</b> Ordenação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="mat-dframe.html"><a href="mat-dframe.html#importando-e-exportando-dados-no-r"><i class="fa fa-check"></i><b>3.4</b> Importando e exportando dados no R</a>
+<li class="chapter" data-level="3.4" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html"><i class="fa fa-check"></i><b>3.4</b> Importando e exportando dados no R</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="mat-dframe.html"><a href="mat-dframe.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
-<li class="chapter" data-level="3.4.2" data-path="mat-dframe.html"><a href="mat-dframe.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
-<li class="chapter" data-level="3.4.3" data-path="mat-dframe.html"><a href="mat-dframe.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
-<li class="chapter" data-level="3.4.4" data-path="mat-dframe.html"><a href="mat-dframe.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
+<li class="chapter" data-level="3.4.1" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#arquivos-de-texto-simples-para-estocar-dados"><i class="fa fa-check"></i><b>3.4.1</b> Arquivos de texto simples para estocar dados</a></li>
+<li class="chapter" data-level="3.4.2" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#import-dados"><i class="fa fa-check"></i><b>3.4.2</b> Importando dados</a></li>
+<li class="chapter" data-level="3.4.3" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#exportando-dados"><i class="fa fa-check"></i><b>3.4.3</b> Exportando dados</a></li>
+<li class="chapter" data-level="3.4.4" data-path="importando-e-exportando-dados-no-r.html"><a href="importando-e-exportando-dados-no-r.html#outras-funções-úteis"><i class="fa fa-check"></i><b>3.4.4</b> Outras funções úteis</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="mat-dframe.html"><a href="mat-dframe.html#sabermais-indexacao-matrizes-dframes"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
-<li class="chapter" data-level="3.6" data-path="mat-dframe.html"><a href="mat-dframe.html#exercícios-2"><i class="fa fa-check"></i><b>3.6</b> Exercícios</a></li>
+<li class="chapter" data-level="3.5" data-path="sabermais-indexacao-matrizes-dframes.html"><a href="sabermais-indexacao-matrizes-dframes.html"><i class="fa fa-check"></i><b>3.5</b> Para saber mais:</a></li>
+<li class="chapter" data-level="3.6" data-path="exercícios-2.html"><a href="exercícios-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lista-objcompl.html"><a href="lista-objcompl.html"><i class="fa fa-check"></i><b>4</b> Objeto III - Listas e objetos complexos</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="lista-objcompl.html"><a href="lista-objcompl.html#listas"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
-<li class="chapter" data-level="4.2" data-path="lista-objcompl.html"><a href="lista-objcompl.html#obj-complexos"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
+<li class="chapter" data-level="4.1" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>4.1</b> Listas</a></li>
+<li class="chapter" data-level="4.2" data-path="obj-complexos.html"><a href="obj-complexos.html"><i class="fa fa-check"></i><b>4.2</b> Objetos complexos</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="func-graf.html"><a href="func-graf.html"><i class="fa fa-check"></i><b>5</b> Funções gráficas</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="func-graf.html"><a href="func-graf.html#dispositivos-gráficos"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a>
+<li class="chapter" data-level="5.1" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html"><i class="fa fa-check"></i><b>5.1</b> Dispositivos Gráficos</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="func-graf.html"><a href="func-graf.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
-<li class="chapter" data-level="5.1.2" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
-<li class="chapter" data-level="5.1.3" data-path="func-graf.html"><a href="func-graf.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
-<li class="chapter" data-level="5.1.4" data-path="func-graf.html"><a href="func-graf.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
-<li class="chapter" data-level="5.1.5" data-path="func-graf.html"><a href="func-graf.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
-<li class="chapter" data-level="5.1.6" data-path="func-graf.html"><a href="func-graf.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
+<li class="chapter" data-level="5.1.1" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#função-plot"><i class="fa fa-check"></i><b>5.1.1</b> Função <code>plot()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#dispositivos-de-tela"><i class="fa fa-check"></i><b>5.1.2</b> Dispositivos de Tela</a></li>
+<li class="chapter" data-level="5.1.3" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#listar-e-controlar-dispositivos"><i class="fa fa-check"></i><b>5.1.3</b> Listar e controlar dispositivos</a></li>
+<li class="chapter" data-level="5.1.4" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#dispositivos-de-arquivos"><i class="fa fa-check"></i><b>5.1.4</b> Dispositivos de arquivos</a></li>
+<li class="chapter" data-level="5.1.5" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#figuras-vetoriais-em-pdf-ou-postscript"><i class="fa fa-check"></i><b>5.1.5</b> Figuras vetoriais em <code>pdf</code> ou <code>postscript</code></a></li>
+<li class="chapter" data-level="5.1.6" data-path="dispositivos-gráficos.html"><a href="dispositivos-gráficos.html#figuras-raster"><i class="fa fa-check"></i><b>5.1.6</b> Figuras raster</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p1"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a>
+<li class="chapter" data-level="5.2" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html"><i class="fa fa-check"></i><b>5.2</b> Parâmetros gráficos, parte I - Margem, fonte, proporções</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="func-graf.html"><a href="func-graf.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
-<li class="chapter" data-level="5.2.2" data-path="func-graf.html"><a href="func-graf.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
-<li class="chapter" data-level="5.2.3" data-path="func-graf.html"><a href="func-graf.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
-<li class="chapter" data-level="5.2.4" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
-<li class="chapter" data-level="5.2.5" data-path="func-graf.html"><a href="func-graf.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
+<li class="chapter" data-level="5.2.1" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#margem-da-figura"><i class="fa fa-check"></i><b>5.2.1</b> Margem da figura</a></li>
+<li class="chapter" data-level="5.2.2" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#aspecto-dos-eixos"><i class="fa fa-check"></i><b>5.2.2</b> Aspecto dos eixos</a></li>
+<li class="chapter" data-level="5.2.3" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#proporção-dos-eixos"><i class="fa fa-check"></i><b>5.2.3</b> Proporção dos eixos</a></li>
+<li class="chapter" data-level="5.2.4" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#múltiplas-figuras-na-mesma-tela-ou-página-com-mfrow-e-mfcol"><i class="fa fa-check"></i><b>5.2.4</b> Múltiplas figuras na mesma tela ou página com <code>mfrow()</code> e <code>mfcol()</code></a></li>
+<li class="chapter" data-level="5.2.5" data-path="par-graficos-p1.html"><a href="par-graficos-p1.html#múltiplas-figuras-na-mesma-image-usando-a-função-layout"><i class="fa fa-check"></i><b>5.2.5</b> Múltiplas figuras na mesma image usando a função <code>layout()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="func-graf.html"><a href="func-graf.html#par-graficos-p2"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a>
+<li class="chapter" data-level="5.3" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html"><i class="fa fa-check"></i><b>5.3</b> Parâmetros gráficos, parte II - Símbolos e cores</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="func-graf.html"><a href="func-graf.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
-<li class="chapter" data-level="5.3.2" data-path="func-graf.html"><a href="func-graf.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
-<li class="chapter" data-level="5.3.3" data-path="func-graf.html"><a href="func-graf.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
-<li class="chapter" data-level="5.3.4" data-path="func-graf.html"><a href="func-graf.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
-<li class="chapter" data-level="5.3.5" data-path="func-graf.html"><a href="func-graf.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
+<li class="chapter" data-level="5.3.1" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#tipo-de-símbolo---pch"><i class="fa fa-check"></i><b>5.3.1</b> Tipo de símbolo - <code>pch</code></a></li>
+<li class="chapter" data-level="5.3.2" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#tamanho-dos-pontos---cex"><i class="fa fa-check"></i><b>5.3.2</b> Tamanho dos pontos - <code>cex</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#linhas"><i class="fa fa-check"></i><b>5.3.3</b> Linhas</a></li>
+<li class="chapter" data-level="5.3.4" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#cores-de-símbolos---col-e-bg"><i class="fa fa-check"></i><b>5.3.4</b> Cores de símbolos - <code>col</code> e <code>bg</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="par-graficos-p2.html"><a href="par-graficos-p2.html#funções-que-definem-cores"><i class="fa fa-check"></i><b>5.3.5</b> Funções que definem cores</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="func-graf.html"><a href="func-graf.html#graf-alto-nivel"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a>
+<li class="chapter" data-level="5.4" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html"><i class="fa fa-check"></i><b>5.4</b> Funções gráficas de alto nível</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="func-graf.html"><a href="func-graf.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
-<li class="chapter" data-level="5.4.2" data-path="func-graf.html"><a href="func-graf.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
-<li class="chapter" data-level="5.4.3" data-path="func-graf.html"><a href="func-graf.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
-<li class="chapter" data-level="5.4.4" data-path="func-graf.html"><a href="func-graf.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
-<li class="chapter" data-level="5.4.5" data-path="func-graf.html"><a href="func-graf.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
-<li class="chapter" data-level="5.4.6" data-path="func-graf.html"><a href="func-graf.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
-<li class="chapter" data-level="5.4.7" data-path="func-graf.html"><a href="func-graf.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
-<li class="chapter" data-level="5.4.8" data-path="func-graf.html"><a href="func-graf.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
+<li class="chapter" data-level="5.4.1" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#plot---uma-função-genérica"><i class="fa fa-check"></i><b>5.4.1</b> <code>plot()</code> - uma função genérica</a></li>
+<li class="chapter" data-level="5.4.2" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#hist"><i class="fa fa-check"></i><b>5.4.2</b> <code>hist()</code></a></li>
+<li class="chapter" data-level="5.4.3" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#boxplot"><i class="fa fa-check"></i><b>5.4.3</b> <code>boxplot()</code></a></li>
+<li class="chapter" data-level="5.4.4" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#barplot"><i class="fa fa-check"></i><b>5.4.4</b> <code>barplot()</code></a></li>
+<li class="chapter" data-level="5.4.5" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#plot.phylo"><i class="fa fa-check"></i><b>5.4.5</b> <code>plot.phylo()</code></a></li>
+<li class="chapter" data-level="5.4.6" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#image-e-countour"><i class="fa fa-check"></i><b>5.4.6</b> <code>image()</code> e <code>countour()</code></a></li>
+<li class="chapter" data-level="5.4.7" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#map"><i class="fa fa-check"></i><b>5.4.7</b> <code>map()</code></a></li>
+<li class="chapter" data-level="5.4.8" data-path="graf-alto-nivel.html"><a href="graf-alto-nivel.html#xlim-e-ylim"><i class="fa fa-check"></i><b>5.4.8</b> <code>xlim</code> e <code>ylim</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="func-graf.html"><a href="func-graf.html#graf-baixo-nivel"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a>
+<li class="chapter" data-level="5.5" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html"><i class="fa fa-check"></i><b>5.5</b> Funções gráficas de baixo nível</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="func-graf.html"><a href="func-graf.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
-<li class="chapter" data-level="5.5.2" data-path="func-graf.html"><a href="func-graf.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
-<li class="chapter" data-level="5.5.3" data-path="func-graf.html"><a href="func-graf.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
-<li class="chapter" data-level="5.5.4" data-path="func-graf.html"><a href="func-graf.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
-<li class="chapter" data-level="5.5.5" data-path="func-graf.html"><a href="func-graf.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
-<li class="chapter" data-level="5.5.6" data-path="func-graf.html"><a href="func-graf.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
-<li class="chapter" data-level="5.5.7" data-path="func-graf.html"><a href="func-graf.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
+<li class="chapter" data-level="5.5.1" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#legend"><i class="fa fa-check"></i><b>5.5.1</b> <code>legend()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#points"><i class="fa fa-check"></i><b>5.5.2</b> <code>points()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#text-e-mtext"><i class="fa fa-check"></i><b>5.5.3</b> <code>text()</code> e <code>mtext()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#axis"><i class="fa fa-check"></i><b>5.5.4</b> <code>axis()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#abline"><i class="fa fa-check"></i><b>5.5.5</b> <code>abline()</code></a></li>
+<li class="chapter" data-level="5.5.6" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#arrows-rect-polygon-e-segments"><i class="fa fa-check"></i><b>5.5.6</b> <code>arrows()</code>, <code>rect()</code>, <code>polygon()</code> e <code>segments()</code></a></li>
+<li class="chapter" data-level="5.5.7" data-path="graf-baixo-nivel.html"><a href="graf-baixo-nivel.html#symbols"><i class="fa fa-check"></i><b>5.5.7</b> <code>symbols()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="func-graf.html"><a href="func-graf.html#funções-gráficas-interativas"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a>
+<li class="chapter" data-level="5.6" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html"><i class="fa fa-check"></i><b>5.6</b> Funções gráficas interativas</a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="func-graf.html"><a href="func-graf.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
-<li class="chapter" data-level="5.6.2" data-path="func-graf.html"><a href="func-graf.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
+<li class="chapter" data-level="5.6.1" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html#locator"><i class="fa fa-check"></i><b>5.6.1</b> <code>locator()</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="funções-gráficas-interativas.html"><a href="funções-gráficas-interativas.html#identify"><i class="fa fa-check"></i><b>5.6.2</b> <code>identify()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="func-graf.html"><a href="func-graf.html#sabermais-disp-grafico"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
-<li class="chapter" data-level="5.8" data-path="func-graf.html"><a href="func-graf.html#exercícios-3"><i class="fa fa-check"></i><b>5.8</b> Exercícios</a></li>
+<li class="chapter" data-level="5.7" data-path="sabermais-disp-grafico.html"><a href="sabermais-disp-grafico.html"><i class="fa fa-check"></i><b>5.7</b> Para saber mais:</a></li>
+<li class="chapter" data-level="5.8" data-path="exercícios-3.html"><a href="exercícios-3.html"><i class="fa fa-check"></i><b>5.8</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="iter-cflux.html"><a href="iter-cflux.html"><i class="fa fa-check"></i><b>6</b> Iteração e controle de fluxo</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="iter-cflux.html"><a href="iter-cflux.html#func-apply"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a>
+<li class="chapter" data-level="6.1" data-path="func-apply.html"><a href="func-apply.html"><i class="fa fa-check"></i><b>6.1</b> Funções da família <code>apply()</code></a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="iter-cflux.html"><a href="iter-cflux.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
-<li class="chapter" data-level="6.1.2" data-path="iter-cflux.html"><a href="iter-cflux.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
-<li class="chapter" data-level="6.1.3" data-path="iter-cflux.html"><a href="iter-cflux.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
+<li class="chapter" data-level="6.1.1" data-path="func-apply.html"><a href="func-apply.html#em-uma-matriz"><i class="fa fa-check"></i><b>6.1.1</b> Em uma matriz</a></li>
+<li class="chapter" data-level="6.1.2" data-path="func-apply.html"><a href="func-apply.html#em-um-vetor-ou-lista"><i class="fa fa-check"></i><b>6.1.2</b> Em um vetor ou lista</a></li>
+<li class="chapter" data-level="6.1.3" data-path="func-apply.html"><a href="func-apply.html#por-categoria-de-um-fator"><i class="fa fa-check"></i><b>6.1.3</b> Por categoria de um fator</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicionais"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a>
+<li class="chapter" data-level="6.2" data-path="condicionais.html"><a href="condicionais.html"><i class="fa fa-check"></i><b>6.2</b> Condicionais</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
-<li class="chapter" data-level="6.2.2" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
-<li class="chapter" data-level="6.2.3" data-path="iter-cflux.html"><a href="iter-cflux.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
+<li class="chapter" data-level="6.2.1" data-path="condicionais.html"><a href="condicionais.html#condicional-if"><i class="fa fa-check"></i><b>6.2.1</b> Condicional <code>if ()</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="condicionais.html"><a href="condicionais.html#condicional-if-com-o-else"><i class="fa fa-check"></i><b>6.2.2</b> Condicional <code>if ()</code> com o <code>else</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="condicionais.html"><a href="condicionais.html#condicional-ifelse"><i class="fa fa-check"></i><b>6.2.3</b> Condicional <code>ifelse()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteracoes"><i class="fa fa-check"></i><b>6.3</b> Iterações</a>
+<li class="chapter" data-level="6.3" data-path="iteracoes.html"><a href="iteracoes.html"><i class="fa fa-check"></i><b>6.3</b> Iterações</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
-<li class="chapter" data-level="6.3.2" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
-<li class="chapter" data-level="6.3.3" data-path="iter-cflux.html"><a href="iter-cflux.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
+<li class="chapter" data-level="6.3.1" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-for"><i class="fa fa-check"></i><b>6.3.1</b> Iteração com <code>for(){}</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-while"><i class="fa fa-check"></i><b>6.3.2</b> Iteração com <code>while(){}</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="iteracoes.html"><a href="iteracoes.html#iteração-com-for-e-a-condicional-if"><i class="fa fa-check"></i><b>6.3.3</b> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="iter-cflux.html"><a href="iter-cflux.html#criando-ou-modificando-funções"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a>
+<li class="chapter" data-level="6.4" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html"><i class="fa fa-check"></i><b>6.4</b> Criando ou modificando funções</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
-<li class="chapter" data-level="6.4.2" data-path="iter-cflux.html"><a href="iter-cflux.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
+<li class="chapter" data-level="6.4.1" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html#exemplo-i"><i class="fa fa-check"></i><b>6.4.1</b> Exemplo I</a></li>
+<li class="chapter" data-level="6.4.2" data-path="criando-ou-modificando-funções.html"><a href="criando-ou-modificando-funções.html#exemplo-ii"><i class="fa fa-check"></i><b>6.4.2</b> Exemplo II</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="iter-cflux.html"><a href="iter-cflux.html#sabermais-condic"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
+<li class="chapter" data-level="6.5" data-path="sabermais-condic.html"><a href="sabermais-condic.html"><i class="fa fa-check"></i><b>6.5</b> Para saber mais:</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="sumar-dados.html"><a href="sumar-dados.html"><i class="fa fa-check"></i><b>7</b> Sumarização de dados</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="sumar-dados.html"><a href="sumar-dados.html#tabela-dinamica"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
-<li class="chapter" data-level="7.2" data-path="sumar-dados.html"><a href="sumar-dados.html#tabelas-de-contagem"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
-<li class="chapter" data-level="7.3" data-path="sumar-dados.html"><a href="sumar-dados.html#lógica-da-junção-de-tabelas"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a>
+<li class="chapter" data-level="7.1" data-path="tabela-dinamica.html"><a href="tabela-dinamica.html"><i class="fa fa-check"></i><b>7.1</b> Tabelas dinâmicas</a></li>
+<li class="chapter" data-level="7.2" data-path="tabelas-de-contagem.html"><a href="tabelas-de-contagem.html"><i class="fa fa-check"></i><b>7.2</b> Tabelas de contagem</a></li>
+<li class="chapter" data-level="7.3" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html"><i class="fa fa-check"></i><b>7.3</b> Lógica da junção de tabelas</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="sumar-dados.html"><a href="sumar-dados.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
-<li class="chapter" data-level="7.3.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
+<li class="chapter" data-level="7.3.1" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html#juncao-tbl-maneira1"><i class="fa fa-check"></i><b>7.3.1</b> Maneira 1 - função <code>match()</code></a></li>
+<li class="chapter" data-level="7.3.2" data-path="lógica-da-junção-de-tabelas.html"><a href="lógica-da-junção-de-tabelas.html#maneira-2---índices-nominais"><i class="fa fa-check"></i><b>7.3.2</b> Maneira 2 - índices nominais</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="sumar-dados.html"><a href="sumar-dados.html#junção-de-tabelas-utilizando-funções"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a>
+<li class="chapter" data-level="7.4" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html"><i class="fa fa-check"></i><b>7.4</b> Junção de tabelas utilizando funções</a>
 <ul>
-<li class="chapter" data-level="7.4.1" data-path="sumar-dados.html"><a href="sumar-dados.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
-<li class="chapter" data-level="7.4.2" data-path="sumar-dados.html"><a href="sumar-dados.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
+<li class="chapter" data-level="7.4.1" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html#dados-para-nossa-prática"><i class="fa fa-check"></i><b>7.4.1</b> Dados para nossa prática</a></li>
+<li class="chapter" data-level="7.4.2" data-path="junção-de-tabelas-utilizando-funções.html"><a href="junção-de-tabelas-utilizando-funções.html#maneira-3---função-merge"><i class="fa fa-check"></i><b>7.4.2</b> Maneira 3 - função <code>merge()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="sumar-dados.html"><a href="sumar-dados.html#para-saber-mais"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
-<li class="chapter" data-level="7.6" data-path="sumar-dados.html"><a href="sumar-dados.html#exercícios-4"><i class="fa fa-check"></i><b>7.6</b> Exercícios</a></li>
+<li class="chapter" data-level="7.5" data-path="para-saber-mais.html"><a href="para-saber-mais.html"><i class="fa fa-check"></i><b>7.5</b> Para saber mais</a></li>
+<li class="chapter" data-level="7.6" data-path="exercícios-4.html"><a href="exercícios-4.html"><i class="fa fa-check"></i><b>7.6</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html"><i class="fa fa-check"></i><b>8</b> Manipulação de textos, arquivos e pastas</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#funções-para-manipulação-e-busca-de-textos"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a>
+<li class="chapter" data-level="8.1" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html"><i class="fa fa-check"></i><b>8.1</b> Funções para manipulação e busca de textos</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
-<li class="chapter" data-level="8.1.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
-<li class="chapter" data-level="8.1.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
-<li class="chapter" data-level="8.1.4" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
-<li class="chapter" data-level="8.1.5" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
-<li class="chapter" data-level="8.1.6" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
-<li class="chapter" data-level="8.1.7" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
-<li class="chapter" data-level="8.1.8" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
-<li class="chapter" data-level="8.1.9" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
-<li class="chapter" data-level="8.1.10" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
+<li class="chapter" data-level="8.1.1" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#colar-ou-concatenar-textos"><i class="fa fa-check"></i><b>8.1.1</b> Colar ou concatenar textos</a></li>
+<li class="chapter" data-level="8.1.2" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#quebrar-ou-desconcatenar-textos"><i class="fa fa-check"></i><b>8.1.2</b> Quebrar ou desconcatenar textos</a></li>
+<li class="chapter" data-level="8.1.3" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#altera-caixa-do-texto"><i class="fa fa-check"></i><b>8.1.3</b> Altera caixa do texto</a></li>
+<li class="chapter" data-level="8.1.4" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#remove-espaços-em-branco"><i class="fa fa-check"></i><b>8.1.4</b> Remove espaços em branco</a></li>
+<li class="chapter" data-level="8.1.5" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#substitui-ou-pega-parte-de-texto"><i class="fa fa-check"></i><b>8.1.5</b> Substitui ou pega parte de texto</a></li>
+<li class="chapter" data-level="8.1.6" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#expressões-regulares"><i class="fa fa-check"></i><b>8.1.6</b> Expressões Regulares</a></li>
+<li class="chapter" data-level="8.1.7" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#remove-acentos"><i class="fa fa-check"></i><b>8.1.7</b> Remove Acentos</a></li>
+<li class="chapter" data-level="8.1.8" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#metacaracteres"><i class="fa fa-check"></i><b>8.1.8</b> Metacaracteres</a></li>
+<li class="chapter" data-level="8.1.9" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#classes-caracteres"><i class="fa fa-check"></i><b>8.1.9</b> Classes de caracteres</a></li>
+<li class="chapter" data-level="8.1.10" data-path="funções-para-manipulação-e-busca-de-textos.html"><a href="funções-para-manipulação-e-busca-de-textos.html#barra-invertida"><i class="fa fa-check"></i><b>8.1.10</b> Barra invertida <code>\</code></a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#manipulação-de-pastas-e-arquivos"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
-<li class="chapter" data-level="8.3" data-path="manip-txt-arq-pasta.html"><a href="manip-txt-arq-pasta.html#sabermais-manip-txt-arqs-fld"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
+<li class="chapter" data-level="8.2" data-path="manipulação-de-pastas-e-arquivos.html"><a href="manipulação-de-pastas-e-arquivos.html"><i class="fa fa-check"></i><b>8.2</b> Manipulação de pastas e arquivos</a></li>
+<li class="chapter" data-level="8.3" data-path="sabermais-manip-txt-arqs-fld.html"><a href="sabermais-manip-txt-arqs-fld.html"><i class="fa fa-check"></i><b>8.3</b> Para saber mais:</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="amost-aleat.html"><a href="amost-aleat.html"><i class="fa fa-check"></i><b>9</b> Amostragens aleatórias</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="amost-aleat.html"><a href="amost-aleat.html#funções-para-gerar-permutações-e-simular-dados"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
-<li class="chapter" data-level="9.2" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuições-aleatórias"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a>
+<li class="chapter" data-level="9.1" data-path="funções-para-gerar-permutações-e-simular-dados.html"><a href="funções-para-gerar-permutações-e-simular-dados.html"><i class="fa fa-check"></i><b>9.1</b> Funções para gerar permutações e simular dados</a></li>
+<li class="chapter" data-level="9.2" data-path="distribuições-aleatórias.html"><a href="distribuições-aleatórias.html"><i class="fa fa-check"></i><b>9.2</b> Distribuições aleatórias</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="amost-aleat.html"><a href="amost-aleat.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="9.2.1" data-path="distribuições-aleatórias.html"><a href="distribuições-aleatórias.html#distribuição-normal"><i class="fa fa-check"></i><b>9.2.1</b> Distribuição Normal</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="amost-aleat.html"><a href="amost-aleat.html#sabermais-distribuicoes"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
-<li class="chapter" data-level="9.4" data-path="amost-aleat.html"><a href="amost-aleat.html#exercícios-5"><i class="fa fa-check"></i><b>9.4</b> Exercícios</a></li>
+<li class="chapter" data-level="9.3" data-path="sabermais-distribuicoes.html"><a href="sabermais-distribuicoes.html"><i class="fa fa-check"></i><b>9.3</b> Para saber mais:</a></li>
+<li class="chapter" data-level="9.4" data-path="exercícios-5.html"><a href="exercícios-5.html"><i class="fa fa-check"></i><b>9.4</b> Exercícios</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="extr-dados.html"><a href="extr-dados.html"><i class="fa fa-check"></i><b>10</b> Extraindo dados de colunas descritivas</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="extr-dados.html"><a href="extr-dados.html#dados-categóricos"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a>
+<li class="chapter" data-level="10.1" data-path="dados-categóricos.html"><a href="dados-categóricos.html"><i class="fa fa-check"></i><b>10.1</b> Dados categóricos</a>
 <ul>
-<li class="chapter" data-level="10.1.1" data-path="extr-dados.html"><a href="extr-dados.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
-<li class="chapter" data-level="10.1.2" data-path="extr-dados.html"><a href="extr-dados.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
-<li class="chapter" data-level="10.1.3" data-path="extr-dados.html"><a href="extr-dados.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
+<li class="chapter" data-level="10.1.1" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-01---lista-de-referência"><i class="fa fa-check"></i><b>10.1.1</b> Passo 01 - Lista de referência</a></li>
+<li class="chapter" data-level="10.1.2" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-02---funções-que-fazem-a-busca"><i class="fa fa-check"></i><b>10.1.2</b> Passo 02 - Funções que fazem a busca</a></li>
+<li class="chapter" data-level="10.1.3" data-path="dados-categóricos.html"><a href="dados-categóricos.html#passo-03---usando-a-função"><i class="fa fa-check"></i><b>10.1.3</b> Passo 03 - Usando a função</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="extr-dados.html"><a href="extr-dados.html#listas-ref"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a>
+<li class="chapter" data-level="10.2" data-path="listas-ref.html"><a href="listas-ref.html"><i class="fa fa-check"></i><b>10.2</b> Listas de referência</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="extr-dados.html"><a href="extr-dados.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
-<li class="chapter" data-level="10.2.2" data-path="extr-dados.html"><a href="extr-dados.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
-<li class="chapter" data-level="10.2.3" data-path="extr-dados.html"><a href="extr-dados.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
-<li class="chapter" data-level="10.2.4" data-path="extr-dados.html"><a href="extr-dados.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
-<li class="chapter" data-level="10.2.5" data-path="extr-dados.html"><a href="extr-dados.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
+<li class="chapter" data-level="10.2.1" data-path="listas-ref.html"><a href="listas-ref.html#hábito-da-planta"><i class="fa fa-check"></i><b>10.2.1</b> Hábito da planta</a></li>
+<li class="chapter" data-level="10.2.2" data-path="listas-ref.html"><a href="listas-ref.html#estado-de-fertilidade-da-amostra"><i class="fa fa-check"></i><b>10.2.2</b> Estado de fertilidade da amostra</a></li>
+<li class="chapter" data-level="10.2.3" data-path="listas-ref.html"><a href="listas-ref.html#classes-de-hábitat"><i class="fa fa-check"></i><b>10.2.3</b> Classes de hábitat</a></li>
+<li class="chapter" data-level="10.2.4" data-path="listas-ref.html"><a href="listas-ref.html#textura-do-solo"><i class="fa fa-check"></i><b>10.2.4</b> Textura do solo</a></li>
+<li class="chapter" data-level="10.2.5" data-path="listas-ref.html"><a href="listas-ref.html#exsudato"><i class="fa fa-check"></i><b>10.2.5</b> Exsudato</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="extr-dados.html"><a href="extr-dados.html#extraindo-altura-e-dap"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a>
+<li class="chapter" data-level="10.3" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html"><i class="fa fa-check"></i><b>10.3</b> Extraindo altura e dap</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="extr-dados.html"><a href="extr-dados.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
-<li class="chapter" data-level="10.3.2" data-path="extr-dados.html"><a href="extr-dados.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
+<li class="chapter" data-level="10.3.1" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html#altura"><i class="fa fa-check"></i><b>10.3.1</b> Altura</a></li>
+<li class="chapter" data-level="10.3.2" data-path="extraindo-altura-e-dap.html"><a href="extraindo-altura-e-dap.html#dap"><i class="fa fa-check"></i><b>10.3.2</b> DAP</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="extr-dados.html"><a href="extr-dados.html#usando-essas-funções"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a>
+<li class="chapter" data-level="10.4" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html"><i class="fa fa-check"></i><b>10.4</b> Usando essas funções</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
-<li class="chapter" data-level="10.4.2" data-path="extr-dados.html"><a href="extr-dados.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
+<li class="chapter" data-level="10.4.1" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html#obtendo-valores-de-altura"><i class="fa fa-check"></i><b>10.4.1</b> Obtendo valores de altura</a></li>
+<li class="chapter" data-level="10.4.2" data-path="usando-essas-funções.html"><a href="usando-essas-funções.html#obtendo-valores-de-dap"><i class="fa fa-check"></i><b>10.4.2</b> Obtendo valores de DAP</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Parte II</b></span></li>
 <li class="chapter" data-level="11" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html"><i class="fa fa-check"></i><b>11</b> Checagem dos dados</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#tem-valores-ausentes"><i class="fa fa-check"></i><b>11.1</b> Tem valores ausentes?</a></li>
-<li class="chapter" data-level="11.2" data-path="aed-checa-dados.html"><a href="aed-checa-dados.html#colunas-com-fatores"><i class="fa fa-check"></i><b>11.2</b> Colunas com fatores</a></li>
+<li class="chapter" data-level="11.1" data-path="tem-valores-ausentes.html"><a href="tem-valores-ausentes.html"><i class="fa fa-check"></i><b>11.1</b> Tem valores ausentes?</a></li>
+<li class="chapter" data-level="11.2" data-path="colunas-com-fatores.html"><a href="colunas-com-fatores.html"><i class="fa fa-check"></i><b>11.2</b> Colunas com fatores</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="aed-univar.html"><a href="aed-univar.html"><i class="fa fa-check"></i><b>12</b> AED de univariadas</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="aed-univar.html"><a href="aed-univar.html#qual-a-distribuição-dos-valores-numéricos"><i class="fa fa-check"></i><b>12.1</b> Qual a distribuição dos valores numéricos?</a>
+<li class="chapter" data-level="12.1" data-path="qual-a-distribuição-dos-valores-numéricos.html"><a href="qual-a-distribuição-dos-valores-numéricos.html"><i class="fa fa-check"></i><b>12.1</b> Qual a distribuição dos valores numéricos?</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="aed-univar.html"><a href="aed-univar.html#dados-do-tutorial"><i class="fa fa-check"></i><b>12.1.1</b> Dados do tutorial</a></li>
+<li class="chapter" data-level="12.1.1" data-path="qual-a-distribuição-dos-valores-numéricos.html"><a href="qual-a-distribuição-dos-valores-numéricos.html#dados-do-tutorial"><i class="fa fa-check"></i><b>12.1.1</b> Dados do tutorial</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="aed-univar.html"><a href="aed-univar.html#tabelas-de-variáveis-categóricas"><i class="fa fa-check"></i><b>12.2</b> Tabelas de variáveis categóricas</a>
+<li class="chapter" data-level="12.2" data-path="tabelas-de-variáveis-categóricas.html"><a href="tabelas-de-variáveis-categóricas.html"><i class="fa fa-check"></i><b>12.2</b> Tabelas de variáveis categóricas</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="aed-univar.html"><a href="aed-univar.html#resumo-de-gráficos-univariados"><i class="fa fa-check"></i><b>12.2.1</b> Resumo de gráficos univariados</a></li>
+<li class="chapter" data-level="12.2.1" data-path="tabelas-de-variáveis-categóricas.html"><a href="tabelas-de-variáveis-categóricas.html#resumo-de-gráficos-univariados"><i class="fa fa-check"></i><b>12.2.1</b> Resumo de gráficos univariados</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="aed-univar.html"><a href="aed-univar.html#as-variáveis-têm-distribuição-normal"><i class="fa fa-check"></i><b>12.3</b> As variáveis têm distribuição normal?</a></li>
-<li class="chapter" data-level="12.4" data-path="aed-univar.html"><a href="aed-univar.html#sabermais-aed-univariadas"><i class="fa fa-check"></i><b>12.4</b> Para saber mais:</a></li>
+<li class="chapter" data-level="12.3" data-path="as-variáveis-têm-distribuição-normal.html"><a href="as-variáveis-têm-distribuição-normal.html"><i class="fa fa-check"></i><b>12.3</b> As variáveis têm distribuição normal?</a></li>
+<li class="chapter" data-level="12.4" data-path="sabermais-aed-univariadas.html"><a href="sabermais-aed-univariadas.html"><i class="fa fa-check"></i><b>12.4</b> Para saber mais:</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="aed-bivar.html"><a href="aed-bivar.html"><i class="fa fa-check"></i><b>13</b> AED de bivariadas</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="aed-bivar.html"><a href="aed-bivar.html#dados-do-tutorial-1"><i class="fa fa-check"></i><b>13.1</b> Dados do tutorial</a></li>
-<li class="chapter" data-level="13.2" data-path="aed-bivar.html"><a href="aed-bivar.html#fatores-e-contagens"><i class="fa fa-check"></i><b>13.2</b> Fatores e contagens</a></li>
-<li class="chapter" data-level="13.3" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-fator"><i class="fa fa-check"></i><b>13.3</b> Variável numérica vs. fator</a></li>
-<li class="chapter" data-level="13.4" data-path="aed-bivar.html"><a href="aed-bivar.html#variável-numérica-vs.-numérica"><i class="fa fa-check"></i><b>13.4</b> Variável numérica vs. numérica</a></li>
-<li class="chapter" data-level="13.5" data-path="aed-bivar.html"><a href="aed-bivar.html#outros-gráficos-bivariados"><i class="fa fa-check"></i><b>13.5</b> Outros gráficos bivariados</a></li>
+<li class="chapter" data-level="13.1" data-path="dados-do-tutorial-1.html"><a href="dados-do-tutorial-1.html"><i class="fa fa-check"></i><b>13.1</b> Dados do tutorial</a></li>
+<li class="chapter" data-level="13.2" data-path="fatores-e-contagens.html"><a href="fatores-e-contagens.html"><i class="fa fa-check"></i><b>13.2</b> Fatores e contagens</a></li>
+<li class="chapter" data-level="13.3" data-path="variável-numérica-vs.-fator.html"><a href="variável-numérica-vs.-fator.html"><i class="fa fa-check"></i><b>13.3</b> Variável numérica vs. fator</a></li>
+<li class="chapter" data-level="13.4" data-path="variável-numérica-vs.-numérica.html"><a href="variável-numérica-vs.-numérica.html"><i class="fa fa-check"></i><b>13.4</b> Variável numérica vs. numérica</a></li>
+<li class="chapter" data-level="13.5" data-path="outros-gráficos-bivariados.html"><a href="outros-gráficos-bivariados.html"><i class="fa fa-check"></i><b>13.5</b> Outros gráficos bivariados</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="aed-multivar.html"><a href="aed-multivar.html"><i class="fa fa-check"></i><b>14</b> AED de multivariadas</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="aed-multivar.html"><a href="aed-multivar.html#matrizes-de-distância"><i class="fa fa-check"></i><b>14.1</b> Matrizes de distância</a></li>
-<li class="chapter" data-level="14.2" data-path="aed-multivar.html"><a href="aed-multivar.html#ordenação-com-matrizes-de-distância"><i class="fa fa-check"></i><b>14.2</b> Ordenação com matrizes de distância</a></li>
-<li class="chapter" data-level="14.3" data-path="aed-multivar.html"><a href="aed-multivar.html#escalonamento-não-métrico-multimensional-nmds"><i class="fa fa-check"></i><b>14.3</b> Escalonamento Não-Métrico Multimensional (NMDS)</a>
+<li class="chapter" data-level="14.1" data-path="matrizes-de-distância.html"><a href="matrizes-de-distância.html"><i class="fa fa-check"></i><b>14.1</b> Matrizes de distância</a></li>
+<li class="chapter" data-level="14.2" data-path="ordenação-com-matrizes-de-distância.html"><a href="ordenação-com-matrizes-de-distância.html"><i class="fa fa-check"></i><b>14.2</b> Ordenação com matrizes de distância</a></li>
+<li class="chapter" data-level="14.3" data-path="escalonamento-não-métrico-multimensional-nmds.html"><a href="escalonamento-não-métrico-multimensional-nmds.html"><i class="fa fa-check"></i><b>14.3</b> Escalonamento Não-Métrico Multimensional (NMDS)</a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos</a></li>
+<li class="chapter" data-level="14.3.1" data-path="escalonamento-não-métrico-multimensional-nmds.html"><a href="escalonamento-não-métrico-multimensional-nmds.html#exemplo-com-dados-morfológicos"><i class="fa fa-check"></i><b>14.3.1</b> Exemplo com dados morfológicos</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="aed-multivar.html"><a href="aed-multivar.html#análises-de-agrupamento"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento</a>
+<li class="chapter" data-level="14.4" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html"><i class="fa fa-check"></i><b>14.4</b> Análises de agrupamento</a>
 <ul>
-<li class="chapter" data-level="14.4.1" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-pelo-método-da-mínima-variância"><i class="fa fa-check"></i><b>14.4.1</b> Agrupamento pelo método da mínima variância</a></li>
-<li class="chapter" data-level="14.4.2" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-upgma"><i class="fa fa-check"></i><b>14.4.2</b> Agrupamento por UPGMA</a></li>
-<li class="chapter" data-level="14.4.3" data-path="aed-multivar.html"><a href="aed-multivar.html#agrupamento-por-centróides"><i class="fa fa-check"></i><b>14.4.3</b> Agrupamento por centróides</a></li>
-<li class="chapter" data-level="14.4.4" data-path="aed-multivar.html"><a href="aed-multivar.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.4</b> Exemplo florístico</a></li>
-<li class="chapter" data-level="14.4.5" data-path="aed-multivar.html"><a href="aed-multivar.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.5</b> Análise de Coordenadas Principais (PCoA)</a></li>
+<li class="chapter" data-level="14.4.1" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-pelo-método-da-mínima-variância"><i class="fa fa-check"></i><b>14.4.1</b> Agrupamento pelo método da mínima variância</a></li>
+<li class="chapter" data-level="14.4.2" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-por-upgma"><i class="fa fa-check"></i><b>14.4.2</b> Agrupamento por UPGMA</a></li>
+<li class="chapter" data-level="14.4.3" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#agrupamento-por-centróides"><i class="fa fa-check"></i><b>14.4.3</b> Agrupamento por centróides</a></li>
+<li class="chapter" data-level="14.4.4" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#exemplo-florístico"><i class="fa fa-check"></i><b>14.4.4</b> Exemplo florístico</a></li>
+<li class="chapter" data-level="14.4.5" data-path="análises-de-agrupamento.html"><a href="análises-de-agrupamento.html#análise-de-coordenadas-principais-pcoa"><i class="fa fa-check"></i><b>14.4.5</b> Análise de Coordenadas Principais (PCoA)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.5" data-path="aed-multivar.html"><a href="aed-multivar.html#componentes-principais-pca"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)</a></li>
+<li class="chapter" data-level="14.5" data-path="componentes-principais-pca.html"><a href="componentes-principais-pca.html"><i class="fa fa-check"></i><b>14.5</b> Componentes Principais (PCA)</a></li>
 </ul></li>
 <li class="appendix"><span><b>Apêndice</b></span></li>
 <li class="chapter" data-level="A" data-path="base-tidyverse.html"><a href="base-tidyverse.html"><i class="fa fa-check"></i><b>A</b> Base R vs. Tidyverse</a>
 <ul>
-<li class="chapter" data-level="A.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-que-é-o-tidyverse"><i class="fa fa-check"></i><b>A.1</b> O que é o Tidyverse?</a>
+<li class="chapter" data-level="A.1" data-path="o-que-é-o-tidyverse.html"><a href="o-que-é-o-tidyverse.html"><i class="fa fa-check"></i><b>A.1</b> O que é o Tidyverse?</a>
 <ul>
-<li class="chapter" data-level="A.1.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-símbolos-do-tidyverse"><i class="fa fa-check"></i><b>A.1.1</b> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse</a></li>
+<li class="chapter" data-level="A.1.1" data-path="o-que-é-o-tidyverse.html"><a href="o-que-é-o-tidyverse.html#dplyr-e-ggplot2-símbolos-do-tidyverse"><i class="fa fa-check"></i><b>A.1.1</b> <code>dplyr</code> e <code>ggplot2</code>, símbolos do Tidyverse</a></li>
 </ul></li>
-<li class="chapter" data-level="A.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-dplyr"><i class="fa fa-check"></i><b>A.2</b> Usando o <code>dplyr</code></a>
+<li class="chapter" data-level="A.2" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html"><i class="fa fa-check"></i><b>A.2</b> Usando o <code>dplyr</code></a>
 <ul>
-<li class="chapter" data-level="A.2.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#selecionando-colunas-com-select"><i class="fa fa-check"></i><b>A.2.1</b> Selecionando colunas com <code>select()</code></a></li>
-<li class="chapter" data-level="A.2.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#filtrando-dados-com-filter"><i class="fa fa-check"></i><b>A.2.2</b> Filtrando dados com <code>filter()</code></a></li>
-<li class="chapter" data-level="A.2.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#destrinchando-as-funções-group_by-e-summarise"><i class="fa fa-check"></i><b>A.2.3</b> Destrinchando as funções <code>group_by</code> e <code>summarise</code></a></li>
+<li class="chapter" data-level="A.2.1" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#selecionando-colunas-com-select"><i class="fa fa-check"></i><b>A.2.1</b> Selecionando colunas com <code>select()</code></a></li>
+<li class="chapter" data-level="A.2.2" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#filtrando-dados-com-filter"><i class="fa fa-check"></i><b>A.2.2</b> Filtrando dados com <code>filter()</code></a></li>
+<li class="chapter" data-level="A.2.3" data-path="usando-o-dplyr.html"><a href="usando-o-dplyr.html#destrinchando-as-funções-group_by-e-summarise"><i class="fa fa-check"></i><b>A.2.3</b> Destrinchando as funções <code>group_by</code> e <code>summarise</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#o-operador-e-o-encadeamento-de-ações"><i class="fa fa-check"></i><b>A.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a>
+<li class="chapter" data-level="A.3" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html"><i class="fa fa-check"></i><b>A.3</b> O operador <code>%&gt;%</code> e o encadeamento de ações</a>
 <ul>
-<li class="chapter" data-level="A.3.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com1"><i class="fa fa-check"></i><b>A.3.1</b> Conjunto de comandos 1</a></li>
-<li class="chapter" data-level="A.3.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#com2"><i class="fa fa-check"></i><b>A.3.2</b> Conjunto de comandos 2</a></li>
-<li class="chapter" data-level="A.3.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#pipe"><i class="fa fa-check"></i><b>A.3.3</b> Resumo do operador <code>%&gt;%</code>:</a></li>
+<li class="chapter" data-level="A.3.1" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#com1"><i class="fa fa-check"></i><b>A.3.1</b> Conjunto de comandos 1</a></li>
+<li class="chapter" data-level="A.3.2" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#com2"><i class="fa fa-check"></i><b>A.3.2</b> Conjunto de comandos 2</a></li>
+<li class="chapter" data-level="A.3.3" data-path="o-operador-e-o-encadeamento-de-ações.html"><a href="o-operador-e-o-encadeamento-de-ações.html#pipe"><i class="fa fa-check"></i><b>A.3.3</b> Resumo do operador <code>%&gt;%</code>:</a></li>
 </ul></li>
-<li class="chapter" data-level="A.4" data-path="base-tidyverse.html"><a href="base-tidyverse.html#usando-o-ggplot2"><i class="fa fa-check"></i><b>A.4</b> Usando o <code>ggplot2</code></a></li>
-<li class="chapter" data-level="A.5" data-path="base-tidyverse.html"><a href="base-tidyverse.html#dplyr-e-ggplot2-em-conjunto"><i class="fa fa-check"></i><b>A.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a>
+<li class="chapter" data-level="A.4" data-path="usando-o-ggplot2.html"><a href="usando-o-ggplot2.html"><i class="fa fa-check"></i><b>A.4</b> Usando o <code>ggplot2</code></a></li>
+<li class="chapter" data-level="A.5" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html"><i class="fa fa-check"></i><b>A.5</b> <code>dplyr</code> e <code>ggplot2</code> em conjunto</a>
 <ul>
-<li class="chapter" data-level="A.5.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#gráfico-de-espalhamento"><i class="fa fa-check"></i><b>A.5.1</b> Gráfico de espalhamento</a></li>
-<li class="chapter" data-level="A.5.2" data-path="base-tidyverse.html"><a href="base-tidyverse.html#diagrama-de-caixas"><i class="fa fa-check"></i><b>A.5.2</b> Diagrama de caixas</a></li>
-<li class="chapter" data-level="A.5.3" data-path="base-tidyverse.html"><a href="base-tidyverse.html#histograma"><i class="fa fa-check"></i><b>A.5.3</b> Histograma</a></li>
+<li class="chapter" data-level="A.5.1" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#gráfico-de-espalhamento"><i class="fa fa-check"></i><b>A.5.1</b> Gráfico de espalhamento</a></li>
+<li class="chapter" data-level="A.5.2" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#diagrama-de-caixas"><i class="fa fa-check"></i><b>A.5.2</b> Diagrama de caixas</a></li>
+<li class="chapter" data-level="A.5.3" data-path="dplyr-e-ggplot2-em-conjunto.html"><a href="dplyr-e-ggplot2-em-conjunto.html#histograma"><i class="fa fa-check"></i><b>A.5.3</b> Histograma</a></li>
 </ul></li>
-<li class="chapter" data-level="A.6" data-path="base-tidyverse.html"><a href="base-tidyverse.html#baser"><i class="fa fa-check"></i><b>A.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a>
+<li class="chapter" data-level="A.6" data-path="baser.html"><a href="baser.html"><i class="fa fa-check"></i><b>A.6</b> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code></a>
 <ul>
-<li class="chapter" data-level="A.6.1" data-path="base-tidyverse.html"><a href="base-tidyverse.html#e-o-uso-do-operador-com-o-pacote-base"><i class="fa fa-check"></i><b>A.6.1</b> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?</a></li>
+<li class="chapter" data-level="A.6.1" data-path="baser.html"><a href="baser.html#e-o-uso-do-operador-com-o-pacote-base"><i class="fa fa-check"></i><b>A.6.1</b> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?</a></li>
 </ul></li>
-<li class="chapter" data-level="A.7" data-path="base-tidyverse.html"><a href="base-tidyverse.html#tidyverse-um-resumo"><i class="fa fa-check"></i><b>A.7</b> Tidyverse, um resumo</a></li>
-<li class="chapter" data-level="A.8" data-path="base-tidyverse.html"><a href="base-tidyverse.html#sabermais-tidyverse"><i class="fa fa-check"></i><b>A.8</b> Para saber mais:</a></li>
+<li class="chapter" data-level="A.7" data-path="tidyverse-um-resumo.html"><a href="tidyverse-um-resumo.html"><i class="fa fa-check"></i><b>A.7</b> Tidyverse, um resumo</a></li>
+<li class="chapter" data-level="A.8" data-path="sabermais-tidyverse.html"><a href="sabermais-tidyverse.html"><i class="fa fa-check"></i><b>A.8</b> Para saber mais:</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="unzip.html"><a href="unzip.html"><i class="fa fa-check"></i><b>B</b> Baixar e descomprimir um arquivo</a></li>
 <li class="chapter" data-level="C" data-path="videos.html"><a href="videos.html"><i class="fa fa-check"></i><b>C</b> Aulas em vídeo</a>
 <ul>
-<li class="chapter" data-level="C.1" data-path="videos.html"><a href="videos.html#importando-e-exportando-dados"><i class="fa fa-check"></i><b>C.1</b> Importando e exportando dados</a></li>
-<li class="chapter" data-level="C.2" data-path="videos.html"><a href="videos.html#criação-de-vetores-1"><i class="fa fa-check"></i><b>C.2</b> Criação de vetores</a></li>
-<li class="chapter" data-level="C.3" data-path="videos.html"><a href="videos.html#classes-de-vetores-e-fatores"><i class="fa fa-check"></i><b>C.3</b> Classes de vetores e fatores</a></li>
-<li class="chapter" data-level="C.4" data-path="videos.html"><a href="videos.html#sequências-numéricas-e-repetições-operações-e-funções-com-vetores"><i class="fa fa-check"></i><b>C.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
-<li class="chapter" data-level="C.5" data-path="videos.html"><a href="videos.html#listas-1"><i class="fa fa-check"></i><b>C.5</b> Listas</a></li>
-<li class="chapter" data-level="C.6" data-path="videos.html"><a href="videos.html#criando-matrizes-1"><i class="fa fa-check"></i><b>C.6</b> Criando matrizes</a></li>
-<li class="chapter" data-level="C.7" data-path="videos.html"><a href="videos.html#criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
-<li class="chapter" data-level="C.8" data-path="videos.html"><a href="videos.html#indexação-de-matrizes-e-dataframes"><i class="fa fa-check"></i><b>C.8</b> Indexação de matrizes e dataframes</a></li>
-<li class="chapter" data-level="C.9" data-path="videos.html"><a href="videos.html#condicionais-1"><i class="fa fa-check"></i><b>C.9</b> Condicionais</a></li>
-<li class="chapter" data-level="C.10" data-path="videos.html"><a href="videos.html#funções-da-família-apply"><i class="fa fa-check"></i><b>C.10</b> Funções da família <code>apply(")</code></a></li>
-<li class="chapter" data-level="C.11" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-pasta-e-arquivos"><i class="fa fa-check"></i><b>C.11</b> Funções de manipulação de pasta e arquivos</a></li>
-<li class="chapter" data-level="C.12" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-01"><i class="fa fa-check"></i><b>C.12</b> Funções de manipulação de texto - parte 01</a></li>
-<li class="chapter" data-level="C.13" data-path="videos.html"><a href="videos.html#funções-de-manipulação-de-texto---parte-02"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02</a></li>
-<li class="chapter" data-level="C.14" data-path="videos.html"><a href="videos.html#objetos-complexos"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos</a></li>
+<li class="chapter" data-level="C.1" data-path="importando-e-exportando-dados.html"><a href="importando-e-exportando-dados.html"><i class="fa fa-check"></i><b>C.1</b> Importando e exportando dados</a></li>
+<li class="chapter" data-level="C.2" data-path="criação-de-vetores-1.html"><a href="criação-de-vetores-1.html"><i class="fa fa-check"></i><b>C.2</b> Criação de vetores</a></li>
+<li class="chapter" data-level="C.3" data-path="classes-de-vetores-e-fatores.html"><a href="classes-de-vetores-e-fatores.html"><i class="fa fa-check"></i><b>C.3</b> Classes de vetores e fatores</a></li>
+<li class="chapter" data-level="C.4" data-path="sequências-numéricas-e-repetições-operações-e-funções-com-vetores.html"><a href="sequências-numéricas-e-repetições-operações-e-funções-com-vetores.html"><i class="fa fa-check"></i><b>C.4</b> Sequências numéricas e repetições, operações e funções com vetores</a></li>
+<li class="chapter" data-level="C.5" data-path="listas-1.html"><a href="listas-1.html"><i class="fa fa-check"></i><b>C.5</b> Listas</a></li>
+<li class="chapter" data-level="C.6" data-path="criando-matrizes-1.html"><a href="criando-matrizes-1.html"><i class="fa fa-check"></i><b>C.6</b> Criando matrizes</a></li>
+<li class="chapter" data-level="C.7" data-path="criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes.html"><a href="criando-dataframes-e-operações-importantes-em-matrizes-e-dataframes.html"><i class="fa fa-check"></i><b>C.7</b> Criando dataframes, e operações importantes em matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.8" data-path="indexação-de-matrizes-e-dataframes.html"><a href="indexação-de-matrizes-e-dataframes.html"><i class="fa fa-check"></i><b>C.8</b> Indexação de matrizes e dataframes</a></li>
+<li class="chapter" data-level="C.9" data-path="condicionais-1.html"><a href="condicionais-1.html"><i class="fa fa-check"></i><b>C.9</b> Condicionais</a></li>
+<li class="chapter" data-level="C.10" data-path="funções-da-família-apply.html"><a href="funções-da-família-apply.html"><i class="fa fa-check"></i><b>C.10</b> Funções da família <code>apply(")</code></a></li>
+<li class="chapter" data-level="C.11" data-path="funções-de-manipulação-de-pasta-e-arquivos.html"><a href="funções-de-manipulação-de-pasta-e-arquivos.html"><i class="fa fa-check"></i><b>C.11</b> Funções de manipulação de pasta e arquivos</a></li>
+<li class="chapter" data-level="C.12" data-path="funções-de-manipulação-de-texto---parte-01.html"><a href="funções-de-manipulação-de-texto---parte-01.html"><i class="fa fa-check"></i><b>C.12</b> Funções de manipulação de texto - parte 01</a></li>
+<li class="chapter" data-level="C.13" data-path="funções-de-manipulação-de-texto---parte-02.html"><a href="funções-de-manipulação-de-texto---parte-02.html"><i class="fa fa-check"></i><b>C.13</b> Funções de manipulação de texto - parte 02</a></li>
+<li class="chapter" data-level="C.14" data-path="objetos-complexos.html"><a href="objetos-complexos.html"><i class="fa fa-check"></i><b>C.14</b> Objetos complexos</a></li>
 </ul></li>
 <li class="chapter" data-level="D" data-path="chernoff.html"><a href="chernoff.html"><i class="fa fa-check"></i><b>D</b> Caras de Chernoff</a></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com pacote R bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
 
 </ul>
 
@@ -552,931 +549,21 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="intro" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> Conceitos introdutórios<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Capítulo 1</span> Conceitos introdutórios<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Recomendamos que o usuário siga a ordem dos capítulos, especialmente se é a primeira vez que o mesmo está lidando com o R.
 Use o R via RStudio, é mais simples.
 Busque executar cada script linha por linha, procurando entender o que cada linha faz e o que cada comando representa.
-E para cada função nova, busque a <a href="intro.html#help">ajuda do R</a>, leia o que significam cada um dos argumentos.
+E para cada função nova, busque a <a href="help.html#help">ajuda do R</a>, leia o que significam cada um dos argumentos.
 Altere os argumentos das funções e veja o que acontece.
 Explore!</p>
-<div id="console-e-scripts" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Console e scripts<a href="intro.html#console-e-scripts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As figuras abaixo mostram imagens relativamente similares ao que os usuários do R padrão (Figura <a href="intro.html#fig:pad-r">1.1</a>) e RStudio (Figura <a href="intro.html#fig:studio-r">1.2</a>) verão ao iniciarem esses programas.</p>
-<div class="figure"><span style="display:block;" id="fig:pad-r"></span>
-<img src="figuras/r_padrao.png" alt=" Imagem de uma sessão do R para Mac OSX com um janela de script aberta além do console." width="101%" />
-<p class="caption">
-Figura 1.1:  Imagem de uma sessão do R para Mac OSX com um janela de script aberta além do console.
-</p>
-</div>
-<p>Ao abrirem o R ou o RStudio você terão basicamente duas janelas principais:</p>
-<ul>
-<li><p><strong>Console</strong> - corresponde`a interface que interpreta o código da linguagem. Os códigos digitados aqui serão interpretados pelo R (Texto destacado em <strong>verde</strong> nas figuras <a href="intro.html#fig:pad-r">1.1</a>, <a href="intro.html#fig:studio-r">1.2</a>);</p></li>
-<li><p><strong>Script</strong> - digitar um código curto no console é simples, mas quando o código é longo, é importante guardá-lo em algum lugar para executá-lo em qualquer momento. Para isso utilizamos scripts, que são arquivos de textos simples que podem ser salvo (extensão <code>.R</code>) numa pasta no seu computador e reutilizado (Texto destacado em <strong>amarelo</strong> nas figuras <a href="intro.html#fig:pad-r">1.1</a>, <a href="intro.html#fig:studio-r">1.2</a>). Como um arquivo <code>.R</code> é um texto simples, ele é editável por qualquer editor de texto, como o Bloco de Notas ou <a href="https://notepad-plus-plus.org/">Notepad++</a> para usuários Windows, <a href="https://www.barebones.com/products/textwrangler/">TextWrangler</a> ou <a href="https://www.barebones.com/products/textwrangler/">BBEdit</a> para usuários macOS, ou <a href="https://help.gnome.org/users/gedit/stable/index.html.pt_BR">gedit</a> para usuários Linux. O editor de scripts do RStudio é excelente.</p></li>
-</ul>
-<div class="figure"><span style="display:block;" id="fig:studio-r"></span>
-<img src="figuras/rstudio.png" alt=" Imagem de uma sessão do RStudio com três painéis abertos." width="100%" />
-<p class="caption">
-Figura 1.2:  Imagem de uma sessão do RStudio com três painéis abertos.
-</p>
-</div>
-</div>
-<div id="linguagem-objeto-orientada" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Linguagem objeto-orientada<a href="intro.html#linguagem-objeto-orientada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A chave para entender o R é que trata-se de uma linguagem.
-Uma linguagem para manipular objetos <span class="citation">(<a href="#ref-VenablesRipley2002" role="doc-biblioref">Venables e Ripley 2002</a>)</span>.
-Um objeto é identificado por uma palavra e veremos ao longo do curso que existem vários tipos de objetos.
-Este é o conceito mais importante para entender o R.</p>
-<p>Para começar, digite algumas coisas no Console do seu R ou RStudio.
-Por exemplo, digite uma fórmula matemática simples no console e o execute:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="intro.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">10</span></span></code></pre></div>
-<pre><code>## [1] 18</code></pre>
-<p>O console retornou 18, isto é, o R funcionou como uma calculadora.
-Portanto, números são interpretados como números pelo console.</p>
-<p>Agora vamos criar um objeto simples chamado <code>objnum</code> e atribuir texto a ele:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="intro.html#cb6-1" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;vou colocar um texto dentro do meu primeiro objeto&quot;</span> <span class="co"># enter</span></span>
-<span id="cb6-2"><a href="intro.html#cb6-2" aria-hidden="true" tabindex="-1"></a>objum <span class="co"># enter</span></span></code></pre></div>
-<pre><code>## [1] &quot;vou colocar um texto dentro do meu primeiro objeto&quot;</code></pre>
-<p>Vejam que <code>objum</code> é o nome do meu primeiro objeto, e tem como conteúdo o texto que nós atribuímos a ele.
-Nós poderíamos ter chamado <code>objum</code> de qualquer coisa (sem espaços em branco):</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="intro.html#cb8-1" aria-hidden="true" tabindex="-1"></a>banana <span class="ot">&lt;-</span> <span class="st">&quot;vou colocar um texto dentro do meu primeiro objeto&quot;</span></span>
-<span id="cb8-2"><a href="intro.html#cb8-2" aria-hidden="true" tabindex="-1"></a>banana</span></code></pre></div>
-<pre><code>## [1] &quot;vou colocar um texto dentro do meu primeiro objeto&quot;</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="intro.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mesma coisa né?</span></span></code></pre></div>
-<p>Um objeto também pode virar outro objeto. Vejamos abaixo:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="intro.html#cb11-1" aria-hidden="true" tabindex="-1"></a>objdois <span class="ot">&lt;-</span> objum</span>
-<span id="cb11-2"><a href="intro.html#cb11-2" aria-hidden="true" tabindex="-1"></a>objdois <span class="co"># pegou o conteúdo que eu coloquei em objum</span></span></code></pre></div>
-<pre><code>## [1] &quot;vou colocar um texto dentro do meu primeiro objeto&quot;</code></pre>
-<p>Podemos guardar resultados de contas em um objeto:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="intro.html#cb13-1" aria-hidden="true" tabindex="-1"></a>objtres <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">10</span></span>
-<span id="cb13-2"><a href="intro.html#cb13-2" aria-hidden="true" tabindex="-1"></a>objtres</span></code></pre></div>
-<pre><code>## [1] 18</code></pre>
-<p>Note que o código exposto acima é geralmente o que está contido em um <a href="https://pt.wikipedia.org/wiki/Linguagem_de_script">script</a>, ou seja, a sequência de códigos que você escreveu e que o R interpretará para realizar o que foi dito.
-Se você copiar e colar o trecho (ou os trechos) de código acima em um arquivo <code>.R</code>, você poderá executá-los tantas vezes quanto quiser.
-Copie então todos os trechos de código expostos até então para a janela do script e salve-o como <code>script01.R</code> em alguma pasta no seu computador.</p>
-<p>Note também que dependendo do está incluso no script, o código apresenta cores diferentes para comentários, objetos, e símbolos de atribuição.
-Isso ajuda a entender os elementos da sintaxe (vocabulário e gramática do R).
-IDE’s também mostram isso de forma colorida.</p>
-<p>Note também que, à direita do símbolo <code>#</code>, o texto no código acima fica cinza.
-Este símbolo indica ao R que todo texto começando no <code>#</code> deve ser interpretado como texto apenas, e não como código.
-Comentar códigos é uma prática que deve ser tornar rotineira a fim de facilitar o entendimento de cada script.</p>
-<p>Se você já está escrevendo um script num arquivo e não no console, selecione todo o texto na sua janela de script e digite <code>Control+R</code> (Windows), ou <code>Command+Enter</code> (Mac).
-O conteúdo do script será executado no Console.
-Note que o símbolo <code>#</code> não é interpretado pelo console.</p>
-<p>O R vem com vários scripts prontos, que são funções que executam alguma coisa.
-Esses scripts são objetos de classe <strong>função</strong>, pois eles contêm um conjunto de códigos que utilizam parâmetros para executar um conjunto de passos.
-Parâmetros são objetos que a função utiliza segundo as suas especificações.
-Por exemplo, vamos listar os objetos criados no passo anterior:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="intro.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># digite</span></span>
-<span id="cb15-2"><a href="intro.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note os parênteses (); a função ls() lista os objetos criados por você: [1] &quot;banana&quot;  &quot;objdois&quot; &quot;objtres&quot; &quot;objum&quot;</span></span>
-<span id="cb15-3"><a href="intro.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="intro.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># adicione um parâmetro à função, especificando o que você quer listar, apenas aqueles que contém no nome o padrão &quot;obj&quot;</span></span>
-<span id="cb15-5"><a href="intro.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="at">pattern =</span> <span class="st">&quot;obj&quot;</span>) <span class="co"># [1] &quot;objdois&quot; &quot;objtres&quot; &quot;objum&quot;</span></span>
-<span id="cb15-6"><a href="intro.html#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="intro.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># agora veja o que a função ls é</span></span>
-<span id="cb15-8"><a href="intro.html#cb15-8" aria-hidden="true" tabindex="-1"></a>ls <span class="co"># note que não digitei os parênteses e ao digitar isso verei o script que está dentro da função ls que começa assim: function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, pattern, sorted = TRUE)  { ....</span></span>
-<span id="cb15-9"><a href="intro.html#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># note que os argumentos da função são os objetos que vão dentro do () da função e são utilizados pela função para executar alguma coisa, neste caso, lista objetos. Experimente mudando parâmetros:</span></span>
-<span id="cb15-10"><a href="intro.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="at">sorted =</span> <span class="cn">FALSE</span>) <span class="co"># ele mostra os objetos na ordem que foram criados</span></span></code></pre></div>
-</div>
-<div id="base-pacotes" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> R-base e pacotes<a href="intro.html#base-pacotes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como vimos acima, um script do tipo função é um objeto que executa um conjunto de comandos e recebe argumentos que modificam o que o script realiza. Existem dois tipos de funções:</p>
-<ul>
-<li><p>Funções do pacote <code>base</code> - funções que vêm junto com o R quando você faz o download do programa, como por exemplo as funções <code>length()</code>, <code>order()</code>, <code>sort()</code>, <code>sum()</code>, <code>mean()</code> etc;</p></li>
-<li><p>Funções de pacotes externos - pacotes (<code>packages</code> em inglês) são funções criadas por colaboradores e organizadas em pacotes que você pode baixar dos repositórios do R.</p></li>
-</ul>
-<p>As funções do pacote <code>base</code> vêm junto com o programa e você não precisa se preocupar com isso.
-Pacotes, por outro lado, devem ser instalados pelo usuário conforme a necessidade.
-Por exemplo, para trabalhar com dados filogenéticos, você pode necessitar do pacote <a href="https://cran.r-project.org/web/packages/ape/index.html">ape</a> <span class="citation">(<a href="#ref-R-ape" role="doc-biblioref">Paradis et al. 2020</a>)</span>, que já tem várias funções preparadas para análises filogenéticas.
-Se você necessitar deste pacote, por exemplo, basta executar o seguinte comando no console do R:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="intro.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>)</span></code></pre></div>
-<p>Para trabalhar com pacotes você primeiro precisa definir um repositório, ou seja, um servidor, de vários disponíveis (espelhos do repositório oficial), de onde o R buscará o pacote desejado.
-Pode-se também o menu do R ou do RStudio para instalar pacotes e definir um repositório padrão para sua instalação.</p>
-<p>Como tudo no R, você pode executar comandos que estão no menu usando funções.
-Por exemplo, ao invés de usarmos o menu do R para definir um repositório e instalar um pacote, vamos executar estas ações por meio de um script:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="intro.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># isso pode não funcionar se estiver no INPA por causa do Proxy.</span></span>
-<span id="cb17-2"><a href="intro.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chooseCRANmirror</span>() <span class="co"># seleciona repositório</span></span>
-<span id="cb17-3"><a href="intro.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>) <span class="co"># instala o pacote Ape</span></span></code></pre></div>
-</div>
-<div id="help" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Ajuda no R<a href="intro.html#help" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Toda função no R, oriunda tanto do pacote base ou dos pacotes extras, possui um pedaço de texto chamado de “ajuda” e que possui uma instrução sobre a utilização da mesma.
-Para obter esta instrução, é muito fácil.
-Basta executar uma das seguintes opções:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="intro.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># como exemplo vamos usar a função ls()</span></span>
-<span id="cb18-2"><a href="intro.html#cb18-2" aria-hidden="true" tabindex="-1"></a>?ls <span class="co"># ou seja o comando é ?+&quot;nome da função&quot;</span></span>
-<span id="cb18-3"><a href="intro.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ou então</span></span>
-<span id="cb18-4"><a href="intro.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">topic =</span> <span class="st">&quot;ls&quot;</span>) <span class="co"># nome da função como argumento da topic da função help</span></span></code></pre></div>
-<p>Ao digitar uma das opções acima, o R vai abrir uma janela (no RStudio, vai colocar esse resultado num dos painéis) contendo a página com a explicação da função:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="intro.html#cb19-1" aria-hidden="true" tabindex="-1"></a>?ls</span></code></pre></div>
-<pre><code>## Warning in max(i1[i1 &lt; i]): no non-missing arguments to max; returning -Inf
-
-## Warning in max(i1[i1 &lt; i]): no non-missing arguments to max; returning -Inf
-
-## Warning in max(i1[i1 &lt; i]): no non-missing arguments to max; returning -Inf
-
-## Warning in max(i1[i1 &lt; i]): no non-missing arguments to max; returning -Inf</code></pre>
-<div class="r-help-page">
-<div class="container">
-<table style="width: 100%;">
-<tr>
-<td>
-ls
-</td>
-<td style="text-align: right;">
-R Documentation
-</td>
-</tr>
-</table>
-<h2>
-List Objects
-</h2>
-<h3>
-Description
-</h3>
-<p>
-<code>ls</code> and <code>objects</code> return a vector of character strings
-giving the names of the objects in the specified environment. When
-invoked with no argument at the top level prompt, <code>ls</code> shows what
-data sets and functions a user has defined. When invoked with no
-argument inside a function, <code>ls</code> returns the names of the
-function’s local variables: this is useful in conjunction with
-<code>browser</code>.
-</p>
-<h3>
-Usage
-</h3>
-<pre class="r"><code class='language-R'>ls(name, pos = -1L, envir = as.environment(pos),
-   all.names = FALSE, pattern, sorted = TRUE)
-objects(name, pos= -1L, envir = as.environment(pos),
-        all.names = FALSE, pattern, sorted = TRUE)
-</code></pre>
-<h3>
-Arguments
-</h3>
-<table>
-<tr style="vertical-align: top;">
-<td>
-<code>name</code>
-</td>
-<td>
-<p>
-which environment to use in listing the available objects.
-Defaults to the <em>current</em> environment. Although called
-<code>name</code> for back compatibility, in fact this argument can
-specify the environment in any form; see the ‘Details’ section.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td>
-<code>pos</code>
-</td>
-<td>
-<p>
-an alternative argument to <code>name</code> for specifying the
-environment as a position in the search list. Mostly there for
-back compatibility.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td>
-<code>envir</code>
-</td>
-<td>
-<p>
-an alternative argument to <code>name</code> for specifying the
-environment. Mostly there for back compatibility.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td>
-<code>all.names</code>
-</td>
-<td>
-<p>
-a logical value. If <code>TRUE</code>, all
-object names are returned. If <code>FALSE</code>, names which begin with a
-‘<span class="samp">⁠.⁠</span>’ are omitted.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td>
-<code>pattern</code>
-</td>
-<td>
-<p>
-an optional regular expression. Only names
-matching <code>pattern</code> are returned. <code>glob2rx</code> can be
-used to convert wildcard patterns to regular expressions.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td>
-<code>sorted</code>
-</td>
-<td>
-<p>
-logical indicating if the resulting
-<code>character</code> should be sorted alphabetically. Note that
-this is part of <code>ls()</code> may take most of the time.
-</p>
-</td>
-</tr>
-</table>
-<h3>
-Details
-</h3>
-<p>
-The <code>name</code> argument can specify the environment from which
-object names are taken in one of several forms:
-as an integer (the position in the <code>search</code> list); as
-the character string name of an element in the search list; or as an
-explicit <code>environment</code> (including using
-<code>sys.frame</code> to access the currently active function calls).
-By default, the environment of the call to <code>ls</code> or <code>objects</code>
-is used. The <code>pos</code> and <code>envir</code> arguments are an alternative
-way to specify an environment, but are primarily there for back
-compatibility.
-</p>
-<p>
-Note that the <em>order</em> of strings for <code>sorted = TRUE</code> is
-locale dependent, see <code>Sys.getlocale</code>. If <code>sorted =
-FALSE</code> the order is arbitrary, depending if the environment is
-hashed, the order of insertion of objects, ….
-</p>
-<h3>
-References
-</h3>
-<p>
-Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
-<em>The New S Language</em>.
-Wadsworth &amp; Brooks/Cole.
-</p>
-<h3>
-See Also
-</h3>
-<p>
-<code>glob2rx</code> for converting wildcard patterns to regular
-expressions.
-</p>
-<p>
-<code>ls.str</code> for a long listing based on <code>str</code>.
-<code>apropos</code> (or <code>find</code>)
-for finding objects in the whole search path;
-<code>grep</code> for more details on ‘regular expressions’;
-<code>class</code>, <code>methods</code>, etc., for
-object-oriented programming.
-</p>
-<h3>
-Examples
-</h3>
-<pre class="r"><code class='language-R'>.Ob &lt;- 1
-ls(pattern = "O")
-ls(pattern= "O", all.names = TRUE)    # also shows ".[foo]"
-
-# shows an empty list because inside myfunc no variables are defined
-myfunc &lt;- function() {ls()}
-myfunc()
-
-# define a local variable inside myfunc
-myfunc &lt;- function() {y &lt;- 1; ls()}
-myfunc()                # shows "y"
-</code></pre>
-</div>
-</div>
-<p>Todos esses trechos de ajuda (<code>?</code>) do R têm a mesma estrutura e devem ser acessados constantemente para o bom entendimento do funcionamento das funções e seus argumentos.</p>
-</div>
-<div id="área-de-trabalho-vs.-pasta-de-trabalho" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Área de trabalho vs. Pasta de Trabalho<a href="intro.html#área-de-trabalho-vs.-pasta-de-trabalho" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Dois conceitos são fundamentais para trabalhar no R:</p>
-<ul>
-<li>Área de Trabalho (<code>environment</code> no R) - é o local dentro do R onde você coloca os objetos criados durante a execução de scripts. Você pode visualizar/apagar os objetos no Console:</li>
-</ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="intro.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># ls= listar - já vimos que isso lista os objetos criados por você e que estão na área de trabalho</span></span>
-<span id="cb21-2"><a href="intro.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="intro.html#cb21-3" aria-hidden="true" tabindex="-1"></a>?rm <span class="co"># veja o help desta função</span></span>
-<span id="cb21-4"><a href="intro.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(objum) <span class="co"># rm = remover - esta função apaga objetos da área de trabalho. No exemplo estamos apagando o objeto chamado objum, criado anteriormente</span></span>
-<span id="cb21-5"><a href="intro.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note agora que o objeto não existe mais</span></span>
-<span id="cb21-6"><a href="intro.html#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="intro.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># desse jeito apagamos todos os objetos que criamos anteriormente</span></span>
-<span id="cb21-8"><a href="intro.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note que não sobrou nenhum objeto</span></span></code></pre></div>
-<ul>
-<li>Pasta de Trabalho (<code>working directory</code>- é o local (pasta) no seu computador que o R usa para salvar arquivos. É o caminho padrão para o R encontrar arquivos de dados, scripts, etc. Você pode trabalhar no R sem definir uma <strong>Pasta de Trabalho</strong> mas é muito mais simples se você usa este recurso. Experimente a seguinte script:</li>
-</ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="intro.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>() <span class="co"># o nome desta função é abreviação de &quot;get working directory&quot; ou seja &quot;pega a pasta de trabalho definida&quot;. A resposta deste código varia dependendo do seu sistema operacional. Mas a função retorna o caminho completo da pasta de trabalho atual</span></span></code></pre></div>
-<p>Toda vez que você usar o R, é uma boa prática primeiramente definir a <em>pasta de trabalho</em>, que é o local no seu computador onde você guarda os arquivos relacionados ao seu projeto (dados, scripts, resultados etc.).</p>
-<p>Você pode definir a <em>pasta de trabalho</em> usando o menu do R (<code>Arquivo ⇒ Diretório de Trabalho</code> no Windows; ou <code>Misc ⇒ Muda Pasta de Trabalho</code> no Mac).
-Ou você pode usar uma função:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="intro.html#cb23-1" aria-hidden="true" tabindex="-1"></a>?setwd <span class="co"># veja o help da função que iremos utilizar</span></span>
-<span id="cb23-2"><a href="intro.html#cb23-2" aria-hidden="true" tabindex="-1"></a>minhapasta <span class="ot">&lt;-</span> <span class="st">&quot;/Users/BetoVicentini/Desktop/bot89-2016&quot;</span></span>
-<span id="cb23-3"><a href="intro.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># se estiver usando windows:</span></span>
-<span id="cb23-4"><a href="intro.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># minhapasta = &quot;c:/Users/BetoVicentini/Documents/bot89-2016&quot;</span></span>
-<span id="cb23-5"><a href="intro.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># minhapasta = &quot;c:\\/Users\\/BetoVicentini\\/Documents\\/bot89-2016&quot;  #talvez precise usar barras invertidas</span></span>
-<span id="cb23-6"><a href="intro.html#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="intro.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="at">dir =</span> minhapasta) <span class="co"># usa a funçao &quot;set working directory&quot; para especificar o diretório (pasta) de trabalho</span></span>
-<span id="cb23-8"><a href="intro.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># note que eu defini dir primeiramente como o objeto &quot;minhapasta&quot; usei esse objeto para especificar o objeto &quot;dir&quot;, que é o único argumento da função setwd()</span></span></code></pre></div>
-<p>Objetos criados no R por você podem ser salvos como um arquivo no seu computador.
-Você pode usar o menu do R ou RStudio para isso ou pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="intro.html#cb24-1" aria-hidden="true" tabindex="-1"></a>?save <span class="co"># veja o help desta função que vamos utilizar</span></span>
-<span id="cb24-2"><a href="intro.html#cb24-2" aria-hidden="true" tabindex="-1"></a>?save.image <span class="co"># veja o help desta função que vamos utilizar</span></span>
-<span id="cb24-3"><a href="intro.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="intro.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># se sua área de trabalho estiver vazia</span></span>
-<span id="cb24-5"><a href="intro.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># se nao retorna nada porque voce apagou acima</span></span>
-<span id="cb24-6"><a href="intro.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># crie alguns objetos para o exercício</span></span>
-<span id="cb24-7"><a href="intro.html#cb24-7" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;um objeto de texto qualquer&quot;</span></span>
-<span id="cb24-8"><a href="intro.html#cb24-8" aria-hidden="true" tabindex="-1"></a>objum</span>
-<span id="cb24-9"><a href="intro.html#cb24-9" aria-hidden="true" tabindex="-1"></a>objdois <span class="ot">&lt;-</span> <span class="dv">18</span> <span class="co"># um objeto com um número qualquer</span></span>
-<span id="cb24-10"><a href="intro.html#cb24-10" aria-hidden="true" tabindex="-1"></a>objdois</span>
-<span id="cb24-11"><a href="intro.html#cb24-11" aria-hidden="true" tabindex="-1"></a>banana <span class="ot">&lt;-</span> objum <span class="co"># um objeto idêntico a objum</span></span>
-<span id="cb24-12"><a href="intro.html#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-13"><a href="intro.html#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co"># pronto, agora mostre todos os objetos na sua AREA DE TRABALHO</span></span>
-<span id="cb24-14"><a href="intro.html#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span>
-<span id="cb24-15"><a href="intro.html#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-16"><a href="intro.html#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co"># agora salve esse objetos como um arquivo na sua PASTA DE TRABALHO</span></span>
-<span id="cb24-17"><a href="intro.html#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>() <span class="co"># veja onde o arquivo será salvo</span></span>
-<span id="cb24-18"><a href="intro.html#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-19"><a href="intro.html#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co"># se voce quer salvar todos os objetos</span></span>
-<span id="cb24-20"><a href="intro.html#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file =</span> <span class="st">&quot;meusObjetos.Rdata&quot;</span>)</span>
-<span id="cb24-21"><a href="intro.html#cb24-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-22"><a href="intro.html#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="co"># se voce quer salvar apenas alguns objetos</span></span>
-<span id="cb24-23"><a href="intro.html#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(objum, banana, <span class="at">file =</span> <span class="st">&quot;meusObjetos2.Rdata&quot;</span>)</span>
-<span id="cb24-24"><a href="intro.html#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-25"><a href="intro.html#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que na sua pasta de trabalho getwd() voce tem esses arquivos</span></span>
-<span id="cb24-26"><a href="intro.html#cb24-26" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>() <span class="co"># lista arquivos na sua pasta de trabalho (análoga a função ls() que lista objetos)</span></span>
-<span id="cb24-27"><a href="intro.html#cb24-27" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;Rdata&quot;</span>) <span class="co"># lista apenas arquivos que tem no nome &quot;.Rdata&quot;</span></span>
-<span id="cb24-28"><a href="intro.html#cb24-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-29"><a href="intro.html#cb24-29" aria-hidden="true" tabindex="-1"></a><span class="co"># apaga os objetos todos</span></span>
-<span id="cb24-30"><a href="intro.html#cb24-30" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb24-31"><a href="intro.html#cb24-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note que não tem mais objetos na sua área de trabalho, mas pode resgatar objetos que salvou num arquivo Rdata:</span></span>
-<span id="cb24-32"><a href="intro.html#cb24-32" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;meusObjetos2.Rdata&quot;</span>) <span class="co"># puxa os objetos neste arquivo que está na sua pasta de trabalho</span></span>
-<span id="cb24-33"><a href="intro.html#cb24-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note que ele puxou os objetos objum e banana que salvamos acima neste arquivo</span></span>
-<span id="cb24-34"><a href="intro.html#cb24-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-35"><a href="intro.html#cb24-35" aria-hidden="true" tabindex="-1"></a><span class="co"># puxe o outro arquivo gerado</span></span>
-<span id="cb24-36"><a href="intro.html#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;meusObjetos.Rdata&quot;</span>) <span class="co"># puxa os objetos neste arquivo que está na sua pasta de trabalho</span></span>
-<span id="cb24-37"><a href="intro.html#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># veja novamente os objetos na sua área de trabalho: Todos os objetos são listados. Se fizer isso e já houver objetos com o mesmo nome na sua área de trabalho, estes serão sobrepostos.</span></span></code></pre></div>
-<p>Portanto, <em>Área de Trabalho</em> e <em>Pasta de Trabalho</em> são dois conceitos fundamentais que você precisa entender bem, pois define como e onde você estará salvando informação quando usar o R, tanto em termos de objetos (área de trabalho) como em termos de arquivos (pasta de trabalho).</p>
-<p>Se você digita <code>q()</code>, que é a função para sair do R, ele geralmente lhe pergunta se você quer salvar os objetos numa área de trabalho padrão (que o R puxa quando você o inicia):</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="intro.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">q</span>() <span class="co"># sai do R</span></span>
-<span id="cb25-2"><a href="intro.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vai perguntar no Console algo do tipo &quot;Save workspace image to ~/Desktop/bot89-2016/.RData? [y/n/c]:&quot;</span></span>
-<span id="cb25-3"><a href="intro.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note que o arquivo não tem nome apenas extensão &quot;.RData&quot; e é salvo na pasta de trabalho definida com setwd().</span></span></code></pre></div>
-<p>Códigos de scripts podem ser executados no console sem necessidade de abrir o script. Por exemplo, suponha que eu tenha salvo o seguinte script num arquivo <code>script01.R</code>:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="intro.html#cb26-1" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;meu primeiro objeto de texto&quot;</span></span>
-<span id="cb26-2"><a href="intro.html#cb26-2" aria-hidden="true" tabindex="-1"></a>objdois <span class="ot">&lt;-</span> <span class="dv">18</span> <span class="co"># meu primeiro objeto numérico</span></span>
-<span id="cb26-3"><a href="intro.html#cb26-3" aria-hidden="true" tabindex="-1"></a>banana <span class="ot">&lt;-</span> objum</span></code></pre></div>
-<p>Se este arquivo Scrip01.R está na minha pasta de trabalho, então posso executá-lo com a função <code>source()</code>:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="intro.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;.R&quot;</span>) <span class="co"># mostra os arquivos .R que estão na pasta de trabalho</span></span>
-<span id="cb27-2"><a href="intro.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># apaga todos os objetos, para ver que ele irá criar os objetos indicados no arquivo</span></span>
-<span id="cb27-3"><a href="intro.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># nao tem nenhum objeto</span></span>
-<span id="cb27-4"><a href="intro.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;script01.R&quot;</span>)</span>
-<span id="cb27-5"><a href="intro.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># os objetos foram criados como especificado no script</span></span></code></pre></div>
-</div>
-<div id="dicas-de-organização-do-trabalho" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Dicas de organização do trabalho<a href="intro.html#dicas-de-organização-do-trabalho" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Você irá manipular diversos arquivos durante a execução de qualquer projeto e precisa organizar os arquivos para não se perder e poder voltar a eles quando necessário.</p>
-<p>A grande vantagem de realizar a análise de dados, produção de figuras etc, no R é criar um processo replicável, e é preciso ser bem organizado com os arquivos para poder reutilizar o processo com novos dados ou adaptá-lo para novas análises.
-Isso implica, entre outras coisas, em:</p>
-<ul>
-<li><p>Organizar o projeto em uma pasta no seu computador exclusiva para ele;</p></li>
-<li><p>Definir um critério lógico para dar nome aos arquivos do projeto;</p></li>
-<li><p>Organizar arquivos em subpastas segundo a necessidade, por exemplo, uma subpasta para dados, outra para figuras, outras para tabelas geradas e outros resultados. Pode inclusive colocar a criação dessas pastas nos scripts do R, que ele cria na pasta de trabalho (‘getwd()’) que deve ser a pasta do seu projeto através de (funções do R para manipular arquivos e pastas);</p></li>
-<li><p>O código dos seus scripts devem ser escritos de forma genérica para que ele possa ser usado com qualquer outro conjunto de dados que tenha a mesma estrutura que os seus (variáveis). Ou seja, o código deve ser escrito não em função do conteúdo dos seus dados mas apenas na estrutura (i.e. as colunas dos seus dados) deles. Esta é a chave para uma programação eficiente e para a replicabilidade. Isso significa que um resultado obtido a partir dos seus dados não deve ser manualmente atribuído a nenhum objeto no script, apenas atribuído a partir do objeto contendo o resultado.</p></li>
-</ul>
-<p>A definição da pasta de trabalho (<strong>working directory</strong>) é fundamental simplificar a leitura de dados e salvar arquivos sem se preocupar com o caminho completo (<strong>full path</strong>) para cada arquivo, mas apenas o caminho relativo (<strong>relative path</strong>). Por exemplo, um arquivo numa pasta de projeto pode ter como caminho completo <code>/home/usuario/Desktop/meuprojeto/dados/morfometricos.xlsx</code>, e o caminho relativo à pasta de trabalho seria apenas <code>dados/morfometricos.xlsx</code>.
-Da mesma forma para salvar resultados a partir do R.</p>
-<p>O <a href="https://rstudio.com/">RStudio</a> <span class="citation">(<a href="#ref-rstudio" role="doc-biblioref">RStudio Team 2020</a>)</span> facilita esse processo para você, permitindo que você crie um projeto.
-Um projeto basicamente consiste em definir uma pasta de trabalho para que, toda vez que você abrí-lo, a pasta que contem o arquivo de término <code>.Rproj</code> seja a sua pasta de trabalho. Alternativamente, você pode simplesmente indicar a pasta de trabalho toda vez que iniciar uma atividade utilizando as funções <code>setwd()</code> no console ou em um script.</p>
-</div>
-<div id="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r" class="section level2 hasAnchor" number="1.7">
-<h2><span class="header-section-number">1.7</span> Dicas de erros comuns de sintaxe da linguagem R<a href="intro.html#dicas-de-erros-comuns-de-sintaxe-da-linguagem-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Abrir e esquecer de fechar parênteses, colchetes e aspas é um dos erros mais comuns no início da caminhada rumo ao aprendizado de qualquer linguagem de programação, e é necessário muita paciência<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> por parte do usuário para aprender a lidar com a frustração dos sucessivos erros que aparecem no caminho.
-Mesmo usuários mais experientes têm que aprender a lidar com os erros, que são comuns, o que levou o programador Patrick Burns a publicar um curioso livro sob o título <a href="https://www.burns-stat.com/pages/Tutor/R_inferno.pdf">The R Inferno</a> <span class="citation">(<a href="#ref-Burns2012_rinferno" role="doc-biblioref">Burns 2012</a>)</span>.
-Uma ferramenta útil para evitar tais problemas é o uso de uma IDE como o RStudio.
-Há opções na configuração que autorizam o software a checar seu código e informá-lo de possíveis erros, além de proverem ao usuário uma ferramenta de limpeza do código.
-Sugerimos fortemente a instalação de uma IDE para usar o R.
-Segue então uma brevíssima lista de erros super comuns que iniciantes enfrentam no aprendizado da linguagem R.</p>
-<div id="parênteses" class="section level3 hasAnchor" number="1.7.1">
-<h3><span class="header-section-number">1.7.1</span> Parênteses<a href="intro.html#parênteses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Lembre-se sempre de, ao abrir um parêntese, fechá-lo.
-Caso contrário, a ação não se completará e seu console ficará travado com um sinal de <code>+</code> aguardando que seu código seja completo.
-Neste caso, ficar completo significa fechar o parêntese.
-Tente executar o código abaixo e verifique que o sinal de <code>+</code> ficará estagnado na tela de seu console.
-Para sair desta tela, clique no console e depois tecle <code>Esc</code>.
-Você verá que o sinal de <code>&gt;</code> voltará a aparecer no console.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="intro.html#cb28-1" aria-hidden="true" tabindex="-1"></a>erro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span></span></code></pre></div>
-<p>Agora, execute o comando abaixo.
-Ele será executado perfeitamente.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="intro.html#cb29-1" aria-hidden="true" tabindex="-1"></a>erro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
-</div>
-<div id="vírgulas" class="section level3 hasAnchor" number="1.7.2">
-<h3><span class="header-section-number">1.7.2</span> Vírgulas<a href="intro.html#vírgulas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Ao concatenar elementos ou ao adicionar valores em argumentos de funções, é necessário lembrar sempre de colocar as vírgulas em seus devidos lugares.
-Caso contrário … mais um erro!
-Tentem executar o código abaixo:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="intro.html#cb30-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span> <span class="dv">7</span>, <span class="dv">8</span>)</span></code></pre></div>
-<pre><code>## Error: &lt;text&gt;:1:22: unexpected numeric constant
-## 1: numeros &lt;- c(1, 5, 6 7
-##                          ^</code></pre>
-<p>O R dará o aviso <code>Error: unexpected numeric constant in "numeros &lt;- c(1,5,6 7"</code> e encerrá a operação.
-Executem agora o comando abaixo.
-Será executado sem problemas.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="intro.html#cb32-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span></code></pre></div>
-</div>
-<div id="aspas" class="section level3 hasAnchor" number="1.7.3">
-<h3><span class="header-section-number">1.7.3</span> Aspas<a href="intro.html#aspas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Textos são especificados dentro de aspas duplas <code>""</code> ou aspas simples <code>''</code>; tanto faz qual você usa, o importante é sempre que abrir aspas, fechar as aspas com o mesmo tipo.
-Se seu texto tem acentos, use aspas duplas para delimitá-lo.
-Aspas simples podem entrar num texto definido por aspas duplas, e vice-versa.
-Rode isso no seu console:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="intro.html#cb33-1" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;um texto com &#39;aspas simples&#39;&quot;</span></span>
-<span id="cb33-2"><a href="intro.html#cb33-2" aria-hidden="true" tabindex="-1"></a>objum</span></code></pre></div>
-<pre><code>## [1] &quot;um texto com &#39;aspas simples&#39;&quot;</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="intro.html#cb35-1" aria-hidden="true" tabindex="-1"></a>obj2 <span class="ot">&lt;-</span> <span class="st">&#39;um texto com &quot;aspas simples&quot;&#39;</span></span>
-<span id="cb35-2"><a href="intro.html#cb35-2" aria-hidden="true" tabindex="-1"></a>obj2</span></code></pre></div>
-<pre><code>## [1] &quot;um texto com \&quot;aspas simples\&quot;&quot;</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="intro.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que foi adicionada uma barra invertida, porque \&quot; na sintaxe do Rsignifica aspas para confundir com as aspas que você usa para indicar textos.</span></span></code></pre></div>
-</div>
-<div id="números" class="section level3 hasAnchor" number="1.7.4">
-<h3><span class="header-section-number">1.7.4</span> Números<a href="intro.html#números" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Números são sempre especificados sem aspas; se você colocar qualquer número entre aspas, ele será interpretado como texto:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="intro.html#cb38-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="dv">18</span></span>
-<span id="cb38-2"><a href="intro.html#cb38-2" aria-hidden="true" tabindex="-1"></a>obj1 <span class="sc">+</span> <span class="dv">1</span> <span class="co"># essa fórmula irá funcionar porque obj1 é um número</span></span></code></pre></div>
-<pre><code>## [1] 19</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="intro.html#cb40-1" aria-hidden="true" tabindex="-1"></a>obj2 <span class="ot">&lt;-</span> <span class="st">&quot;18&quot;</span></span></code></pre></div>
-<p>Isso não vai funcionar porque <code>obj2</code> não é um número.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="intro.html#cb41-1" aria-hidden="true" tabindex="-1"></a>obj2 <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
-<pre><code>## Error in obj2 + 1: non-numeric argument to binary operator</code></pre>
-<p>Caso você insista em rodar, receberá a seguinte mensagem: <code>Error in obj2 + 1 : non-numeric argument to binary operator</code>.</p>
-</div>
-<div id="nomes-de-objetos" class="section level3 hasAnchor" number="1.7.5">
-<h3><span class="header-section-number">1.7.5</span> Nomes de objetos<a href="intro.html#nomes-de-objetos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Nomes de objetos não podem ter espaço em branco e aspas são ignoradas:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="intro.html#cb43-1" aria-hidden="true" tabindex="-1"></a>obj <span class="dv">1</span> <span class="ot">=</span> <span class="st">&quot;meutexto&quot;</span> <span class="co">#nao vai funcionar</span></span></code></pre></div>
-<pre><code>## Error: &lt;text&gt;:1:5: unexpected numeric constant
-## 1: obj 1
-##         ^</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="intro.html#cb45-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="st">&quot;meutexto&quot;</span> <span class="co"># vai funcionar</span></span>
-<span id="cb45-2"><a href="intro.html#cb45-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
-<pre><code>## [1] &quot;meutexto&quot;</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="intro.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;obj1&quot;</span> <span class="ot">&lt;-</span> <span class="st">&quot;meu texto&quot;</span> <span class="co"># vai criar objeto obj1, ignorando as aspas</span></span>
-<span id="cb47-2"><a href="intro.html#cb47-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
-<pre><code>## [1] &quot;meu texto&quot;</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="intro.html#cb49-1" aria-hidden="true" tabindex="-1"></a>obj<span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;meu texto&quot;</span> <span class="co">#nao vai funcionar</span></span></code></pre></div>
-<pre><code>## Error: &lt;text&gt;:1:4: unexpected string constant
-## 1: obj&quot;1&quot;
-##        ^</code></pre>
-</div>
-<div id="atribuição-de-objetos" class="section level3 hasAnchor" number="1.7.6">
-<h3><span class="header-section-number">1.7.6</span> Atribuição de objetos<a href="intro.html#atribuição-de-objetos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A <strong>atribuição de valores aos objetos</strong> pode ser feita com dois operadores equivalentes, <code>=</code> ou <code>&lt;-</code> (este pode ser utilizado no sentido inverso também <code>-&gt;</code>):</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="intro.html#cb51-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="st">&quot;meu texto&quot;</span></span>
-<span id="cb51-2"><a href="intro.html#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="intro.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ou pode escrever assim</span></span>
-<span id="cb51-4"><a href="intro.html#cb51-4" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="st">&quot;meu texto&quot;</span> <span class="co"># atribui</span></span>
-<span id="cb51-5"><a href="intro.html#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-6"><a href="intro.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ou assim</span></span>
-<span id="cb51-7"><a href="intro.html#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;meu texto&quot;</span> <span class="ot">-&gt;</span> obj1 <span class="co"># atribui</span></span>
-<span id="cb51-8"><a href="intro.html#cb51-8" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
-<pre><code>## [1] &quot;meu texto&quot;</code></pre>
-</div>
-<div id="busque-entender-as-partes" class="section level3 hasAnchor" number="1.7.7">
-<h3><span class="header-section-number">1.7.7</span> Busque entender as partes<a href="intro.html#busque-entender-as-partes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Se você tiver dificuldade no entendimento de um script do R que está tentando rodar, separe os termos das linhas e expressões para entender o que cada parte está fazendo.
-Também pode alterar os valores dos argumentos para entender o funcionamento de uma função, ou simplesmente digitar a função sem os parênteses para ver o script que ela contem.
-Por exemplo, vejamos a expressão abaixo, que faz uso de um conjunto de dados chamado <code>iris</code>, que vem disponível com o R.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="intro.html#cb53-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">levels</span>(iris<span class="sc">$</span>Species), <span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">INDEX =</span> iris<span class="sc">$</span>Species, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">sep =</span> <span class="st">&quot; sépala média = &quot;</span>)</span>
-<span id="cb53-2"><a href="intro.html#cb53-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
-<pre><code>## [1] &quot;setosa sépala média = 5.006&quot;     &quot;versicolor sépala média = 5.936&quot;
-## [3] &quot;virginica sépala média = 6.588&quot;</code></pre>
-<p>À primeira vista, a expressão parece complicada.
-Vamos separar as partes e entender pedaço por pedaço.
-Primeiro, vamos tentar entender quem é <code>iris</code>.
-Vamos checar a estrutura de <code>iris</code>:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="intro.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris) <span class="co">#veja a estrutura</span></span></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
-##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
-##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
-##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
-##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
-##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<p>Agora, vamos obter um sumário estatístico de <code>iris</code>:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="intro.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris) <span class="co">#veja o que é iris</span></span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Sepal.Length
-</th>
-<th style="text-align:left;">
-Sepal.Width
-</th>
-<th style="text-align:left;">
-Petal.Length
-</th>
-<th style="text-align:left;">
-Petal.Width
-</th>
-<th style="text-align:left;">
-Species
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Min. :4.300
-</td>
-<td style="text-align:left;">
-Min. :2.000
-</td>
-<td style="text-align:left;">
-Min. :1.000
-</td>
-<td style="text-align:left;">
-Min. :0.100
-</td>
-<td style="text-align:left;">
-setosa :50
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-1st Qu.:5.100
-</td>
-<td style="text-align:left;">
-1st Qu.:2.800
-</td>
-<td style="text-align:left;">
-1st Qu.:1.600
-</td>
-<td style="text-align:left;">
-1st Qu.:0.300
-</td>
-<td style="text-align:left;">
-versicolor:50
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Median :5.800
-</td>
-<td style="text-align:left;">
-Median :3.000
-</td>
-<td style="text-align:left;">
-Median :4.350
-</td>
-<td style="text-align:left;">
-Median :1.300
-</td>
-<td style="text-align:left;">
-virginica :50
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Mean :5.843
-</td>
-<td style="text-align:left;">
-Mean :3.057
-</td>
-<td style="text-align:left;">
-Mean :3.758
-</td>
-<td style="text-align:left;">
-Mean :1.199
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-3rd Qu.:6.400
-</td>
-<td style="text-align:left;">
-3rd Qu.:3.300
-</td>
-<td style="text-align:left;">
-3rd Qu.:5.100
-</td>
-<td style="text-align:left;">
-3rd Qu.:1.800
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Max. :7.900
-</td>
-<td style="text-align:left;">
-Max. :4.400
-</td>
-<td style="text-align:left;">
-Max. :6.900
-</td>
-<td style="text-align:left;">
-Max. :2.500
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-</tbody>
-</table>
-<p>Note que <code>iris$Species</code> contem 50 valores para três nomes e portanto eles estao sendo intepretados como categoria, isto é, é um fator.
-Vamos ver os níveis desse fator com a expressão abaixo, contida na função executada anteriormente e que desejamos destrinchar:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="intro.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species) <span class="co">#categorias especies do objeto factor iris$Species</span></span></code></pre></div>
-<pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
-<p>Partamos para o segundo elemento dessa função, que é a expressão colocada abaixo:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="intro.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#o segundo elemento é o resultado de:</span></span>
-<span id="cb60-2"><a href="intro.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">INDEX =</span> iris<span class="sc">$</span>Species, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>##     setosa versicolor  virginica 
-##      5.006      5.936      6.588</code></pre>
-<p>Essa expressão basicamente calcula a média dos 50 comprimentos de sépala para cada espécie.
-Por fim, temos o último elemento da expressão que é o argumento <code>sep</code> pertencente à função <code>paste()</code>.
-Este argumento é responsável por informar à função <code>paste()</code> qual separador nós vamos utilizar para separar os elementos contidos antes do argumento <code>sep</code>, isto é, separar o resultado de <code>levels(iris$Species)</code> da expressão <code>tapply(iris$Sepal.Length,INDEX=iris$Species,mean,na.rm=TRUE)</code>.
-Nesse caso, vamos separar esses dois elementos com o texto <code>sépala média =</code>.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="intro.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(, <span class="at">sep =</span><span class="st">&#39;sépala média = &#39;</span>)</span></code></pre></div>
-<p>Vamos agora ver o resultado da função que executamos lá em cima.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="intro.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">#veja o resultado</span></span>
-<span id="cb63-2"><a href="intro.html#cb63-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
-<pre><code>## [1] &quot;setosa sépala média = 5.006&quot;     &quot;versicolor sépala média = 5.936&quot;
-## [3] &quot;virginica sépala média = 6.588&quot;</code></pre>
-<p>Lembre-se sempre de checar também o código de qualquer função, para poder entender como ela funciona.
-Vejamos os casos das funções <code>paste()</code> e <code>tapply()</code>, utilizadas neste exercício.
-Para checar o código de uma função, geralmente basta executa o nome da função sem parênteses.
-Vejamos:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="intro.html#cb65-1" aria-hidden="true" tabindex="-1"></a>tapply</span></code></pre></div>
-<pre><code>## function (X, INDEX, FUN = NULL, ..., default = NA, simplify = TRUE) 
-## {
-##     FUN &lt;- if (!is.null(FUN)) 
-##         match.fun(FUN)
-##     if (!is.list(INDEX)) 
-##         INDEX &lt;- list(INDEX)
-##     INDEX &lt;- lapply(INDEX, as.factor)
-##     nI &lt;- length(INDEX)
-##     if (!nI) 
-##         stop(&quot;&#39;INDEX&#39; is of length zero&quot;)
-##     if (!all(lengths(INDEX) == length(X))) 
-##         stop(&quot;arguments must have same length&quot;)
-##     namelist &lt;- lapply(INDEX, levels)
-##     extent &lt;- lengths(namelist, use.names = FALSE)
-##     cumextent &lt;- cumprod(extent)
-##     if (cumextent[nI] &gt; .Machine$integer.max) 
-##         stop(&quot;total number of levels &gt;= 2^31&quot;)
-##     storage.mode(cumextent) &lt;- &quot;integer&quot;
-##     ngroup &lt;- cumextent[nI]
-##     group &lt;- as.integer(INDEX[[1L]])
-##     if (nI &gt; 1L) 
-##         for (i in 2L:nI) group &lt;- group + cumextent[i - 1L] * 
-##             (as.integer(INDEX[[i]]) - 1L)
-##     if (is.null(FUN)) 
-##         return(group)
-##     levels(group) &lt;- as.character(seq_len(ngroup))
-##     class(group) &lt;- &quot;factor&quot;
-##     ans &lt;- split(X, group)
-##     names(ans) &lt;- NULL
-##     index &lt;- as.logical(lengths(ans))
-##     ans &lt;- lapply(X = ans[index], FUN = FUN, ...)
-##     ansmat &lt;- array(if (simplify &amp;&amp; all(lengths(ans) == 1L)) {
-##         ans &lt;- unlist(ans, recursive = FALSE, use.names = FALSE)
-##         if (!is.null(ans) &amp;&amp; is.na(default) &amp;&amp; is.atomic(ans)) 
-##             vector(typeof(ans))
-##         else default
-##     }
-##     else vector(&quot;list&quot;, prod(extent)), dim = extent, dimnames = namelist)
-##     if (length(ans)) {
-##         ansmat[index] &lt;- ans
-##     }
-##     ansmat
-## }
-## &lt;bytecode: 0x55e7e4d3ecc8&gt;
-## &lt;environment: namespace:base&gt;</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="intro.html#cb67-1" aria-hidden="true" tabindex="-1"></a>paste</span></code></pre></div>
-<pre><code>## function (..., sep = &quot; &quot;, collapse = NULL, recycle0 = FALSE) 
-## .Internal(paste(list(...), sep, collapse, recycle0))
-## &lt;bytecode: 0x55e7da2b11d8&gt;
-## &lt;environment: namespace:base&gt;</code></pre>
-</div>
-</div>
-<div id="o-r-como-calculadora" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> O R como calculadora<a href="intro.html#o-r-como-calculadora" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O R é uma calculadora potente. Os exemplos abaixo mostram a informação básica necessária ao uso da ferramenta.</p>
-<div id="operadores" class="section level3 hasAnchor" number="1.8.1">
-<h3><span class="header-section-number">1.8.1</span> Operadores<a href="intro.html#operadores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Operadores de atribuição:</p>
-<ul>
-<li>use <code>=</code> ou <code>&lt;-</code> ou <code>-&gt;</code> para atribuir <strong>valor</strong> a <strong>objeto</strong> ou objeto a objeto</li>
-</ul></li>
-<li><p>Operadores matemáticos:</p>
-<ul>
-<li><code>+</code> e <code>-</code> são respectivamente adição e subtração;</li>
-<li><code>*</code> e <code>/</code> são respectivamente multiplicação e divisão;</li>
-<li><code>^</code> equivale à exponenciação.</li>
-</ul></li>
-</ul>
-<p>Vamos testar os operadores abaixo.
-Execute cada operação, linha a linha:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="intro.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
-<pre><code>## [1] 6</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="intro.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">-</span> <span class="dv">3</span></span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="intro.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div>
-<pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="intro.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="intro.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
-<pre><code>## [1] 27</code></pre>
-<p>Objetos numéricos podem ser usados nas fórmulas aritméticas:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="intro.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># atribua um valor a um ou mais objetos</span></span>
-<span id="cb79-2"><a href="intro.html#cb79-2" aria-hidden="true" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb79-3"><a href="intro.html#cb79-3" aria-hidden="true" tabindex="-1"></a>obj2 <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="intro.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># utilize objetos para fazer contas</span></span>
-<span id="cb80-2"><a href="intro.html#cb80-2" aria-hidden="true" tabindex="-1"></a>obj <span class="sc">+</span> obj2</span></code></pre></div>
-<pre><code>## [1] 6</code></pre>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="intro.html#cb82-1" aria-hidden="true" tabindex="-1"></a>obj <span class="sc">-</span> obj2</span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="intro.html#cb84-1" aria-hidden="true" tabindex="-1"></a>obj <span class="sc">*</span> obj2</span></code></pre></div>
-<pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="intro.html#cb86-1" aria-hidden="true" tabindex="-1"></a>obj <span class="sc">/</span> obj2</span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="intro.html#cb88-1" aria-hidden="true" tabindex="-1"></a>obj<span class="sc">^</span>obj2</span></code></pre></div>
-<pre><code>## [1] 27</code></pre>
-</div>
-<div id="precedência-de-parênteses" class="section level3 hasAnchor" number="1.8.2">
-<h3><span class="header-section-number">1.8.2</span> Precedência de parênteses<a href="intro.html#precedência-de-parênteses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>O uso de parênteses permite construir qualquer lógica de precedência no cálculo.
-Vamos atribuir valores a três objetos e fazer operações matemáticas com eles para exemplificar:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="intro.html#cb90-1" aria-hidden="true" tabindex="-1"></a>o1 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb90-2"><a href="intro.html#cb90-2" aria-hidden="true" tabindex="-1"></a>o2 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb90-3"><a href="intro.html#cb90-3" aria-hidden="true" tabindex="-1"></a>o3 <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
-<p>Os resultados não serão os mesmos para:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="intro.html#cb91-1" aria-hidden="true" tabindex="-1"></a>o1 <span class="sc">*</span> o2<span class="sc">^</span>o3 <span class="sc">-</span> <span class="dv">1</span> <span class="co"># =127</span></span></code></pre></div>
-<pre><code>## [1] 127</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="intro.html#cb93-1" aria-hidden="true" tabindex="-1"></a>o1 <span class="sc">*</span> o2<span class="sc">^</span>(o3 <span class="sc">-</span> <span class="dv">1</span>) <span class="co"># =32</span></span></code></pre></div>
-<pre><code>## [1] 32</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="intro.html#cb95-1" aria-hidden="true" tabindex="-1"></a>(o1 <span class="sc">*</span> o2)<span class="sc">^</span>o3 <span class="sc">-</span> <span class="dv">1</span> <span class="co"># =511</span></span></code></pre></div>
-<pre><code>## [1] 511</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="intro.html#cb97-1" aria-hidden="true" tabindex="-1"></a>(o1 <span class="sc">*</span> o2)<span class="sc">^</span>(o3 <span class="sc">-</span> <span class="dv">1</span>) <span class="co"># =64</span></span></code></pre></div>
-<pre><code>## [1] 64</code></pre>
-</div>
-<div id="funções-e-constantes-matemáticas" class="section level3 hasAnchor" number="1.8.3">
-<h3><span class="header-section-number">1.8.3</span> Funções e constantes matemáticas<a href="intro.html#funções-e-constantes-matemáticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Algumas operações aritméticas podem ser realizadas com algumas funções genéricas que apresentamos no exemplo de código abaixo.
-Veja o <code>?</code> para qualquer uma das funções abaixo e siga os links relacionados para ver todas as possibilidades dessas funções genéricas de uso genérico.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="intro.html#cb99-1" aria-hidden="true" tabindex="-1"></a>?srqt</span>
-<span id="cb99-2"><a href="intro.html#cb99-2" aria-hidden="true" tabindex="-1"></a>?abs</span>
-<span id="cb99-3"><a href="intro.html#cb99-3" aria-hidden="true" tabindex="-1"></a>?log</span>
-<span id="cb99-4"><a href="intro.html#cb99-4" aria-hidden="true" tabindex="-1"></a>?log10</span>
-<span id="cb99-5"><a href="intro.html#cb99-5" aria-hidden="true" tabindex="-1"></a>?sin</span>
-<span id="cb99-6"><a href="intro.html#cb99-6" aria-hidden="true" tabindex="-1"></a>?cos</span>
-<span id="cb99-7"><a href="intro.html#cb99-7" aria-hidden="true" tabindex="-1"></a>?asin</span>
-<span id="cb99-8"><a href="intro.html#cb99-8" aria-hidden="true" tabindex="-1"></a>?ceiling</span>
-<span id="cb99-9"><a href="intro.html#cb99-9" aria-hidden="true" tabindex="-1"></a>?floor</span>
-<span id="cb99-10"><a href="intro.html#cb99-10" aria-hidden="true" tabindex="-1"></a>?round</span></code></pre></div>
-<p>Veremos adiante que essas funções e operações matemáticas são aplicáveis à vetores.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="intro.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Raiz quadrada</span></span>
-<span id="cb100-2"><a href="intro.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="intro.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># valor absoluto</span></span>
-<span id="cb102-2"><a href="intro.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">12</span>)</span></code></pre></div>
-<pre><code>## [1] 12</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="intro.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">66</span>)</span></code></pre></div>
-<pre><code>## [1] 66</code></pre>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="intro.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="dv">66</span>)</span></code></pre></div>
-<pre><code>## [1] 66</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="intro.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># logaritmo</span></span>
-<span id="cb108-2"><a href="intro.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>) <span class="co"># Logaritmo natural</span></span></code></pre></div>
-<pre><code>## [1] 2.302585</code></pre>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="intro.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="at">base =</span> <span class="dv">10</span>) <span class="co"># Logbase 10</span></span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="intro.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>) <span class="co"># Também log de base 10</span></span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="intro.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># funções trigonométricas</span></span>
-<span id="cb114-2"><a href="intro.html#cb114-2" aria-hidden="true" tabindex="-1"></a>pi <span class="co"># é uma constante do R, um objeto chamado &quot;pi&quot; que tem o valor de 3.141593</span></span></code></pre></div>
-<pre><code>## [1] 3.141593</code></pre>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="intro.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(<span class="fl">0.5</span> <span class="sc">*</span> pi) <span class="co"># Seno</span></span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="intro.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi) <span class="co"># Coseno</span></span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="intro.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">asin</span>(<span class="dv">1</span>) <span class="co"># Arco seno (radianos)</span></span></code></pre></div>
-<pre><code>## [1] 1.570796</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="intro.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">asin</span>(<span class="dv">1</span>) <span class="sc">/</span> pi <span class="sc">*</span> <span class="dv">180</span></span></code></pre></div>
-<pre><code>## [1] 90</code></pre>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="intro.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arredondamentos</span></span>
-<span id="cb124-2"><a href="intro.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dois valores</span></span>
-<span id="cb124-3"><a href="intro.html#cb124-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">3.51</span></span>
-<span id="cb124-4"><a href="intro.html#cb124-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fl">3.49</span></span></code></pre></div>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="intro.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para o valor mais alto (ceiling = teto)</span></span>
-<span id="cb125-2"><a href="intro.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(a)</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="intro.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(b)</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="intro.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para o valor mais baixo (floor = chão)</span></span>
-<span id="cb129-2"><a href="intro.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(a)</span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="intro.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(b)</span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="intro.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arredonda dependendo se casa decimal é maior ou menor que 0.5</span></span>
-<span id="cb133-2"><a href="intro.html#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(a)</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="intro.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(b)</span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-</div>
-<div id="valor-na" class="section level3 hasAnchor" number="1.8.4">
-<h3><span class="header-section-number">1.8.4</span> NA e valores afins<a href="intro.html#valor-na" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Frequentemente no R, quando você realiza uma operação errada ou inválida, o R retorna um dos seguintes códigos (constantes lógicas), que <strong>são entendidos pelo R como esses valores</strong> e portanto podem ser usados na atribuição à objetos:</p>
-<ul>
-<li><p><code>NA</code> = valores ausentes (faltando);</p></li>
-<li><p><code>NAN</code> ou not a number = valores inválidos;</p></li>
-<li><p><code>Inf</code> = infinito;</p></li>
-<li><p><code>-Inf</code> = infinito negativo.</p></li>
-</ul>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="intro.html#cb137-1" aria-hidden="true" tabindex="-1"></a>?<span class="cn">NA</span> <span class="co"># veja o help sobre isso</span></span></code></pre></div>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="intro.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um valor infinito negativo</span></span>
-<span id="cb138-2"><a href="intro.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">5</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
-<pre><code>## [1] -Inf</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="intro.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um valor infinito positivo</span></span>
-<span id="cb140-2"><a href="intro.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
-<pre><code>## [1] Inf</code></pre>
-<p>Note que o símbolo <code>Inf</code> serve como valor:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="intro.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="dv">500000000000000000</span> <span class="sc">/</span> <span class="cn">Inf</span></span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
-<p>Ele pode ser atribuído a um objeto:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="intro.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e que posso atribui-lo a um objeto</span></span>
-<span id="cb144-2"><a href="intro.html#cb144-2" aria-hidden="true" tabindex="-1"></a>mf <span class="ot">&lt;-</span> <span class="cn">Inf</span></span>
-<span id="cb144-3"><a href="intro.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="dv">500</span> <span class="sc">/</span> mf</span></code></pre></div>
-<pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="intro.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co"># valor inválido/inexistente</span></span>
-<span id="cb146-2"><a href="intro.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## Warning in sqrt(-1): NaNs produced</code></pre>
-<pre><code>## [1] NaN</code></pre>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="intro.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="co"># valores ausentes entram na matemática</span></span>
-<span id="cb149-2"><a href="intro.html#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="cn">NA</span></span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="intro.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="cn">NaN</span></span></code></pre></div>
-<pre><code>## [1] NaN</code></pre>
-</div>
-</div>
-<div id="exercícios" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Exercícios<a href="intro.html#exercícios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como prática, vamos iniciar com dois exercícios do <strong>notaR</strong> para que você se familiarize tanto com a linguagem R quanto com o sistema <strong>notaR</strong>:</p>
-<ul>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/29">101.01 Bem vindo ao notaR</a>.</li>
-<li>Resolva o exercício <a href="http://notar.ib.usp.br/exercicio/15">101.05 Remoção Com Critério</a>.</li>
-</ul>
-
-</div>
-</div>
-<h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-Burns2012_rinferno" class="csl-entry">
-Burns, Patrick. 2012. <em><span>The R Inferno</span></em>. Lulu.com. <a href="https://www.burns-stat.com/documents/books/the-r-inferno/">https://www.burns-stat.com/documents/books/the-r-inferno/</a>.
-</div>
-<div id="ref-R-ape" class="csl-entry">
-Paradis, Emmanuel, Simon Blomberg, Ben Bolker, Joseph Brown, Santiago Claramunt, Julien Claude, Hoa Sien Cuong, et al. 2020. <em>ape: Analyses of Phylogenetics and Evolution</em>. <a href="http://ape-package.ird.fr/">http://ape-package.ird.fr/</a>.
-</div>
-<div id="ref-rstudio" class="csl-entry">
-RStudio Team. 2020. <em>RStudio: Integrated Development Environment for R</em>. Boston, MA: RStudio, PBC. <a href="http://www.rstudio.com/">http://www.rstudio.com/</a>.
-</div>
-<div id="ref-VenablesRipley2002" class="csl-entry">
-Venables, W. N., e B. D. Ripley. 2002. <em>Modern Applied Statistics with <span>S</span></em>. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4">http://www.stats.ox.ac.uk/pub/MASS4</a>.
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Lembrem-se sempre de que vocês não são os únicos a ter de lidar com a frustração durante o aprendizado de uma linguagem de programação. É importante estarem conscientes dessa verdade. Vejam esta postagem: <a href="https://www.codingame.com/blog/dealing-with-programming-frustration-the-right-way/" class="uri">https://www.codingame.com/blog/dealing-with-programming-frustration-the-right-way/</a><a href="intro.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vetores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sobre-os-autores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="console-e-scripts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1491,8 +578,8 @@ Venables, W. N., e B. D. Ripley. 2002. <em>Modern Applied Statistics with <span>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
+"github": true,
+"facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
@@ -1518,7 +605,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/01-intro.Rmd",
 "text": null
 },
-"download": null,
+"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
 "search": {
 "engine": "fuse",
 "options": null

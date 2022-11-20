@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='504.00pt' height='360.00pt' viewBox='0 0 504.00 360.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA='>
+    <rect x='0.00' y='0.00' width='504.00' height='360.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
+<rect x='74.40' y='59.04' width='83.48' height='225.27' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='174.57' y='213.76' width='83.48' height='70.55' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='274.75' y='272.98' width='83.48' height='11.33' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<rect x='374.92' y='282.71' width='83.48' height='1.60' style='stroke-width: 0.75; fill: #BEBEBE;' />
+<text x='116.14' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='23.26px' lengthAdjust='spacingAndGlyphs'>PC1</text>
+<text x='216.31' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='23.26px' lengthAdjust='spacingAndGlyphs'>PC2</text>
+<text x='316.49' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='23.26px' lengthAdjust='spacingAndGlyphs'>PC3</text>
+<text x='416.66' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='23.26px' lengthAdjust='spacingAndGlyphs'>PC4</text>
+<text x='266.40' y='341.28' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='58.90px' lengthAdjust='spacingAndGlyphs'>Eixos PCA</text>
+<text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='128.11px' lengthAdjust='spacingAndGlyphs'>Variação explicada %</text>
+<line x1='59.04' y1='284.31' x2='59.04' y2='68.19' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='284.31' x2='51.84' y2='284.31' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='253.43' x2='51.84' y2='253.43' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='222.56' x2='51.84' y2='222.56' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='191.68' x2='51.84' y2='191.68' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='160.81' x2='51.84' y2='160.81' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='129.93' x2='51.84' y2='129.93' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='99.06' x2='51.84' y2='99.06' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='68.19' x2='51.84' y2='68.19' style='stroke-width: 0.75;' />
+<text transform='translate(41.76,284.31) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text transform='translate(41.76,253.43) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text transform='translate(41.76,222.56) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text transform='translate(41.76,191.68) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>30</text>
+<text transform='translate(41.76,160.81) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>40</text>
+<text transform='translate(41.76,129.93) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>50</text>
+<text transform='translate(41.76,99.06) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text transform='translate(41.76,68.19) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>70</text>
+</g>
+</svg>
