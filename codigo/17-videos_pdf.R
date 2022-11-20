@@ -1,0 +1,61 @@
+#' # Aulas em vídeo {#videos}
+#' 
+#' Gravamos vídeoaulas para a maior parte do material aqui ofertado.
+#' Elas estão agrupadas abaixo para facilitar a visualização e o entendimento dos tópicos abordados.  
+#' 
+#' ## Importando e exportando dados
+#' 
+#' Acesso em: <https://www.youtube.com/embed/3OYkXsoAHS4>
+#' 
+#' ## Criação de vetores
+#' 
+#' Acesso em: <https://www.youtube.com/embed/qXSZkGoDk1Y>
+#' 
+#' ## Classes de vetores e fatores
+#' 
+#' Acesso em: <https://www.youtube.com/embed/CAXnQpYgJ3Y>
+#' 
+#' ## Sequências numéricas e repetições, operações e funções com vetores
+#' 
+#' Acesso em: <https://www.youtube.com/embed/PJ02yj0gnWc>
+#' 
+#' ## Listas
+#' 
+#' Acesso em: <https://www.youtube.com/embed/gBGFGslcbfU>
+#' 
+#' ## Criando matrizes
+#' 
+#' Acesso em: <https://www.youtube.com/embed/cA4ETA6qfB4>
+#' 
+#' ## Criando dataframes, e operações importantes em matrizes e dataframes
+#' 
+#' Acesso em: <https://www.youtube.com/embed/27HgQHV5zBs>
+#' 
+#' ## Indexação de matrizes e dataframes
+#' 
+#' Acesso em: <https://www.youtube.com/embed/CJILnDzVviQ>
+#' 
+#' ## Condicionais
+#' 
+#' Acesso em: <https://www.youtube.com/embed/8Z_k02PwQZc>
+#' 
+#' ## Funções da família `apply(>`
+#' 
+#' Acesso em: <https://www.youtube.com/embed/Fs0is2251Sw>
+#' 
+#' ## Funções de manipulação de pasta e arquivos
+#' 
+#' Acesso em: <https://www.youtube.com/embed/TbY5nEQTwLw>
+#' 
+#' ## Funções de manipulação de texto - parte 01
+#' 
+#' Acesso em: <https://www.youtube.com/embed/at5XpBAT1sI>
+#' 
+#' ## Funções de manipulação de texto - parte 02
+#' 
+#' Acesso em: <https://www.youtube.com/embed/j6O6e96qmEc>
+#' 
+#' ## Objetos complexos
+#' 
+#' Acesso em: <https://www.youtube.com/embed/hvWJr0khuwc>
+#' 

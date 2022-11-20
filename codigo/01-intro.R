@@ -1,4 +1,8 @@
+#' \mainmatter
+#' 
 #' # (PART) Parte I {-}
+#' 
+#' Um passo a passo para conhecer a sintaxe básica da linguagem de programação e o potencial de usar o R como ferramenta científica.  
 #' 
 #' # Conceitos introdutórios {#intro}
 #' 
@@ -9,12 +13,11 @@
 #' Altere os argumentos das funções e veja o que acontece.
 #' Explore!
 #' 
-#' 
 #' ## Console e scripts
 #' 
 #' As figuras abaixo mostram imagens relativamente similares ao que os usuários do R padrão (Figura \@ref(fig:pad-r)) e RStudio (Figura \@ref(fig:studio-r)) verão ao iniciarem esses programas.
 #' 
-## ----pad-r, out.width="101%", fig.cap = ' Imagem de uma sessão do R para Mac OSX com um janela de script aberta além do console.', eval = TRUE, echo = FALSE----
+## ----pad-r, out.width="101%", fig.cap = ' Imagem de uma sessão do R para Mac OSX com um janela de script aberta além do console.', eval = TRUE, echo = FALSE, out.width="33%"----
 knitr::include_graphics("figuras/r_padrao.png")
 
 #' 
