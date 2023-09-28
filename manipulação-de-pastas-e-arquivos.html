@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.2 Manipulação de pastas e arquivos | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.2 Manipulação de pastas e arquivos | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -556,41 +560,41 @@ Dominar essas funções e algumas outras correlatas são importantíssimas, por 
 No dia a dia, dominá-las também possibilitará que muito tempo seja poupado em atividades maçantes, como copiar ou mover muitos arquivos de uma pasta a outra.</p>
 <p>Vamos analisar o uso das funções <code>dir()</code>, <code>dir.create()</code> e <code>file.copy()</code> (vejam a seção <a href="sabermais-manip-txt-arqs-fld.html#sabermais-manip-txt-arqs-fld">Para saber mais</a> para mais informações).
 Não esqueçam de checar o <code>?</code> de cada função (e.g., <code>?dir</code>) para auxiliar no entendimento do funcionamento de cada uma das funções.</p>
-<div class="sourceCode" id="cb1379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1379-1"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-1" aria-hidden="true" tabindex="-1"></a><span class="co"># meu caminho</span></span>
-<span id="cb1379-2"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-2" aria-hidden="true" tabindex="-1"></a>caminho <span class="ot">&lt;-</span> <span class="st">&quot;~/Documents/DOC/PROJETO_DOC/R/pkgs/BOT89-introR/tutorial/&quot;</span></span>
-<span id="cb1379-3"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-3" aria-hidden="true" tabindex="-1"></a><span class="co"># lista todos os arquivos no caminho que sejam pdfs</span></span>
-<span id="cb1379-4"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-4" aria-hidden="true" tabindex="-1"></a>arqs <span class="ot">&lt;-</span> <span class="fu">dir</span>(caminho, <span class="at">pattern =</span> <span class="st">&quot;.pdf&quot;</span>)</span>
-<span id="cb1379-5"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1379-6"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-6" aria-hidden="true" tabindex="-1"></a><span class="co"># renomeia os arquivos adicionando a data no final do nome</span></span>
-<span id="cb1379-7"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-7" aria-hidden="true" tabindex="-1"></a><span class="co"># cria funcao para gerar novos nomes</span></span>
-<span id="cb1379-8"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-8" aria-hidden="true" tabindex="-1"></a>novonome <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb1379-9"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># separa as palavras</span></span>
-<span id="cb1379-10"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-10" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="st">&quot;.pdf&quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb1379-11"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cola a data</span></span>
-<span id="cb1379-12"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-12" aria-hidden="true" tabindex="-1"></a>  xx1 <span class="ot">&lt;-</span> <span class="fu">paste</span>(xx, <span class="fu">Sys.Date</span>(), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb1379-13"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># junta novamente tudo</span></span>
-<span id="cb1379-14"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-14" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">paste</span>(xx1, <span class="st">&quot;.pdf&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb1379-15"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># retorna o novo nome</span></span>
-<span id="cb1379-16"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(xx)</span>
-<span id="cb1379-17"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-17" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1379-18"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1379-19"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-19" aria-hidden="true" tabindex="-1"></a><span class="co"># agora copia cada arquivo para uma subpasta em caminho</span></span>
-<span id="cb1379-20"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-20" aria-hidden="true" tabindex="-1"></a>novapasta <span class="ot">&lt;-</span> <span class="fu">paste</span>(caminho, <span class="st">&quot;/pdfs&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb1379-21"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(novapasta)</span>
-<span id="cb1379-22"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1379-23"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-23" aria-hidden="true" tabindex="-1"></a><span class="co"># salva os arquivos com mesmo nome na nova pasta</span></span>
-<span id="cb1379-24"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-24" aria-hidden="true" tabindex="-1"></a><span class="co"># cria uma funcao para isso</span></span>
-<span id="cb1379-25"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-25" aria-hidden="true" tabindex="-1"></a>salvaarq <span class="ot">&lt;-</span> <span class="cf">function</span>(arq, origem, destino) {</span>
-<span id="cb1379-26"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-26" aria-hidden="true" tabindex="-1"></a>  from <span class="ot">&lt;-</span> <span class="fu">paste</span>(origem, <span class="st">&quot;/&quot;</span>, arq, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb1379-27"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-27" aria-hidden="true" tabindex="-1"></a>  to <span class="ot">&lt;-</span> <span class="fu">paste</span>(destino, <span class="st">&quot;/&quot;</span>, <span class="fu">novonome</span>(arq), <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb1379-28"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">file.copy</span>(from, to)</span>
-<span id="cb1379-29"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-29" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1379-30"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1379-31"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-31" aria-hidden="true" tabindex="-1"></a><span class="co"># aplica a funcao a todos os arquivos</span></span>
-<span id="cb1379-32"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-32" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(arqs, salvaarq, <span class="at">origem =</span> caminho, <span class="at">destino =</span> novapasta)</span>
-<span id="cb1379-33"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1379-34"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-34" aria-hidden="true" tabindex="-1"></a><span class="co"># pronto os arquivos devem ter sido copiados</span></span>
-<span id="cb1379-35"><a href="manipulação-de-pastas-e-arquivos.html#cb1379-35" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(novapasta)</span></code></pre></div>
+<div class="sourceCode" id="cb1378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1378-1"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-1" aria-hidden="true" tabindex="-1"></a><span class="co"># meu caminho</span></span>
+<span id="cb1378-2"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-2" aria-hidden="true" tabindex="-1"></a>caminho <span class="ot">&lt;-</span> <span class="st">&quot;~/Documents/DOC/PROJETO_DOC/R/pkgs/BOT89-introR/tutorial/&quot;</span></span>
+<span id="cb1378-3"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-3" aria-hidden="true" tabindex="-1"></a><span class="co"># lista todos os arquivos no caminho que sejam pdfs</span></span>
+<span id="cb1378-4"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-4" aria-hidden="true" tabindex="-1"></a>arqs <span class="ot">&lt;-</span> <span class="fu">dir</span>(caminho, <span class="at">pattern =</span> <span class="st">&quot;.pdf&quot;</span>)</span>
+<span id="cb1378-5"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1378-6"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-6" aria-hidden="true" tabindex="-1"></a><span class="co"># renomeia os arquivos adicionando a data no final do nome</span></span>
+<span id="cb1378-7"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-7" aria-hidden="true" tabindex="-1"></a><span class="co"># cria funcao para gerar novos nomes</span></span>
+<span id="cb1378-8"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-8" aria-hidden="true" tabindex="-1"></a>novonome <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1378-9"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># separa as palavras</span></span>
+<span id="cb1378-10"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-10" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="st">&quot;.pdf&quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb1378-11"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cola a data</span></span>
+<span id="cb1378-12"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-12" aria-hidden="true" tabindex="-1"></a>  xx1 <span class="ot">&lt;-</span> <span class="fu">paste</span>(xx, <span class="fu">Sys.Date</span>(), <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>)</span>
+<span id="cb1378-13"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># junta novamente tudo</span></span>
+<span id="cb1378-14"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-14" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">paste</span>(xx1, <span class="st">&quot;.pdf&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb1378-15"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># retorna o novo nome</span></span>
+<span id="cb1378-16"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(xx)</span>
+<span id="cb1378-17"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1378-18"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1378-19"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-19" aria-hidden="true" tabindex="-1"></a><span class="co"># agora copia cada arquivo para uma subpasta em caminho</span></span>
+<span id="cb1378-20"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-20" aria-hidden="true" tabindex="-1"></a>novapasta <span class="ot">&lt;-</span> <span class="fu">paste</span>(caminho, <span class="st">&quot;/pdfs&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb1378-21"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(novapasta)</span>
+<span id="cb1378-22"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1378-23"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-23" aria-hidden="true" tabindex="-1"></a><span class="co"># salva os arquivos com mesmo nome na nova pasta</span></span>
+<span id="cb1378-24"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-24" aria-hidden="true" tabindex="-1"></a><span class="co"># cria uma funcao para isso</span></span>
+<span id="cb1378-25"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-25" aria-hidden="true" tabindex="-1"></a>salvaarq <span class="ot">&lt;-</span> <span class="cf">function</span>(arq, origem, destino) {</span>
+<span id="cb1378-26"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-26" aria-hidden="true" tabindex="-1"></a>  from <span class="ot">&lt;-</span> <span class="fu">paste</span>(origem, <span class="st">&quot;/&quot;</span>, arq, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb1378-27"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-27" aria-hidden="true" tabindex="-1"></a>  to <span class="ot">&lt;-</span> <span class="fu">paste</span>(destino, <span class="st">&quot;/&quot;</span>, <span class="fu">novonome</span>(arq), <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb1378-28"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">file.copy</span>(from, to)</span>
+<span id="cb1378-29"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1378-30"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1378-31"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-31" aria-hidden="true" tabindex="-1"></a><span class="co"># aplica a funcao a todos os arquivos</span></span>
+<span id="cb1378-32"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-32" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(arqs, salvaarq, <span class="at">origem =</span> caminho, <span class="at">destino =</span> novapasta)</span>
+<span id="cb1378-33"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1378-34"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-34" aria-hidden="true" tabindex="-1"></a><span class="co"># pronto os arquivos devem ter sido copiados</span></span>
+<span id="cb1378-35"><a href="manipulação-de-pastas-e-arquivos.html#cb1378-35" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(novapasta)</span></code></pre></div>
 </div>
             </section>
 
@@ -640,7 +644,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/08-manip_txt_arqs_pasta.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

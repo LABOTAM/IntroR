@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.2 Indexação de matriz e data.frame | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.2 Indexação de matriz e data.frame | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -557,10 +561,10 @@ A única diferença é que, por matrizes e <code>data.frames</code> serem bidime
 Portanto o operador de indexação para matrizes e data.frame tem a seguinte estrutura, <code>[indiceDeLinha , indiceDeColuna]</code>, em que a vírgula separa os índices de linha e coluna.</p>
 <div id="matrizes" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Matrizes<a href="indexação-de-matriz-e-data.html#matrizes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="indexação-de-matriz-e-data.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos criar uma matriz</span></span>
-<span id="cb569-2"><a href="indexação-de-matriz-e-data.html#cb569-2" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)))</span>
-<span id="cb569-3"><a href="indexação-de-matriz-e-data.html#cb569-3" aria-hidden="true" tabindex="-1"></a><span class="co"># veja a matriz criada</span></span>
-<span id="cb569-4"><a href="indexação-de-matriz-e-data.html#cb569-4" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="indexação-de-matriz-e-data.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos criar uma matriz</span></span>
+<span id="cb568-2"><a href="indexação-de-matriz-e-data.html#cb568-2" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)))</span>
+<span id="cb568-3"><a href="indexação-de-matriz-e-data.html#cb568-3" aria-hidden="true" tabindex="-1"></a><span class="co"># veja a matriz criada</span></span>
+<span id="cb568-4"><a href="indexação-de-matriz-e-data.html#cb568-4" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -622,27 +626,27 @@ linha3
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="indexação-de-matriz-e-data.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="co"># USANDO INDICE NUMÉRICO</span></span>
-<span id="cb570-2"><a href="indexação-de-matriz-e-data.html#cb570-2" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, <span class="dv">2</span>] <span class="co"># mostra o elemento da linha 1 e coluna 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="indexação-de-matriz-e-data.html#cb569-1" aria-hidden="true" tabindex="-1"></a><span class="co"># USANDO INDICE NUMÉRICO</span></span>
+<span id="cb569-2"><a href="indexação-de-matriz-e-data.html#cb569-2" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, <span class="dv">2</span>] <span class="co"># mostra o elemento da linha 1 e coluna 2</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="indexação-de-matriz-e-data.html#cb572-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, <span class="fu">ncol</span>(mm)] <span class="co"># mostra o elemento da linha 1 e última coluna</span></span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="indexação-de-matriz-e-data.html#cb571-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, <span class="fu">ncol</span>(mm)] <span class="co"># mostra o elemento da linha 1 e última coluna</span></span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="indexação-de-matriz-e-data.html#cb574-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="fu">nrow</span>(mm), <span class="fu">ncol</span>(mm)] <span class="co"># mostra o elemento da última linha e última coluna</span></span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="indexação-de-matriz-e-data.html#cb573-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="fu">nrow</span>(mm), <span class="fu">ncol</span>(mm)] <span class="co"># mostra o elemento da última linha e última coluna</span></span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="indexação-de-matriz-e-data.html#cb576-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">1</span>] <span class="co"># mostra a coluna 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="indexação-de-matriz-e-data.html#cb575-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">1</span>] <span class="co"># mostra a coluna 1</span></span></code></pre></div>
 <pre><code>## linha1 linha2 linha3 
 ##      1      2      3</code></pre>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="indexação-de-matriz-e-data.html#cb578-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eu posso juntar indices de matrizes e vetores na mesma linha</span></span>
-<span id="cb578-2"><a href="indexação-de-matriz-e-data.html#cb578-2" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">1</span>][<span class="dv">2</span>] <span class="co"># mostra o segundo elemento do vetor correspondente a primeira coluna</span></span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="indexação-de-matriz-e-data.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eu posso juntar indices de matrizes e vetores na mesma linha</span></span>
+<span id="cb577-2"><a href="indexação-de-matriz-e-data.html#cb577-2" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">1</span>][<span class="dv">2</span>] <span class="co"># mostra o segundo elemento do vetor correspondente a primeira coluna</span></span></code></pre></div>
 <pre><code>## linha2 
 ##      2</code></pre>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="indexação-de-matriz-e-data.html#cb580-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, ] <span class="co"># mostra a linha 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="indexação-de-matriz-e-data.html#cb579-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, ] <span class="co"># mostra a linha 1</span></span></code></pre></div>
 <pre><code>## coluna1 coluna2 coluna3 
 ##       1       4       7</code></pre>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="indexação-de-matriz-e-data.html#cb582-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="fu">nrow</span>(mm), ] <span class="co"># mostra a ultima linha</span></span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="indexação-de-matriz-e-data.html#cb581-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="fu">nrow</span>(mm), ] <span class="co"># mostra a ultima linha</span></span></code></pre></div>
 <pre><code>## coluna1 coluna2 coluna3 
 ##       3       6       9</code></pre>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="indexação-de-matriz-e-data.html#cb584-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="co"># mostra as duas primeiras colunas</span></span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="indexação-de-matriz-e-data.html#cb583-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="co"># mostra as duas primeiras colunas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -692,7 +696,7 @@ linha3
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="indexação-de-matriz-e-data.html#cb585-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="co"># mostra as duas primeiras linhas e duas primeiras colunas</span></span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="indexação-de-matriz-e-data.html#cb584-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="co"># mostra as duas primeiras linhas e duas primeiras colunas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -740,10 +744,10 @@ linha2
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="indexação-de-matriz-e-data.html#cb586-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">3</span><span class="sc">:</span><span class="fu">nrow</span>(mm), ] <span class="co"># mostra da linha tres a ultima linha</span></span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="indexação-de-matriz-e-data.html#cb585-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">3</span><span class="sc">:</span><span class="fu">nrow</span>(mm), ] <span class="co"># mostra da linha tres a ultima linha</span></span></code></pre></div>
 <pre><code>## coluna1 coluna2 coluna3 
 ##       3       6       9</code></pre>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="indexação-de-matriz-e-data.html#cb588-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)] <span class="co"># mostra as linhas 3 e 1 e colunas 3 e 2 (nessa ordem)</span></span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="indexação-de-matriz-e-data.html#cb587-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)] <span class="co"># mostra as linhas 3 e 1 e colunas 3 e 2 (nessa ordem)</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -782,14 +786,14 @@ linha1
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="indexação-de-matriz-e-data.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="co"># USANDO INDICES DE NOMES</span></span>
-<span id="cb589-2"><a href="indexação-de-matriz-e-data.html#cb589-2" aria-hidden="true" tabindex="-1"></a>mm[<span class="st">&quot;linha1&quot;</span>, ] <span class="co"># mostra a linha 1 - note que poderia ser outro nome, poderia ter chamado no inicio do script a linha 1 de &quot;banana&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="indexação-de-matriz-e-data.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co"># USANDO INDICES DE NOMES</span></span>
+<span id="cb588-2"><a href="indexação-de-matriz-e-data.html#cb588-2" aria-hidden="true" tabindex="-1"></a>mm[<span class="st">&quot;linha1&quot;</span>, ] <span class="co"># mostra a linha 1 - note que poderia ser outro nome, poderia ter chamado no inicio do script a linha 1 de &quot;banana&quot;</span></span></code></pre></div>
 <pre><code>## coluna1 coluna2 coluna3 
 ##       1       4       7</code></pre>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="indexação-de-matriz-e-data.html#cb591-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="st">&quot;coluna1&quot;</span>] <span class="co"># mostra a coluna 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="indexação-de-matriz-e-data.html#cb590-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="st">&quot;coluna1&quot;</span>] <span class="co"># mostra a coluna 1</span></span></code></pre></div>
 <pre><code>## linha1 linha2 linha3 
 ##      1      2      3</code></pre>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="indexação-de-matriz-e-data.html#cb593-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="fu">c</span>(<span class="st">&quot;linha3&quot;</span>, <span class="st">&quot;linha1&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;coluna3&quot;</span>, <span class="st">&quot;coluna1&quot;</span>)] <span class="co"># mostra a linhas 3 e 1 e colunas 3 e 1. </span><span class="al">NOTE</span><span class="co"> QUE POSSO ASSIM INVERTER AS COLUNAS E LINHAS</span></span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="indexação-de-matriz-e-data.html#cb592-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="fu">c</span>(<span class="st">&quot;linha3&quot;</span>, <span class="st">&quot;linha1&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;coluna3&quot;</span>, <span class="st">&quot;coluna1&quot;</span>)] <span class="co"># mostra a linhas 3 e 1 e colunas 3 e 1. </span><span class="al">NOTE</span><span class="co"> QUE POSSO ASSIM INVERTER AS COLUNAS E LINHAS</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -828,8 +832,8 @@ linha1
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="indexação-de-matriz-e-data.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SE EU POSSO VER EU POSSO MUDAR</span></span>
-<span id="cb594-2"><a href="indexação-de-matriz-e-data.html#cb594-2" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="indexação-de-matriz-e-data.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SE EU POSSO VER EU POSSO MUDAR</span></span>
+<span id="cb593-2"><a href="indexação-de-matriz-e-data.html#cb593-2" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -891,17 +895,17 @@ linha3
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="indexação-de-matriz-e-data.html#cb595-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, <span class="dv">3</span>] <span class="co"># elemento da linha 1 coluna 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="indexação-de-matriz-e-data.html#cb594-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, <span class="dv">3</span>] <span class="co"># elemento da linha 1 coluna 3</span></span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="indexação-de-matriz-e-data.html#cb597-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">33</span> <span class="co"># mudei o elemento</span></span>
-<span id="cb597-2"><a href="indexação-de-matriz-e-data.html#cb597-2" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="indexação-de-matriz-e-data.html#cb596-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">1</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">33</span> <span class="co"># mudei o elemento</span></span>
+<span id="cb596-2"><a href="indexação-de-matriz-e-data.html#cb596-2" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## coluna2 coluna3 
 ##       5       8</code></pre>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="indexação-de-matriz-e-data.html#cb599-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>] <span class="ot">&lt;-</span> mm[<span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>] <span class="sc">*</span> <span class="dv">10</span> <span class="co"># mudei os valores das colunas 2 e 3 para a linha 2, multiplicando o original por 10</span></span>
-<span id="cb599-2"><a href="indexação-de-matriz-e-data.html#cb599-2" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="indexação-de-matriz-e-data.html#cb598-1" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>] <span class="ot">&lt;-</span> mm[<span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>] <span class="sc">*</span> <span class="dv">10</span> <span class="co"># mudei os valores das colunas 2 e 3 para a linha 2, multiplicando o original por 10</span></span>
+<span id="cb598-2"><a href="indexação-de-matriz-e-data.html#cb598-2" aria-hidden="true" tabindex="-1"></a>mm[<span class="dv">2</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## coluna2 coluna3 
 ##      50      80</code></pre>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="indexação-de-matriz-e-data.html#cb601-1" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="indexação-de-matriz-e-data.html#cb600-1" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -969,10 +973,10 @@ linha3
 <p>O operador <code>[indiceDeLinha , indiceDeColuna]</code> também funciona para <code>data.frames</code>.
 Outro operador útil na manipulação de <code>data.frames</code> é o <code>$</code>.
 Ele permite a visualização e atribuição de valores a qualquer coluna.</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="indexação-de-matriz-e-data.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos criar uma matriz com nomes de linhas e colunas</span></span>
-<span id="cb602-2"><a href="indexação-de-matriz-e-data.html#cb602-2" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)))</span>
-<span id="cb602-3"><a href="indexação-de-matriz-e-data.html#cb602-3" aria-hidden="true" tabindex="-1"></a><span class="co"># veja a matriz criada</span></span>
-<span id="cb602-4"><a href="indexação-de-matriz-e-data.html#cb602-4" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="indexação-de-matriz-e-data.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos criar uma matriz com nomes de linhas e colunas</span></span>
+<span id="cb601-2"><a href="indexação-de-matriz-e-data.html#cb601-2" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)))</span>
+<span id="cb601-3"><a href="indexação-de-matriz-e-data.html#cb601-3" aria-hidden="true" tabindex="-1"></a><span class="co"># veja a matriz criada</span></span>
+<span id="cb601-4"><a href="indexação-de-matriz-e-data.html#cb601-4" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1034,25 +1038,25 @@ linha3
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="indexação-de-matriz-e-data.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convertemos para um data.frame</span></span>
-<span id="cb603-2"><a href="indexação-de-matriz-e-data.html#cb603-2" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mm)</span>
-<span id="cb603-3"><a href="indexação-de-matriz-e-data.html#cb603-3" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>coluna1 <span class="co"># pego a coluna 1 (note que o nome da coluna vai sem &quot;aspas&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="indexação-de-matriz-e-data.html#cb602-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convertemos para um data.frame</span></span>
+<span id="cb602-2"><a href="indexação-de-matriz-e-data.html#cb602-2" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mm)</span>
+<span id="cb602-3"><a href="indexação-de-matriz-e-data.html#cb602-3" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>coluna1 <span class="co"># pego a coluna 1 (note que o nome da coluna vai sem &quot;aspas&quot;)</span></span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>Veja que o uso do operador <code>$</code> não funciona em matrizes:</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="indexação-de-matriz-e-data.html#cb605-1" aria-hidden="true" tabindex="-1"></a>mm<span class="sc">$</span>coluna1 <span class="co"># veja como não funciona para o objeto matrix</span></span></code></pre></div>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="indexação-de-matriz-e-data.html#cb606-1" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>coluna1[<span class="dv">2</span>] <span class="co"># vejo o segundo elemento da coluna1</span></span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="indexação-de-matriz-e-data.html#cb604-1" aria-hidden="true" tabindex="-1"></a>mm<span class="sc">$</span>coluna1 <span class="co"># veja como não funciona para o objeto matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="indexação-de-matriz-e-data.html#cb605-1" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>coluna1[<span class="dv">2</span>] <span class="co"># vejo o segundo elemento da coluna1</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="indexação-de-matriz-e-data.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="co"># isso é o mesmo que</span></span>
-<span id="cb608-2"><a href="indexação-de-matriz-e-data.html#cb608-2" aria-hidden="true" tabindex="-1"></a>dd[<span class="dv">2</span>, <span class="st">&quot;coluna1&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="indexação-de-matriz-e-data.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="co"># isso é o mesmo que</span></span>
+<span id="cb607-2"><a href="indexação-de-matriz-e-data.html#cb607-2" aria-hidden="true" tabindex="-1"></a>dd[<span class="dv">2</span>, <span class="st">&quot;coluna1&quot;</span>]</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="indexação-de-matriz-e-data.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se eu vejo eu posso mudar</span></span>
-<span id="cb610-2"><a href="indexação-de-matriz-e-data.html#cb610-2" aria-hidden="true" tabindex="-1"></a>dd[<span class="dv">2</span>, <span class="st">&quot;coluna1&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb610-3"><a href="indexação-de-matriz-e-data.html#cb610-3" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>coluna1[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb610-4"><a href="indexação-de-matriz-e-data.html#cb610-4" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>coluna3 <span class="co"># pego a coluna tres</span></span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="indexação-de-matriz-e-data.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se eu vejo eu posso mudar</span></span>
+<span id="cb609-2"><a href="indexação-de-matriz-e-data.html#cb609-2" aria-hidden="true" tabindex="-1"></a>dd[<span class="dv">2</span>, <span class="st">&quot;coluna1&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb609-3"><a href="indexação-de-matriz-e-data.html#cb609-3" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>coluna1[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb609-4"><a href="indexação-de-matriz-e-data.html#cb609-4" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>coluna3 <span class="co"># pego a coluna tres</span></span></code></pre></div>
 <pre><code>## [1] 7 8 9</code></pre>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="indexação-de-matriz-e-data.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="co"># também posso adicionar uma nova coluna</span></span>
-<span id="cb612-2"><a href="indexação-de-matriz-e-data.html#cb612-2" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>novacoluna <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dd)]</span>
-<span id="cb612-3"><a href="indexação-de-matriz-e-data.html#cb612-3" aria-hidden="true" tabindex="-1"></a>dd <span class="co"># agora tenho uma nova coluna</span></span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="indexação-de-matriz-e-data.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="co"># também posso adicionar uma nova coluna</span></span>
+<span id="cb611-2"><a href="indexação-de-matriz-e-data.html#cb611-2" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>novacoluna <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dd)]</span>
+<span id="cb611-3"><a href="indexação-de-matriz-e-data.html#cb611-3" aria-hidden="true" tabindex="-1"></a>dd <span class="co"># agora tenho uma nova coluna</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1126,12 +1130,12 @@ C
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="indexação-de-matriz-e-data.html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou poderia usar outra forma</span></span>
-<span id="cb613-2"><a href="indexação-de-matriz-e-data.html#cb613-2" aria-hidden="true" tabindex="-1"></a>dd[, <span class="st">&quot;nova2&quot;</span>] <span class="ot">&lt;-</span> LETTERS <span class="co"># nao vai funcionar por estou atribuindo um vetor muito mais longo do que tenho linhas</span></span></code></pre></div>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="indexação-de-matriz-e-data.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(LETTERS) <span class="sc">&gt;</span> <span class="fu">nrow</span>(dd) <span class="co"># essa expressão é verdadeira</span></span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="indexação-de-matriz-e-data.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou poderia usar outra forma</span></span>
+<span id="cb612-2"><a href="indexação-de-matriz-e-data.html#cb612-2" aria-hidden="true" tabindex="-1"></a>dd[, <span class="st">&quot;nova2&quot;</span>] <span class="ot">&lt;-</span> LETTERS <span class="co"># nao vai funcionar por estou atribuindo um vetor muito mais longo do que tenho linhas</span></span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="indexação-de-matriz-e-data.html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(LETTERS) <span class="sc">&gt;</span> <span class="fu">nrow</span>(dd) <span class="co"># essa expressão é verdadeira</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="indexação-de-matriz-e-data.html#cb616-1" aria-hidden="true" tabindex="-1"></a>dd[, <span class="st">&quot;nova2&quot;</span>] <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dd)] <span class="co"># isso tem o mesmo comprimento e funciona</span></span>
-<span id="cb616-2"><a href="indexação-de-matriz-e-data.html#cb616-2" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="indexação-de-matriz-e-data.html#cb615-1" aria-hidden="true" tabindex="-1"></a>dd[, <span class="st">&quot;nova2&quot;</span>] <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dd)] <span class="co"># isso tem o mesmo comprimento e funciona</span></span>
+<span id="cb615-2"><a href="indexação-de-matriz-e-data.html#cb615-2" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1217,9 +1221,9 @@ C
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="indexação-de-matriz-e-data.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="co"># posso adicionar uma coluna vazia</span></span>
-<span id="cb617-2"><a href="indexação-de-matriz-e-data.html#cb617-2" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>outracoluna <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb617-3"><a href="indexação-de-matriz-e-data.html#cb617-3" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="indexação-de-matriz-e-data.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="co"># posso adicionar uma coluna vazia</span></span>
+<span id="cb616-2"><a href="indexação-de-matriz-e-data.html#cb616-2" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>outracoluna <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb616-3"><a href="indexação-de-matriz-e-data.html#cb616-3" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1317,9 +1321,9 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="indexação-de-matriz-e-data.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e ainda outra (lógica)</span></span>
-<span id="cb618-2"><a href="indexação-de-matriz-e-data.html#cb618-2" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>maisuma <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb618-3"><a href="indexação-de-matriz-e-data.html#cb618-3" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="indexação-de-matriz-e-data.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e ainda outra (lógica)</span></span>
+<span id="cb617-2"><a href="indexação-de-matriz-e-data.html#cb617-2" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>maisuma <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb617-3"><a href="indexação-de-matriz-e-data.html#cb617-3" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1430,17 +1434,17 @@ TRUE
 </tbody>
 </table>
 <p>Adicionar colunas em uma matriz é um pouco diferente do que se faz com um <code>data.frame</code>:</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="indexação-de-matriz-e-data.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="co"># primeiro nao posso usar $ porque matrix não entende isso</span></span>
-<span id="cb619-2"><a href="indexação-de-matriz-e-data.html#cb619-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mm) <span class="co"># é uma matrix</span></span>
-<span id="cb619-3"><a href="indexação-de-matriz-e-data.html#cb619-3" aria-hidden="true" tabindex="-1"></a>mm<span class="sc">$</span>colun3 <span class="co"># isso nao funciona</span></span></code></pre></div>
-<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="indexação-de-matriz-e-data.html#cb620-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="st">&quot;coluna3&quot;</span>] <span class="co"># isso funciona</span></span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="indexação-de-matriz-e-data.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="co"># primeiro nao posso usar $ porque matrix não entende isso</span></span>
+<span id="cb618-2"><a href="indexação-de-matriz-e-data.html#cb618-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mm) <span class="co"># é uma matrix</span></span>
+<span id="cb618-3"><a href="indexação-de-matriz-e-data.html#cb618-3" aria-hidden="true" tabindex="-1"></a>mm<span class="sc">$</span>colun3 <span class="co"># isso nao funciona</span></span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="indexação-de-matriz-e-data.html#cb619-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="st">&quot;coluna3&quot;</span>] <span class="co"># isso funciona</span></span></code></pre></div>
 <pre><code>## linha1 linha2 linha3 
 ##      7      8      9</code></pre>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="indexação-de-matriz-e-data.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adicionando uma coluna</span></span></code></pre></div>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="indexação-de-matriz-e-data.html#cb623-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">4</span>] <span class="co"># isso nao existe</span></span>
-<span id="cb623-2"><a href="indexação-de-matriz-e-data.html#cb623-2" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">log</span>(mm[, <span class="st">&quot;coluna3&quot;</span>]) <span class="co"># isso não funciona</span></span></code></pre></div>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="indexação-de-matriz-e-data.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="co"># poderia usar a função cbind que vimos anteriormente</span></span>
-<span id="cb624-2"><a href="indexação-de-matriz-e-data.html#cb624-2" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mm, <span class="at">LOGCOLUNA3 =</span> <span class="fu">log</span>(mm[, <span class="st">&quot;coluna3&quot;</span>])) <span class="co"># assim eu posso</span></span></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="indexação-de-matriz-e-data.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adicionando uma coluna</span></span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="indexação-de-matriz-e-data.html#cb622-1" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">4</span>] <span class="co"># isso nao existe</span></span>
+<span id="cb622-2"><a href="indexação-de-matriz-e-data.html#cb622-2" aria-hidden="true" tabindex="-1"></a>mm[, <span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="fu">log</span>(mm[, <span class="st">&quot;coluna3&quot;</span>]) <span class="co"># isso não funciona</span></span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="indexação-de-matriz-e-data.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co"># poderia usar a função cbind que vimos anteriormente</span></span>
+<span id="cb623-2"><a href="indexação-de-matriz-e-data.html#cb623-2" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mm, <span class="at">LOGCOLUNA3 =</span> <span class="fu">log</span>(mm[, <span class="st">&quot;coluna3&quot;</span>])) <span class="co"># assim eu posso</span></span></code></pre></div>
 </div>
 </div>
             </section>
@@ -1491,7 +1495,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/03-matrizes_dframes.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

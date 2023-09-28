@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 Vetores e operações vetoriais I | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 Vetores e operações vetoriais I | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -556,89 +560,89 @@ div.csl-indent {
 <h3><span class="header-section-number">2.1.1</span> Criação de Vetores<a href="vetores-e-operações-vetoriais-i.html#criação-de-vetores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>c()</code> é usada na criação de vetores, pois combina ou concatena elementos.
 Podemos concatenar números:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="vetores-e-operações-vetoriais-i.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor de números</span></span>
-<span id="cb153-2"><a href="vetores-e-operações-vetoriais-i.html#cb153-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="fl">3.14</span>, pi, <span class="fl">37.5</span>, <span class="dv">38</span>)</span>
-<span id="cb153-3"><a href="vetores-e-operações-vetoriais-i.html#cb153-3" aria-hidden="true" tabindex="-1"></a>v1</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="vetores-e-operações-vetoriais-i.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor de números</span></span>
+<span id="cb152-2"><a href="vetores-e-operações-vetoriais-i.html#cb152-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="fl">3.14</span>, pi, <span class="fl">37.5</span>, <span class="dv">38</span>)</span>
+<span id="cb152-3"><a href="vetores-e-operações-vetoriais-i.html#cb152-3" aria-hidden="true" tabindex="-1"></a>v1</span></code></pre></div>
 <pre><code>## [1]  3.000000  3.140000  3.141593 37.500000 38.000000</code></pre>
 <p>Podemos concatenar textos:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="vetores-e-operações-vetoriais-i.html#cb155-1" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;maça&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;jabuticaba&quot;</span>)</span>
-<span id="cb155-2"><a href="vetores-e-operações-vetoriais-i.html#cb155-2" aria-hidden="true" tabindex="-1"></a>v2</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="vetores-e-operações-vetoriais-i.html#cb154-1" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;maça&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;jabuticaba&quot;</span>)</span>
+<span id="cb154-2"><a href="vetores-e-operações-vetoriais-i.html#cb154-2" aria-hidden="true" tabindex="-1"></a>v2</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot;          &quot;banana&quot;     &quot;maça&quot;       &quot;pera&quot;       &quot;jabuticaba&quot;</code></pre>
 <p>Podemos concatenar valores lógicos (veremos adiante como isso é importante):</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="vetores-e-operações-vetoriais-i.html#cb157-1" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb157-2"><a href="vetores-e-operações-vetoriais-i.html#cb157-2" aria-hidden="true" tabindex="-1"></a>v3</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="vetores-e-operações-vetoriais-i.html#cb156-1" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb156-2"><a href="vetores-e-operações-vetoriais-i.html#cb156-2" aria-hidden="true" tabindex="-1"></a>v3</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
 <p>Podemos abreviar os valores lógicos <code>TRUE</code> como <code>T</code> e <code>FALSE</code> como <code>F</code>:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="vetores-e-operações-vetoriais-i.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c(TRUE, TRUE, FALSE, FALSE) e o mesmo que</span></span>
-<span id="cb159-2"><a href="vetores-e-operações-vetoriais-i.html#cb159-2" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F, F)</span>
-<span id="cb159-3"><a href="vetores-e-operações-vetoriais-i.html#cb159-3" aria-hidden="true" tabindex="-1"></a>v4</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="vetores-e-operações-vetoriais-i.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c(TRUE, TRUE, FALSE, FALSE) e o mesmo que</span></span>
+<span id="cb158-2"><a href="vetores-e-operações-vetoriais-i.html#cb158-2" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F, F)</span>
+<span id="cb158-3"><a href="vetores-e-operações-vetoriais-i.html#cb158-3" aria-hidden="true" tabindex="-1"></a>v4</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
 <p>Vejamos se <code>v3</code> é semelhante a <code>v4</code>:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="vetores-e-operações-vetoriais-i.html#cb161-1" aria-hidden="true" tabindex="-1"></a>v3 <span class="sc">==</span> v4</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="vetores-e-operações-vetoriais-i.html#cb160-1" aria-hidden="true" tabindex="-1"></a>v3 <span class="sc">==</span> v4</span></code></pre></div>
 <pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
 <p>Note que <code>TRUE</code> e <code>FALSE</code> são valores lógicos e essas palavras são entendidas apenas como tal quando em maiúsculas e sem aspas <code>"</code> pelo R.
 Tente executar o comando abaixo para ver o que acontece quando utilizamos esses valores em letras minúsculas:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="vetores-e-operações-vetoriais-i.html#cb163-1" aria-hidden="true" tabindex="-1"></a>v5 <span class="ot">&lt;-</span> <span class="fu">c</span>(true, true, false, false) </span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="vetores-e-operações-vetoriais-i.html#cb162-1" aria-hidden="true" tabindex="-1"></a>v5 <span class="ot">&lt;-</span> <span class="fu">c</span>(true, true, false, false) </span></code></pre></div>
 <p>O R retorna a mensagem de erro <code>Error: object 'true' not found</code> pois ele procura pelo primeiro objeto de nosso vetor <code>c(true, true, false, false)</code> na área de trabalho e, ao não encontrar, ele retorna esta mensagem de erro, justamente por não compreender <code>true</code> como um vetor lógico, e sim como um objeto!
 Se nós atribuímos valores a esses objetos, então a concatenação funciona, podendo assim atribuirmos este vetor ao objeto <code>v5</code> (ou com qualquer nome que desejamos):</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="vetores-e-operações-vetoriais-i.html#cb164-1" aria-hidden="true" tabindex="-1"></a>true <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb164-2"><a href="vetores-e-operações-vetoriais-i.html#cb164-2" aria-hidden="true" tabindex="-1"></a>false <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb164-3"><a href="vetores-e-operações-vetoriais-i.html#cb164-3" aria-hidden="true" tabindex="-1"></a>v5 <span class="ot">&lt;-</span> <span class="fu">c</span>(true, true, false, false)</span>
-<span id="cb164-4"><a href="vetores-e-operações-vetoriais-i.html#cb164-4" aria-hidden="true" tabindex="-1"></a>v5</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="vetores-e-operações-vetoriais-i.html#cb163-1" aria-hidden="true" tabindex="-1"></a>true <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb163-2"><a href="vetores-e-operações-vetoriais-i.html#cb163-2" aria-hidden="true" tabindex="-1"></a>false <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb163-3"><a href="vetores-e-operações-vetoriais-i.html#cb163-3" aria-hidden="true" tabindex="-1"></a>v5 <span class="ot">&lt;-</span> <span class="fu">c</span>(true, true, false, false)</span>
+<span id="cb163-4"><a href="vetores-e-operações-vetoriais-i.html#cb163-4" aria-hidden="true" tabindex="-1"></a>v5</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
 <p>Há no R valores constantes armazenados em objetos que podem ser chamados a qualquer momento por nós.
 São objetos que concatenam valores de texto, isto é, são vetores de texto.
 Vejamos abaixo alguns deles:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="vetores-e-operações-vetoriais-i.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co"># essas constantes do R são vetores de texto</span></span>
-<span id="cb166-2"><a href="vetores-e-operações-vetoriais-i.html#cb166-2" aria-hidden="true" tabindex="-1"></a>LETTERS <span class="co"># letras maiusculas</span></span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="vetores-e-operações-vetoriais-i.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># essas constantes do R são vetores de texto</span></span>
+<span id="cb165-2"><a href="vetores-e-operações-vetoriais-i.html#cb165-2" aria-hidden="true" tabindex="-1"></a>LETTERS <span class="co"># letras maiusculas</span></span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
 ## [20] &quot;T&quot; &quot;U&quot; &quot;V&quot; &quot;W&quot; &quot;X&quot; &quot;Y&quot; &quot;Z&quot;</code></pre>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="vetores-e-operações-vetoriais-i.html#cb168-1" aria-hidden="true" tabindex="-1"></a>letters <span class="co"># letras minusculuas</span></span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="vetores-e-operações-vetoriais-i.html#cb167-1" aria-hidden="true" tabindex="-1"></a>letters <span class="co"># letras minusculuas</span></span></code></pre></div>
 <pre><code>##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot; &quot;k&quot; &quot;l&quot; &quot;m&quot; &quot;n&quot; &quot;o&quot; &quot;p&quot; &quot;q&quot; &quot;r&quot; &quot;s&quot;
 ## [20] &quot;t&quot; &quot;u&quot; &quot;v&quot; &quot;w&quot; &quot;x&quot; &quot;y&quot; &quot;z&quot;</code></pre>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="vetores-e-operações-vetoriais-i.html#cb170-1" aria-hidden="true" tabindex="-1"></a>month.abb <span class="co"># meses abreviados</span></span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="vetores-e-operações-vetoriais-i.html#cb169-1" aria-hidden="true" tabindex="-1"></a>month.abb <span class="co"># meses abreviados</span></span></code></pre></div>
 <pre><code>##  [1] &quot;Jan&quot; &quot;Feb&quot; &quot;Mar&quot; &quot;Apr&quot; &quot;May&quot; &quot;Jun&quot; &quot;Jul&quot; &quot;Aug&quot; &quot;Sep&quot; &quot;Oct&quot; &quot;Nov&quot; &quot;Dec&quot;</code></pre>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="vetores-e-operações-vetoriais-i.html#cb172-1" aria-hidden="true" tabindex="-1"></a>month.name <span class="co"># meses por extenso</span></span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="vetores-e-operações-vetoriais-i.html#cb171-1" aria-hidden="true" tabindex="-1"></a>month.name <span class="co"># meses por extenso</span></span></code></pre></div>
 <pre><code>##  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;May&quot;       &quot;June&quot;     
 ##  [7] &quot;July&quot;      &quot;August&quot;    &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot;</code></pre>
 </div>
 <div id="sequências-numéricas-repetições" class="section level3 hasAnchor" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> Sequências Numéricas &amp; Repetições<a href="vetores-e-operações-vetoriais-i.html#sequências-numéricas-repetições" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>É possível criar vetores numéricos usando a função <code>seq()</code> ou o operador <code>:</code>.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="vetores-e-operações-vetoriais-i.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usando o :</span></span>
-<span id="cb174-2"><a href="vetores-e-operações-vetoriais-i.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="co"># cria uma sequencia de números inteiros 1 a 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="vetores-e-operações-vetoriais-i.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usando o :</span></span>
+<span id="cb173-2"><a href="vetores-e-operações-vetoriais-i.html#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="co"># cria uma sequencia de números inteiros 1 a 10</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="vetores-e-operações-vetoriais-i.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span><span class="sc">:</span><span class="dv">0</span> <span class="co"># cria uma sequencia de números inteiros 20 a 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="vetores-e-operações-vetoriais-i.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span><span class="sc">:</span><span class="dv">0</span> <span class="co"># cria uma sequencia de números inteiros 20 a 0</span></span></code></pre></div>
 <pre><code>##  [1] 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0</code></pre>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="vetores-e-operações-vetoriais-i.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">:-</span><span class="dv">20</span> <span class="co"># cria uma sequencia de números inteiros 0 a -20</span></span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="vetores-e-operações-vetoriais-i.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="sc">:-</span><span class="dv">20</span> <span class="co"># cria uma sequencia de números inteiros 0 a -20</span></span></code></pre></div>
 <pre><code>##  [1]   0  -1  -2  -3  -4  -5  -6  -7  -8  -9 -10 -11 -12 -13 -14 -15 -16 -17 -18
 ## [20] -19 -20</code></pre>
 <p>usando a função <code>seq()</code> temos maior controle das sequências:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="vetores-e-operações-vetoriais-i.html#cb180-1" aria-hidden="true" tabindex="-1"></a>?seq <span class="co"># veja o help da função</span></span></code></pre></div>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="vetores-e-operações-vetoriais-i.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="fl">0.5</span>) <span class="co"># de 1 a 0 a cada 0.5</span></span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="vetores-e-operações-vetoriais-i.html#cb179-1" aria-hidden="true" tabindex="-1"></a>?seq <span class="co"># veja o help da função</span></span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="vetores-e-operações-vetoriais-i.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">10</span>, <span class="at">by =</span> <span class="fl">0.5</span>) <span class="co"># de 1 a 0 a cada 0.5</span></span></code></pre></div>
 <pre><code>##  [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
 ## [16]  8.5  9.0  9.5 10.0</code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="vetores-e-operações-vetoriais-i.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">10</span>, <span class="at">to =</span> <span class="dv">0</span>, <span class="at">by =</span> <span class="sc">-</span><span class="fl">0.5</span>) <span class="co"># de 10 a 0 a cada 0.5</span></span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="vetores-e-operações-vetoriais-i.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">10</span>, <span class="at">to =</span> <span class="dv">0</span>, <span class="at">by =</span> <span class="sc">-</span><span class="fl">0.5</span>) <span class="co"># de 10 a 0 a cada 0.5</span></span></code></pre></div>
 <pre><code>##  [1] 10.0  9.5  9.0  8.5  8.0  7.5  7.0  6.5  6.0  5.5  5.0  4.5  4.0  3.5  3.0
 ## [16]  2.5  2.0  1.5  1.0  0.5  0.0</code></pre>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="vetores-e-operações-vetoriais-i.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">100</span>, <span class="at">to =</span> <span class="dv">0</span>, <span class="at">length.out =</span> <span class="dv">10</span>) <span class="co"># 10 valores igualmente espaçados de 100 a 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="vetores-e-operações-vetoriais-i.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">100</span>, <span class="at">to =</span> <span class="dv">0</span>, <span class="at">length.out =</span> <span class="dv">10</span>) <span class="co"># 10 valores igualmente espaçados de 100 a 0</span></span></code></pre></div>
 <pre><code>##  [1] 100.00000  88.88889  77.77778  66.66667  55.55556  44.44444  33.33333
 ##  [8]  22.22222  11.11111   0.00000</code></pre>
 <p>É possível criar vetores repetindo valores através da função <code>rep()</code>:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="vetores-e-operações-vetoriais-i.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para números</span></span>
-<span id="cb187-2"><a href="vetores-e-operações-vetoriais-i.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">5</span>, <span class="at">times =</span> <span class="dv">3</span>) <span class="co"># cria um vetor com três elementos de valor 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="vetores-e-operações-vetoriais-i.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para números</span></span>
+<span id="cb186-2"><a href="vetores-e-operações-vetoriais-i.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">5</span>, <span class="at">times =</span> <span class="dv">3</span>) <span class="co"># cria um vetor com três elementos de valor 5</span></span></code></pre></div>
 <pre><code>## [1] 5 5 5</code></pre>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="vetores-e-operações-vetoriais-i.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">times =</span> <span class="dv">3</span>) <span class="co"># cria um vetor com três repetições da sequência de 1 a 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="vetores-e-operações-vetoriais-i.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">times =</span> <span class="dv">3</span>) <span class="co"># cria um vetor com três repetições da sequência de 1 a 5</span></span></code></pre></div>
 <pre><code>##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="vetores-e-operações-vetoriais-i.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">each =</span> <span class="dv">3</span>) <span class="co"># cria um vetor repetindo três vezes cada elemento da sequência de 1 a 5</span></span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="vetores-e-operações-vetoriais-i.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">each =</span> <span class="dv">3</span>) <span class="co"># cria um vetor repetindo três vezes cada elemento da sequência de 1 a 5</span></span></code></pre></div>
 <pre><code>##  [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5</code></pre>
 <p>Podemos também utilizar a função <code>rep()</code> com vetores de texto:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="vetores-e-operações-vetoriais-i.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para textos</span></span>
-<span id="cb193-2"><a href="vetores-e-operações-vetoriais-i.html#cb193-2" aria-hidden="true" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;maça&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
-<span id="cb193-3"><a href="vetores-e-operações-vetoriais-i.html#cb193-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(obj, <span class="at">times =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="vetores-e-operações-vetoriais-i.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para textos</span></span>
+<span id="cb192-2"><a href="vetores-e-operações-vetoriais-i.html#cb192-2" aria-hidden="true" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;maça&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
+<span id="cb192-3"><a href="vetores-e-operações-vetoriais-i.html#cb192-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(obj, <span class="at">times =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;banana&quot; &quot;maça&quot;   &quot;pera&quot;   &quot;banana&quot; &quot;maça&quot;   &quot;pera&quot;   &quot;banana&quot; &quot;maça&quot;  
 ## [9] &quot;pera&quot;</code></pre>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="vetores-e-operações-vetoriais-i.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(obj, <span class="at">each =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="vetores-e-operações-vetoriais-i.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(obj, <span class="at">each =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;banana&quot; &quot;banana&quot; &quot;banana&quot; &quot;maça&quot;   &quot;maça&quot;   &quot;maça&quot;   &quot;pera&quot;   &quot;pera&quot;  
 ## [9] &quot;pera&quot;</code></pre>
 </div>
@@ -691,7 +695,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/02-vetores.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

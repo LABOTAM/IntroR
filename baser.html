@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A.6 Comparando o mesmo conjunto de ações entre base R e dplyr | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A.6 Comparando o mesmo conjunto de ações entre base R e dplyr | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -551,12 +555,12 @@ div.csl-indent {
 <div id="baser" class="section level2 hasAnchor" number="15.6">
 <h2><span class="header-section-number">A.6</span> Comparando o mesmo conjunto de ações entre <code>base</code> R e <code>dplyr</code><a href="baser.html#baser" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Abaixo, para efeitos de comparação, executamos as mesmas ações usando os pacotes <code>base</code> e <code>dplyr</code>; ao utilizar o <code>dplyr</code>, também fizemos uso do operador <code>%&gt;%</code>.</p>
-<div class="sourceCode" id="cb1903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1903-1"><a href="baser.html#cb1903-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
-<span id="cb1903-2"><a href="baser.html#cb1903-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb1903-3"><a href="baser.html#cb1903-3" aria-hidden="true" tabindex="-1"></a><span class="co"># filtra os dados em iris</span></span>
-<span id="cb1903-4"><a href="baser.html#cb1903-4" aria-hidden="true" tabindex="-1"></a><span class="do">## quem tem sepala menor que 6 cm e tem petala maior que 5 cm?</span></span>
-<span id="cb1903-5"><a href="baser.html#cb1903-5" aria-hidden="true" tabindex="-1"></a>iris2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(iris, Sepal.Length <span class="sc">&lt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> Petal.Length <span class="sc">&lt;</span> <span class="dv">5</span>)</span>
-<span id="cb1903-6"><a href="baser.html#cb1903-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris2, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1908-1"><a href="baser.html#cb1908-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
+<span id="cb1908-2"><a href="baser.html#cb1908-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb1908-3"><a href="baser.html#cb1908-3" aria-hidden="true" tabindex="-1"></a><span class="co"># filtra os dados em iris</span></span>
+<span id="cb1908-4"><a href="baser.html#cb1908-4" aria-hidden="true" tabindex="-1"></a><span class="do">## quem tem sepala menor que 6 cm e tem petala maior que 5 cm?</span></span>
+<span id="cb1908-5"><a href="baser.html#cb1908-5" aria-hidden="true" tabindex="-1"></a>iris2 <span class="ot">&lt;-</span> <span class="fu">subset</span>(iris, Sepal.Length <span class="sc">&lt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> Petal.Length <span class="sc">&lt;</span> <span class="dv">5</span>)</span>
+<span id="cb1908-6"><a href="baser.html#cb1908-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris2, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -750,12 +754,12 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1904-1"><a href="baser.html#cb1904-1" aria-hidden="true" tabindex="-1"></a><span class="co"># checa as dimensoes do novo objeto</span></span>
-<span id="cb1904-2"><a href="baser.html#cb1904-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(iris2)</span></code></pre></div>
+<div class="sourceCode" id="cb1909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1909-1"><a href="baser.html#cb1909-1" aria-hidden="true" tabindex="-1"></a><span class="co"># checa as dimensoes do novo objeto</span></span>
+<span id="cb1909-2"><a href="baser.html#cb1909-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(iris2)</span></code></pre></div>
 <pre><code>## [1] 78  5</code></pre>
-<div class="sourceCode" id="cb1906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1906-1"><a href="baser.html#cb1906-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ordena os dados segundo comprimento da petala</span></span>
-<span id="cb1906-2"><a href="baser.html#cb1906-2" aria-hidden="true" tabindex="-1"></a>iris_ord <span class="ot">&lt;-</span> iris2[<span class="fu">order</span>(iris2<span class="sc">$</span>Petal.Length), ]</span>
-<span id="cb1906-3"><a href="baser.html#cb1906-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris_ord, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1911-1"><a href="baser.html#cb1911-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ordena os dados segundo comprimento da petala</span></span>
+<span id="cb1911-2"><a href="baser.html#cb1911-2" aria-hidden="true" tabindex="-1"></a>iris_ord <span class="ot">&lt;-</span> iris2[<span class="fu">order</span>(iris2<span class="sc">$</span>Petal.Length), ]</span>
+<span id="cb1911-3"><a href="baser.html#cb1911-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris_ord, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -981,12 +985,12 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1907-1"><a href="baser.html#cb1907-1" aria-hidden="true" tabindex="-1"></a><span class="co"># muda a ordem das colunas, colocando a coluna Species primeiro</span></span>
-<span id="cb1907-2"><a href="baser.html#cb1907-2" aria-hidden="true" tabindex="-1"></a>colsp <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">colnames</span>(iris_ord) <span class="sc">==</span> <span class="st">&quot;Species&quot;</span>) <span class="co"># qual a posicao da coluna Species?</span></span>
-<span id="cb1907-3"><a href="baser.html#cb1907-3" aria-hidden="true" tabindex="-1"></a>irisf <span class="ot">&lt;-</span> iris_ord[, <span class="fu">c</span>(colsp, (<span class="fu">which</span>(<span class="sc">!</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(iris_ord)) <span class="sc">%in%</span> colsp)))]</span>
-<span id="cb1907-4"><a href="baser.html#cb1907-4" aria-hidden="true" tabindex="-1"></a><span class="co"># cria uma nova coluna de razao entre comprimento da sepala e comprimento da petala</span></span>
-<span id="cb1907-5"><a href="baser.html#cb1907-5" aria-hidden="true" tabindex="-1"></a>irisf<span class="sc">$</span>razao_sepall_petall <span class="ot">&lt;-</span> irisf<span class="sc">$</span>Sepal.Length <span class="sc">/</span> irisf<span class="sc">$</span>Petal.Length</span>
-<span id="cb1907-6"><a href="baser.html#cb1907-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1912-1"><a href="baser.html#cb1912-1" aria-hidden="true" tabindex="-1"></a><span class="co"># muda a ordem das colunas, colocando a coluna Species primeiro</span></span>
+<span id="cb1912-2"><a href="baser.html#cb1912-2" aria-hidden="true" tabindex="-1"></a>colsp <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">colnames</span>(iris_ord) <span class="sc">==</span> <span class="st">&quot;Species&quot;</span>) <span class="co"># qual a posicao da coluna Species?</span></span>
+<span id="cb1912-3"><a href="baser.html#cb1912-3" aria-hidden="true" tabindex="-1"></a>irisf <span class="ot">&lt;-</span> iris_ord[, <span class="fu">c</span>(colsp, (<span class="fu">which</span>(<span class="sc">!</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(iris_ord)) <span class="sc">%in%</span> colsp)))]</span>
+<span id="cb1912-4"><a href="baser.html#cb1912-4" aria-hidden="true" tabindex="-1"></a><span class="co"># cria uma nova coluna de razao entre comprimento da sepala e comprimento da petala</span></span>
+<span id="cb1912-5"><a href="baser.html#cb1912-5" aria-hidden="true" tabindex="-1"></a>irisf<span class="sc">$</span>razao_sepall_petall <span class="ot">&lt;-</span> irisf<span class="sc">$</span>Sepal.Length <span class="sc">/</span> irisf<span class="sc">$</span>Petal.Length</span>
+<span id="cb1912-6"><a href="baser.html#cb1912-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1245,15 +1249,15 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1908-1"><a href="baser.html#cb1908-1" aria-hidden="true" tabindex="-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
-<span id="cb1908-2"><a href="baser.html#cb1908-2" aria-hidden="true" tabindex="-1"></a>mean_pl <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>Petal.Length, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb1908-3"><a href="baser.html#cb1908-3" aria-hidden="true" tabindex="-1"></a>mean_raz <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>razao_sepall_petall, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb1908-4"><a href="baser.html#cb1908-4" aria-hidden="true" tabindex="-1"></a>sd_pl <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>Petal.Length, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
-<span id="cb1908-5"><a href="baser.html#cb1908-5" aria-hidden="true" tabindex="-1"></a>sd_raz <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>razao_sepall_petall, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
-<span id="cb1908-6"><a href="baser.html#cb1908-6" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mean_pl)</span>
-<span id="cb1908-7"><a href="baser.html#cb1908-7" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(res, <span class="at">media_razao =</span> mean_raz[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">desvio_pl =</span> sd_pl[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">desvio_raz =</span> sd_raz[, <span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb1908-8"><a href="baser.html#cb1908-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(res2)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;media_pl&quot;</span></span>
-<span id="cb1908-9"><a href="baser.html#cb1908-9" aria-hidden="true" tabindex="-1"></a>res2</span></code></pre></div>
+<div class="sourceCode" id="cb1913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1913-1"><a href="baser.html#cb1913-1" aria-hidden="true" tabindex="-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
+<span id="cb1913-2"><a href="baser.html#cb1913-2" aria-hidden="true" tabindex="-1"></a>mean_pl <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>Petal.Length, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1913-3"><a href="baser.html#cb1913-3" aria-hidden="true" tabindex="-1"></a>mean_raz <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>razao_sepall_petall, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1913-4"><a href="baser.html#cb1913-4" aria-hidden="true" tabindex="-1"></a>sd_pl <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>Petal.Length, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1913-5"><a href="baser.html#cb1913-5" aria-hidden="true" tabindex="-1"></a>sd_raz <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>razao_sepall_petall, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1913-6"><a href="baser.html#cb1913-6" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mean_pl)</span>
+<span id="cb1913-7"><a href="baser.html#cb1913-7" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(res, <span class="at">media_razao =</span> mean_raz[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">desvio_pl =</span> sd_pl[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">desvio_raz =</span> sd_raz[, <span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb1913-8"><a href="baser.html#cb1913-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(res2)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;media_pl&quot;</span></span>
+<span id="cb1913-9"><a href="baser.html#cb1913-9" aria-hidden="true" tabindex="-1"></a>res2</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1328,22 +1332,22 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1909-1"><a href="baser.html#cb1909-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
-<span id="cb1909-2"><a href="baser.html#cb1909-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(irisf<span class="sc">$</span>Sepal.Length, irisf<span class="sc">$</span>Petal.Length, <span class="at">col =</span> irisf<span class="sc">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb1914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1914-1"><a href="baser.html#cb1914-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
+<span id="cb1914-2"><a href="baser.html#cb1914-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(irisf<span class="sc">$</span>Sepal.Length, irisf<span class="sc">$</span>Petal.Length, <span class="at">col =</span> irisf<span class="sc">$</span>Species)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/baser-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1910-1"><a href="baser.html#cb1910-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
-<span id="cb1910-2"><a href="baser.html#cb1910-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb1910-3"><a href="baser.html#cb1910-3" aria-hidden="true" tabindex="-1"></a><span class="co"># chama os pacotes tidyverse</span></span>
-<span id="cb1910-4"><a href="baser.html#cb1910-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co"># o pacote para manipular dados</span></span>
-<span id="cb1910-5"><a href="baser.html#cb1910-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># o pacote para plotar graficos</span></span>
-<span id="cb1910-6"><a href="baser.html#cb1910-6" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando a filosofia tidyverse, utilizarei o pipe (&quot; %&gt;% &quot;)</span></span>
-<span id="cb1910-7"><a href="baser.html#cb1910-7" aria-hidden="true" tabindex="-1"></a>iris2t <span class="ot">&lt;-</span> <span class="co"># salvamos o objeto como `iris2t` para diferenciar do salvo acima</span></span>
-<span id="cb1910-8"><a href="baser.html#cb1910-8" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span> <span class="co"># chama os dados e passa para a funcao abaixo</span></span>
-<span id="cb1910-9"><a href="baser.html#cb1910-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sepal.Length <span class="sc">&lt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> Petal.Length <span class="sc">&lt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="co"># quem tem sepala menor que 6 cm E petala maior que 5 cm?</span></span>
-<span id="cb1910-10"><a href="baser.html#cb1910-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Petal.Length) <span class="sc">%&gt;%</span></span>
-<span id="cb1910-11"><a href="baser.html#cb1910-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">razao_sepall_petall =</span> Sepal.Length <span class="sc">/</span> Petal.Length) <span class="sc">%&gt;%</span></span>
-<span id="cb1910-12"><a href="baser.html#cb1910-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, <span class="fu">everything</span>()) <span class="co"># reordena as colunas</span></span>
-<span id="cb1910-13"><a href="baser.html#cb1910-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris2t, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1915-1"><a href="baser.html#cb1915-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para avaliar os objetos criados no ambiente de trabalho, vamos apagar tudo da area de trabalho e comecar do zero</span></span>
+<span id="cb1915-2"><a href="baser.html#cb1915-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb1915-3"><a href="baser.html#cb1915-3" aria-hidden="true" tabindex="-1"></a><span class="co"># chama os pacotes tidyverse</span></span>
+<span id="cb1915-4"><a href="baser.html#cb1915-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="co"># o pacote para manipular dados</span></span>
+<span id="cb1915-5"><a href="baser.html#cb1915-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>) <span class="co"># o pacote para plotar graficos</span></span>
+<span id="cb1915-6"><a href="baser.html#cb1915-6" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando a filosofia tidyverse, utilizarei o pipe (&quot; %&gt;% &quot;)</span></span>
+<span id="cb1915-7"><a href="baser.html#cb1915-7" aria-hidden="true" tabindex="-1"></a>iris2t <span class="ot">&lt;-</span> <span class="co"># salvamos o objeto como `iris2t` para diferenciar do salvo acima</span></span>
+<span id="cb1915-8"><a href="baser.html#cb1915-8" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span> <span class="co"># chama os dados e passa para a funcao abaixo</span></span>
+<span id="cb1915-9"><a href="baser.html#cb1915-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sepal.Length <span class="sc">&lt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> Petal.Length <span class="sc">&lt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="co"># quem tem sepala menor que 6 cm E petala maior que 5 cm?</span></span>
+<span id="cb1915-10"><a href="baser.html#cb1915-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Petal.Length) <span class="sc">%&gt;%</span></span>
+<span id="cb1915-11"><a href="baser.html#cb1915-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">razao_sepall_petall =</span> Sepal.Length <span class="sc">/</span> Petal.Length) <span class="sc">%&gt;%</span></span>
+<span id="cb1915-12"><a href="baser.html#cb1915-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, <span class="fu">everything</span>()) <span class="co"># reordena as colunas</span></span>
+<span id="cb1915-13"><a href="baser.html#cb1915-13" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris2t, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1570,16 +1574,16 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1911-1"><a href="baser.html#cb1911-1" aria-hidden="true" tabindex="-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
-<span id="cb1911-2"><a href="baser.html#cb1911-2" aria-hidden="true" tabindex="-1"></a>res_t <span class="ot">&lt;-</span> iris2t <span class="sc">%&gt;%</span></span>
-<span id="cb1911-3"><a href="baser.html#cb1911-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> <span class="co"># agrupa dados pela coluna Species</span></span>
-<span id="cb1911-4"><a href="baser.html#cb1911-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="co"># sumarisa dados de acordo com os grupo estabelecidos acima</span></span>
-<span id="cb1911-5"><a href="baser.html#cb1911-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_pl =</span> <span class="fu">mean</span>(Petal.Length), <span class="co"># media da coluna comp de petala</span></span>
-<span id="cb1911-6"><a href="baser.html#cb1911-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_raz =</span> <span class="fu">mean</span>(razao_sepall_petall), <span class="co"># media da coluna razao de comp de sepala/petala</span></span>
-<span id="cb1911-7"><a href="baser.html#cb1911-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_pl =</span> <span class="fu">sd</span>(Petal.Length), <span class="co"># desvio do comp da petala</span></span>
-<span id="cb1911-8"><a href="baser.html#cb1911-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_raz =</span> <span class="fu">sd</span>(razao_sepall_petall)</span>
-<span id="cb1911-9"><a href="baser.html#cb1911-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="co"># desvio do comp da sepala</span></span>
-<span id="cb1911-10"><a href="baser.html#cb1911-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res_t, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1916-1"><a href="baser.html#cb1916-1" aria-hidden="true" tabindex="-1"></a><span class="co"># faz um sumario estatisco agrupando as especies e checando min, max, desvio, media e mediana de cada variavel</span></span>
+<span id="cb1916-2"><a href="baser.html#cb1916-2" aria-hidden="true" tabindex="-1"></a>res_t <span class="ot">&lt;-</span> iris2t <span class="sc">%&gt;%</span></span>
+<span id="cb1916-3"><a href="baser.html#cb1916-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> <span class="co"># agrupa dados pela coluna Species</span></span>
+<span id="cb1916-4"><a href="baser.html#cb1916-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="co"># sumarisa dados de acordo com os grupo estabelecidos acima</span></span>
+<span id="cb1916-5"><a href="baser.html#cb1916-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_pl =</span> <span class="fu">mean</span>(Petal.Length), <span class="co"># media da coluna comp de petala</span></span>
+<span id="cb1916-6"><a href="baser.html#cb1916-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_raz =</span> <span class="fu">mean</span>(razao_sepall_petall), <span class="co"># media da coluna razao de comp de sepala/petala</span></span>
+<span id="cb1916-7"><a href="baser.html#cb1916-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_pl =</span> <span class="fu">sd</span>(Petal.Length), <span class="co"># desvio do comp da petala</span></span>
+<span id="cb1916-8"><a href="baser.html#cb1916-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_raz =</span> <span class="fu">sd</span>(razao_sepall_petall)</span>
+<span id="cb1916-9"><a href="baser.html#cb1916-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="co"># desvio do comp da sepala</span></span>
+<span id="cb1916-10"><a href="baser.html#cb1916-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res_t, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1654,25 +1658,25 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1912-1"><a href="baser.html#cb1912-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
-<span id="cb1912-2"><a href="baser.html#cb1912-2" aria-hidden="true" tabindex="-1"></a>tgraf <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> iris2t) <span class="sc">+</span></span>
-<span id="cb1912-3"><a href="baser.html#cb1912-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length, <span class="at">color =</span> Species))</span>
-<span id="cb1912-4"><a href="baser.html#cb1912-4" aria-hidden="true" tabindex="-1"></a>tgraf</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-660-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb1917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1917-1"><a href="baser.html#cb1917-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota grafico de pontos com eixo X correspondendo ao comprimento da sepala, e eixo Y ao comprimento da petala</span></span>
+<span id="cb1917-2"><a href="baser.html#cb1917-2" aria-hidden="true" tabindex="-1"></a>tgraf <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> iris2t) <span class="sc">+</span></span>
+<span id="cb1917-3"><a href="baser.html#cb1917-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length, <span class="at">color =</span> Species))</span>
+<span id="cb1917-4"><a href="baser.html#cb1917-4" aria-hidden="true" tabindex="-1"></a>tgraf</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-666-1.svg" width="672" /></p>
 <p>Vejam que os resultados são iguais, com exceção da estética diferente proporcionada pelo pacote <code>ggplot2</code>.
 Porém, há uma mudança notável em como a manipulação dos dados é feita quando utilizamos o operador <code>%&gt;%</code> dentro do fluxo de trabalho, como <a href="o-operador-e-o-encadeamento-de-ações.html#pipe">resumido acima</a>: a leitura é feita da esquerda para a direita, podemos reduzir a criação de objetos intermediários na área de trabalho, e o código pode ser lido com mais clareza.
 Postagens futuras abordarão com mais detalhes outros usos deste operador e de alguns outros inclusos no mesmo pacote, porém com funções levemente diferentes.</p>
 <div id="e-o-uso-do-operador-com-o-pacote-base" class="section level3 hasAnchor" number="15.6.1">
 <h3><span class="header-section-number">A.6.1</span> E o uso do operador <code>%&gt;%</code> com o pacote <code>base</code>?<a href="baser.html#e-o-uso-do-operador-com-o-pacote-base" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Apesar de termos explorado até aqui o uso do operador <code>%&gt;%</code> apenas com o pacote <code>dplyr</code>, ele pode ser utilizado com qualquer função no R. Vamos retormar o exemplo da <a href="baser.html#baser">seção acima</a> com comandos do pacote <code>base</code> do R, porém adicionando o operador <code>%&gt;%</code> na manipulação dos dados:</p>
-<div class="sourceCode" id="cb1913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1913-1"><a href="baser.html#cb1913-1" aria-hidden="true" tabindex="-1"></a>iris_ord <span class="ot">&lt;-</span></span>
-<span id="cb1913-2"><a href="baser.html#cb1913-2" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
-<span id="cb1913-3"><a href="baser.html#cb1913-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&lt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> Petal.Length <span class="sc">&lt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="co"># filtramos os dados com a funcao subset()</span></span>
-<span id="cb1913-4"><a href="baser.html#cb1913-4" aria-hidden="true" tabindex="-1"></a>  .[<span class="fu">order</span>(.<span class="sc">$</span>Petal.Length), ] <span class="co"># usamos o `.` para representar o data.frame filtrado no passo anterior</span></span>
-<span id="cb1913-5"><a href="baser.html#cb1913-5" aria-hidden="true" tabindex="-1"></a>colsp <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">colnames</span>(iris_ord) <span class="sc">==</span> <span class="st">&quot;Species&quot;</span>)</span>
-<span id="cb1913-6"><a href="baser.html#cb1913-6" aria-hidden="true" tabindex="-1"></a>irisf <span class="ot">&lt;-</span> iris_ord[, <span class="fu">c</span>(colsp, (<span class="fu">which</span>(<span class="sc">!</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(iris_ord)) <span class="sc">%in%</span> colsp)))]</span>
-<span id="cb1913-7"><a href="baser.html#cb1913-7" aria-hidden="true" tabindex="-1"></a>irisf<span class="sc">$</span>razao_sepall_petall <span class="ot">&lt;-</span> irisf<span class="sc">$</span>Sepal.Length <span class="sc">/</span> irisf<span class="sc">$</span>Petal.Length</span>
-<span id="cb1913-8"><a href="baser.html#cb1913-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1918"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1918-1"><a href="baser.html#cb1918-1" aria-hidden="true" tabindex="-1"></a>iris_ord <span class="ot">&lt;-</span></span>
+<span id="cb1918-2"><a href="baser.html#cb1918-2" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
+<span id="cb1918-3"><a href="baser.html#cb1918-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&lt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> Petal.Length <span class="sc">&lt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="co"># filtramos os dados com a funcao subset()</span></span>
+<span id="cb1918-4"><a href="baser.html#cb1918-4" aria-hidden="true" tabindex="-1"></a>  .[<span class="fu">order</span>(.<span class="sc">$</span>Petal.Length), ] <span class="co"># usamos o `.` para representar o data.frame filtrado no passo anterior</span></span>
+<span id="cb1918-5"><a href="baser.html#cb1918-5" aria-hidden="true" tabindex="-1"></a>colsp <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">colnames</span>(iris_ord) <span class="sc">==</span> <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb1918-6"><a href="baser.html#cb1918-6" aria-hidden="true" tabindex="-1"></a>irisf <span class="ot">&lt;-</span> iris_ord[, <span class="fu">c</span>(colsp, (<span class="fu">which</span>(<span class="sc">!</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(iris_ord)) <span class="sc">%in%</span> colsp)))]</span>
+<span id="cb1918-7"><a href="baser.html#cb1918-7" aria-hidden="true" tabindex="-1"></a>irisf<span class="sc">$</span>razao_sepall_petall <span class="ot">&lt;-</span> irisf<span class="sc">$</span>Sepal.Length <span class="sc">/</span> irisf<span class="sc">$</span>Petal.Length</span>
+<span id="cb1918-8"><a href="baser.html#cb1918-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(irisf, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1931,14 +1935,14 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1914-1"><a href="baser.html#cb1914-1" aria-hidden="true" tabindex="-1"></a>mean_pl <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>Petal.Length, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb1914-2"><a href="baser.html#cb1914-2" aria-hidden="true" tabindex="-1"></a>mean_raz <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>razao_sepall_petall, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
-<span id="cb1914-3"><a href="baser.html#cb1914-3" aria-hidden="true" tabindex="-1"></a>sd_pl <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>Petal.Length, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
-<span id="cb1914-4"><a href="baser.html#cb1914-4" aria-hidden="true" tabindex="-1"></a>sd_raz <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>razao_sepall_petall, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
-<span id="cb1914-5"><a href="baser.html#cb1914-5" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mean_pl)</span>
-<span id="cb1914-6"><a href="baser.html#cb1914-6" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(res, <span class="at">media_razao =</span> mean_raz[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">desvio_pl =</span> sd_pl[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">desvio_raz =</span> sd_raz[, <span class="sc">-</span><span class="dv">1</span>])</span>
-<span id="cb1914-7"><a href="baser.html#cb1914-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(res2)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;media_pl&quot;</span></span>
-<span id="cb1914-8"><a href="baser.html#cb1914-8" aria-hidden="true" tabindex="-1"></a>res2</span></code></pre></div>
+<div class="sourceCode" id="cb1919"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1919-1"><a href="baser.html#cb1919-1" aria-hidden="true" tabindex="-1"></a>mean_pl <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>Petal.Length, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1919-2"><a href="baser.html#cb1919-2" aria-hidden="true" tabindex="-1"></a>mean_raz <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>razao_sepall_petall, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb1919-3"><a href="baser.html#cb1919-3" aria-hidden="true" tabindex="-1"></a>sd_pl <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>Petal.Length, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1919-4"><a href="baser.html#cb1919-4" aria-hidden="true" tabindex="-1"></a>sd_raz <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(irisf<span class="sc">$</span>razao_sepall_petall, <span class="fu">list</span>(<span class="at">Species =</span> irisf<span class="sc">$</span>Species), <span class="at">FUN =</span> <span class="st">&quot;sd&quot;</span>)</span>
+<span id="cb1919-5"><a href="baser.html#cb1919-5" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mean_pl)</span>
+<span id="cb1919-6"><a href="baser.html#cb1919-6" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(res, <span class="at">media_razao =</span> mean_raz[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">desvio_pl =</span> sd_pl[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">desvio_raz =</span> sd_raz[, <span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb1919-7"><a href="baser.html#cb1919-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(res2)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;media_pl&quot;</span></span>
+<span id="cb1919-8"><a href="baser.html#cb1919-8" aria-hidden="true" tabindex="-1"></a>res2</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2064,7 +2068,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/15-tidyverse.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

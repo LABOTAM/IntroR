@@ -57,11 +57,11 @@
 <text transform='translate(41.76,132.65) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='34.37px' lengthAdjust='spacingAndGlyphs'>0.008</text>
 <text transform='translate(41.76,59.91) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='34.37px' lengthAdjust='spacingAndGlyphs'>0.012</text>
 <polygon points='59.04,286.56 473.76,286.56 473.76,59.04 59.04,59.04 ' style='stroke-width: 0.75;' />
-<text x='266.40' y='34.77' text-anchor='middle' style='font-size: 14.40px; font-weight: bold; font-family: "Liberation Sans";' textLength='245.93px' lengthAdjust='spacingAndGlyphs'>density.default(x = caixeta$h)</text>
+<text x='266.40' y='34.77' text-anchor='middle' style='font-size: 14.40px; font-weight: bold; font-family: "Liberation Sans";' textLength='183.68px' lengthAdjust='spacingAndGlyphs'>density(x = caixeta$h)</text>
 <text x='266.40' y='341.28' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='177.00px' lengthAdjust='spacingAndGlyphs'>N = 1027   Bandwidth = 7.53</text>
 <text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='45.65px' lengthAdjust='spacingAndGlyphs'>Density</text>
 </g>
 <g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
-<line x1='59.04' y1='278.14' x2='473.76' y2='278.14' style='stroke-width: 0.075; stroke: #BEBEBE;' />
+<line x1='59.04' y1='278.14' x2='473.76' y2='278.14' style='stroke-width: 0.19; stroke: #BEBEBE;' />
 </g>
 </svg>

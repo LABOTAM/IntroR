@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.4 Junção de tabelas utilizando funções4 | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.4 Junção de tabelas utilizando funções4 | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -560,10 +564,10 @@ Daremos exemplos com essas duas novas maneiras.</p>
 <ol class="example" style="list-style-type: decimal">
 <li>O <code>data.frame</code> <code>tab1</code> possui nomes de famílias, gêneros e epítetos específicos de algumas angiospermas:</li>
 </ol>
-<div class="sourceCode" id="cb1220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1220-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1220-1" aria-hidden="true" tabindex="-1"></a>familia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Lauraceae&quot;</span>)</span>
-<span id="cb1220-2"><a href="junção-de-tabelas-utilizando-funções.html#cb1220-2" aria-hidden="true" tabindex="-1"></a>generos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Trattinnickia&quot;</span>, <span class="st">&quot;Dacryodes&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Markea&quot;</span>, <span class="st">&quot;Solanum&quot;</span>, <span class="st">&quot;Allophylastrum&quot;</span>, <span class="st">&quot;Cupania&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Duroia&quot;</span>, <span class="st">&quot;Cinchona&quot;</span>, <span class="st">&quot;Ocotea&quot;</span>, <span class="st">&quot;Licaria&quot;</span>, <span class="st">&quot;Rhodostemonodaphne&quot;</span>, <span class="st">&quot;Anisophyllea&quot;</span>, <span class="st">&quot;Freziera&quot;</span>)</span>
-<span id="cb1220-3"><a href="junção-de-tabelas-utilizando-funções.html#cb1220-3" aria-hidden="true" tabindex="-1"></a>epitetos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;aracouchini&quot;</span>, <span class="st">&quot;burserifolia&quot;</span>, <span class="st">&quot;edilsonii&quot;</span>, <span class="st">&quot;cestroides&quot;</span>, <span class="st">&quot;ulei&quot;</span>, <span class="st">&quot;cyathophorum&quot;</span>, <span class="st">&quot;frutescens&quot;</span>, <span class="st">&quot;rubiginosa&quot;</span>, <span class="st">&quot;myriantha&quot;</span>, <span class="st">&quot;viridis&quot;</span>, <span class="st">&quot;eriopila&quot;</span>, <span class="st">&quot;amazonica&quot;</span>, <span class="st">&quot;delicata&quot;</span>, <span class="st">&quot;aureosericea&quot;</span>, <span class="st">&quot;recurva&quot;</span>, <span class="st">&quot;manausensis&quot;</span>, <span class="st">&quot;carinata&quot;</span>)</span>
-<span id="cb1220-4"><a href="junção-de-tabelas-utilizando-funções.html#cb1220-4" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">familia =</span> <span class="fu">c</span>(<span class="fu">rep</span>(familia, <span class="at">each =</span> <span class="dv">3</span>), <span class="st">&quot;Anisophylleaceae&quot;</span>, <span class="st">&quot;Pentaphylacaceae&quot;</span>), <span class="at">genero =</span> generos, <span class="at">epiteto =</span> epitetos, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1219-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1219-1" aria-hidden="true" tabindex="-1"></a>familia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Lauraceae&quot;</span>)</span>
+<span id="cb1219-2"><a href="junção-de-tabelas-utilizando-funções.html#cb1219-2" aria-hidden="true" tabindex="-1"></a>generos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Trattinnickia&quot;</span>, <span class="st">&quot;Dacryodes&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Markea&quot;</span>, <span class="st">&quot;Solanum&quot;</span>, <span class="st">&quot;Allophylastrum&quot;</span>, <span class="st">&quot;Cupania&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Duroia&quot;</span>, <span class="st">&quot;Cinchona&quot;</span>, <span class="st">&quot;Ocotea&quot;</span>, <span class="st">&quot;Licaria&quot;</span>, <span class="st">&quot;Rhodostemonodaphne&quot;</span>, <span class="st">&quot;Anisophyllea&quot;</span>, <span class="st">&quot;Freziera&quot;</span>)</span>
+<span id="cb1219-3"><a href="junção-de-tabelas-utilizando-funções.html#cb1219-3" aria-hidden="true" tabindex="-1"></a>epitetos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;aracouchini&quot;</span>, <span class="st">&quot;burserifolia&quot;</span>, <span class="st">&quot;edilsonii&quot;</span>, <span class="st">&quot;cestroides&quot;</span>, <span class="st">&quot;ulei&quot;</span>, <span class="st">&quot;cyathophorum&quot;</span>, <span class="st">&quot;frutescens&quot;</span>, <span class="st">&quot;rubiginosa&quot;</span>, <span class="st">&quot;myriantha&quot;</span>, <span class="st">&quot;viridis&quot;</span>, <span class="st">&quot;eriopila&quot;</span>, <span class="st">&quot;amazonica&quot;</span>, <span class="st">&quot;delicata&quot;</span>, <span class="st">&quot;aureosericea&quot;</span>, <span class="st">&quot;recurva&quot;</span>, <span class="st">&quot;manausensis&quot;</span>, <span class="st">&quot;carinata&quot;</span>)</span>
+<span id="cb1219-4"><a href="junção-de-tabelas-utilizando-funções.html#cb1219-4" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">familia =</span> <span class="fu">c</span>(<span class="fu">rep</span>(familia, <span class="at">each =</span> <span class="dv">3</span>), <span class="st">&quot;Anisophylleaceae&quot;</span>, <span class="st">&quot;Pentaphylacaceae&quot;</span>), <span class="at">genero =</span> generos, <span class="at">epiteto =</span> epitetos, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-360">Tabela 7.1: </span>Tabela 1
@@ -774,10 +778,10 @@ carinata
 <ol start="2" class="example" style="list-style-type: decimal">
 <li>O <code>data.frame</code> <code>tab2</code> contem um conjunto pequeno com alguns nomes de famílias, gêneros, e o nome de seus respectivos clados acima dos nomes de ordens segundo o <span class="citation">APG (<a href="#ref-APG" role="doc-biblioref">2016</a>)</span>:</li>
 </ol>
-<div class="sourceCode" id="cb1221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1221-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1221-1" aria-hidden="true" tabindex="-1"></a>familia2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Annonaceae&quot;</span>)</span>
-<span id="cb1221-2"><a href="junção-de-tabelas-utilizando-funções.html#cb1221-2" aria-hidden="true" tabindex="-1"></a>generos2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Guatteria&quot;</span>)</span>
-<span id="cb1221-3"><a href="junção-de-tabelas-utilizando-funções.html#cb1221-3" aria-hidden="true" tabindex="-1"></a>clado <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Magnoliids&quot;</span>)</span>
-<span id="cb1221-4"><a href="junção-de-tabelas-utilizando-funções.html#cb1221-4" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">familia =</span> familia2, <span class="at">genero =</span> generos2, <span class="at">clado =</span> clado, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1220-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1220-1" aria-hidden="true" tabindex="-1"></a>familia2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Solanaceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>, <span class="st">&quot;Rubiaceae&quot;</span>, <span class="st">&quot;Annonaceae&quot;</span>)</span>
+<span id="cb1220-2"><a href="junção-de-tabelas-utilizando-funções.html#cb1220-2" aria-hidden="true" tabindex="-1"></a>generos2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Protium&quot;</span>, <span class="st">&quot;Duckeodendron&quot;</span>, <span class="st">&quot;Thinouia&quot;</span>, <span class="st">&quot;Psychotria&quot;</span>, <span class="st">&quot;Guatteria&quot;</span>)</span>
+<span id="cb1220-3"><a href="junção-de-tabelas-utilizando-funções.html#cb1220-3" aria-hidden="true" tabindex="-1"></a>clado <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Malvids&quot;</span>, <span class="st">&quot;Lamiids&quot;</span>, <span class="st">&quot;Magnoliids&quot;</span>)</span>
+<span id="cb1220-4"><a href="junção-de-tabelas-utilizando-funções.html#cb1220-4" aria-hidden="true" tabindex="-1"></a>tab2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">familia =</span> familia2, <span class="at">genero =</span> generos2, <span class="at">clado =</span> clado, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-362">Tabela 7.2: </span>Tabela 2
@@ -856,7 +860,7 @@ Magnoliids
 <ol start="3" class="example" style="list-style-type: decimal">
 <li>O <code>data.frame</code> <code>tab3</code> corresponde à tabela 2, <code>tab2</code>, sem as famílias Solanaceae e Rubiaceae:</li>
 </ol>
-<div class="sourceCode" id="cb1222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1222-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1222-1" aria-hidden="true" tabindex="-1"></a>tab3 <span class="ot">&lt;-</span> <span class="fu">subset</span>(tab1, familia <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1221-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1221-1" aria-hidden="true" tabindex="-1"></a>tab3 <span class="ot">&lt;-</span> <span class="fu">subset</span>(tab1, familia <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Burseraceae&quot;</span>, <span class="st">&quot;Sapindaceae&quot;</span>))</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-364">Tabela 7.3: </span>Tabela 3
@@ -1271,7 +1275,7 @@ Magnoliids
 </table>
 <p>Reparem que os valores em que há correspondência entre <code>x</code> e <code>y</code> estão coloridos de <span style="background: yellow;">amarelo</span>; para os em que não há correspondência, estão coloridos de <span style="background: red;">vermelho</span>.
 Agora, executemos a junção das duas tabelas:</p>
-<div class="sourceCode" id="cb1223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1223-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> tab1, <span class="at">y =</span> tab2)</span></code></pre></div>
+<div class="sourceCode" id="cb1222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1222-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> tab1, <span class="at">y =</span> tab2)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1656,7 +1660,7 @@ clado
 </table>
 <p>Em uma junção à esquerda, todas as linhas de <code>x</code> retornam após a junção.
 Para executar este tipo de junção, acrescentaremos um novo argumento, <code>all.x = TRUE</code>, indicando que manteremos todas as linhas de <code>x</code>, isto é, o <code>data.frame</code> à esquerda, que é a tabela 1.</p>
-<div class="sourceCode" id="cb1224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1224-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> tab1, <span class="at">y =</span> tab2, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1223-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> tab1, <span class="at">y =</span> tab2, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2224,7 +2228,7 @@ Magnoliids
 </table>
 <p>Agora executaremos a junção com o comando abaixo.
 Não deixem de reparar no uso do argumento <code>all.y = TRUE</code>, pois ele é o responsável por agora manter todas as linhas da tabela 2 (== <code>y</code>):</p>
-<div class="sourceCode" id="cb1225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1225-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> tab1, <span class="at">y =</span> tab2, <span class="at">all.y =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1224-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> tab1, <span class="at">y =</span> tab2, <span class="at">all.y =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2334,7 +2338,7 @@ lugares.
 <p class="caption">Fonte: www.sqlfromhell.com</p>
 </div>
 <p>Em uma junção total, uniremos todas as linha de <code>x</code> e <code>y</code> utilizando o argumento <code>all = TRUE</code>.</p>
-<div class="sourceCode" id="cb1226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1226-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> tab1, <span class="at">y =</span> tab2, <span class="at">all =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1225-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> tab1, <span class="at">y =</span> tab2, <span class="at">all =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2949,9 +2953,9 @@ myriantha
 <p>Para executar uma semijunção com o pacote <code>base</code> do R, devemos fazer uso de vetores lógicos e da função <code>interaction()</code>, pois a função <code>merge()</code> não fornece uma maneira de se obter o que desejamos.</p>
 <p>Vamos então à prática<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.
 As colunas compartilhadas por ambas as tabelas serão nossas <code>chaves</code>:</p>
-<div class="sourceCode" id="cb1227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1227-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1227-1" aria-hidden="true" tabindex="-1"></a>chaves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;familia&quot;</span>, <span class="st">&quot;genero&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1226-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1226-1" aria-hidden="true" tabindex="-1"></a>chaves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;familia&quot;</span>, <span class="st">&quot;genero&quot;</span>)</span></code></pre></div>
 <p>Partimos então para filtrar na tabela 1 a combinação de linhas para esse conjunto de colunas utilizando a função <code>interaction()</code> do pacote <code>base</code> do R:</p>
-<div class="sourceCode" id="cb1228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1228-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction</span>(tab1[, chaves])</span></code></pre></div>
+<div class="sourceCode" id="cb1227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1227-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction</span>(tab1[, chaves])</span></code></pre></div>
 <pre><code>##  [1] Burseraceae.Protium           Burseraceae.Trattinnickia    
 ##  [3] Burseraceae.Dacryodes         Solanaceae.Duckeodendron     
 ##  [5] Solanaceae.Markea             Solanaceae.Solanum           
@@ -2964,17 +2968,17 @@ As colunas compartilhadas por ambas as tabelas serão nossas <code>chaves</code>
 ## 119 Levels: Anisophylleaceae.Allophylastrum ... Solanaceae.Trattinnickia</code></pre>
 <p>Essa função computa um vetor de fatores que representa a interação das colunas fornecidas na tabela 1.
 Se fizermos isso com a tabela 3, poderemos saber quais combinações ocorrem em ambas as tabelas.</p>
-<div class="sourceCode" id="cb1230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1230-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction</span>(tab3[, chaves])</span></code></pre></div>
+<div class="sourceCode" id="cb1229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1229-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction</span>(tab3[, chaves])</span></code></pre></div>
 <pre><code>## [1] Burseraceae.Protium        Burseraceae.Trattinnickia 
 ## [3] Burseraceae.Dacryodes      Sapindaceae.Allophylastrum
 ## [5] Sapindaceae.Cupania        Sapindaceae.Thinouia      
 ## 12 Levels: Burseraceae.Allophylastrum ... Sapindaceae.Trattinnickia</code></pre>
 <p>Agora utilizamos a mesma função <code>interaction</code> e o operador <code>%in%</code> para retornar um vetor lógico que utilizaremos para filtrar os valores da tabela 1 com correspondência na tabela 3.</p>
-<div class="sourceCode" id="cb1232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1232-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1232-1" aria-hidden="true" tabindex="-1"></a>linhas <span class="ot">&lt;-</span> <span class="fu">interaction</span>(tab1[, chaves]) <span class="sc">%in%</span> <span class="fu">interaction</span>(tab3[, chaves])</span>
-<span id="cb1232-2"><a href="junção-de-tabelas-utilizando-funções.html#cb1232-2" aria-hidden="true" tabindex="-1"></a>linhas</span></code></pre></div>
+<div class="sourceCode" id="cb1231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1231-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1231-1" aria-hidden="true" tabindex="-1"></a>linhas <span class="ot">&lt;-</span> <span class="fu">interaction</span>(tab1[, chaves]) <span class="sc">%in%</span> <span class="fu">interaction</span>(tab3[, chaves])</span>
+<span id="cb1231-2"><a href="junção-de-tabelas-utilizando-funções.html#cb1231-2" aria-hidden="true" tabindex="-1"></a>linhas</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE
 ## [13] FALSE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb1234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1234-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1234-1" aria-hidden="true" tabindex="-1"></a>tab1[linhas, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1233-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1233-1" aria-hidden="true" tabindex="-1"></a>tab1[linhas, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3095,8 +3099,8 @@ correspondência em <code>y</code>, mantendo apenas colunas de
 </div>
 <p>Uma antijunção é ligeiramente diferente de uma semijunção pois ela retorna todas as linhas de <code>x</code> que não aparecem em y.
 Portanto, podemos utilizar o inverso de nosso vetor lógico <code>linhas</code> e utilizar este inverso para filtrar as linhas da tabela 1 e ter nossa tabela antijunção entre <code>x</code> e <code>y</code>:</p>
-<div class="sourceCode" id="cb1235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1235-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1235-1" aria-hidden="true" tabindex="-1"></a>antilinhas <span class="ot">&lt;-</span> <span class="sc">!</span>linhas</span>
-<span id="cb1235-2"><a href="junção-de-tabelas-utilizando-funções.html#cb1235-2" aria-hidden="true" tabindex="-1"></a>tab1[antilinhas, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1234-1"><a href="junção-de-tabelas-utilizando-funções.html#cb1234-1" aria-hidden="true" tabindex="-1"></a>antilinhas <span class="ot">&lt;-</span> <span class="sc">!</span>linhas</span>
+<span id="cb1234-2"><a href="junção-de-tabelas-utilizando-funções.html#cb1234-2" aria-hidden="true" tabindex="-1"></a>tab1[antilinhas, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3334,7 +3338,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/07-sumarizacao_dados.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

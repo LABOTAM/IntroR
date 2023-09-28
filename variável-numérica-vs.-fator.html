@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13.3 Variável numérica vs. fator | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13.3 Variável numérica vs. fator | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -552,9 +556,9 @@ div.csl-indent {
 <h2><span class="header-section-number">13.3</span> Variável numérica vs. fator<a href="variável-numérica-vs.-fator.html#variável-numérica-vs.-fator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>tapply()</code> faz uso de uma função sobre sobre um vetor numérico para cada categoria de um fator.
 A função <code>aggregate()</code> faz o mesmo, mas permite múltiplos fatores e retorna um <code>data.frame</code>.</p>
-<div class="sourceCode" id="cb1698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1698-1"><a href="variável-numérica-vs.-fator.html#cb1698-1" aria-hidden="true" tabindex="-1"></a><span class="do">## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores</span></span>
-<span id="cb1698-2"><a href="variável-numérica-vs.-fator.html#cb1698-2" aria-hidden="true" tabindex="-1"></a>?tapply <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb1699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1699-1"><a href="variável-numérica-vs.-fator.html#cb1699-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avesc) <span class="co"># se nao tem isso, importe novamente o arquivo aves_cerrado</span></span></code></pre></div>
+<div class="sourceCode" id="cb1697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1697-1"><a href="variável-numérica-vs.-fator.html#cb1697-1" aria-hidden="true" tabindex="-1"></a><span class="do">## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores</span></span>
+<span id="cb1697-2"><a href="variável-numérica-vs.-fator.html#cb1697-2" aria-hidden="true" tabindex="-1"></a>?tapply <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb1698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1698-1"><a href="variável-numérica-vs.-fator.html#cb1698-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avesc) <span class="co"># se nao tem isso, importe novamente o arquivo aves_cerrado</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -679,28 +683,28 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1700-1"><a href="variável-numérica-vs.-fator.html#cb1700-1" aria-hidden="true" tabindex="-1"></a><span class="co"># número de individuos de carcara por fisionomia</span></span>
-<span id="cb1700-2"><a href="variável-numérica-vs.-fator.html#cb1700-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(avesc<span class="sc">$</span>carcara, avesc<span class="sc">$</span>fisionomia, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb1699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1699-1"><a href="variável-numérica-vs.-fator.html#cb1699-1" aria-hidden="true" tabindex="-1"></a><span class="co"># número de individuos de carcara por fisionomia</span></span>
+<span id="cb1699-2"><a href="variável-numérica-vs.-fator.html#cb1699-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(avesc<span class="sc">$</span>carcara, avesc<span class="sc">$</span>fisionomia, sum)</span></code></pre></div>
 <pre><code>##  CC  ce  Ce  CL 
 ## 212  14 291  NA</code></pre>
-<div class="sourceCode" id="cb1702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1702-1"><a href="variável-numérica-vs.-fator.html#cb1702-1" aria-hidden="true" tabindex="-1"></a><span class="co"># numero de individuos de urubo por fisionomia</span></span>
-<span id="cb1702-2"><a href="variável-numérica-vs.-fator.html#cb1702-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(avesc<span class="sc">$</span>urubu, avesc<span class="sc">$</span>fisionomia, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb1701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1701-1"><a href="variável-numérica-vs.-fator.html#cb1701-1" aria-hidden="true" tabindex="-1"></a><span class="co"># numero de individuos de urubo por fisionomia</span></span>
+<span id="cb1701-2"><a href="variável-numérica-vs.-fator.html#cb1701-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(avesc<span class="sc">$</span>urubu, avesc<span class="sc">$</span>fisionomia, sum)</span></code></pre></div>
 <pre><code>##  CC  ce  Ce  CL 
 ## 299  13  NA 298</code></pre>
-<div class="sourceCode" id="cb1704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1704-1"><a href="variável-numérica-vs.-fator.html#cb1704-1" aria-hidden="true" tabindex="-1"></a><span class="co"># numero médio de seriemas por localidade+fisionomia</span></span>
-<span id="cb1704-2"><a href="variável-numérica-vs.-fator.html#cb1704-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(avesc<span class="sc">$</span>seriema, avesc<span class="sc">$</span>fisionomia, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb1703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1703-1"><a href="variável-numérica-vs.-fator.html#cb1703-1" aria-hidden="true" tabindex="-1"></a><span class="co"># numero médio de seriemas por localidade+fisionomia</span></span>
+<span id="cb1703-2"><a href="variável-numérica-vs.-fator.html#cb1703-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(avesc<span class="sc">$</span>seriema, avesc<span class="sc">$</span>fisionomia, mean)</span></code></pre></div>
 <pre><code>##  CC  ce  Ce  CL 
 ##  NA 4.0  NA 5.6</code></pre>
-<div class="sourceCode" id="cb1706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1706-1"><a href="variável-numérica-vs.-fator.html#cb1706-1" aria-hidden="true" tabindex="-1"></a><span class="do">## &quot;Tabelas dinamicas&quot;: funcao aggregate</span></span>
-<span id="cb1706-2"><a href="variável-numérica-vs.-fator.html#cb1706-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Criar data.frame com altura media dos fustes por especie e por local</span></span></code></pre></div>
-<div class="sourceCode" id="cb1707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1707-1"><a href="variável-numérica-vs.-fator.html#cb1707-1" aria-hidden="true" tabindex="-1"></a>?aggregate <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb1708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1708-1"><a href="variável-numérica-vs.-fator.html#cb1708-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1705-1"><a href="variável-numérica-vs.-fator.html#cb1705-1" aria-hidden="true" tabindex="-1"></a><span class="do">## &quot;Tabelas dinamicas&quot;: funcao aggregate</span></span>
+<span id="cb1705-2"><a href="variável-numérica-vs.-fator.html#cb1705-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Criar data.frame com altura media dos fustes por especie e por local</span></span></code></pre></div>
+<div class="sourceCode" id="cb1706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1706-1"><a href="variável-numérica-vs.-fator.html#cb1706-1" aria-hidden="true" tabindex="-1"></a>?aggregate <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb1707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1707-1"><a href="variável-numérica-vs.-fator.html#cb1707-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
-<div class="sourceCode" id="cb1710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1710-1"><a href="variável-numérica-vs.-fator.html#cb1710-1" aria-hidden="true" tabindex="-1"></a><span class="co"># circunferencia máxima por especie</span></span>
-<span id="cb1710-2"><a href="variável-numérica-vs.-fator.html#cb1710-2" aria-hidden="true" tabindex="-1"></a>ob1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>cap, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> max)</span>
-<span id="cb1710-3"><a href="variável-numérica-vs.-fator.html#cb1710-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ob1) <span class="co"># obtenho um data frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb1709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1709-1"><a href="variável-numérica-vs.-fator.html#cb1709-1" aria-hidden="true" tabindex="-1"></a><span class="co"># circunferencia máxima por especie</span></span>
+<span id="cb1709-2"><a href="variável-numérica-vs.-fator.html#cb1709-2" aria-hidden="true" tabindex="-1"></a>ob1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>cap, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> max)</span>
+<span id="cb1709-3"><a href="variável-numérica-vs.-fator.html#cb1709-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ob1) <span class="co"># obtenho um data frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1712-1"><a href="variável-numérica-vs.-fator.html#cb1712-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ob1)</span></code></pre></div>
+<div class="sourceCode" id="cb1711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1711-1"><a href="variável-numérica-vs.-fator.html#cb1711-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ob1)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -763,11 +767,11 @@ Calophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1713-1"><a href="variável-numérica-vs.-fator.html#cb1713-1" aria-hidden="true" tabindex="-1"></a><span class="co"># neste caso também poderia fazer assim</span></span>
-<span id="cb1713-2"><a href="variável-numérica-vs.-fator.html#cb1713-2" aria-hidden="true" tabindex="-1"></a>ob2 <span class="ot">&lt;-</span> <span class="fu">tapply</span>(caixeta<span class="sc">$</span>h, caixeta<span class="sc">$</span>especie, max)</span>
-<span id="cb1713-3"><a href="variável-numérica-vs.-fator.html#cb1713-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ob2) <span class="co"># mas neste caso nos temos um array (um vetor unidimensional)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1712-1"><a href="variável-numérica-vs.-fator.html#cb1712-1" aria-hidden="true" tabindex="-1"></a><span class="co"># neste caso também poderia fazer assim</span></span>
+<span id="cb1712-2"><a href="variável-numérica-vs.-fator.html#cb1712-2" aria-hidden="true" tabindex="-1"></a>ob2 <span class="ot">&lt;-</span> <span class="fu">tapply</span>(caixeta<span class="sc">$</span>h, caixeta<span class="sc">$</span>especie, max)</span>
+<span id="cb1712-3"><a href="variável-numérica-vs.-fator.html#cb1712-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ob2) <span class="co"># mas neste caso nos temos um array (um vetor unidimensional)</span></span></code></pre></div>
 <pre><code>## [1] &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb1715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1715-1"><a href="variável-numérica-vs.-fator.html#cb1715-1" aria-hidden="true" tabindex="-1"></a>ob2[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1714-1"><a href="variável-numérica-vs.-fator.html#cb1714-1" aria-hidden="true" tabindex="-1"></a>ob2[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##    Alchornea triplinervia       Andira fraxinifolia               bombacaceae 
 ##                       140                        90                       150 
 ##        Cabralea canjerana Callophyllum brasiliensis  Calophyllum brasiliensis 
@@ -776,9 +780,9 @@ Calophyllum brasiliensis
 ##                        70                       100                       110 
 ##      Cryptocaria moschata 
 ##                       140</code></pre>
-<div class="sourceCode" id="cb1717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1717-1"><a href="variável-numérica-vs.-fator.html#cb1717-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas se eu quiser por localidade e por especie, preciso usar aggregate</span></span>
-<span id="cb1717-2"><a href="variável-numérica-vs.-fator.html#cb1717-2" aria-hidden="true" tabindex="-1"></a>caixeta.alt <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>h, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, <span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> max)</span>
-<span id="cb1717-3"><a href="variável-numérica-vs.-fator.html#cb1717-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta.alt)</span></code></pre></div>
+<div class="sourceCode" id="cb1716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1716-1"><a href="variável-numérica-vs.-fator.html#cb1716-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas se eu quiser por localidade e por especie, preciso usar aggregate</span></span>
+<span id="cb1716-2"><a href="variável-numérica-vs.-fator.html#cb1716-2" aria-hidden="true" tabindex="-1"></a>caixeta.alt <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>h, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, <span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> max)</span>
+<span id="cb1716-3"><a href="variável-numérica-vs.-fator.html#cb1716-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta.alt)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -862,14 +866,14 @@ Callophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1718-1"><a href="variável-numérica-vs.-fator.html#cb1718-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vamos calcular a area basal (soma da area de todo os fustes)</span></span>
-<span id="cb1718-2"><a href="variável-numérica-vs.-fator.html#cb1718-2" aria-hidden="true" tabindex="-1"></a><span class="do">## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:</span></span>
-<span id="cb1718-3"><a href="variável-numérica-vs.-fator.html#cb1718-3" aria-hidden="true" tabindex="-1"></a>caixeta<span class="sc">$</span>ab <span class="ot">&lt;-</span> caixeta<span class="sc">$</span>cap<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="dv">4</span> <span class="sc">*</span> pi</span>
-<span id="cb1718-4"><a href="variável-numérica-vs.-fator.html#cb1718-4" aria-hidden="true" tabindex="-1"></a><span class="do">## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes</span></span>
-<span id="cb1718-5"><a href="variável-numérica-vs.-fator.html#cb1718-5" aria-hidden="true" tabindex="-1"></a>caixeta<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>ab, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, <span class="at">parcela =</span> caixeta<span class="sc">$</span>parcela, <span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> sum)</span>
-<span id="cb1718-6"><a href="variável-numérica-vs.-fator.html#cb1718-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1717-1"><a href="variável-numérica-vs.-fator.html#cb1717-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vamos calcular a area basal (soma da area de todo os fustes)</span></span>
+<span id="cb1717-2"><a href="variável-numérica-vs.-fator.html#cb1717-2" aria-hidden="true" tabindex="-1"></a><span class="do">## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:</span></span>
+<span id="cb1717-3"><a href="variável-numérica-vs.-fator.html#cb1717-3" aria-hidden="true" tabindex="-1"></a>caixeta<span class="sc">$</span>ab <span class="ot">&lt;-</span> caixeta<span class="sc">$</span>cap<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="dv">4</span> <span class="sc">*</span> pi</span>
+<span id="cb1717-4"><a href="variável-numérica-vs.-fator.html#cb1717-4" aria-hidden="true" tabindex="-1"></a><span class="do">## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes</span></span>
+<span id="cb1717-5"><a href="variável-numérica-vs.-fator.html#cb1717-5" aria-hidden="true" tabindex="-1"></a>caixeta<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>ab, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, <span class="at">parcela =</span> caixeta<span class="sc">$</span>parcela, <span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> sum)</span>
+<span id="cb1717-6"><a href="variável-numérica-vs.-fator.html#cb1717-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1720-1"><a href="variável-numérica-vs.-fator.html#cb1720-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1719-1"><a href="variável-numérica-vs.-fator.html#cb1719-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1023,7 +1027,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/13-aed_checabivar.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

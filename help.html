@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.4 Ajuda no R | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.4 Ajuda no R | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -559,130 +563,78 @@ Basta executar uma das seguintes opções:</p>
 <span id="cb18-4"><a href="help.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">topic =</span> <span class="st">&quot;ls&quot;</span>) <span class="co"># nome da função como argumento da topic da função help</span></span></code></pre></div>
 <p>Ao digitar uma das opções acima, o R vai abrir uma janela (no RStudio, vai colocar esse resultado num dos painéis) contendo a página com a explicação da função:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="help.html#cb19-1" aria-hidden="true" tabindex="-1"></a>?ls</span></code></pre></div>
-<pre><code>## Warning in max(i1[i1 &lt; i]): no non-missing arguments to max; returning -Inf
+<div class="r-help-page"><div class="container">
 
-## Warning in max(i1[i1 &lt; i]): no non-missing arguments to max; returning -Inf
+<table style="width: 100%;"><tr><td>ls</td><td style="text-align: right;">R Documentation</td></tr></table>
 
-## Warning in max(i1[i1 &lt; i]): no non-missing arguments to max; returning -Inf
+<h2 id='ls'>List Objects</h2>
 
-## Warning in max(i1[i1 &lt; i]): no non-missing arguments to max; returning -Inf</code></pre>
-<div class="r-help-page">
-<div class="container">
-<table style="width: 100%;">
-<tr>
-<td>
-ls
-</td>
-<td style="text-align: right;">
-R Documentation
-</td>
-</tr>
-</table>
-<h2>
-List Objects
-</h2>
-<h3>
-Description
-</h3>
-<p>
-<code>ls</code> and <code>objects</code> return a vector of character strings
-giving the names of the objects in the specified environment. When
+<h3>Description</h3>
+
+<p><code>ls</code> and <code>objects</code> return a vector of character strings
+giving the names of the objects in the specified environment.  When
 invoked with no argument at the top level prompt, <code>ls</code> shows what
-data sets and functions a user has defined. When invoked with no
+data sets and functions a user has defined.  When invoked with no
 argument inside a function, <code>ls</code> returns the names of the
-function’s local variables: this is useful in conjunction with
+function's local variables: this is useful in conjunction with
 <code>browser</code>.
 </p>
-<h3>
-Usage
-</h3>
-<pre class="r"><code class='language-R'>ls(name, pos = -1L, envir = as.environment(pos),
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>ls(name, pos = -1L, envir = as.environment(pos),
    all.names = FALSE, pattern, sorted = TRUE)
 objects(name, pos= -1L, envir = as.environment(pos),
         all.names = FALSE, pattern, sorted = TRUE)
 </code></pre>
-<h3>
-Arguments
-</h3>
+
+
+<h3>Arguments</h3>
+
 <table>
-<tr style="vertical-align: top;">
+<tr><td><code id="ls_:_name">name</code></td>
 <td>
-<code>name</code>
-</td>
-<td>
-<p>
-which environment to use in listing the available objects.
-Defaults to the <em>current</em> environment. Although called
+<p>which environment to use in listing the available objects.
+Defaults to the <em>current</em> environment.  Although called
 <code>name</code> for back compatibility, in fact this argument can
-specify the environment in any form; see the ‘Details’ section.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
+specify the environment in any form; see the &lsquo;Details&rsquo; section.</p>
+</td></tr>
+<tr><td><code id="ls_:_pos">pos</code></td>
 <td>
-<code>pos</code>
-</td>
+<p>an alternative argument to <code>name</code> for specifying the
+environment as a position in the search list.  Mostly there for
+back compatibility.</p>
+</td></tr>
+<tr><td><code id="ls_:_envir">envir</code></td>
 <td>
-<p>
-an alternative argument to <code>name</code> for specifying the
-environment as a position in the search list. Mostly there for
-back compatibility.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
+<p>an alternative argument to <code>name</code> for specifying the
+environment.  Mostly there for back compatibility.</p>
+</td></tr>
+<tr><td><code id="ls_:_all.names">all.names</code></td>
 <td>
-<code>envir</code>
-</td>
+<p>a logical value.  If <code>TRUE</code>, all
+object names are returned.  If <code>FALSE</code>, names which begin with a
+&lsquo;<span class="samp">&#8288;.&#8288;</span>&rsquo; are omitted.</p>
+</td></tr>
+<tr><td><code id="ls_:_pattern">pattern</code></td>
 <td>
-<p>
-an alternative argument to <code>name</code> for specifying the
-environment. Mostly there for back compatibility.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
+<p>an optional regular expression.  Only names
+matching <code>pattern</code> are returned.  <code>glob2rx</code> can be
+used to convert wildcard patterns to regular expressions.</p>
+</td></tr>
+<tr><td><code id="ls_:_sorted">sorted</code></td>
 <td>
-<code>all.names</code>
-</td>
-<td>
-<p>
-a logical value. If <code>TRUE</code>, all
-object names are returned. If <code>FALSE</code>, names which begin with a
-‘<span class="samp">⁠.⁠</span>’ are omitted.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td>
-<code>pattern</code>
-</td>
-<td>
-<p>
-an optional regular expression. Only names
-matching <code>pattern</code> are returned. <code>glob2rx</code> can be
-used to convert wildcard patterns to regular expressions.
-</p>
-</td>
-</tr>
-<tr style="vertical-align: top;">
-<td>
-<code>sorted</code>
-</td>
-<td>
-<p>
-logical indicating if the resulting
-<code>character</code> should be sorted alphabetically. Note that
-this is part of <code>ls()</code> may take most of the time.
-</p>
-</td>
-</tr>
+<p>logical indicating if the resulting
+<code>character</code> should be sorted alphabetically.  Note that
+this is part of <code>ls()</code> may take most of the time.</p>
+</td></tr>
 </table>
-<h3>
-Details
-</h3>
-<p>
-The <code>name</code> argument can specify the environment from which
+
+
+<h3>Details</h3>
+
+<p>The <code>name</code> argument can specify the  environment from which
 object names are taken in one of several forms:
 as an integer (the position in the <code>search</code> list); as
 the character string name of an element in the search list; or as an
@@ -693,39 +645,38 @@ is used. The <code>pos</code> and <code>envir</code> arguments are an alternativ
 way to specify an environment, but are primarily there for back
 compatibility.
 </p>
-<p>
-Note that the <em>order</em> of strings for <code>sorted = TRUE</code> is
-locale dependent, see <code>Sys.getlocale</code>. If <code>sorted =
-FALSE</code> the order is arbitrary, depending if the environment is
-hashed, the order of insertion of objects, ….
+<p>Note that the <em>order</em> of strings for <code>sorted = TRUE</code> is
+locale dependent, see <code>Sys.getlocale</code>.  If <code>sorted =
+    FALSE</code> the order is arbitrary, depending if the environment is
+hashed, the order of insertion of objects, ....
 </p>
-<h3>
-References
-</h3>
-<p>
-Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
+
+
+<h3>References</h3>
+
+<p>Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988)
 <em>The New S Language</em>.
 Wadsworth &amp; Brooks/Cole.
 </p>
-<h3>
-See Also
-</h3>
-<p>
-<code>glob2rx</code> for converting wildcard patterns to regular
+
+
+<h3>See Also</h3>
+
+<p><code>glob2rx</code> for converting wildcard patterns to regular
 expressions.
 </p>
-<p>
-<code>ls.str</code> for a long listing based on <code>str</code>.
+<p><code>ls.str</code> for a long listing based on <code>str</code>.
 <code>apropos</code> (or <code>find</code>)
 for finding objects in the whole search path;
-<code>grep</code> for more details on ‘regular expressions’;
+<code>grep</code> for more details on &lsquo;regular expressions&rsquo;;
 <code>class</code>, <code>methods</code>, etc., for
 object-oriented programming.
 </p>
-<h3>
-Examples
-</h3>
-<pre class="r"><code class='language-R'>.Ob &lt;- 1
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>.Ob &lt;- 1
 ls(pattern = "O")
 ls(pattern= "O", all.names = TRUE)    # also shows ".[foo]"
 
@@ -737,6 +688,8 @@ myfunc()
 myfunc &lt;- function() {y &lt;- 1; ls()}
 myfunc()                # shows "y"
 </code></pre>
+
+
 </div>
 </div>
 <p>Todos esses trechos de ajuda (<code>?</code>) do R têm a mesma estrutura e devem ser acessados constantemente para o bom entendimento do funcionamento das funções e seus argumentos.</p>
@@ -789,7 +742,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/01-intro.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

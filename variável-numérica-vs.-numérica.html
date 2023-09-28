@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13.4 Variável numérica vs. numérica | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13.4 Variável numérica vs. numérica | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -559,17 +563,17 @@ colinearidade dos meus dados?
 </div>
 <p>Para entender a razão e a importância dessas perguntas, veja a definição na <a href="https://en.wikipedia.org/wiki/Multicollinearity">WikiPedia</a> sobre o efeito de colinearidade em regressões múltiplas.</p>
 <p>A função <code>pairs()</code> mostra as correlações das variáveis par a par de maneira gráfica, que podem ser estimadas por meio da função <code>cor()</code>.</p>
-<div class="sourceCode" id="cb1721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1721-1"><a href="variável-numérica-vs.-numérica.html#cb1721-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Exemplos de Graficos bivariados</span></span>
-<span id="cb1721-2"><a href="variável-numérica-vs.-numérica.html#cb1721-2" aria-hidden="true" tabindex="-1"></a><span class="do">## boxplot (já vimos o que isso significa)</span></span>
-<span id="cb1721-3"><a href="variável-numérica-vs.-numérica.html#cb1721-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra a variacao do avistamento de urubus nas diferentes fisionomias</span></span>
-<span id="cb1721-4"><a href="variável-numérica-vs.-numérica.html#cb1721-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cap <span class="sc">~</span> local, <span class="at">data =</span> caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1720-1"><a href="variável-numérica-vs.-numérica.html#cb1720-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Exemplos de Graficos bivariados</span></span>
+<span id="cb1720-2"><a href="variável-numérica-vs.-numérica.html#cb1720-2" aria-hidden="true" tabindex="-1"></a><span class="do">## boxplot (já vimos o que isso significa)</span></span>
+<span id="cb1720-3"><a href="variável-numérica-vs.-numérica.html#cb1720-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra a variacao do avistamento de urubus nas diferentes fisionomias</span></span>
+<span id="cb1720-4"><a href="variável-numérica-vs.-numérica.html#cb1720-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(cap <span class="sc">~</span> local, <span class="at">data =</span> caixeta)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1722-1"><a href="variável-numérica-vs.-numérica.html#cb1722-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou poderia escrever assim</span></span>
-<span id="cb1722-2"><a href="variável-numérica-vs.-numérica.html#cb1722-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(caixeta<span class="sc">$</span>cap <span class="sc">~</span> caixeta<span class="sc">$</span>local)</span></code></pre></div>
+<div class="sourceCode" id="cb1721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1721-1"><a href="variável-numérica-vs.-numérica.html#cb1721-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou poderia escrever assim</span></span>
+<span id="cb1721-2"><a href="variável-numérica-vs.-numérica.html#cb1721-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(caixeta<span class="sc">$</span>cap <span class="sc">~</span> caixeta<span class="sc">$</span>local)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb1723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1723-1"><a href="variável-numérica-vs.-numérica.html#cb1723-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note o valor extremo em jureia</span></span>
-<span id="cb1723-2"><a href="variável-numérica-vs.-numérica.html#cb1723-2" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> caixeta<span class="sc">$</span>local <span class="sc">==</span> <span class="st">&quot;jureia&quot;</span> <span class="sc">&amp;</span> caixeta<span class="sc">$</span>cap <span class="sc">&gt;</span> <span class="dv">1500</span></span>
-<span id="cb1723-3"><a href="variável-numérica-vs.-numérica.html#cb1723-3" aria-hidden="true" tabindex="-1"></a>caixeta[vl, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1722-1"><a href="variável-numérica-vs.-numérica.html#cb1722-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note o valor extremo em jureia</span></span>
+<span id="cb1722-2"><a href="variável-numérica-vs.-numérica.html#cb1722-2" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> caixeta<span class="sc">$</span>local <span class="sc">==</span> <span class="st">&quot;jureia&quot;</span> <span class="sc">&amp;</span> caixeta<span class="sc">$</span>cap <span class="sc">&gt;</span> <span class="dv">1500</span></span>
+<span id="cb1722-3"><a href="variável-numérica-vs.-numérica.html#cb1722-3" aria-hidden="true" tabindex="-1"></a>caixeta[vl, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -633,40 +637,40 @@ Calophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1724-1"><a href="variável-numérica-vs.-numérica.html#cb1724-1" aria-hidden="true" tabindex="-1"></a><span class="do">## espalhagrama</span></span>
-<span id="cb1724-2"><a href="variável-numérica-vs.-numérica.html#cb1724-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h <span class="sc">~</span> cap, <span class="at">data =</span> caixeta) <span class="co"># usando formula e especificacao dos dados</span></span></code></pre></div>
+<div class="sourceCode" id="cb1723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1723-1"><a href="variável-numérica-vs.-numérica.html#cb1723-1" aria-hidden="true" tabindex="-1"></a><span class="do">## espalhagrama</span></span>
+<span id="cb1723-2"><a href="variável-numérica-vs.-numérica.html#cb1723-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h <span class="sc">~</span> cap, <span class="at">data =</span> caixeta) <span class="co"># usando formula e especificacao dos dados</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-3.svg" width="672" /></p>
-<div class="sourceCode" id="cb1725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1725-1"><a href="variável-numérica-vs.-numérica.html#cb1725-1" aria-hidden="true" tabindex="-1"></a><span class="co"># apenas para jureia</span></span>
-<span id="cb1725-2"><a href="variável-numérica-vs.-numérica.html#cb1725-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h <span class="sc">~</span> cap, <span class="at">data =</span> caixeta, <span class="at">subset =</span> local <span class="sc">==</span> <span class="st">&quot;jureia&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1724-1"><a href="variável-numérica-vs.-numérica.html#cb1724-1" aria-hidden="true" tabindex="-1"></a><span class="co"># apenas para jureia</span></span>
+<span id="cb1724-2"><a href="variável-numérica-vs.-numérica.html#cb1724-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h <span class="sc">~</span> cap, <span class="at">data =</span> caixeta, <span class="at">subset =</span> local <span class="sc">==</span> <span class="st">&quot;jureia&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-4.svg" width="672" /></p>
-<div class="sourceCode" id="cb1726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1726-1"><a href="variável-numérica-vs.-numérica.html#cb1726-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(caixeta<span class="sc">$</span>h <span class="sc">~</span> caixeta<span class="sc">$</span>cap) <span class="co"># usando formula sem especificacao dos dados</span></span></code></pre></div>
+<div class="sourceCode" id="cb1725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1725-1"><a href="variável-numérica-vs.-numérica.html#cb1725-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(caixeta<span class="sc">$</span>h <span class="sc">~</span> caixeta<span class="sc">$</span>cap) <span class="co"># usando formula sem especificacao dos dados</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-5.svg" width="672" /></p>
-<div class="sourceCode" id="cb1727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1727-1"><a href="variável-numérica-vs.-numérica.html#cb1727-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(caixeta<span class="sc">$</span>cap, caixeta<span class="sc">$</span>h) <span class="co"># especificando eixos separadamente (veja inversao)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1726-1"><a href="variável-numérica-vs.-numérica.html#cb1726-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(caixeta<span class="sc">$</span>cap, caixeta<span class="sc">$</span>h) <span class="co"># especificando eixos separadamente (veja inversao)</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-6.svg" width="672" /></p>
-<div class="sourceCode" id="cb1728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1728-1"><a href="variável-numérica-vs.-numérica.html#cb1728-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1727-1"><a href="variável-numérica-vs.-numérica.html#cb1727-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;
 ## [8] &quot;ab&quot;</code></pre>
-<div class="sourceCode" id="cb1730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1730-1"><a href="variável-numérica-vs.-numérica.html#cb1730-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra linha de tendencia da relacao</span></span>
-<span id="cb1730-2"><a href="variável-numérica-vs.-numérica.html#cb1730-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter.smooth</span>(caixeta<span class="sc">$</span>cap, caixeta<span class="sc">$</span>h)</span></code></pre></div>
+<div class="sourceCode" id="cb1729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1729-1"><a href="variável-numérica-vs.-numérica.html#cb1729-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra linha de tendencia da relacao</span></span>
+<span id="cb1729-2"><a href="variável-numérica-vs.-numérica.html#cb1729-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter.smooth</span>(caixeta<span class="sc">$</span>cap, caixeta<span class="sc">$</span>h)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-7.svg" width="672" /></p>
-<div class="sourceCode" id="cb1731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1731-1"><a href="variável-numérica-vs.-numérica.html#cb1731-1" aria-hidden="true" tabindex="-1"></a><span class="do">## pairs</span></span>
-<span id="cb1731-2"><a href="variável-numérica-vs.-numérica.html#cb1731-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Matriz de espalhagramas das medidas das arvores no dataframe iris</span></span>
-<span id="cb1731-3"><a href="variável-numérica-vs.-numérica.html#cb1731-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb1731-4"><a href="variável-numérica-vs.-numérica.html#cb1731-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb1730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1730-1"><a href="variável-numérica-vs.-numérica.html#cb1730-1" aria-hidden="true" tabindex="-1"></a><span class="do">## pairs</span></span>
+<span id="cb1730-2"><a href="variável-numérica-vs.-numérica.html#cb1730-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Matriz de espalhagramas das medidas das arvores no dataframe iris</span></span>
+<span id="cb1730-3"><a href="variável-numérica-vs.-numérica.html#cb1730-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb1730-4"><a href="variável-numérica-vs.-numérica.html#cb1730-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iris)</span></code></pre></div>
 <pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
-<div class="sourceCode" id="cb1733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1733-1"><a href="variável-numérica-vs.-numérica.html#cb1733-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(iris) <span class="co"># todas as variaveis</span></span></code></pre></div>
+<div class="sourceCode" id="cb1732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1732-1"><a href="variável-numérica-vs.-numérica.html#cb1732-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(iris) <span class="co"># todas as variaveis</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-8.svg" width="672" /></p>
-<div class="sourceCode" id="cb1734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1734-1"><a href="variável-numérica-vs.-numérica.html#cb1734-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)], ) <span class="co"># menos a ultima coluna = especie</span></span></code></pre></div>
+<div class="sourceCode" id="cb1733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1733-1"><a href="variável-numérica-vs.-numérica.html#cb1733-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)], ) <span class="co"># menos a ultima coluna = especie</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-9.svg" width="672" /></p>
-<div class="sourceCode" id="cb1735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1735-1"><a href="variável-numérica-vs.-numérica.html#cb1735-1" aria-hidden="true" tabindex="-1"></a><span class="co"># colorindo por especie</span></span>
-<span id="cb1735-2"><a href="variável-numérica-vs.-numérica.html#cb1735-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)], <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="fu">unclass</span>(iris<span class="sc">$</span>Species)])</span></code></pre></div>
+<div class="sourceCode" id="cb1734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1734-1"><a href="variável-numérica-vs.-numérica.html#cb1734-1" aria-hidden="true" tabindex="-1"></a><span class="co"># colorindo por especie</span></span>
+<span id="cb1734-2"><a href="variável-numérica-vs.-numérica.html#cb1734-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)], <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="fu">unclass</span>(iris<span class="sc">$</span>Species)])</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-551-10.svg" width="672" /></p>
-<div class="sourceCode" id="cb1736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1736-1"><a href="variável-numérica-vs.-numérica.html#cb1736-1" aria-hidden="true" tabindex="-1"></a>?unclass <span class="co"># remove o atributo classe do objeto, então especies viram números</span></span></code></pre></div>
-<div class="sourceCode" id="cb1737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1737-1"><a href="variável-numérica-vs.-numérica.html#cb1737-1" aria-hidden="true" tabindex="-1"></a><span class="co"># poderia fazer assim, tendo em vista que iris$Species é um fator:</span></span>
-<span id="cb1737-2"><a href="variável-numérica-vs.-numérica.html#cb1737-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)], <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="fu">as.numeric</span>(iris<span class="sc">$</span>Species)])</span></code></pre></div>
+<div class="sourceCode" id="cb1735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1735-1"><a href="variável-numérica-vs.-numérica.html#cb1735-1" aria-hidden="true" tabindex="-1"></a>?unclass <span class="co"># remove o atributo classe do objeto, então especies viram números</span></span></code></pre></div>
+<div class="sourceCode" id="cb1736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1736-1"><a href="variável-numérica-vs.-numérica.html#cb1736-1" aria-hidden="true" tabindex="-1"></a><span class="co"># poderia fazer assim, tendo em vista que iris$Species é um fator:</span></span>
+<span id="cb1736-2"><a href="variável-numérica-vs.-numérica.html#cb1736-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)], <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="fu">as.numeric</span>(iris<span class="sc">$</span>Species)])</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-553-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1738-1"><a href="variável-numérica-vs.-numérica.html#cb1738-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Essa figura é basicamente a expressao grafica da matriz de correlações entre todas as variáveis:</span></span>
-<span id="cb1738-2"><a href="variável-numérica-vs.-numérica.html#cb1738-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)])</span></code></pre></div>
+<div class="sourceCode" id="cb1737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1737-1"><a href="variável-numérica-vs.-numérica.html#cb1737-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Essa figura é basicamente a expressao grafica da matriz de correlações entre todas as variáveis:</span></span>
+<span id="cb1737-2"><a href="variável-numérica-vs.-numérica.html#cb1737-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)])</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -757,18 +761,18 @@ Petal.Width
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1739-1"><a href="variável-numérica-vs.-numérica.html#cb1739-1" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que essa matriz é simétrica e a diagonal tem valores =1, pois a correlação entre a variável e ela mesma é 100%</span></span>
-<span id="cb1739-2"><a href="variável-numérica-vs.-numérica.html#cb1739-2" aria-hidden="true" tabindex="-1"></a>tbcor <span class="ot">&lt;-</span> <span class="fu">cor</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)])</span>
-<span id="cb1739-3"><a href="variável-numérica-vs.-numérica.html#cb1739-3" aria-hidden="true" tabindex="-1"></a><span class="co"># na diagnoal</span></span>
-<span id="cb1739-4"><a href="variável-numérica-vs.-numérica.html#cb1739-4" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(tbcor)</span></code></pre></div>
+<div class="sourceCode" id="cb1738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1738-1"><a href="variável-numérica-vs.-numérica.html#cb1738-1" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que essa matriz é simétrica e a diagonal tem valores =1, pois a correlação entre a variável e ela mesma é 100%</span></span>
+<span id="cb1738-2"><a href="variável-numérica-vs.-numérica.html#cb1738-2" aria-hidden="true" tabindex="-1"></a>tbcor <span class="ot">&lt;-</span> <span class="fu">cor</span>(iris[, <span class="sc">-</span><span class="fu">ncol</span>(iris)])</span>
+<span id="cb1738-3"><a href="variável-numérica-vs.-numérica.html#cb1738-3" aria-hidden="true" tabindex="-1"></a><span class="co"># na diagnoal</span></span>
+<span id="cb1738-4"><a href="variável-numérica-vs.-numérica.html#cb1738-4" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(tbcor)</span></code></pre></div>
 <pre><code>## Sepal.Length  Sepal.Width Petal.Length  Petal.Width 
 ##            1            1            1            1</code></pre>
-<div class="sourceCode" id="cb1741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1741-1"><a href="variável-numérica-vs.-numérica.html#cb1741-1" aria-hidden="true" tabindex="-1"></a><span class="co"># acima da diagonal</span></span>
-<span id="cb1741-2"><a href="variável-numérica-vs.-numérica.html#cb1741-2" aria-hidden="true" tabindex="-1"></a>vacima <span class="ot">&lt;-</span> tbcor[<span class="fu">upper.tri</span>(tbcor)]</span>
-<span id="cb1741-3"><a href="variável-numérica-vs.-numérica.html#cb1741-3" aria-hidden="true" tabindex="-1"></a><span class="co"># abaixo da diagonal</span></span>
-<span id="cb1741-4"><a href="variável-numérica-vs.-numérica.html#cb1741-4" aria-hidden="true" tabindex="-1"></a>vabaixo <span class="ot">&lt;-</span> tbcor[<span class="fu">lower.tri</span>(tbcor)]</span>
-<span id="cb1741-5"><a href="variável-numérica-vs.-numérica.html#cb1741-5" aria-hidden="true" tabindex="-1"></a><span class="co"># entao, se é simétrica, os vetores contém os mesmos valores (a ordem não é a mesma por isso o sort)</span></span>
-<span id="cb1741-6"><a href="variável-numérica-vs.-numérica.html#cb1741-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(vacima) <span class="sc">==</span> <span class="fu">sort</span>(vabaixo)</span></code></pre></div>
+<div class="sourceCode" id="cb1740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1740-1"><a href="variável-numérica-vs.-numérica.html#cb1740-1" aria-hidden="true" tabindex="-1"></a><span class="co"># acima da diagonal</span></span>
+<span id="cb1740-2"><a href="variável-numérica-vs.-numérica.html#cb1740-2" aria-hidden="true" tabindex="-1"></a>vacima <span class="ot">&lt;-</span> tbcor[<span class="fu">upper.tri</span>(tbcor)]</span>
+<span id="cb1740-3"><a href="variável-numérica-vs.-numérica.html#cb1740-3" aria-hidden="true" tabindex="-1"></a><span class="co"># abaixo da diagonal</span></span>
+<span id="cb1740-4"><a href="variável-numérica-vs.-numérica.html#cb1740-4" aria-hidden="true" tabindex="-1"></a>vabaixo <span class="ot">&lt;-</span> tbcor[<span class="fu">lower.tri</span>(tbcor)]</span>
+<span id="cb1740-5"><a href="variável-numérica-vs.-numérica.html#cb1740-5" aria-hidden="true" tabindex="-1"></a><span class="co"># entao, se é simétrica, os vetores contém os mesmos valores (a ordem não é a mesma por isso o sort)</span></span>
+<span id="cb1740-6"><a href="variável-numérica-vs.-numérica.html#cb1740-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(vacima) <span class="sc">==</span> <span class="fu">sort</span>(vabaixo)</span></code></pre></div>
 <pre><code>## [1] TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
 </div>
             </section>
@@ -819,7 +823,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/13-aed_checabivar.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

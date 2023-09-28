@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A.3 O operador %&gt;% e o encadeamento de ações | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A.3 O operador %&gt;% e o encadeamento de ações | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -551,253 +555,23 @@ div.csl-indent {
 <div id="o-operador-e-o-encadeamento-de-ações" class="section level2 hasAnchor" number="15.3">
 <h2><span class="header-section-number">A.3</span> O operador <code>%&gt;%</code> e o encadeamento de ações<a href="o-operador-e-o-encadeamento-de-ações.html#o-operador-e-o-encadeamento-de-ações" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Notem que nada do que vimos até aqui parece ser muito relevante se comparamos com o que pode ser feito com o pacote <code>base</code> do R. Vejamos:</p>
-<div class="sourceCode" id="cb1876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1876-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1876-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Queremos selecionar colunas? Operadores `$` e `[[` dao conta</span></span>
-<span id="cb1876-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1876-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1876-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1876-3" aria-hidden="true" tabindex="-1"></a>  iris[, <span class="fu">which</span>(<span class="fu">names</span>(iris) <span class="sc">==</span> <span class="st">&quot;Species&quot;</span>)],</span>
-<span id="cb1876-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1876-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1876-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1876-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>##  [1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa
-## Levels: setosa versicolor virginica</code></pre>
-<div class="sourceCode" id="cb1878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1878-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1878-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1878-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1878-2" aria-hidden="true" tabindex="-1"></a>  iris[, <span class="st">&quot;Sepal.Length&quot;</span>],</span>
-<span id="cb1878-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1878-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1878-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1878-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>##  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9</code></pre>
-<div class="sourceCode" id="cb1880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1880-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1880-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar linhas? Vetores lógicos em conjunto com o operador `[[` em um data.frame resolvem o problema</span></span>
-<span id="cb1880-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1880-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1880-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1880-3" aria-hidden="true" tabindex="-1"></a>  iris[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span> <span class="sc">&amp;</span> iris<span class="sc">$</span>Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span>, ],</span>
-<span id="cb1880-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1880-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1880-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1880-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-Sepal.Length
-</th>
-<th style="text-align:right;">
-Sepal.Width
-</th>
-<th style="text-align:right;">
-Petal.Length
-</th>
-<th style="text-align:right;">
-Petal.Width
-</th>
-<th style="text-align:left;">
-Species
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-103
-</td>
-<td style="text-align:right;">
-7.1
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-<td style="text-align:right;">
-5.9
-</td>
-<td style="text-align:right;">
-2.1
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-106
-</td>
-<td style="text-align:right;">
-7.6
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-<td style="text-align:right;">
-6.6
-</td>
-<td style="text-align:right;">
-2.1
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-108
-</td>
-<td style="text-align:right;">
-7.3
-</td>
-<td style="text-align:right;">
-2.9
-</td>
-<td style="text-align:right;">
-6.3
-</td>
-<td style="text-align:right;">
-1.8
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-110
-</td>
-<td style="text-align:right;">
-7.2
-</td>
-<td style="text-align:right;">
-3.6
-</td>
-<td style="text-align:right;">
-6.1
-</td>
-<td style="text-align:right;">
-2.5
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-118
-</td>
-<td style="text-align:right;">
-7.7
-</td>
-<td style="text-align:right;">
-3.8
-</td>
-<td style="text-align:right;">
-6.7
-</td>
-<td style="text-align:right;">
-2.2
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-119
-</td>
-<td style="text-align:right;">
-7.7
-</td>
-<td style="text-align:right;">
-2.6
-</td>
-<td style="text-align:right;">
-6.9
-</td>
-<td style="text-align:right;">
-2.3
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-123
-</td>
-<td style="text-align:right;">
-7.7
-</td>
-<td style="text-align:right;">
-2.8
-</td>
-<td style="text-align:right;">
-6.7
-</td>
-<td style="text-align:right;">
-2.0
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-126
-</td>
-<td style="text-align:right;">
-7.2
-</td>
-<td style="text-align:right;">
-3.2
-</td>
-<td style="text-align:right;">
-6.0
-</td>
-<td style="text-align:right;">
-1.8
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-130
-</td>
-<td style="text-align:right;">
-7.2
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-<td style="text-align:right;">
-5.8
-</td>
-<td style="text-align:right;">
-1.6
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-131
-</td>
-<td style="text-align:right;">
-7.4
-</td>
-<td style="text-align:right;">
-2.8
-</td>
-<td style="text-align:right;">
-6.1
-</td>
-<td style="text-align:right;">
-1.9
-</td>
-<td style="text-align:left;">
-virginica
-</td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb1881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1881-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1881-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ou podemos filtrar também usando a função `subset`:</span></span>
+<div class="sourceCode" id="cb1881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1881-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1881-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Queremos selecionar colunas? Operadores `$` e `[[` dao conta</span></span>
 <span id="cb1881-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1881-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1881-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1881-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span> <span class="sc">&amp;</span> iris<span class="sc">$</span>Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span>),</span>
+<span id="cb1881-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1881-3" aria-hidden="true" tabindex="-1"></a>  iris[, <span class="fu">which</span>(<span class="fu">names</span>(iris) <span class="sc">==</span> <span class="st">&quot;Species&quot;</span>)],</span>
 <span id="cb1881-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1881-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
 <span id="cb1881-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1881-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##  [1] setosa setosa setosa setosa setosa setosa setosa setosa setosa setosa
+## Levels: setosa versicolor virginica</code></pre>
+<div class="sourceCode" id="cb1883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1883-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1883-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-2" aria-hidden="true" tabindex="-1"></a>  iris[, <span class="st">&quot;Sepal.Length&quot;</span>],</span>
+<span id="cb1883-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1883-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>##  [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9</code></pre>
+<div class="sourceCode" id="cb1885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1885-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1885-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar linhas? Vetores lógicos em conjunto com o operador `[[` em um data.frame resolvem o problema</span></span>
+<span id="cb1885-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1885-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1885-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1885-3" aria-hidden="true" tabindex="-1"></a>  iris[iris<span class="sc">$</span>Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span> <span class="sc">&amp;</span> iris<span class="sc">$</span>Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span>, ],</span>
+<span id="cb1885-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1885-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1885-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1885-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1023,13 +797,243 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1882-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1882-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar novas colunas? Podemos atribuir novas colunas a qualquer data.frame existente usando o operador `$` para criar uma nova coluna qualquer</span></span>
-<span id="cb1882-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1882-2" aria-hidden="true" tabindex="-1"></a>iris_novo <span class="ot">&lt;-</span> iris</span>
-<span id="cb1882-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1882-3" aria-hidden="true" tabindex="-1"></a>iris_novo<span class="sc">$</span>razaopetsep <span class="ot">&lt;-</span> iris_novo<span class="sc">$</span>Petal.Length <span class="sc">/</span> iris_novo<span class="sc">$</span>Sepal.Length</span>
-<span id="cb1882-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1882-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1882-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1882-5" aria-hidden="true" tabindex="-1"></a>  iris_novo,</span>
-<span id="cb1882-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1882-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1882-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1882-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1886-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1886-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ou podemos filtrar também usando a função `subset`:</span></span>
+<span id="cb1886-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1886-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1886-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1886-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span> <span class="sc">&amp;</span> iris<span class="sc">$</span>Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span>),</span>
+<span id="cb1886-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1886-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1886-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1886-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+103
+</td>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+5.9
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+106
+</td>
+<td style="text-align:right;">
+7.6
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+6.6
+</td>
+<td style="text-align:right;">
+2.1
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+108
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+2.9
+</td>
+<td style="text-align:right;">
+6.3
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+110
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+118
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+3.8
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+2.2
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+119
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+2.6
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+2.3
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+123
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+126
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:right;">
+1.8
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+130
+</td>
+<td style="text-align:right;">
+7.2
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+5.8
+</td>
+<td style="text-align:right;">
+1.6
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+131
+</td>
+<td style="text-align:right;">
+7.4
+</td>
+<td style="text-align:right;">
+2.8
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:right;">
+1.9
+</td>
+<td style="text-align:left;">
+virginica
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb1887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1887-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar novas colunas? Podemos atribuir novas colunas a qualquer data.frame existente usando o operador `$` para criar uma nova coluna qualquer</span></span>
+<span id="cb1887-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-2" aria-hidden="true" tabindex="-1"></a>iris_novo <span class="ot">&lt;-</span> iris</span>
+<span id="cb1887-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-3" aria-hidden="true" tabindex="-1"></a>iris_novo<span class="sc">$</span>razaopetsep <span class="ot">&lt;-</span> iris_novo<span class="sc">$</span>Petal.Length <span class="sc">/</span> iris_novo<span class="sc">$</span>Sepal.Length</span>
+<span id="cb1887-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1887-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-5" aria-hidden="true" tabindex="-1"></a>  iris_novo,</span>
+<span id="cb1887-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1887-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1256,14 +1260,14 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1883-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sumariar resultados - Aqui temos um pouco mais de trabalho, porem nada muito complexo</span></span>
-<span id="cb1883-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-2" aria-hidden="true" tabindex="-1"></a>iris_count <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(iris<span class="sc">$</span>Species))</span>
-<span id="cb1883-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iris_count) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Species&quot;</span>, <span class="st">&quot;N&quot;</span>)</span>
-<span id="cb1883-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-4" aria-hidden="true" tabindex="-1"></a>iris_sumario2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(iris_count, <span class="at">sepala_c_media =</span> <span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="at">sepala_l_media =</span> <span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Width, iris<span class="sc">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="at">petala_c_media =</span> <span class="fu">tapply</span>(iris<span class="sc">$</span>Petal.Length, iris<span class="sc">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="at">petala_l_media =</span> <span class="fu">tapply</span>(iris<span class="sc">$</span>Petal.Width, iris<span class="sc">$</span>Species, <span class="st">&quot;mean&quot;</span>))</span>
-<span id="cb1883-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1883-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-6" aria-hidden="true" tabindex="-1"></a>  iris_sumario2,</span>
-<span id="cb1883-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1883-8"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1883-8" aria-hidden="true" tabindex="-1"></a>) <span class="co"># comparem o resultado do objeto `iris_sumario2` com os de `iris_sumario` criado com as funcoes do pacote `dplyr`</span></span></code></pre></div>
+<div class="sourceCode" id="cb1888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1888-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sumariar resultados - Aqui temos um pouco mais de trabalho, porem nada muito complexo</span></span>
+<span id="cb1888-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-2" aria-hidden="true" tabindex="-1"></a>iris_count <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">table</span>(iris<span class="sc">$</span>Species))</span>
+<span id="cb1888-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iris_count) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Species&quot;</span>, <span class="st">&quot;N&quot;</span>)</span>
+<span id="cb1888-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-4" aria-hidden="true" tabindex="-1"></a>iris_sumario2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(iris_count, <span class="at">sepala_c_media =</span> <span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="at">sepala_l_media =</span> <span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Width, iris<span class="sc">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="at">petala_c_media =</span> <span class="fu">tapply</span>(iris<span class="sc">$</span>Petal.Length, iris<span class="sc">$</span>Species, <span class="st">&quot;mean&quot;</span>), <span class="at">petala_l_media =</span> <span class="fu">tapply</span>(iris<span class="sc">$</span>Petal.Width, iris<span class="sc">$</span>Species, <span class="st">&quot;mean&quot;</span>))</span>
+<span id="cb1888-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1888-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-6" aria-hidden="true" tabindex="-1"></a>  iris_sumario2,</span>
+<span id="cb1888-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1888-8"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-8" aria-hidden="true" tabindex="-1"></a>) <span class="co"># comparem o resultado do objeto `iris_sumario2` com os de `iris_sumario` criado com as funcoes do pacote `dplyr`</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1383,22 +1387,22 @@ Vamos retomar os exemplos acima com a introdução do operador <code>%&gt;%</cod
 # Sumariar os dados para obter o número total de observações, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`, e a média do índice da razão entre o comprimento de pétalas e o comprimento de sépalas, nomeando-a como `media_razaopetsep`, então ...
 # Atribui o resultado dessa operação a um objeto chamado `res2`</code></pre>
 <p>Primeiramente, carreguemos o pacote <code>magrittr</code>:</p>
-<div class="sourceCode" id="cb1886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1886-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1886-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;magrittr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1891-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;magrittr&quot;</span>)</span></code></pre></div>
 <p>Executando o conjunto de <a href="o-operador-e-o-encadeamento-de-ações.html#com1">comandos 1</a>, temos:</p>
-<div class="sourceCode" id="cb1887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1887-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
-<span id="cb1887-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-2" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span></span>
-<span id="cb1887-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-3" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
-<span id="cb1887-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
-<span id="cb1887-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, Petal.Length, Sepal.Length) <span class="sc">%&gt;%</span></span>
-<span id="cb1887-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agrupar os dados em função de `Species`, então ...</span></span>
-<span id="cb1887-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
-<span id="cb1887-8"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sumariar os dados para obter o número de observações por grupo, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, e o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`</span></span>
-<span id="cb1887-9"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb1887-10"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>(),</span>
-<span id="cb1887-11"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1887-12"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1887-13"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1887-14"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1887-14" aria-hidden="true" tabindex="-1"></a>res1</span></code></pre></div>
+<div class="sourceCode" id="cb1892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1892-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
+<span id="cb1892-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-2" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span></span>
+<span id="cb1892-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-3" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
+<span id="cb1892-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
+<span id="cb1892-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, Petal.Length, Sepal.Length) <span class="sc">%&gt;%</span></span>
+<span id="cb1892-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Agrupar os dados em função de `Species`, então ...</span></span>
+<span id="cb1892-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb1892-8"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sumariar os dados para obter o número de observações por grupo, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, e o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`</span></span>
+<span id="cb1892-9"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1892-10"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>(),</span>
+<span id="cb1892-11"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1892-12"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1892-13"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1892-14"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1892-14" aria-hidden="true" tabindex="-1"></a>res1</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1462,24 +1466,24 @@ virginica
 </tbody>
 </table>
 <p>Fazendo o mesmo com o conjunto de <a href="o-operador-e-o-encadeamento-de-ações.html#com2">comandos 2</a>, temos:</p>
-<div class="sourceCode" id="cb1888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1888-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
-<span id="cb1888-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-2" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span></span>
-<span id="cb1888-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-3" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
-<span id="cb1888-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
-<span id="cb1888-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, Petal.Length, Sepal.Length) <span class="sc">%&gt;%</span></span>
-<span id="cb1888-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filtrar os dados para conter apenas a espécie `virginica` e espécimes com comprimento de sépala maior que 7 cm, então ...</span></span>
-<span id="cb1888-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span> <span class="sc">&amp;</span> Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1888-8"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Criar uma nova coluna chamada `razaopetsep` que contenha a razão entre os comprimentos de pétala e sépala, então ...</span></span>
-<span id="cb1888-9"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1888-10"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">razaopetsep =</span> Petal.Length <span class="sc">/</span> Sepal.Length</span>
-<span id="cb1888-11"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb1888-12"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sumariar os dados para obter o número total de observações, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`, e a média do índice da razão entre o comprimento de pétalas e o comprimento de sépalas, nomeando-a como `media_razaopetsep`</span></span>
-<span id="cb1888-13"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb1888-14"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>(),</span>
-<span id="cb1888-15"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1888-16"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1888-17"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-17" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1888-18"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1888-18" aria-hidden="true" tabindex="-1"></a>res2</span></code></pre></div>
+<div class="sourceCode" id="cb1893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1893-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chamar o data.frame `iris`, então...</span></span>
+<span id="cb1893-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-2" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span></span>
+<span id="cb1893-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-3" aria-hidden="true" tabindex="-1"></a>  iris <span class="sc">%&gt;%</span></span>
+<span id="cb1893-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Selecionar as colunas `Species`, `Petal.Length`, e `Sepal.Length`, então ...</span></span>
+<span id="cb1893-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, Petal.Length, Sepal.Length) <span class="sc">%&gt;%</span></span>
+<span id="cb1893-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filtrar os dados para conter apenas a espécie `virginica` e espécimes com comprimento de sépala maior que 7 cm, então ...</span></span>
+<span id="cb1893-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span> <span class="sc">&amp;</span> Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1893-8"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Criar uma nova coluna chamada `razaopetsep` que contenha a razão entre os comprimentos de pétala e sépala, então ...</span></span>
+<span id="cb1893-9"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1893-10"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">razaopetsep =</span> Petal.Length <span class="sc">/</span> Sepal.Length</span>
+<span id="cb1893-11"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb1893-12"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sumariar os dados para obter o número total de observações, nomeando esta variável como `N`; obter o comprimento médio de pétalas, nomeando esta variável como `petala_l_media`, o comprimento médio de sépalas, nomeando esta variável como `sepala_l_media`, e a média do índice da razão entre o comprimento de pétalas e o comprimento de sépalas, nomeando-a como `media_razaopetsep`</span></span>
+<span id="cb1893-13"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1893-14"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>(),</span>
+<span id="cb1893-15"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1893-16"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1893-17"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1893-18"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1893-18" aria-hidden="true" tabindex="-1"></a>res2</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1515,28 +1519,28 @@ Por isso, eu fiz questão de incluir em ambos os conjuntos de comandos, <a href=
 <p>Um ponto importante que deve ser levado em consideração é que o uso do operador <code>%&gt;%</code> permite que escondamos o <code>data.frame</code> de entrada nas funções.
 Vejamos na prática para entender.
 Suponha que nós queiramos selecionar apenas as colunas <code>Species</code> e <code>Petal.Length</code> de <code>iris</code>. Podemos executar isso de duas maneiras, todas com o mesmo resultado:</p>
-<div class="sourceCode" id="cb1889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1889-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1889-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos representar iris de três maneiras utilizando o operador `%&gt;%`</span></span>
-<span id="cb1889-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1889-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Species, Petal.Length) <span class="co"># como temos feito ate aqui</span></span>
-<span id="cb1889-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1889-3" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(., Species, Petal.Length) <span class="co"># explicitamos que `iris` esta dentro de select por meio do `.`</span></span></code></pre></div>
+<div class="sourceCode" id="cb1894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1894-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1894-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos representar iris de três maneiras utilizando o operador `%&gt;%`</span></span>
+<span id="cb1894-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1894-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Species, Petal.Length) <span class="co"># como temos feito ate aqui</span></span>
+<span id="cb1894-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1894-3" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(., Species, Petal.Length) <span class="co"># explicitamos que `iris` esta dentro de select por meio do `.`</span></span></code></pre></div>
 <p>Isso pode ficar mais fácil de entender com outro exemplo. Suponha que tenhamos o vetor <code>meuvetor &lt;- c(1:20)</code> e queiramos obter o somatório deste vetor. Podemos executar isso de três maneiras utilizando o operador <code>%&gt;%</code>:</p>
-<div class="sourceCode" id="cb1890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1890-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1890-1" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
-<span id="cb1890-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1890-2" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="sc">%&gt;%</span> <span class="fu">sum</span>(.) <span class="co"># representando o vetor na forma de um `.`</span></span>
-<span id="cb1890-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1890-3" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="sc">%&gt;%</span> <span class="fu">sum</span>() <span class="co"># deixando a funcao vazia</span></span>
-<span id="cb1890-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1890-4" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="sc">%&gt;%</span> <span class="fu">sum</span>() <span class="co"># sem parenteses e sem o `.`. O que?????</span></span></code></pre></div>
+<div class="sourceCode" id="cb1895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1895-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1895-1" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb1895-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1895-2" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="sc">%&gt;%</span> <span class="fu">sum</span>(.) <span class="co"># representando o vetor na forma de um `.`</span></span>
+<span id="cb1895-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1895-3" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="sc">%&gt;%</span> <span class="fu">sum</span>() <span class="co"># deixando a funcao vazia</span></span>
+<span id="cb1895-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1895-4" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="sc">%&gt;%</span> <span class="fu">sum</span>() <span class="co"># sem parenteses e sem o `.`. O que?????</span></span></code></pre></div>
 <p>Todas as maneiras acima executam e geram o mesmo resultado, 210. Essa multiplicidade de maneiras de expor o data.frame (ou o vetor no exemplo acima) é alvo de críticas por parte de alguns estudiosos, devido ao pacote <code>magrittr</code> não exigir que o argumento seja explícito quando usamos o operador <code>%&gt;%</code> (vejam uma boa argumentação nesta postagem de <a href="http://www.win-vector.com/blog/2018/03/r-tip-make-arguments-explicit-in-magrittr-dplyr-pipelines/">John Mount</a>).</p>
 <p>Vale ressaltar que poderíamos muito bem encadear todas as ações executadas acima sem o operador <code>%&gt;%</code>, porém perderíamos a chance de ler o código da esquerda para a direita, oportunidade ofertada pelo uso do operador. Vejamos, usando o conjunto de comandos 2:</p>
-<div class="sourceCode" id="cb1891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1891-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
-<span id="cb1891-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1891-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(</span>
-<span id="cb1891-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(iris, Species, Petal.Length, Sepal.Length),</span>
-<span id="cb1891-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-5" aria-hidden="true" tabindex="-1"></a>      Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span> <span class="sc">&amp;</span> Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span></span>
-<span id="cb1891-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-6" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb1891-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">razaopetsep =</span> Petal.Length <span class="sc">/</span> Sepal.Length</span>
-<span id="cb1891-8"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-8" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb1891-9"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">n</span>(),</span>
-<span id="cb1891-10"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1891-11"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1891-12"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1891-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1896-1"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb1896-2"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1896-3"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(</span>
+<span id="cb1896-4"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(iris, Species, Petal.Length, Sepal.Length),</span>
+<span id="cb1896-5"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-5" aria-hidden="true" tabindex="-1"></a>      Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span> <span class="sc">&amp;</span> Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span></span>
+<span id="cb1896-6"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-6" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1896-7"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">razaopetsep =</span> Petal.Length <span class="sc">/</span> Sepal.Length</span>
+<span id="cb1896-8"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-8" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1896-9"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">N =</span> <span class="fu">n</span>(),</span>
+<span id="cb1896-10"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1896-11"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1896-12"><a href="o-operador-e-o-encadeamento-de-ações.html#cb1896-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Reparem que o código fica mais difícil de ser lido, pois temos de identificar primeiro quem é o <code>data.frame</code> que serve de entrada para a função <code>summarise</code>.
 Depois, há outros desafios, como entender o que cada função faz, e em qual ordem.
 Por fim, o código é lido de dentro para fora, um sentido nada intuitivo.
@@ -1599,7 +1603,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/15-tidyverse.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.4 Funções gráficas de alto nível | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.4 Funções gráficas de alto nível | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -555,84 +559,84 @@ Além da função genérica <code>plot()</code>, veremos apenas alguns poucos ex
 Existem inúmeras outras funções de alto-nível, algumas do R-base, outras geradas por colaboradores na forma de <a href="https://cran.r-project.org/web/packages/">pacotes do R</a>.
 A função <code>plot()</code> entende algumas dessas outras funções dos pacotes automaticamente, dependendo da classe do objeto, e você sequer precisa usar o nome específico (veja o exemplo em plot.phylo(), abaixo).</p>
 <p>No <code>?</code> do pacote graphics, você encontra ajuda para funções gráficas em geral:</p>
-<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="graf-alto-nivel.html#cb881-1" aria-hidden="true" tabindex="-1"></a><span class="fu">demo</span>(<span class="st">&quot;graphics&quot;</span>) <span class="co"># execute este demostrativo - lembre-se de interagir no console do R para as figuras</span></span>
-<span id="cb881-2"><a href="graf-alto-nivel.html#cb881-2" aria-hidden="true" tabindex="-1"></a>?graphics <span class="co"># veja o help dessa função para alguns gráficos</span></span></code></pre></div>
+<div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb880-1"><a href="graf-alto-nivel.html#cb880-1" aria-hidden="true" tabindex="-1"></a><span class="fu">demo</span>(<span class="st">&quot;graphics&quot;</span>) <span class="co"># execute este demostrativo - lembre-se de interagir no console do R para as figuras</span></span>
+<span id="cb880-2"><a href="graf-alto-nivel.html#cb880-2" aria-hidden="true" tabindex="-1"></a>?graphics <span class="co"># veja o help dessa função para alguns gráficos</span></span></code></pre></div>
 <div id="plot---uma-função-genérica" class="section level3 hasAnchor" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> <code>plot()</code> - uma função genérica<a href="graf-alto-nivel.html#plot---uma-função-genérica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>plot()</code> é a principal para produção de gráficos porque é uma <strong>função genérica</strong> que irá gerar um gráfico dependendo da <a href="classes.html#classes">classe do objeto</a>. Em muitos casos, não precisamos usar outras funções, porque a depender da classe do objeto, esta função automaticamente entenderá o que você precisa.</p>
-<div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb882-1"><a href="graf-alto-nivel.html#cb882-1" aria-hidden="true" tabindex="-1"></a>?plot <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="graf-alto-nivel.html#cb881-1" aria-hidden="true" tabindex="-1"></a>?plot <span class="co"># veja o help dessa função</span></span></code></pre></div>
 <p>Suponha que tenhamos um vetor simples e numérico chamado <code>vv</code>:</p>
-<div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb883-1"><a href="graf-alto-nivel.html#cb883-1" aria-hidden="true" tabindex="-1"></a>vv <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb883-2"><a href="graf-alto-nivel.html#cb883-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Qual e a classe desse vetor?</span></span>
-<span id="cb883-3"><a href="graf-alto-nivel.html#cb883-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vv)</span></code></pre></div>
+<div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb882-1"><a href="graf-alto-nivel.html#cb882-1" aria-hidden="true" tabindex="-1"></a>vv <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb882-2"><a href="graf-alto-nivel.html#cb882-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Qual e a classe desse vetor?</span></span>
+<span id="cb882-3"><a href="graf-alto-nivel.html#cb882-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vv)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <p>Vamos plotá-lo:</p>
-<div class="sourceCode" id="cb885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb885-1"><a href="graf-alto-nivel.html#cb885-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vv)</span></code></pre></div>
+<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="graf-alto-nivel.html#cb884-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vv)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-246-1.svg" width="672" /></p>
 <p>Vamos mudar alguns argumentos da função <code>plot()</code>.
 Acrescentaremos um tipo diferente de ponto (argumento <code>pch</code>), uma cor vermelha para o fundo do ponto (argumento <code>bg</code>), um novo texto para o eixo x (argumento <code>xlab</code>), um novo texto para o eixo y (argumento <code>ylab</code>), e um título para o plot (argumento <code>main</code>):</p>
-<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="graf-alto-nivel.html#cb886-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vv, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;índice do vetor&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;valor do vetor&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Plotando um vetor&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb885"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb885-1"><a href="graf-alto-nivel.html#cb885-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vv, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;índice do vetor&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;valor do vetor&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Plotando um vetor&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-247-1.svg" width="672" /></p>
 <p>Vamos trabalhar agora com uma matriz de duas colunas:</p>
-<div class="sourceCode" id="cb887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb887-1"><a href="graf-alto-nivel.html#cb887-1" aria-hidden="true" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="co"># um vetor</span></span>
-<span id="cb887-2"><a href="graf-alto-nivel.html#cb887-2" aria-hidden="true" tabindex="-1"></a>yy <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span> <span class="co"># o mesmo vetor invertido</span></span>
-<span id="cb887-3"><a href="graf-alto-nivel.html#cb887-3" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">cbind</span>(xx, yy) <span class="co"># junta em uma matrix</span></span>
-<span id="cb887-4"><a href="graf-alto-nivel.html#cb887-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Qual a classe dessa matriz?</span></span>
-<span id="cb887-5"><a href="graf-alto-nivel.html#cb887-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mm)</span></code></pre></div>
+<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="graf-alto-nivel.html#cb886-1" aria-hidden="true" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="co"># um vetor</span></span>
+<span id="cb886-2"><a href="graf-alto-nivel.html#cb886-2" aria-hidden="true" tabindex="-1"></a>yy <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span> <span class="co"># o mesmo vetor invertido</span></span>
+<span id="cb886-3"><a href="graf-alto-nivel.html#cb886-3" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">cbind</span>(xx, yy) <span class="co"># junta em uma matrix</span></span>
+<span id="cb886-4"><a href="graf-alto-nivel.html#cb886-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Qual a classe dessa matriz?</span></span>
+<span id="cb886-5"><a href="graf-alto-nivel.html#cb886-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mm)</span></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
 <p>Vamos utilizar a matriz de duas colunas <code>mm</code> diretamente como primeiro argumento da função <code>plot()</code>:</p>
-<div class="sourceCode" id="cb889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb889-1"><a href="graf-alto-nivel.html#cb889-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mm, <span class="at">xlab =</span> <span class="st">&quot;Eixo X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Eixo Y&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Plotando uma matriz de 2 colunas&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb888-1"><a href="graf-alto-nivel.html#cb888-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mm, <span class="at">xlab =</span> <span class="st">&quot;Eixo X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Eixo Y&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Plotando uma matriz de 2 colunas&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-249-1.svg" width="672" /></p>
 <p>Podemos também especificar separadamente os eixos x e y, utilizando os vetores <code>xx</code> e <code>yy</code>, utilizados para compor a matriz <code>mm</code>:</p>
-<div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb890-1"><a href="graf-alto-nivel.html#cb890-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou poderia especificar diretamente os eixos xx e yy sem usar a matriz</span></span>
-<span id="cb890-2"><a href="graf-alto-nivel.html#cb890-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(xx, yy, <span class="at">xlab =</span> <span class="st">&quot;Eixo X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Eixo Y&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Plotando uma matriz de 2 colunas&quot;</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb889-1"><a href="graf-alto-nivel.html#cb889-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou poderia especificar diretamente os eixos xx e yy sem usar a matriz</span></span>
+<span id="cb889-2"><a href="graf-alto-nivel.html#cb889-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(xx, yy, <span class="at">xlab =</span> <span class="st">&quot;Eixo X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Eixo Y&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Plotando uma matriz de 2 colunas&quot;</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;purple&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-250-1.svg" width="672" /></p>
 <p>Se temos um conjunto de dados e queremos ver a relação entre si de todas as colunas do conjunto, podemos simplesmente usar:</p>
-<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="graf-alto-nivel.html#cb891-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris) <span class="co"># um conjunto de dados no formato data.frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb890-1"><a href="graf-alto-nivel.html#cb890-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris) <span class="co"># um conjunto de dados no formato data.frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="graf-alto-nivel.html#cb893-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb892"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb892-1"><a href="graf-alto-nivel.html#cb892-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-252-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="graf-alto-nivel.html#cb894-1" aria-hidden="true" tabindex="-1"></a><span class="co"># o nome dos eixos está na diagonal dessa figura</span></span></code></pre></div>
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="graf-alto-nivel.html#cb893-1" aria-hidden="true" tabindex="-1"></a><span class="co"># o nome dos eixos está na diagonal dessa figura</span></span></code></pre></div>
 </div>
 <div id="hist" class="section level3 hasAnchor" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> <code>hist()</code><a href="graf-alto-nivel.html#hist" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Esta importante função serve para visualizar a variação de uma variável apenas.</p>
-<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="graf-alto-nivel.html#cb895-1" aria-hidden="true" tabindex="-1"></a>?hist <span class="co"># veja o help</span></span></code></pre></div>
+<div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="graf-alto-nivel.html#cb894-1" aria-hidden="true" tabindex="-1"></a>?hist <span class="co"># veja o help</span></span></code></pre></div>
 <p>Vamos utilizar apenas a variável <code>Sepal.Length</code> do conjunto de dados <code>iris</code>:</p>
-<div class="sourceCode" id="cb896"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb896-1"><a href="graf-alto-nivel.html#cb896-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris<span class="sc">$</span>Sepal.Length) <span class="co"># é um vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="graf-alto-nivel.html#cb895-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris<span class="sc">$</span>Sepal.Length) <span class="co"># é um vetor</span></span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="graf-alto-nivel.html#cb898-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">xlab =</span> <span class="st">&quot;Comprimento de sépala (cm)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Variação em Iris&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="graf-alto-nivel.html#cb897-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">xlab =</span> <span class="st">&quot;Comprimento de sépala (cm)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Variação em Iris&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-255-1.svg" width="672" />
 Vamos diminuir os espaçamentos entre as barras e colorí-las:</p>
-<div class="sourceCode" id="cb899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb899-1"><a href="graf-alto-nivel.html#cb899-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diminuindo os espaçamentos entre as barras e colorindo</span></span>
-<span id="cb899-2"><a href="graf-alto-nivel.html#cb899-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">xlab =</span> <span class="st">&quot;Comprimento de sépala (cm)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Variação em Iris&quot;</span>, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="graf-alto-nivel.html#cb898-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diminuindo os espaçamentos entre as barras e colorindo</span></span>
+<span id="cb898-2"><a href="graf-alto-nivel.html#cb898-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">xlab =</span> <span class="st">&quot;Comprimento de sépala (cm)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Variação em Iris&quot;</span>, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-256-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb900-1"><a href="graf-alto-nivel.html#cb900-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que o eixo y é a frequencia que o valor ocorre, ou seja, corresponde ao número de linhas em iris que tem valor</span></span></code></pre></div>
+<div class="sourceCode" id="cb899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb899-1"><a href="graf-alto-nivel.html#cb899-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que o eixo y é a frequencia que o valor ocorre, ou seja, corresponde ao número de linhas em iris que tem valor</span></span></code></pre></div>
 </div>
 <div id="boxplot" class="section level3 hasAnchor" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> <code>boxplot()</code><a href="graf-alto-nivel.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Esta função é importante por mostrar a variação em uma variável qualquer em relação às categorias de um fator.
 É uma das melhores formas gráficas para mostrar a distribuição de valores de uma variável em relação às categorias.</p>
-<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="graf-alto-nivel.html#cb901-1" aria-hidden="true" tabindex="-1"></a>?boxplot</span></code></pre></div>
-<div class="sourceCode" id="cb902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb902-1"><a href="graf-alto-nivel.html#cb902-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos usar o objeto iris</span></span>
-<span id="cb902-2"><a href="graf-alto-nivel.html#cb902-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris<span class="sc">$</span>Sepal.Length) <span class="co"># é um vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb900-1"><a href="graf-alto-nivel.html#cb900-1" aria-hidden="true" tabindex="-1"></a>?boxplot</span></code></pre></div>
+<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="graf-alto-nivel.html#cb901-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos usar o objeto iris</span></span>
+<span id="cb901-2"><a href="graf-alto-nivel.html#cb901-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris<span class="sc">$</span>Sepal.Length) <span class="co"># é um vetor</span></span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb904-1"><a href="graf-alto-nivel.html#cb904-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris<span class="sc">$</span>Species) <span class="co"># é um fator</span></span></code></pre></div>
+<div class="sourceCode" id="cb903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb903-1"><a href="graf-alto-nivel.html#cb903-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris<span class="sc">$</span>Species) <span class="co"># é um fator</span></span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="graf-alto-nivel.html#cb906-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">~</span> iris<span class="sc">$</span>Species, <span class="at">ylab =</span> <span class="st">&quot;Comprimento da sépala&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb905-1"><a href="graf-alto-nivel.html#cb905-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">~</span> iris<span class="sc">$</span>Species, <span class="at">ylab =</span> <span class="st">&quot;Comprimento da sépala&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-258-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="graf-alto-nivel.html#cb907-1" aria-hidden="true" tabindex="-1"></a><span class="co"># você pode fazer a mesma coisa com a função plot() porque ela é genérica que irá reconhecer que sua fórmula &#39;valores~fator&#39; pede por um boxplot</span></span>
-<span id="cb907-2"><a href="graf-alto-nivel.html#cb907-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">~</span> iris<span class="sc">$</span>Species, <span class="at">ylab =</span> <span class="st">&quot;Comprimento da sépala&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>) <span class="co"># note que especificamos aqui que o eixo x não tem título (lab)</span></span></code></pre></div>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="graf-alto-nivel.html#cb906-1" aria-hidden="true" tabindex="-1"></a><span class="co"># você pode fazer a mesma coisa com a função plot() porque ela é genérica que irá reconhecer que sua fórmula &#39;valores~fator&#39; pede por um boxplot</span></span>
+<span id="cb906-2"><a href="graf-alto-nivel.html#cb906-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length <span class="sc">~</span> iris<span class="sc">$</span>Species, <span class="at">ylab =</span> <span class="st">&quot;Comprimento da sépala&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>) <span class="co"># note que especificamos aqui que o eixo x não tem título (lab)</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-258-2.svg" width="672" /></p>
 </div>
 <div id="barplot" class="section level3 hasAnchor" number="5.4.4">
 <h3><span class="header-section-number">5.4.4</span> <code>barplot()</code><a href="graf-alto-nivel.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Esta função gera um gráfico de barras simples.</p>
-<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="graf-alto-nivel.html#cb908-1" aria-hidden="true" tabindex="-1"></a>?barplot <span class="co"># veja o help dessa função</span></span>
-<span id="cb908-2"><a href="graf-alto-nivel.html#cb908-2" aria-hidden="true" tabindex="-1"></a>?VADeaths <span class="co"># veja o help desse conjunto de dados</span></span></code></pre></div>
-<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb909-1"><a href="graf-alto-nivel.html#cb909-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(VADeaths)</span></code></pre></div>
+<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="graf-alto-nivel.html#cb907-1" aria-hidden="true" tabindex="-1"></a>?barplot <span class="co"># veja o help dessa função</span></span>
+<span id="cb907-2"><a href="graf-alto-nivel.html#cb907-2" aria-hidden="true" tabindex="-1"></a>?VADeaths <span class="co"># veja o help desse conjunto de dados</span></span></code></pre></div>
+<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="graf-alto-nivel.html#cb908-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(VADeaths)</span></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="graf-alto-nivel.html#cb911-1" aria-hidden="true" tabindex="-1"></a>VADeaths <span class="co"># taxas de mortalidade/1000 habitantes no estado da Virgínia em 1940</span></span></code></pre></div>
+<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="graf-alto-nivel.html#cb910-1" aria-hidden="true" tabindex="-1"></a>VADeaths <span class="co"># taxas de mortalidade/1000 habitantes no estado da Virgínia em 1940</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -740,23 +744,23 @@ Urban Female
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="graf-alto-nivel.html#cb912-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(VADeaths) <span class="co"># cada linha é uma classe de idade</span></span></code></pre></div>
+<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="graf-alto-nivel.html#cb911-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(VADeaths) <span class="co"># cada linha é uma classe de idade</span></span></code></pre></div>
 <pre><code>## [1] &quot;50-54&quot; &quot;55-59&quot; &quot;60-64&quot; &quot;65-69&quot; &quot;70-74&quot;</code></pre>
-<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="graf-alto-nivel.html#cb914-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(VADeaths) <span class="co"># cada coluna é sexo e cidade ou rural</span></span></code></pre></div>
+<div class="sourceCode" id="cb913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb913-1"><a href="graf-alto-nivel.html#cb913-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(VADeaths) <span class="co"># cada coluna é sexo e cidade ou rural</span></span></code></pre></div>
 <pre><code>## [1] &quot;Rural Male&quot;   &quot;Rural Female&quot; &quot;Urban Male&quot;   &quot;Urban Female&quot;</code></pre>
-<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="graf-alto-nivel.html#cb916-1" aria-hidden="true" tabindex="-1"></a><span class="co"># com as informações padrão</span></span>
-<span id="cb916-2"><a href="graf-alto-nivel.html#cb916-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(VADeaths) <span class="co"># cada cor é uma linha</span></span></code></pre></div>
+<div class="sourceCode" id="cb915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb915-1"><a href="graf-alto-nivel.html#cb915-1" aria-hidden="true" tabindex="-1"></a><span class="co"># com as informações padrão</span></span>
+<span id="cb915-2"><a href="graf-alto-nivel.html#cb915-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(VADeaths) <span class="co"># cada cor é uma linha</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-260-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb917-1"><a href="graf-alto-nivel.html#cb917-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(VADeaths, <span class="at">beside =</span> <span class="cn">TRUE</span>) <span class="co"># lado a lado (cada barra é uma linha)</span></span></code></pre></div>
+<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="graf-alto-nivel.html#cb916-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(VADeaths, <span class="at">beside =</span> <span class="cn">TRUE</span>) <span class="co"># lado a lado (cada barra é uma linha)</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-260-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb918"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb918-1"><a href="graf-alto-nivel.html#cb918-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos colorir diferente, uma para cada linha</span></span>
-<span id="cb918-2"><a href="graf-alto-nivel.html#cb918-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(VADeaths)</span></code></pre></div>
+<div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb917-1"><a href="graf-alto-nivel.html#cb917-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos colorir diferente, uma para cada linha</span></span>
+<span id="cb917-2"><a href="graf-alto-nivel.html#cb917-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(VADeaths)</span></code></pre></div>
 <pre><code>## [1] &quot;50-54&quot; &quot;55-59&quot; &quot;60-64&quot; &quot;65-69&quot; &quot;70-74&quot;</code></pre>
-<div class="sourceCode" id="cb920"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb920-1"><a href="graf-alto-nivel.html#cb920-1" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="at">n =</span> <span class="fu">nrow</span>(VADeaths))</span>
-<span id="cb920-2"><a href="graf-alto-nivel.html#cb920-2" aria-hidden="true" tabindex="-1"></a>cores <span class="co"># uma cor por linha</span></span></code></pre></div>
+<div class="sourceCode" id="cb919"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb919-1"><a href="graf-alto-nivel.html#cb919-1" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="at">n =</span> <span class="fu">nrow</span>(VADeaths))</span>
+<span id="cb919-2"><a href="graf-alto-nivel.html#cb919-2" aria-hidden="true" tabindex="-1"></a>cores <span class="co"># uma cor por linha</span></span></code></pre></div>
 <pre><code>## [1] &quot;#FF0000&quot; &quot;#CCFF00&quot; &quot;#00FF66&quot; &quot;#0066FF&quot; &quot;#CC00FF&quot;</code></pre>
-<div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="graf-alto-nivel.html#cb922-1" aria-hidden="true" tabindex="-1"></a><span class="co"># essa é a correspondencia:</span></span>
-<span id="cb922-2"><a href="graf-alto-nivel.html#cb922-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">rownames</span>(VADeaths), cores)</span></code></pre></div>
+<div class="sourceCode" id="cb921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb921-1"><a href="graf-alto-nivel.html#cb921-1" aria-hidden="true" tabindex="-1"></a><span class="co"># essa é a correspondencia:</span></span>
+<span id="cb921-2"><a href="graf-alto-nivel.html#cb921-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">rownames</span>(VADeaths), cores)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -810,122 +814,122 @@ cores
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb923"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb923-1"><a href="graf-alto-nivel.html#cb923-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota com essas cores</span></span>
-<span id="cb923-2"><a href="graf-alto-nivel.html#cb923-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(VADeaths, <span class="at">beside =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> cores)</span></code></pre></div>
+<div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="graf-alto-nivel.html#cb922-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota com essas cores</span></span>
+<span id="cb922-2"><a href="graf-alto-nivel.html#cb922-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(VADeaths, <span class="at">beside =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> cores)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-260-3.svg" width="672" /></p>
 </div>
 <div id="plot.phylo" class="section level3 hasAnchor" number="5.4.5">
 <h3><span class="header-section-number">5.4.5</span> <code>plot.phylo()</code><a href="graf-alto-nivel.html#plot.phylo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O pacote <a href="https://cran.r-project.org/web/packages/ape/index.html">Ape (Analyses of Phylogenetics and Evolution)</a> <span class="citation">(<a href="#ref-R-ape" role="doc-biblioref">Paradis et al. 2020</a>)</span> possui uma função para desenhar uma filogenia.
 Caso você não tenha instalado o pacote <code>ape</code> ainda, faça-o assim:</p>
-<div class="sourceCode" id="cb924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb924-1"><a href="graf-alto-nivel.html#cb924-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb923"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb923-1"><a href="graf-alto-nivel.html#cb923-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>)</span></code></pre></div>
 <p>Depois, siga o exemplo abaixo:</p>
-<div class="sourceCode" id="cb925"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb925-1"><a href="graf-alto-nivel.html#cb925-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape) <span class="co"># chama o pacote</span></span>
-<span id="cb925-2"><a href="graf-alto-nivel.html#cb925-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb925-3"><a href="graf-alto-nivel.html#cb925-3" aria-hidden="true" tabindex="-1"></a><span class="co"># uma filogenia hipotética para exemplo</span></span>
-<span id="cb925-4"><a href="graf-alto-nivel.html#cb925-4" aria-hidden="true" tabindex="-1"></a>arv <span class="ot">&lt;-</span> <span class="st">&quot;(((A:1,B:1):2,C:3):0.5,((D:0.5,E:0.5):1,F:1.5):2);&quot;</span></span>
-<span id="cb925-5"><a href="graf-alto-nivel.html#cb925-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb925-6"><a href="graf-alto-nivel.html#cb925-6" aria-hidden="true" tabindex="-1"></a><span class="co"># lê essa filogenia para um objeto de classe phylo, que é uma classe para dendrogramas.</span></span>
-<span id="cb925-7"><a href="graf-alto-nivel.html#cb925-7" aria-hidden="true" tabindex="-1"></a>phy <span class="ot">&lt;-</span> <span class="fu">read.tree</span>(<span class="at">text =</span> arv)</span>
-<span id="cb925-8"><a href="graf-alto-nivel.html#cb925-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(phy)</span></code></pre></div>
+<div class="sourceCode" id="cb924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb924-1"><a href="graf-alto-nivel.html#cb924-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape) <span class="co"># chama o pacote</span></span>
+<span id="cb924-2"><a href="graf-alto-nivel.html#cb924-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb924-3"><a href="graf-alto-nivel.html#cb924-3" aria-hidden="true" tabindex="-1"></a><span class="co"># uma filogenia hipotética para exemplo</span></span>
+<span id="cb924-4"><a href="graf-alto-nivel.html#cb924-4" aria-hidden="true" tabindex="-1"></a>arv <span class="ot">&lt;-</span> <span class="st">&quot;(((A:1,B:1):2,C:3):0.5,((D:0.5,E:0.5):1,F:1.5):2);&quot;</span></span>
+<span id="cb924-5"><a href="graf-alto-nivel.html#cb924-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb924-6"><a href="graf-alto-nivel.html#cb924-6" aria-hidden="true" tabindex="-1"></a><span class="co"># lê essa filogenia para um objeto de classe phylo, que é uma classe para dendrogramas.</span></span>
+<span id="cb924-7"><a href="graf-alto-nivel.html#cb924-7" aria-hidden="true" tabindex="-1"></a>phy <span class="ot">&lt;-</span> <span class="fu">read.tree</span>(<span class="at">text =</span> arv)</span>
+<span id="cb924-8"><a href="graf-alto-nivel.html#cb924-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(phy)</span></code></pre></div>
 <pre><code>## [1] &quot;phylo&quot;</code></pre>
-<div class="sourceCode" id="cb927"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb927-1"><a href="graf-alto-nivel.html#cb927-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos plotar essa filogenia com</span></span>
-<span id="cb927-2"><a href="graf-alto-nivel.html#cb927-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(phy)</span></code></pre></div>
+<div class="sourceCode" id="cb926"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb926-1"><a href="graf-alto-nivel.html#cb926-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos plotar essa filogenia com</span></span>
+<span id="cb926-2"><a href="graf-alto-nivel.html#cb926-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(phy)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-262-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb928-1"><a href="graf-alto-nivel.html#cb928-1" aria-hidden="true" tabindex="-1"></a><span class="co"># porque a função plot reconhece</span></span>
-<span id="cb928-2"><a href="graf-alto-nivel.html#cb928-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que objetos de classe &quot;phylo&quot; são árvores</span></span>
-<span id="cb928-3"><a href="graf-alto-nivel.html#cb928-3" aria-hidden="true" tabindex="-1"></a><span class="co"># de fato ela usa a função plot.phylo() para gerar essa figura, que contém argumentos específicos para objetos dessa classe</span></span></code></pre></div>
-<div class="sourceCode" id="cb929"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb929-1"><a href="graf-alto-nivel.html#cb929-1" aria-hidden="true" tabindex="-1"></a>?plot.phylo <span class="co"># veja o help e os argumentos</span></span></code></pre></div>
-<div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb930-1"><a href="graf-alto-nivel.html#cb930-1" aria-hidden="true" tabindex="-1"></a><span class="co"># portanto posso incluir argumentos de plot.phylo() quando uso a função plot() para plotar um objeto de classe phylo</span></span>
-<span id="cb930-2"><a href="graf-alto-nivel.html#cb930-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(phy, <span class="at">no.margin =</span> <span class="cn">TRUE</span>, <span class="at">tip.color =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">&quot;blue&quot;</span>, <span class="dv">3</span>)))</span>
-<span id="cb930-3"><a href="graf-alto-nivel.html#cb930-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb930-4"><a href="graf-alto-nivel.html#cb930-4" aria-hidden="true" tabindex="-1"></a><span class="co"># seria o mesmo que dizer</span></span>
-<span id="cb930-5"><a href="graf-alto-nivel.html#cb930-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.phylo</span>(phy, <span class="at">no.margin =</span> <span class="cn">TRUE</span>, <span class="at">tip.color =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">&quot;blue&quot;</span>, <span class="dv">3</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb927"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb927-1"><a href="graf-alto-nivel.html#cb927-1" aria-hidden="true" tabindex="-1"></a><span class="co"># porque a função plot reconhece</span></span>
+<span id="cb927-2"><a href="graf-alto-nivel.html#cb927-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que objetos de classe &quot;phylo&quot; são árvores</span></span>
+<span id="cb927-3"><a href="graf-alto-nivel.html#cb927-3" aria-hidden="true" tabindex="-1"></a><span class="co"># de fato ela usa a função plot.phylo() para gerar essa figura, que contém argumentos específicos para objetos dessa classe</span></span></code></pre></div>
+<div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb928-1"><a href="graf-alto-nivel.html#cb928-1" aria-hidden="true" tabindex="-1"></a>?plot.phylo <span class="co"># veja o help e os argumentos</span></span></code></pre></div>
+<div class="sourceCode" id="cb929"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb929-1"><a href="graf-alto-nivel.html#cb929-1" aria-hidden="true" tabindex="-1"></a><span class="co"># portanto posso incluir argumentos de plot.phylo() quando uso a função plot() para plotar um objeto de classe phylo</span></span>
+<span id="cb929-2"><a href="graf-alto-nivel.html#cb929-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(phy, <span class="at">no.margin =</span> <span class="cn">TRUE</span>, <span class="at">tip.color =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">&quot;blue&quot;</span>, <span class="dv">3</span>)))</span>
+<span id="cb929-3"><a href="graf-alto-nivel.html#cb929-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb929-4"><a href="graf-alto-nivel.html#cb929-4" aria-hidden="true" tabindex="-1"></a><span class="co"># seria o mesmo que dizer</span></span>
+<span id="cb929-5"><a href="graf-alto-nivel.html#cb929-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.phylo</span>(phy, <span class="at">no.margin =</span> <span class="cn">TRUE</span>, <span class="at">tip.color =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">&quot;blue&quot;</span>, <span class="dv">3</span>)))</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-264-1.svg" width="672" /></p>
 </div>
 <div id="image-e-countour" class="section level3 hasAnchor" number="5.4.6">
 <h3><span class="header-section-number">5.4.6</span> <code>image()</code> e <code>countour()</code><a href="graf-alto-nivel.html#image-e-countour" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb931"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb931-1"><a href="graf-alto-nivel.html#cb931-1" aria-hidden="true" tabindex="-1"></a><span class="co"># existe um conjunto de dados topográficos na base do R que vamos usar como exemplo</span></span>
-<span id="cb931-2"><a href="graf-alto-nivel.html#cb931-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(volcano) <span class="co"># é uma matriz</span></span>
-<span id="cb931-3"><a href="graf-alto-nivel.html#cb931-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(volcano) <span class="co"># com 87 linhas e 61 uma colnas</span></span>
-<span id="cb931-4"><a href="graf-alto-nivel.html#cb931-4" aria-hidden="true" tabindex="-1"></a>volcano[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># os valores são altitude</span></span>
-<span id="cb931-5"><a href="graf-alto-nivel.html#cb931-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(volcano, <span class="at">breaks =</span> <span class="dv">20</span>) <span class="co"># essa é a distribuição de valores de elevacao</span></span>
-<span id="cb931-6"><a href="graf-alto-nivel.html#cb931-6" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(volcano) <span class="co"># amplitude de variação</span></span></code></pre></div>
-<div class="sourceCode" id="cb932"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb932-1"><a href="graf-alto-nivel.html#cb932-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos usar algumas funções para visualizar um conjunto de dados que tem essa estrutura (matrix)</span></span>
-<span id="cb932-2"><a href="graf-alto-nivel.html#cb932-2" aria-hidden="true" tabindex="-1"></a>?image <span class="co"># veja o help</span></span></code></pre></div>
-<div class="sourceCode" id="cb933"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb933-1"><a href="graf-alto-nivel.html#cb933-1" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(volcano, <span class="at">col =</span> <span class="fu">heat.colors</span>(<span class="dv">12</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb930-1"><a href="graf-alto-nivel.html#cb930-1" aria-hidden="true" tabindex="-1"></a><span class="co"># existe um conjunto de dados topográficos na base do R que vamos usar como exemplo</span></span>
+<span id="cb930-2"><a href="graf-alto-nivel.html#cb930-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(volcano) <span class="co"># é uma matriz</span></span>
+<span id="cb930-3"><a href="graf-alto-nivel.html#cb930-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(volcano) <span class="co"># com 87 linhas e 61 uma colnas</span></span>
+<span id="cb930-4"><a href="graf-alto-nivel.html#cb930-4" aria-hidden="true" tabindex="-1"></a>volcano[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># os valores são altitude</span></span>
+<span id="cb930-5"><a href="graf-alto-nivel.html#cb930-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(volcano, <span class="at">breaks =</span> <span class="dv">20</span>) <span class="co"># essa é a distribuição de valores de elevacao</span></span>
+<span id="cb930-6"><a href="graf-alto-nivel.html#cb930-6" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(volcano) <span class="co"># amplitude de variação</span></span></code></pre></div>
+<div class="sourceCode" id="cb931"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb931-1"><a href="graf-alto-nivel.html#cb931-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos usar algumas funções para visualizar um conjunto de dados que tem essa estrutura (matrix)</span></span>
+<span id="cb931-2"><a href="graf-alto-nivel.html#cb931-2" aria-hidden="true" tabindex="-1"></a>?image <span class="co"># veja o help</span></span></code></pre></div>
+<div class="sourceCode" id="cb932"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb932-1"><a href="graf-alto-nivel.html#cb932-1" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(volcano, <span class="at">col =</span> <span class="fu">heat.colors</span>(<span class="dv">12</span>))</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-267-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb934"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb934-1"><a href="graf-alto-nivel.html#cb934-1" aria-hidden="true" tabindex="-1"></a>?heat.colors <span class="co"># veja opções de gradientes continuos de cores</span></span></code></pre></div>
-<div class="sourceCode" id="cb935"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb935-1"><a href="graf-alto-nivel.html#cb935-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos mudar isso,</span></span>
-<span id="cb935-2"><a href="graf-alto-nivel.html#cb935-2" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">terrain.colors</span>(<span class="dv">12</span>) <span class="co"># 12 categorias de cores</span></span>
-<span id="cb935-3"><a href="graf-alto-nivel.html#cb935-3" aria-hidden="true" tabindex="-1"></a>cores <span class="co"># o código é uma cor em HTML</span></span></code></pre></div>
+<div class="sourceCode" id="cb933"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb933-1"><a href="graf-alto-nivel.html#cb933-1" aria-hidden="true" tabindex="-1"></a>?heat.colors <span class="co"># veja opções de gradientes continuos de cores</span></span></code></pre></div>
+<div class="sourceCode" id="cb934"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb934-1"><a href="graf-alto-nivel.html#cb934-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos mudar isso,</span></span>
+<span id="cb934-2"><a href="graf-alto-nivel.html#cb934-2" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">terrain.colors</span>(<span class="dv">12</span>) <span class="co"># 12 categorias de cores</span></span>
+<span id="cb934-3"><a href="graf-alto-nivel.html#cb934-3" aria-hidden="true" tabindex="-1"></a>cores <span class="co"># o código é uma cor em HTML</span></span></code></pre></div>
 <pre><code>##  [1] &quot;#00A600&quot; &quot;#24B300&quot; &quot;#4CBF00&quot; &quot;#7ACC00&quot; &quot;#ADD900&quot; &quot;#E6E600&quot; &quot;#E8C727&quot;
 ##  [8] &quot;#EAB64E&quot; &quot;#ECB176&quot; &quot;#EEB99F&quot; &quot;#F0CFC8&quot; &quot;#F2F2F2&quot;</code></pre>
-<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="graf-alto-nivel.html#cb937-1" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(volcano, <span class="at">col =</span> cores)</span></code></pre></div>
+<div class="sourceCode" id="cb936"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb936-1"><a href="graf-alto-nivel.html#cb936-1" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(volcano, <span class="at">col =</span> cores)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-269-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb938-1"><a href="graf-alto-nivel.html#cb938-1" aria-hidden="true" tabindex="-1"></a><span class="co"># notem a cratera</span></span></code></pre></div>
-<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb939-1"><a href="graf-alto-nivel.html#cb939-1" aria-hidden="true" tabindex="-1"></a>?contour <span class="co"># veja o help</span></span></code></pre></div>
-<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb940-1"><a href="graf-alto-nivel.html#cb940-1" aria-hidden="true" tabindex="-1"></a><span class="co"># outra opção é fazermos os contornos (ou curvas de nível neste caso do vulcão)</span></span>
-<span id="cb940-2"><a href="graf-alto-nivel.html#cb940-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(volcano)</span>
-<span id="cb940-3"><a href="graf-alto-nivel.html#cb940-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos mudar o número de níveis para o mesmo usado para as cores</span></span>
-<span id="cb940-4"><a href="graf-alto-nivel.html#cb940-4" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(volcano, <span class="at">nlevels =</span> <span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="graf-alto-nivel.html#cb937-1" aria-hidden="true" tabindex="-1"></a><span class="co"># notem a cratera</span></span></code></pre></div>
+<div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb938-1"><a href="graf-alto-nivel.html#cb938-1" aria-hidden="true" tabindex="-1"></a>?contour <span class="co"># veja o help</span></span></code></pre></div>
+<div class="sourceCode" id="cb939"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb939-1"><a href="graf-alto-nivel.html#cb939-1" aria-hidden="true" tabindex="-1"></a><span class="co"># outra opção é fazermos os contornos (ou curvas de nível neste caso do vulcão)</span></span>
+<span id="cb939-2"><a href="graf-alto-nivel.html#cb939-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(volcano)</span>
+<span id="cb939-3"><a href="graf-alto-nivel.html#cb939-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos mudar o número de níveis para o mesmo usado para as cores</span></span>
+<span id="cb939-4"><a href="graf-alto-nivel.html#cb939-4" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(volcano, <span class="at">nlevels =</span> <span class="dv">12</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-271-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb941"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb941-1"><a href="graf-alto-nivel.html#cb941-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos juntar essas figuras em uma só</span></span>
-<span id="cb941-2"><a href="graf-alto-nivel.html#cb941-2" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(volcano, <span class="at">col =</span> cores)</span>
-<span id="cb941-3"><a href="graf-alto-nivel.html#cb941-3" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(volcano, <span class="at">nlevels =</span> <span class="dv">12</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb940-1"><a href="graf-alto-nivel.html#cb940-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos juntar essas figuras em uma só</span></span>
+<span id="cb940-2"><a href="graf-alto-nivel.html#cb940-2" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(volcano, <span class="at">col =</span> cores)</span>
+<span id="cb940-3"><a href="graf-alto-nivel.html#cb940-3" aria-hidden="true" tabindex="-1"></a><span class="fu">contour</span>(volcano, <span class="at">nlevels =</span> <span class="dv">12</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-271-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb942-1"><a href="graf-alto-nivel.html#cb942-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note o argumento add=TRUE que indica para a função de alto-nível</span></span>
-<span id="cb942-2"><a href="graf-alto-nivel.html#cb942-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que ela não deve começar uma nova figura,</span></span>
-<span id="cb942-3"><a href="graf-alto-nivel.html#cb942-3" aria-hidden="true" tabindex="-1"></a><span class="co"># apenas adiciona à uma já criada por outra função de alto-nível</span></span>
-<span id="cb942-4"><a href="graf-alto-nivel.html#cb942-4" aria-hidden="true" tabindex="-1"></a><span class="co"># muitas funções de alto-nível tem esse argumento add, que, portanto, mimetiza o que função gráfica de baixo-nível faz</span></span></code></pre></div>
+<div class="sourceCode" id="cb941"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb941-1"><a href="graf-alto-nivel.html#cb941-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note o argumento add=TRUE que indica para a função de alto-nível</span></span>
+<span id="cb941-2"><a href="graf-alto-nivel.html#cb941-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que ela não deve começar uma nova figura,</span></span>
+<span id="cb941-3"><a href="graf-alto-nivel.html#cb941-3" aria-hidden="true" tabindex="-1"></a><span class="co"># apenas adiciona à uma já criada por outra função de alto-nível</span></span>
+<span id="cb941-4"><a href="graf-alto-nivel.html#cb941-4" aria-hidden="true" tabindex="-1"></a><span class="co"># muitas funções de alto-nível tem esse argumento add, que, portanto, mimetiza o que função gráfica de baixo-nível faz</span></span></code></pre></div>
 </div>
 <div id="map" class="section level3 hasAnchor" number="5.4.7">
 <h3><span class="header-section-number">5.4.7</span> <code>map()</code><a href="graf-alto-nivel.html#map" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O pacote <a href="https://cran.r-project.org/web/packages/maps/index.html">maps</a> <span class="citation">(<a href="#ref-R-maps" role="doc-biblioref">Brownrigg 2018</a>)</span> fornece funções para desenhar mapas com divisões administrativas.
 A função <code>map()</code> é uma de alto-nível.
 Veremos depois como adicionar sobre esses mapas informação através de funções de baixo-nível.</p>
-<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb943-1"><a href="graf-alto-nivel.html#cb943-1" aria-hidden="true" tabindex="-1"></a>?maps<span class="sc">::</span>map <span class="co"># veja o help</span></span></code></pre></div>
+<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb942-1"><a href="graf-alto-nivel.html#cb942-1" aria-hidden="true" tabindex="-1"></a>?maps<span class="sc">::</span>map <span class="co"># veja o help</span></span></code></pre></div>
 <p>Caso você não tenha instalado o pacote <code>maps</code> ainda, faça-o assim:</p>
-<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb944-1"><a href="graf-alto-nivel.html#cb944-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;maps&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb943-1"><a href="graf-alto-nivel.html#cb943-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;maps&quot;</span>)</span></code></pre></div>
 <p>Agora, siga o exemplo abaixo:</p>
-<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="graf-alto-nivel.html#cb945-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps) <span class="co"># instalar se não tiver instalado</span></span>
-<span id="cb945-2"><a href="graf-alto-nivel.html#cb945-2" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>() <span class="co"># mapa do mundo</span></span></code></pre></div>
+<div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb944-1"><a href="graf-alto-nivel.html#cb944-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps) <span class="co"># instalar se não tiver instalado</span></span>
+<span id="cb944-2"><a href="graf-alto-nivel.html#cb944-2" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>() <span class="co"># mapa do mundo</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-274-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb946"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb946-1"><a href="graf-alto-nivel.html#cb946-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="at">region =</span> <span class="st">&quot;Brazil&quot;</span>) <span class="co"># Brazil</span></span></code></pre></div>
+<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="graf-alto-nivel.html#cb945-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="at">region =</span> <span class="st">&quot;Brazil&quot;</span>) <span class="co"># Brazil</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-274-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="graf-alto-nivel.html#cb947-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dev.off() #pode precisar fechar o dispositivo se estiver avisar que a figura é muito grande</span></span>
-<span id="cb947-2"><a href="graf-alto-nivel.html#cb947-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb947-3"><a href="graf-alto-nivel.html#cb947-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb946"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb946-1"><a href="graf-alto-nivel.html#cb946-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dev.off() #pode precisar fechar o dispositivo se estiver avisar que a figura é muito grande</span></span>
+<span id="cb946-2"><a href="graf-alto-nivel.html#cb946-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb946-3"><a href="graf-alto-nivel.html#cb946-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <pre><code>## null device 
 ##           1</code></pre>
-<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="graf-alto-nivel.html#cb949-1" aria-hidden="true" tabindex="-1"></a>sa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Brazil&quot;</span>, <span class="st">&quot;Guyana&quot;</span>, <span class="st">&quot;French Guiana&quot;</span>, <span class="st">&quot;Suriname&quot;</span>, <span class="st">&quot;Venezuela&quot;</span>, <span class="st">&quot;Colombia&quot;</span>, <span class="st">&quot;Ecuador&quot;</span>, <span class="st">&quot;Trinidad-Tobago&quot;</span>, <span class="st">&quot;Peru&quot;</span>, <span class="st">&quot;Bolivia&quot;</span>, <span class="st">&quot;Paraguay&quot;</span>, <span class="st">&quot;Chile&quot;</span>, <span class="st">&quot;Argentina&quot;</span>, <span class="st">&quot;Uruguay&quot;</span>, <span class="st">&quot;Panama&quot;</span>)</span>
-<span id="cb949-2"><a href="graf-alto-nivel.html#cb949-2" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="at">region =</span> sa, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb948"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb948-1"><a href="graf-alto-nivel.html#cb948-1" aria-hidden="true" tabindex="-1"></a>sa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Brazil&quot;</span>, <span class="st">&quot;Guyana&quot;</span>, <span class="st">&quot;French Guiana&quot;</span>, <span class="st">&quot;Suriname&quot;</span>, <span class="st">&quot;Venezuela&quot;</span>, <span class="st">&quot;Colombia&quot;</span>, <span class="st">&quot;Ecuador&quot;</span>, <span class="st">&quot;Trinidad-Tobago&quot;</span>, <span class="st">&quot;Peru&quot;</span>, <span class="st">&quot;Bolivia&quot;</span>, <span class="st">&quot;Paraguay&quot;</span>, <span class="st">&quot;Chile&quot;</span>, <span class="st">&quot;Argentina&quot;</span>, <span class="st">&quot;Uruguay&quot;</span>, <span class="st">&quot;Panama&quot;</span>)</span>
+<span id="cb948-2"><a href="graf-alto-nivel.html#cb948-2" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="at">region =</span> sa, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
 </div>
 <div id="xlim-e-ylim" class="section level3 hasAnchor" number="5.4.8">
 <h3><span class="header-section-number">5.4.8</span> <code>xlim</code> e <code>ylim</code><a href="graf-alto-nivel.html#xlim-e-ylim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Esses dois parâmetros gráficos permitem ajustar o tamanho dos eixos de um gráfico, impondo limites.</p>
-<div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb950-1"><a href="graf-alto-nivel.html#cb950-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CONTROLANDO UM XLIM</span></span>
-<span id="cb950-2"><a href="graf-alto-nivel.html#cb950-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb950-3"><a href="graf-alto-nivel.html#cb950-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos aumentar um pouco o eixo X</span></span>
-<span id="cb950-4"><a href="graf-alto-nivel.html#cb950-4" aria-hidden="true" tabindex="-1"></a>rg <span class="ot">&lt;-</span> <span class="fu">range</span>(iris<span class="sc">$</span>Sepal.Length) <span class="co"># variacao atual</span></span>
-<span id="cb950-5"><a href="graf-alto-nivel.html#cb950-5" aria-hidden="true" tabindex="-1"></a>rg</span>
-<span id="cb950-6"><a href="graf-alto-nivel.html#cb950-6" aria-hidden="true" tabindex="-1"></a><span class="co"># aumentar</span></span>
-<span id="cb950-7"><a href="graf-alto-nivel.html#cb950-7" aria-hidden="true" tabindex="-1"></a>rg2 <span class="ot">&lt;-</span> rg <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">+</span><span class="dv">1</span>) <span class="co"># adicionamos 1 unidade de cada lado</span></span>
-<span id="cb950-8"><a href="graf-alto-nivel.html#cb950-8" aria-hidden="true" tabindex="-1"></a>rg2</span>
-<span id="cb950-9"><a href="graf-alto-nivel.html#cb950-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlim =</span> rg2)</span>
-<span id="cb950-10"><a href="graf-alto-nivel.html#cb950-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb950-11"><a href="graf-alto-nivel.html#cb950-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb950-12"><a href="graf-alto-nivel.html#cb950-12" aria-hidden="true" tabindex="-1"></a><span class="co"># LIMITANDO UM MAPA POR SUAS COORDENADAS</span></span>
-<span id="cb950-13"><a href="graf-alto-nivel.html#cb950-13" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
-<span id="cb950-14"><a href="graf-alto-nivel.html#cb950-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps) <span class="co"># instalar se não tiver instalado</span></span>
-<span id="cb950-15"><a href="graf-alto-nivel.html#cb950-15" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>() <span class="co"># mapa do mundo</span></span>
-<span id="cb950-16"><a href="graf-alto-nivel.html#cb950-16" aria-hidden="true" tabindex="-1"></a><span class="co"># alguns limites em latitude e longitude</span></span>
-<span id="cb950-17"><a href="graf-alto-nivel.html#cb950-17" aria-hidden="true" tabindex="-1"></a>lat0 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">22</span></span>
-<span id="cb950-18"><a href="graf-alto-nivel.html#cb950-18" aria-hidden="true" tabindex="-1"></a>lat1 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb950-19"><a href="graf-alto-nivel.html#cb950-19" aria-hidden="true" tabindex="-1"></a>long0 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">80</span></span>
-<span id="cb950-20"><a href="graf-alto-nivel.html#cb950-20" aria-hidden="true" tabindex="-1"></a>long1 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">30</span></span>
-<span id="cb950-21"><a href="graf-alto-nivel.html#cb950-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
-<span id="cb950-22"><a href="graf-alto-nivel.html#cb950-22" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="at">xlim =</span> <span class="fu">c</span>(long0, long1), <span class="at">ylim =</span> <span class="fu">c</span>(lat0, lat1))</span></code></pre></div>
+<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="graf-alto-nivel.html#cb949-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CONTROLANDO UM XLIM</span></span>
+<span id="cb949-2"><a href="graf-alto-nivel.html#cb949-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb949-3"><a href="graf-alto-nivel.html#cb949-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos aumentar um pouco o eixo X</span></span>
+<span id="cb949-4"><a href="graf-alto-nivel.html#cb949-4" aria-hidden="true" tabindex="-1"></a>rg <span class="ot">&lt;-</span> <span class="fu">range</span>(iris<span class="sc">$</span>Sepal.Length) <span class="co"># variacao atual</span></span>
+<span id="cb949-5"><a href="graf-alto-nivel.html#cb949-5" aria-hidden="true" tabindex="-1"></a>rg</span>
+<span id="cb949-6"><a href="graf-alto-nivel.html#cb949-6" aria-hidden="true" tabindex="-1"></a><span class="co"># aumentar</span></span>
+<span id="cb949-7"><a href="graf-alto-nivel.html#cb949-7" aria-hidden="true" tabindex="-1"></a>rg2 <span class="ot">&lt;-</span> rg <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">+</span><span class="dv">1</span>) <span class="co"># adicionamos 1 unidade de cada lado</span></span>
+<span id="cb949-8"><a href="graf-alto-nivel.html#cb949-8" aria-hidden="true" tabindex="-1"></a>rg2</span>
+<span id="cb949-9"><a href="graf-alto-nivel.html#cb949-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Sepal.Width, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlim =</span> rg2)</span>
+<span id="cb949-10"><a href="graf-alto-nivel.html#cb949-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb949-11"><a href="graf-alto-nivel.html#cb949-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb949-12"><a href="graf-alto-nivel.html#cb949-12" aria-hidden="true" tabindex="-1"></a><span class="co"># LIMITANDO UM MAPA POR SUAS COORDENADAS</span></span>
+<span id="cb949-13"><a href="graf-alto-nivel.html#cb949-13" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb949-14"><a href="graf-alto-nivel.html#cb949-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps) <span class="co"># instalar se não tiver instalado</span></span>
+<span id="cb949-15"><a href="graf-alto-nivel.html#cb949-15" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>() <span class="co"># mapa do mundo</span></span>
+<span id="cb949-16"><a href="graf-alto-nivel.html#cb949-16" aria-hidden="true" tabindex="-1"></a><span class="co"># alguns limites em latitude e longitude</span></span>
+<span id="cb949-17"><a href="graf-alto-nivel.html#cb949-17" aria-hidden="true" tabindex="-1"></a>lat0 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">22</span></span>
+<span id="cb949-18"><a href="graf-alto-nivel.html#cb949-18" aria-hidden="true" tabindex="-1"></a>lat1 <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb949-19"><a href="graf-alto-nivel.html#cb949-19" aria-hidden="true" tabindex="-1"></a>long0 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">80</span></span>
+<span id="cb949-20"><a href="graf-alto-nivel.html#cb949-20" aria-hidden="true" tabindex="-1"></a>long1 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">30</span></span>
+<span id="cb949-21"><a href="graf-alto-nivel.html#cb949-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb949-22"><a href="graf-alto-nivel.html#cb949-22" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="at">xlim =</span> <span class="fu">c</span>(long0, long1), <span class="at">ylim =</span> <span class="fu">c</span>(lat0, lat1))</span></code></pre></div>
 </div>
 </div>
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -985,7 +989,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/05-funcoes_graficas.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

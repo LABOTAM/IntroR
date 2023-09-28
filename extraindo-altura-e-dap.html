@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10.3 Extraindo altura e dap | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10.3 Extraindo altura e dap | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -553,194 +557,194 @@ div.csl-indent {
 <p>Funções para extrair altura e diâmetro à altura do peito (DAP) de colunas descritivas.</p>
 <div id="altura" class="section level3 hasAnchor" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Altura<a href="extraindo-altura-e-dap.html#altura" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1442-1"><a href="extraindo-altura-e-dap.html#cb1442-1" aria-hidden="true" tabindex="-1"></a>pegaaltura <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<div class="sourceCode" id="cb1441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1441-1"><a href="extraindo-altura-e-dap.html#cb1441-1" aria-hidden="true" tabindex="-1"></a>pegaaltura <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1441-2"><a href="extraindo-altura-e-dap.html#cb1441-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">+/-&quot;</span>, <span class="st">&quot;&quot;</span>, x)</span>
+<span id="cb1441-3"><a href="extraindo-altura-e-dap.html#cb1441-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;  &quot;</span>, <span class="st">&quot; &quot;</span>, x)</span>
+<span id="cb1441-4"><a href="extraindo-altura-e-dap.html#cb1441-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;  &quot;</span>, <span class="st">&quot; &quot;</span>, x)</span>
+<span id="cb1441-5"><a href="extraindo-altura-e-dap.html#cb1441-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print(x)</span></span>
+<span id="cb1441-6"><a href="extraindo-altura-e-dap.html#cb1441-6" aria-hidden="true" tabindex="-1"></a>  pt1 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m x&quot;</span></span>
+<span id="cb1441-7"><a href="extraindo-altura-e-dap.html#cb1441-7" aria-hidden="true" tabindex="-1"></a>  pt2 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m x&quot;</span></span>
+<span id="cb1441-8"><a href="extraindo-altura-e-dap.html#cb1441-8" aria-hidden="true" tabindex="-1"></a>  pt3 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m</span><span class="sc">\\</span><span class="st">. x&quot;</span></span>
+<span id="cb1441-9"><a href="extraindo-altura-e-dap.html#cb1441-9" aria-hidden="true" tabindex="-1"></a>  pt4 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m de altura&quot;</span></span>
+<span id="cb1441-10"><a href="extraindo-altura-e-dap.html#cb1441-10" aria-hidden="true" tabindex="-1"></a>  pt5 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m</span><span class="sc">\\</span><span class="st">. de altura&quot;</span></span>
+<span id="cb1441-11"><a href="extraindo-altura-e-dap.html#cb1441-11" aria-hidden="true" tabindex="-1"></a>  pt6 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m d ealtura&quot;</span></span>
+<span id="cb1441-12"><a href="extraindo-altura-e-dap.html#cb1441-12" aria-hidden="true" tabindex="-1"></a>  pt7 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m de alto&quot;</span></span>
+<span id="cb1441-13"><a href="extraindo-altura-e-dap.html#cb1441-13" aria-hidden="true" tabindex="-1"></a>  pt8 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m de alto&quot;</span></span>
+<span id="cb1441-14"><a href="extraindo-altura-e-dap.html#cb1441-14" aria-hidden="true" tabindex="-1"></a>  pt9 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m alto&quot;</span></span>
+<span id="cb1441-15"><a href="extraindo-altura-e-dap.html#cb1441-15" aria-hidden="true" tabindex="-1"></a>  pt10 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m de altura&quot;</span></span>
+<span id="cb1441-16"><a href="extraindo-altura-e-dap.html#cb1441-16" aria-hidden="true" tabindex="-1"></a>  pt11 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m tall&quot;</span></span>
+<span id="cb1441-17"><a href="extraindo-altura-e-dap.html#cb1441-17" aria-hidden="true" tabindex="-1"></a>  pt12 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m tall&quot;</span></span>
+<span id="cb1441-18"><a href="extraindo-altura-e-dap.html#cb1441-18" aria-hidden="true" tabindex="-1"></a>  pt13 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m</span><span class="sc">\\</span><span class="st">. tall&quot;</span></span>
+<span id="cb1441-19"><a href="extraindo-altura-e-dap.html#cb1441-19" aria-hidden="true" tabindex="-1"></a>  pt14 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m</span><span class="sc">\\</span><span class="st">. Tall&quot;</span></span>
+<span id="cb1441-20"><a href="extraindo-altura-e-dap.html#cb1441-20" aria-hidden="true" tabindex="-1"></a>  pt15 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m</span><span class="sc">\\</span><span class="st">. tall&quot;</span></span>
+<span id="cb1441-21"><a href="extraindo-altura-e-dap.html#cb1441-21" aria-hidden="true" tabindex="-1"></a>  pt16 <span class="ot">&lt;-</span> <span class="st">&quot;Tree, [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
+<span id="cb1441-22"><a href="extraindo-altura-e-dap.html#cb1441-22" aria-hidden="true" tabindex="-1"></a>  pt17 <span class="ot">&lt;-</span> <span class="st">&quot;Tree, [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
+<span id="cb1441-23"><a href="extraindo-altura-e-dap.html#cb1441-23" aria-hidden="true" tabindex="-1"></a>  pt18 <span class="ot">&lt;-</span> <span class="st">&quot;Tree [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
+<span id="cb1441-24"><a href="extraindo-altura-e-dap.html#cb1441-24" aria-hidden="true" tabindex="-1"></a>  pt19 <span class="ot">&lt;-</span> <span class="st">&quot;Tree [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
+<span id="cb1441-25"><a href="extraindo-altura-e-dap.html#cb1441-25" aria-hidden="true" tabindex="-1"></a>  pt20 <span class="ot">&lt;-</span> <span class="st">&quot;to [-+]?[0-9]*v?[0-9] m&quot;</span></span>
+<span id="cb1441-26"><a href="extraindo-altura-e-dap.html#cb1441-26" aria-hidden="true" tabindex="-1"></a>  pt21 <span class="ot">&lt;-</span> <span class="st">&quot;Tree [0-9]*-[0-9]*m&quot;</span></span>
+<span id="cb1441-27"><a href="extraindo-altura-e-dap.html#cb1441-27" aria-hidden="true" tabindex="-1"></a>  pt22 <span class="ot">&lt;-</span> <span class="st">&quot;de [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
+<span id="cb1441-28"><a href="extraindo-altura-e-dap.html#cb1441-28" aria-hidden="true" tabindex="-1"></a>  pt23 <span class="ot">&lt;-</span> <span class="st">&quot;de [-+]?[0-9]*v?[0-9]m&quot;</span></span>
+<span id="cb1441-29"><a href="extraindo-altura-e-dap.html#cb1441-29" aria-hidden="true" tabindex="-1"></a>  pt24 <span class="ot">&lt;-</span> <span class="st">&quot;de [0-9]*-[0-9]* m&quot;</span></span>
+<span id="cb1441-30"><a href="extraindo-altura-e-dap.html#cb1441-30" aria-hidden="true" tabindex="-1"></a>  pt25 <span class="ot">&lt;-</span> <span class="st">&quot;Tree [0-9]*-[0-9]* m&quot;</span></span>
+<span id="cb1441-31"><a href="extraindo-altura-e-dap.html#cb1441-31" aria-hidden="true" tabindex="-1"></a>  pt26 <span class="ot">&lt;-</span> <span class="st">&quot;de [0-9]*-[0-9]*m&quot;</span></span>
+<span id="cb1441-32"><a href="extraindo-altura-e-dap.html#cb1441-32" aria-hidden="true" tabindex="-1"></a>  pt27 <span class="ot">&lt;-</span> <span class="st">&quot;alt. [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
+<span id="cb1441-33"><a href="extraindo-altura-e-dap.html#cb1441-33" aria-hidden="true" tabindex="-1"></a>  pt28 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] feet high&quot;</span></span>
+<span id="cb1441-34"><a href="extraindo-altura-e-dap.html#cb1441-34" aria-hidden="true" tabindex="-1"></a>  pt29 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] ft. high&quot;</span></span>
+<span id="cb1441-35"><a href="extraindo-altura-e-dap.html#cb1441-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1441-36"><a href="extraindo-altura-e-dap.html#cb1441-36" aria-hidden="true" tabindex="-1"></a>  pt30 <span class="ot">&lt;-</span> <span class="st">&quot;rvore [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
+<span id="cb1441-37"><a href="extraindo-altura-e-dap.html#cb1441-37" aria-hidden="true" tabindex="-1"></a>  pt31 <span class="ot">&lt;-</span> <span class="st">&quot;rvore [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
+<span id="cb1441-38"><a href="extraindo-altura-e-dap.html#cb1441-38" aria-hidden="true" tabindex="-1"></a>  pt32 <span class="ot">&lt;-</span> <span class="st">&quot;rvore, [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
+<span id="cb1441-39"><a href="extraindo-altura-e-dap.html#cb1441-39" aria-hidden="true" tabindex="-1"></a>  pt33 <span class="ot">&lt;-</span> <span class="st">&quot;rvore, [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
+<span id="cb1441-40"><a href="extraindo-altura-e-dap.html#cb1441-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1441-41"><a href="extraindo-altura-e-dap.html#cb1441-41" aria-hidden="true" tabindex="-1"></a>  pt34 <span class="ot">&lt;-</span> <span class="st">&quot;rbusto [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
+<span id="cb1441-42"><a href="extraindo-altura-e-dap.html#cb1441-42" aria-hidden="true" tabindex="-1"></a>  pt35 <span class="ot">&lt;-</span> <span class="st">&quot;rbusto [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
+<span id="cb1441-43"><a href="extraindo-altura-e-dap.html#cb1441-43" aria-hidden="true" tabindex="-1"></a>  pt36 <span class="ot">&lt;-</span> <span class="st">&quot;rbusto, [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
+<span id="cb1441-44"><a href="extraindo-altura-e-dap.html#cb1441-44" aria-hidden="true" tabindex="-1"></a>  pt37 <span class="ot">&lt;-</span> <span class="st">&quot;rbusto, [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-45"><a href="extraindo-altura-e-dap.html#cb1441-45" aria-hidden="true" tabindex="-1"></a>  pt38 <span class="ot">&lt;-</span> <span class="st">&quot;rvore +/- [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-46"><a href="extraindo-altura-e-dap.html#cb1441-46" aria-hidden="true" tabindex="-1"></a>  pt39 <span class="ot">&lt;-</span> <span class="st">&quot;rvore ca. [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-47"><a href="extraindo-altura-e-dap.html#cb1441-47" aria-hidden="true" tabindex="-1"></a>  pt40 <span class="ot">&lt;-</span> <span class="st">&quot;de [-+]?[0-9]*[,.].?[0-9] de altura&quot;</span></span>
+<span id="cb1441-48"><a href="extraindo-altura-e-dap.html#cb1441-48" aria-hidden="true" tabindex="-1"></a>  pt41 <span class="ot">&lt;-</span> <span class="st">&quot;altura [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-49"><a href="extraindo-altura-e-dap.html#cb1441-49" aria-hidden="true" tabindex="-1"></a>  pt42 <span class="ot">&lt;-</span> <span class="st">&quot;altura [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
+<span id="cb1441-50"><a href="extraindo-altura-e-dap.html#cb1441-50" aria-hidden="true" tabindex="-1"></a>  pt43 <span class="ot">&lt;-</span> <span class="st">&quot;of [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-51"><a href="extraindo-altura-e-dap.html#cb1441-51" aria-hidden="true" tabindex="-1"></a>  pt44 <span class="ot">&lt;-</span> <span class="st">&quot;to [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-52"><a href="extraindo-altura-e-dap.html#cb1441-52" aria-hidden="true" tabindex="-1"></a>  pt45 <span class="ot">&lt;-</span> <span class="st">&quot;Treelet [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-53"><a href="extraindo-altura-e-dap.html#cb1441-53" aria-hidden="true" tabindex="-1"></a>  pt46 <span class="ot">&lt;-</span> <span class="st">&quot;rvore [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
+<span id="cb1441-54"><a href="extraindo-altura-e-dap.html#cb1441-54" aria-hidden="true" tabindex="-1"></a>  pt47 <span class="ot">&lt;-</span> <span class="st">&quot;rvore, [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
+<span id="cb1441-55"><a href="extraindo-altura-e-dap.html#cb1441-55" aria-hidden="true" tabindex="-1"></a>  pt48 <span class="ot">&lt;-</span> <span class="st">&quot;rvoreta, [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
+<span id="cb1441-56"><a href="extraindo-altura-e-dap.html#cb1441-56" aria-hidden="true" tabindex="-1"></a>  pt49 <span class="ot">&lt;-</span> <span class="st">&quot;Fuste= [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
+<span id="cb1441-57"><a href="extraindo-altura-e-dap.html#cb1441-57" aria-hidden="true" tabindex="-1"></a>  pt50 <span class="ot">&lt;-</span> <span class="st">&quot;Fuste= [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-58"><a href="extraindo-altura-e-dap.html#cb1441-58" aria-hidden="true" tabindex="-1"></a>  pt51 <span class="ot">&lt;-</span> <span class="st">&quot;com [-+]?[0-9]*[,.].?[0-9] m. alt.&quot;</span></span>
+<span id="cb1441-59"><a href="extraindo-altura-e-dap.html#cb1441-59" aria-hidden="true" tabindex="-1"></a>  pt52 <span class="ot">&lt;-</span> <span class="st">&quot;Height: [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
+<span id="cb1441-60"><a href="extraindo-altura-e-dap.html#cb1441-60" aria-hidden="true" tabindex="-1"></a>  pt53 <span class="ot">&lt;-</span> <span class="st">&quot;Arbol [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-61"><a href="extraindo-altura-e-dap.html#cb1441-61" aria-hidden="true" tabindex="-1"></a>  pt54 <span class="ot">&lt;-</span> <span class="st">&quot;Treelet, [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-62"><a href="extraindo-altura-e-dap.html#cb1441-62" aria-hidden="true" tabindex="-1"></a>  pt55 <span class="ot">&lt;-</span> <span class="st">&quot;altura = [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-63"><a href="extraindo-altura-e-dap.html#cb1441-63" aria-hidden="true" tabindex="-1"></a>  pt56 <span class="ot">&lt;-</span> <span class="st">&quot;Fuste = [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
+<span id="cb1441-64"><a href="extraindo-altura-e-dap.html#cb1441-64" aria-hidden="true" tabindex="-1"></a>  pt57 <span class="ot">&lt;-</span> <span class="st">&quot;Fuste = [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
+<span id="cb1441-65"><a href="extraindo-altura-e-dap.html#cb1441-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1441-66"><a href="extraindo-altura-e-dap.html#cb1441-66" aria-hidden="true" tabindex="-1"></a>  altura <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1441-67"><a href="extraindo-altura-e-dap.html#cb1441-67" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (p <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">57</span>) {</span>
+<span id="cb1441-68"><a href="extraindo-altura-e-dap.html#cb1441-68" aria-hidden="true" tabindex="-1"></a>    pt <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste</span>(<span class="st">&quot;pt&quot;</span>, p, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb1441-69"><a href="extraindo-altura-e-dap.html#cb1441-69" aria-hidden="true" tabindex="-1"></a>    gp <span class="ot">&lt;-</span> <span class="fu">grep</span>(pt, x, <span class="at">ignore.case =</span> F)</span>
+<span id="cb1441-70"><a href="extraindo-altura-e-dap.html#cb1441-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(gp) <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(altura)) {</span>
+<span id="cb1441-71"><a href="extraindo-altura-e-dap.html#cb1441-71" aria-hidden="true" tabindex="-1"></a>      <span class="co"># print(p)</span></span>
+<span id="cb1441-72"><a href="extraindo-altura-e-dap.html#cb1441-72" aria-hidden="true" tabindex="-1"></a>      rmm <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, pt)[[<span class="dv">1</span>]]</span>
+<span id="cb1441-73"><a href="extraindo-altura-e-dap.html#cb1441-73" aria-hidden="true" tabindex="-1"></a>      rmm <span class="ot">&lt;-</span> rmm[rmm <span class="sc">!=</span> <span class="st">&quot;&quot;</span> <span class="sc">&amp;</span> rmm <span class="sc">!=</span> <span class="st">&quot;.&quot;</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(rmm)]</span>
+<span id="cb1441-74"><a href="extraindo-altura-e-dap.html#cb1441-74" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> x</span>
+<span id="cb1441-75"><a href="extraindo-altura-e-dap.html#cb1441-75" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(rmm) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb1441-76"><a href="extraindo-altura-e-dap.html#cb1441-76" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (r <span class="cf">in</span> <span class="fu">length</span>(rmm)<span class="sc">:</span><span class="dv">1</span>) {</span>
+<span id="cb1441-77"><a href="extraindo-altura-e-dap.html#cb1441-77" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(rmm[r], <span class="st">&quot;&quot;</span>, xx, <span class="at">fixed =</span> T, <span class="at">useBytes =</span> T)</span>
+<span id="cb1441-78"><a href="extraindo-altura-e-dap.html#cb1441-78" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1441-79"><a href="extraindo-altura-e-dap.html#cb1441-79" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1441-80"><a href="extraindo-altura-e-dap.html#cb1441-80" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> <span class="fu">trimws</span>(<span class="fu">gsub</span>(<span class="st">&quot;[A-Z]|</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">)|:|=&quot;</span>, <span class="st">&quot;&quot;</span>, xx, <span class="at">ignore.case =</span> T), <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span>
+<span id="cb1441-81"><a href="extraindo-altura-e-dap.html#cb1441-81" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, xx)</span>
+<span id="cb1441-82"><a href="extraindo-altura-e-dap.html#cb1441-82" aria-hidden="true" tabindex="-1"></a>      tt <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;-&quot;</span>, xx)</span>
+<span id="cb1441-83"><a href="extraindo-altura-e-dap.html#cb1441-83" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(tt) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb1441-84"><a href="extraindo-altura-e-dap.html#cb1441-84" aria-hidden="true" tabindex="-1"></a>        xxx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(xx, <span class="st">&quot;-&quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb1441-85"><a href="extraindo-altura-e-dap.html#cb1441-85" aria-hidden="true" tabindex="-1"></a>        xxx <span class="ot">&lt;-</span> xxx[xxx <span class="sc">!=</span> <span class="st">&quot;&quot;</span>]</span>
+<span id="cb1441-86"><a href="extraindo-altura-e-dap.html#cb1441-86" aria-hidden="true" tabindex="-1"></a>        xxx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot; </span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, xxx)</span>
+<span id="cb1441-87"><a href="extraindo-altura-e-dap.html#cb1441-87" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(<span class="fu">trimws</span>(xxx, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)), <span class="at">na.rm =</span> T)</span>
+<span id="cb1441-88"><a href="extraindo-altura-e-dap.html#cb1441-88" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb1441-89"><a href="extraindo-altura-e-dap.html#cb1441-89" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(xx, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb1441-90"><a href="extraindo-altura-e-dap.html#cb1441-90" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">trimws</span>(xx, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span>
+<span id="cb1441-91"><a href="extraindo-altura-e-dap.html#cb1441-91" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> xx[xx <span class="sc">!=</span> <span class="st">&quot;.&quot;</span>]</span>
+<span id="cb1441-92"><a href="extraindo-altura-e-dap.html#cb1441-92" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> xx[<span class="dv">1</span>]</span>
+<span id="cb1441-93"><a href="extraindo-altura-e-dap.html#cb1441-93" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1441-94"><a href="extraindo-altura-e-dap.html#cb1441-94" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(xx)</span>
+<span id="cb1441-95"><a href="extraindo-altura-e-dap.html#cb1441-95" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(xx) <span class="sc">&amp;&amp;</span> xx <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb1441-96"><a href="extraindo-altura-e-dap.html#cb1441-96" aria-hidden="true" tabindex="-1"></a>        altura <span class="ot">&lt;-</span> xx</span>
+<span id="cb1441-97"><a href="extraindo-altura-e-dap.html#cb1441-97" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb1441-98"><a href="extraindo-altura-e-dap.html#cb1441-98" aria-hidden="true" tabindex="-1"></a>        altura <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1441-99"><a href="extraindo-altura-e-dap.html#cb1441-99" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1441-100"><a href="extraindo-altura-e-dap.html#cb1441-100" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1441-101"><a href="extraindo-altura-e-dap.html#cb1441-101" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1441-102"><a href="extraindo-altura-e-dap.html#cb1441-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(altura)</span>
+<span id="cb1441-103"><a href="extraindo-altura-e-dap.html#cb1441-103" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="dap" class="section level3 hasAnchor" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> DAP<a href="extraindo-altura-e-dap.html#dap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb1442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1442-1"><a href="extraindo-altura-e-dap.html#cb1442-1" aria-hidden="true" tabindex="-1"></a>pegadap <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb1442-2"><a href="extraindo-altura-e-dap.html#cb1442-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">+/-&quot;</span>, <span class="st">&quot;&quot;</span>, x)</span>
 <span id="cb1442-3"><a href="extraindo-altura-e-dap.html#cb1442-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;  &quot;</span>, <span class="st">&quot; &quot;</span>, x)</span>
 <span id="cb1442-4"><a href="extraindo-altura-e-dap.html#cb1442-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;  &quot;</span>, <span class="st">&quot; &quot;</span>, x)</span>
 <span id="cb1442-5"><a href="extraindo-altura-e-dap.html#cb1442-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print(x)</span></span>
-<span id="cb1442-6"><a href="extraindo-altura-e-dap.html#cb1442-6" aria-hidden="true" tabindex="-1"></a>  pt1 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m x&quot;</span></span>
-<span id="cb1442-7"><a href="extraindo-altura-e-dap.html#cb1442-7" aria-hidden="true" tabindex="-1"></a>  pt2 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m x&quot;</span></span>
-<span id="cb1442-8"><a href="extraindo-altura-e-dap.html#cb1442-8" aria-hidden="true" tabindex="-1"></a>  pt3 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m</span><span class="sc">\\</span><span class="st">. x&quot;</span></span>
-<span id="cb1442-9"><a href="extraindo-altura-e-dap.html#cb1442-9" aria-hidden="true" tabindex="-1"></a>  pt4 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m de altura&quot;</span></span>
-<span id="cb1442-10"><a href="extraindo-altura-e-dap.html#cb1442-10" aria-hidden="true" tabindex="-1"></a>  pt5 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m</span><span class="sc">\\</span><span class="st">. de altura&quot;</span></span>
-<span id="cb1442-11"><a href="extraindo-altura-e-dap.html#cb1442-11" aria-hidden="true" tabindex="-1"></a>  pt6 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m d ealtura&quot;</span></span>
-<span id="cb1442-12"><a href="extraindo-altura-e-dap.html#cb1442-12" aria-hidden="true" tabindex="-1"></a>  pt7 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m de alto&quot;</span></span>
-<span id="cb1442-13"><a href="extraindo-altura-e-dap.html#cb1442-13" aria-hidden="true" tabindex="-1"></a>  pt8 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m de alto&quot;</span></span>
-<span id="cb1442-14"><a href="extraindo-altura-e-dap.html#cb1442-14" aria-hidden="true" tabindex="-1"></a>  pt9 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m alto&quot;</span></span>
-<span id="cb1442-15"><a href="extraindo-altura-e-dap.html#cb1442-15" aria-hidden="true" tabindex="-1"></a>  pt10 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m de altura&quot;</span></span>
-<span id="cb1442-16"><a href="extraindo-altura-e-dap.html#cb1442-16" aria-hidden="true" tabindex="-1"></a>  pt11 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m tall&quot;</span></span>
-<span id="cb1442-17"><a href="extraindo-altura-e-dap.html#cb1442-17" aria-hidden="true" tabindex="-1"></a>  pt12 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m tall&quot;</span></span>
-<span id="cb1442-18"><a href="extraindo-altura-e-dap.html#cb1442-18" aria-hidden="true" tabindex="-1"></a>  pt13 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m</span><span class="sc">\\</span><span class="st">. tall&quot;</span></span>
-<span id="cb1442-19"><a href="extraindo-altura-e-dap.html#cb1442-19" aria-hidden="true" tabindex="-1"></a>  pt14 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] m</span><span class="sc">\\</span><span class="st">. Tall&quot;</span></span>
-<span id="cb1442-20"><a href="extraindo-altura-e-dap.html#cb1442-20" aria-hidden="true" tabindex="-1"></a>  pt15 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]m</span><span class="sc">\\</span><span class="st">. tall&quot;</span></span>
-<span id="cb1442-21"><a href="extraindo-altura-e-dap.html#cb1442-21" aria-hidden="true" tabindex="-1"></a>  pt16 <span class="ot">&lt;-</span> <span class="st">&quot;Tree, [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
-<span id="cb1442-22"><a href="extraindo-altura-e-dap.html#cb1442-22" aria-hidden="true" tabindex="-1"></a>  pt17 <span class="ot">&lt;-</span> <span class="st">&quot;Tree, [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
-<span id="cb1442-23"><a href="extraindo-altura-e-dap.html#cb1442-23" aria-hidden="true" tabindex="-1"></a>  pt18 <span class="ot">&lt;-</span> <span class="st">&quot;Tree [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
-<span id="cb1442-24"><a href="extraindo-altura-e-dap.html#cb1442-24" aria-hidden="true" tabindex="-1"></a>  pt19 <span class="ot">&lt;-</span> <span class="st">&quot;Tree [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
-<span id="cb1442-25"><a href="extraindo-altura-e-dap.html#cb1442-25" aria-hidden="true" tabindex="-1"></a>  pt20 <span class="ot">&lt;-</span> <span class="st">&quot;to [-+]?[0-9]*v?[0-9] m&quot;</span></span>
-<span id="cb1442-26"><a href="extraindo-altura-e-dap.html#cb1442-26" aria-hidden="true" tabindex="-1"></a>  pt21 <span class="ot">&lt;-</span> <span class="st">&quot;Tree [0-9]*-[0-9]*m&quot;</span></span>
-<span id="cb1442-27"><a href="extraindo-altura-e-dap.html#cb1442-27" aria-hidden="true" tabindex="-1"></a>  pt22 <span class="ot">&lt;-</span> <span class="st">&quot;de [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
-<span id="cb1442-28"><a href="extraindo-altura-e-dap.html#cb1442-28" aria-hidden="true" tabindex="-1"></a>  pt23 <span class="ot">&lt;-</span> <span class="st">&quot;de [-+]?[0-9]*v?[0-9]m&quot;</span></span>
-<span id="cb1442-29"><a href="extraindo-altura-e-dap.html#cb1442-29" aria-hidden="true" tabindex="-1"></a>  pt24 <span class="ot">&lt;-</span> <span class="st">&quot;de [0-9]*-[0-9]* m&quot;</span></span>
-<span id="cb1442-30"><a href="extraindo-altura-e-dap.html#cb1442-30" aria-hidden="true" tabindex="-1"></a>  pt25 <span class="ot">&lt;-</span> <span class="st">&quot;Tree [0-9]*-[0-9]* m&quot;</span></span>
-<span id="cb1442-31"><a href="extraindo-altura-e-dap.html#cb1442-31" aria-hidden="true" tabindex="-1"></a>  pt26 <span class="ot">&lt;-</span> <span class="st">&quot;de [0-9]*-[0-9]*m&quot;</span></span>
-<span id="cb1442-32"><a href="extraindo-altura-e-dap.html#cb1442-32" aria-hidden="true" tabindex="-1"></a>  pt27 <span class="ot">&lt;-</span> <span class="st">&quot;alt. [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
-<span id="cb1442-33"><a href="extraindo-altura-e-dap.html#cb1442-33" aria-hidden="true" tabindex="-1"></a>  pt28 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] feet high&quot;</span></span>
-<span id="cb1442-34"><a href="extraindo-altura-e-dap.html#cb1442-34" aria-hidden="true" tabindex="-1"></a>  pt29 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] ft. high&quot;</span></span>
-<span id="cb1442-35"><a href="extraindo-altura-e-dap.html#cb1442-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1442-36"><a href="extraindo-altura-e-dap.html#cb1442-36" aria-hidden="true" tabindex="-1"></a>  pt30 <span class="ot">&lt;-</span> <span class="st">&quot;rvore [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
-<span id="cb1442-37"><a href="extraindo-altura-e-dap.html#cb1442-37" aria-hidden="true" tabindex="-1"></a>  pt31 <span class="ot">&lt;-</span> <span class="st">&quot;rvore [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
-<span id="cb1442-38"><a href="extraindo-altura-e-dap.html#cb1442-38" aria-hidden="true" tabindex="-1"></a>  pt32 <span class="ot">&lt;-</span> <span class="st">&quot;rvore, [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
-<span id="cb1442-39"><a href="extraindo-altura-e-dap.html#cb1442-39" aria-hidden="true" tabindex="-1"></a>  pt33 <span class="ot">&lt;-</span> <span class="st">&quot;rvore, [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
-<span id="cb1442-40"><a href="extraindo-altura-e-dap.html#cb1442-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1442-41"><a href="extraindo-altura-e-dap.html#cb1442-41" aria-hidden="true" tabindex="-1"></a>  pt34 <span class="ot">&lt;-</span> <span class="st">&quot;rbusto [-+]?[0-9]*[,.]?[0-9]m&quot;</span></span>
-<span id="cb1442-42"><a href="extraindo-altura-e-dap.html#cb1442-42" aria-hidden="true" tabindex="-1"></a>  pt35 <span class="ot">&lt;-</span> <span class="st">&quot;rbusto [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
-<span id="cb1442-43"><a href="extraindo-altura-e-dap.html#cb1442-43" aria-hidden="true" tabindex="-1"></a>  pt36 <span class="ot">&lt;-</span> <span class="st">&quot;rbusto, [-+]?[0-9]*[,.]?[0-9] m&quot;</span></span>
-<span id="cb1442-44"><a href="extraindo-altura-e-dap.html#cb1442-44" aria-hidden="true" tabindex="-1"></a>  pt37 <span class="ot">&lt;-</span> <span class="st">&quot;rbusto, [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-45"><a href="extraindo-altura-e-dap.html#cb1442-45" aria-hidden="true" tabindex="-1"></a>  pt38 <span class="ot">&lt;-</span> <span class="st">&quot;rvore +/- [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-46"><a href="extraindo-altura-e-dap.html#cb1442-46" aria-hidden="true" tabindex="-1"></a>  pt39 <span class="ot">&lt;-</span> <span class="st">&quot;rvore ca. [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-47"><a href="extraindo-altura-e-dap.html#cb1442-47" aria-hidden="true" tabindex="-1"></a>  pt40 <span class="ot">&lt;-</span> <span class="st">&quot;de [-+]?[0-9]*[,.].?[0-9] de altura&quot;</span></span>
-<span id="cb1442-48"><a href="extraindo-altura-e-dap.html#cb1442-48" aria-hidden="true" tabindex="-1"></a>  pt41 <span class="ot">&lt;-</span> <span class="st">&quot;altura [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-49"><a href="extraindo-altura-e-dap.html#cb1442-49" aria-hidden="true" tabindex="-1"></a>  pt42 <span class="ot">&lt;-</span> <span class="st">&quot;altura [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
-<span id="cb1442-50"><a href="extraindo-altura-e-dap.html#cb1442-50" aria-hidden="true" tabindex="-1"></a>  pt43 <span class="ot">&lt;-</span> <span class="st">&quot;of [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-51"><a href="extraindo-altura-e-dap.html#cb1442-51" aria-hidden="true" tabindex="-1"></a>  pt44 <span class="ot">&lt;-</span> <span class="st">&quot;to [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-52"><a href="extraindo-altura-e-dap.html#cb1442-52" aria-hidden="true" tabindex="-1"></a>  pt45 <span class="ot">&lt;-</span> <span class="st">&quot;Treelet [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-53"><a href="extraindo-altura-e-dap.html#cb1442-53" aria-hidden="true" tabindex="-1"></a>  pt46 <span class="ot">&lt;-</span> <span class="st">&quot;rvore [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
-<span id="cb1442-54"><a href="extraindo-altura-e-dap.html#cb1442-54" aria-hidden="true" tabindex="-1"></a>  pt47 <span class="ot">&lt;-</span> <span class="st">&quot;rvore, [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
-<span id="cb1442-55"><a href="extraindo-altura-e-dap.html#cb1442-55" aria-hidden="true" tabindex="-1"></a>  pt48 <span class="ot">&lt;-</span> <span class="st">&quot;rvoreta, [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
-<span id="cb1442-56"><a href="extraindo-altura-e-dap.html#cb1442-56" aria-hidden="true" tabindex="-1"></a>  pt49 <span class="ot">&lt;-</span> <span class="st">&quot;Fuste= [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
-<span id="cb1442-57"><a href="extraindo-altura-e-dap.html#cb1442-57" aria-hidden="true" tabindex="-1"></a>  pt50 <span class="ot">&lt;-</span> <span class="st">&quot;Fuste= [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-58"><a href="extraindo-altura-e-dap.html#cb1442-58" aria-hidden="true" tabindex="-1"></a>  pt51 <span class="ot">&lt;-</span> <span class="st">&quot;com [-+]?[0-9]*[,.].?[0-9] m. alt.&quot;</span></span>
-<span id="cb1442-59"><a href="extraindo-altura-e-dap.html#cb1442-59" aria-hidden="true" tabindex="-1"></a>  pt52 <span class="ot">&lt;-</span> <span class="st">&quot;Height: [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
-<span id="cb1442-60"><a href="extraindo-altura-e-dap.html#cb1442-60" aria-hidden="true" tabindex="-1"></a>  pt53 <span class="ot">&lt;-</span> <span class="st">&quot;Arbol [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-61"><a href="extraindo-altura-e-dap.html#cb1442-61" aria-hidden="true" tabindex="-1"></a>  pt54 <span class="ot">&lt;-</span> <span class="st">&quot;Treelet, [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-62"><a href="extraindo-altura-e-dap.html#cb1442-62" aria-hidden="true" tabindex="-1"></a>  pt55 <span class="ot">&lt;-</span> <span class="st">&quot;altura = [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-63"><a href="extraindo-altura-e-dap.html#cb1442-63" aria-hidden="true" tabindex="-1"></a>  pt56 <span class="ot">&lt;-</span> <span class="st">&quot;Fuste = [-+]?[0-9]*[,.].?[0-9]m&quot;</span></span>
-<span id="cb1442-64"><a href="extraindo-altura-e-dap.html#cb1442-64" aria-hidden="true" tabindex="-1"></a>  pt57 <span class="ot">&lt;-</span> <span class="st">&quot;Fuste = [-+]?[0-9]*[,.].?[0-9] m&quot;</span></span>
-<span id="cb1442-65"><a href="extraindo-altura-e-dap.html#cb1442-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1442-66"><a href="extraindo-altura-e-dap.html#cb1442-66" aria-hidden="true" tabindex="-1"></a>  altura <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1442-67"><a href="extraindo-altura-e-dap.html#cb1442-67" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (p <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">57</span>) {</span>
-<span id="cb1442-68"><a href="extraindo-altura-e-dap.html#cb1442-68" aria-hidden="true" tabindex="-1"></a>    pt <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste</span>(<span class="st">&quot;pt&quot;</span>, p, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span>
-<span id="cb1442-69"><a href="extraindo-altura-e-dap.html#cb1442-69" aria-hidden="true" tabindex="-1"></a>    gp <span class="ot">&lt;-</span> <span class="fu">grep</span>(pt, x, <span class="at">ignore.case =</span> F)</span>
-<span id="cb1442-70"><a href="extraindo-altura-e-dap.html#cb1442-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(gp) <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(altura)) {</span>
-<span id="cb1442-71"><a href="extraindo-altura-e-dap.html#cb1442-71" aria-hidden="true" tabindex="-1"></a>      <span class="co"># print(p)</span></span>
-<span id="cb1442-72"><a href="extraindo-altura-e-dap.html#cb1442-72" aria-hidden="true" tabindex="-1"></a>      rmm <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, pt)[[<span class="dv">1</span>]]</span>
-<span id="cb1442-73"><a href="extraindo-altura-e-dap.html#cb1442-73" aria-hidden="true" tabindex="-1"></a>      rmm <span class="ot">&lt;-</span> rmm[rmm <span class="sc">!=</span> <span class="st">&quot;&quot;</span> <span class="sc">&amp;</span> rmm <span class="sc">!=</span> <span class="st">&quot;.&quot;</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(rmm)]</span>
-<span id="cb1442-74"><a href="extraindo-altura-e-dap.html#cb1442-74" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> x</span>
-<span id="cb1442-75"><a href="extraindo-altura-e-dap.html#cb1442-75" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(rmm) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb1442-76"><a href="extraindo-altura-e-dap.html#cb1442-76" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (r <span class="cf">in</span> <span class="fu">length</span>(rmm)<span class="sc">:</span><span class="dv">1</span>) {</span>
-<span id="cb1442-77"><a href="extraindo-altura-e-dap.html#cb1442-77" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(rmm[r], <span class="st">&quot;&quot;</span>, xx, <span class="at">fixed =</span> T, <span class="at">useBytes =</span> T)</span>
-<span id="cb1442-78"><a href="extraindo-altura-e-dap.html#cb1442-78" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb1442-79"><a href="extraindo-altura-e-dap.html#cb1442-79" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb1442-80"><a href="extraindo-altura-e-dap.html#cb1442-80" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> <span class="fu">trimws</span>(<span class="fu">gsub</span>(<span class="st">&quot;[A-Z]|</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">)|:|=&quot;</span>, <span class="st">&quot;&quot;</span>, xx, <span class="at">ignore.case =</span> T), <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span>
-<span id="cb1442-81"><a href="extraindo-altura-e-dap.html#cb1442-81" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, xx)</span>
-<span id="cb1442-82"><a href="extraindo-altura-e-dap.html#cb1442-82" aria-hidden="true" tabindex="-1"></a>      tt <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;-&quot;</span>, xx)</span>
-<span id="cb1442-83"><a href="extraindo-altura-e-dap.html#cb1442-83" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(tt) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb1442-84"><a href="extraindo-altura-e-dap.html#cb1442-84" aria-hidden="true" tabindex="-1"></a>        xxx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(xx, <span class="st">&quot;-&quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb1442-85"><a href="extraindo-altura-e-dap.html#cb1442-85" aria-hidden="true" tabindex="-1"></a>        xxx <span class="ot">&lt;-</span> xxx[xxx <span class="sc">!=</span> <span class="st">&quot;&quot;</span>]</span>
-<span id="cb1442-86"><a href="extraindo-altura-e-dap.html#cb1442-86" aria-hidden="true" tabindex="-1"></a>        xxx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot; </span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, xxx)</span>
-<span id="cb1442-87"><a href="extraindo-altura-e-dap.html#cb1442-87" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(<span class="fu">trimws</span>(xxx, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)), <span class="at">na.rm =</span> T)</span>
-<span id="cb1442-88"><a href="extraindo-altura-e-dap.html#cb1442-88" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
-<span id="cb1442-89"><a href="extraindo-altura-e-dap.html#cb1442-89" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(xx, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb1442-90"><a href="extraindo-altura-e-dap.html#cb1442-90" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">trimws</span>(xx, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span>
-<span id="cb1442-91"><a href="extraindo-altura-e-dap.html#cb1442-91" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> xx[xx <span class="sc">!=</span> <span class="st">&quot;.&quot;</span>]</span>
-<span id="cb1442-92"><a href="extraindo-altura-e-dap.html#cb1442-92" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> xx[<span class="dv">1</span>]</span>
-<span id="cb1442-93"><a href="extraindo-altura-e-dap.html#cb1442-93" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb1442-94"><a href="extraindo-altura-e-dap.html#cb1442-94" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(xx)</span>
-<span id="cb1442-95"><a href="extraindo-altura-e-dap.html#cb1442-95" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(xx) <span class="sc">&amp;&amp;</span> xx <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb1442-96"><a href="extraindo-altura-e-dap.html#cb1442-96" aria-hidden="true" tabindex="-1"></a>        altura <span class="ot">&lt;-</span> xx</span>
-<span id="cb1442-97"><a href="extraindo-altura-e-dap.html#cb1442-97" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
-<span id="cb1442-98"><a href="extraindo-altura-e-dap.html#cb1442-98" aria-hidden="true" tabindex="-1"></a>        altura <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1442-99"><a href="extraindo-altura-e-dap.html#cb1442-99" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb1442-100"><a href="extraindo-altura-e-dap.html#cb1442-100" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1442-101"><a href="extraindo-altura-e-dap.html#cb1442-101" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1442-102"><a href="extraindo-altura-e-dap.html#cb1442-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(altura)</span>
-<span id="cb1442-103"><a href="extraindo-altura-e-dap.html#cb1442-103" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-</div>
-<div id="dap" class="section level3 hasAnchor" number="10.3.2">
-<h3><span class="header-section-number">10.3.2</span> DAP<a href="extraindo-altura-e-dap.html#dap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1443-1"><a href="extraindo-altura-e-dap.html#cb1443-1" aria-hidden="true" tabindex="-1"></a>pegadap <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb1443-2"><a href="extraindo-altura-e-dap.html#cb1443-2" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">+/-&quot;</span>, <span class="st">&quot;&quot;</span>, x)</span>
-<span id="cb1443-3"><a href="extraindo-altura-e-dap.html#cb1443-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;  &quot;</span>, <span class="st">&quot; &quot;</span>, x)</span>
-<span id="cb1443-4"><a href="extraindo-altura-e-dap.html#cb1443-4" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;  &quot;</span>, <span class="st">&quot; &quot;</span>, x)</span>
-<span id="cb1443-5"><a href="extraindo-altura-e-dap.html#cb1443-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print(x)</span></span>
-<span id="cb1443-6"><a href="extraindo-altura-e-dap.html#cb1443-6" aria-hidden="true" tabindex="-1"></a>  pt1 <span class="ot">&lt;-</span> <span class="st">&quot;x [-+]?[0-9]*[,.]?[0-9] cm de circ&quot;</span></span>
-<span id="cb1443-7"><a href="extraindo-altura-e-dap.html#cb1443-7" aria-hidden="true" tabindex="-1"></a>  pt2 <span class="ot">&lt;-</span> <span class="st">&quot;x [-+]?[0-9]*[,.]?[0-9] cm de di&quot;</span></span>
-<span id="cb1443-8"><a href="extraindo-altura-e-dap.html#cb1443-8" aria-hidden="true" tabindex="-1"></a>  pt3 <span class="ot">&lt;-</span> <span class="st">&quot;x [-+]?[0-9]*[,.]?[0-9]cm de di&quot;</span></span>
-<span id="cb1443-9"><a href="extraindo-altura-e-dap.html#cb1443-9" aria-hidden="true" tabindex="-1"></a>  pt4 <span class="ot">&lt;-</span> <span class="st">&quot;x [-+]?[0-9]*[,.]?[0-9]cm di&quot;</span></span>
-<span id="cb1443-10"><a href="extraindo-altura-e-dap.html#cb1443-10" aria-hidden="true" tabindex="-1"></a>  pt5 <span class="ot">&lt;-</span> <span class="st">&quot;m x [-+]?[0-9]*[,.]?[0-9] cm DAP&quot;</span></span>
-<span id="cb1443-11"><a href="extraindo-altura-e-dap.html#cb1443-11" aria-hidden="true" tabindex="-1"></a>  pt6 <span class="ot">&lt;-</span> <span class="st">&quot;m x [-+]?[0-9]*[,.]?[0-9] cm&quot;</span></span>
-<span id="cb1443-12"><a href="extraindo-altura-e-dap.html#cb1443-12" aria-hidden="true" tabindex="-1"></a>  pt7 <span class="ot">&lt;-</span> <span class="st">&quot;de [-+]?[0-9]*[,.]?[0-9] m de DAP&quot;</span></span>
-<span id="cb1443-13"><a href="extraindo-altura-e-dap.html#cb1443-13" aria-hidden="true" tabindex="-1"></a>  pt8 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm de DAP&quot;</span></span>
-<span id="cb1443-14"><a href="extraindo-altura-e-dap.html#cb1443-14" aria-hidden="true" tabindex="-1"></a>  pt9 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm (DAP)&quot;</span></span>
-<span id="cb1443-15"><a href="extraindo-altura-e-dap.html#cb1443-15" aria-hidden="true" tabindex="-1"></a>  pt10 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm dbh&quot;</span></span>
-<span id="cb1443-16"><a href="extraindo-altura-e-dap.html#cb1443-16" aria-hidden="true" tabindex="-1"></a>  pt11 <span class="ot">&lt;-</span> <span class="st">&quot;DAP [-+]?[0-9]*[,.]?[0-9] cm&quot;</span></span>
-<span id="cb1443-17"><a href="extraindo-altura-e-dap.html#cb1443-17" aria-hidden="true" tabindex="-1"></a>  pt12 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm D.A.P.&quot;</span></span>
-<span id="cb1443-18"><a href="extraindo-altura-e-dap.html#cb1443-18" aria-hidden="true" tabindex="-1"></a>  pt13 <span class="ot">&lt;-</span> <span class="st">&quot;D.A.P. = [-+]?[0-9]*[,.]?[0-9] cm&quot;</span></span>
-<span id="cb1443-19"><a href="extraindo-altura-e-dap.html#cb1443-19" aria-hidden="true" tabindex="-1"></a>  pt14 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]cm de di&quot;</span></span>
-<span id="cb1443-20"><a href="extraindo-altura-e-dap.html#cb1443-20" aria-hidden="true" tabindex="-1"></a>  pt15 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]cm dap&quot;</span></span>
-<span id="cb1443-21"><a href="extraindo-altura-e-dap.html#cb1443-21" aria-hidden="true" tabindex="-1"></a>  pt16 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]cm. dia&quot;</span></span>
-<span id="cb1443-22"><a href="extraindo-altura-e-dap.html#cb1443-22" aria-hidden="true" tabindex="-1"></a>  pt17 <span class="ot">&lt;-</span> <span class="st">&quot;dbh. [-+]?[0-9]*[,.]?[0-9]cm&quot;</span></span>
-<span id="cb1443-23"><a href="extraindo-altura-e-dap.html#cb1443-23" aria-hidden="true" tabindex="-1"></a>  pt18 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]cm. in dia&quot;</span></span>
-<span id="cb1443-24"><a href="extraindo-altura-e-dap.html#cb1443-24" aria-hidden="true" tabindex="-1"></a>  pt19 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm de di&quot;</span></span>
-<span id="cb1443-25"><a href="extraindo-altura-e-dap.html#cb1443-25" aria-hidden="true" tabindex="-1"></a>  pt20 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm (DAP)&quot;</span></span>
-<span id="cb1443-26"><a href="extraindo-altura-e-dap.html#cb1443-26" aria-hidden="true" tabindex="-1"></a>  pt21 <span class="ot">&lt;-</span> <span class="st">&quot;DBH [-+]?[0-9]*[,.]?[0-9] cm&quot;</span></span>
-<span id="cb1443-27"><a href="extraindo-altura-e-dap.html#cb1443-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1443-28"><a href="extraindo-altura-e-dap.html#cb1443-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># x=&quot;Árvore de 13m de altura x 11cm de diâmetro do fuste.&quot;</span></span>
-<span id="cb1443-29"><a href="extraindo-altura-e-dap.html#cb1443-29" aria-hidden="true" tabindex="-1"></a>  altura <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1443-30"><a href="extraindo-altura-e-dap.html#cb1443-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (p <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>) {</span>
-<span id="cb1443-31"><a href="extraindo-altura-e-dap.html#cb1443-31" aria-hidden="true" tabindex="-1"></a>    pt <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste</span>(<span class="st">&quot;pt&quot;</span>, p, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span>
-<span id="cb1443-32"><a href="extraindo-altura-e-dap.html#cb1443-32" aria-hidden="true" tabindex="-1"></a>    gp <span class="ot">&lt;-</span> <span class="fu">grep</span>(pt, x, <span class="at">ignore.case =</span> F)</span>
-<span id="cb1443-33"><a href="extraindo-altura-e-dap.html#cb1443-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(gp) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(altura)) {</span>
-<span id="cb1443-34"><a href="extraindo-altura-e-dap.html#cb1443-34" aria-hidden="true" tabindex="-1"></a>      <span class="co"># print(p)</span></span>
-<span id="cb1443-35"><a href="extraindo-altura-e-dap.html#cb1443-35" aria-hidden="true" tabindex="-1"></a>      rmm <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, pt)[[<span class="dv">1</span>]]</span>
-<span id="cb1443-36"><a href="extraindo-altura-e-dap.html#cb1443-36" aria-hidden="true" tabindex="-1"></a>      rmm <span class="ot">&lt;-</span> rmm[rmm <span class="sc">!=</span> <span class="st">&quot;&quot;</span> <span class="sc">&amp;</span> rmm <span class="sc">!=</span> <span class="st">&quot;.&quot;</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(rmm)]</span>
-<span id="cb1443-37"><a href="extraindo-altura-e-dap.html#cb1443-37" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> x</span>
-<span id="cb1443-38"><a href="extraindo-altura-e-dap.html#cb1443-38" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(rmm) <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb1443-39"><a href="extraindo-altura-e-dap.html#cb1443-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (r <span class="cf">in</span> <span class="fu">length</span>(rmm)<span class="sc">:</span><span class="dv">1</span>) {</span>
-<span id="cb1443-40"><a href="extraindo-altura-e-dap.html#cb1443-40" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(rmm[r], <span class="st">&quot;&quot;</span>, xx, <span class="at">fixed =</span> T, <span class="at">useBytes =</span> T)</span>
-<span id="cb1443-41"><a href="extraindo-altura-e-dap.html#cb1443-41" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb1443-42"><a href="extraindo-altura-e-dap.html#cb1443-42" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
-<span id="cb1443-43"><a href="extraindo-altura-e-dap.html#cb1443-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">length</span>(rmm) <span class="sc">==</span> <span class="dv">2</span>) {</span>
-<span id="cb1443-44"><a href="extraindo-altura-e-dap.html#cb1443-44" aria-hidden="true" tabindex="-1"></a>          n1 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(rmm[<span class="dv">1</span>])</span>
-<span id="cb1443-45"><a href="extraindo-altura-e-dap.html#cb1443-45" aria-hidden="true" tabindex="-1"></a>          n2 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(rmm[<span class="dv">2</span>])</span>
-<span id="cb1443-46"><a href="extraindo-altura-e-dap.html#cb1443-46" aria-hidden="true" tabindex="-1"></a>          n0 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(x)</span>
-<span id="cb1443-47"><a href="extraindo-altura-e-dap.html#cb1443-47" aria-hidden="true" tabindex="-1"></a>          ns <span class="ot">&lt;-</span> n1 <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb1443-48"><a href="extraindo-altura-e-dap.html#cb1443-48" aria-hidden="true" tabindex="-1"></a>          nt <span class="ot">&lt;-</span> n0 <span class="sc">-</span> n2</span>
-<span id="cb1443-49"><a href="extraindo-altura-e-dap.html#cb1443-49" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">substr</span>(x, ns, nt)</span>
-<span id="cb1443-50"><a href="extraindo-altura-e-dap.html#cb1443-50" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
-<span id="cb1443-51"><a href="extraindo-altura-e-dap.html#cb1443-51" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> (<span class="fu">length</span>(rmm) <span class="sc">&gt;</span> <span class="dv">2</span>) {</span>
-<span id="cb1443-52"><a href="extraindo-altura-e-dap.html#cb1443-52" aria-hidden="true" tabindex="-1"></a>            xx <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb1443-53"><a href="extraindo-altura-e-dap.html#cb1443-53" aria-hidden="true" tabindex="-1"></a>          }</span>
-<span id="cb1443-54"><a href="extraindo-altura-e-dap.html#cb1443-54" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb1443-55"><a href="extraindo-altura-e-dap.html#cb1443-55" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb1443-56"><a href="extraindo-altura-e-dap.html#cb1443-56" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(xx)) {</span>
-<span id="cb1443-57"><a href="extraindo-altura-e-dap.html#cb1443-57" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">trimws</span>(<span class="fu">gsub</span>(<span class="st">&quot;[A-Z]|</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">)|:|=&quot;</span>, <span class="st">&quot;&quot;</span>, xx, <span class="at">ignore.case =</span> T), <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span>
-<span id="cb1443-58"><a href="extraindo-altura-e-dap.html#cb1443-58" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, xx)</span>
-<span id="cb1443-59"><a href="extraindo-altura-e-dap.html#cb1443-59" aria-hidden="true" tabindex="-1"></a>        tt <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;-&quot;</span>, xx)</span>
-<span id="cb1443-60"><a href="extraindo-altura-e-dap.html#cb1443-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">length</span>(tt) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb1443-61"><a href="extraindo-altura-e-dap.html#cb1443-61" aria-hidden="true" tabindex="-1"></a>          xxx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(xx, <span class="st">&quot;-&quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb1443-62"><a href="extraindo-altura-e-dap.html#cb1443-62" aria-hidden="true" tabindex="-1"></a>          xxx <span class="ot">&lt;-</span> xxx[xxx <span class="sc">!=</span> <span class="st">&quot;&quot;</span>]</span>
-<span id="cb1443-63"><a href="extraindo-altura-e-dap.html#cb1443-63" aria-hidden="true" tabindex="-1"></a>          xxx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot; </span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, xxx)</span>
-<span id="cb1443-64"><a href="extraindo-altura-e-dap.html#cb1443-64" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(<span class="fu">trimws</span>(xxx, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)), <span class="at">na.rm =</span> T)</span>
-<span id="cb1443-65"><a href="extraindo-altura-e-dap.html#cb1443-65" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
-<span id="cb1443-66"><a href="extraindo-altura-e-dap.html#cb1443-66" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(xx, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb1443-67"><a href="extraindo-altura-e-dap.html#cb1443-67" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">trimws</span>(xx, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span>
-<span id="cb1443-68"><a href="extraindo-altura-e-dap.html#cb1443-68" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> xx[xx <span class="sc">!=</span> <span class="st">&quot;.&quot;</span> <span class="sc">&amp;</span> xx <span class="sc">!=</span> <span class="st">&quot;&quot;</span> <span class="sc">&amp;</span> xx <span class="sc">!=</span> <span class="st">&quot;...&quot;</span>]</span>
-<span id="cb1443-69"><a href="extraindo-altura-e-dap.html#cb1443-69" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> xx[<span class="dv">1</span>]</span>
-<span id="cb1443-70"><a href="extraindo-altura-e-dap.html#cb1443-70" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> (<span class="fu">substr</span>(xx, <span class="fu">nchar</span>(xx), <span class="fu">nchar</span>(xx)) <span class="sc">==</span> <span class="st">&quot;.&quot;</span>) {</span>
-<span id="cb1443-71"><a href="extraindo-altura-e-dap.html#cb1443-71" aria-hidden="true" tabindex="-1"></a>            xx <span class="ot">&lt;-</span> <span class="fu">substr</span>(xx, <span class="dv">1</span>, <span class="fu">nchar</span>(xx) <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb1443-72"><a href="extraindo-altura-e-dap.html#cb1443-72" aria-hidden="true" tabindex="-1"></a>          }</span>
-<span id="cb1443-73"><a href="extraindo-altura-e-dap.html#cb1443-73" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb1443-74"><a href="extraindo-altura-e-dap.html#cb1443-74" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(xx)</span>
-<span id="cb1443-75"><a href="extraindo-altura-e-dap.html#cb1443-75" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (xx <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb1443-76"><a href="extraindo-altura-e-dap.html#cb1443-76" aria-hidden="true" tabindex="-1"></a>          altura <span class="ot">&lt;-</span> xx</span>
-<span id="cb1443-77"><a href="extraindo-altura-e-dap.html#cb1443-77" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb1443-78"><a href="extraindo-altura-e-dap.html#cb1443-78" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb1443-79"><a href="extraindo-altura-e-dap.html#cb1443-79" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1443-80"><a href="extraindo-altura-e-dap.html#cb1443-80" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1443-81"><a href="extraindo-altura-e-dap.html#cb1443-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(altura)</span>
-<span id="cb1443-82"><a href="extraindo-altura-e-dap.html#cb1443-82" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb1442-6"><a href="extraindo-altura-e-dap.html#cb1442-6" aria-hidden="true" tabindex="-1"></a>  pt1 <span class="ot">&lt;-</span> <span class="st">&quot;x [-+]?[0-9]*[,.]?[0-9] cm de circ&quot;</span></span>
+<span id="cb1442-7"><a href="extraindo-altura-e-dap.html#cb1442-7" aria-hidden="true" tabindex="-1"></a>  pt2 <span class="ot">&lt;-</span> <span class="st">&quot;x [-+]?[0-9]*[,.]?[0-9] cm de di&quot;</span></span>
+<span id="cb1442-8"><a href="extraindo-altura-e-dap.html#cb1442-8" aria-hidden="true" tabindex="-1"></a>  pt3 <span class="ot">&lt;-</span> <span class="st">&quot;x [-+]?[0-9]*[,.]?[0-9]cm de di&quot;</span></span>
+<span id="cb1442-9"><a href="extraindo-altura-e-dap.html#cb1442-9" aria-hidden="true" tabindex="-1"></a>  pt4 <span class="ot">&lt;-</span> <span class="st">&quot;x [-+]?[0-9]*[,.]?[0-9]cm di&quot;</span></span>
+<span id="cb1442-10"><a href="extraindo-altura-e-dap.html#cb1442-10" aria-hidden="true" tabindex="-1"></a>  pt5 <span class="ot">&lt;-</span> <span class="st">&quot;m x [-+]?[0-9]*[,.]?[0-9] cm DAP&quot;</span></span>
+<span id="cb1442-11"><a href="extraindo-altura-e-dap.html#cb1442-11" aria-hidden="true" tabindex="-1"></a>  pt6 <span class="ot">&lt;-</span> <span class="st">&quot;m x [-+]?[0-9]*[,.]?[0-9] cm&quot;</span></span>
+<span id="cb1442-12"><a href="extraindo-altura-e-dap.html#cb1442-12" aria-hidden="true" tabindex="-1"></a>  pt7 <span class="ot">&lt;-</span> <span class="st">&quot;de [-+]?[0-9]*[,.]?[0-9] m de DAP&quot;</span></span>
+<span id="cb1442-13"><a href="extraindo-altura-e-dap.html#cb1442-13" aria-hidden="true" tabindex="-1"></a>  pt8 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm de DAP&quot;</span></span>
+<span id="cb1442-14"><a href="extraindo-altura-e-dap.html#cb1442-14" aria-hidden="true" tabindex="-1"></a>  pt9 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm (DAP)&quot;</span></span>
+<span id="cb1442-15"><a href="extraindo-altura-e-dap.html#cb1442-15" aria-hidden="true" tabindex="-1"></a>  pt10 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm dbh&quot;</span></span>
+<span id="cb1442-16"><a href="extraindo-altura-e-dap.html#cb1442-16" aria-hidden="true" tabindex="-1"></a>  pt11 <span class="ot">&lt;-</span> <span class="st">&quot;DAP [-+]?[0-9]*[,.]?[0-9] cm&quot;</span></span>
+<span id="cb1442-17"><a href="extraindo-altura-e-dap.html#cb1442-17" aria-hidden="true" tabindex="-1"></a>  pt12 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm D.A.P.&quot;</span></span>
+<span id="cb1442-18"><a href="extraindo-altura-e-dap.html#cb1442-18" aria-hidden="true" tabindex="-1"></a>  pt13 <span class="ot">&lt;-</span> <span class="st">&quot;D.A.P. = [-+]?[0-9]*[,.]?[0-9] cm&quot;</span></span>
+<span id="cb1442-19"><a href="extraindo-altura-e-dap.html#cb1442-19" aria-hidden="true" tabindex="-1"></a>  pt14 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]cm de di&quot;</span></span>
+<span id="cb1442-20"><a href="extraindo-altura-e-dap.html#cb1442-20" aria-hidden="true" tabindex="-1"></a>  pt15 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]cm dap&quot;</span></span>
+<span id="cb1442-21"><a href="extraindo-altura-e-dap.html#cb1442-21" aria-hidden="true" tabindex="-1"></a>  pt16 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]cm. dia&quot;</span></span>
+<span id="cb1442-22"><a href="extraindo-altura-e-dap.html#cb1442-22" aria-hidden="true" tabindex="-1"></a>  pt17 <span class="ot">&lt;-</span> <span class="st">&quot;dbh. [-+]?[0-9]*[,.]?[0-9]cm&quot;</span></span>
+<span id="cb1442-23"><a href="extraindo-altura-e-dap.html#cb1442-23" aria-hidden="true" tabindex="-1"></a>  pt18 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9]cm. in dia&quot;</span></span>
+<span id="cb1442-24"><a href="extraindo-altura-e-dap.html#cb1442-24" aria-hidden="true" tabindex="-1"></a>  pt19 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm de di&quot;</span></span>
+<span id="cb1442-25"><a href="extraindo-altura-e-dap.html#cb1442-25" aria-hidden="true" tabindex="-1"></a>  pt20 <span class="ot">&lt;-</span> <span class="st">&quot;[-+]?[0-9]*[,.]?[0-9] cm (DAP)&quot;</span></span>
+<span id="cb1442-26"><a href="extraindo-altura-e-dap.html#cb1442-26" aria-hidden="true" tabindex="-1"></a>  pt21 <span class="ot">&lt;-</span> <span class="st">&quot;DBH [-+]?[0-9]*[,.]?[0-9] cm&quot;</span></span>
+<span id="cb1442-27"><a href="extraindo-altura-e-dap.html#cb1442-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1442-28"><a href="extraindo-altura-e-dap.html#cb1442-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># x=&quot;Árvore de 13m de altura x 11cm de diâmetro do fuste.&quot;</span></span>
+<span id="cb1442-29"><a href="extraindo-altura-e-dap.html#cb1442-29" aria-hidden="true" tabindex="-1"></a>  altura <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1442-30"><a href="extraindo-altura-e-dap.html#cb1442-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (p <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>) {</span>
+<span id="cb1442-31"><a href="extraindo-altura-e-dap.html#cb1442-31" aria-hidden="true" tabindex="-1"></a>    pt <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste</span>(<span class="st">&quot;pt&quot;</span>, p, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span>
+<span id="cb1442-32"><a href="extraindo-altura-e-dap.html#cb1442-32" aria-hidden="true" tabindex="-1"></a>    gp <span class="ot">&lt;-</span> <span class="fu">grep</span>(pt, x, <span class="at">ignore.case =</span> F)</span>
+<span id="cb1442-33"><a href="extraindo-altura-e-dap.html#cb1442-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(gp) <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(altura)) {</span>
+<span id="cb1442-34"><a href="extraindo-altura-e-dap.html#cb1442-34" aria-hidden="true" tabindex="-1"></a>      <span class="co"># print(p)</span></span>
+<span id="cb1442-35"><a href="extraindo-altura-e-dap.html#cb1442-35" aria-hidden="true" tabindex="-1"></a>      rmm <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, pt)[[<span class="dv">1</span>]]</span>
+<span id="cb1442-36"><a href="extraindo-altura-e-dap.html#cb1442-36" aria-hidden="true" tabindex="-1"></a>      rmm <span class="ot">&lt;-</span> rmm[rmm <span class="sc">!=</span> <span class="st">&quot;&quot;</span> <span class="sc">&amp;</span> rmm <span class="sc">!=</span> <span class="st">&quot;.&quot;</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(rmm)]</span>
+<span id="cb1442-37"><a href="extraindo-altura-e-dap.html#cb1442-37" aria-hidden="true" tabindex="-1"></a>      xx <span class="ot">&lt;-</span> x</span>
+<span id="cb1442-38"><a href="extraindo-altura-e-dap.html#cb1442-38" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(rmm) <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb1442-39"><a href="extraindo-altura-e-dap.html#cb1442-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (r <span class="cf">in</span> <span class="fu">length</span>(rmm)<span class="sc">:</span><span class="dv">1</span>) {</span>
+<span id="cb1442-40"><a href="extraindo-altura-e-dap.html#cb1442-40" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(rmm[r], <span class="st">&quot;&quot;</span>, xx, <span class="at">fixed =</span> T, <span class="at">useBytes =</span> T)</span>
+<span id="cb1442-41"><a href="extraindo-altura-e-dap.html#cb1442-41" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1442-42"><a href="extraindo-altura-e-dap.html#cb1442-42" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb1442-43"><a href="extraindo-altura-e-dap.html#cb1442-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">length</span>(rmm) <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb1442-44"><a href="extraindo-altura-e-dap.html#cb1442-44" aria-hidden="true" tabindex="-1"></a>          n1 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(rmm[<span class="dv">1</span>])</span>
+<span id="cb1442-45"><a href="extraindo-altura-e-dap.html#cb1442-45" aria-hidden="true" tabindex="-1"></a>          n2 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(rmm[<span class="dv">2</span>])</span>
+<span id="cb1442-46"><a href="extraindo-altura-e-dap.html#cb1442-46" aria-hidden="true" tabindex="-1"></a>          n0 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(x)</span>
+<span id="cb1442-47"><a href="extraindo-altura-e-dap.html#cb1442-47" aria-hidden="true" tabindex="-1"></a>          ns <span class="ot">&lt;-</span> n1 <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1442-48"><a href="extraindo-altura-e-dap.html#cb1442-48" aria-hidden="true" tabindex="-1"></a>          nt <span class="ot">&lt;-</span> n0 <span class="sc">-</span> n2</span>
+<span id="cb1442-49"><a href="extraindo-altura-e-dap.html#cb1442-49" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">substr</span>(x, ns, nt)</span>
+<span id="cb1442-50"><a href="extraindo-altura-e-dap.html#cb1442-50" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb1442-51"><a href="extraindo-altura-e-dap.html#cb1442-51" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> (<span class="fu">length</span>(rmm) <span class="sc">&gt;</span> <span class="dv">2</span>) {</span>
+<span id="cb1442-52"><a href="extraindo-altura-e-dap.html#cb1442-52" aria-hidden="true" tabindex="-1"></a>            xx <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb1442-53"><a href="extraindo-altura-e-dap.html#cb1442-53" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb1442-54"><a href="extraindo-altura-e-dap.html#cb1442-54" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1442-55"><a href="extraindo-altura-e-dap.html#cb1442-55" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1442-56"><a href="extraindo-altura-e-dap.html#cb1442-56" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(xx)) {</span>
+<span id="cb1442-57"><a href="extraindo-altura-e-dap.html#cb1442-57" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">trimws</span>(<span class="fu">gsub</span>(<span class="st">&quot;[A-Z]|</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">)|:|=&quot;</span>, <span class="st">&quot;&quot;</span>, xx, <span class="at">ignore.case =</span> T), <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span>
+<span id="cb1442-58"><a href="extraindo-altura-e-dap.html#cb1442-58" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;.&quot;</span>, xx)</span>
+<span id="cb1442-59"><a href="extraindo-altura-e-dap.html#cb1442-59" aria-hidden="true" tabindex="-1"></a>        tt <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;-&quot;</span>, xx)</span>
+<span id="cb1442-60"><a href="extraindo-altura-e-dap.html#cb1442-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">length</span>(tt) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb1442-61"><a href="extraindo-altura-e-dap.html#cb1442-61" aria-hidden="true" tabindex="-1"></a>          xxx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(xx, <span class="st">&quot;-&quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb1442-62"><a href="extraindo-altura-e-dap.html#cb1442-62" aria-hidden="true" tabindex="-1"></a>          xxx <span class="ot">&lt;-</span> xxx[xxx <span class="sc">!=</span> <span class="st">&quot;&quot;</span>]</span>
+<span id="cb1442-63"><a href="extraindo-altura-e-dap.html#cb1442-63" aria-hidden="true" tabindex="-1"></a>          xxx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot; </span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, xxx)</span>
+<span id="cb1442-64"><a href="extraindo-altura-e-dap.html#cb1442-64" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">as.numeric</span>(<span class="fu">trimws</span>(xxx, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)), <span class="at">na.rm =</span> T)</span>
+<span id="cb1442-65"><a href="extraindo-altura-e-dap.html#cb1442-65" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb1442-66"><a href="extraindo-altura-e-dap.html#cb1442-66" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(xx, <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb1442-67"><a href="extraindo-altura-e-dap.html#cb1442-67" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> <span class="fu">trimws</span>(xx, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span>
+<span id="cb1442-68"><a href="extraindo-altura-e-dap.html#cb1442-68" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> xx[xx <span class="sc">!=</span> <span class="st">&quot;.&quot;</span> <span class="sc">&amp;</span> xx <span class="sc">!=</span> <span class="st">&quot;&quot;</span> <span class="sc">&amp;</span> xx <span class="sc">!=</span> <span class="st">&quot;...&quot;</span>]</span>
+<span id="cb1442-69"><a href="extraindo-altura-e-dap.html#cb1442-69" aria-hidden="true" tabindex="-1"></a>          xx <span class="ot">&lt;-</span> xx[<span class="dv">1</span>]</span>
+<span id="cb1442-70"><a href="extraindo-altura-e-dap.html#cb1442-70" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> (<span class="fu">substr</span>(xx, <span class="fu">nchar</span>(xx), <span class="fu">nchar</span>(xx)) <span class="sc">==</span> <span class="st">&quot;.&quot;</span>) {</span>
+<span id="cb1442-71"><a href="extraindo-altura-e-dap.html#cb1442-71" aria-hidden="true" tabindex="-1"></a>            xx <span class="ot">&lt;-</span> <span class="fu">substr</span>(xx, <span class="dv">1</span>, <span class="fu">nchar</span>(xx) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb1442-72"><a href="extraindo-altura-e-dap.html#cb1442-72" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb1442-73"><a href="extraindo-altura-e-dap.html#cb1442-73" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1442-74"><a href="extraindo-altura-e-dap.html#cb1442-74" aria-hidden="true" tabindex="-1"></a>        xx <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(xx)</span>
+<span id="cb1442-75"><a href="extraindo-altura-e-dap.html#cb1442-75" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (xx <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb1442-76"><a href="extraindo-altura-e-dap.html#cb1442-76" aria-hidden="true" tabindex="-1"></a>          altura <span class="ot">&lt;-</span> xx</span>
+<span id="cb1442-77"><a href="extraindo-altura-e-dap.html#cb1442-77" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1442-78"><a href="extraindo-altura-e-dap.html#cb1442-78" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb1442-79"><a href="extraindo-altura-e-dap.html#cb1442-79" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1442-80"><a href="extraindo-altura-e-dap.html#cb1442-80" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1442-81"><a href="extraindo-altura-e-dap.html#cb1442-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(altura)</span>
+<span id="cb1442-82"><a href="extraindo-altura-e-dap.html#cb1442-82" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
             </section>
@@ -791,7 +795,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/10-extracao_dados.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

@@ -21,15 +21,6 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
-</g>
-<defs>
-  <clipPath id='cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng=='>
-    <rect x='59.04' y='59.04' width='414.72' height='227.52' />
-  </clipPath>
-</defs>
-<g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
-</g>
-<g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
 <line x1='97.50' y1='286.56' x2='414.14' y2='286.56' style='stroke-width: 0.75;' />
 <line x1='97.50' y1='286.56' x2='97.50' y2='293.76' style='stroke-width: 0.75;' />
 <line x1='176.66' y1='286.56' x2='176.66' y2='293.76' style='stroke-width: 0.75;' />
@@ -56,6 +47,11 @@
 <text x='266.40' y='341.28' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='23.26px' lengthAdjust='spacingAndGlyphs'>PC1</text>
 <text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='23.26px' lengthAdjust='spacingAndGlyphs'>PC2</text>
 </g>
+<defs>
+  <clipPath id='cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng=='>
+    <rect x='59.04' y='59.04' width='414.72' height='227.52' />
+  </clipPath>
+</defs>
 <g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
 <circle cx='166.48' cy='191.10' r='2.70' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #FF0000; fill-opacity: 0.50;' />
 <circle cx='173.73' cy='145.57' r='2.70' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #FF0000; fill-opacity: 0.50;' />
@@ -207,17 +203,5 @@
 <polygon points='315.83,186.16 319.21,182.78 315.83,179.39 312.44,182.78 ' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #0000FF; fill-opacity: 0.50;' />
 <polygon points='309.97,215.44 313.36,212.06 309.97,208.67 306.59,212.06 ' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #0000FF; fill-opacity: 0.50;' />
 <polygon points='293.72,174.59 297.10,171.20 293.72,167.82 290.33,171.20 ' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #0000FF; fill-opacity: 0.50;' />
-<line x1='255.82' y1='172.16' x2='297.07' y2='202.04' style='stroke-width: 1.50;' />
-<polyline points='293.61,201.05 297.07,202.04 295.05,199.06 ' style='stroke-width: 1.50;' />
-<line x1='255.82' y1='172.16' x2='234.50' y2='245.25' style='stroke-width: 1.50;' />
-<polyline points='234.26,241.66 234.50,245.25 236.63,242.35 ' style='stroke-width: 1.50;' />
-<line x1='255.82' y1='172.16' x2='301.77' y2='174.10' style='stroke-width: 1.50;' />
-<polyline points='298.33,175.19 301.77,174.10 298.44,172.73 ' style='stroke-width: 1.50;' />
-<line x1='255.82' y1='172.16' x2='300.54' y2='177.46' style='stroke-width: 1.50;' />
-<polyline points='297.03,178.29 300.54,177.46 297.32,175.84 ' style='stroke-width: 1.50;' />
-<text x='304.27' y='204.37' style='font-size: 9.60px; font-family: "Liberation Sans";' textLength='62.76px' lengthAdjust='spacingAndGlyphs'>Sepal.Length</text>
-<text x='241.70' y='247.58' style='font-size: 9.60px; font-family: "Liberation Sans";' textLength='57.54px' lengthAdjust='spacingAndGlyphs'>Sepal.Width</text>
-<text x='308.97' y='176.43' style='font-size: 9.60px; font-family: "Liberation Sans";' textLength='59.77px' lengthAdjust='spacingAndGlyphs'>Petal.Length</text>
-<text x='307.74' y='179.79' style='font-size: 9.60px; font-family: "Liberation Sans";' textLength='54.55px' lengthAdjust='spacingAndGlyphs'>Petal.Width</text>
 </g>
 </svg>

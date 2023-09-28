@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.2 Operações Matemáticas com Vetores | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.2 Operações Matemáticas com Vetores | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -551,26 +555,26 @@ div.csl-indent {
 <div id="operações-matemáticas-com-vetores" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Operações Matemáticas com Vetores<a href="operações-matemáticas-com-vetores.html#operações-matemáticas-com-vetores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Todas as operações aplicadas a um vetor são aplicadas a cada um de seus elementos:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="operações-matemáticas-com-vetores.html#cb197-1" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="co"># uma sequencia de 1 a 5</span></span>
-<span id="cb197-2"><a href="operações-matemáticas-com-vetores.html#cb197-2" aria-hidden="true" tabindex="-1"></a>mv2 <span class="ot">&lt;-</span> meuvetor <span class="sc">*</span> <span class="dv">3</span> <span class="co"># uma sequencia onde cada valor de meuvetor foi multiplicado por 3</span></span>
-<span id="cb197-3"><a href="operações-matemáticas-com-vetores.html#cb197-3" aria-hidden="true" tabindex="-1"></a>mv2</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="operações-matemáticas-com-vetores.html#cb196-1" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="co"># uma sequencia de 1 a 5</span></span>
+<span id="cb196-2"><a href="operações-matemáticas-com-vetores.html#cb196-2" aria-hidden="true" tabindex="-1"></a>mv2 <span class="ot">&lt;-</span> meuvetor <span class="sc">*</span> <span class="dv">3</span> <span class="co"># uma sequencia onde cada valor de meuvetor foi multiplicado por 3</span></span>
+<span id="cb196-3"><a href="operações-matemáticas-com-vetores.html#cb196-3" aria-hidden="true" tabindex="-1"></a>mv2</span></code></pre></div>
 <pre><code>## [1]  3  6  9 12 15</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="operações-matemáticas-com-vetores.html#cb199-1" aria-hidden="true" tabindex="-1"></a>mv2 <span class="ot">&lt;-</span> meuvetor <span class="sc">/</span> <span class="dv">3</span> <span class="co"># uma sequencia onde cada valor de meuvetor foi divido por 3</span></span>
-<span id="cb199-2"><a href="operações-matemáticas-com-vetores.html#cb199-2" aria-hidden="true" tabindex="-1"></a>mv2</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="operações-matemáticas-com-vetores.html#cb198-1" aria-hidden="true" tabindex="-1"></a>mv2 <span class="ot">&lt;-</span> meuvetor <span class="sc">/</span> <span class="dv">3</span> <span class="co"># uma sequencia onde cada valor de meuvetor foi divido por 3</span></span>
+<span id="cb198-2"><a href="operações-matemáticas-com-vetores.html#cb198-2" aria-hidden="true" tabindex="-1"></a>mv2</span></code></pre></div>
 <pre><code>## [1] 0.3333333 0.6666667 1.0000000 1.3333333 1.6666667</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="operações-matemáticas-com-vetores.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se usar uma função matemática com um vetor ela afetará cada elemento indivualmente</span></span>
-<span id="cb201-2"><a href="operações-matemáticas-com-vetores.html#cb201-2" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">25</span>, <span class="dv">16</span>, <span class="dv">4</span>, <span class="dv">1</span>)</span>
-<span id="cb201-3"><a href="operações-matemáticas-com-vetores.html#cb201-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(meuvetor) <span class="co"># raiz quadrada de cada elemento em meuvetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="operações-matemáticas-com-vetores.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se usar uma função matemática com um vetor ela afetará cada elemento indivualmente</span></span>
+<span id="cb200-2"><a href="operações-matemáticas-com-vetores.html#cb200-2" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">25</span>, <span class="dv">16</span>, <span class="dv">4</span>, <span class="dv">1</span>)</span>
+<span id="cb200-3"><a href="operações-matemáticas-com-vetores.html#cb200-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(meuvetor) <span class="co"># raiz quadrada de cada elemento em meuvetor</span></span></code></pre></div>
 <pre><code>## [1] 7 5 4 2 1</code></pre>
 <p>Operações com dois ou mais vetores são pareadas.
 Se os vetores têm o mesmo comprimento (mesmo número de elementos), então a operação é feita par a par, na ordem em que os elementos aparecem no vetor:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="operações-matemáticas-com-vetores.html#cb203-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span>
-<span id="cb203-2"><a href="operações-matemáticas-com-vetores.html#cb203-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">16</span>)</span>
-<span id="cb203-3"><a href="operações-matemáticas-com-vetores.html#cb203-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">+</span> v2 <span class="co"># soma dos valores individuais e pareados</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="operações-matemáticas-com-vetores.html#cb202-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span>
+<span id="cb202-2"><a href="operações-matemáticas-com-vetores.html#cb202-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">16</span>)</span>
+<span id="cb202-3"><a href="operações-matemáticas-com-vetores.html#cb202-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">+</span> v2 <span class="co"># soma dos valores individuais e pareados</span></span></code></pre></div>
 <pre><code>## [1]  3  9 18 31</code></pre>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="operações-matemáticas-com-vetores.html#cb205-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">*</span> v2</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="operações-matemáticas-com-vetores.html#cb204-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">*</span> v2</span></code></pre></div>
 <pre><code>## [1]   2  20  80 240</code></pre>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="operações-matemáticas-com-vetores.html#cb207-1" aria-hidden="true" tabindex="-1"></a>v1<span class="sc">^</span>v2</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="operações-matemáticas-com-vetores.html#cb206-1" aria-hidden="true" tabindex="-1"></a>v1<span class="sc">^</span>v2</span></code></pre></div>
 <pre><code>## [1] 1.000000e+00 6.250000e+02 1.000000e+08 6.568408e+18</code></pre>
 <div class="rmdidea">
 <p>
@@ -584,19 +588,19 @@ isso que queremos).
 </p>
 </div>
 <p>A mais simples operação para entender a regra da reciclagem é a operação entre um vetor longo e um vetor atômico de um único valor:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="operações-matemáticas-com-vetores.html#cb209-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>) <span class="co"># vetor com 4 elementos</span></span>
-<span id="cb209-2"><a href="operações-matemáticas-com-vetores.html#cb209-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># vetor com 1 elemento</span></span>
-<span id="cb209-3"><a href="operações-matemáticas-com-vetores.html#cb209-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">*</span> v2 <span class="co"># cada elemento de v1 é multiplicado pelo único valor do vetor2</span></span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="operações-matemáticas-com-vetores.html#cb208-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>) <span class="co"># vetor com 4 elementos</span></span>
+<span id="cb208-2"><a href="operações-matemáticas-com-vetores.html#cb208-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># vetor com 1 elemento</span></span>
+<span id="cb208-3"><a href="operações-matemáticas-com-vetores.html#cb208-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">*</span> v2 <span class="co"># cada elemento de v1 é multiplicado pelo único valor do vetor2</span></span></code></pre></div>
 <pre><code>## [1]  2 10 20 30</code></pre>
 <p>Mas a reciclagem se aplica em todos os casos de operação entre vetores de tamanhos diferentes:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="operações-matemáticas-com-vetores.html#cb211-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>) <span class="co"># vetor com 4 elementos</span></span>
-<span id="cb211-2"><a href="operações-matemáticas-com-vetores.html#cb211-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>) <span class="co"># vetor com 2 elemento</span></span>
-<span id="cb211-3"><a href="operações-matemáticas-com-vetores.html#cb211-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">*</span> v2 <span class="co"># os valores de v1 são multiplicados par a par pelos valores de v2. Como v2 tem apenas 2 elementos, eles são repetidos 1 vez</span></span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="operações-matemáticas-com-vetores.html#cb210-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>) <span class="co"># vetor com 4 elementos</span></span>
+<span id="cb210-2"><a href="operações-matemáticas-com-vetores.html#cb210-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>) <span class="co"># vetor com 2 elemento</span></span>
+<span id="cb210-3"><a href="operações-matemáticas-com-vetores.html#cb210-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">*</span> v2 <span class="co"># os valores de v1 são multiplicados par a par pelos valores de v2. Como v2 tem apenas 2 elementos, eles são repetidos 1 vez</span></span></code></pre></div>
 <pre><code>## [1]  3 10 30 30</code></pre>
 <p>Quanto temos vetores de tamanhos não múltiplos entre si, como por exemplo o objeto <code>ob</code> de tamanho 10 e o objeto <code>oc</code> de tamanho 3, o R executa a operação, porém retorna uma mensagem de alerta em que diz que o vetor de tamanho maior (<code>ob</code>) não é múltiplo do vetor de tamanho menor (<code>oc</code>):</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="operações-matemáticas-com-vetores.html#cb213-1" aria-hidden="true" tabindex="-1"></a>ob <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">each =</span> <span class="dv">5</span>)</span>
-<span id="cb213-2"><a href="operações-matemáticas-com-vetores.html#cb213-2" aria-hidden="true" tabindex="-1"></a>oc <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
-<span id="cb213-3"><a href="operações-matemáticas-com-vetores.html#cb213-3" aria-hidden="true" tabindex="-1"></a>ob <span class="sc">*</span> oc</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="operações-matemáticas-com-vetores.html#cb212-1" aria-hidden="true" tabindex="-1"></a>ob <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">each =</span> <span class="dv">5</span>)</span>
+<span id="cb212-2"><a href="operações-matemáticas-com-vetores.html#cb212-2" aria-hidden="true" tabindex="-1"></a>oc <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb212-3"><a href="operações-matemáticas-com-vetores.html#cb212-3" aria-hidden="true" tabindex="-1"></a>ob <span class="sc">*</span> oc</span></code></pre></div>
 <pre><code>## Warning in ob * oc: longer object length is not a multiple of shorter object
 ## length</code></pre>
 <pre><code>##  [1] 0 0 0 0 0 3 1 2 3 1</code></pre>
@@ -649,7 +653,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/02-vetores.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

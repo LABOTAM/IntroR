@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.3 Funções com Vetores | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.3 Funções com Vetores | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -555,45 +559,45 @@ Essas funções são utilizadas constantemente no R e, portanto, devemos conhece
 <ul>
 <li><code>length()</code> e <code>sort()</code> - comprimento e ordenação de vetores</li>
 </ul>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="funções-com-vetores.html#cb216-1" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
-<span id="cb216-2"><a href="funções-com-vetores.html#cb216-2" aria-hidden="true" tabindex="-1"></a>mv2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">30</span>, <span class="dv">99</span>, <span class="at">by =</span> <span class="dv">3</span>)</span>
-<span id="cb216-3"><a href="funções-com-vetores.html#cb216-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(meuvetor) <span class="co"># quantos elementos tem meu vetor1</span></span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="funções-com-vetores.html#cb215-1" aria-hidden="true" tabindex="-1"></a>meuvetor <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb215-2"><a href="funções-com-vetores.html#cb215-2" aria-hidden="true" tabindex="-1"></a>mv2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">30</span>, <span class="dv">99</span>, <span class="at">by =</span> <span class="dv">3</span>)</span>
+<span id="cb215-3"><a href="funções-com-vetores.html#cb215-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(meuvetor) <span class="co"># quantos elementos tem meu vetor1</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="funções-com-vetores.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(mv2) <span class="co"># quantos elementos tem meu vetor2</span></span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="funções-com-vetores.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(mv2) <span class="co"># quantos elementos tem meu vetor2</span></span></code></pre></div>
 <pre><code>## [1] 24</code></pre>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="funções-com-vetores.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(meuvetor) <span class="sc">/</span> <span class="fu">length</span>(mv2) <span class="co"># operação com os resultados</span></span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="funções-com-vetores.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(meuvetor) <span class="sc">/</span> <span class="fu">length</span>(mv2) <span class="co"># operação com os resultados</span></span></code></pre></div>
 <pre><code>## [1] 0.4166667</code></pre>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="funções-com-vetores.html#cb222-1" aria-hidden="true" tabindex="-1"></a>mvord <span class="ot">&lt;-</span> <span class="fu">sort</span>(meuvetor) <span class="co"># ordena os elementos em ordem crescente</span></span>
-<span id="cb222-2"><a href="funções-com-vetores.html#cb222-2" aria-hidden="true" tabindex="-1"></a>mvord</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="funções-com-vetores.html#cb221-1" aria-hidden="true" tabindex="-1"></a>mvord <span class="ot">&lt;-</span> <span class="fu">sort</span>(meuvetor) <span class="co"># ordena os elementos em ordem crescente</span></span>
+<span id="cb221-2"><a href="funções-com-vetores.html#cb221-2" aria-hidden="true" tabindex="-1"></a>mvord</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="funções-com-vetores.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(mvord, <span class="at">decreasing =</span> <span class="cn">TRUE</span>) <span class="co"># ordena os elementos em ordem decrescentes</span></span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="funções-com-vetores.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(mvord, <span class="at">decreasing =</span> <span class="cn">TRUE</span>) <span class="co"># ordena os elementos em ordem decrescentes</span></span></code></pre></div>
 <pre><code>##  [1] 10  9  8  7  6  5  4  3  2  1</code></pre>
 <ul>
 <li><code>mean()</code>, <code>sd()</code>, <code>min()</code>, <code>sum()</code> etc. - funções de estatística descritiva:</li>
 </ul>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="funções-com-vetores.html#cb226-1" aria-hidden="true" tabindex="-1"></a>?mean <span class="co"># veja ajuda de uma dessas funções e navegue por outras</span></span></code></pre></div>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="funções-com-vetores.html#cb227-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
-<span id="cb227-2"><a href="funções-com-vetores.html#cb227-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1) <span class="co"># soma de todos os valores</span></span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="funções-com-vetores.html#cb225-1" aria-hidden="true" tabindex="-1"></a>?mean <span class="co"># veja ajuda de uma dessas funções e navegue por outras</span></span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="funções-com-vetores.html#cb226-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb226-2"><a href="funções-com-vetores.html#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1) <span class="co"># soma de todos os valores</span></span></code></pre></div>
 <pre><code>## [1] 39</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="funções-com-vetores.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v1) <span class="co"># média aritimética dos valores</span></span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="funções-com-vetores.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v1) <span class="co"># média aritimética dos valores</span></span></code></pre></div>
 <pre><code>## [1] 4.875</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="funções-com-vetores.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(v1) <span class="co"># valor da mediana</span></span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="funções-com-vetores.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(v1) <span class="co"># valor da mediana</span></span></code></pre></div>
 <pre><code>## [1] 4.5</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="funções-com-vetores.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(v1) <span class="co"># desvio padrão</span></span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="funções-com-vetores.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(v1) <span class="co"># desvio padrão</span></span></code></pre></div>
 <pre><code>## [1] 2.03101</code></pre>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="funções-com-vetores.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(v1) <span class="co"># variância</span></span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="funções-com-vetores.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(v1) <span class="co"># variância</span></span></code></pre></div>
 <pre><code>## [1] 4.125</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="funções-com-vetores.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(v1)) <span class="co"># desvio padrão, pois este é a raíz quadrada da variância</span></span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="funções-com-vetores.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(v1)) <span class="co"># desvio padrão, pois este é a raíz quadrada da variância</span></span></code></pre></div>
 <pre><code>## [1] 2.03101</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="funções-com-vetores.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(v1) <span class="co"># valor mínimo</span></span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="funções-com-vetores.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(v1) <span class="co"># valor mínimo</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="funções-com-vetores.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(v1) <span class="co"># valor máximo</span></span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="funções-com-vetores.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(v1) <span class="co"># valor máximo</span></span></code></pre></div>
 <pre><code>## [1] 8</code></pre>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="funções-com-vetores.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(v1) <span class="co"># mínimo e máximo</span></span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="funções-com-vetores.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(v1) <span class="co"># mínimo e máximo</span></span></code></pre></div>
 <pre><code>## [1] 2 8</code></pre>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="funções-com-vetores.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(v1) <span class="co"># intervalos (diferenças entre valores consecutivos) entre os valores do vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="funções-com-vetores.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(v1) <span class="co"># intervalos (diferenças entre valores consecutivos) entre os valores do vetor</span></span></code></pre></div>
 <pre><code>## [1]  2  2  2 -4 -1  2  2</code></pre>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="funções-com-vetores.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(v1) <span class="co"># soma cumulativa dos valores</span></span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="funções-com-vetores.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(v1) <span class="co"># soma cumulativa dos valores</span></span></code></pre></div>
 <pre><code>## [1]  2  6 12 20 24 27 32 39</code></pre>
 </div>
             </section>
@@ -644,7 +648,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/02-vetores.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

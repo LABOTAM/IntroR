@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.5 Área de trabalho vs. Pasta de Trabalho | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.5 Área de trabalho vs. Pasta de Trabalho | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -554,83 +558,83 @@ div.csl-indent {
 <ul>
 <li>Área de Trabalho (<code>environment</code> no R) - é o local dentro do R onde você coloca os objetos criados durante a execução de scripts. Você pode visualizar/apagar os objetos no Console:</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># ls= listar - já vimos que isso lista os objetos criados por você e que estão na área de trabalho</span></span>
-<span id="cb21-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb21-3" aria-hidden="true" tabindex="-1"></a>?rm <span class="co"># veja o help desta função</span></span>
-<span id="cb21-4"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(objum) <span class="co"># rm = remover - esta função apaga objetos da área de trabalho. No exemplo estamos apagando o objeto chamado objum, criado anteriormente</span></span>
-<span id="cb21-5"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note agora que o objeto não existe mais</span></span>
-<span id="cb21-6"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># desse jeito apagamos todos os objetos que criamos anteriormente</span></span>
-<span id="cb21-8"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note que não sobrou nenhum objeto</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># ls= listar - já vimos que isso lista os objetos criados por você e que estão na área de trabalho</span></span>
+<span id="cb20-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb20-3" aria-hidden="true" tabindex="-1"></a>?rm <span class="co"># veja o help desta função</span></span>
+<span id="cb20-4"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(objum) <span class="co"># rm = remover - esta função apaga objetos da área de trabalho. No exemplo estamos apagando o objeto chamado objum, criado anteriormente</span></span>
+<span id="cb20-5"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note agora que o objeto não existe mais</span></span>
+<span id="cb20-6"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># desse jeito apagamos todos os objetos que criamos anteriormente</span></span>
+<span id="cb20-8"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note que não sobrou nenhum objeto</span></span></code></pre></div>
 <ul>
 <li>Pasta de Trabalho (<code>working directory</code>- é o local (pasta) no seu computador que o R usa para salvar arquivos. É o caminho padrão para o R encontrar arquivos de dados, scripts, etc. Você pode trabalhar no R sem definir uma <strong>Pasta de Trabalho</strong> mas é muito mais simples se você usa este recurso. Experimente a seguinte script:</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>() <span class="co"># o nome desta função é abreviação de &quot;get working directory&quot; ou seja &quot;pega a pasta de trabalho definida&quot;. A resposta deste código varia dependendo do seu sistema operacional. Mas a função retorna o caminho completo da pasta de trabalho atual</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>() <span class="co"># o nome desta função é abreviação de &quot;get working directory&quot; ou seja &quot;pega a pasta de trabalho definida&quot;. A resposta deste código varia dependendo do seu sistema operacional. Mas a função retorna o caminho completo da pasta de trabalho atual</span></span></code></pre></div>
 <p>Toda vez que você usar o R, é uma boa prática primeiramente definir a <em>pasta de trabalho</em>, que é o local no seu computador onde você guarda os arquivos relacionados ao seu projeto (dados, scripts, resultados etc.).</p>
 <p>Você pode definir a <em>pasta de trabalho</em> usando o menu do R (<code>Arquivo ⇒ Diretório de Trabalho</code> no Windows; ou <code>Misc ⇒ Muda Pasta de Trabalho</code> no Mac).
 Ou você pode usar uma função:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-1" aria-hidden="true" tabindex="-1"></a>?setwd <span class="co"># veja o help da função que iremos utilizar</span></span>
-<span id="cb23-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-2" aria-hidden="true" tabindex="-1"></a>minhapasta <span class="ot">&lt;-</span> <span class="st">&quot;/Users/BetoVicentini/Desktop/bot89-2016&quot;</span></span>
-<span id="cb23-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># se estiver usando windows:</span></span>
-<span id="cb23-4"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># minhapasta = &quot;c:/Users/BetoVicentini/Documents/bot89-2016&quot;</span></span>
-<span id="cb23-5"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># minhapasta = &quot;c:\\/Users\\/BetoVicentini\\/Documents\\/bot89-2016&quot;  #talvez precise usar barras invertidas</span></span>
-<span id="cb23-6"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="at">dir =</span> minhapasta) <span class="co"># usa a funçao &quot;set working directory&quot; para especificar o diretório (pasta) de trabalho</span></span>
-<span id="cb23-8"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># note que eu defini dir primeiramente como o objeto &quot;minhapasta&quot; usei esse objeto para especificar o objeto &quot;dir&quot;, que é o único argumento da função setwd()</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb22-1" aria-hidden="true" tabindex="-1"></a>?setwd <span class="co"># veja o help da função que iremos utilizar</span></span>
+<span id="cb22-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb22-2" aria-hidden="true" tabindex="-1"></a>minhapasta <span class="ot">&lt;-</span> <span class="st">&quot;/Users/BetoVicentini/Desktop/bot89-2016&quot;</span></span>
+<span id="cb22-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># se estiver usando windows:</span></span>
+<span id="cb22-4"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># minhapasta = &quot;c:/Users/BetoVicentini/Documents/bot89-2016&quot;</span></span>
+<span id="cb22-5"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># minhapasta = &quot;c:\\/Users\\/BetoVicentini\\/Documents\\/bot89-2016&quot;  #talvez precise usar barras invertidas</span></span>
+<span id="cb22-6"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="at">dir =</span> minhapasta) <span class="co"># usa a funçao &quot;set working directory&quot; para especificar o diretório (pasta) de trabalho</span></span>
+<span id="cb22-8"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># note que eu defini dir primeiramente como o objeto &quot;minhapasta&quot; usei esse objeto para especificar o objeto &quot;dir&quot;, que é o único argumento da função setwd()</span></span></code></pre></div>
 <p>Objetos criados no R por você podem ser salvos como um arquivo no seu computador.
 Você pode usar o menu do R ou RStudio para isso ou pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-1" aria-hidden="true" tabindex="-1"></a>?save <span class="co"># veja o help desta função que vamos utilizar</span></span>
-<span id="cb24-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-2" aria-hidden="true" tabindex="-1"></a>?save.image <span class="co"># veja o help desta função que vamos utilizar</span></span>
-<span id="cb24-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># se sua área de trabalho estiver vazia</span></span>
-<span id="cb24-5"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># se nao retorna nada porque voce apagou acima</span></span>
-<span id="cb24-6"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># crie alguns objetos para o exercício</span></span>
-<span id="cb24-7"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-7" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;um objeto de texto qualquer&quot;</span></span>
-<span id="cb24-8"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-8" aria-hidden="true" tabindex="-1"></a>objum</span>
-<span id="cb24-9"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-9" aria-hidden="true" tabindex="-1"></a>objdois <span class="ot">&lt;-</span> <span class="dv">18</span> <span class="co"># um objeto com um número qualquer</span></span>
-<span id="cb24-10"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-10" aria-hidden="true" tabindex="-1"></a>objdois</span>
-<span id="cb24-11"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-11" aria-hidden="true" tabindex="-1"></a>banana <span class="ot">&lt;-</span> objum <span class="co"># um objeto idêntico a objum</span></span>
-<span id="cb24-12"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-13"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co"># pronto, agora mostre todos os objetos na sua AREA DE TRABALHO</span></span>
-<span id="cb24-14"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span>
-<span id="cb24-15"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-16"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co"># agora salve esse objetos como um arquivo na sua PASTA DE TRABALHO</span></span>
-<span id="cb24-17"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>() <span class="co"># veja onde o arquivo será salvo</span></span>
-<span id="cb24-18"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-19"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co"># se voce quer salvar todos os objetos</span></span>
-<span id="cb24-20"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file =</span> <span class="st">&quot;meusObjetos.Rdata&quot;</span>)</span>
-<span id="cb24-21"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-22"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="co"># se voce quer salvar apenas alguns objetos</span></span>
-<span id="cb24-23"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(objum, banana, <span class="at">file =</span> <span class="st">&quot;meusObjetos2.Rdata&quot;</span>)</span>
-<span id="cb24-24"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-25"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que na sua pasta de trabalho getwd() voce tem esses arquivos</span></span>
-<span id="cb24-26"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-26" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>() <span class="co"># lista arquivos na sua pasta de trabalho (análoga a função ls() que lista objetos)</span></span>
-<span id="cb24-27"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-27" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;Rdata&quot;</span>) <span class="co"># lista apenas arquivos que tem no nome &quot;.Rdata&quot;</span></span>
-<span id="cb24-28"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-29"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-29" aria-hidden="true" tabindex="-1"></a><span class="co"># apaga os objetos todos</span></span>
-<span id="cb24-30"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-30" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb24-31"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note que não tem mais objetos na sua área de trabalho, mas pode resgatar objetos que salvou num arquivo Rdata:</span></span>
-<span id="cb24-32"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-32" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;meusObjetos2.Rdata&quot;</span>) <span class="co"># puxa os objetos neste arquivo que está na sua pasta de trabalho</span></span>
-<span id="cb24-33"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note que ele puxou os objetos objum e banana que salvamos acima neste arquivo</span></span>
-<span id="cb24-34"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-35"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-35" aria-hidden="true" tabindex="-1"></a><span class="co"># puxe o outro arquivo gerado</span></span>
-<span id="cb24-36"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;meusObjetos.Rdata&quot;</span>) <span class="co"># puxa os objetos neste arquivo que está na sua pasta de trabalho</span></span>
-<span id="cb24-37"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># veja novamente os objetos na sua área de trabalho: Todos os objetos são listados. Se fizer isso e já houver objetos com o mesmo nome na sua área de trabalho, estes serão sobrepostos.</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-1" aria-hidden="true" tabindex="-1"></a>?save <span class="co"># veja o help desta função que vamos utilizar</span></span>
+<span id="cb23-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-2" aria-hidden="true" tabindex="-1"></a>?save.image <span class="co"># veja o help desta função que vamos utilizar</span></span>
+<span id="cb23-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># se sua área de trabalho estiver vazia</span></span>
+<span id="cb23-5"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># se nao retorna nada porque voce apagou acima</span></span>
+<span id="cb23-6"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># crie alguns objetos para o exercício</span></span>
+<span id="cb23-7"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-7" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;um objeto de texto qualquer&quot;</span></span>
+<span id="cb23-8"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-8" aria-hidden="true" tabindex="-1"></a>objum</span>
+<span id="cb23-9"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-9" aria-hidden="true" tabindex="-1"></a>objdois <span class="ot">&lt;-</span> <span class="dv">18</span> <span class="co"># um objeto com um número qualquer</span></span>
+<span id="cb23-10"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-10" aria-hidden="true" tabindex="-1"></a>objdois</span>
+<span id="cb23-11"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-11" aria-hidden="true" tabindex="-1"></a>banana <span class="ot">&lt;-</span> objum <span class="co"># um objeto idêntico a objum</span></span>
+<span id="cb23-12"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co"># pronto, agora mostre todos os objetos na sua AREA DE TRABALHO</span></span>
+<span id="cb23-14"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span>
+<span id="cb23-15"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co"># agora salve esse objetos como um arquivo na sua PASTA DE TRABALHO</span></span>
+<span id="cb23-17"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>() <span class="co"># veja onde o arquivo será salvo</span></span>
+<span id="cb23-18"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="co"># se voce quer salvar todos os objetos</span></span>
+<span id="cb23-20"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file =</span> <span class="st">&quot;meusObjetos.Rdata&quot;</span>)</span>
+<span id="cb23-21"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-22"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="co"># se voce quer salvar apenas alguns objetos</span></span>
+<span id="cb23-23"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-23" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(objum, banana, <span class="at">file =</span> <span class="st">&quot;meusObjetos2.Rdata&quot;</span>)</span>
+<span id="cb23-24"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-25"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que na sua pasta de trabalho getwd() voce tem esses arquivos</span></span>
+<span id="cb23-26"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>() <span class="co"># lista arquivos na sua pasta de trabalho (análoga a função ls() que lista objetos)</span></span>
+<span id="cb23-27"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;Rdata&quot;</span>) <span class="co"># lista apenas arquivos que tem no nome &quot;.Rdata&quot;</span></span>
+<span id="cb23-28"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-29"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="co"># apaga os objetos todos</span></span>
+<span id="cb23-30"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-30" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb23-31"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note que não tem mais objetos na sua área de trabalho, mas pode resgatar objetos que salvou num arquivo Rdata:</span></span>
+<span id="cb23-32"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;meusObjetos2.Rdata&quot;</span>) <span class="co"># puxa os objetos neste arquivo que está na sua pasta de trabalho</span></span>
+<span id="cb23-33"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># note que ele puxou os objetos objum e banana que salvamos acima neste arquivo</span></span>
+<span id="cb23-34"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-35"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-35" aria-hidden="true" tabindex="-1"></a><span class="co"># puxe o outro arquivo gerado</span></span>
+<span id="cb23-36"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-36" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">&quot;meusObjetos.Rdata&quot;</span>) <span class="co"># puxa os objetos neste arquivo que está na sua pasta de trabalho</span></span>
+<span id="cb23-37"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb23-37" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># veja novamente os objetos na sua área de trabalho: Todos os objetos são listados. Se fizer isso e já houver objetos com o mesmo nome na sua área de trabalho, estes serão sobrepostos.</span></span></code></pre></div>
 <p>Portanto, <em>Área de Trabalho</em> e <em>Pasta de Trabalho</em> são dois conceitos fundamentais que você precisa entender bem, pois define como e onde você estará salvando informação quando usar o R, tanto em termos de objetos (área de trabalho) como em termos de arquivos (pasta de trabalho).</p>
 <p>Se você digita <code>q()</code>, que é a função para sair do R, ele geralmente lhe pergunta se você quer salvar os objetos numa área de trabalho padrão (que o R puxa quando você o inicia):</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">q</span>() <span class="co"># sai do R</span></span>
-<span id="cb25-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vai perguntar no Console algo do tipo &quot;Save workspace image to ~/Desktop/bot89-2016/.RData? [y/n/c]:&quot;</span></span>
-<span id="cb25-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note que o arquivo não tem nome apenas extensão &quot;.RData&quot; e é salvo na pasta de trabalho definida com setwd().</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">q</span>() <span class="co"># sai do R</span></span>
+<span id="cb24-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vai perguntar no Console algo do tipo &quot;Save workspace image to ~/Desktop/bot89-2016/.RData? [y/n/c]:&quot;</span></span>
+<span id="cb24-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note que o arquivo não tem nome apenas extensão &quot;.RData&quot; e é salvo na pasta de trabalho definida com setwd().</span></span></code></pre></div>
 <p>Códigos de scripts podem ser executados no console sem necessidade de abrir o script. Por exemplo, suponha que eu tenha salvo o seguinte script num arquivo <code>script01.R</code>:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb26-1" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;meu primeiro objeto de texto&quot;</span></span>
-<span id="cb26-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb26-2" aria-hidden="true" tabindex="-1"></a>objdois <span class="ot">&lt;-</span> <span class="dv">18</span> <span class="co"># meu primeiro objeto numérico</span></span>
-<span id="cb26-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb26-3" aria-hidden="true" tabindex="-1"></a>banana <span class="ot">&lt;-</span> objum</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb25-1" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;meu primeiro objeto de texto&quot;</span></span>
+<span id="cb25-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb25-2" aria-hidden="true" tabindex="-1"></a>objdois <span class="ot">&lt;-</span> <span class="dv">18</span> <span class="co"># meu primeiro objeto numérico</span></span>
+<span id="cb25-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb25-3" aria-hidden="true" tabindex="-1"></a>banana <span class="ot">&lt;-</span> objum</span></code></pre></div>
 <p>Se este arquivo Scrip01.R está na minha pasta de trabalho, então posso executá-lo com a função <code>source()</code>:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;.R&quot;</span>) <span class="co"># mostra os arquivos .R que estão na pasta de trabalho</span></span>
-<span id="cb27-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># apaga todos os objetos, para ver que ele irá criar os objetos indicados no arquivo</span></span>
-<span id="cb27-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># nao tem nenhum objeto</span></span>
-<span id="cb27-4"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;script01.R&quot;</span>)</span>
-<span id="cb27-5"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># os objetos foram criados como especificado no script</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;.R&quot;</span>) <span class="co"># mostra os arquivos .R que estão na pasta de trabalho</span></span>
+<span id="cb26-2"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># apaga todos os objetos, para ver que ele irá criar os objetos indicados no arquivo</span></span>
+<span id="cb26-3"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># nao tem nenhum objeto</span></span>
+<span id="cb26-4"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;script01.R&quot;</span>)</span>
+<span id="cb26-5"><a href="área-de-trabalho-vs.-pasta-de-trabalho.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>() <span class="co"># os objetos foram criados como especificado no script</span></span></code></pre></div>
 </div>
             </section>
 
@@ -680,7 +684,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/01-intro.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

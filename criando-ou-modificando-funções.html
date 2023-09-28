@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.4 Criando ou modificando funções | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.4 Criando ou modificando funções | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -566,45 +570,45 @@ Há um bloco que deve ser sempre repetido:</p>
   
 } </code></pre>
 <p>É costume sempre utilizar a função <code>return()</code> como último elemento da função para que algum objeto seja retornado ao usuário.</p>
-<div class="sourceCode" id="cb1142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1142-1"><a href="criando-ou-modificando-funções.html#cb1142-1" aria-hidden="true" tabindex="-1"></a>?return <span class="co"># veja o help</span></span></code></pre></div>
+<div class="sourceCode" id="cb1141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1141-1"><a href="criando-ou-modificando-funções.html#cb1141-1" aria-hidden="true" tabindex="-1"></a>?return <span class="co"># veja o help</span></span></code></pre></div>
 <div id="exemplo-i" class="section level3 hasAnchor" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Exemplo I<a href="criando-ou-modificando-funções.html#exemplo-i" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vamos fazer a nossa versão da função <code>mean()</code>, que tira a média aritmética dos valores de um vetor.</p>
-<div class="sourceCode" id="cb1143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1143-1"><a href="criando-ou-modificando-funções.html#cb1143-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos fazer essa função na unha:</span></span>
-<span id="cb1143-2"><a href="criando-ou-modificando-funções.html#cb1143-2" aria-hidden="true" tabindex="-1"></a>amedia <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb1143-3"><a href="criando-ou-modificando-funções.html#cb1143-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># x será um vetor de comprimento &gt;=1 e todos os valores devem ser numéricos, senão precisamos avisar.</span></span>
-<span id="cb1143-4"><a href="criando-ou-modificando-funções.html#cb1143-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># essa funçao ira retornar o valor do &#39;am&#39; que definimos como nulo inicialmente</span></span>
-<span id="cb1143-5"><a href="criando-ou-modificando-funções.html#cb1143-5" aria-hidden="true" tabindex="-1"></a>  am <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb1143-6"><a href="criando-ou-modificando-funções.html#cb1143-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># condicao 1</span></span>
-<span id="cb1143-7"><a href="criando-ou-modificando-funções.html#cb1143-7" aria-hidden="true" tabindex="-1"></a>  c1 <span class="ot">&lt;-</span> <span class="fu">is.vector</span>(x)</span>
-<span id="cb1143-8"><a href="criando-ou-modificando-funções.html#cb1143-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># condicao 2</span></span>
-<span id="cb1143-9"><a href="criando-ou-modificando-funções.html#cb1143-9" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(x) <span class="co"># convertemos em numérico</span></span>
-<span id="cb1143-10"><a href="criando-ou-modificando-funções.html#cb1143-10" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> xx[<span class="sc">!</span><span class="fu">is.na</span>(xx)] <span class="co"># tira o que não é número (o que não foi convertido ou está em branco)</span></span>
-<span id="cb1143-11"><a href="criando-ou-modificando-funções.html#cb1143-11" aria-hidden="true" tabindex="-1"></a>  c2 <span class="ot">&lt;-</span> <span class="fu">length</span>(xx) <span class="sc">==</span> <span class="fu">length</span>(x) <span class="co"># os comprimentos são iguais? e tem algum valor?</span></span>
-<span id="cb1143-12"><a href="criando-ou-modificando-funções.html#cb1143-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (c1 <span class="sc">&amp;</span> <span class="fu">length</span>(xx) <span class="sc">&gt;</span> <span class="dv">0</span>) { <span class="co"># se for um vetor e houver algum valor numérico, pode calcular a média</span></span>
-<span id="cb1143-13"><a href="criando-ou-modificando-funções.html#cb1143-13" aria-hidden="true" tabindex="-1"></a>    am <span class="ot">&lt;-</span> <span class="fu">sum</span>(xx) <span class="sc">/</span> <span class="fu">length</span>(xx)</span>
-<span id="cb1143-14"><a href="criando-ou-modificando-funções.html#cb1143-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span>c2) { <span class="co"># se c1 for falso</span></span>
-<span id="cb1143-15"><a href="criando-ou-modificando-funções.html#cb1143-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="fu">paste</span>(<span class="fu">length</span>(x) <span class="sc">-</span> <span class="fu">length</span>(xx), <span class="st">&quot; valores do vetor não são numéricos e foram excluídos&quot;</span>)) <span class="co"># avisa</span></span>
-<span id="cb1143-16"><a href="criando-ou-modificando-funções.html#cb1143-16" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1143-17"><a href="criando-ou-modificando-funções.html#cb1143-17" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb1143-18"><a href="criando-ou-modificando-funções.html#cb1143-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;O objeto não é um vetor ou não há valores numéricos&quot;</span>) <span class="co"># avisa</span></span>
-<span id="cb1143-19"><a href="criando-ou-modificando-funções.html#cb1143-19" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1143-20"><a href="criando-ou-modificando-funções.html#cb1143-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(am)</span>
-<span id="cb1143-21"><a href="criando-ou-modificando-funções.html#cb1143-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1142-1"><a href="criando-ou-modificando-funções.html#cb1142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos fazer essa função na unha:</span></span>
+<span id="cb1142-2"><a href="criando-ou-modificando-funções.html#cb1142-2" aria-hidden="true" tabindex="-1"></a>amedia <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1142-3"><a href="criando-ou-modificando-funções.html#cb1142-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># x será um vetor de comprimento &gt;=1 e todos os valores devem ser numéricos, senão precisamos avisar.</span></span>
+<span id="cb1142-4"><a href="criando-ou-modificando-funções.html#cb1142-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># essa funçao ira retornar o valor do &#39;am&#39; que definimos como nulo inicialmente</span></span>
+<span id="cb1142-5"><a href="criando-ou-modificando-funções.html#cb1142-5" aria-hidden="true" tabindex="-1"></a>  am <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb1142-6"><a href="criando-ou-modificando-funções.html#cb1142-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># condicao 1</span></span>
+<span id="cb1142-7"><a href="criando-ou-modificando-funções.html#cb1142-7" aria-hidden="true" tabindex="-1"></a>  c1 <span class="ot">&lt;-</span> <span class="fu">is.vector</span>(x)</span>
+<span id="cb1142-8"><a href="criando-ou-modificando-funções.html#cb1142-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># condicao 2</span></span>
+<span id="cb1142-9"><a href="criando-ou-modificando-funções.html#cb1142-9" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(x) <span class="co"># convertemos em numérico</span></span>
+<span id="cb1142-10"><a href="criando-ou-modificando-funções.html#cb1142-10" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> xx[<span class="sc">!</span><span class="fu">is.na</span>(xx)] <span class="co"># tira o que não é número (o que não foi convertido ou está em branco)</span></span>
+<span id="cb1142-11"><a href="criando-ou-modificando-funções.html#cb1142-11" aria-hidden="true" tabindex="-1"></a>  c2 <span class="ot">&lt;-</span> <span class="fu">length</span>(xx) <span class="sc">==</span> <span class="fu">length</span>(x) <span class="co"># os comprimentos são iguais? e tem algum valor?</span></span>
+<span id="cb1142-12"><a href="criando-ou-modificando-funções.html#cb1142-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (c1 <span class="sc">&amp;</span> <span class="fu">length</span>(xx) <span class="sc">&gt;</span> <span class="dv">0</span>) { <span class="co"># se for um vetor e houver algum valor numérico, pode calcular a média</span></span>
+<span id="cb1142-13"><a href="criando-ou-modificando-funções.html#cb1142-13" aria-hidden="true" tabindex="-1"></a>    am <span class="ot">&lt;-</span> <span class="fu">sum</span>(xx) <span class="sc">/</span> <span class="fu">length</span>(xx)</span>
+<span id="cb1142-14"><a href="criando-ou-modificando-funções.html#cb1142-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span>c2) { <span class="co"># se c1 for falso</span></span>
+<span id="cb1142-15"><a href="criando-ou-modificando-funções.html#cb1142-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="fu">paste</span>(<span class="fu">length</span>(x) <span class="sc">-</span> <span class="fu">length</span>(xx), <span class="st">&quot; valores do vetor não são numéricos e foram excluídos&quot;</span>)) <span class="co"># avisa</span></span>
+<span id="cb1142-16"><a href="criando-ou-modificando-funções.html#cb1142-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1142-17"><a href="criando-ou-modificando-funções.html#cb1142-17" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1142-18"><a href="criando-ou-modificando-funções.html#cb1142-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;O objeto não é um vetor ou não há valores numéricos&quot;</span>) <span class="co"># avisa</span></span>
+<span id="cb1142-19"><a href="criando-ou-modificando-funções.html#cb1142-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1142-20"><a href="criando-ou-modificando-funções.html#cb1142-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(am)</span>
+<span id="cb1142-21"><a href="criando-ou-modificando-funções.html#cb1142-21" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Vamos agora utilizar a função:</p>
-<div class="sourceCode" id="cb1144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1144-1"><a href="criando-ou-modificando-funções.html#cb1144-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb1144-2"><a href="criando-ou-modificando-funções.html#cb1144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">amedia</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb1143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1143-1"><a href="criando-ou-modificando-funções.html#cb1143-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb1143-2"><a href="criando-ou-modificando-funções.html#cb1143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">amedia</span>(v1)</span></code></pre></div>
 <pre><code>## [1] 3.5</code></pre>
-<div class="sourceCode" id="cb1146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1146-1"><a href="criando-ou-modificando-funções.html#cb1146-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb1146-2"><a href="criando-ou-modificando-funções.html#cb1146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">amedia</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb1145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1145-1"><a href="criando-ou-modificando-funções.html#cb1145-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb1145-2"><a href="criando-ou-modificando-funções.html#cb1145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">amedia</span>(v1)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb1148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1148-1"><a href="criando-ou-modificando-funções.html#cb1148-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="st">&quot;A&quot;</span>)</span>
-<span id="cb1148-2"><a href="criando-ou-modificando-funções.html#cb1148-2" aria-hidden="true" tabindex="-1"></a><span class="fu">amedia</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb1147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1147-1"><a href="criando-ou-modificando-funções.html#cb1147-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="st">&quot;A&quot;</span>)</span>
+<span id="cb1147-2"><a href="criando-ou-modificando-funções.html#cb1147-2" aria-hidden="true" tabindex="-1"></a><span class="fu">amedia</span>(v1)</span></code></pre></div>
 <pre><code>## Warning in amedia(v1): NAs introduced by coercion</code></pre>
 <pre><code>## [1] &quot;1  valores do vetor não são numéricos e foram excluídos&quot;</code></pre>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb1152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1152-1"><a href="criando-ou-modificando-funções.html#cb1152-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> LETTERS</span>
-<span id="cb1152-2"><a href="criando-ou-modificando-funções.html#cb1152-2" aria-hidden="true" tabindex="-1"></a><span class="fu">amedia</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb1151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1151-1"><a href="criando-ou-modificando-funções.html#cb1151-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> LETTERS</span>
+<span id="cb1151-2"><a href="criando-ou-modificando-funções.html#cb1151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">amedia</span>(v1)</span></code></pre></div>
 <pre><code>## Warning in amedia(v1): NAs introduced by coercion</code></pre>
 <pre><code>## [1] &quot;O objeto não é um vetor ou não há valores numéricos&quot;</code></pre>
 <pre><code>## NULL</code></pre>
@@ -614,51 +618,51 @@ Há um bloco que deve ser sempre repetido:</p>
 <p>Os <em>loops</em> por meio da expressão <code>for(){}</code> e a condicional <code>if</code> são muito úteis dentro de funções.
 Sua função pode, por exemplo, ser construida para que um argumento possa assumir diferentes valores e, a depender do valor, executar uma coisa diferente.
 Como exemplo, vamos criar uma função que contem o script do exemplo de <code>if</code>:</p>
-<div class="sourceCode" id="cb1156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1156-1"><a href="criando-ou-modificando-funções.html#cb1156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CRIA uma funcao com os seguintes argumentos:</span></span>
-<span id="cb1156-2"><a href="criando-ou-modificando-funções.html#cb1156-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vet = um vetor de valores</span></span>
-<span id="cb1156-3"><a href="criando-ou-modificando-funções.html#cb1156-3" aria-hidden="true" tabindex="-1"></a><span class="co"># busca.valor = um valor para busca em vet</span></span>
-<span id="cb1156-4"><a href="criando-ou-modificando-funções.html#cb1156-4" aria-hidden="true" tabindex="-1"></a><span class="co"># nrun = numero de vezes da iteracao</span></span>
-<span id="cb1156-5"><a href="criando-ou-modificando-funções.html#cb1156-5" aria-hidden="true" tabindex="-1"></a>minhafuncao <span class="ot">&lt;-</span> <span class="cf">function</span>(vet, busca.valor, nrun) {</span>
-<span id="cb1156-6"><a href="criando-ou-modificando-funções.html#cb1156-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cria um loop do número de vezes (note o argumento nrun abaixo)</span></span>
-<span id="cb1156-7"><a href="criando-ou-modificando-funções.html#cb1156-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (v <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nrun) {</span>
-<span id="cb1156-8"><a href="criando-ou-modificando-funções.html#cb1156-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pega um valor aleatorio</span></span>
-<span id="cb1156-9"><a href="criando-ou-modificando-funções.html#cb1156-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># amostra o indice aleatoriamente</span></span>
-<span id="cb1156-10"><a href="criando-ou-modificando-funções.html#cb1156-10" aria-hidden="true" tabindex="-1"></a>    idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vet), <span class="dv">1</span>)</span>
-<span id="cb1156-11"><a href="criando-ou-modificando-funções.html#cb1156-11" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> vet[idx]</span>
-<span id="cb1156-12"><a href="criando-ou-modificando-funções.html#cb1156-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># se o valor amostrado for igual ao valor procurado para</span></span>
-<span id="cb1156-13"><a href="criando-ou-modificando-funções.html#cb1156-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (valor <span class="sc">==</span> busca.valor) {</span>
-<span id="cb1156-14"><a href="criando-ou-modificando-funções.html#cb1156-14" aria-hidden="true" tabindex="-1"></a>      <span class="co"># se o valor selecionado aleatoriamente for 10, ou seja se a expressão valor==10 for TRUE execute:</span></span>
-<span id="cb1156-15"><a href="criando-ou-modificando-funções.html#cb1156-15" aria-hidden="true" tabindex="-1"></a>      <span class="co"># imprima isso</span></span>
-<span id="cb1156-16"><a href="criando-ou-modificando-funções.html#cb1156-16" aria-hidden="true" tabindex="-1"></a>      <span class="co"># print(paste(&quot;A primeira vez que o valor 10 foi selecionado aleatoriamente foi quando o objeto v assumiu o valor de&quot;,v))</span></span>
-<span id="cb1156-17"><a href="criando-ou-modificando-funções.html#cb1156-17" aria-hidden="true" tabindex="-1"></a>      <span class="co"># interrompa (quebre) o loop</span></span>
-<span id="cb1156-18"><a href="criando-ou-modificando-funções.html#cb1156-18" aria-hidden="true" tabindex="-1"></a>      <span class="cf">break</span> <span class="co"># note este argumento</span></span>
-<span id="cb1156-19"><a href="criando-ou-modificando-funções.html#cb1156-19" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb1156-20"><a href="criando-ou-modificando-funções.html#cb1156-20" aria-hidden="true" tabindex="-1"></a>      <span class="co"># caso contrario, valor!=10, imprime o valor selecionado e continua o loop</span></span>
-<span id="cb1156-21"><a href="criando-ou-modificando-funções.html#cb1156-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># print(paste(&quot;O valor selecionado foi &quot;,valor,&quot;no indice&quot;,v))</span></span>
-<span id="cb1156-22"><a href="criando-ou-modificando-funções.html#cb1156-22" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1156-23"><a href="criando-ou-modificando-funções.html#cb1156-23" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1156-24"><a href="criando-ou-modificando-funções.html#cb1156-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># o valor do objeto v será o último valor assumido na execucao do for(){}, se tiver encontrado será menor que nrun, caso contrario será ==nrun</span></span>
-<span id="cb1156-25"><a href="criando-ou-modificando-funções.html#cb1156-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># se encontrou retorna o indice do valor (que é o último valor assumido por idx)</span></span>
-<span id="cb1156-26"><a href="criando-ou-modificando-funções.html#cb1156-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># caso o último valor seja == ao valor buscado, ou que o ultimo v é menor que o especificado em nrun, retorna o indice do valor no vetor vet</span></span>
-<span id="cb1156-27"><a href="criando-ou-modificando-funções.html#cb1156-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (v <span class="sc">&lt;</span> nrun <span class="sc">|</span> valor <span class="sc">==</span> busca.valor) {</span>
-<span id="cb1156-28"><a href="criando-ou-modificando-funções.html#cb1156-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Encontrei o valor&quot;</span>, busca.valor, <span class="st">&quot;no indice, &quot;</span>, idx, <span class="st">&quot;do vetor indicado&quot;</span>))</span>
-<span id="cb1156-29"><a href="criando-ou-modificando-funções.html#cb1156-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(idx)</span>
-<span id="cb1156-30"><a href="criando-ou-modificando-funções.html#cb1156-30" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb1156-31"><a href="criando-ou-modificando-funções.html#cb1156-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># caso contrário returna NA</span></span>
-<span id="cb1156-32"><a href="criando-ou-modificando-funções.html#cb1156-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Não encontrei o valor&quot;</span>, busca.valor, <span class="st">&quot;no vetor indicado&quot;</span>))</span>
-<span id="cb1156-33"><a href="criando-ou-modificando-funções.html#cb1156-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NA</span>)</span>
-<span id="cb1156-34"><a href="criando-ou-modificando-funções.html#cb1156-34" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1156-35"><a href="criando-ou-modificando-funções.html#cb1156-35" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1155-1"><a href="criando-ou-modificando-funções.html#cb1155-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CRIA uma funcao com os seguintes argumentos:</span></span>
+<span id="cb1155-2"><a href="criando-ou-modificando-funções.html#cb1155-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vet = um vetor de valores</span></span>
+<span id="cb1155-3"><a href="criando-ou-modificando-funções.html#cb1155-3" aria-hidden="true" tabindex="-1"></a><span class="co"># busca.valor = um valor para busca em vet</span></span>
+<span id="cb1155-4"><a href="criando-ou-modificando-funções.html#cb1155-4" aria-hidden="true" tabindex="-1"></a><span class="co"># nrun = numero de vezes da iteracao</span></span>
+<span id="cb1155-5"><a href="criando-ou-modificando-funções.html#cb1155-5" aria-hidden="true" tabindex="-1"></a>minhafuncao <span class="ot">&lt;-</span> <span class="cf">function</span>(vet, busca.valor, nrun) {</span>
+<span id="cb1155-6"><a href="criando-ou-modificando-funções.html#cb1155-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cria um loop do número de vezes (note o argumento nrun abaixo)</span></span>
+<span id="cb1155-7"><a href="criando-ou-modificando-funções.html#cb1155-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (v <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nrun) {</span>
+<span id="cb1155-8"><a href="criando-ou-modificando-funções.html#cb1155-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pega um valor aleatorio</span></span>
+<span id="cb1155-9"><a href="criando-ou-modificando-funções.html#cb1155-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># amostra o indice aleatoriamente</span></span>
+<span id="cb1155-10"><a href="criando-ou-modificando-funções.html#cb1155-10" aria-hidden="true" tabindex="-1"></a>    idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(vet), <span class="dv">1</span>)</span>
+<span id="cb1155-11"><a href="criando-ou-modificando-funções.html#cb1155-11" aria-hidden="true" tabindex="-1"></a>    valor <span class="ot">&lt;-</span> vet[idx]</span>
+<span id="cb1155-12"><a href="criando-ou-modificando-funções.html#cb1155-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># se o valor amostrado for igual ao valor procurado para</span></span>
+<span id="cb1155-13"><a href="criando-ou-modificando-funções.html#cb1155-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (valor <span class="sc">==</span> busca.valor) {</span>
+<span id="cb1155-14"><a href="criando-ou-modificando-funções.html#cb1155-14" aria-hidden="true" tabindex="-1"></a>      <span class="co"># se o valor selecionado aleatoriamente for 10, ou seja se a expressão valor==10 for TRUE execute:</span></span>
+<span id="cb1155-15"><a href="criando-ou-modificando-funções.html#cb1155-15" aria-hidden="true" tabindex="-1"></a>      <span class="co"># imprima isso</span></span>
+<span id="cb1155-16"><a href="criando-ou-modificando-funções.html#cb1155-16" aria-hidden="true" tabindex="-1"></a>      <span class="co"># print(paste(&quot;A primeira vez que o valor 10 foi selecionado aleatoriamente foi quando o objeto v assumiu o valor de&quot;,v))</span></span>
+<span id="cb1155-17"><a href="criando-ou-modificando-funções.html#cb1155-17" aria-hidden="true" tabindex="-1"></a>      <span class="co"># interrompa (quebre) o loop</span></span>
+<span id="cb1155-18"><a href="criando-ou-modificando-funções.html#cb1155-18" aria-hidden="true" tabindex="-1"></a>      <span class="cf">break</span> <span class="co"># note este argumento</span></span>
+<span id="cb1155-19"><a href="criando-ou-modificando-funções.html#cb1155-19" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb1155-20"><a href="criando-ou-modificando-funções.html#cb1155-20" aria-hidden="true" tabindex="-1"></a>      <span class="co"># caso contrario, valor!=10, imprime o valor selecionado e continua o loop</span></span>
+<span id="cb1155-21"><a href="criando-ou-modificando-funções.html#cb1155-21" aria-hidden="true" tabindex="-1"></a>      <span class="co"># print(paste(&quot;O valor selecionado foi &quot;,valor,&quot;no indice&quot;,v))</span></span>
+<span id="cb1155-22"><a href="criando-ou-modificando-funções.html#cb1155-22" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1155-23"><a href="criando-ou-modificando-funções.html#cb1155-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1155-24"><a href="criando-ou-modificando-funções.html#cb1155-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># o valor do objeto v será o último valor assumido na execucao do for(){}, se tiver encontrado será menor que nrun, caso contrario será ==nrun</span></span>
+<span id="cb1155-25"><a href="criando-ou-modificando-funções.html#cb1155-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># se encontrou retorna o indice do valor (que é o último valor assumido por idx)</span></span>
+<span id="cb1155-26"><a href="criando-ou-modificando-funções.html#cb1155-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># caso o último valor seja == ao valor buscado, ou que o ultimo v é menor que o especificado em nrun, retorna o indice do valor no vetor vet</span></span>
+<span id="cb1155-27"><a href="criando-ou-modificando-funções.html#cb1155-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (v <span class="sc">&lt;</span> nrun <span class="sc">|</span> valor <span class="sc">==</span> busca.valor) {</span>
+<span id="cb1155-28"><a href="criando-ou-modificando-funções.html#cb1155-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Encontrei o valor&quot;</span>, busca.valor, <span class="st">&quot;no indice, &quot;</span>, idx, <span class="st">&quot;do vetor indicado&quot;</span>))</span>
+<span id="cb1155-29"><a href="criando-ou-modificando-funções.html#cb1155-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(idx)</span>
+<span id="cb1155-30"><a href="criando-ou-modificando-funções.html#cb1155-30" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1155-31"><a href="criando-ou-modificando-funções.html#cb1155-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># caso contrário returna NA</span></span>
+<span id="cb1155-32"><a href="criando-ou-modificando-funções.html#cb1155-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Não encontrei o valor&quot;</span>, busca.valor, <span class="st">&quot;no vetor indicado&quot;</span>))</span>
+<span id="cb1155-33"><a href="criando-ou-modificando-funções.html#cb1155-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NA</span>)</span>
+<span id="cb1155-34"><a href="criando-ou-modificando-funções.html#cb1155-34" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1155-35"><a href="criando-ou-modificando-funções.html#cb1155-35" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Vamos utilizar a função recém-criada:</p>
-<div class="sourceCode" id="cb1157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1157-1"><a href="criando-ou-modificando-funções.html#cb1157-1" aria-hidden="true" tabindex="-1"></a>umvetor <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">60</span>, <span class="at">replace =</span> T)</span>
-<span id="cb1157-2"><a href="criando-ou-modificando-funções.html#cb1157-2" aria-hidden="true" tabindex="-1"></a><span class="fu">minhafuncao</span>(<span class="at">vet =</span> umvetor, <span class="at">busca.valor =</span> <span class="dv">22</span>, <span class="at">nrun =</span> <span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1156-1"><a href="criando-ou-modificando-funções.html#cb1156-1" aria-hidden="true" tabindex="-1"></a>umvetor <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">60</span>, <span class="at">replace =</span> T)</span>
+<span id="cb1156-2"><a href="criando-ou-modificando-funções.html#cb1156-2" aria-hidden="true" tabindex="-1"></a><span class="fu">minhafuncao</span>(<span class="at">vet =</span> umvetor, <span class="at">busca.valor =</span> <span class="dv">22</span>, <span class="at">nrun =</span> <span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Não encontrei o valor 22 no vetor indicado&quot;</code></pre>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb1160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1160-1"><a href="criando-ou-modificando-funções.html#cb1160-1" aria-hidden="true" tabindex="-1"></a>retornou.isso <span class="ot">&lt;-</span> <span class="fu">minhafuncao</span>(<span class="at">vet =</span> umvetor, <span class="at">busca.valor =</span> <span class="dv">22</span>, <span class="at">nrun =</span> <span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1159-1"><a href="criando-ou-modificando-funções.html#cb1159-1" aria-hidden="true" tabindex="-1"></a>retornou.isso <span class="ot">&lt;-</span> <span class="fu">minhafuncao</span>(<span class="at">vet =</span> umvetor, <span class="at">busca.valor =</span> <span class="dv">22</span>, <span class="at">nrun =</span> <span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Não encontrei o valor 22 no vetor indicado&quot;</code></pre>
-<div class="sourceCode" id="cb1162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1162-1"><a href="criando-ou-modificando-funções.html#cb1162-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e usar de novo com outros valores</span></span>
-<span id="cb1162-2"><a href="criando-ou-modificando-funções.html#cb1162-2" aria-hidden="true" tabindex="-1"></a>umvetor <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">200</span><span class="sc">:</span><span class="dv">300</span>, <span class="dv">50</span>, <span class="at">replace =</span> T)</span>
-<span id="cb1162-3"><a href="criando-ou-modificando-funções.html#cb1162-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(umvetor), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1161-1"><a href="criando-ou-modificando-funções.html#cb1161-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e usar de novo com outros valores</span></span>
+<span id="cb1161-2"><a href="criando-ou-modificando-funções.html#cb1161-2" aria-hidden="true" tabindex="-1"></a>umvetor <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">200</span><span class="sc">:</span><span class="dv">300</span>, <span class="dv">50</span>, <span class="at">replace =</span> T)</span>
+<span id="cb1161-3"><a href="criando-ou-modificando-funções.html#cb1161-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(umvetor), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -729,10 +733,10 @@ Como exemplo, vamos criar uma função que contem o script do exemplo de <code>i
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1163-1"><a href="criando-ou-modificando-funções.html#cb1163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">minhafuncao</span>(<span class="at">vet =</span> umvetor, <span class="at">busca.valor =</span> <span class="dv">250</span>, <span class="at">nrun =</span> <span class="dv">10000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1162-1"><a href="criando-ou-modificando-funções.html#cb1162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">minhafuncao</span>(<span class="at">vet =</span> umvetor, <span class="at">busca.valor =</span> <span class="dv">250</span>, <span class="at">nrun =</span> <span class="dv">10000</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Encontrei o valor 250 no indice,  36 do vetor indicado&quot;</code></pre>
 <pre><code>## [1] 36</code></pre>
-<div class="sourceCode" id="cb1166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1166-1"><a href="criando-ou-modificando-funções.html#cb1166-1" aria-hidden="true" tabindex="-1"></a>retornou.isso <span class="ot">&lt;-</span> <span class="fu">minhafuncao</span>(<span class="at">vet =</span> umvetor, <span class="at">busca.valor =</span> <span class="dv">250</span>, <span class="at">nrun =</span> <span class="dv">10000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1165-1"><a href="criando-ou-modificando-funções.html#cb1165-1" aria-hidden="true" tabindex="-1"></a>retornou.isso <span class="ot">&lt;-</span> <span class="fu">minhafuncao</span>(<span class="at">vet =</span> umvetor, <span class="at">busca.valor =</span> <span class="dv">250</span>, <span class="at">nrun =</span> <span class="dv">10000</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Encontrei o valor 250 no indice,  36 do vetor indicado&quot;</code></pre>
 </div>
 </div>
@@ -784,7 +788,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/06-iteracoes_controleFluxo.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

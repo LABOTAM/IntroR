@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.3 Parâmetros gráficos, parte II - Símbolos e cores | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.3 Parâmetros gráficos, parte II - Símbolos e cores | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -568,49 +572,49 @@ Os parâmetros gráficos que fazem isso são principalmente os seguintes:</p>
 <p>Nós queremos símbolos, em geral, para adicionar em um gráfico os pontos referentes às nossas unidades amostrais.
 Portanto, esse tipo de símbolo no R é chamado de <code>points</code>, e já vimos a função de baixo-nível <code>points()</code>, que depende desse argumento ou parâmetro.
 O argumento <code>pch</code> pode ser um número<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, que especifica um símbolo, ou símbolos de um único caractere [e.g. <code>c("A", "*","&amp;", "?")</code>].</p>
-<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="par-graficos-p2.html#cb821-1" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o definido como parâmetro global</span></span>
-<span id="cb821-2"><a href="par-graficos-p2.html#cb821-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="st">&quot;pch&quot;</span>)</span>
-<span id="cb821-3"><a href="par-graficos-p2.html#cb821-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb821-4"><a href="par-graficos-p2.html#cb821-4" aria-hidden="true" tabindex="-1"></a><span class="co"># o que isso quer dizer?</span></span>
-<span id="cb821-5"><a href="par-graficos-p2.html#cb821-5" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos usar a função example()</span></span>
-<span id="cb821-6"><a href="par-graficos-p2.html#cb821-6" aria-hidden="true" tabindex="-1"></a>?example <span class="co"># se quiser saber o que isso faz</span></span>
-<span id="cb821-7"><a href="par-graficos-p2.html#cb821-7" aria-hidden="true" tabindex="-1"></a><span class="co"># quando digitar o comando abaixo,</span></span>
-<span id="cb821-8"><a href="par-graficos-p2.html#cb821-8" aria-hidden="true" tabindex="-1"></a><span class="co"># vai precisar RESPONDER NO CONSOLE para prosseguir.</span></span>
-<span id="cb821-9"><a href="par-graficos-p2.html#cb821-9" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(<span class="st">&quot;points&quot;</span>)</span>
-<span id="cb821-10"><a href="par-graficos-p2.html#cb821-10" aria-hidden="true" tabindex="-1"></a><span class="co"># pare na terceira figura que esse exemplo gera.</span></span>
-<span id="cb821-11"><a href="par-graficos-p2.html#cb821-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="st">&quot;pch&quot;</span>) <span class="co"># este valor corresponde ao símbolo nessa figura.</span></span>
-<span id="cb821-12"><a href="par-graficos-p2.html#cb821-12" aria-hidden="true" tabindex="-1"></a><span class="co"># note que os símbolos de 21:25 permitem definir cor de linha e de recheiro, os demais apenas uma única cor</span></span></code></pre></div>
-<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="par-graficos-p2.html#cb822-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos gerar alguns exemplos com os dados de iris</span></span>
-<span id="cb822-2"><a href="par-graficos-p2.html#cb822-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="par-graficos-p2.html#cb820-1" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o definido como parâmetro global</span></span>
+<span id="cb820-2"><a href="par-graficos-p2.html#cb820-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="st">&quot;pch&quot;</span>)</span>
+<span id="cb820-3"><a href="par-graficos-p2.html#cb820-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb820-4"><a href="par-graficos-p2.html#cb820-4" aria-hidden="true" tabindex="-1"></a><span class="co"># o que isso quer dizer?</span></span>
+<span id="cb820-5"><a href="par-graficos-p2.html#cb820-5" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos usar a função example()</span></span>
+<span id="cb820-6"><a href="par-graficos-p2.html#cb820-6" aria-hidden="true" tabindex="-1"></a>?example <span class="co"># se quiser saber o que isso faz</span></span>
+<span id="cb820-7"><a href="par-graficos-p2.html#cb820-7" aria-hidden="true" tabindex="-1"></a><span class="co"># quando digitar o comando abaixo,</span></span>
+<span id="cb820-8"><a href="par-graficos-p2.html#cb820-8" aria-hidden="true" tabindex="-1"></a><span class="co"># vai precisar RESPONDER NO CONSOLE para prosseguir.</span></span>
+<span id="cb820-9"><a href="par-graficos-p2.html#cb820-9" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(<span class="st">&quot;points&quot;</span>)</span>
+<span id="cb820-10"><a href="par-graficos-p2.html#cb820-10" aria-hidden="true" tabindex="-1"></a><span class="co"># pare na terceira figura que esse exemplo gera.</span></span>
+<span id="cb820-11"><a href="par-graficos-p2.html#cb820-11" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="st">&quot;pch&quot;</span>) <span class="co"># este valor corresponde ao símbolo nessa figura.</span></span>
+<span id="cb820-12"><a href="par-graficos-p2.html#cb820-12" aria-hidden="true" tabindex="-1"></a><span class="co"># note que os símbolos de 21:25 permitem definir cor de linha e de recheiro, os demais apenas uma única cor</span></span></code></pre></div>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="par-graficos-p2.html#cb821-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos gerar alguns exemplos com os dados de iris</span></span>
+<span id="cb821-2"><a href="par-graficos-p2.html#cb821-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(iris)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="par-graficos-p2.html#cb824-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="par-graficos-p2.html#cb823-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(iris)</span></code></pre></div>
 <pre><code>## [1] 150   5</code></pre>
-<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="par-graficos-p2.html#cb826-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="par-graficos-p2.html#cb825-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(iris)</span></code></pre></div>
 <pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
-<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="par-graficos-p2.html#cb828-1" aria-hidden="true" tabindex="-1"></a><span class="co"># com a definicao padrão de pch</span></span>
-<span id="cb828-2"><a href="par-graficos-p2.html#cb828-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="st">&quot;pch&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="par-graficos-p2.html#cb827-1" aria-hidden="true" tabindex="-1"></a><span class="co"># com a definicao padrão de pch</span></span>
+<span id="cb827-2"><a href="par-graficos-p2.html#cb827-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="st">&quot;pch&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="par-graficos-p2.html#cb830-1" aria-hidden="true" tabindex="-1"></a>Sepalas <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length</span>
-<span id="cb830-2"><a href="par-graficos-p2.html#cb830-2" aria-hidden="true" tabindex="-1"></a>Petalas <span class="ot">&lt;-</span> iris<span class="sc">$</span>Petal.Length</span>
-<span id="cb830-3"><a href="par-graficos-p2.html#cb830-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas)</span></code></pre></div>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="par-graficos-p2.html#cb829-1" aria-hidden="true" tabindex="-1"></a>Sepalas <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length</span>
+<span id="cb829-2"><a href="par-graficos-p2.html#cb829-2" aria-hidden="true" tabindex="-1"></a>Petalas <span class="ot">&lt;-</span> iris<span class="sc">$</span>Petal.Length</span>
+<span id="cb829-3"><a href="par-graficos-p2.html#cb829-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-232-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="par-graficos-p2.html#cb831-1" aria-hidden="true" tabindex="-1"></a><span class="co"># colocando todas com um único símbolo diferente</span></span>
-<span id="cb831-2"><a href="par-graficos-p2.html#cb831-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> <span class="dv">25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="par-graficos-p2.html#cb830-1" aria-hidden="true" tabindex="-1"></a><span class="co"># colocando todas com um único símbolo diferente</span></span>
+<span id="cb830-2"><a href="par-graficos-p2.html#cb830-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> <span class="dv">25</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-232-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="par-graficos-p2.html#cb832-1" aria-hidden="true" tabindex="-1"></a><span class="co"># colocando cada espécie com um único símbolo</span></span>
-<span id="cb832-2"><a href="par-graficos-p2.html#cb832-2" aria-hidden="true" tabindex="-1"></a><span class="co"># neste caso o argumento pch deve ter um vetor do número de linhas em iris, se for menor, pela regra da reciclagem, ele irá repetir os símbolo sem estar relacionado à coluna Species, que define qual linha é de qual espécie.</span></span>
-<span id="cb832-3"><a href="par-graficos-p2.html#cb832-3" aria-hidden="true" tabindex="-1"></a><span class="co"># então se eu definir apenas três simbolos, um para cada espécie:</span></span>
-<span id="cb832-4"><a href="par-graficos-p2.html#cb832-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;&amp;&quot;</span>, <span class="st">&quot;+&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="par-graficos-p2.html#cb831-1" aria-hidden="true" tabindex="-1"></a><span class="co"># colocando cada espécie com um único símbolo</span></span>
+<span id="cb831-2"><a href="par-graficos-p2.html#cb831-2" aria-hidden="true" tabindex="-1"></a><span class="co"># neste caso o argumento pch deve ter um vetor do número de linhas em iris, se for menor, pela regra da reciclagem, ele irá repetir os símbolo sem estar relacionado à coluna Species, que define qual linha é de qual espécie.</span></span>
+<span id="cb831-3"><a href="par-graficos-p2.html#cb831-3" aria-hidden="true" tabindex="-1"></a><span class="co"># então se eu definir apenas três simbolos, um para cada espécie:</span></span>
+<span id="cb831-4"><a href="par-graficos-p2.html#cb831-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;&amp;&quot;</span>, <span class="st">&quot;+&quot;</span>))</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-232-3.svg" width="672" /></p>
-<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="par-graficos-p2.html#cb833-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eles vao aparecer misturados, isso não está de acordo com as espécies</span></span>
-<span id="cb833-2"><a href="par-graficos-p2.html#cb833-2" aria-hidden="true" tabindex="-1"></a><span class="co"># uma forma rápida de fazer isso, tendo em vista que o pch pode ser um valor numérico,</span></span>
-<span id="cb833-3"><a href="par-graficos-p2.html#cb833-3" aria-hidden="true" tabindex="-1"></a><span class="co"># é transformar o nome das minhas especies em números.</span></span>
-<span id="cb833-4"><a href="par-graficos-p2.html#cb833-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Eu posso fazer isso se convertendo um fator para número, pois nele as categorias estão explicitamente definidas</span></span>
-<span id="cb833-5"><a href="par-graficos-p2.html#cb833-5" aria-hidden="true" tabindex="-1"></a>spp <span class="ot">&lt;-</span> iris<span class="sc">$</span>Species</span>
-<span id="cb833-6"><a href="par-graficos-p2.html#cb833-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(spp) <span class="co"># já é um fator</span></span></code></pre></div>
+<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="par-graficos-p2.html#cb832-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eles vao aparecer misturados, isso não está de acordo com as espécies</span></span>
+<span id="cb832-2"><a href="par-graficos-p2.html#cb832-2" aria-hidden="true" tabindex="-1"></a><span class="co"># uma forma rápida de fazer isso, tendo em vista que o pch pode ser um valor numérico,</span></span>
+<span id="cb832-3"><a href="par-graficos-p2.html#cb832-3" aria-hidden="true" tabindex="-1"></a><span class="co"># é transformar o nome das minhas especies em números.</span></span>
+<span id="cb832-4"><a href="par-graficos-p2.html#cb832-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Eu posso fazer isso se convertendo um fator para número, pois nele as categorias estão explicitamente definidas</span></span>
+<span id="cb832-5"><a href="par-graficos-p2.html#cb832-5" aria-hidden="true" tabindex="-1"></a>spp <span class="ot">&lt;-</span> iris<span class="sc">$</span>Species</span>
+<span id="cb832-6"><a href="par-graficos-p2.html#cb832-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(spp) <span class="co"># já é um fator</span></span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="par-graficos-p2.html#cb835-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que isso gera muitos NAs, já vimos isso antes</span></span>
-<span id="cb835-2"><a href="par-graficos-p2.html#cb835-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.vector</span>(spp))</span></code></pre></div>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="par-graficos-p2.html#cb834-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que isso gera muitos NAs, já vimos isso antes</span></span>
+<span id="cb834-2"><a href="par-graficos-p2.html#cb834-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">as.vector</span>(spp))</span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>##   [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
 ##  [26] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
@@ -618,26 +622,26 @@ O argumento <code>pch</code> pode ser um número<a href="#fn3" class="footnote-r
 ##  [76] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
 ## [101] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
 ## [126] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA</code></pre>
-<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="par-graficos-p2.html#cb838-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas isso gera números por spp é um fator</span></span>
-<span id="cb838-2"><a href="par-graficos-p2.html#cb838-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(spp)</span></code></pre></div>
+<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="par-graficos-p2.html#cb837-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas isso gera números por spp é um fator</span></span>
+<span id="cb837-2"><a href="par-graficos-p2.html#cb837-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(spp)</span></code></pre></div>
 <pre><code>##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 ##  [38] 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 ##  [75] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3
 ## [112] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
 ## [149] 3 3</code></pre>
-<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="par-graficos-p2.html#cb840-1" aria-hidden="true" tabindex="-1"></a><span class="co"># então se eu quero os símbolos 22,23,25 para representar minhas espécies, eu uso esses números para pegar esses valores pelos índices de um vetor:</span></span>
-<span id="cb840-2"><a href="par-graficos-p2.html#cb840-2" aria-hidden="true" tabindex="-1"></a>pch.das.spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">25</span>)[<span class="fu">as.numeric</span>(spp)]</span>
-<span id="cb840-3"><a href="par-graficos-p2.html#cb840-3" aria-hidden="true" tabindex="-1"></a>pch.das.spp</span></code></pre></div>
+<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="par-graficos-p2.html#cb839-1" aria-hidden="true" tabindex="-1"></a><span class="co"># então se eu quero os símbolos 22,23,25 para representar minhas espécies, eu uso esses números para pegar esses valores pelos índices de um vetor:</span></span>
+<span id="cb839-2"><a href="par-graficos-p2.html#cb839-2" aria-hidden="true" tabindex="-1"></a>pch.das.spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">25</span>)[<span class="fu">as.numeric</span>(spp)]</span>
+<span id="cb839-3"><a href="par-graficos-p2.html#cb839-3" aria-hidden="true" tabindex="-1"></a>pch.das.spp</span></code></pre></div>
 <pre><code>##   [1] 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21
 ##  [26] 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21 21
 ##  [51] 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23
 ##  [76] 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23
 ## [101] 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25
 ## [126] 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25 25</code></pre>
-<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="par-graficos-p2.html#cb842-1" aria-hidden="true" tabindex="-1"></a><span class="co"># posso usar isso como argumento em plot:</span></span>
-<span id="cb842-2"><a href="par-graficos-p2.html#cb842-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp)</span></code></pre></div>
+<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="par-graficos-p2.html#cb841-1" aria-hidden="true" tabindex="-1"></a><span class="co"># posso usar isso como argumento em plot:</span></span>
+<span id="cb841-2"><a href="par-graficos-p2.html#cb841-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-232-4.svg" width="672" /></p>
-<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb843-1"><a href="par-graficos-p2.html#cb843-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pronto cada espécie é um símbolo diferente</span></span></code></pre></div>
+<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="par-graficos-p2.html#cb842-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pronto cada espécie é um símbolo diferente</span></span></code></pre></div>
 </div>
 <div id="tamanho-dos-pontos---cex" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> Tamanho dos pontos - <code>cex</code><a href="par-graficos-p2.html#tamanho-dos-pontos---cex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -645,20 +649,20 @@ O argumento <code>pch</code> pode ser um número<a href="#fn3" class="footnote-r
 Aceita um valor numérico que é multiplicado pelo valor do seu dispositivo.
 O padrão geral é 1, isto é, 100% do tamanho.
 Se colocar 0.5 teremos 50%; se 1.5, teremos 150% do tamanho padrão.</p>
-<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb844-1"><a href="par-graficos-p2.html#cb844-1" aria-hidden="true" tabindex="-1"></a><span class="co"># da etapa anterior</span></span>
-<span id="cb844-2"><a href="par-graficos-p2.html#cb844-2" aria-hidden="true" tabindex="-1"></a>pch.das.spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">25</span>)[<span class="fu">as.numeric</span>(spp)]</span>
-<span id="cb844-3"><a href="par-graficos-p2.html#cb844-3" aria-hidden="true" tabindex="-1"></a><span class="co"># temos nosso gráfico com símbolos</span></span>
-<span id="cb844-4"><a href="par-graficos-p2.html#cb844-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp)</span></code></pre></div>
+<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb843-1"><a href="par-graficos-p2.html#cb843-1" aria-hidden="true" tabindex="-1"></a><span class="co"># da etapa anterior</span></span>
+<span id="cb843-2"><a href="par-graficos-p2.html#cb843-2" aria-hidden="true" tabindex="-1"></a>pch.das.spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">25</span>)[<span class="fu">as.numeric</span>(spp)]</span>
+<span id="cb843-3"><a href="par-graficos-p2.html#cb843-3" aria-hidden="true" tabindex="-1"></a><span class="co"># temos nosso gráfico com símbolos</span></span>
+<span id="cb843-4"><a href="par-graficos-p2.html#cb843-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-233-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb845-1"><a href="par-graficos-p2.html#cb845-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando o tamanho de todos os simbolos</span></span>
-<span id="cb845-2"><a href="par-graficos-p2.html#cb845-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb844-1"><a href="par-graficos-p2.html#cb844-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando o tamanho de todos os simbolos</span></span>
+<span id="cb844-2"><a href="par-graficos-p2.html#cb844-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">cex =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-233-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb846-1"><a href="par-graficos-p2.html#cb846-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para maior</span></span>
-<span id="cb846-2"><a href="par-graficos-p2.html#cb846-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">cex =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb845-1"><a href="par-graficos-p2.html#cb845-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para maior</span></span>
+<span id="cb845-2"><a href="par-graficos-p2.html#cb845-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">cex =</span> <span class="fl">1.5</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-233-3.svg" width="672" /></p>
-<div class="sourceCode" id="cb847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb847-1"><a href="par-graficos-p2.html#cb847-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um tamanho diferente por ponto (especie)</span></span>
-<span id="cb847-2"><a href="par-graficos-p2.html#cb847-2" aria-hidden="true" tabindex="-1"></a>tm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>)[<span class="fu">as.numeric</span>(spp)]</span>
-<span id="cb847-3"><a href="par-graficos-p2.html#cb847-3" aria-hidden="true" tabindex="-1"></a>tm</span></code></pre></div>
+<div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb846-1"><a href="par-graficos-p2.html#cb846-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um tamanho diferente por ponto (especie)</span></span>
+<span id="cb846-2"><a href="par-graficos-p2.html#cb846-2" aria-hidden="true" tabindex="-1"></a>tm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>)[<span class="fu">as.numeric</span>(spp)]</span>
+<span id="cb846-3"><a href="par-graficos-p2.html#cb846-3" aria-hidden="true" tabindex="-1"></a>tm</span></code></pre></div>
 <pre><code>##   [1] 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
 ##  [19] 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5
 ##  [37] 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 1.0 1.0 1.0 1.0
@@ -668,39 +672,39 @@ Se colocar 0.5 teremos 50%; se 1.5, teremos 150% do tamanho padrão.</p>
 ## [109] 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5
 ## [127] 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5
 ## [145] 1.5 1.5 1.5 1.5 1.5 1.5</code></pre>
-<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb849-1"><a href="par-graficos-p2.html#cb849-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">cex =</span> tm)</span></code></pre></div>
+<div class="sourceCode" id="cb848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb848-1"><a href="par-graficos-p2.html#cb848-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">cex =</span> tm)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-233-4.svg" width="672" /></p>
 </div>
 <div id="linhas" class="section level3 hasAnchor" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> Linhas<a href="par-graficos-p2.html#linhas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Os argumentos <code>lwd</code> e <code>lty</code> controlam a espessura e o tipo das linhas, respectivamente.</p>
-<div class="sourceCode" id="cb850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb850-1"><a href="par-graficos-p2.html#cb850-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;AirPassengers&quot;</span>) <span class="co"># veja esse conjunto de dados com ?datasets</span></span>
-<span id="cb850-2"><a href="par-graficos-p2.html#cb850-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(AirPassengers)</span></code></pre></div>
+<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb849-1"><a href="par-graficos-p2.html#cb849-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;AirPassengers&quot;</span>) <span class="co"># veja esse conjunto de dados com ?datasets</span></span>
+<span id="cb849-2"><a href="par-graficos-p2.html#cb849-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(AirPassengers)</span></code></pre></div>
 <pre><code>## [1] &quot;ts&quot;</code></pre>
-<div class="sourceCode" id="cb852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb852-1"><a href="par-graficos-p2.html#cb852-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AirPassengers, <span class="at">ylab =</span> <span class="st">&quot;Número de Passageiros&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb851-1"><a href="par-graficos-p2.html#cb851-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AirPassengers, <span class="at">ylab =</span> <span class="st">&quot;Número de Passageiros&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-234-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb853-1"><a href="par-graficos-p2.html#cb853-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando o tipo de linha</span></span>
-<span id="cb853-2"><a href="par-graficos-p2.html#cb853-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AirPassengers, <span class="at">ylab =</span> <span class="st">&quot;Número de Passageiros&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dotted&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb852-1"><a href="par-graficos-p2.html#cb852-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando o tipo de linha</span></span>
+<span id="cb852-2"><a href="par-graficos-p2.html#cb852-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AirPassengers, <span class="at">ylab =</span> <span class="st">&quot;Número de Passageiros&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dotted&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-234-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb854-1"><a href="par-graficos-p2.html#cb854-1" aria-hidden="true" tabindex="-1"></a><span class="co"># outro tipo</span></span>
-<span id="cb854-2"><a href="par-graficos-p2.html#cb854-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AirPassengers, <span class="at">ylab =</span> <span class="st">&quot;Número de Passageiros&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb853-1"><a href="par-graficos-p2.html#cb853-1" aria-hidden="true" tabindex="-1"></a><span class="co"># outro tipo</span></span>
+<span id="cb853-2"><a href="par-graficos-p2.html#cb853-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AirPassengers, <span class="at">ylab =</span> <span class="st">&quot;Número de Passageiros&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-234-3.svg" width="672" /></p>
-<div class="sourceCode" id="cb855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb855-1"><a href="par-graficos-p2.html#cb855-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando a cor e espessura</span></span>
-<span id="cb855-2"><a href="par-graficos-p2.html#cb855-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AirPassengers, <span class="at">ylab =</span> <span class="st">&quot;Número de Passageiros&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb854-1"><a href="par-graficos-p2.html#cb854-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando a cor e espessura</span></span>
+<span id="cb854-2"><a href="par-graficos-p2.html#cb854-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(AirPassengers, <span class="at">ylab =</span> <span class="st">&quot;Número de Passageiros&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-234-4.svg" width="672" /></p>
 </div>
 <div id="cores-de-símbolos---col-e-bg" class="section level3 hasAnchor" number="5.3.4">
 <h3><span class="header-section-number">5.3.4</span> Cores de símbolos - <code>col</code> e <code>bg</code><a href="par-graficos-p2.html#cores-de-símbolos---col-e-bg" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O argumento <code>col</code> define cores para os símbolos. No caso de símbolos de uma única cor, utilizamos apenas este argumento.
 Já o argumento <code>bg</code> define as cores do preenchimento dos símbolos.</p>
-<div class="sourceCode" id="cb856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb856-1"><a href="par-graficos-p2.html#cb856-1" aria-hidden="true" tabindex="-1"></a><span class="co"># o que definimos antes são símbolos que permitem definir cores para preenchimento e linha:</span></span>
-<span id="cb856-2"><a href="par-graficos-p2.html#cb856-2" aria-hidden="true" tabindex="-1"></a>pch.das.spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">25</span>)[<span class="fu">as.numeric</span>(spp)]</span>
-<span id="cb856-3"><a href="par-graficos-p2.html#cb856-3" aria-hidden="true" tabindex="-1"></a><span class="co"># temos nosso gráfico com símbolos</span></span>
-<span id="cb856-4"><a href="par-graficos-p2.html#cb856-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp)</span></code></pre></div>
+<div class="sourceCode" id="cb855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb855-1"><a href="par-graficos-p2.html#cb855-1" aria-hidden="true" tabindex="-1"></a><span class="co"># o que definimos antes são símbolos que permitem definir cores para preenchimento e linha:</span></span>
+<span id="cb855-2"><a href="par-graficos-p2.html#cb855-2" aria-hidden="true" tabindex="-1"></a>pch.das.spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">25</span>)[<span class="fu">as.numeric</span>(spp)]</span>
+<span id="cb855-3"><a href="par-graficos-p2.html#cb855-3" aria-hidden="true" tabindex="-1"></a><span class="co"># temos nosso gráfico com símbolos</span></span>
+<span id="cb855-4"><a href="par-graficos-p2.html#cb855-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-235-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb857-1"><a href="par-graficos-p2.html#cb857-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos adicionar as cores seguindo o mesmo raciocínio</span></span>
-<span id="cb857-2"><a href="par-graficos-p2.html#cb857-2" aria-hidden="true" tabindex="-1"></a>cores.spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;yellow&quot;</span>)[<span class="fu">as.numeric</span>(spp)]</span>
-<span id="cb857-3"><a href="par-graficos-p2.html#cb857-3" aria-hidden="true" tabindex="-1"></a>cores.spp</span></code></pre></div>
+<div class="sourceCode" id="cb856"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb856-1"><a href="par-graficos-p2.html#cb856-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos adicionar as cores seguindo o mesmo raciocínio</span></span>
+<span id="cb856-2"><a href="par-graficos-p2.html#cb856-2" aria-hidden="true" tabindex="-1"></a>cores.spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;yellow&quot;</span>)[<span class="fu">as.numeric</span>(spp)]</span>
+<span id="cb856-3"><a href="par-graficos-p2.html#cb856-3" aria-hidden="true" tabindex="-1"></a>cores.spp</span></code></pre></div>
 <pre><code>##   [1] &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;   
 ##   [9] &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;   
 ##  [17] &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;    &quot;red&quot;   
@@ -720,89 +724,89 @@ Já o argumento <code>bg</code> define as cores do preenchimento dos símbolos.<
 ## [129] &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot;
 ## [137] &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot;
 ## [145] &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot; &quot;yellow&quot;</code></pre>
-<div class="sourceCode" id="cb859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb859-1"><a href="par-graficos-p2.html#cb859-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">bg =</span> cores.spp)</span></code></pre></div>
+<div class="sourceCode" id="cb858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb858-1"><a href="par-graficos-p2.html#cb858-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">bg =</span> cores.spp)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-235-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb860-1"><a href="par-graficos-p2.html#cb860-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos mudar a cor da linha desses simbolos (todos para verde pela regra da reciclagem especifico uma única vez)</span></span>
-<span id="cb860-2"><a href="par-graficos-p2.html#cb860-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">bg =</span> cores.spp, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb859-1"><a href="par-graficos-p2.html#cb859-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos mudar a cor da linha desses simbolos (todos para verde pela regra da reciclagem especifico uma única vez)</span></span>
+<span id="cb859-2"><a href="par-graficos-p2.html#cb859-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> pch.das.spp, <span class="at">bg =</span> cores.spp, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-235-3.svg" width="672" /></p>
-<div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb861-1"><a href="par-graficos-p2.html#cb861-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando simbolos</span></span>
-<span id="cb861-2"><a href="par-graficos-p2.html#cb861-2" aria-hidden="true" tabindex="-1"></a>nsb <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;*&quot;</span>, <span class="st">&quot;#&quot;</span>, <span class="st">&quot;+&quot;</span>)[<span class="fu">as.numeric</span>(spp)]</span>
-<span id="cb861-3"><a href="par-graficos-p2.html#cb861-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> nsb, <span class="at">bg =</span> cores.spp)</span></code></pre></div>
+<div class="sourceCode" id="cb860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb860-1"><a href="par-graficos-p2.html#cb860-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando simbolos</span></span>
+<span id="cb860-2"><a href="par-graficos-p2.html#cb860-2" aria-hidden="true" tabindex="-1"></a>nsb <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;*&quot;</span>, <span class="st">&quot;#&quot;</span>, <span class="st">&quot;+&quot;</span>)[<span class="fu">as.numeric</span>(spp)]</span>
+<span id="cb860-3"><a href="par-graficos-p2.html#cb860-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> nsb, <span class="at">bg =</span> cores.spp)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-235-4.svg" width="672" /></p>
-<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb862-1"><a href="par-graficos-p2.html#cb862-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que apesar de bg estar especificando cores as cores nao foram adicionadas, porque colocamos no argumento de preenchimento.</span></span>
-<span id="cb862-2"><a href="par-graficos-p2.html#cb862-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Mudando:</span></span>
-<span id="cb862-3"><a href="par-graficos-p2.html#cb862-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> nsb, <span class="at">col =</span> cores.spp)</span></code></pre></div>
+<div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb861-1"><a href="par-graficos-p2.html#cb861-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que apesar de bg estar especificando cores as cores nao foram adicionadas, porque colocamos no argumento de preenchimento.</span></span>
+<span id="cb861-2"><a href="par-graficos-p2.html#cb861-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Mudando:</span></span>
+<span id="cb861-3"><a href="par-graficos-p2.html#cb861-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepalas, Petalas, <span class="at">pch =</span> nsb, <span class="at">col =</span> cores.spp)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-235-5.svg" width="672" /></p>
 </div>
 <div id="funções-que-definem-cores" class="section level3 hasAnchor" number="5.3.5">
 <h3><span class="header-section-number">5.3.5</span> Funções que definem cores<a href="par-graficos-p2.html#funções-que-definem-cores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Cores podem ser definidas por palavras ou por códigos.
 As funções <code>colors()</code> ou <code>colours()</code> listam cores pelo nome.</p>
-<div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb863-1"><a href="par-graficos-p2.html#cb863-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lista todas as cores disponíveis pelo nome</span></span>
-<span id="cb863-2"><a href="par-graficos-p2.html#cb863-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colors</span>()</span>
-<span id="cb863-3"><a href="par-graficos-p2.html#cb863-3" aria-hidden="true" tabindex="-1"></a><span class="co"># nossa tem 657 cores. Difícil, né?</span></span>
-<span id="cb863-4"><a href="par-graficos-p2.html#cb863-4" aria-hidden="true" tabindex="-1"></a><span class="co"># reduz para as mais distintas</span></span>
-<span id="cb863-5"><a href="par-graficos-p2.html#cb863-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colors</span>(<span class="at">distinct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb863-6"><a href="par-graficos-p2.html#cb863-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ainda 502</span></span></code></pre></div>
-<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb864-1"><a href="par-graficos-p2.html#cb864-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eu posso pegar ou buscar por cores</span></span>
-<span id="cb864-2"><a href="par-graficos-p2.html#cb864-2" aria-hidden="true" tabindex="-1"></a>ascores <span class="ot">&lt;-</span> <span class="fu">colors</span>(<span class="at">distinct =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb864-3"><a href="par-graficos-p2.html#cb864-3" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;blue&quot;</span>, ascores)</span>
-<span id="cb864-4"><a href="par-graficos-p2.html#cb864-4" aria-hidden="true" tabindex="-1"></a>ascores[vl]</span>
-<span id="cb864-5"><a href="par-graficos-p2.html#cb864-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 60 nomes que contém a palavra azul</span></span>
-<span id="cb864-6"><a href="par-graficos-p2.html#cb864-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb864-7"><a href="par-graficos-p2.html#cb864-7" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos ver todas as coresem umpdf longo</span></span>
-<span id="cb864-8"><a href="par-graficos-p2.html#cb864-8" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos plotar pizzas coloridas com 10 cores cada</span></span>
-<span id="cb864-9"><a href="par-graficos-p2.html#cb864-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 pizzas por página</span></span></code></pre></div>
-<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb865-1"><a href="par-graficos-p2.html#cb865-1" aria-hidden="true" tabindex="-1"></a>?pie <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="par-graficos-p2.html#cb866-1" aria-hidden="true" tabindex="-1"></a><span class="co"># abre um PDF</span></span>
-<span id="cb866-2"><a href="par-graficos-p2.html#cb866-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;cores.pdf&quot;</span>, <span class="at">width =</span> <span class="fu">lcm</span>(<span class="dv">29</span>), <span class="at">height =</span> <span class="fu">lcm</span>(<span class="dv">21</span>))</span>
-<span id="cb866-3"><a href="par-graficos-p2.html#cb866-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb866-4"><a href="par-graficos-p2.html#cb866-4" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos dividir o dispositivo em 2 colunas e 3 linhas (e diminuir a margem)</span></span>
-<span id="cb866-5"><a href="par-graficos-p2.html#cb866-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>), <span class="at">cex =</span> <span class="fl">0.7</span>)</span>
-<span id="cb866-6"><a href="par-graficos-p2.html#cb866-6" aria-hidden="true" tabindex="-1"></a>ln <span class="ot">&lt;-</span> <span class="fu">length</span>(ascores)</span>
-<span id="cb866-7"><a href="par-graficos-p2.html#cb866-7" aria-hidden="true" tabindex="-1"></a>ln <span class="co"># sao 502 cores</span></span>
-<span id="cb866-8"><a href="par-graficos-p2.html#cb866-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(ln <span class="sc">/</span> <span class="dv">10</span>) <span class="co"># , entao serao 51 pizzas</span></span>
-<span id="cb866-9"><a href="par-graficos-p2.html#cb866-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb866-10"><a href="par-graficos-p2.html#cb866-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plota cada pizza fazendo uma iteração:</span></span>
-<span id="cb866-11"><a href="par-graficos-p2.html#cb866-11" aria-hidden="true" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># o objeto nullo para usar de indice na iteracao para fazer de 10 em 10</span></span>
-<span id="cb866-12"><a href="par-graficos-p2.html#cb866-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (p <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ceiling</span>(ln <span class="sc">/</span> <span class="dv">10</span>)) {</span>
-<span id="cb866-13"><a href="par-graficos-p2.html#cb866-13" aria-hidden="true" tabindex="-1"></a>  de <span class="ot">&lt;-</span> idx <span class="sc">+</span> <span class="dv">1</span> <span class="co"># cor do indice idx</span></span>
-<span id="cb866-14"><a href="par-graficos-p2.html#cb866-14" aria-hidden="true" tabindex="-1"></a>  ate <span class="ot">&lt;-</span> idx <span class="sc">+</span> <span class="dv">10</span> <span class="co"># ate cor do indice idx+10</span></span>
-<span id="cb866-15"><a href="par-graficos-p2.html#cb866-15" aria-hidden="true" tabindex="-1"></a>  cls <span class="ot">&lt;-</span> ascores[de<span class="sc">:</span>ate] <span class="co"># cores da pizza da iteracao p</span></span>
-<span id="cb866-16"><a href="par-graficos-p2.html#cb866-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span>
-<span id="cb866-17"><a href="par-graficos-p2.html#cb866-17" aria-hidden="true" tabindex="-1"></a>  idx <span class="ot">&lt;-</span> ate</span>
-<span id="cb866-18"><a href="par-graficos-p2.html#cb866-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb866-19"><a href="par-graficos-p2.html#cb866-19" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="co"># fecha o pdf</span></span></code></pre></div>
+<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb862-1"><a href="par-graficos-p2.html#cb862-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lista todas as cores disponíveis pelo nome</span></span>
+<span id="cb862-2"><a href="par-graficos-p2.html#cb862-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colors</span>()</span>
+<span id="cb862-3"><a href="par-graficos-p2.html#cb862-3" aria-hidden="true" tabindex="-1"></a><span class="co"># nossa tem 657 cores. Difícil, né?</span></span>
+<span id="cb862-4"><a href="par-graficos-p2.html#cb862-4" aria-hidden="true" tabindex="-1"></a><span class="co"># reduz para as mais distintas</span></span>
+<span id="cb862-5"><a href="par-graficos-p2.html#cb862-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colors</span>(<span class="at">distinct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb862-6"><a href="par-graficos-p2.html#cb862-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ainda 502</span></span></code></pre></div>
+<div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb863-1"><a href="par-graficos-p2.html#cb863-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eu posso pegar ou buscar por cores</span></span>
+<span id="cb863-2"><a href="par-graficos-p2.html#cb863-2" aria-hidden="true" tabindex="-1"></a>ascores <span class="ot">&lt;-</span> <span class="fu">colors</span>(<span class="at">distinct =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb863-3"><a href="par-graficos-p2.html#cb863-3" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;blue&quot;</span>, ascores)</span>
+<span id="cb863-4"><a href="par-graficos-p2.html#cb863-4" aria-hidden="true" tabindex="-1"></a>ascores[vl]</span>
+<span id="cb863-5"><a href="par-graficos-p2.html#cb863-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 60 nomes que contém a palavra azul</span></span>
+<span id="cb863-6"><a href="par-graficos-p2.html#cb863-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb863-7"><a href="par-graficos-p2.html#cb863-7" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos ver todas as coresem umpdf longo</span></span>
+<span id="cb863-8"><a href="par-graficos-p2.html#cb863-8" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos plotar pizzas coloridas com 10 cores cada</span></span>
+<span id="cb863-9"><a href="par-graficos-p2.html#cb863-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 pizzas por página</span></span></code></pre></div>
+<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb864-1"><a href="par-graficos-p2.html#cb864-1" aria-hidden="true" tabindex="-1"></a>?pie <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb865-1"><a href="par-graficos-p2.html#cb865-1" aria-hidden="true" tabindex="-1"></a><span class="co"># abre um PDF</span></span>
+<span id="cb865-2"><a href="par-graficos-p2.html#cb865-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;cores.pdf&quot;</span>, <span class="at">width =</span> <span class="fu">lcm</span>(<span class="dv">29</span>), <span class="at">height =</span> <span class="fu">lcm</span>(<span class="dv">21</span>))</span>
+<span id="cb865-3"><a href="par-graficos-p2.html#cb865-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb865-4"><a href="par-graficos-p2.html#cb865-4" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos dividir o dispositivo em 2 colunas e 3 linhas (e diminuir a margem)</span></span>
+<span id="cb865-5"><a href="par-graficos-p2.html#cb865-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>), <span class="at">cex =</span> <span class="fl">0.7</span>)</span>
+<span id="cb865-6"><a href="par-graficos-p2.html#cb865-6" aria-hidden="true" tabindex="-1"></a>ln <span class="ot">&lt;-</span> <span class="fu">length</span>(ascores)</span>
+<span id="cb865-7"><a href="par-graficos-p2.html#cb865-7" aria-hidden="true" tabindex="-1"></a>ln <span class="co"># sao 502 cores</span></span>
+<span id="cb865-8"><a href="par-graficos-p2.html#cb865-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(ln <span class="sc">/</span> <span class="dv">10</span>) <span class="co"># , entao serao 51 pizzas</span></span>
+<span id="cb865-9"><a href="par-graficos-p2.html#cb865-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb865-10"><a href="par-graficos-p2.html#cb865-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plota cada pizza fazendo uma iteração:</span></span>
+<span id="cb865-11"><a href="par-graficos-p2.html#cb865-11" aria-hidden="true" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># o objeto nullo para usar de indice na iteracao para fazer de 10 em 10</span></span>
+<span id="cb865-12"><a href="par-graficos-p2.html#cb865-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (p <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ceiling</span>(ln <span class="sc">/</span> <span class="dv">10</span>)) {</span>
+<span id="cb865-13"><a href="par-graficos-p2.html#cb865-13" aria-hidden="true" tabindex="-1"></a>  de <span class="ot">&lt;-</span> idx <span class="sc">+</span> <span class="dv">1</span> <span class="co"># cor do indice idx</span></span>
+<span id="cb865-14"><a href="par-graficos-p2.html#cb865-14" aria-hidden="true" tabindex="-1"></a>  ate <span class="ot">&lt;-</span> idx <span class="sc">+</span> <span class="dv">10</span> <span class="co"># ate cor do indice idx+10</span></span>
+<span id="cb865-15"><a href="par-graficos-p2.html#cb865-15" aria-hidden="true" tabindex="-1"></a>  cls <span class="ot">&lt;-</span> ascores[de<span class="sc">:</span>ate] <span class="co"># cores da pizza da iteracao p</span></span>
+<span id="cb865-16"><a href="par-graficos-p2.html#cb865-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span>
+<span id="cb865-17"><a href="par-graficos-p2.html#cb865-17" aria-hidden="true" tabindex="-1"></a>  idx <span class="ot">&lt;-</span> ate</span>
+<span id="cb865-18"><a href="par-graficos-p2.html#cb865-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb865-19"><a href="par-graficos-p2.html#cb865-19" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="co"># fecha o pdf</span></span></code></pre></div>
 <p>As funções <code>rainbow()</code> ou <code>terrain.colors()</code> geram gradientes de cores em um padrão definido.</p>
-<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb867-1"><a href="par-graficos-p2.html#cb867-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 cores do arco-iris</span></span>
-<span id="cb867-2"><a href="par-graficos-p2.html#cb867-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
-<span id="cb867-3"><a href="par-graficos-p2.html#cb867-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="par-graficos-p2.html#cb866-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 cores do arco-iris</span></span>
+<span id="cb866-2"><a href="par-graficos-p2.html#cb866-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb866-3"><a href="par-graficos-p2.html#cb866-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-240-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="par-graficos-p2.html#cb868-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 cores do arco-iris com 50% de transparencia</span></span>
-<span id="cb868-2"><a href="par-graficos-p2.html#cb868-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="at">n =</span> <span class="dv">12</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
-<span id="cb868-3"><a href="par-graficos-p2.html#cb868-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">12</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb867-1"><a href="par-graficos-p2.html#cb867-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 cores do arco-iris com 50% de transparencia</span></span>
+<span id="cb867-2"><a href="par-graficos-p2.html#cb867-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="at">n =</span> <span class="dv">12</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb867-3"><a href="par-graficos-p2.html#cb867-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">12</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-240-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb869-1"><a href="par-graficos-p2.html#cb869-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 cores do arco-iris, limitando o espectro</span></span>
-<span id="cb869-2"><a href="par-graficos-p2.html#cb869-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="at">n =</span> <span class="dv">12</span>, <span class="at">start =</span> <span class="fl">0.1</span>, <span class="at">end =</span> <span class="fl">0.9</span>)</span>
-<span id="cb869-3"><a href="par-graficos-p2.html#cb869-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">12</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="par-graficos-p2.html#cb868-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 12 cores do arco-iris, limitando o espectro</span></span>
+<span id="cb868-2"><a href="par-graficos-p2.html#cb868-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="at">n =</span> <span class="dv">12</span>, <span class="at">start =</span> <span class="fl">0.1</span>, <span class="at">end =</span> <span class="fl">0.9</span>)</span>
+<span id="cb868-3"><a href="par-graficos-p2.html#cb868-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">12</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-240-3.svg" width="672" /></p>
-<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb870-1"><a href="par-graficos-p2.html#cb870-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 cores quentes</span></span>
-<span id="cb870-2"><a href="par-graficos-p2.html#cb870-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">heat.colors</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
-<span id="cb870-3"><a href="par-graficos-p2.html#cb870-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb869-1"><a href="par-graficos-p2.html#cb869-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 cores quentes</span></span>
+<span id="cb869-2"><a href="par-graficos-p2.html#cb869-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">heat.colors</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
+<span id="cb869-3"><a href="par-graficos-p2.html#cb869-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-240-4.svg" width="672" /></p>
-<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb871-1"><a href="par-graficos-p2.html#cb871-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 20 cores topográficas</span></span>
-<span id="cb871-2"><a href="par-graficos-p2.html#cb871-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">topo.colors</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
-<span id="cb871-3"><a href="par-graficos-p2.html#cb871-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">20</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb870-1"><a href="par-graficos-p2.html#cb870-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 20 cores topográficas</span></span>
+<span id="cb870-2"><a href="par-graficos-p2.html#cb870-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">topo.colors</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
+<span id="cb870-3"><a href="par-graficos-p2.html#cb870-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">20</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-240-5.svg" width="672" /></p>
-<div class="sourceCode" id="cb872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb872-1"><a href="par-graficos-p2.html#cb872-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou melhor</span></span>
-<span id="cb872-2"><a href="par-graficos-p2.html#cb872-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">terrain.colors</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
-<span id="cb872-3"><a href="par-graficos-p2.html#cb872-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">20</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb871-1"><a href="par-graficos-p2.html#cb871-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou melhor</span></span>
+<span id="cb871-2"><a href="par-graficos-p2.html#cb871-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">terrain.colors</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
+<span id="cb871-3"><a href="par-graficos-p2.html#cb871-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">20</span>), <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-240-6.svg" width="672" /></p>
 <p>As funções <code>rgb()</code> ou <code>hsv()</code> geram qualquer tipo de cor para ser utilizados nos gráficos.</p>
-<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb873-1"><a href="par-graficos-p2.html#cb873-1" aria-hidden="true" tabindex="-1"></a>?rgb <span class="co"># veja o help dessa funcao e veja as funcoes sob See Also</span></span></code></pre></div>
-<div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb874-1"><a href="par-graficos-p2.html#cb874-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos entender melhor fazendo o caminho inverso</span></span>
-<span id="cb874-2"><a href="par-graficos-p2.html#cb874-2" aria-hidden="true" tabindex="-1"></a>defs <span class="ot">&lt;-</span> <span class="fu">col2rgb</span>(<span class="st">&quot;yellow&quot;</span>) <span class="co"># extraimos as especificacoes de amarelo (cores primárias ) pela palavra</span></span>
-<span id="cb874-3"><a href="par-graficos-p2.html#cb874-3" aria-hidden="true" tabindex="-1"></a>defs</span></code></pre></div>
+<div class="sourceCode" id="cb872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb872-1"><a href="par-graficos-p2.html#cb872-1" aria-hidden="true" tabindex="-1"></a>?rgb <span class="co"># veja o help dessa funcao e veja as funcoes sob See Also</span></span></code></pre></div>
+<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb873-1"><a href="par-graficos-p2.html#cb873-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos entender melhor fazendo o caminho inverso</span></span>
+<span id="cb873-2"><a href="par-graficos-p2.html#cb873-2" aria-hidden="true" tabindex="-1"></a>defs <span class="ot">&lt;-</span> <span class="fu">col2rgb</span>(<span class="st">&quot;yellow&quot;</span>) <span class="co"># extraimos as especificacoes de amarelo (cores primárias ) pela palavra</span></span>
+<span id="cb873-3"><a href="par-graficos-p2.html#cb873-3" aria-hidden="true" tabindex="-1"></a>defs</span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -831,29 +835,29 @@ blue
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb875-1"><a href="par-graficos-p2.html#cb875-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sem cor temos preto</span></span>
-<span id="cb875-2"><a href="par-graficos-p2.html#cb875-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">0</span>, <span class="at">green =</span> <span class="dv">0</span>, <span class="at">blue =</span> <span class="dv">0</span>) <span class="co"># fazemos amarelo</span></span>
-<span id="cb875-3"><a href="par-graficos-p2.html#cb875-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb874-1"><a href="par-graficos-p2.html#cb874-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sem cor temos preto</span></span>
+<span id="cb874-2"><a href="par-graficos-p2.html#cb874-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">0</span>, <span class="at">green =</span> <span class="dv">0</span>, <span class="at">blue =</span> <span class="dv">0</span>) <span class="co"># fazemos amarelo</span></span>
+<span id="cb874-3"><a href="par-graficos-p2.html#cb874-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-242-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="par-graficos-p2.html#cb876-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fazemos amarelo</span></span>
-<span id="cb876-2"><a href="par-graficos-p2.html#cb876-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">255</span>, <span class="at">green =</span> <span class="dv">255</span>, <span class="at">blue =</span> <span class="dv">0</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
-<span id="cb876-3"><a href="par-graficos-p2.html#cb876-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb875-1"><a href="par-graficos-p2.html#cb875-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fazemos amarelo</span></span>
+<span id="cb875-2"><a href="par-graficos-p2.html#cb875-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">255</span>, <span class="at">green =</span> <span class="dv">255</span>, <span class="at">blue =</span> <span class="dv">0</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
+<span id="cb875-3"><a href="par-graficos-p2.html#cb875-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-242-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="par-graficos-p2.html#cb877-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tiramos verde</span></span>
-<span id="cb877-2"><a href="par-graficos-p2.html#cb877-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">255</span>, <span class="at">green =</span> <span class="dv">160</span>, <span class="at">blue =</span> <span class="dv">0</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
-<span id="cb877-3"><a href="par-graficos-p2.html#cb877-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="par-graficos-p2.html#cb876-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tiramos verde</span></span>
+<span id="cb876-2"><a href="par-graficos-p2.html#cb876-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">255</span>, <span class="at">green =</span> <span class="dv">160</span>, <span class="at">blue =</span> <span class="dv">0</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
+<span id="cb876-3"><a href="par-graficos-p2.html#cb876-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-242-3.svg" width="672" /></p>
-<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb878-1"><a href="par-graficos-p2.html#cb878-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tiramos verde e adicionamos azul</span></span>
-<span id="cb878-2"><a href="par-graficos-p2.html#cb878-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">255</span>, <span class="at">green =</span> <span class="dv">160</span>, <span class="at">blue =</span> <span class="dv">255</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
-<span id="cb878-3"><a href="par-graficos-p2.html#cb878-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="par-graficos-p2.html#cb877-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tiramos verde e adicionamos azul</span></span>
+<span id="cb877-2"><a href="par-graficos-p2.html#cb877-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">255</span>, <span class="at">green =</span> <span class="dv">160</span>, <span class="at">blue =</span> <span class="dv">255</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
+<span id="cb877-3"><a href="par-graficos-p2.html#cb877-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-242-4.svg" width="672" /></p>
-<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="par-graficos-p2.html#cb879-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tiramos azul-escuro (mais perto de 0)</span></span>
-<span id="cb879-2"><a href="par-graficos-p2.html#cb879-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">0</span>, <span class="at">green =</span> <span class="dv">0</span>, <span class="at">blue =</span> <span class="dv">150</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
-<span id="cb879-3"><a href="par-graficos-p2.html#cb879-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb878-1"><a href="par-graficos-p2.html#cb878-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tiramos azul-escuro (mais perto de 0)</span></span>
+<span id="cb878-2"><a href="par-graficos-p2.html#cb878-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">0</span>, <span class="at">green =</span> <span class="dv">0</span>, <span class="at">blue =</span> <span class="dv">150</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
+<span id="cb878-3"><a href="par-graficos-p2.html#cb878-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-242-5.svg" width="672" /></p>
-<div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb880-1"><a href="par-graficos-p2.html#cb880-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tiramos azul</span></span>
-<span id="cb880-2"><a href="par-graficos-p2.html#cb880-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">0</span>, <span class="at">green =</span> <span class="dv">0</span>, <span class="at">blue =</span> <span class="dv">255</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
-<span id="cb880-3"><a href="par-graficos-p2.html#cb880-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
+<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="par-graficos-p2.html#cb879-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tiramos azul</span></span>
+<span id="cb879-2"><a href="par-graficos-p2.html#cb879-2" aria-hidden="true" tabindex="-1"></a>cls <span class="ot">&lt;-</span> <span class="fu">rgb</span>(<span class="at">red =</span> <span class="dv">0</span>, <span class="at">green =</span> <span class="dv">0</span>, <span class="at">blue =</span> <span class="dv">255</span>, <span class="at">maxColorValue =</span> <span class="dv">255</span>)</span>
+<span id="cb879-3"><a href="par-graficos-p2.html#cb879-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(<span class="dv">1</span>, <span class="at">col =</span> cls, <span class="at">labels =</span> cls)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-242-6.svg" width="672" /></p>
 </div>
 </div>
@@ -911,7 +915,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/05-funcoes_graficas.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

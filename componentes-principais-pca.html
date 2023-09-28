@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.5 Componentes Principais (PCA) | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.5 Componentes Principais (PCA) | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -556,53 +560,55 @@ div.csl-indent {
 <li><p>A PCA é sensível à escala relativa das variáveis originais.</p></li>
 </ul>
 <p>Um exemplo:</p>
-<div class="sourceCode" id="cb1848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1848-1"><a href="componentes-principais-pca.html#cb1848-1" aria-hidden="true" tabindex="-1"></a><span class="co"># análise de componentes principais</span></span>
-<span id="cb1848-2"><a href="componentes-principais-pca.html#cb1848-2" aria-hidden="true" tabindex="-1"></a>?prcomp</span></code></pre></div>
-<div class="sourceCode" id="cb1849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1849-1"><a href="componentes-principais-pca.html#cb1849-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris) <span class="co"># carrega o conjunto de dados iris para a rea de trabalho</span></span>
-<span id="cb1849-2"><a href="componentes-principais-pca.html#cb1849-2" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> iris[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb1850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1850-1"><a href="componentes-principais-pca.html#cb1850-1" aria-hidden="true" tabindex="-1"></a>meu.pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(dt, <span class="at">scale. =</span> T, <span class="at">tol =</span> <span class="dv">0</span>, <span class="at">retx =</span> T)</span>
-<span id="cb1850-2"><a href="componentes-principais-pca.html#cb1850-2" aria-hidden="true" tabindex="-1"></a><span class="co"># entenda os argumentos usados</span></span>
-<span id="cb1850-3"><a href="componentes-principais-pca.html#cb1850-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1850-4"><a href="componentes-principais-pca.html#cb1850-4" aria-hidden="true" tabindex="-1"></a><span class="co"># classe gerada</span></span>
-<span id="cb1850-5"><a href="componentes-principais-pca.html#cb1850-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(meu.pca)</span></code></pre></div>
+<div class="sourceCode" id="cb1851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1851-1"><a href="componentes-principais-pca.html#cb1851-1" aria-hidden="true" tabindex="-1"></a><span class="co"># análise de componentes principais</span></span>
+<span id="cb1851-2"><a href="componentes-principais-pca.html#cb1851-2" aria-hidden="true" tabindex="-1"></a>?prcomp</span></code></pre></div>
+<div class="sourceCode" id="cb1852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1852-1"><a href="componentes-principais-pca.html#cb1852-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris) <span class="co"># carrega o conjunto de dados iris para a rea de trabalho</span></span>
+<span id="cb1852-2"><a href="componentes-principais-pca.html#cb1852-2" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> iris[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1853-1"><a href="componentes-principais-pca.html#cb1853-1" aria-hidden="true" tabindex="-1"></a>meu.pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(dt, <span class="at">scale. =</span> T, <span class="at">tol =</span> <span class="dv">0</span>, <span class="at">retx =</span> T)</span>
+<span id="cb1853-2"><a href="componentes-principais-pca.html#cb1853-2" aria-hidden="true" tabindex="-1"></a><span class="co"># entenda os argumentos usados</span></span>
+<span id="cb1853-3"><a href="componentes-principais-pca.html#cb1853-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1853-4"><a href="componentes-principais-pca.html#cb1853-4" aria-hidden="true" tabindex="-1"></a><span class="co"># classe gerada</span></span>
+<span id="cb1853-5"><a href="componentes-principais-pca.html#cb1853-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(meu.pca)</span></code></pre></div>
 <pre><code>## [1] &quot;prcomp&quot;</code></pre>
-<div class="sourceCode" id="cb1852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1852-1"><a href="componentes-principais-pca.html#cb1852-1" aria-hidden="true" tabindex="-1"></a><span class="co"># elementos do resultado</span></span>
-<span id="cb1852-2"><a href="componentes-principais-pca.html#cb1852-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(meu.pca)</span></code></pre></div>
+<div class="sourceCode" id="cb1855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1855-1"><a href="componentes-principais-pca.html#cb1855-1" aria-hidden="true" tabindex="-1"></a><span class="co"># elementos do resultado</span></span>
+<span id="cb1855-2"><a href="componentes-principais-pca.html#cb1855-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(meu.pca)</span></code></pre></div>
 <pre><code>## [1] &quot;sdev&quot;     &quot;rotation&quot; &quot;center&quot;   &quot;scale&quot;    &quot;x&quot;</code></pre>
 <p>Vamos fazer uma figura utilizando a função <code>ordiplot()</code> do pacote <code>vegan</code>:</p>
-<div class="sourceCode" id="cb1854"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1854-1"><a href="componentes-principais-pca.html#cb1854-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fazendo uma figura com ordiplot</span></span>
-<span id="cb1854-2"><a href="componentes-principais-pca.html#cb1854-2" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o help</span></span>
-<span id="cb1854-3"><a href="componentes-principais-pca.html#cb1854-3" aria-hidden="true" tabindex="-1"></a>?ordiplot</span></code></pre></div>
-<div class="sourceCode" id="cb1855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1855-1"><a href="componentes-principais-pca.html#cb1855-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quando da variação está explicado pelos eixos</span></span>
-<span id="cb1855-2"><a href="componentes-principais-pca.html#cb1855-2" aria-hidden="true" tabindex="-1"></a>resumo <span class="ot">&lt;-</span> <span class="fu">summary</span>(meu.pca)</span>
-<span id="cb1855-3"><a href="componentes-principais-pca.html#cb1855-3" aria-hidden="true" tabindex="-1"></a>var.expl <span class="ot">&lt;-</span> resumo<span class="sc">$</span>importance</span>
-<span id="cb1855-4"><a href="componentes-principais-pca.html#cb1855-4" aria-hidden="true" tabindex="-1"></a><span class="co"># veja a proporção cumulativa dos eixos gerados</span></span>
-<span id="cb1855-5"><a href="componentes-principais-pca.html#cb1855-5" aria-hidden="true" tabindex="-1"></a>var.expl[<span class="st">&quot;Cumulative Proportion&quot;</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1857-1"><a href="componentes-principais-pca.html#cb1857-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fazendo uma figura com ordiplot</span></span>
+<span id="cb1857-2"><a href="componentes-principais-pca.html#cb1857-2" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o help</span></span>
+<span id="cb1857-3"><a href="componentes-principais-pca.html#cb1857-3" aria-hidden="true" tabindex="-1"></a>?ordiplot</span></code></pre></div>
+<div class="sourceCode" id="cb1858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1858-1"><a href="componentes-principais-pca.html#cb1858-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quando da variação está explicado pelos eixos</span></span>
+<span id="cb1858-2"><a href="componentes-principais-pca.html#cb1858-2" aria-hidden="true" tabindex="-1"></a>resumo <span class="ot">&lt;-</span> <span class="fu">summary</span>(meu.pca)</span>
+<span id="cb1858-3"><a href="componentes-principais-pca.html#cb1858-3" aria-hidden="true" tabindex="-1"></a>var.expl <span class="ot">&lt;-</span> resumo<span class="sc">$</span>importance</span>
+<span id="cb1858-4"><a href="componentes-principais-pca.html#cb1858-4" aria-hidden="true" tabindex="-1"></a><span class="co"># veja a proporção cumulativa dos eixos gerados</span></span>
+<span id="cb1858-5"><a href="componentes-principais-pca.html#cb1858-5" aria-hidden="true" tabindex="-1"></a>var.expl[<span class="st">&quot;Cumulative Proportion&quot;</span>, ]</span></code></pre></div>
 <pre><code>##     PC1     PC2     PC3     PC4 
 ## 0.72962 0.95813 0.99482 1.00000</code></pre>
-<div class="sourceCode" id="cb1857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1857-1"><a href="componentes-principais-pca.html#cb1857-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quatro eixos explicam 100% da variacao</span></span>
-<span id="cb1857-2"><a href="componentes-principais-pca.html#cb1857-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pega a proporção explicada por cada eixo</span></span>
-<span id="cb1857-3"><a href="componentes-principais-pca.html#cb1857-3" aria-hidden="true" tabindex="-1"></a>tt <span class="ot">&lt;-</span> var.expl[<span class="st">&quot;Proportion of Variance&quot;</span>, ]</span>
-<span id="cb1857-4"><a href="componentes-principais-pca.html#cb1857-4" aria-hidden="true" tabindex="-1"></a>tt <span class="ot">&lt;-</span> tt <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb1857-5"><a href="componentes-principais-pca.html#cb1857-5" aria-hidden="true" tabindex="-1"></a><span class="co"># gera um gráfico de barras com isso</span></span>
-<span id="cb1857-6"><a href="componentes-principais-pca.html#cb1857-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(tt, <span class="at">xlab =</span> <span class="st">&quot;Eixos PCA&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Variação explicada %&quot;</span>)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-628-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1858"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1858-1"><a href="componentes-principais-pca.html#cb1858-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define cor e simbolo por especie</span></span>
-<span id="cb1858-2"><a href="componentes-principais-pca.html#cb1858-2" aria-hidden="true" tabindex="-1"></a>tx <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(iris<span class="sc">$</span>Species)</span>
-<span id="cb1858-3"><a href="componentes-principais-pca.html#cb1858-3" aria-hidden="true" tabindex="-1"></a><span class="co"># simbolos para os níveis</span></span>
-<span id="cb1858-4"><a href="componentes-principais-pca.html#cb1858-4" aria-hidden="true" tabindex="-1"></a>upchs <span class="ot">&lt;-</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span></span>
-<span id="cb1858-5"><a href="componentes-principais-pca.html#cb1858-5" aria-hidden="true" tabindex="-1"></a><span class="co"># cores para os níveis</span></span>
-<span id="cb1858-6"><a href="componentes-principais-pca.html#cb1858-6" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(<span class="fu">levels</span>(tx)), <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
-<span id="cb1858-7"><a href="componentes-principais-pca.html#cb1858-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1858-8"><a href="componentes-principais-pca.html#cb1858-8" aria-hidden="true" tabindex="-1"></a><span class="co"># gera a figura</span></span>
-<span id="cb1858-9"><a href="componentes-principais-pca.html#cb1858-9" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">ordiplot</span>(meu.pca, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb1858-10"><a href="componentes-principais-pca.html#cb1858-10" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona os pontos de cada linha</span></span>
-<span id="cb1858-11"><a href="componentes-principais-pca.html#cb1858-11" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(fig, <span class="st">&quot;sites&quot;</span>, <span class="at">pch =</span> upchs[<span class="fu">as.numeric</span>(tx)], <span class="at">bg =</span> cores[<span class="fu">as.numeric</span>(tx)], <span class="at">col =</span> <span class="st">&quot;white&quot;</span>)</span>
-<span id="cb1858-12"><a href="componentes-principais-pca.html#cb1858-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1858-13"><a href="componentes-principais-pca.html#cb1858-13" aria-hidden="true" tabindex="-1"></a><span class="co"># pega os scores das variaveis</span></span>
-<span id="cb1858-14"><a href="componentes-principais-pca.html#cb1858-14" aria-hidden="true" tabindex="-1"></a><span class="co"># que mostram os efeitos das variáveis usadas</span></span>
-<span id="cb1858-15"><a href="componentes-principais-pca.html#cb1858-15" aria-hidden="true" tabindex="-1"></a>mls <span class="ot">&lt;-</span> <span class="fu">scores</span>(meu.pca, <span class="at">display =</span> <span class="st">&quot;species&quot;</span>)</span>
-<span id="cb1858-16"><a href="componentes-principais-pca.html#cb1858-16" aria-hidden="true" tabindex="-1"></a>mls</span></code></pre></div>
+<div class="sourceCode" id="cb1860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1860-1"><a href="componentes-principais-pca.html#cb1860-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quatro eixos explicam 100% da variacao</span></span>
+<span id="cb1860-2"><a href="componentes-principais-pca.html#cb1860-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pega a proporção explicada por cada eixo</span></span>
+<span id="cb1860-3"><a href="componentes-principais-pca.html#cb1860-3" aria-hidden="true" tabindex="-1"></a>tt <span class="ot">&lt;-</span> var.expl[<span class="st">&quot;Proportion of Variance&quot;</span>, ]</span>
+<span id="cb1860-4"><a href="componentes-principais-pca.html#cb1860-4" aria-hidden="true" tabindex="-1"></a>tt <span class="ot">&lt;-</span> tt <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb1860-5"><a href="componentes-principais-pca.html#cb1860-5" aria-hidden="true" tabindex="-1"></a><span class="co"># gera um gráfico de barras com isso</span></span>
+<span id="cb1860-6"><a href="componentes-principais-pca.html#cb1860-6" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(tt, <span class="at">xlab =</span> <span class="st">&quot;Eixos PCA&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Variação explicada %&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-631-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb1861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1861-1"><a href="componentes-principais-pca.html#cb1861-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define cor e simbolo por especie</span></span>
+<span id="cb1861-2"><a href="componentes-principais-pca.html#cb1861-2" aria-hidden="true" tabindex="-1"></a>tx <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(iris<span class="sc">$</span>Species)</span>
+<span id="cb1861-3"><a href="componentes-principais-pca.html#cb1861-3" aria-hidden="true" tabindex="-1"></a><span class="co"># simbolos para os níveis</span></span>
+<span id="cb1861-4"><a href="componentes-principais-pca.html#cb1861-4" aria-hidden="true" tabindex="-1"></a>upchs <span class="ot">&lt;-</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span></span>
+<span id="cb1861-5"><a href="componentes-principais-pca.html#cb1861-5" aria-hidden="true" tabindex="-1"></a><span class="co"># cores para os níveis</span></span>
+<span id="cb1861-6"><a href="componentes-principais-pca.html#cb1861-6" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(<span class="fu">levels</span>(tx)), <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1861-7"><a href="componentes-principais-pca.html#cb1861-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1861-8"><a href="componentes-principais-pca.html#cb1861-8" aria-hidden="true" tabindex="-1"></a><span class="co"># gera a figura</span></span>
+<span id="cb1861-9"><a href="componentes-principais-pca.html#cb1861-9" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">ordiplot</span>(meu.pca, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-631-2.svg" width="672" /></p>
+<div class="sourceCode" id="cb1862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1862-1"><a href="componentes-principais-pca.html#cb1862-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona os pontos de cada linha</span></span>
+<span id="cb1862-2"><a href="componentes-principais-pca.html#cb1862-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(meu.pca, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1862-3"><a href="componentes-principais-pca.html#cb1862-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(fig, <span class="st">&quot;sites&quot;</span>, <span class="at">pch =</span> upchs[<span class="fu">as.numeric</span>(tx)], <span class="at">bg =</span> cores[<span class="fu">as.numeric</span>(tx)], <span class="at">col =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-632-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb1863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1863-1"><a href="componentes-principais-pca.html#cb1863-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pega os scores das variaveis</span></span>
+<span id="cb1863-2"><a href="componentes-principais-pca.html#cb1863-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que mostram os efeitos das variáveis usadas</span></span>
+<span id="cb1863-3"><a href="componentes-principais-pca.html#cb1863-3" aria-hidden="true" tabindex="-1"></a>mls <span class="ot">&lt;-</span> vegan<span class="sc">::</span><span class="fu">scores</span>(meu.pca, <span class="at">display =</span> <span class="st">&quot;species&quot;</span>)</span>
+<span id="cb1863-4"><a href="componentes-principais-pca.html#cb1863-4" aria-hidden="true" tabindex="-1"></a>mls</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -693,11 +699,13 @@ Petal.Width
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1859-1"><a href="componentes-principais-pca.html#cb1859-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota flexas para esses efeitos</span></span>
-<span id="cb1859-2"><a href="componentes-principais-pca.html#cb1859-2" aria-hidden="true" tabindex="-1"></a>ft <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># para aumentar as flexas um pouco</span></span>
-<span id="cb1859-3"><a href="componentes-principais-pca.html#cb1859-3" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, mls[, <span class="dv">1</span>] <span class="sc">*</span> ft, mls[, <span class="dv">2</span>] <span class="sc">*</span> ft, <span class="at">length =</span> <span class="fl">0.05</span>, <span class="at">angle =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb1859-4"><a href="componentes-principais-pca.html#cb1859-4" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(mls[, <span class="dv">1</span>] <span class="sc">*</span> ft, mls[, <span class="dv">2</span>] <span class="sc">*</span> ft, <span class="at">labels =</span> <span class="fu">rownames</span>(mls), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">pos =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-628-2.svg" width="672" /></p>
+<div class="sourceCode" id="cb1864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1864-1"><a href="componentes-principais-pca.html#cb1864-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota flexas para esses efeitos</span></span>
+<span id="cb1864-2"><a href="componentes-principais-pca.html#cb1864-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(meu.pca, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1864-3"><a href="componentes-principais-pca.html#cb1864-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(fig, <span class="st">&quot;sites&quot;</span>, <span class="at">pch =</span> upchs[<span class="fu">as.numeric</span>(tx)], <span class="at">bg =</span> cores[<span class="fu">as.numeric</span>(tx)], <span class="at">col =</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb1864-4"><a href="componentes-principais-pca.html#cb1864-4" aria-hidden="true" tabindex="-1"></a>ft <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># para aumentar as flexas um pouco</span></span>
+<span id="cb1864-5"><a href="componentes-principais-pca.html#cb1864-5" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, mls[, <span class="dv">1</span>] <span class="sc">*</span> ft, mls[, <span class="dv">2</span>] <span class="sc">*</span> ft, <span class="at">length =</span> <span class="fl">0.05</span>, <span class="at">angle =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb1864-6"><a href="componentes-principais-pca.html#cb1864-6" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(mls[, <span class="dv">1</span>] <span class="sc">*</span> ft, mls[, <span class="dv">2</span>] <span class="sc">*</span> ft, <span class="at">labels =</span> <span class="fu">rownames</span>(mls), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">pos =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-634-1.svg" width="672" /></p>
 
 </div>
 <!-- </div> -->
@@ -752,7 +760,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/14-aed_checamultivar.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

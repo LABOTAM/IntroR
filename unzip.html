@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B Baixar e descomprimir um arquivo | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B Baixar e descomprimir um arquivo | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -552,32 +556,32 @@ div.csl-indent {
 <h1><span class="header-section-number">B</span> Baixar e descomprimir um arquivo<a href="unzip.html#unzip" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Caso você queira baixar e descomprimir um arquivo <code>.zip</code> no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
 Utilizaremos um arquivo utilizado na seção <a href="obj-complexos.html#obj-complexos">4.2</a>.</p>
-<div class="sourceCode" id="cb1915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1915-1"><a href="unzip.html#cb1915-1" aria-hidden="true" tabindex="-1"></a><span class="co"># grava o endereco do arquivo em um objeto</span></span>
-<span id="cb1915-2"><a href="unzip.html#cb1915-2" aria-hidden="true" tabindex="-1"></a>arq_zip_url <span class="ot">&lt;-</span> <span class="st">&quot;https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosshape.zip&quot;</span></span>
-<span id="cb1915-3"><a href="unzip.html#cb1915-3" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um diretorio temporario</span></span>
-<span id="cb1915-4"><a href="unzip.html#cb1915-4" aria-hidden="true" tabindex="-1"></a>dirtemp <span class="ot">&lt;-</span> <span class="fu">tempdir</span>()</span>
-<span id="cb1915-5"><a href="unzip.html#cb1915-5" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um arquivo temporario para arquivar esse zip</span></span>
-<span id="cb1915-6"><a href="unzip.html#cb1915-6" aria-hidden="true" tabindex="-1"></a>arq_temp <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">tmpdir =</span> dirtemp, <span class="at">fileext =</span> <span class="st">&quot;.zip&quot;</span>)</span>
-<span id="cb1915-7"><a href="unzip.html#cb1915-7" aria-hidden="true" tabindex="-1"></a><span class="co"># baixa o arquivo para dentro do arquivo temporario</span></span>
-<span id="cb1915-8"><a href="unzip.html#cb1915-8" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(arq_zip_url, arq_temp)</span>
-<span id="cb1915-9"><a href="unzip.html#cb1915-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1915-10"><a href="unzip.html#cb1915-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`</span></span>
-<span id="cb1915-11"><a href="unzip.html#cb1915-11" aria-hidden="true" tabindex="-1"></a><span class="co"># agora utilizaremos a funcao `unzip()` para descomprimir o arquivo</span></span>
-<span id="cb1915-12"><a href="unzip.html#cb1915-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1915-13"><a href="unzip.html#cb1915-13" aria-hidden="true" tabindex="-1"></a><span class="co"># pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta</span></span>
-<span id="cb1915-14"><a href="unzip.html#cb1915-14" aria-hidden="true" tabindex="-1"></a>fname <span class="ot">&lt;-</span> <span class="fu">unzip</span>(arq_temp, <span class="at">list =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>Name[<span class="dv">1</span>]</span>
-<span id="cb1915-15"><a href="unzip.html#cb1915-15" aria-hidden="true" tabindex="-1"></a>nomes_arqs <span class="ot">&lt;-</span> <span class="fu">unzip</span>(arq_temp, <span class="at">list =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1915-16"><a href="unzip.html#cb1915-16" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(nomes_arqs) <span class="co"># e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo</span></span>
-<span id="cb1915-17"><a href="unzip.html#cb1915-17" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nomes_arqs)</span>
-<span id="cb1915-18"><a href="unzip.html#cb1915-18" aria-hidden="true" tabindex="-1"></a>nomes_arqs</span>
-<span id="cb1915-19"><a href="unzip.html#cb1915-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Descomprime o arquivo zip para a pasta temporaria</span></span>
-<span id="cb1915-20"><a href="unzip.html#cb1915-20" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(arq_temp, <span class="at">files =</span> nome_pasta, <span class="at">exdir =</span> dirtemp, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1915-21"><a href="unzip.html#cb1915-21" aria-hidden="true" tabindex="-1"></a><span class="co"># caminho completo do arquivo extraido</span></span>
-<span id="cb1915-22"><a href="unzip.html#cb1915-22" aria-hidden="true" tabindex="-1"></a>caminho_completo <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dirtemp, nome_pasta)</span>
-<span id="cb1915-23"><a href="unzip.html#cb1915-23" aria-hidden="true" tabindex="-1"></a>caminho_completo</span>
-<span id="cb1915-24"><a href="unzip.html#cb1915-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1915-25"><a href="unzip.html#cb1915-25" aria-hidden="true" tabindex="-1"></a><span class="co"># lista arquivos dentro do caminho contido em caminho_completo</span></span>
-<span id="cb1915-26"><a href="unzip.html#cb1915-26" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="fu">paste0</span>(caminho_completo, <span class="st">&quot;/.&quot;</span>), <span class="at">all.files =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1920"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1920-1"><a href="unzip.html#cb1920-1" aria-hidden="true" tabindex="-1"></a><span class="co"># grava o endereco do arquivo em um objeto</span></span>
+<span id="cb1920-2"><a href="unzip.html#cb1920-2" aria-hidden="true" tabindex="-1"></a>arq_zip_url <span class="ot">&lt;-</span> <span class="st">&quot;https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosshape.zip&quot;</span></span>
+<span id="cb1920-3"><a href="unzip.html#cb1920-3" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um diretorio temporario</span></span>
+<span id="cb1920-4"><a href="unzip.html#cb1920-4" aria-hidden="true" tabindex="-1"></a>dirtemp <span class="ot">&lt;-</span> <span class="fu">tempdir</span>()</span>
+<span id="cb1920-5"><a href="unzip.html#cb1920-5" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um arquivo temporario para arquivar esse zip</span></span>
+<span id="cb1920-6"><a href="unzip.html#cb1920-6" aria-hidden="true" tabindex="-1"></a>arq_temp <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">tmpdir =</span> dirtemp, <span class="at">fileext =</span> <span class="st">&quot;.zip&quot;</span>)</span>
+<span id="cb1920-7"><a href="unzip.html#cb1920-7" aria-hidden="true" tabindex="-1"></a><span class="co"># baixa o arquivo para dentro do arquivo temporario</span></span>
+<span id="cb1920-8"><a href="unzip.html#cb1920-8" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(arq_zip_url, arq_temp)</span>
+<span id="cb1920-9"><a href="unzip.html#cb1920-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1920-10"><a href="unzip.html#cb1920-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Apos executar o comando acima, o arquivo `.zip` e baixado para o objeto `arq_temp`</span></span>
+<span id="cb1920-11"><a href="unzip.html#cb1920-11" aria-hidden="true" tabindex="-1"></a><span class="co"># agora utilizaremos a funcao `unzip()` para descomprimir o arquivo</span></span>
+<span id="cb1920-12"><a href="unzip.html#cb1920-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1920-13"><a href="unzip.html#cb1920-13" aria-hidden="true" tabindex="-1"></a><span class="co"># pega o nome do primeiro arquivo dentro do zip == corresponde ao nome da pasta</span></span>
+<span id="cb1920-14"><a href="unzip.html#cb1920-14" aria-hidden="true" tabindex="-1"></a>fname <span class="ot">&lt;-</span> <span class="fu">unzip</span>(arq_temp, <span class="at">list =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>Name[<span class="dv">1</span>]</span>
+<span id="cb1920-15"><a href="unzip.html#cb1920-15" aria-hidden="true" tabindex="-1"></a>nomes_arqs <span class="ot">&lt;-</span> <span class="fu">unzip</span>(arq_temp, <span class="at">list =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1920-16"><a href="unzip.html#cb1920-16" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(nomes_arqs) <span class="co"># e um dataframe; a primeira coluna mostra o caminho de cada arquivo presente no zip; segunda coluna, o tamanho do arquivo</span></span>
+<span id="cb1920-17"><a href="unzip.html#cb1920-17" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nomes_arqs)</span>
+<span id="cb1920-18"><a href="unzip.html#cb1920-18" aria-hidden="true" tabindex="-1"></a>nomes_arqs</span>
+<span id="cb1920-19"><a href="unzip.html#cb1920-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Descomprime o arquivo zip para a pasta temporaria</span></span>
+<span id="cb1920-20"><a href="unzip.html#cb1920-20" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(arq_temp, <span class="at">files =</span> nome_pasta, <span class="at">exdir =</span> dirtemp, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1920-21"><a href="unzip.html#cb1920-21" aria-hidden="true" tabindex="-1"></a><span class="co"># caminho completo do arquivo extraido</span></span>
+<span id="cb1920-22"><a href="unzip.html#cb1920-22" aria-hidden="true" tabindex="-1"></a>caminho_completo <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dirtemp, nome_pasta)</span>
+<span id="cb1920-23"><a href="unzip.html#cb1920-23" aria-hidden="true" tabindex="-1"></a>caminho_completo</span>
+<span id="cb1920-24"><a href="unzip.html#cb1920-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1920-25"><a href="unzip.html#cb1920-25" aria-hidden="true" tabindex="-1"></a><span class="co"># lista arquivos dentro do caminho contido em caminho_completo</span></span>
+<span id="cb1920-26"><a href="unzip.html#cb1920-26" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(<span class="fu">paste0</span>(caminho_completo, <span class="st">&quot;/.&quot;</span>), <span class="at">all.files =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 
 </div>
             </section>
@@ -628,7 +632,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/16-baixa_descomprime.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

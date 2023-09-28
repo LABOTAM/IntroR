@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>12.2 Tabelas de variáveis categóricas | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="12.2 Tabelas de variáveis categóricas | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -551,8 +555,8 @@ div.csl-indent {
 <div id="tabelas-de-variáveis-categóricas" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> Tabelas de variáveis categóricas<a href="tabelas-de-variáveis-categóricas.html#tabelas-de-variáveis-categóricas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>table()</code> permite contar valores em fatores e vetores e você pode <a href="graf-alto-nivel.html#graf-alto-nivel">relembrar como usar a função <code>barplot()</code></a> para gerar gráficos de barra simples:</p>
-<div class="sourceCode" id="cb1595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1595-1"><a href="tabelas-de-variáveis-categóricas.html#cb1595-1" aria-hidden="true" tabindex="-1"></a><span class="co"># continuando com os dados de caixeta.csv</span></span>
-<span id="cb1595-2"><a href="tabelas-de-variáveis-categóricas.html#cb1595-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1594-1"><a href="tabelas-de-variáveis-categóricas.html#cb1594-1" aria-hidden="true" tabindex="-1"></a><span class="co"># continuando com os dados de caixeta.csv</span></span>
+<span id="cb1594-2"><a href="tabelas-de-variáveis-categóricas.html#cb1594-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -741,10 +745,10 @@ Myrcia sulfiflora
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1596-1"><a href="tabelas-de-variáveis-categóricas.html#cb1596-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tem a coluna especie</span></span>
-<span id="cb1596-2"><a href="tabelas-de-variáveis-categóricas.html#cb1596-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1596-3"><a href="tabelas-de-variáveis-categóricas.html#cb1596-3" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)</span></span>
-<span id="cb1596-4"><a href="tabelas-de-variáveis-categóricas.html#cb1596-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>especie)</span></code></pre></div>
+<div class="sourceCode" id="cb1595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1595-1"><a href="tabelas-de-variáveis-categóricas.html#cb1595-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tem a coluna especie</span></span>
+<span id="cb1595-2"><a href="tabelas-de-variáveis-categóricas.html#cb1595-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1595-3"><a href="tabelas-de-variáveis-categóricas.html#cb1595-3" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)</span></span>
+<span id="cb1595-4"><a href="tabelas-de-variáveis-categóricas.html#cb1595-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>especie)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1013,7 +1017,7 @@ Tibouchina nutticeps
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1597-1"><a href="tabelas-de-variáveis-categóricas.html#cb1597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="co"># quais são as tres especies mais abundantes</span></span></code></pre></div>
+<div class="sourceCode" id="cb1596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1596-1"><a href="tabelas-de-variáveis-categóricas.html#cb1596-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="co"># quais são as tres especies mais abundantes</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1042,7 +1046,7 @@ Mela 1
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1598-1"><a href="tabelas-de-variáveis-categóricas.html#cb1598-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>local) <span class="co"># quantas localidades?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1597-1"><a href="tabelas-de-variáveis-categóricas.html#cb1597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>local) <span class="co"># quantas localidades?</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1071,11 +1075,11 @@ retiro
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1599-1"><a href="tabelas-de-variáveis-categóricas.html#cb1599-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Graficos de barra para representar uma tabela</span></span>
-<span id="cb1599-2"><a href="tabelas-de-variáveis-categóricas.html#cb1599-2" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">no.readonly =</span> <span class="cn">TRUE</span>) <span class="co"># pega parametros gráficos atual</span></span>
-<span id="cb1599-3"><a href="tabelas-de-variáveis-categóricas.html#cb1599-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">0</span>)) <span class="co"># mudando as margens</span></span>
-<span id="cb1599-4"><a href="tabelas-de-variáveis-categóricas.html#cb1599-4" aria-hidden="true" tabindex="-1"></a>vv <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)</span>
-<span id="cb1599-5"><a href="tabelas-de-variáveis-categóricas.html#cb1599-5" aria-hidden="true" tabindex="-1"></a>vv[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># cinco especies mais abundantes</span></span></code></pre></div>
+<div class="sourceCode" id="cb1598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1598-1"><a href="tabelas-de-variáveis-categóricas.html#cb1598-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Graficos de barra para representar uma tabela</span></span>
+<span id="cb1598-2"><a href="tabelas-de-variáveis-categóricas.html#cb1598-2" aria-hidden="true" tabindex="-1"></a>op <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">no.readonly =</span> <span class="cn">TRUE</span>) <span class="co"># pega parametros gráficos atual</span></span>
+<span id="cb1598-3"><a href="tabelas-de-variáveis-categóricas.html#cb1598-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">0</span>)) <span class="co"># mudando as margens</span></span>
+<span id="cb1598-4"><a href="tabelas-de-variáveis-categóricas.html#cb1598-4" aria-hidden="true" tabindex="-1"></a>vv <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)</span>
+<span id="cb1598-5"><a href="tabelas-de-variáveis-categóricas.html#cb1598-5" aria-hidden="true" tabindex="-1"></a>vv[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># cinco especies mais abundantes</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1116,26 +1120,26 @@ Psidium sp
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1600-1"><a href="tabelas-de-variáveis-categóricas.html#cb1600-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico de barras disso</span></span>
-<span id="cb1600-2"><a href="tabelas-de-variáveis-categóricas.html#cb1600-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(vv, <span class="at">cex.names =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1599-1"><a href="tabelas-de-variáveis-categóricas.html#cb1599-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico de barras disso</span></span>
+<span id="cb1599-2"><a href="tabelas-de-variáveis-categóricas.html#cb1599-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(vv, <span class="at">cex.names =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-494-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1601-1"><a href="tabelas-de-variáveis-categóricas.html#cb1601-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las =</span> <span class="dv">2</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1</span>)) <span class="co"># mudando margens e orientacao dos eixos</span></span>
-<span id="cb1601-2"><a href="tabelas-de-variáveis-categóricas.html#cb1601-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T), <span class="at">cex.names =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1600-1"><a href="tabelas-de-variáveis-categóricas.html#cb1600-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">las =</span> <span class="dv">2</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1</span>)) <span class="co"># mudando margens e orientacao dos eixos</span></span>
+<span id="cb1600-2"><a href="tabelas-de-variáveis-categóricas.html#cb1600-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T), <span class="at">cex.names =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-494-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb1602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1602-1"><a href="tabelas-de-variáveis-categóricas.html#cb1602-1" aria-hidden="true" tabindex="-1"></a><span class="co"># muita coisa, pegando apenas as especies mais abundantes</span></span>
-<span id="cb1602-2"><a href="tabelas-de-variáveis-categóricas.html#cb1602-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], <span class="at">cex.names =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1601-1"><a href="tabelas-de-variáveis-categóricas.html#cb1601-1" aria-hidden="true" tabindex="-1"></a><span class="co"># muita coisa, pegando apenas as especies mais abundantes</span></span>
+<span id="cb1601-2"><a href="tabelas-de-variáveis-categóricas.html#cb1601-2" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], <span class="at">cex.names =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-494-3.svg" width="672" /></p>
-<div class="sourceCode" id="cb1603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1603-1"><a href="tabelas-de-variáveis-categóricas.html#cb1603-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note como Tabebuia cassonoides é muito mais abundante que qualquer outra espécie nessas comunidades</span></span>
-<span id="cb1603-2"><a href="tabelas-de-variáveis-categóricas.html#cb1603-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1603-3"><a href="tabelas-de-variáveis-categóricas.html#cb1603-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(op) <span class="co"># volta aos parametros</span></span>
-<span id="cb1603-4"><a href="tabelas-de-variáveis-categóricas.html#cb1603-4" aria-hidden="true" tabindex="-1"></a><span class="co"># numero de individuos por localidade</span></span>
-<span id="cb1603-5"><a href="tabelas-de-variáveis-categóricas.html#cb1603-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>local), <span class="at">ylab =</span> <span class="st">&quot;Número de indivíduos&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1602-1"><a href="tabelas-de-variáveis-categóricas.html#cb1602-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note como Tabebuia cassonoides é muito mais abundante que qualquer outra espécie nessas comunidades</span></span>
+<span id="cb1602-2"><a href="tabelas-de-variáveis-categóricas.html#cb1602-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1602-3"><a href="tabelas-de-variáveis-categóricas.html#cb1602-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(op) <span class="co"># volta aos parametros</span></span>
+<span id="cb1602-4"><a href="tabelas-de-variáveis-categóricas.html#cb1602-4" aria-hidden="true" tabindex="-1"></a><span class="co"># numero de individuos por localidade</span></span>
+<span id="cb1602-5"><a href="tabelas-de-variáveis-categóricas.html#cb1602-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>local), <span class="at">ylab =</span> <span class="st">&quot;Número de indivíduos&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-494-4.svg" width="672" /></p>
 <div id="resumo-de-gráficos-univariados" class="section level3 hasAnchor" number="12.2.1">
 <h3><span class="header-section-number">12.2.1</span> Resumo de gráficos univariados<a href="tabelas-de-variáveis-categóricas.html#resumo-de-gráficos-univariados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Além das funções gráficas apresentadas acima, vamos ver aqui as funções <code>dotchart()</code> e <code>stripchart()</code>, úteis para visualizar dados brutos.</p>
-<div class="sourceCode" id="cb1604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1604-1"><a href="tabelas-de-variáveis-categóricas.html#cb1604-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para visualizar dados brutos</span></span>
-<span id="cb1604-2"><a href="tabelas-de-variáveis-categóricas.html#cb1604-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1603-1"><a href="tabelas-de-variáveis-categóricas.html#cb1603-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para visualizar dados brutos</span></span>
+<span id="cb1603-2"><a href="tabelas-de-variáveis-categóricas.html#cb1603-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1324,21 +1328,21 @@ Myrcia sulfiflora
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1605-1"><a href="tabelas-de-variáveis-categóricas.html#cb1605-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plotar a coluna altura (h)</span></span>
-<span id="cb1605-2"><a href="tabelas-de-variáveis-categóricas.html#cb1605-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(caixeta<span class="sc">$</span>h, <span class="at">xlab =</span> <span class="st">&quot;Observações&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Altura (m)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1604-1"><a href="tabelas-de-variáveis-categóricas.html#cb1604-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plotar a coluna altura (h)</span></span>
+<span id="cb1604-2"><a href="tabelas-de-variáveis-categóricas.html#cb1604-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(caixeta<span class="sc">$</span>h, <span class="at">xlab =</span> <span class="st">&quot;Observações&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Altura (m)&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-495-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1606-1"><a href="tabelas-de-variáveis-categóricas.html#cb1606-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que o único valor extremos fica super evidente</span></span>
-<span id="cb1606-2"><a href="tabelas-de-variáveis-categóricas.html#cb1606-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1606-3"><a href="tabelas-de-variáveis-categóricas.html#cb1606-3" aria-hidden="true" tabindex="-1"></a><span class="co"># poderíamos usar a função dotchart para isso</span></span>
-<span id="cb1606-4"><a href="tabelas-de-variáveis-categóricas.html#cb1606-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dotchart</span>(caixeta<span class="sc">$</span>h, <span class="at">ylab =</span> <span class="st">&quot;Observações&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Altura (m)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1605-1"><a href="tabelas-de-variáveis-categóricas.html#cb1605-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que o único valor extremos fica super evidente</span></span>
+<span id="cb1605-2"><a href="tabelas-de-variáveis-categóricas.html#cb1605-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1605-3"><a href="tabelas-de-variáveis-categóricas.html#cb1605-3" aria-hidden="true" tabindex="-1"></a><span class="co"># poderíamos usar a função dotchart para isso</span></span>
+<span id="cb1605-4"><a href="tabelas-de-variáveis-categóricas.html#cb1605-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dotchart</span>(caixeta<span class="sc">$</span>h, <span class="at">ylab =</span> <span class="st">&quot;Observações&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Altura (m)&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-495-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb1607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1607-1"><a href="tabelas-de-variáveis-categóricas.html#cb1607-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inversão dos eixos..</span></span>
-<span id="cb1607-2"><a href="tabelas-de-variáveis-categóricas.html#cb1607-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos corrigir o valor extremo</span></span>
-<span id="cb1607-3"><a href="tabelas-de-variáveis-categóricas.html#cb1607-3" aria-hidden="true" tabindex="-1"></a>caixeta[<span class="fu">which</span>(caixeta<span class="sc">$</span>h <span class="sc">&gt;</span> <span class="dv">300</span>), <span class="st">&quot;h&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">48</span></span>
-<span id="cb1607-4"><a href="tabelas-de-variáveis-categóricas.html#cb1607-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1607-5"><a href="tabelas-de-variáveis-categóricas.html#cb1607-5" aria-hidden="true" tabindex="-1"></a><span class="co"># faz um boxplot disso</span></span>
-<span id="cb1607-6"><a href="tabelas-de-variáveis-categóricas.html#cb1607-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(caixeta<span class="sc">$</span>h) <span class="co"># já vimos isso, mas note os pontos isolados dos boxes (caixas), esses são valores isolados, meio fora da distribuicao</span></span>
-<span id="cb1607-7"><a href="tabelas-de-variáveis-categóricas.html#cb1607-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(caixeta<span class="sc">$</span>h) <span class="co"># ve os quartis e média</span></span></code></pre></div>
+<div class="sourceCode" id="cb1606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1606-1"><a href="tabelas-de-variáveis-categóricas.html#cb1606-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inversão dos eixos..</span></span>
+<span id="cb1606-2"><a href="tabelas-de-variáveis-categóricas.html#cb1606-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos corrigir o valor extremo</span></span>
+<span id="cb1606-3"><a href="tabelas-de-variáveis-categóricas.html#cb1606-3" aria-hidden="true" tabindex="-1"></a>caixeta[<span class="fu">which</span>(caixeta<span class="sc">$</span>h <span class="sc">&gt;</span> <span class="dv">300</span>), <span class="st">&quot;h&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">48</span></span>
+<span id="cb1606-4"><a href="tabelas-de-variáveis-categóricas.html#cb1606-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1606-5"><a href="tabelas-de-variáveis-categóricas.html#cb1606-5" aria-hidden="true" tabindex="-1"></a><span class="co"># faz um boxplot disso</span></span>
+<span id="cb1606-6"><a href="tabelas-de-variáveis-categóricas.html#cb1606-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(caixeta<span class="sc">$</span>h) <span class="co"># já vimos isso, mas note os pontos isolados dos boxes (caixas), esses são valores isolados, meio fora da distribuicao</span></span>
+<span id="cb1606-7"><a href="tabelas-de-variáveis-categóricas.html#cb1606-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(caixeta<span class="sc">$</span>h) <span class="co"># ve os quartis e média</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1385,40 +1389,40 @@ Max.
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1608-1"><a href="tabelas-de-variáveis-categóricas.html#cb1608-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota a mediana</span></span>
-<span id="cb1608-2"><a href="tabelas-de-variáveis-categóricas.html#cb1608-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">median</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
-<span id="cb1608-3"><a href="tabelas-de-variáveis-categóricas.html#cb1608-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plota todos os quartis</span></span>
-<span id="cb1608-4"><a href="tabelas-de-variáveis-categóricas.html#cb1608-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">quantile</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1607-1"><a href="tabelas-de-variáveis-categóricas.html#cb1607-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plota a mediana</span></span>
+<span id="cb1607-2"><a href="tabelas-de-variáveis-categóricas.html#cb1607-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">median</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb1607-3"><a href="tabelas-de-variáveis-categóricas.html#cb1607-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plota todos os quartis</span></span>
+<span id="cb1607-4"><a href="tabelas-de-variáveis-categóricas.html#cb1607-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">quantile</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-495-3.svg" width="672" /></p>
-<div class="sourceCode" id="cb1609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1609-1"><a href="tabelas-de-variáveis-categóricas.html#cb1609-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ve em forma de histograma</span></span>
-<span id="cb1609-2"><a href="tabelas-de-variáveis-categóricas.html#cb1609-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">20</span>)</span>
-<span id="cb1609-3"><a href="tabelas-de-variáveis-categóricas.html#cb1609-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plota os quartis</span></span>
-<span id="cb1609-4"><a href="tabelas-de-variáveis-categóricas.html#cb1609-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">quantile</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1608-1"><a href="tabelas-de-variáveis-categóricas.html#cb1608-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ve em forma de histograma</span></span>
+<span id="cb1608-2"><a href="tabelas-de-variáveis-categóricas.html#cb1608-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">20</span>)</span>
+<span id="cb1608-3"><a href="tabelas-de-variáveis-categóricas.html#cb1608-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plota os quartis</span></span>
+<span id="cb1608-4"><a href="tabelas-de-variáveis-categóricas.html#cb1608-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">quantile</span>(caixeta<span class="sc">$</span>h), <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-495-4.svg" width="672" /></p>
-<div class="sourceCode" id="cb1610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1610-1"><a href="tabelas-de-variáveis-categóricas.html#cb1610-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1609-1"><a href="tabelas-de-variáveis-categóricas.html#cb1609-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] 1027    8</code></pre>
-<div class="sourceCode" id="cb1612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1612-1"><a href="tabelas-de-variáveis-categóricas.html#cb1612-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ve o histograma na forma de pontos:</span></span>
-<span id="cb1612-2"><a href="tabelas-de-variáveis-categóricas.html#cb1612-2" aria-hidden="true" tabindex="-1"></a>?stripchart</span></code></pre></div>
-<div class="sourceCode" id="cb1613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1613-1"><a href="tabelas-de-variáveis-categóricas.html#cb1613-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(caixeta<span class="sc">$</span>h, <span class="at">method =</span> <span class="st">&quot;stack&quot;</span>, <span class="at">jitter =</span> <span class="dv">0</span>, <span class="at">offset =</span> <span class="dv">1</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">nrow</span>(caixeta)), <span class="at">xlab =</span> <span class="st">&quot;altura (cm)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1611-1"><a href="tabelas-de-variáveis-categóricas.html#cb1611-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ve o histograma na forma de pontos:</span></span>
+<span id="cb1611-2"><a href="tabelas-de-variáveis-categóricas.html#cb1611-2" aria-hidden="true" tabindex="-1"></a>?stripchart</span></code></pre></div>
+<div class="sourceCode" id="cb1612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1612-1"><a href="tabelas-de-variáveis-categóricas.html#cb1612-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(caixeta<span class="sc">$</span>h, <span class="at">method =</span> <span class="st">&quot;stack&quot;</span>, <span class="at">jitter =</span> <span class="dv">0</span>, <span class="at">offset =</span> <span class="dv">1</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">nrow</span>(caixeta)), <span class="at">xlab =</span> <span class="st">&quot;altura (cm)&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-497-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1614-1"><a href="tabelas-de-variáveis-categóricas.html#cb1614-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Numa tela só boxplot, histograma, densidade e stripchart</span></span>
-<span id="cb1614-2"><a href="tabelas-de-variáveis-categóricas.html#cb1614-2" aria-hidden="true" tabindex="-1"></a>olp <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">no.readonly =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1614-3"><a href="tabelas-de-variáveis-categóricas.html#cb1614-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">0</span>))</span>
-<span id="cb1614-4"><a href="tabelas-de-variáveis-categóricas.html#cb1614-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(caixeta<span class="sc">$</span>h)</span>
-<span id="cb1614-5"><a href="tabelas-de-variáveis-categóricas.html#cb1614-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h)</span>
-<span id="cb1614-6"><a href="tabelas-de-variáveis-categóricas.html#cb1614-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stats<span class="sc">::</span><span class="fu">density</span>(caixeta<span class="sc">$</span>h))</span>
-<span id="cb1614-7"><a href="tabelas-de-variáveis-categóricas.html#cb1614-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(caixeta<span class="sc">$</span>h, <span class="at">method =</span> <span class="st">&quot;stack&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1613-1"><a href="tabelas-de-variáveis-categóricas.html#cb1613-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Numa tela só boxplot, histograma, densidade e stripchart</span></span>
+<span id="cb1613-2"><a href="tabelas-de-variáveis-categóricas.html#cb1613-2" aria-hidden="true" tabindex="-1"></a>olp <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">no.readonly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1613-3"><a href="tabelas-de-variáveis-categóricas.html#cb1613-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">0</span>))</span>
+<span id="cb1613-4"><a href="tabelas-de-variáveis-categóricas.html#cb1613-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(caixeta<span class="sc">$</span>h)</span>
+<span id="cb1613-5"><a href="tabelas-de-variáveis-categóricas.html#cb1613-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h)</span>
+<span id="cb1613-6"><a href="tabelas-de-variáveis-categóricas.html#cb1613-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stats<span class="sc">::</span><span class="fu">density</span>(caixeta<span class="sc">$</span>h))</span>
+<span id="cb1613-7"><a href="tabelas-de-variáveis-categóricas.html#cb1613-7" aria-hidden="true" tabindex="-1"></a><span class="fu">stripchart</span>(caixeta<span class="sc">$</span>h, <span class="at">method =</span> <span class="st">&quot;stack&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-497-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb1615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1615-1"><a href="tabelas-de-variáveis-categóricas.html#cb1615-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(olp) <span class="co"># resgata parametros graficos originais</span></span>
-<span id="cb1615-2"><a href="tabelas-de-variáveis-categóricas.html#cb1615-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1615-3"><a href="tabelas-de-variáveis-categóricas.html#cb1615-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Histograma com diferentes larguras de barras</span></span>
-<span id="cb1615-4"><a href="tabelas-de-variáveis-categóricas.html#cb1615-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>), <span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb1615-5"><a href="tabelas-de-variáveis-categóricas.html#cb1615-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">main =</span> <span class="st">&quot;Default&quot;</span>)</span>
-<span id="cb1615-6"><a href="tabelas-de-variáveis-categóricas.html#cb1615-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">5</span>, <span class="at">main =</span> <span class="st">&quot;Cinco break-points&quot;</span>)</span>
-<span id="cb1615-7"><a href="tabelas-de-variáveis-categóricas.html#cb1615-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">&quot;Dez break-points&quot;</span>)</span>
-<span id="cb1615-8"><a href="tabelas-de-variáveis-categóricas.html#cb1615-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">15</span>, <span class="at">main =</span> <span class="st">&quot;Quinze break-points&quot;</span>)</span>
-<span id="cb1615-9"><a href="tabelas-de-variáveis-categóricas.html#cb1615-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main =</span> <span class="st">&quot;Vinte break-points&quot;</span>, <span class="at">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
-<span id="cb1615-10"><a href="tabelas-de-variáveis-categóricas.html#cb1615-10" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(olp)</span></code></pre></div>
+<div class="sourceCode" id="cb1614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1614-1"><a href="tabelas-de-variáveis-categóricas.html#cb1614-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(olp) <span class="co"># resgata parametros graficos originais</span></span>
+<span id="cb1614-2"><a href="tabelas-de-variáveis-categóricas.html#cb1614-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1614-3"><a href="tabelas-de-variáveis-categóricas.html#cb1614-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Histograma com diferentes larguras de barras</span></span>
+<span id="cb1614-4"><a href="tabelas-de-variáveis-categóricas.html#cb1614-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>), <span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb1614-5"><a href="tabelas-de-variáveis-categóricas.html#cb1614-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">main =</span> <span class="st">&quot;Default&quot;</span>)</span>
+<span id="cb1614-6"><a href="tabelas-de-variáveis-categóricas.html#cb1614-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">5</span>, <span class="at">main =</span> <span class="st">&quot;Cinco break-points&quot;</span>)</span>
+<span id="cb1614-7"><a href="tabelas-de-variáveis-categóricas.html#cb1614-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">10</span>, <span class="at">main =</span> <span class="st">&quot;Dez break-points&quot;</span>)</span>
+<span id="cb1614-8"><a href="tabelas-de-variáveis-categóricas.html#cb1614-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">15</span>, <span class="at">main =</span> <span class="st">&quot;Quinze break-points&quot;</span>)</span>
+<span id="cb1614-9"><a href="tabelas-de-variáveis-categóricas.html#cb1614-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(caixeta<span class="sc">$</span>h, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main =</span> <span class="st">&quot;Vinte break-points&quot;</span>, <span class="at">col =</span> <span class="st">&quot;lightblue&quot;</span>)</span>
+<span id="cb1614-10"><a href="tabelas-de-variáveis-categóricas.html#cb1614-10" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(olp)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-497-3.svg" width="672" /></p>
 </div>
 </div>
@@ -1470,7 +1474,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/12-aed_checaunivar.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

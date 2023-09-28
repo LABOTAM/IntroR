@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.7 Dicas de erros comuns de sintaxe da linguagem R | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.7 Dicas de erros comuns de sintaxe da linguagem R | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -564,24 +568,24 @@ Neste caso, ficar completo significa fechar o parêntese.
 Tente executar o código abaixo e verifique que o sinal de <code>+</code> ficará estagnado na tela de seu console.
 Para sair desta tela, clique no console e depois tecle <code>Esc</code>.
 Você verá que o sinal de <code>&gt;</code> voltará a aparecer no console.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb28-1" aria-hidden="true" tabindex="-1"></a>erro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb27-1" aria-hidden="true" tabindex="-1"></a>erro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span></span></code></pre></div>
 <p>Agora, execute o comando abaixo.
 Ele será executado perfeitamente.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb29-1" aria-hidden="true" tabindex="-1"></a>erro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb28-1" aria-hidden="true" tabindex="-1"></a>erro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div>
 </div>
 <div id="vírgulas" class="section level3 hasAnchor" number="1.7.2">
 <h3><span class="header-section-number">1.7.2</span> Vírgulas<a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#vírgulas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ao concatenar elementos ou ao adicionar valores em argumentos de funções, é necessário lembrar sempre de colocar as vírgulas em seus devidos lugares.
 Caso contrário … mais um erro!
 Tentem executar o código abaixo:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb30-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span> <span class="dv">7</span>, <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb29-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span> <span class="dv">7</span>, <span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## Error: &lt;text&gt;:1:22: unexpected numeric constant
 ## 1: numeros &lt;- c(1, 5, 6 7
 ##                          ^</code></pre>
 <p>O R dará o aviso <code>Error: unexpected numeric constant in "numeros &lt;- c(1,5,6 7"</code> e encerrá a operação.
 Executem agora o comando abaixo.
 Será executado sem problemas.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb32-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb31-1" aria-hidden="true" tabindex="-1"></a>numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>)</span></code></pre></div>
 </div>
 <div id="aspas" class="section level3 hasAnchor" number="1.7.3">
 <h3><span class="header-section-number">1.7.3</span> Aspas<a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#aspas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -589,40 +593,40 @@ Será executado sem problemas.</p>
 Se seu texto tem acentos, use aspas duplas para delimitá-lo.
 Aspas simples podem entrar num texto definido por aspas duplas, e vice-versa.
 Rode isso no seu console:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb33-1" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;um texto com &#39;aspas simples&#39;&quot;</span></span>
-<span id="cb33-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb33-2" aria-hidden="true" tabindex="-1"></a>objum</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb32-1" aria-hidden="true" tabindex="-1"></a>objum <span class="ot">&lt;-</span> <span class="st">&quot;um texto com &#39;aspas simples&#39;&quot;</span></span>
+<span id="cb32-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb32-2" aria-hidden="true" tabindex="-1"></a>objum</span></code></pre></div>
 <pre><code>## [1] &quot;um texto com &#39;aspas simples&#39;&quot;</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb35-1" aria-hidden="true" tabindex="-1"></a>obj2 <span class="ot">&lt;-</span> <span class="st">&#39;um texto com &quot;aspas simples&quot;&#39;</span></span>
-<span id="cb35-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb35-2" aria-hidden="true" tabindex="-1"></a>obj2</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb34-1" aria-hidden="true" tabindex="-1"></a>obj2 <span class="ot">&lt;-</span> <span class="st">&#39;um texto com &quot;aspas simples&quot;&#39;</span></span>
+<span id="cb34-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb34-2" aria-hidden="true" tabindex="-1"></a>obj2</span></code></pre></div>
 <pre><code>## [1] &quot;um texto com \&quot;aspas simples\&quot;&quot;</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que foi adicionada uma barra invertida, porque \&quot; na sintaxe do Rsignifica aspas para confundir com as aspas que você usa para indicar textos.</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que foi adicionada uma barra invertida, porque \&quot; na sintaxe do Rsignifica aspas para confundir com as aspas que você usa para indicar textos.</span></span></code></pre></div>
 </div>
 <div id="números" class="section level3 hasAnchor" number="1.7.4">
 <h3><span class="header-section-number">1.7.4</span> Números<a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#números" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Números são sempre especificados sem aspas; se você colocar qualquer número entre aspas, ele será interpretado como texto:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb38-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="dv">18</span></span>
-<span id="cb38-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb38-2" aria-hidden="true" tabindex="-1"></a>obj1 <span class="sc">+</span> <span class="dv">1</span> <span class="co"># essa fórmula irá funcionar porque obj1 é um número</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb37-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="dv">18</span></span>
+<span id="cb37-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb37-2" aria-hidden="true" tabindex="-1"></a>obj1 <span class="sc">+</span> <span class="dv">1</span> <span class="co"># essa fórmula irá funcionar porque obj1 é um número</span></span></code></pre></div>
 <pre><code>## [1] 19</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb40-1" aria-hidden="true" tabindex="-1"></a>obj2 <span class="ot">&lt;-</span> <span class="st">&quot;18&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb39-1" aria-hidden="true" tabindex="-1"></a>obj2 <span class="ot">&lt;-</span> <span class="st">&quot;18&quot;</span></span></code></pre></div>
 <p>Isso não vai funcionar porque <code>obj2</code> não é um número.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb41-1" aria-hidden="true" tabindex="-1"></a>obj2 <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb40-1" aria-hidden="true" tabindex="-1"></a>obj2 <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>## Error in obj2 + 1: non-numeric argument to binary operator</code></pre>
 <p>Caso você insista em rodar, receberá a seguinte mensagem: <code>Error in obj2 + 1 : non-numeric argument to binary operator</code>.</p>
 </div>
 <div id="nomes-de-objetos" class="section level3 hasAnchor" number="1.7.5">
 <h3><span class="header-section-number">1.7.5</span> Nomes de objetos<a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#nomes-de-objetos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nomes de objetos não podem ter espaço em branco e aspas são ignoradas:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb43-1" aria-hidden="true" tabindex="-1"></a>obj <span class="dv">1</span> <span class="ot">=</span> <span class="st">&quot;meutexto&quot;</span> <span class="co">#nao vai funcionar</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb42-1" aria-hidden="true" tabindex="-1"></a>obj <span class="dv">1</span> <span class="ot">=</span> <span class="st">&quot;meutexto&quot;</span> <span class="co">#nao vai funcionar</span></span></code></pre></div>
 <pre><code>## Error: &lt;text&gt;:1:5: unexpected numeric constant
 ## 1: obj 1
 ##         ^</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb45-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="st">&quot;meutexto&quot;</span> <span class="co"># vai funcionar</span></span>
-<span id="cb45-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb45-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb44-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="st">&quot;meutexto&quot;</span> <span class="co"># vai funcionar</span></span>
+<span id="cb44-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb44-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
 <pre><code>## [1] &quot;meutexto&quot;</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;obj1&quot;</span> <span class="ot">&lt;-</span> <span class="st">&quot;meu texto&quot;</span> <span class="co"># vai criar objeto obj1, ignorando as aspas</span></span>
-<span id="cb47-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb47-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;obj1&quot;</span> <span class="ot">&lt;-</span> <span class="st">&quot;meu texto&quot;</span> <span class="co"># vai criar objeto obj1, ignorando as aspas</span></span>
+<span id="cb46-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb46-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
 <pre><code>## [1] &quot;meu texto&quot;</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb49-1" aria-hidden="true" tabindex="-1"></a>obj<span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;meu texto&quot;</span> <span class="co">#nao vai funcionar</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb48-1" aria-hidden="true" tabindex="-1"></a>obj<span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;meu texto&quot;</span> <span class="co">#nao vai funcionar</span></span></code></pre></div>
 <pre><code>## Error: &lt;text&gt;:1:4: unexpected string constant
 ## 1: obj&quot;1&quot;
 ##        ^</code></pre>
@@ -630,14 +634,14 @@ Rode isso no seu console:</p>
 <div id="atribuição-de-objetos" class="section level3 hasAnchor" number="1.7.6">
 <h3><span class="header-section-number">1.7.6</span> Atribuição de objetos<a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#atribuição-de-objetos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A <strong>atribuição de valores aos objetos</strong> pode ser feita com dois operadores equivalentes, <code>=</code> ou <code>&lt;-</code> (este pode ser utilizado no sentido inverso também <code>-&gt;</code>):</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb51-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="st">&quot;meu texto&quot;</span></span>
-<span id="cb51-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ou pode escrever assim</span></span>
-<span id="cb51-4"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb51-4" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="st">&quot;meu texto&quot;</span> <span class="co"># atribui</span></span>
-<span id="cb51-5"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-6"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ou assim</span></span>
-<span id="cb51-7"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;meu texto&quot;</span> <span class="ot">-&gt;</span> obj1 <span class="co"># atribui</span></span>
-<span id="cb51-8"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb51-8" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb50-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="st">&quot;meu texto&quot;</span></span>
+<span id="cb50-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ou pode escrever assim</span></span>
+<span id="cb50-4"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb50-4" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="st">&quot;meu texto&quot;</span> <span class="co"># atribui</span></span>
+<span id="cb50-5"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ou assim</span></span>
+<span id="cb50-7"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;meu texto&quot;</span> <span class="ot">-&gt;</span> obj1 <span class="co"># atribui</span></span>
+<span id="cb50-8"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb50-8" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
 <pre><code>## [1] &quot;meu texto&quot;</code></pre>
 </div>
 <div id="busque-entender-as-partes" class="section level3 hasAnchor" number="1.7.7">
@@ -645,15 +649,15 @@ Rode isso no seu console:</p>
 <p>Se você tiver dificuldade no entendimento de um script do R que está tentando rodar, separe os termos das linhas e expressões para entender o que cada parte está fazendo.
 Também pode alterar os valores dos argumentos para entender o funcionamento de uma função, ou simplesmente digitar a função sem os parênteses para ver o script que ela contem.
 Por exemplo, vejamos a expressão abaixo, que faz uso de um conjunto de dados chamado <code>iris</code>, que vem disponível com o R.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb53-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">levels</span>(iris<span class="sc">$</span>Species), <span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">INDEX =</span> iris<span class="sc">$</span>Species, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">sep =</span> <span class="st">&quot; sépala média = &quot;</span>)</span>
-<span id="cb53-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb53-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb52-1" aria-hidden="true" tabindex="-1"></a>obj1 <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">levels</span>(iris<span class="sc">$</span>Species), <span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">INDEX =</span> iris<span class="sc">$</span>Species, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">sep =</span> <span class="st">&quot; sépala média = &quot;</span>)</span>
+<span id="cb52-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb52-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
 <pre><code>## [1] &quot;setosa sépala média = 5.006&quot;     &quot;versicolor sépala média = 5.936&quot;
 ## [3] &quot;virginica sépala média = 6.588&quot;</code></pre>
 <p>À primeira vista, a expressão parece complicada.
 Vamos separar as partes e entender pedaço por pedaço.
 Primeiro, vamos tentar entender quem é <code>iris</code>.
 Vamos checar a estrutura de <code>iris</code>:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris) <span class="co">#veja a estrutura</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris) <span class="co">#veja a estrutura</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
 ##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
 ##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
@@ -661,7 +665,7 @@ Vamos checar a estrutura de <code>iris</code>:</p>
 ##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
 ##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
 <p>Agora, vamos obter um sumário estatístico de <code>iris</code>:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris) <span class="co">#veja o que é iris</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris) <span class="co">#veja o que é iris</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -803,39 +807,44 @@ NA
 </table>
 <p>Note que <code>iris$Species</code> contem 50 valores para três nomes e portanto eles estao sendo intepretados como categoria, isto é, é um fator.
 Vamos ver os níveis desse fator com a expressão abaixo, contida na função executada anteriormente e que desejamos destrinchar:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species) <span class="co">#categorias especies do objeto factor iris$Species</span></span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species) <span class="co">#categorias especies do objeto factor iris$Species</span></span></code></pre></div>
 <pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
 <p>Partamos para o segundo elemento dessa função, que é a expressão colocada abaixo:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#o segundo elemento é o resultado de:</span></span>
-<span id="cb60-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">INDEX =</span> iris<span class="sc">$</span>Species, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co">#o segundo elemento é o resultado de:</span></span>
+<span id="cb59-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(iris<span class="sc">$</span>Sepal.Length, <span class="at">INDEX =</span> iris<span class="sc">$</span>Species, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##     setosa versicolor  virginica 
 ##      5.006      5.936      6.588</code></pre>
 <p>Essa expressão basicamente calcula a média dos 50 comprimentos de sépala para cada espécie.
 Por fim, temos o último elemento da expressão que é o argumento <code>sep</code> pertencente à função <code>paste()</code>.
 Este argumento é responsável por informar à função <code>paste()</code> qual separador nós vamos utilizar para separar os elementos contidos antes do argumento <code>sep</code>, isto é, separar o resultado de <code>levels(iris$Species)</code> da expressão <code>tapply(iris$Sepal.Length,INDEX=iris$Species,mean,na.rm=TRUE)</code>.
 Nesse caso, vamos separar esses dois elementos com o texto <code>sépala média =</code>.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(, <span class="at">sep =</span><span class="st">&#39;sépala média = &#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(, <span class="at">sep =</span><span class="st">&#39;sépala média = &#39;</span>)</span></code></pre></div>
 <p>Vamos agora ver o resultado da função que executamos lá em cima.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">#veja o resultado</span></span>
-<span id="cb63-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb63-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co">#veja o resultado</span></span>
+<span id="cb62-2"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb62-2" aria-hidden="true" tabindex="-1"></a>obj1</span></code></pre></div>
 <pre><code>## [1] &quot;setosa sépala média = 5.006&quot;     &quot;versicolor sépala média = 5.936&quot;
 ## [3] &quot;virginica sépala média = 6.588&quot;</code></pre>
 <p>Lembre-se sempre de checar também o código de qualquer função, para poder entender como ela funciona.
 Vejamos os casos das funções <code>paste()</code> e <code>tapply()</code>, utilizadas neste exercício.
 Para checar o código de uma função, geralmente basta executa o nome da função sem parênteses.
 Vejamos:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb65-1" aria-hidden="true" tabindex="-1"></a>tapply</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb64-1" aria-hidden="true" tabindex="-1"></a>tapply</span></code></pre></div>
 <pre><code>## function (X, INDEX, FUN = NULL, ..., default = NA, simplify = TRUE) 
 ## {
 ##     FUN &lt;- if (!is.null(FUN)) 
 ##         match.fun(FUN)
+##     if (inherits(INDEX, &quot;formula&quot;)) {
+##         if (is.data.frame(X)) 
+##             INDEX &lt;- .formula2varlist(INDEX, X)
+##         else stop(&quot;&#39;X&#39; must be a data frame when &#39;INDEX&#39; is a formula&quot;)
+##     }
 ##     if (!is.list(INDEX)) 
 ##         INDEX &lt;- list(INDEX)
 ##     INDEX &lt;- lapply(INDEX, as.factor)
 ##     nI &lt;- length(INDEX)
 ##     if (!nI) 
 ##         stop(&quot;&#39;INDEX&#39; is of length zero&quot;)
-##     if (!all(lengths(INDEX) == length(X))) 
+##     if (!is.object(X) &amp;&amp; !all(lengths(INDEX) == length(X))) 
 ##         stop(&quot;arguments must have same length&quot;)
 ##     namelist &lt;- lapply(INDEX, levels)
 ##     extent &lt;- lengths(namelist, use.names = FALSE)
@@ -868,12 +877,12 @@ Vejamos:</p>
 ##     }
 ##     ansmat
 ## }
-## &lt;bytecode: 0x55af4cbe6ce8&gt;
+## &lt;bytecode: 0x55b738c5c2e0&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb67-1" aria-hidden="true" tabindex="-1"></a>paste</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="dicas-de-erros-comuns-de-sintaxe-da-linguagem-r.html#cb66-1" aria-hidden="true" tabindex="-1"></a>paste</span></code></pre></div>
 <pre><code>## function (..., sep = &quot; &quot;, collapse = NULL, recycle0 = FALSE) 
 ## .Internal(paste(list(...), sep, collapse, recycle0))
-## &lt;bytecode: 0x55af4350e278&gt;
+## &lt;bytecode: 0x55b7285f9ff0&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 </div>
 </div>
@@ -937,7 +946,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/01-intro.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null

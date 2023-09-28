@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 14 AED de multivariadas | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 14 AED de multivariadas | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -121,6 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -156,7 +160,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="https://github.com/LABOTAM/LABOTAM.github.io">Curso básico de introdução ao R</a></li>
+<li><a href="https://intror.netlify.app/">Curso básico de introdução ao R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
@@ -552,13 +556,13 @@ div.csl-indent {
 <h1><span class="header-section-number">Capítulo 14</span> AED de multivariadas<a href="aed-multivar.html#aed-multivar" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Neste tutorial, vamos utilizar os pacotes abaixo.
 Caso você não possua algum dos pacotes listados, lembre-se de instalar cada um utilizando o comando abaixo:</p>
-<div class="sourceCode" id="cb1758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1758-1"><a href="aed-multivar.html#cb1758-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para instalar pacotes no R, use a funcao `install.packages()`</span></span>
-<span id="cb1758-2"><a href="aed-multivar.html#cb1758-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>)</span>
-<span id="cb1758-3"><a href="aed-multivar.html#cb1758-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;labdsv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1757-1"><a href="aed-multivar.html#cb1757-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para instalar pacotes no R, use a funcao `install.packages()`</span></span>
+<span id="cb1757-2"><a href="aed-multivar.html#cb1757-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>)</span>
+<span id="cb1757-3"><a href="aed-multivar.html#cb1757-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;labdsv&quot;</span>)</span></code></pre></div>
 <p>Carregue-os todos e siga em frente.</p>
-<div class="sourceCode" id="cb1759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1759-1"><a href="aed-multivar.html#cb1759-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;labdsv&quot;</span>)</span>
-<span id="cb1759-2"><a href="aed-multivar.html#cb1759-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ape&quot;</span>)</span>
-<span id="cb1759-3"><a href="aed-multivar.html#cb1759-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1758-1"><a href="aed-multivar.html#cb1758-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;labdsv&quot;</span>)</span>
+<span id="cb1758-2"><a href="aed-multivar.html#cb1758-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ape&quot;</span>)</span>
+<span id="cb1758-3"><a href="aed-multivar.html#cb1758-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;vegan&quot;</span>)</span></code></pre></div>
 </div>
             </section>
 
@@ -608,7 +612,7 @@ gitbook.start({
 "link": "https://github.com/LABOTAM/IntroR/edit/main/14-aed_checamultivar.Rmd",
 "text": null
 },
-"download": [["bot89-introR.pdf", "PDF"], ["bot89-introR.epub", "EPUB"]],
+"download": ["bot89-introR.pdf", "bot89-introR.epub"],
 "search": {
 "engine": "fuse",
 "options": null
