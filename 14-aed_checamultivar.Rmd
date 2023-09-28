@@ -602,13 +602,28 @@ cores <- rainbow(length(levels(tx)), alpha = 0.5)
 
 # gera a figura
 fig <- ordiplot(mypcoa, type = "n")
-# adiciona os pontos de cada linha
-points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
+fig
+```
 
+
+```{r}
+# adiciona os pontos de cada linha - ATENCAO - Rode os dois comandos abaixo juntos
+ordiplot(mypcoa, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
+```
+
+
+```{r}
 # pega os scores das variáveis
 # que mostram os efeitos das variáveis usadas
-mls <- scores(mypcoa, display = "species")
+mls <- vegan::scores(mypcoa, display = "species")
 mls
+```
+
+
+```{r}
+ordiplot(mypcoa, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
 # plota flechas para esses efeitos
 arrows(0, 0, mls[, 1] * 0.8, mls[, 2] * 0.8, length = 0.05, angle = 20, col = "black", lwd = 2)
 text(mls[, 1] * 0.8, mls[, 2] * 0.8, labels = rownames(mls), col = "black", cex = 0.8, pos = 4)
@@ -676,14 +691,28 @@ cores <- rainbow(length(levels(tx)), alpha = 0.5)
 
 # gera a figura
 fig <- ordiplot(meu.pca, type = "n")
-# adiciona os pontos de cada linha
-points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
+```
 
+
+```{r}
+# adiciona os pontos de cada linha
+ordiplot(meu.pca, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
+```
+
+
+```{r}
 # pega os scores das variaveis
 # que mostram os efeitos das variáveis usadas
-mls <- scores(meu.pca, display = "species")
+mls <- vegan::scores(meu.pca, display = "species")
 mls
+```
+
+
+```{r}
 # plota flexas para esses efeitos
+ordiplot(meu.pca, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
 ft <- 2 # para aumentar as flexas um pouco
 arrows(0, 0, mls[, 1] * ft, mls[, 2] * ft, length = 0.05, angle = 20, col = "black", lwd = 2)
 text(mls[, 1] * ft, mls[, 2] * ft, labels = rownames(mls), col = "black", cex = 0.8, pos = 4)
