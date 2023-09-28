@@ -391,8 +391,15 @@ caixeta <- read.table("caixeta.csv", sep = ",", header = T, na.strings = c("NA",
 load("dados/caixeta2.rda")
 ```
 
-```{r}
+```{r, eval=FALSE,echo=TRUE}
 head(caixeta)
+```
+
+```{r, eval=TRUE,echo=FALSE}
+kable(head(caixeta))
+```
+
+```{r}
 names(caixeta)
 
 # vamos visualizar a similaridade florística entre parcelas
@@ -401,7 +408,17 @@ names(caixeta)
 # porque o número da parcela repete entre locais
 parcelas <- paste(caixeta$local, caixeta$parcela, sep = "-")
 tb <- table(parcelas, especies = caixeta$especie)
+```
+
+```{r, eval=FALSE,echo=TRUE}
 tb[, 1:5]
+```
+
+```{r, eval=TRUE,echo=FALSE}
+kable(tb[, 1:5])
+```
+
+```{r}
 dim(tb)
 # essa tabela contém o número de indivíduos de cada espécie
 # em cada parcela
@@ -497,8 +514,12 @@ legend("topleft", legend = levels(locais), pch = 21:23, pt.bg = c("red", "green"
 
 Vamos repetir essa operação considerando a abundância de espécies por parcelas contidos no objeto `tb` (usamos o índice de Sorensen).
 
-```{r}
+```{r, eval=FALSE,echo=TRUE}
 tb[1:4, 1:5]
+```
+
+```{r, eval=TRUE,echo=FALSE}
+kable(tb[1:4, 1:5])
 ```
 
 ```{r}
@@ -581,13 +602,28 @@ cores <- rainbow(length(levels(tx)), alpha = 0.5)
 
 # gera a figura
 fig <- ordiplot(mypcoa, type = "n")
-# adiciona os pontos de cada linha
-points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
+fig
+```
 
+
+```{r}
+# adiciona os pontos de cada linha - ATENCAO - Rode os dois comandos abaixo juntos
+ordiplot(mypcoa, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
+```
+
+
+```{r}
 # pega os scores das variáveis
 # que mostram os efeitos das variáveis usadas
-mls <- scores(mypcoa, display = "species")
+mls <- vegan::scores(mypcoa, display = "species")
 mls
+```
+
+
+```{r}
+ordiplot(mypcoa, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
 # plota flechas para esses efeitos
 arrows(0, 0, mls[, 1] * 0.8, mls[, 2] * 0.8, length = 0.05, angle = 20, col = "black", lwd = 2)
 text(mls[, 1] * 0.8, mls[, 2] * 0.8, labels = rownames(mls), col = "black", cex = 0.8, pos = 4)
@@ -655,14 +691,28 @@ cores <- rainbow(length(levels(tx)), alpha = 0.5)
 
 # gera a figura
 fig <- ordiplot(meu.pca, type = "n")
-# adiciona os pontos de cada linha
-points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
+```
 
+
+```{r}
+# adiciona os pontos de cada linha
+ordiplot(meu.pca, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
+```
+
+
+```{r}
 # pega os scores das variaveis
 # que mostram os efeitos das variáveis usadas
-mls <- scores(meu.pca, display = "species")
+mls <- vegan::scores(meu.pca, display = "species")
 mls
+```
+
+
+```{r}
 # plota flexas para esses efeitos
+ordiplot(meu.pca, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
 ft <- 2 # para aumentar as flexas um pouco
 arrows(0, 0, mls[, 1] * ft, mls[, 2] * ft, length = 0.05, angle = 20, col = "black", lwd = 2)
 text(mls[, 1] * ft, mls[, 2] * ft, labels = rownames(mls), col = "black", cex = 0.8, pos = 4)

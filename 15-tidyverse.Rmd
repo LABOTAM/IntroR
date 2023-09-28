@@ -16,7 +16,7 @@ A linguagem R completou 20 anos de idade neste mês de março de 2020, e a cada 
 
 Parte dessa popularidade é relativamente recente, podendo ser verificada a partir do ano de 2014. Coincidência ou não, 2014 é o ano de surgimento do pacote `dplyr`, o primeiro de uma série de pacotes que coletivamente vieram a se tornar conhecidos como *Tidyverse*.
 
-![Porcentagem de visitas às questões pertinentes a algumas linguagens de programação na plataforma *Stack Overflow*. Dados obtidos apenas de países desenvolvidos segundo o Banco Mundial. Nota-se o aumento quase linear referente à linguagem R a partir do ano 2014. Figura extraída desta postagem: <https://stackoverflow.blog/2017/10/10/impressive-growth-r/>](https://149351115.v2.pressablecdn.com/wp-content/uploads/2017/10/plot_tags_time-1-675x675.png)
+![Porcentagem de visitas às questões pertinentes a algumas linguagens de programação na plataforma *Stack Overflow*. Dados obtidos apenas de países desenvolvidos segundo o Banco Mundial. Nota-se o aumento quase linear referente à linguagem R a partir do ano 2014. Figura extraída desta postagem: <https://stackoverflow.blog/2017/10/10/impressive-growth-r/>](figuras/tidyverse_pic.png)
 
 ## O que é o Tidyverse?^[Texto publicado originalmente no blog de R.O.Perdiz (https://www.ricardoperdiz.com/blog/2020-04-tidyverse/)]
 
