@@ -4,7 +4,7 @@
 #' 
 #' A função `sample()` aleatoriza valores em um vetor, com ou sem repetição, ou amostra um certo número de valores aleatoriamente de um vetor de valores.  
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # ALEATORIZANDO DADOS SEM AMOSTRAGEM
 ?sample
 
@@ -73,7 +73,7 @@ hist(outraamostra, density = 10, add = T, col = "black")
 #' * [Distribuição log-normal](https://en.wikipedia.org/wiki/Log-normal_distribution).  
 #' 
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # veja no R o help para as funções para as diferentes distribuições disponíveis no R.
 ?Distributions
 
@@ -86,7 +86,7 @@ hist(outraamostra, density = 10, add = T, col = "black")
 #' 
 #' Esta função permite gerar essa distribuição de valores aleatórios que seguem uma distribuição normal se soubermos a média e o desvio padrão.  
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ?rnorm # veja o help da função
 
 #' 
@@ -110,14 +110,11 @@ lines(stats::density(quadris), col = "red", lwd = 2)
 #' Esta função permite responder à pergunta:
 #' 
 ## 
-
 ## Qual percentual de pessoas não cabe em um assento de 15 polegadas?
-
 ## 
-
 #' 
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # veja o help dessa função
 ?pnorm
 
@@ -156,11 +153,8 @@ polygon(xxp, yyp, col = "red")
 #' Esta função permite responder à pergunta:
 #' 
 ## 
-
 ## Qual largura de assento garante que 95% da população caberá?
-
 ## 
-
 #' 
 #' 
 ## -----------------------------------------------------------------------------
@@ -185,11 +179,8 @@ hist(quadris[quadris < tamanho95], prob = T, add = T, col = "red")
 #' 
 #' 
 ## 
-
 ## Qual a densidade probabilística para um valor de quadril de 12 polegadas? Ou seja, qual a probabilidade de amostrar na população uma pessoa com quadril de 12 polegadas?
-
 ## 
-
 #' 
 #' 
 ## -----------------------------------------------------------------------------

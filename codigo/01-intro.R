@@ -99,7 +99,7 @@ objtres
 #' Parâmetros são objetos que a função utiliza segundo as suas especificações.
 #' Por exemplo, vamos listar os objetos criados no passo anterior:
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # digite
 ls() # note os parênteses (); a função ls() lista os objetos criados por você: [1] "banana"  "objdois" "objtres" "objum"
 
@@ -125,7 +125,7 @@ ls(sorted = FALSE) # ele mostra os objetos na ordem que foram criados
 #' Por exemplo, para trabalhar com dados filogenéticos, você pode necessitar do pacote [ape](https://cran.r-project.org/web/packages/ape/index.html) [@R-ape], que já tem várias funções preparadas para análises filogenéticas.
 #' Se você necessitar deste pacote, por exemplo, basta executar o seguinte comando no console do R:
 #' 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
+## ----eval = FALSE, echo = TRUE------------------------------------------------
 ## install.packages("ape")
 
 #' 
@@ -135,7 +135,7 @@ ls(sorted = FALSE) # ele mostra os objetos na ordem que foram criados
 #' Como tudo no R, você pode executar comandos que estão no menu usando funções.
 #' Por exemplo, ao invés de usarmos o menu do R para definir um repositório e instalar um pacote, vamos executar estas ações por meio de um script:
 #' 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
+## ----eval = FALSE, echo = TRUE------------------------------------------------
 ## # isso pode não funcionar se estiver no INPA por causa do Proxy.
 ## chooseCRANmirror() # seleciona repositório
 ## install.packages("ape", dependencies = TRUE) # instala o pacote Ape
@@ -147,7 +147,7 @@ ls(sorted = FALSE) # ele mostra os objetos na ordem que foram criados
 #' Para obter esta instrução, é muito fácil.
 #' Basta executar uma das seguintes opções:
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # como exemplo vamos usar a função ls()
 ?ls # ou seja o comando é ?+"nome da função"
 # ou então
@@ -168,7 +168,7 @@ help(topic = "ls") # nome da função como argumento da topic da função help
 #' 
 #' * Área de Trabalho (`environment` no R) - é o local dentro do R onde você coloca os objetos criados durante a execução de scripts. Você pode visualizar/apagar os objetos no Console:
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 ls() # ls= listar - já vimos que isso lista os objetos criados por você e que estão na área de trabalho
 
 ?rm # veja o help desta função
@@ -181,7 +181,7 @@ ls() # note que não sobrou nenhum objeto
 #' 
 #' * Pasta de Trabalho (`working directory`- é o local (pasta) no seu computador que o R usa para salvar arquivos. É o caminho padrão para o R encontrar arquivos de dados, scripts, etc. Você pode trabalhar no R sem definir uma **Pasta de Trabalho** mas é muito mais simples se você usa este recurso. Experimente a seguinte script:
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 getwd() # o nome desta função é abreviação de "get working directory" ou seja "pega a pasta de trabalho definida". A resposta deste código varia dependendo do seu sistema operacional. Mas a função retorna o caminho completo da pasta de trabalho atual
 
 #' 
@@ -190,7 +190,7 @@ getwd() # o nome desta função é abreviação de "get working directory" ou se
 #' Você pode definir a *pasta de trabalho* usando o menu do R (`Arquivo ⇒ Diretório de Trabalho` no Windows; ou `Misc ⇒ Muda Pasta de Trabalho` no Mac).
 #' Ou você pode usar uma função:
 #' 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
+## ----eval = FALSE, echo = TRUE------------------------------------------------
 ## ?setwd # veja o help da função que iremos utilizar
 ## minhapasta <- "/Users/BetoVicentini/Desktop/bot89-2016"
 ## # se estiver usando windows:
@@ -204,7 +204,7 @@ getwd() # o nome desta função é abreviação de "get working directory" ou se
 #' Objetos criados no R por você podem ser salvos como um arquivo no seu computador.
 #' Você pode usar o menu do R ou RStudio para isso ou pode usar o comando abaixo:
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 ?save # veja o help desta função que vamos utilizar
 ?save.image # veja o help desta função que vamos utilizar
 
@@ -248,7 +248,7 @@ ls() # veja novamente os objetos na sua área de trabalho: Todos os objetos são
 #' 
 #' Se você digita `q()`, que é a função para sair do R, ele geralmente lhe pergunta se você quer salvar os objetos numa área de trabalho padrão (que o R puxa quando você o inicia):
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 q() # sai do R
 # vai perguntar no Console algo do tipo "Save workspace image to ~/Desktop/bot89-2016/.RData? [y/n/c]:"
 # note que o arquivo não tem nome apenas extensão ".RData" e é salvo na pasta de trabalho definida com setwd().
@@ -256,7 +256,7 @@ q() # sai do R
 #' 
 #' Códigos de scripts podem ser executados no console sem necessidade de abrir o script. Por exemplo, suponha que eu tenha salvo o seguinte script num arquivo `script01.R`:
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 objum <- "meu primeiro objeto de texto"
 objdois <- 18 # meu primeiro objeto numérico
 banana <- objum
@@ -264,7 +264,7 @@ banana <- objum
 #' 
 #' Se este arquivo Scrip01.R está na minha pasta de trabalho, então posso executá-lo com a função `source()`:
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 dir(pattern = ".R") # mostra os arquivos .R que estão na pasta de trabalho
 rm(list = ls()) # apaga todos os objetos, para ver que ele irá criar os objetos indicados no arquivo
 ls() # nao tem nenhum objeto
@@ -311,14 +311,14 @@ ls() # os objetos foram criados como especificado no script
 #' Para sair desta tela, clique no console e depois tecle `Esc`.
 #' Você verá que o sinal de `>` voltará a aparecer no console.
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## erro <- c(1, 2, 3
 
 #' 
 #' Agora, execute o comando abaixo.
 #' Ele será executado perfeitamente.
 #' 
-## ---- eval = TRUE-------------------------------------------------------------
+## ----eval = TRUE--------------------------------------------------------------
 erro <- c(1, 2, 3)
 
 #' 
@@ -328,7 +328,7 @@ erro <- c(1, 2, 3)
 #' Caso contrário ... mais um erro!
 #' Tentem executar o código abaixo:
 #' 
-## ---- error = TRUE------------------------------------------------------------
+## ----error = TRUE-------------------------------------------------------------
 numeros <- c(1, 5, 6 7, 8)
 
 #' 
@@ -369,7 +369,7 @@ obj2 <- "18"
 #' 
 #' Isso não vai funcionar porque `obj2` não é um número.
 #' 
-## ---- error = TRUE------------------------------------------------------------
+## ----error = TRUE-------------------------------------------------------------
 obj2 + 1
 
 #' 
@@ -379,7 +379,7 @@ obj2 + 1
 #' 
 #' Nomes de objetos não podem ter espaço em branco e aspas são ignoradas:
 #' 
-## ---- error = TRUE------------------------------------------------------------
+## ----error = TRUE-------------------------------------------------------------
 obj 1 = "meutexto" #nao vai funcionar
 
 #' 
@@ -393,7 +393,7 @@ obj1
 
 #' 
 #' 
-## ---- error = TRUE------------------------------------------------------------
+## ----error = TRUE-------------------------------------------------------------
 obj"1" = "meu texto" #nao vai funcionar
 
 #' 
@@ -435,7 +435,7 @@ str(iris) #veja a estrutura
 #' 
 #' Agora, vamos obter um sumário estatístico de `iris`:
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## summary(iris) #veja o que é iris
 
 #' 
@@ -599,7 +599,7 @@ o1 * o2^(o3 - 1) # =32
 #' Algumas operações aritméticas podem ser realizadas com algumas funções genéricas que apresentamos no exemplo de código abaixo.
 #' Veja o `?` para qualquer uma das funções abaixo e siga os links relacionados para ver todas as possibilidades dessas funções genéricas de uso genérico.
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## ?srqt
 ## ?abs
 ## ?log
@@ -727,7 +727,7 @@ round(b)
 #' 
 #' * `-Inf` = infinito negativo.
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 ?NA # veja o help sobre isso
 
 #' 

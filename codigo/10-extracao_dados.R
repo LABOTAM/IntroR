@@ -90,13 +90,13 @@ pegavalor <- function(x, referencias) {
 #' Vamos utilizar dados de exemplo para testar a função. Baixe o arquivo presente neste endereço (https://github.com/LABOTAM/IntroR/blob/main/dados/pegados_dados_exemplo.csv).
 #' Ele apresenta uma coluna com notas de exsicatas para ilustrar nosso exemplo.  
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # voce já deve ter os seguinte objetos: pegavalor(), removeacentos(), referencias
 # le o arquivo de exemplo
 dados <- read.table(file = "pegados_dados_exemplo.csv", sep = "\t", as.is = TRUE, na.strings = c("NA", "NULL", ""), header = TRUE)
 
 #' 
-## ---- include = FALSE, eval = TRUE--------------------------------------------
+## ----include = FALSE, eval = TRUE---------------------------------------------
 load("dados/pegados_dados_exemplo.rda")
 
 #' 
@@ -125,7 +125,7 @@ dados$HABITO <- habito
 #' 
 #' ### Hábito da planta
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 habito.refs <- list()
 habito.refs[["liana herbácea"]] <- c("erva trepadeira", "trepadeira", "liana herbácea", "liana herbacea", "erva liana", "rastejante", "vine", "scandent vine", "erva liana")
 habito.refs[["liana lenhosa"]] <- c("cipó", "liana", "liana sublenhosa", "liana lenhosa")
@@ -143,7 +143,7 @@ habito.refs[["erva"]] <- c("erva", "herbace", "terrestre", "herbacia", "herb")
 #' 
 #' ### Estado de fertilidade da amostra
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 fertilidade.refs <- list()
 fertilidade.refs[["flores"]] <- c(" flor", " petal", " flôr", " pétala", " estigma", " sépal", " sepal", " bract", " flower", " bráctea", "sicônio", "siconio", " estgimas", " espadice", " espádice", " ovário", "ovario", " tépala", " antera", " estame", "tepala", "Pétal", "Tépal", "Sépal", "espata", "corolla", "anthers")
 fertilidade.refs[["botões"]] <- c(" botão", " botões", " botao", " botao", " bud")
@@ -153,7 +153,7 @@ fertilidade.refs[["estéril"]] <- c("Estéril", "Sterile")
 #' 
 #' ### Classes de hábitat
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 habitat.refs <- list()
 habitat.refs[["Floresta ciliar"]] <- c("Riverbank", "beria de rio", "beira de rio", "berra de rio", " ciliar", "galeria", "Gallery forest", "margem alta do igarap")
 habitat.refs[["Floresta de igapó"]] <- c("igapo", "margin of black water igarapé")
@@ -173,7 +173,7 @@ habitat.refs[["Campo rupestre"]] <- c("Campo rupestre")
 #' 
 #' ### Textura do solo
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 solo.refs <- list()
 solo.refs[["pedregoso"]] <- c("pedregos", "pedral", "rock")
 solo.refs[["areno-argiloso"]] <- c("areno-argilos", "areno argilos", "arenoso-argiloso", "arenoso argiloso", "argilo-arenoso", "argilo arenoso", "areno-arcill")
@@ -184,7 +184,7 @@ solo.refs[["siltoso"]] <- c(" silte", " silt")
 #' 
 #' ### Exsudato
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 exsudato.refs <- list()
 exsudato.refs[["látex"]] <- c("latex", "látex")
 exsudato.refs[["resina"]] <- c("resina")

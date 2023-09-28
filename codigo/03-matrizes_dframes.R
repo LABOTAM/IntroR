@@ -20,7 +20,7 @@
 #' Matrizes podem ser criadas de diferentes formas (e.g., pode juntar matrizes pelas linhas e colunas, ou pode extrair sub-matrizes de uma matriz).
 #' Para criar matrizes, a função básica se chama `matrix()`:
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # veja o help da função
 ## ?matrix
 ## 
@@ -109,12 +109,12 @@ mmc
 #' Quando importamos nossos dados ao R, em geral criamos objetos de classe `data.frame`.
 #' Para criar ou converter dados em data.frames, podemos usar as funções `data.frame()` e `as.data.frame()`.
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## ?data.frame # veja o help das funções acima
 
 #' 
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # a funcao que cria o objeto é
 ## data.frame(..., row.names = NULL, check.rows = FALSE, check.names = TRUE, stringsAsFactors = default.stringsAsFactors())
 ## 
@@ -169,7 +169,7 @@ str(dz) # converte numeros para numerico e texto para character
 #' As funções `head()` e `tail()` mostram o cabeçalho e rodapé tanto para matrizes como para `data.frames`, respectivamente.
 #' Vejam o `?` dessas duas funções:
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## ?head
 ## ?tail
 
@@ -211,11 +211,11 @@ str(dd2) # mostra a estrutura do objeto, quais colunas, classes de colunas e tot
 
 #' 
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## summary(dd2) # mostra para cada coluna a variação encontrada: estatística descritiva de variáveis numéricas, contagem por categoria de fatores, etc. Veremos isso adiante.
 
 #' 
-## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+## ----eval=TRUE, echo=FALSE----------------------------------------------------
 kable(summary(dd2))
 
 #' 
@@ -296,7 +296,7 @@ rownames(mm2)[1:2] <- "teste1" # coloque o nome teste1 para as linhas 1 e 2 FUNC
 #' 
 #' Reparem que um mesmo nome de linha pode ser utilizado em mais de uma linha de uma matriz. Será que isso pode ser feito em um `data.frame`? Vejamos:
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## rownames(dd)[1:2] <- "teste1" # nao funciona, porque ele não aceita nomes repetidos de linhas em DATA.FRAMES
 
 #' 
@@ -368,7 +368,7 @@ dd$coluna1 # pego a coluna 1 (note que o nome da coluna vai sem "aspas")
 #' 
 #' Veja que o uso do operador `$` não funciona em matrizes:
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## mm$coluna1 # veja como não funciona para o objeto matrix
 
 #' 
@@ -388,7 +388,7 @@ dd # agora tenho uma nova coluna
 
 #' 
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # ou poderia usar outra forma
 ## dd[, "nova2"] <- LETTERS # nao vai funcionar por estou atribuindo um vetor muito mais longo do que tenho linhas
 
@@ -410,7 +410,7 @@ dd
 #' 
 #' Adicionar colunas em uma matriz é um pouco diferente do que se faz com um `data.frame`:
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # primeiro nao posso usar $ porque matrix não entende isso
 ## class(mm) # é uma matrix
 ## mm$colun3 # isso nao funciona
@@ -423,7 +423,7 @@ mm[, "coluna3"] # isso funciona
 
 #' 
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## mm[, 4] # isso nao existe
 ## mm[, 4] <- log(mm[, "coluna3"]) # isso não funciona
 
@@ -443,7 +443,7 @@ mm <- cbind(mm, LOGCOLUNA3 = log(mm[, "coluna3"])) # assim eu posso
 #' Já vimos como fazer perguntas sobre vetores (Seção \@ref(perg-vetores)) e obter vetores lógicos ou valores de índices que nos permitem extrair ou filtrar de vetores os dados que satisfazem às condições das perguntas feitas.
 #' Aqui vamos estender isso para objetos de classe `matrix` e `data.frame`, porque é através de vetores lógicos ou de matrizes lógicas que podemos filtrar dados de objetos bidimensionais.  
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## ?iris # veja o help do R sobre Edgar Anderson's Iris Data que explica esses dados que vem com o R
 
 #' 
@@ -523,7 +523,7 @@ sum(is.na(dd2)) # nao tem mais nenhum
 #' 
 #' * `order()` ordena um vetor e retorna os **índices dos valores ordenados**. É isso que deve ser utilizado para ordenar matrizes e `data.frames`.
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## ?sort
 ## ?order
 
@@ -579,11 +579,8 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' ## Importando e exportando dados no R
 #' 
 ## 
-
 ## ATENÇÃO! Se você utiliza Windows, e no seu gerenciador de arquivos os arquivos aparecem sem **extensão** (`.csv`, `.txt`, `.doc` etc.), mude nas suas preferências para não **ocultar extensões de arquivos conhecidos**. Dessa forma você consegue ver os arquivos pelo tipo (extensão).
-
 ## 
-
 #' 
 #' Existem diversas funções para importar dados para objetos do R, incluindo funções para ler arquivos do Excel (`.xls`, ou `.xlsx`), arquivos XML, arquivos `*.DBF` etc.
 #' O R também tem pacotes que interagem diretamente com bancos de dados (mysql, postgres, sql etc.).
@@ -610,11 +607,8 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' * Casas decimais podem ser separadas por `.` ou `,`.
 #' 
 ## 
-
 ## DICA: Procure saber como seus dados estão antes de tentar importá-los, de forma a indicar corretamente o delimitador e o separador das casas decimais adequados. Você evitará assim muita dor de cabeça!
-
 ## 
-
 #' 
 #' 
 #' * Datas - colunas com datas constituem um objeto de classe `date` no R, que a converte em número que pode ser usado em operações matemáticas. Dependendo de como seus dados estão formatados no original, é comum a inversão de mês com dia entre, por exemplo, o sistema inglês (MM-DD-YYYY)  e o sistema português (DD-MM-YYYY). Tenha controle disso!
@@ -664,13 +658,13 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' 
 #' * Salve novamente como `*.csv` - veja como você tem controle na exportação quanto aos elementos acima.
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # se você colocou o arquivo na sua pasta de trabalho, ele deve estar visível por
 ## dir(pattern = "csv")
 
 #' 
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # então posso ler sem precisar especificar o caminho até o arquivo
 ## # veja o help da função antes de começar
 ## ?read.table
@@ -685,7 +679,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 
 #' 
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # o arquivo original tem os seguintes formatos:
 ## # colunas separadas por tabulação (no R isso é definido pela expressão regular "\t")
 ## # decimal com ponto
@@ -719,7 +713,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' 
 #' Podemos usar o argumento `na.strings` para corrigir isso durante a importação:  
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## dd4 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ".", na.strings = c("NULL", "NA", ""))
 ## # qualquer CELULA INTEIRA que contenha NULL ou NA ou esteja vazia SERÁ INTERPRETADA COMO VALOR AUSENTE e codificada como NA no R.
 ## str(dd4)
@@ -746,7 +740,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 
 #' 
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # Lembram que colocamos o endereco do arquivo mais acima?
 ## # podemos usar um endereco da internet para baixar um arquivo
 ## dd7 <-
@@ -767,7 +761,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' Existem outras diferenças que podem ser melhor entendidas na página do pacote (https://github.com/tidyverse/readr).
 #' Os argumentos possuem nomes diferentes do que os utilizados em `read.table()` e, como este, importa arquivos em formato de texto simples (*.csv* , *.txt*).
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # pacote readr
 ## # usando como exemplo o mesmo arquivo municipiosbrasil.csv
 ## library("readr")
@@ -780,7 +774,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' 
 #' Como no pacote `base`, também podemos ler arquivos diretamente da rede:
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## rr2 <- read_delim("https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv", delim = "\t")
 ## rr2
 
@@ -796,7 +790,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' O pacote como um todo é uma excelente ferramenta na manipulação de dados.
 #' Como os pacotes citados acima, esta função é capaz de importar arquivos em formato de texto simples (`.csv` , `.txt`).
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # pacote data.table
 ## # usando como exemplo o mesmo arquivo municipiosbrasil.csv
 ## library("data.table")
@@ -806,7 +800,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' 
 #' Também podemos ler arquivos diretamente da rede, providenciando um endereço que contenha um arquivo de texto simples:
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## dt2 <- fread("https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv")
 ## dt2
 
@@ -818,7 +812,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' Os principais erros aqui podem ser por células unidas, cabeçalhos no topo da planilha, e acentos.
 #' Veja o `?` das funções usadas para conhecer parâmetros opcionais para resolver esses possíveis problemas.  
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # instale o pacote
 ## library("readxl")
 ## 
@@ -845,14 +839,14 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' A principal função do pacote `base` do R para exportar dados se chama `write.table()`.
 #' Ela funciona para exportar arquivos em formato de texto simples (`.csv`, `.txt`) e usa basicamente os mesmos argumentos da função `read.table()`.  
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## ?write.table # veja o help - recomendo usar essa função genérica e evitar de usar atalhos tipo write.csv, que no fundo usam esta mesma função
 
 #' 
 #' 
 #' Por se tratar de uma função do pacote `base`, não é necessário recorrer a função `library()` para chamar nenhum pacote, pois a função encontra-se disponível a qualquer momento para ser utilizada no R:
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # vamos usar o mesmo arquivo
 ## dir(pattern = "csv")
 ## # ler o arquivo para o R para ter algo a exportar
@@ -891,7 +885,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' A principal função do pacote `readr`para exportar dados se chama `write_delim()`.
 #' Ela exporta `data.frames` em formato de texto simples (`.csv`, `.txt`), utilizando basicamente os mesmos argumentos da função `read_delim()`, pertencente ao mesmo pacote.  
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # exportando dados com pacote readr
 ## # utilizando mesmo objeto criado com pacote base
 ## write_delim(dd.am, "muni-am6.csv", delim = "\t")
@@ -902,7 +896,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' 
 #' A principal função do pacote `data.table` para exportar `data.frames` em formato de texto simples (`.csv`, `.txt`) se chama `fwrite()` e usa basicamente os mesmos argumentos da função `read_delim()`, pertencente ao pacote `readr`.  
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # exportando dados com pacote data.table
 ## # utilizando mesmo objeto criado com pacote base
 ## fwrite(dd.am, "muni-am8.csv", sep = "\t")
@@ -914,31 +908,31 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' Trata-se de uma função genérica que é bom memorizar.
 #' Vamos usar o mesmo arquivo `municipiosbrasil.csv` para demonstrar sua utilidade:
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # esta função é muito util para ler linha por linha um arquivo de texto que você quer explorar.
 ## dd <- scan(file = "municipiosbrasil.csv", what = "complex", sep = "\n")
 
 #' 
-## ---- include = FALSE, message = FALSE----------------------------------------
+## ----include = FALSE, message = FALSE-----------------------------------------
 load("dados/dd.rda")
 load("dados/dd2.rda")
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE------------------------------------------------
+## ----echo = TRUE, eval = TRUE-------------------------------------------------
 class(dd)
 length(dd) # cada linha é um elemento do vetor
 dd[1]
 
 #' 
 #' 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
+## ----echo = TRUE, eval = FALSE------------------------------------------------
 ## # usando tabulação
 ## dd2 <- scan(file = "municipiosbrasil.csv", what = "complex", sep = "\t")
 
 #' 
 #' 
-## ---- echo = TRUE, eval = TRUE------------------------------------------------
+## ----echo = TRUE, eval = TRUE-------------------------------------------------
 class(dd2)
 length(dd2) # cada célula é um elemento deste vetor
 dd2[1:5]

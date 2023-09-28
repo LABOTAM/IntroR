@@ -39,7 +39,7 @@
 #' 
 #' Acesso em: <https://www.youtube.com/embed/8Z_k02PwQZc>
 #' 
-#' ## Funções da família `apply(>`
+#' ## Funções da família `apply()`
 #' 
 #' Acesso em: <https://www.youtube.com/embed/Fs0is2251Sw>
 #' 

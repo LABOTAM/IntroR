@@ -8,11 +8,11 @@
 #' Vamos usar dados de parcelas em [caixetais](https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv), formações dominadas por *Tabebuia cassinoides* (Lam.) D.C. (Bignoniaceae), espécie comum da Mata Atlântica nos estados de São Paulo, Minas Gerais, Rio de Janeiro e Espírito Santo.
 #' Baixe o arquivo para seu computador e instale-o na sua pasta de trabalho antes de seguir com os comandos abaixo.  
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 caixeta <- read.table("caixeta.csv", sep = ",", header = T)
 
 #' 
-## ---- include = FALSE, message=FALSE------------------------------------------
+## ----include = FALSE, message=FALSE-------------------------------------------
 load("dados/caixeta.rda")
 
 #' 
@@ -21,7 +21,7 @@ names(caixeta)
 
 #' 
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 ## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores
 ?tapply # veja o help dessa função
 
@@ -39,7 +39,7 @@ tapply(caixeta$cap, INDEX = caixeta$local, FUN = mean)
 
 #' 
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 ?aggregate # veja o help dessa função
 
 #' 
@@ -53,11 +53,11 @@ class(ob1) # obtenho um data frame
 
 #' 
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## head(ob1)
 
 #' 
-## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+## ----eval=TRUE, echo=FALSE----------------------------------------------------
 kable(head(ob1))
 
 #' 
@@ -71,11 +71,11 @@ ob2[1:10]
 caixeta.alt <- aggregate(caixeta$h, by = list(local = caixeta$local, especie = caixeta$especie), FUN = max)
 
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## head(caixeta.alt)
 
 #' 
-## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+## ----eval=TRUE, echo=FALSE----------------------------------------------------
 kable(head(caixeta.alt))
 
 #' 
@@ -96,7 +96,7 @@ head(caixeta.2)
 #' Vamos usar utilizar os mesmos dados de caixetas utilizados na seção \@ref(tabela-dinamica).
 #' A função `table()` permite contar valores em fatores e vetores.  
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 caixeta <- read.table("caixeta.csv", sep = ",", header = T)
 
 #' 
@@ -107,13 +107,13 @@ names(caixeta)
 
 #' 
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## # podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)
 ## table(caixeta$especie)
 
 #' 
 #' 
-## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+## ----eval=TRUE, echo=FALSE----------------------------------------------------
 kable(table(caixeta$especie))
 
 #' 
@@ -130,11 +130,11 @@ tb <- table(caixeta$especie, caixeta$local)
 
 #' 
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## head(tb, 3) # mostra as tres primeiras linhas
 
 #' 
-## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+## ----eval=TRUE, echo=FALSE----------------------------------------------------
 kable(head(tb, 3)) # mostra as tres primeiras linhas
 
 #' 
@@ -149,11 +149,11 @@ tb[tb > 0] <- 1
 
 #' 
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## head(tb)
 
 #' 
-## ---- eval=TRUE, echo=FALSE---------------------------------------------------
+## ----eval=TRUE, echo=FALSE----------------------------------------------------
 kable(head(tb)) # mostra as tres primeiras linhas
 
 #' 
@@ -192,13 +192,13 @@ spp
 #' O pacote `taxize` oferece uma função chamada `use_tropicos()` que abre o navegador na página de solicitação da chave API.
 #' Você pode executar o comando, preencher o formulário e aguardar por sua chave:
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## use_tropicos()
 
 #' 
 #' Para este exemplo, guardamos nossa chave API em um objeto chamado `tropicos_key` que, por motivos óbvios, não mostraremos aqui o que ele guarda:
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # install.packages("taxize")
 library("taxize") # instale se nao tiver
 sppinfo <- sapply(spp$fullname, tp_search, key = tropicos_key, type = "exact")
@@ -207,7 +207,7 @@ sppinfo <- sapply(spp$fullname, tp_search, key = tropicos_key, type = "exact")
 #' O resultado de nossa pesquisa foi estocado no objeto `sppinfo`.
 #' Vamos pegar as colunas obtidas para todos os nomes:
 #' 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 load("dados/sppinfo.rda")
 
 #' 
@@ -327,38 +327,38 @@ colorize <- function(x, color) {
 #' 
 #' (@) O `data.frame` `tab1` possui nomes de famílias, gêneros e epítetos específicos de algumas angiospermas:
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 familia <- c("Burseraceae", "Solanaceae", "Sapindaceae", "Rubiaceae", "Lauraceae")
 generos <- c("Protium", "Trattinnickia", "Dacryodes", "Duckeodendron", "Markea", "Solanum", "Allophylastrum", "Cupania", "Thinouia", "Psychotria", "Duroia", "Cinchona", "Ocotea", "Licaria", "Rhodostemonodaphne", "Anisophyllea", "Freziera")
 epitetos <- c("aracouchini", "burserifolia", "edilsonii", "cestroides", "ulei", "cyathophorum", "frutescens", "rubiginosa", "myriantha", "viridis", "eriopila", "amazonica", "delicata", "aureosericea", "recurva", "manausensis", "carinata")
 tab1 <- data.frame(familia = c(rep(familia, each = 3), "Anisophylleaceae", "Pentaphylacaceae"), genero = generos, epiteto = epitetos, stringsAsFactors = FALSE)
 
 #' 
-## ---- opts.label='executa'----------------------------------------------------
+## ----opts.label='executa'-----------------------------------------------------
 kable(tab1, caption = "Tabela 1")
 
 #' 
 #' (@) O `data.frame` `tab2` contem um conjunto pequeno com alguns nomes de famílias, gêneros, e o nome de seus respectivos clados acima dos nomes de ordens segundo o @APG:
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 familia2 <- c("Burseraceae", "Solanaceae", "Sapindaceae", "Rubiaceae", "Annonaceae")
 generos2 <- c("Protium", "Duckeodendron", "Thinouia", "Psychotria", "Guatteria")
 clado <- c("Malvids", "Lamiids", "Malvids", "Lamiids", "Magnoliids")
 tab2 <- data.frame(familia = familia2, genero = generos2, clado = clado, stringsAsFactors = FALSE)
 
 #' 
-## ---- opts.label='executa'----------------------------------------------------
+## ----opts.label='executa'-----------------------------------------------------
 kable(tab2, caption = "Tabela 2")
 
 #' 
 #' 
 #' (@) O `data.frame` `tab3` corresponde à tabela 2, `tab2`, sem as famílias Solanaceae e Rubiaceae:
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 tab3 <- subset(tab1, familia %in% c("Burseraceae", "Sapindaceae"))
 
 #' 
-## ---- opts.label='executa'----------------------------------------------------
+## ----opts.label='executa'-----------------------------------------------------
 kable(tab3, caption = "Tabela 3")
 
 #' 
@@ -371,13 +371,9 @@ kable(tab3, caption = "Tabela 3")
 #' #### Junção interna {#interna}
 #' 
 ## 
-
 ## 
-
 ## Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x` em que há valores em comum com `y`, e todas as colunas de `x` e `y`. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
-
 ## 
-
 #' 
 #' 
 #' ![Fonte: www.sqlfromhell.com](figuras/inner-join.png)
@@ -410,7 +406,7 @@ tab2 %>%
 #' Reparem que os valores em que há correspondência entre `x` e `y` estão coloridos de `r colorize("amarelo", "yellow")`; para os em que não há correspondência, estão coloridos de `r colorize("vermelho", "red")`.
 #' Agora, executemos a junção das duas tabelas:  
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 merge(x = tab1, y = tab2)
 
 #' 
@@ -423,11 +419,8 @@ merge(x = tab1, y = tab2)
 #' 
 #' 
 ## 
-
 ## Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x`, e todas as colunas de `x` e `y`. Linhas em `x` sem correspência em `y` terão valores `NA` adicionados nas novas colunas. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
-
 ## 
-
 #' 
 #' 
 #' ![Fonte: www.sqlfromhell.com](figuras/left-join.png)
@@ -457,7 +450,7 @@ tab2 %>%
 #' Em uma junção à esquerda, todas as linhas de `x` retornam após a junção.
 #' Para executar este tipo de junção, acrescentaremos um novo argumento, `all.x = TRUE`, indicando que manteremos todas as linhas de `x`, isto é, o `data.frame` à esquerda, que é a tabela 1.
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 merge(x = tab1, y = tab2, all.x = TRUE)
 
 #' 
@@ -470,11 +463,8 @@ merge(x = tab1, y = tab2, all.x = TRUE)
 #' #### Junção à direita {#direita}
 #' 
 ## 
-
 ## Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `y`, e todas as colunas de `x` e `y`.Linhas em `y` sem correspência em `x` terão valores NA adicionados nas novas colunas. Se houver múltiplas *correspondências* entre `x` e `y`, todas as combinações retornam.
-
 ## 
-
 #' 
 #' 
 #' ![Fonte: www.sqlfromhell.com](figuras/right-join.png)
@@ -504,7 +494,7 @@ kable(tab2, caption = "Tabela 2") %>%
 #' Agora executaremos a junção com o comando abaixo.
 #' Não deixem de reparar no uso do argumento `all.y = TRUE`, pois ele é o responsável por agora manter todas as linhas da tabela 2 (== `y`):
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 merge(x = tab1, y = tab2, all.y = TRUE)
 
 #' 
@@ -515,18 +505,15 @@ merge(x = tab1, y = tab2, all.y = TRUE)
 #' #### Junção total {#total}
 #' 
 ## 
-
 ## Ao juntarmos tabelas `x` e `y`, temos todas as linhas e colunas de `x` e `y`. Onde não houver valores correspondentes, valores `NA` serão colocados nesses lugares.
-
 ## 
-
 #' 
 #' 
 #' ![Fonte: www.sqlfromhell.com](figuras/outer-join.png)
 #' 
 #' Em uma junção total, uniremos todas as linha de `x` e `y` utilizando o argumento `all = TRUE`.
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 merge(x = tab1, y = tab2, all = TRUE)
 
 #' 
@@ -537,11 +524,8 @@ merge(x = tab1, y = tab2, all = TRUE)
 #' #### Semijunção {#semi}
 #' 
 ## 
-
 ## Ao juntarmos tabelas `x` e `y`, temos todas as linhas de `x` onde houver valores correspondentes em `y`, mantendo apenas colunas de `x`. É parecida com a junção interna, porém difere desta por nunca duplicar valores de `x`, retornando sempre apenas valores de `x` que houver uma correspondência em `y`.
-
 ## 
-
 #' 
 #' 
 #' ![Fonte: www.sqlfromhell.com](figuras/left-anti-semi-join.png)
@@ -576,31 +560,31 @@ kable(tab3, caption = "Tabela 3") %>%
 #' Vamos então à prática^[Esta solução de semijunção é baseada no tutorial do pacote [poorman](https://nathaneastwood.github.io/2020/03/08/poorman-replicating-dplyrs-join-and-filter-join-functions-with-base-r/), recém-criado para emular as funções do pacote [dplyr](https://github.com/tidyverse/dplyr).].
 #' As colunas compartilhadas por ambas as tabelas serão nossas `chaves`:
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 chaves <- c("familia", "genero")
 
 #' 
 #' Partimos então para filtrar na tabela 1 a combinação de linhas para esse conjunto de colunas utilizando a função `interaction()` do pacote `base` do R:
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 interaction(tab1[, chaves])
 
 #' 
 #' Essa função computa um vetor de fatores que representa a interação das colunas fornecidas na tabela 1.
 #' Se fizermos isso com a tabela 3, poderemos saber quais combinações ocorrem em ambas as tabelas.
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 interaction(tab3[, chaves])
 
 #' 
 #' Agora utilizamos a mesma função `interaction` e o operador `%in%` para retornar um vetor lógico que utilizaremos para filtrar os valores da tabela 1 com correspondência na tabela 3.
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 linhas <- interaction(tab1[, chaves]) %in% interaction(tab3[, chaves])
 linhas
 
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 tab1[linhas, ]
 
 #' 
@@ -608,11 +592,8 @@ tab1[linhas, ]
 #' #### Antijunção {#anti}
 #' 
 ## 
-
 ## Retorna todas as linhas de `x` em que não há correspondência em `y`, mantendo apenas colunas de `x`.
-
 ## 
-
 #' 
 #' 
 #' ![Fonte: www.sqlfromhell.com](figuras/right-anti-semi-join.png)
@@ -620,7 +601,7 @@ tab1[linhas, ]
 #' Uma antijunção é ligeiramente diferente de uma semijunção pois ela retorna todas as linhas de `x` que não aparecem em y.
 #' Portanto, podemos utilizar o inverso de nosso vetor lógico `linhas` e utilizar este inverso para filtrar as linhas da tabela 1 e ter nossa tabela antijunção entre `x` e `y`:
 #' 
-## ---- opts.label='executa_mostra'---------------------------------------------
+## ----opts.label='executa_mostra'----------------------------------------------
 antilinhas <- !linhas
 tab1[antilinhas, ]
 

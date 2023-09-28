@@ -11,25 +11,20 @@
 #' Já vimos como utilizar essas funções na parte I deste livro.
 #' 
 ## 
-
 ## * `str()` - mostra a estrutura do objeto dos dados;
-
 ## * `head()` e `tail()`- mostra a cabeça ou a cauda da sua tabela de dados, respectivamente;
-
 ## * `summary()` - faz um resumo de todas as variáveis nos seus dados.
-
 ## 
-
 #' 
 #' 
 #' Vamos começar importando os dados ao R:
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ## Lendo a planilha com read.table
 ## avesc <- read.table("aves_cerrado.csv", row.names = 1, header = T, sep = ";", dec = ",", as.is = T, na.strings = c("NA", "", "NULL"))
 
 #' 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 load("dados/aves_cerrado.rda")
 
 #' 
@@ -72,7 +67,7 @@ str(avesc)
 #' Reparem que há uma variável de texto (`chr`) e três variáveis de números inteiros (`int`).
 #' Próximo passo é sempre checar um sumário estatístico das variáveis presentes no objeto usando a função `summary()`:
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## # mostra um resumo da variacao nas colunas
 ## summary(avesc)
 
@@ -87,21 +82,16 @@ kable(summary(avesc))
 #' ## Tem valores ausentes?
 #' 
 ## 
-
 ## Há valores ausentes em nossos dados?
-
 ## Eles são mesmo faltantes?
-
 ## Ou seja, o que significam valores ausentes no seu conjunto de dados?
-
 ## 
-
 #' 
 #' 
 #' Podemos utilizar a função `is.na()` para encontrar a constante lógica `NA`, ou seja, a constante que indica valores ausentes (reveja o uso da função `is.na()` na seção \@ref(filtro-dados-ausentes)).
 #' Vejam o `?` da constante lógica `NA` para entender o significado dela no R:
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ?NA
 
 #' 
@@ -110,7 +100,7 @@ kable(summary(avesc))
 #' Chequemos quais registros (linhas) têm valores `NA`.
 #' Vamos checar primeiramanete a variável `avesc$urubu`:
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## avesc$urubu == NA ## erro: não retorna verdadeiro ou falso
 ## avesc[avesc$urubu == NA, ] ## também não funciona
 
@@ -221,11 +211,8 @@ avesc[avesc$urubu == 0 | avesc$carcara == 0 | avesc$seriema == 0, ]
 #' ## Colunas com fatores
 #' 
 ## 
-
 ## As colunas com fatores estão codificadas corretamente?
-
 ## 
-
 #' 
 #' 
 #' Temos algumas funções úteis para se trabalhar com fatores.
@@ -310,7 +297,7 @@ table(avesc$fisionomia)
 str(avesc)
 
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## summary(avesc)
 
 #' 

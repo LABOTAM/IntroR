@@ -12,7 +12,7 @@
 #' 
 #' > aplique uma função (FUN) a todas as linhas ou colunas (MARGIN) de uma matriz (X):
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 ?apply # Veja o help
 # os argumentos dessa função são:
 # X = matrix
@@ -25,7 +25,7 @@
 
 #' 
 #' 
-## ---- cache = TRUE------------------------------------------------------------
+## ----cache = TRUE-------------------------------------------------------------
 X <- matrix(1:36, nrow = 4, ncol = 9)
 colnames(X) <- paste("col", 1:ncol(X))
 rownames(X) <- paste("ln", 1:nrow(X))
@@ -57,12 +57,12 @@ apply(X, MARGIN = 2, FUN = sd)
 #' Se você conhece bem a função `apply()`, você pode fazer o que essas funções fazem e muito mais.
 #' Portanto, ao dominar a função `apply()`, você acaba por não precisar se preocupar em aprender essas funções mais específicas.
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 ?rowSums
 
 #' 
 #' 
-## ---- cache = TRUE------------------------------------------------------------
+## ----cache = TRUE-------------------------------------------------------------
 rowSums(X) # soma de cada linha
 rowMeans(X) # media de cada linha
 colSums(X) # soma de cada coluna
@@ -73,7 +73,7 @@ colMeans(X) # média de cada coluna
 #' 
 #' A função `lapply()` aplica uma função `FUN` para cada elemento de um vetor ou de uma lista, e retorna um objeto de classe `list`.
 #' 
-## ---- cache = TRUE------------------------------------------------------------
+## ----cache = TRUE-------------------------------------------------------------
 # muito simples, imprime algo linha por linha
 ll <- lapply(LETTERS, print)
 class(ll)
@@ -102,13 +102,13 @@ lt
 #' 
 #' A função `tapply()` aplica uma função `FUN` em uma coluna numérica individualizando os resultados para cada categoria de um determinado fator.
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # vamos usar os dados de Iris novamente
 ?iris
 
 #' 
 #' 
-## ---- cache = TRUE------------------------------------------------------------
+## ----cache = TRUE-------------------------------------------------------------
 # calculando o comprimento médio de sepálas pelas categorias de um fator (especies)
 class(iris$Sepal.Length) # variavel numerica
 class(iris$Species) # fator com categorias que correspondem a especies
@@ -156,7 +156,7 @@ tr[["setosa"]]
 #' 
 #' #### Exemplo 01
 #' 
-## ---- cache = TRUE------------------------------------------------------------
+## ----cache = TRUE-------------------------------------------------------------
 perdiz_estuda_breu <- TRUE
 perdiz_estuda_grama <- FALSE
 perdiz_estuda_breu
@@ -236,7 +236,7 @@ if (apg$familia[meunumero] %in% malvids) {
 #' ifelse(condicao, executa se VERDADEIRO, executa se FALSO)
 #' ```
 #' 
-## ---- cache = TRUE------------------------------------------------------------
+## ----cache = TRUE-------------------------------------------------------------
 set.seed(333)
 familia
 familias <- sample(familia, 100, replace = TRUE)
@@ -289,7 +289,7 @@ for (let in 1:length(LETTERS)) {
 #' 
 #' #### Exemplo 2
 #' 
-## ---- cache = TRUE------------------------------------------------------------
+## ----cache = TRUE-------------------------------------------------------------
 # Fazendo um loop com for(){} replicando o que a função apply() faz
 # criamos uma matriz
 vetn <- rnorm(100, 30, 1)
@@ -319,7 +319,7 @@ resultado == apply(mvetn, 2, mean)
 #' 
 #' Agora usando `for(){}` para fazer algo como o `tapply()`.  
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # Fazendo algo == tapply(mvetn[,2],mvetn$classe,sum)
 # criamos uma matriz
 vetn <- rnorm(100, 30, 1)
@@ -352,7 +352,7 @@ resultado == tapply(mvetn[, 2], mvetn$classe, sum)
 #' 
 #' Calculando somas e médias de linhas, similar ao que podemos fazer com a função `apply()`:  
 #' 
-## ---- cache = TRUE------------------------------------------------------------
+## ----cache = TRUE-------------------------------------------------------------
 somas <- NULL # objeto vazio para salvar soma de cada linha
 medias <- NULL # objeto vazio para salvar medias de cada linha
 for (i in 1:nrow(X)) { # para cada linha
@@ -375,7 +375,7 @@ somas
 #' 
 #' #### Exemplo 1
 #' 
-## ---- cache = TRUE------------------------------------------------------------
+## ----cache = TRUE-------------------------------------------------------------
 # cria um vetor de valores aleatorizados
 vet <- sample(10:100)
 # amostra um valor do vetor até que este valor seja 10
@@ -393,7 +393,7 @@ while (valor != 10) {
 #' 
 #' #### Exemplo 1
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # cria um vetor de valores aleatorizados
 vet <- sample(10:100, 60, replace = T)
 # amostra um valor do vetor até que este valor seja 10
@@ -440,7 +440,7 @@ for (v in 1:10000) {
 #' 
 #' É costume sempre utilizar a função `return()` como último elemento da função para que algum objeto seja retornado ao usuário.
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 ?return # veja o help
 
 #' 
@@ -495,7 +495,7 @@ amedia(v1)
 #' Sua função pode, por exemplo, ser construida para que um argumento possa assumir diferentes valores e, a depender do valor, executar uma coisa diferente.
 #' Como exemplo, vamos criar uma função que contem o script do exemplo de `if`:
 #' 
-## ---- eval = TRUE, echo = TRUE------------------------------------------------
+## ----eval = TRUE, echo = TRUE-------------------------------------------------
 # CRIA uma funcao com os seguintes argumentos:
 # vet = um vetor de valores
 # busca.valor = um valor para busca em vet
@@ -535,7 +535,7 @@ minhafuncao <- function(vet, busca.valor, nrun) {
 #' 
 #' Vamos utilizar a função recém-criada:
 #' 
-## ---- eval = TRUE, echo = TRUE------------------------------------------------
+## ----eval = TRUE, echo = TRUE-------------------------------------------------
 umvetor <- sample(10:100, 60, replace = T)
 minhafuncao(vet = umvetor, busca.valor = 22, nrun = 1000)
 retornou.isso <- minhafuncao(vet = umvetor, busca.valor = 22, nrun = 1000)

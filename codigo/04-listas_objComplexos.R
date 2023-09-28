@@ -8,7 +8,7 @@
 #' Listas são criadas pela função `list()`.
 #' A indexação de listas é dado pelo operador `[[indice_ou_nome]]` ou `lista$` seguida do nome (se os elementos da lista tem nome; e.g. `lista$nomeDeUmElementoDaLista`).  
 #' 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
+## ----eval = FALSE, echo = TRUE------------------------------------------------
 ## ?list # veja o help
 
 #' 
@@ -85,7 +85,7 @@ ml$TABELA$Sepal.Length # idem também
 #' Descomprima-o na sua pasta de trabalho e você perceberá que haverá vários arquivos associados.
 #' Para trabalhar com esses arquivos, vamos utilizar os pacotes `maps` [@R-maps] e `rgdal` [@R-rgdal].  
 #' 
-## ---- opts.label='evalF'------------------------------------------------------
+## ----opts.label='evalF'-------------------------------------------------------
 # vamos precisar de dois pacotes para dados espaciais
 # se não tiver instalado, instale com as dependencias
 # install.packages(c("maps", "rgdal"), dependencies = TRUE)

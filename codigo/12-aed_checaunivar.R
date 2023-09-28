@@ -3,17 +3,11 @@
 #' ## Qual a distribuição dos valores numéricos?
 #' 
 ## 
-
 ## Onde os dados estão centrados?
-
 ## Como eles estão espalhados?
-
 ## Eles são simétricos, i.e., a distribuição é normal? São enviesados, bi-modais?
-
 ## Existem [valores extremos](https://en.wikipedia.org/wiki/Outlier|outlier)?
-
 ## 
-
 #' 
 #' Já vimos [algumas operações matemáticas com vetores](#vetores) e também [como usar as funções `hist()` e `boxplot()`](#graf-alto-nivel) para gerar figuras de distribuição de variáveis numéricas individualmente.
 #' Vimos também como fazer iterações usando [funções da família `apply()`](#func-apply).
@@ -24,21 +18,21 @@
 #' 
 #' Vamos importar novamente os conjuntos de dados de [avistamento de aves do cerrado](https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv) (utilizado no capítulo \@ref(aed-checa-dados)) e de [parcelas em caixetais](https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv) (utilizado no capítulo \@ref(sumar-dados)):
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ## Lendo a planilha com read.table
 ## avesc <- read.table("aves_cerrado.csv", row.names = 1, header = T, sep = ";", dec = ",", as.is = T, na.strings = c("NA", "", "NULL"))
 
 #' 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 load("dados/aves_cerrado.rda")
 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## caixeta <- read.csv("caixeta.csv") ## arquivo caixeta.csv deve estar no diretorio de trabalho
 ## # note que mantemos todos os argumentos padrão (veja o formato do arquivo caixeta)
 
 #' 
-## ---- include = FALSE, message=FALSE------------------------------------------
+## ----include = FALSE, message=FALSE-------------------------------------------
 load("dados/caixeta.rda")
 
 #' 
@@ -48,7 +42,7 @@ load("dados/caixeta.rda")
 avesc[, 2:4]
 
 #' 
-## ---- eval=FALSE, echo=TRUE---------------------------------------------------
+## ----eval=FALSE, echo=TRUE----------------------------------------------------
 ## # podemos fazer um resumo estatístico da distribuição de cada uma dessas colunas
 ## summary(avesc[, 2:4])
 
@@ -68,7 +62,7 @@ kable(summary(avesc[, 2:4]))
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # e não podemos fazer isso apenas com a função sd para todas as colunas
 ## sd(avesc[, 2:4]) # ops deprecado (eu estou trabalhando com uma matriz)
 
@@ -118,7 +112,7 @@ abline(h = quantile(avesc$urubu, na.rm = TRUE), col = "blue", lwd = 2)
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # Média truncada = e.g. TIRANDO 10% DOS VALORES NOS EXTREMOS (posso ver como muda, caso tenha valores extremos, vai mudar muito)
 ## ?mean # veja o argumento trim
 
@@ -251,7 +245,7 @@ dim(caixeta)
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # ve o histograma na forma de pontos:
 ## ?stripchart
 
@@ -291,7 +285,7 @@ par(olp)
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ?density # veja o help disso
 
 #' 
@@ -311,7 +305,7 @@ abline(v = mean(caixeta$h), col = "green", lwd = 2, lty = "solid")
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ## Adicionando uma curva da normal aos graficos
 ## ?dnorm # veja o help dessa função e suas variantes. veremos isso melhor abaixo
 
@@ -323,7 +317,7 @@ dnorm(seq(0, 1, by = 0.25), mean = mean(caixeta$h), sd = sd(caixeta$h)) # esses 
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ?curve # veja que curve depende de uma função, ela traça a curva de uma f(x), num intervalo especificado de x (que foi plotado por hist)
 
 #' 
@@ -346,7 +340,7 @@ curve(expr = dnorm(x, mean = mean(caixeta$h), sd = sd(caixeta$h)), add = T, col 
 #' As funções `qqnorm()` e `qqline()` permitem visualizar rapidamente se uma variável qualquer segue uma distribuição normal, ao compara os valores dos quantis empíricos (observados), com valores dos quantis teóricos (i.e. esperados por uma distribuição normal).
 #' A função `rnorm()` gera um conjunto de dados aleatórios que tem distribuição normal.
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # Teste de normalidade
 ## ######################################
 ## ## Exemplo para o qqplot
@@ -405,7 +399,7 @@ abline(0, 1, col = "red") # relacao esperada, caso os dados venham de uma popula
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ## A funcao qqnorm ja faz isto de uma vez para voce:
 ## ?qqnorm # veja o help
 

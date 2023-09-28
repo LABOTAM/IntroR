@@ -3,7 +3,7 @@
 #' Neste tutorial, vamos utilizar os pacotes abaixo.
 #' Caso você não possua algum dos pacotes listados, lembre-se de instalar cada um utilizando o comando abaixo:
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # Para instalar pacotes no R, use a funcao `install.packages()`
 ## install.packages("ape")
 ## install.packages("labdsv")
@@ -78,13 +78,13 @@ d == dist(pontos, method = "eucl")
 #' 
 #' Vamos utilizar o conjunto de [dados contendo coordenadas geográficas de municípios do Brasil](https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv) para esta prática, utilizado na seção \@ref(import-dados).  
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # visualizando distancias usando NMDS
 ## # Vamos usar o arquivo com coordenadas dos municipios brasileiros
 ## muni <- read.table(file = "municipiosbrasil.csv", header = T, as.is = T, sep = "\t", na.strings = c("NA", "", "NULL"))
 
 #' 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 load("dados/municipiosbrasil.rda")
 
 #' 
@@ -103,7 +103,7 @@ mdist <- dist(muni[, c("Longitude", "Latitude")], method = "euclidean")
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # calculando um nmds em dois eixos (reduzindo a variação na matriz em dois eixos)
 ## ?bestnmds
 
@@ -160,7 +160,7 @@ head(iris)
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # calcula a distancia morfológica
 ## ?dist
 
@@ -171,7 +171,7 @@ dmorfo <- dist(iris[, 1:4], method = "eucl")
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # calculando um nmds em dois eixos
 ## onmds <- bestnmds(dmorfo, k = 2)
 
@@ -188,14 +188,14 @@ iris2 <- iris[-102, ]
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # calculamos novamente a distancia
 ## dmorfo <- dist(iris2[, 1:4], method = "eucl")
 ## # calculando um nmds em dois eixos
 ## onmds <- bestnmds(dmorfo, k = 2)
 
 #' 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 load(file = "dados/onmds1.rda")
 
 #' 
@@ -240,12 +240,12 @@ iris2 <- iris[-102, ]
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## dmorfo2 <- vegdist(iris2[, 1:4], method = "gower")
 ## onmds2 <- bestnmds(dmorfo2, k = 2)
 
 #' 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 load(file = "dados/onmds2.rda")
 
 #' 
@@ -288,12 +288,12 @@ plot(ptsnmds2, pch = 21, bg = cores, cex = 0.8, xlab = "NMDS 1", ylab = "NMDS 2"
 #' Também facilita a geração de gráficos.
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # Vamos usar o arquivo com coordenadas dos municipios brasileiros
 ## muni <- read.table(file = "municipiosbrasil.csv", header = T, as.is = T, sep = "\t", na.strings = c("NA", "", "NULL"))
 
 #' 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 load("dados/municipiosbrasil.rda")
 
 #' 
@@ -310,7 +310,7 @@ mdist <- dist(muni[, c("Longitude", "Latitude")], method = "euclidean")
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # veja o help de hclust e também
 ## # os diferente métodos de agrupamento
 ## ?hclust
@@ -341,7 +341,7 @@ plot(gp3, hang = 0.1, main = "Cidades da região norte", ylab = "Distância geog
 #' 
 #' Vamos converter nossos objetos `gp` e `gp3` para objetos de classe `phylo`, e gerar um gráfico para cada um.  
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ?plot.phylo
 
 #' 
@@ -383,19 +383,19 @@ plot(as.phylo(gp), type = "phylogram", label.offset = 0.1, cex = 0.8, use.edge.l
 #' Vamos explorar a similaridade florística entre parcelas com os dados de caixetais novamente.  
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## caixeta <- read.table("caixeta.csv", sep = ",", header = T, na.strings = c("NA", "", "NULL"))
 
 #' 
-## ---- include = FALSE, message=FALSE------------------------------------------
+## ----include = FALSE, message=FALSE-------------------------------------------
 load("dados/caixeta2.rda")
 
 #' 
-## ---- eval=FALSE,echo=TRUE----------------------------------------------------
+## ----eval=FALSE,echo=TRUE-----------------------------------------------------
 ## head(caixeta)
 
 #' 
-## ---- eval=TRUE,echo=FALSE----------------------------------------------------
+## ----eval=TRUE,echo=FALSE-----------------------------------------------------
 kable(head(caixeta))
 
 #' 
@@ -410,11 +410,11 @@ parcelas <- paste(caixeta$local, caixeta$parcela, sep = "-")
 tb <- table(parcelas, especies = caixeta$especie)
 
 #' 
-## ---- eval=FALSE,echo=TRUE----------------------------------------------------
+## ----eval=FALSE,echo=TRUE-----------------------------------------------------
 ## tb[, 1:5]
 
 #' 
-## ---- eval=TRUE,echo=FALSE----------------------------------------------------
+## ----eval=TRUE,echo=FALSE-----------------------------------------------------
 kable(tb[, 1:5])
 
 #' 
@@ -433,7 +433,7 @@ tb2[tb2 > 0] <- 1
 #' 
 #' Vamos utilizar a função `vegdist()` do pacote `vegan`.   
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## ?vegdist
 
 #' 
@@ -448,7 +448,7 @@ as.matrix(djac)[1:4, 1:4]
 #' 
 #' Podemos fazer um NMDS com esse resultado:
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## onmds <- bestnmds(djac, k = 2)
 ## # parcelas 3 e 5 tem exatamente as mesmas espécies
 ## # vamos com colocar um valor super pequeno para essa distancia (quase zero)
@@ -460,12 +460,12 @@ djac[djac == 0] <- 0.0000000000000000001
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # agora funciona
 ## onmds <- bestnmds(djac, k = 2)
 
 #' 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 load("dados/exemplo_floristico1.rda")
 
 #' 
@@ -499,7 +499,7 @@ plot(cluster, ylab = "Dissimilaridade Florística (Jaccard)")
 #' 
 #' Para aprimorar a figura, vamos utilizar a função `as.phylo()` do pacote `ape` [@R-ape] para converter o objeto `cluster` de classe `dendrogram` para um de classe `phylo`.
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## pcl <- as.phylo(cluster)
 ## par(mar = c(5, 4, 3, 3))
 ## plot(pcl, tip.color = cores, label.offset = 0.02, cex = 0.8)
@@ -514,11 +514,11 @@ plot(cluster, ylab = "Dissimilaridade Florística (Jaccard)")
 #' 
 #' Vamos repetir essa operação considerando a abundância de espécies por parcelas contidos no objeto `tb` (usamos o índice de Sorensen).
 #' 
-## ---- eval=FALSE,echo=TRUE----------------------------------------------------
+## ----eval=FALSE,echo=TRUE-----------------------------------------------------
 ## tb[1:4, 1:5]
 
 #' 
-## ---- eval=TRUE,echo=FALSE----------------------------------------------------
+## ----eval=TRUE,echo=FALSE-----------------------------------------------------
 kable(tb[1:4, 1:5])
 
 #' 
@@ -528,11 +528,11 @@ dsor <- vegdist(tb, method = "bray")
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## onmds2 <- bestnmds(dsor, k = 2)
 
 #' 
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 load("dados/exemplo_floristico2.rda")
 
 #' 
@@ -585,7 +585,7 @@ barplot(tt, xlab = "Eixos MDS", ylab = "Variação explicada %")
 
 #' 
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # fazendo uma figura com ordiplot
 ## # veja o help
 ## ?ordiplot
@@ -602,13 +602,28 @@ cores <- rainbow(length(levels(tx)), alpha = 0.5)
 
 # gera a figura
 fig <- ordiplot(mypcoa, type = "n")
-# adiciona os pontos de cada linha
+fig
+
+#' 
+#' 
+## -----------------------------------------------------------------------------
+# adiciona os pontos de cada linha - ATENCAO - Rode os dois comandos abaixo juntos
+ordiplot(mypcoa, type = "n")
 points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
 
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # pega os scores das variáveis
 # que mostram os efeitos das variáveis usadas
-mls <- scores(mypcoa, display = "species")
+mls <- vegan::scores(mypcoa, display = "species")
 mls
+
+#' 
+#' 
+## -----------------------------------------------------------------------------
+ordiplot(mypcoa, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
 # plota flechas para esses efeitos
 arrows(0, 0, mls[, 1] * 0.8, mls[, 2] * 0.8, length = 0.05, angle = 20, col = "black", lwd = 2)
 text(mls[, 1] * 0.8, mls[, 2] * 0.8, labels = rownames(mls), col = "black", cex = 0.8, pos = 4)
@@ -624,7 +639,7 @@ text(mls[, 1] * 0.8, mls[, 2] * 0.8, labels = rownames(mls), col = "black", cex 
 #' 
 #' Um exemplo:
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # análise de componentes principais
 ## ?prcomp
 
@@ -647,7 +662,7 @@ names(meu.pca)
 #' 
 #' Vamos fazer uma figura utilizando a função `ordiplot()` do pacote `vegan`:
 #' 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 ## # fazendo uma figura com ordiplot
 ## # veja o help
 ## ?ordiplot
@@ -676,14 +691,28 @@ cores <- rainbow(length(levels(tx)), alpha = 0.5)
 
 # gera a figura
 fig <- ordiplot(meu.pca, type = "n")
+
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # adiciona os pontos de cada linha
+ordiplot(meu.pca, type = "n")
 points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
 
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # pega os scores das variaveis
 # que mostram os efeitos das variáveis usadas
-mls <- scores(meu.pca, display = "species")
+mls <- vegan::scores(meu.pca, display = "species")
 mls
+
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # plota flexas para esses efeitos
+ordiplot(meu.pca, type = "n")
+points(fig, "sites", pch = upchs[as.numeric(tx)], bg = cores[as.numeric(tx)], col = "white")
 ft <- 2 # para aumentar as flexas um pouco
 arrows(0, 0, mls[, 1] * ft, mls[, 2] * ft, length = 0.05, angle = 20, col = "black", lwd = 2)
 text(mls[, 1] * ft, mls[, 2] * ft, labels = rownames(mls), col = "black", cex = 0.8, pos = 4)

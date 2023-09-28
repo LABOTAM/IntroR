@@ -6,13 +6,13 @@
 #' 
 #' A função `paste()` concatena textos.
 #' 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
+## ----eval = FALSE, echo = TRUE------------------------------------------------
 ## ?paste # veja o help dessa funcao
 
 #' 
 #' Vamos criar dois vetores de texto, `txt` e `txt2`, para, em seguida, concatená-los com esta função:
 #' 
-## ---- eval = TRUE-------------------------------------------------------------
+## ----eval = TRUE--------------------------------------------------------------
 # um vetor de texto
 txt <- c("banana", "maça", "pera")
 # outro vetor
@@ -21,7 +21,7 @@ txt2 <- LETTERS[1:3]
 #' 
 #' 
 #' 
-## ---- eval = TRUE-------------------------------------------------------------
+## ----eval = TRUE--------------------------------------------------------------
 # concatenamos os textos par a par
 paste(txt, txt2)
 # mudamos o separador
@@ -31,7 +31,7 @@ paste(txt, txt2, sep = "-")
 #' Podemos também unir os elementos contidos em um vetor em um único elemento, separados por algum símbolo.
 #' Basta usar o argumento `collapse` e indicar qual será o elemento que unirá os elementos contidos em um vetor:
 #' 
-## ---- eval = TRUE-------------------------------------------------------------
+## ----eval = TRUE--------------------------------------------------------------
 # imagine que queremos juntar os elementos de um vetor
 # num único texto, separados por ";"
 paste(txt, collapse = ";")
@@ -44,7 +44,7 @@ paste(txt, collapse = " mais ")
 #' 
 #' A função `strsplit()` quebra um vetor de texto segundo um separador determinado pelo argumento `split`, e retorna uma lista como resultado.
 #' 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
+## ----eval = FALSE, echo = TRUE------------------------------------------------
 ## ?strsplit
 
 #' 
@@ -434,7 +434,7 @@ grep("[a-z]", vt, value = TRUE)[1:30]
 #' O uso da barra invertida `\` (em inglês, *backslash*) indica ao R que a expressão regular espera lidar com tabulações, quebra de linhas e outros símbolos especiais.
 #' Isso é fundamental se você quer incluir/buscar num texto por aspas, parênteses, colchetes, barras, metacaracteres, etc.
 #' 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
+## ----eval = FALSE, echo = TRUE------------------------------------------------
 ## ?Quotes # leia atentamente esse help
 ## # criar um texto com aspas
 
@@ -491,7 +491,7 @@ txt <- c("sem parenteses", "com ()")
 #' Vamos analisar o uso das funções `dir()`, `dir.create()` e `file.copy()` (vejam a seção [Para saber mais](#sabermais-manip-txt-arqs-fld) para mais informações).
 #' Não esqueçam de checar o `?` de cada função (e.g., `?dir`) para auxiliar no entendimento do funcionamento de cada uma das funções.  
 #' 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
+## ----eval = FALSE, echo = TRUE------------------------------------------------
 ## # meu caminho
 ## caminho <- "~/Documents/DOC/PROJETO_DOC/R/pkgs/BOT89-introR/tutorial/"
 ## # lista todos os arquivos no caminho que sejam pdfs
