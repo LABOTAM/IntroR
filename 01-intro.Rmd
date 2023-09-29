@@ -23,7 +23,7 @@ knitr::include_graphics("figuras/r_padrao.png")
 
 Ao abrirem o R ou o RStudio você terão basicamente duas janelas principais:
 
-* **Console** - corresponde`a interface que interpreta o código da linguagem. Os códigos digitados aqui serão interpretados pelo R (Texto destacado em **verde** nas figuras \@ref(fig:pad-r), \@ref(fig:studio-r));
+* **Console** - corresponde à interface que interpreta o código da linguagem. Os códigos digitados aqui serão interpretados pelo R (Texto destacado em **verde** nas figuras \@ref(fig:pad-r), \@ref(fig:studio-r));
 
 * **Script** - digitar um código curto no console é simples, mas quando o código é longo, é importante guardá-lo em algum lugar para executá-lo em qualquer momento. Para isso utilizamos scripts, que são arquivos de textos simples que podem ser salvo (extensão `.R`) numa pasta no seu computador e reutilizado (Texto destacado em **amarelo** nas figuras \@ref(fig:pad-r), \@ref(fig:studio-r)). Como um arquivo `.R` é um texto simples, ele é editável por qualquer editor de texto, como o Bloco de Notas ou [Notepad++](https://notepad-plus-plus.org/) para usuários Windows, [TextWrangler](https://www.barebones.com/products/textwrangler/) ou [BBEdit](https://www.barebones.com/products/textwrangler/) para usuários macOS, ou [gedit](https://help.gnome.org/users/gedit/stable/index.html.pt_BR) para usuários Linux. O editor de scripts do RStudio é excelente.
 
