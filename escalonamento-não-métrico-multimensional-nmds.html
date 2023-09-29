@@ -577,13 +577,13 @@ Para entender, veja um exemplo para distâncias geográficas entre cidades na re
 <p>Vamos utilizar a função <code>bestnmds</code> do pacote <code>labdsv</code>
 Vamos agora instalar o pacote e carregar o pacote <code>labdsv</code>:</p>
 <div class="sourceCode" id="cb1768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1768-1"><a href="escalonamento-não-métrico-multimensional-nmds.html#cb1768-1" aria-hidden="true" tabindex="-1"></a>onmds <span class="ot">&lt;-</span> <span class="fu">bestnmds</span>(mdist, <span class="at">k =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>##  [1] 3.557932e-13 8.167216e-03 2.228642e+01 3.791436e+01 6.603351e-03
+<pre><code>##  [1] 3.528972e-13 8.167216e-03 2.228642e+01 3.791436e+01 6.603351e-03
 ##  [6] 6.029306e-03 2.109747e+01 9.041554e-03 4.415954e-03 4.861851e-01
 ## [11] 4.001459e-03 8.141675e-03 9.111469e-03 3.737914e+01 6.265940e-03
 ## [16] 4.124426e+01 9.818992e+00 2.702450e+01 3.316186e-03 3.712228e+01
 ## 
 ## best result = 1
-## with stress = 3.557932e-13</code></pre>
+## with stress = 3.528972e-13</code></pre>
 <div class="sourceCode" id="cb1770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1770-1"><a href="escalonamento-não-métrico-multimensional-nmds.html#cb1770-1" aria-hidden="true" tabindex="-1"></a><span class="co"># veja a estrutura do resultado</span></span>
 <span id="cb1770-2"><a href="escalonamento-não-métrico-multimensional-nmds.html#cb1770-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(onmds)</span></code></pre></div>
 <pre><code>## List of 3
@@ -591,15 +591,15 @@ Vamos agora instalar o pacote e carregar o pacote <code>labdsv</code>:</p>
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##   .. ..$ : chr [1:21] &quot;3&quot; &quot;14&quot; &quot;74&quot; &quot;135&quot; ...
 ##   .. ..$ : NULL
-##  $ stress: num 3.56e-13
+##  $ stress: num 3.53e-13
 ##  $ type  : chr &quot;NMDS&quot;
 ##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;dsvord&quot; &quot;nmds&quot;
 ##  - attr(*, &quot;call&quot;)= language bestnmds(dis = mdist, k = 2)
-##  - attr(*, &quot;timestamp&quot;)= chr &quot;Fri Sep 29 15:13:59 2023&quot;</code></pre>
+##  - attr(*, &quot;timestamp&quot;)= chr &quot;Fri Sep 29 15:22:17 2023&quot;</code></pre>
 <div class="sourceCode" id="cb1772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1772-1"><a href="escalonamento-não-métrico-multimensional-nmds.html#cb1772-1" aria-hidden="true" tabindex="-1"></a><span class="co"># o valor do stress indica o ajuste. Se o stress for 0, o ajuste é perfeito:</span></span>
 <span id="cb1772-2"><a href="escalonamento-não-métrico-multimensional-nmds.html#cb1772-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a posição dos pontos é proporcional a distância entre eles</span></span>
 <span id="cb1772-3"><a href="escalonamento-não-métrico-multimensional-nmds.html#cb1772-3" aria-hidden="true" tabindex="-1"></a>onmds<span class="sc">$</span>stress</span></code></pre></div>
-<pre><code>## [1] 3.557932e-13</code></pre>
+<pre><code>## [1] 3.528972e-13</code></pre>
 <div class="sourceCode" id="cb1774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1774-1"><a href="escalonamento-não-métrico-multimensional-nmds.html#cb1774-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quanto da variação foi explicada?</span></span>
 <span id="cb1774-2"><a href="escalonamento-não-métrico-multimensional-nmds.html#cb1774-2" aria-hidden="true" tabindex="-1"></a><span class="co"># essa pergunta a gente faz com PCA, não faz sentido fazer com NMDS.</span></span>
 <span id="cb1774-3"><a href="escalonamento-não-métrico-multimensional-nmds.html#cb1774-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Mas, se você quer ter uma ideia de quanto um eixo capturou da variação,</span></span>
