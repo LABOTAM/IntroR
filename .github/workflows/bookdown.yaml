@@ -39,7 +39,11 @@ jobs:
       - name: Build site
         run: bookdown::render_book("index.Rmd", quiet = TRUE)
         shell: Rscript {0}
-
+        
+      - name: Build pdf book
+        run: bookdown::render_book('index.Rmd', 'bookdown::pdf_book')
+        shell: Rscript {0}
+        
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4.4.1
