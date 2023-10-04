@@ -649,7 +649,7 @@ Por isso, recomenda-se que:
 
 * Padronize como você dá nome às colunas;  nome de colunas e de linhas não devem ser muito longos, e deve-se **evitar acentos ou espaços em branco em nomes de colunas**. Isso é muito importante!
 
-* Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, anto para ler como para salvar arquivos de planilhas.
+* Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, tanto para ler como para salvar arquivos de planilhas.
 
 ### Importando dados {#import-dados}
 
