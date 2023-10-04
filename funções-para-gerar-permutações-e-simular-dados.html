@@ -555,21 +555,21 @@ div.csl-indent {
 <div id="funções-para-gerar-permutações-e-simular-dados" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Funções para gerar permutações e simular dados<a href="funções-para-gerar-permutações-e-simular-dados.html#funções-para-gerar-permutações-e-simular-dados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A função <code>sample()</code> aleatoriza valores em um vetor, com ou sem repetição, ou amostra um certo número de valores aleatoriamente de um vetor de valores.</p>
-<div class="sourceCode" id="cb1379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1379-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1379-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ALEATORIZANDO DADOS SEM AMOSTRAGEM</span></span>
-<span id="cb1379-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1379-2" aria-hidden="true" tabindex="-1"></a>?sample</span></code></pre></div>
-<div class="sourceCode" id="cb1380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1380-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1380-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suponha um vetor de numeros</span></span>
-<span id="cb1380-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1380-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
-<span id="cb1380-3"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1380-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="co"># os numeros sao sequenciais</span></span></code></pre></div>
+<div class="sourceCode" id="cb1380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1380-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1380-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ALEATORIZANDO DADOS SEM AMOSTRAGEM</span></span>
+<span id="cb1380-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1380-2" aria-hidden="true" tabindex="-1"></a>?sample</span></code></pre></div>
+<div class="sourceCode" id="cb1381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1381-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1381-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suponha um vetor de numeros</span></span>
+<span id="cb1381-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1381-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb1381-3"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1381-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="co"># os numeros sao sequenciais</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
-<div class="sourceCode" id="cb1382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1382-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1382-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se quiser embaralhar aleatoriamente</span></span>
-<span id="cb1382-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1382-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb1383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1383-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1383-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se quiser embaralhar aleatoriamente</span></span>
+<span id="cb1383-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1383-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(v1)</span></code></pre></div>
 <pre><code>##  [1] 19 12 14  4  2 15 20  6 17 10  8  3  1 16 18  5 11  7 13  9</code></pre>
-<div class="sourceCode" id="cb1384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1384-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(v1) <span class="co"># cada vez será diferente</span></span></code></pre></div>
+<div class="sourceCode" id="cb1385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1385-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(v1) <span class="co"># cada vez será diferente</span></span></code></pre></div>
 <pre><code>##  [1] 16  8  2 14  4  6 13 15 17 18  3  1 12  9 20 19  7 11 10  5</code></pre>
-<div class="sourceCode" id="cb1386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1386-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(v1) <span class="co"># diferente de novo</span></span></code></pre></div>
+<div class="sourceCode" id="cb1387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1387-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1387-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(v1) <span class="co"># diferente de novo</span></span></code></pre></div>
 <pre><code>##  [1] 19 17  8  4  5 11  2 13 18 15  9 16 10 12 14  3  7  6  1 20</code></pre>
-<div class="sourceCode" id="cb1388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1388-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1388-1" aria-hidden="true" tabindex="-1"></a><span class="co"># no exemplo acima, os numeros sao apenas embaralhados</span></span>
-<span id="cb1388-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1388-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(v1) <span class="co"># cada valor só aparece uma vez</span></span></code></pre></div>
+<div class="sourceCode" id="cb1389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1389-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1389-1" aria-hidden="true" tabindex="-1"></a><span class="co"># no exemplo acima, os numeros sao apenas embaralhados</span></span>
+<span id="cb1389-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1389-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(v1) <span class="co"># cada valor só aparece uma vez</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -700,7 +700,7 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1389-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1389-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sample</span>(v1)) <span class="co"># aqui tambem</span></span></code></pre></div>
+<div class="sourceCode" id="cb1390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1390-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sample</span>(v1)) <span class="co"># aqui tambem</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -831,8 +831,8 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1390-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1390-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se eu quiser amostras com repeticao</span></span>
-<span id="cb1390-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1390-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sample</span>(v1, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1391-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1391-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se eu quiser amostras com repeticao</span></span>
+<span id="cb1391-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1391-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sample</span>(v1, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -933,8 +933,8 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1391-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1391-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ele repetiu alguns valores aleatoriamente</span></span>
-<span id="cb1391-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1391-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sample</span>(v1, <span class="at">replace =</span> <span class="cn">TRUE</span>)) <span class="co"># vai ser diferente toda vez que voce executa</span></span></code></pre></div>
+<div class="sourceCode" id="cb1392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1392-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1392-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ele repetiu alguns valores aleatoriamente</span></span>
+<span id="cb1392-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1392-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sample</span>(v1, <span class="at">replace =</span> <span class="cn">TRUE</span>)) <span class="co"># vai ser diferente toda vez que voce executa</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1017,15 +1017,15 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1392-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1392-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas o comprimento é sempre o mesmo</span></span>
-<span id="cb1392-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1392-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb1393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1393-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1393-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas o comprimento é sempre o mesmo</span></span>
+<span id="cb1393-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1393-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(v1)</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode" id="cb1394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1394-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">sample</span>(v1))</span></code></pre></div>
+<div class="sourceCode" id="cb1395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1395-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1395-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">sample</span>(v1))</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode" id="cb1396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1396-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">sample</span>(v1, <span class="at">replace =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb1397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1397-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">sample</span>(v1, <span class="at">replace =</span> T))</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode" id="cb1398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1398-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1398-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora com textos</span></span>
-<span id="cb1398-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1398-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(LETTERS)</span></code></pre></div>
+<div class="sourceCode" id="cb1399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1399-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1399-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora com textos</span></span>
+<span id="cb1399-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1399-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(LETTERS)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1192,7 +1192,7 @@ Z
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1399-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1399-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sample</span>(LETTERS, <span class="at">replace =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb1400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1400-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sample</span>(LETTERS, <span class="at">replace =</span> T))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1300,29 +1300,29 @@ Z
 </tbody>
 </table>
 <p>Amostraremos <code>N</code> valores de um vetor qualquer:</p>
-<div class="sourceCode" id="cb1400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1400-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1400-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora amostra um número qualquer de valores de um vetor qualquer:</span></span>
-<span id="cb1400-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1400-2" aria-hidden="true" tabindex="-1"></a>umvetor <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
-<span id="cb1400-3"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1400-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(umvetor)</span></code></pre></div>
+<div class="sourceCode" id="cb1401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1401-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1401-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora amostra um número qualquer de valores de um vetor qualquer:</span></span>
+<span id="cb1401-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1401-2" aria-hidden="true" tabindex="-1"></a>umvetor <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1000</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb1401-3"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1401-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(umvetor)</span></code></pre></div>
 <pre><code>## [1] 10001</code></pre>
-<div class="sourceCode" id="cb1402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1402-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(umvetor, <span class="dv">10</span>) <span class="co"># primeiros 10 elementos</span></span></code></pre></div>
+<div class="sourceCode" id="cb1403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1403-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1403-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(umvetor, <span class="dv">10</span>) <span class="co"># primeiros 10 elementos</span></span></code></pre></div>
 <pre><code>##  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9</code></pre>
-<div class="sourceCode" id="cb1404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1404-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1404-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora amostra 100 valores desse vetor que tem 9991 valores</span></span>
-<span id="cb1404-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1404-2" aria-hidden="true" tabindex="-1"></a>umaamostra <span class="ot">&lt;-</span> <span class="fu">sample</span>(umvetor, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> T)</span>
-<span id="cb1404-3"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1404-3" aria-hidden="true" tabindex="-1"></a><span class="co"># entao isso deve ser verdadeiro</span></span>
-<span id="cb1404-4"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1404-4" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(umaamostra) <span class="sc">==</span> <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb1405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1405-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1405-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora amostra 100 valores desse vetor que tem 9991 valores</span></span>
+<span id="cb1405-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1405-2" aria-hidden="true" tabindex="-1"></a>umaamostra <span class="ot">&lt;-</span> <span class="fu">sample</span>(umvetor, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> T)</span>
+<span id="cb1405-3"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1405-3" aria-hidden="true" tabindex="-1"></a><span class="co"># entao isso deve ser verdadeiro</span></span>
+<span id="cb1405-4"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1405-4" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(umaamostra) <span class="sc">==</span> <span class="dv">100</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb1406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1406-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1406-1" aria-hidden="true" tabindex="-1"></a><span class="co"># primeiros 10 valores amostrados</span></span>
-<span id="cb1406-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1406-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(umaamostra, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1407-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1407-1" aria-hidden="true" tabindex="-1"></a><span class="co"># primeiros 10 valores amostrados</span></span>
+<span id="cb1407-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1407-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(umaamostra, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1] 144.8 886.8 993.6 200.0 746.7 904.8 688.3 848.2  97.6 732.1</code></pre>
-<div class="sourceCode" id="cb1408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1408-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1408-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histograma da amostra</span></span>
-<span id="cb1408-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1408-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(umaamostra, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb1408-3"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1408-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note que a distribuição é uniforme, qualquer valor tem a mesma chance de ser amostrado</span></span>
-<span id="cb1408-4"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1408-4" aria-hidden="true" tabindex="-1"></a><span class="co"># faco outra vez e adiciono</span></span>
-<span id="cb1408-5"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1408-5" aria-hidden="true" tabindex="-1"></a>outraamostra <span class="ot">&lt;-</span> <span class="fu">sample</span>(umvetor, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> T)</span>
-<span id="cb1408-6"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1408-6" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciono ao histograma anterior</span></span>
-<span id="cb1408-7"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1408-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(outraamostra, <span class="at">density =</span> <span class="dv">10</span>, <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-418-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1409-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1409-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cada vez é diferente a sequencia de valores amostrados</span></span></code></pre></div>
+<div class="sourceCode" id="cb1409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1409-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1409-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histograma da amostra</span></span>
+<span id="cb1409-2"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1409-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(umaamostra, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb1409-3"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1409-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note que a distribuição é uniforme, qualquer valor tem a mesma chance de ser amostrado</span></span>
+<span id="cb1409-4"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1409-4" aria-hidden="true" tabindex="-1"></a><span class="co"># faco outra vez e adiciono</span></span>
+<span id="cb1409-5"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1409-5" aria-hidden="true" tabindex="-1"></a>outraamostra <span class="ot">&lt;-</span> <span class="fu">sample</span>(umvetor, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> T)</span>
+<span id="cb1409-6"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1409-6" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciono ao histograma anterior</span></span>
+<span id="cb1409-7"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1409-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(outraamostra, <span class="at">density =</span> <span class="dv">10</span>, <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-424-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb1410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1410-1"><a href="funções-para-gerar-permutações-e-simular-dados.html#cb1410-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cada vez é diferente a sequencia de valores amostrados</span></span></code></pre></div>
 </div>
             </section>
 

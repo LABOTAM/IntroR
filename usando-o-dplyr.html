@@ -557,7 +557,7 @@ div.csl-indent {
 <p>Vamos utilizar o famoso conjunto <code>iris</code><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> para aprender a manipular os dados com as ferramentas do <code>dplyr</code>.</p>
 <p>Vamos aprender brevemente como funcionam as principais funções deste pacote (Tabela <a href="usando-o-dplyr.html#tab:dplyrtb">A.1</a>).
 Primeiro vamos carregar o pacote para a sessão de trabalho:</p>
-<div class="sourceCode" id="cb1865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1865-1"><a href="usando-o-dplyr.html#cb1865-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1866-1"><a href="usando-o-dplyr.html#cb1866-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:dplyrtb">Tabela A.1: </span>Principais funções do pacote R <code>dplyr</code>.
@@ -630,10 +630,10 @@ agrupa os dados segundo grupos
 <li><p>primeiro, utiliza-se como primeiro argumento o nome do <code>data.frame</code> que se deseja trabalhar; em nosso caso, o <code>data.frame</code> se chama <code>iris</code>: <code>select(iris, ...)</code>;</p></li>
 <li><p>depois, colocamos no lugar de <code>...</code> o nome das colunas que desejamos selecionar, <strong>sem aspas</strong>. Por exemplo, se quisermos selecionar a coluna das espécie, fazemos assim:</p></li>
 </ul>
-<div class="sourceCode" id="cb1866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1866-1"><a href="usando-o-dplyr.html#cb1866-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1866-2"><a href="usando-o-dplyr.html#cb1866-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iris, Species),</span>
-<span id="cb1866-3"><a href="usando-o-dplyr.html#cb1866-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1866-4"><a href="usando-o-dplyr.html#cb1866-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1867-1"><a href="usando-o-dplyr.html#cb1867-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1867-2"><a href="usando-o-dplyr.html#cb1867-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iris, Species),</span>
+<span id="cb1867-3"><a href="usando-o-dplyr.html#cb1867-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1867-4"><a href="usando-o-dplyr.html#cb1867-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -696,10 +696,10 @@ setosa
 </tbody>
 </table>
 <p>Ou se quisermos a coluna de comprimento de pétala mais a coluna das espécies:</p>
-<div class="sourceCode" id="cb1867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1867-1"><a href="usando-o-dplyr.html#cb1867-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1867-2"><a href="usando-o-dplyr.html#cb1867-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iris, Petal.Length, Species),</span>
-<span id="cb1867-3"><a href="usando-o-dplyr.html#cb1867-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1867-4"><a href="usando-o-dplyr.html#cb1867-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1868-1"><a href="usando-o-dplyr.html#cb1868-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1868-2"><a href="usando-o-dplyr.html#cb1868-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iris, Petal.Length, Species),</span>
+<span id="cb1868-3"><a href="usando-o-dplyr.html#cb1868-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1868-4"><a href="usando-o-dplyr.html#cb1868-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -797,10 +797,10 @@ setosa
 <p>Também podemos utilizar funções auxiliares para executar buscas nos nomes das colunas segundo determinados padrões.
 Entre essas funções auxiliares, destacamos a função <code>contains()</code>.
 Por exemplo, se quisermos selecionar todas as variáveis que contêm “Petal” em seus nomes:</p>
-<div class="sourceCode" id="cb1868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1868-1"><a href="usando-o-dplyr.html#cb1868-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1868-2"><a href="usando-o-dplyr.html#cb1868-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iris, <span class="fu">contains</span>(<span class="st">&quot;Petal&quot;</span>)),</span>
-<span id="cb1868-3"><a href="usando-o-dplyr.html#cb1868-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1868-4"><a href="usando-o-dplyr.html#cb1868-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1869-1"><a href="usando-o-dplyr.html#cb1869-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1869-2"><a href="usando-o-dplyr.html#cb1869-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(iris, <span class="fu">contains</span>(<span class="st">&quot;Petal&quot;</span>)),</span>
+<span id="cb1869-3"><a href="usando-o-dplyr.html#cb1869-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1869-4"><a href="usando-o-dplyr.html#cb1869-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -900,10 +900,10 @@ Petal.Width
 <h3><span class="header-section-number">A.2.2</span> Filtrando dados com <code>filter()</code><a href="usando-o-dplyr.html#filtrando-dados-com-filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se desejamos filtrar os dados segundo alguma informação, devemos utilizar a função <code>filter()</code>.
 Por exemplo, se quiser checar os dados de pétalas apenas para a espécie <code>setosa</code>, fazemos assim:</p>
-<div class="sourceCode" id="cb1869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1869-1"><a href="usando-o-dplyr.html#cb1869-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1869-2"><a href="usando-o-dplyr.html#cb1869-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>),</span>
-<span id="cb1869-3"><a href="usando-o-dplyr.html#cb1869-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1869-4"><a href="usando-o-dplyr.html#cb1869-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1870-1"><a href="usando-o-dplyr.html#cb1870-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1870-2"><a href="usando-o-dplyr.html#cb1870-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>),</span>
+<span id="cb1870-3"><a href="usando-o-dplyr.html#cb1870-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1870-4"><a href="usando-o-dplyr.html#cb1870-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1098,10 +1098,10 @@ setosa
 </tbody>
 </table>
 <p>Ou então quais amostras da espécie <code>virginica</code> possuem comprimento de sépala maior que 7 cm:</p>
-<div class="sourceCode" id="cb1870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1870-1"><a href="usando-o-dplyr.html#cb1870-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1870-2"><a href="usando-o-dplyr.html#cb1870-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>, Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span>),</span>
-<span id="cb1870-3"><a href="usando-o-dplyr.html#cb1870-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1870-4"><a href="usando-o-dplyr.html#cb1870-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1871-1"><a href="usando-o-dplyr.html#cb1871-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1871-2"><a href="usando-o-dplyr.html#cb1871-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(iris, Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>, Sepal.Length <span class="sc">&gt;</span> <span class="dv">7</span>),</span>
+<span id="cb1871-3"><a href="usando-o-dplyr.html#cb1871-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1871-4"><a href="usando-o-dplyr.html#cb1871-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1296,10 +1296,10 @@ virginica
 </tbody>
 </table>
 <p>E se quisermos adicionar uma coluna em <code>iris</code> que consiste na razão entre o comprimento da pétala pelo comprimento da sépala? Chamaremos nossa nova coluna de <code>razaopetsep</code>:</p>
-<div class="sourceCode" id="cb1871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1871-1"><a href="usando-o-dplyr.html#cb1871-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1871-2"><a href="usando-o-dplyr.html#cb1871-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(iris, <span class="at">razaopetsep =</span> Petal.Length <span class="sc">/</span> Sepal.Length),</span>
-<span id="cb1871-3"><a href="usando-o-dplyr.html#cb1871-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1871-4"><a href="usando-o-dplyr.html#cb1871-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1872-1"><a href="usando-o-dplyr.html#cb1872-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1872-2"><a href="usando-o-dplyr.html#cb1872-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(iris, <span class="at">razaopetsep =</span> Petal.Length <span class="sc">/</span> Sepal.Length),</span>
+<span id="cb1872-3"><a href="usando-o-dplyr.html#cb1872-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1872-4"><a href="usando-o-dplyr.html#cb1872-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1531,9 +1531,9 @@ setosa
 <h3><span class="header-section-number">A.2.3</span> Destrinchando as funções <code>group_by</code> e <code>summarise</code><a href="usando-o-dplyr.html#destrinchando-as-funções-group_by-e-summarise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As funções <code>group_by</code> e <code>summarise</code> resumem o propósito do pacote <code>dplyr</code>, pois permitem em poucas linhas de comando sumariar os dados, e partem do princípio, muito presente no R através das funções da família <code>apply</code>, chamado <strong>split-apply-combine</strong> que, em tradução livre, pode ser entendido como uma sequência lógica de ação: quebre em grupos, aplique uma função, e combine os resultados.
 Vamos partir para o uso dessas funções agrupando os dados em função da coluna <code>Species</code> e calculando a média do comprimento das pétalas (variável <code>Petal.Length</code>):</p>
-<div class="sourceCode" id="cb1872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1872-1"><a href="usando-o-dplyr.html#cb1872-1" aria-hidden="true" tabindex="-1"></a>iris_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(iris, Species)</span>
-<span id="cb1872-2"><a href="usando-o-dplyr.html#cb1872-2" aria-hidden="true" tabindex="-1"></a>iris_sumario <span class="ot">&lt;-</span> <span class="fu">summarise</span>(iris_grouped, <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb1872-3"><a href="usando-o-dplyr.html#cb1872-3" aria-hidden="true" tabindex="-1"></a>iris_sumario</span></code></pre></div>
+<div class="sourceCode" id="cb1873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1873-1"><a href="usando-o-dplyr.html#cb1873-1" aria-hidden="true" tabindex="-1"></a>iris_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(iris, Species)</span>
+<span id="cb1873-2"><a href="usando-o-dplyr.html#cb1873-2" aria-hidden="true" tabindex="-1"></a>iris_sumario <span class="ot">&lt;-</span> <span class="fu">summarise</span>(iris_grouped, <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1873-3"><a href="usando-o-dplyr.html#cb1873-3" aria-hidden="true" tabindex="-1"></a>iris_sumario</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1575,10 +1575,10 @@ virginica
 <p>Vamos destrinchar o que fizemos acima.
 A função <code>group_by</code> os dados em função de alguma ou algumas variáveis.
 Essa função geralmente é utilizada em conjunto com a função <code>summarise</code> para gerar sumários estatísticos de uma ou mais variáveis.</p>
-<div class="sourceCode" id="cb1873"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1873-1"><a href="usando-o-dplyr.html#cb1873-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
-<span id="cb1873-2"><a href="usando-o-dplyr.html#cb1873-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(iris, Species),</span>
-<span id="cb1873-3"><a href="usando-o-dplyr.html#cb1873-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
-<span id="cb1873-4"><a href="usando-o-dplyr.html#cb1873-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1874-1"><a href="usando-o-dplyr.html#cb1874-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(</span>
+<span id="cb1874-2"><a href="usando-o-dplyr.html#cb1874-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(iris, Species),</span>
+<span id="cb1874-3"><a href="usando-o-dplyr.html#cb1874-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span></span>
+<span id="cb1874-4"><a href="usando-o-dplyr.html#cb1874-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 5
 ## # Groups:   Species [1]
 ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -1598,8 +1598,8 @@ Essa função geralmente é utilizada em conjunto com a função <code>summarise
 <p>Ela informa que o objeto gerado a partir de <code>group_by</code> está agrupado ao redor da variável <code>Species</code>.
 Pensando no pacote <code>base</code>, é como pensar que a variável <code>Species</code> é o argumento <code>INDEX</code> da função <code>tapply()</code>: todos os cálculos a partir desse objeto ocorrerão em função dessa variável.
 Após agrupar os dados, nós colocamos esse <code>data.frame</code> agrupado via <code>group_by()</code>, <code>iris_grouped &lt;- group_by(iris, Species)</code>, como primeiro argumento da função <code>summarise()</code> para então calcular a média do comprimento de pétala:</p>
-<div class="sourceCode" id="cb1876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1876-1"><a href="usando-o-dplyr.html#cb1876-1" aria-hidden="true" tabindex="-1"></a>iris_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(iris, Species)</span>
-<span id="cb1876-2"><a href="usando-o-dplyr.html#cb1876-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(iris_grouped, <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1877-1"><a href="usando-o-dplyr.html#cb1877-1" aria-hidden="true" tabindex="-1"></a>iris_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(iris, Species)</span>
+<span id="cb1877-2"><a href="usando-o-dplyr.html#cb1877-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(iris_grouped, <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1643,7 +1643,7 @@ virginica
 <p>Quantas amostras por espécies existem nesse conjunto de dados?</p>
 </blockquote>
 <p>Utilizaremos a função <code>n()</code>, que pertence ao mesmo pacote <code>dplyr</code>, para contar o número de grupos. Vejamos:</p>
-<div class="sourceCode" id="cb1877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1877-1"><a href="usando-o-dplyr.html#cb1877-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(iris_grouped, <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb1878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1878-1"><a href="usando-o-dplyr.html#cb1878-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(iris_grouped, <span class="fu">n</span>())</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1685,7 +1685,7 @@ virginica
 <blockquote>
 <p>Médias de comprimento de sépalas e pétalas</p>
 </blockquote>
-<div class="sourceCode" id="cb1878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1878-1"><a href="usando-o-dplyr.html#cb1878-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(iris_grouped, <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1879-1"><a href="usando-o-dplyr.html#cb1879-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(iris_grouped, <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1724,7 +1724,7 @@ virginica
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1879-1"><a href="usando-o-dplyr.html#cb1879-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(iris_grouped, <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1880-1"><a href="usando-o-dplyr.html#cb1880-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(iris_grouped, <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1766,8 +1766,8 @@ virginica
 <blockquote>
 <p>Todas as operações anteriores na mesma linha de comando:</p>
 </blockquote>
-<div class="sourceCode" id="cb1880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1880-1"><a href="usando-o-dplyr.html#cb1880-1" aria-hidden="true" tabindex="-1"></a>iris_sumario <span class="ot">&lt;-</span> <span class="fu">summarise</span>(iris_grouped, <span class="at">N =</span> <span class="fu">n</span>(), <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb1880-2"><a href="usando-o-dplyr.html#cb1880-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris_sumario, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1881-1"><a href="usando-o-dplyr.html#cb1881-1" aria-hidden="true" tabindex="-1"></a>iris_sumario <span class="ot">&lt;-</span> <span class="fu">summarise</span>(iris_grouped, <span class="at">N =</span> <span class="fu">n</span>(), <span class="at">sepala_l_media =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">petala_l_media =</span> <span class="fu">mean</span>(Petal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1881-2"><a href="usando-o-dplyr.html#cb1881-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris_sumario, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>

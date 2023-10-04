@@ -562,16 +562,16 @@ seja, o que significam valores ausentes no seu conjunto de dados?
 </div>
 <p>Podemos utilizar a função <code>is.na()</code> para encontrar a constante lógica <code>NA</code>, ou seja, a constante que indica valores ausentes (reveja o uso da função <code>is.na()</code> na seção <a href="vetor-operador-logico.html#filtro-dados-ausentes">2.6.3</a>).
 Vejam o <code>?</code> da constante lógica <code>NA</code> para entender o significado dela no R:</p>
-<div class="sourceCode" id="cb1472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1472-1"><a href="tem-valores-ausentes.html#cb1472-1" aria-hidden="true" tabindex="-1"></a>?<span class="cn">NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb1473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1473-1"><a href="tem-valores-ausentes.html#cb1473-1" aria-hidden="true" tabindex="-1"></a>?<span class="cn">NA</span></span></code></pre></div>
 <p>Continuemos de onde paramos na seção anterior.
 Vimos que há a presença de <code>NA</code> no <code>data.frame</code> <code>avesc</code>.
 Chequemos quais registros (linhas) têm valores <code>NA</code>.
 Vamos checar primeiramanete a variável <code>avesc$urubu</code>:</p>
-<div class="sourceCode" id="cb1473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1473-1"><a href="tem-valores-ausentes.html#cb1473-1" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>urubu <span class="sc">==</span> <span class="cn">NA</span> <span class="do">## erro: não retorna verdadeiro ou falso</span></span>
-<span id="cb1473-2"><a href="tem-valores-ausentes.html#cb1473-2" aria-hidden="true" tabindex="-1"></a>avesc[avesc<span class="sc">$</span>urubu <span class="sc">==</span> <span class="cn">NA</span>, ] <span class="do">## também não funciona</span></span></code></pre></div>
+<div class="sourceCode" id="cb1474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1474-1"><a href="tem-valores-ausentes.html#cb1474-1" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>urubu <span class="sc">==</span> <span class="cn">NA</span> <span class="do">## erro: não retorna verdadeiro ou falso</span></span>
+<span id="cb1474-2"><a href="tem-valores-ausentes.html#cb1474-2" aria-hidden="true" tabindex="-1"></a>avesc[avesc<span class="sc">$</span>urubu <span class="sc">==</span> <span class="cn">NA</span>, ] <span class="do">## também não funciona</span></span></code></pre></div>
 <p>Reparem que os comandos acima, apesar de funcionarem, não respondem à nossa pergunta que é saber quais linhas possuem <code>NA</code>.
 Para isso, devemos nos valer da função <code>is.na()</code>:</p>
-<div class="sourceCode" id="cb1474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1474-1"><a href="tem-valores-ausentes.html#cb1474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc) <span class="co"># pergunta em todo o data frame: quem é NA?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1475-1"><a href="tem-valores-ausentes.html#cb1475-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc) <span class="co"># pergunta em todo o data frame: quem é NA?</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1614,7 +1614,7 @@ FALSE
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1475-1"><a href="tem-valores-ausentes.html#cb1475-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(avesc) <span class="co"># inverte: quem não é NA?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1476-1"><a href="tem-valores-ausentes.html#cb1476-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(avesc) <span class="co"># inverte: quem não é NA?</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2657,7 +2657,7 @@ TRUE
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1476-1"><a href="tem-valores-ausentes.html#cb1476-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="sc">!</span><span class="fu">is.na</span>(avesc)]</span></code></pre></div>
+<div class="sourceCode" id="cb1477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1477-1"><a href="tem-valores-ausentes.html#cb1477-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="sc">!</span><span class="fu">is.na</span>(avesc)]</span></code></pre></div>
 <pre><code>##   [1] &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot;
 ##  [16] &quot;Ce&quot; &quot;Ce&quot; &quot;ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot;
 ##  [31] &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CC&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot; &quot;CL&quot;
@@ -2680,36 +2680,36 @@ Checamos qual é o tamanho total de valores presentes no objeto <code>avesc</cod
 Temos então um número total de 240 valores possíveis em <code>avesc</code>.
 E comparamos essa valor com o número de valores não faltantes em <code>avesc</code> através da expressão <code>length(avesc[!is.na(avesc)])</code>, que retorna 236.
 Portanto, se não houver valores faltantes, a primeira expressão abaixo deve retornar verdadeiro (<code>TRUE</code>), e falso (<code>FALSE</code>) se houver valores faltantes:</p>
-<div class="sourceCode" id="cb1478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1478-1"><a href="tem-valores-ausentes.html#cb1478-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">nrow</span>(avesc) <span class="sc">*</span> <span class="fu">ncol</span>(avesc)) <span class="sc">==</span> <span class="fu">length</span>(avesc[<span class="sc">!</span><span class="fu">is.na</span>(avesc)])</span></code></pre></div>
+<div class="sourceCode" id="cb1479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1479-1"><a href="tem-valores-ausentes.html#cb1479-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">nrow</span>(avesc) <span class="sc">*</span> <span class="fu">ncol</span>(avesc)) <span class="sc">==</span> <span class="fu">length</span>(avesc[<span class="sc">!</span><span class="fu">is.na</span>(avesc)])</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>Então quantos valores faltantes existem em nossos dados?</p>
-<div class="sourceCode" id="cb1480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1480-1"><a href="tem-valores-ausentes.html#cb1480-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou então, o número de valores NA no data.frame é de:</span></span>
-<span id="cb1480-2"><a href="tem-valores-ausentes.html#cb1480-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">nrow</span>(avesc) <span class="sc">*</span> <span class="fu">ncol</span>(avesc)) <span class="sc">-</span> <span class="fu">length</span>(avesc[<span class="sc">!</span><span class="fu">is.na</span>(avesc)])</span></code></pre></div>
+<div class="sourceCode" id="cb1481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1481-1"><a href="tem-valores-ausentes.html#cb1481-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou então, o número de valores NA no data.frame é de:</span></span>
+<span id="cb1481-2"><a href="tem-valores-ausentes.html#cb1481-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">nrow</span>(avesc) <span class="sc">*</span> <span class="fu">ncol</span>(avesc)) <span class="sc">-</span> <span class="fu">length</span>(avesc[<span class="sc">!</span><span class="fu">is.na</span>(avesc)])</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>O procedimento adotado acima pode ser difícil de entender.
 Fazer essa pergunta por colunas torna o entendimento mais fácil:</p>
-<div class="sourceCode" id="cb1482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1482-1"><a href="tem-valores-ausentes.html#cb1482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="co"># quais são NA, vetor lógico</span></span></code></pre></div>
+<div class="sourceCode" id="cb1483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1483-1"><a href="tem-valores-ausentes.html#cb1483-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="co"># quais são NA, vetor lógico</span></span></code></pre></div>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb1484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1484-1"><a href="tem-valores-ausentes.html#cb1484-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mesmo que</span></span>
-<span id="cb1484-2"><a href="tem-valores-ausentes.html#cb1484-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="sc">==</span> T</span></code></pre></div>
+<div class="sourceCode" id="cb1485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1485-1"><a href="tem-valores-ausentes.html#cb1485-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mesmo que</span></span>
+<span id="cb1485-2"><a href="tem-valores-ausentes.html#cb1485-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="sc">==</span> T</span></code></pre></div>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb1486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1486-1"><a href="tem-valores-ausentes.html#cb1486-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e o contrário é (quem não é NA)</span></span>
-<span id="cb1486-2"><a href="tem-valores-ausentes.html#cb1486-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="sc">==</span> F</span></code></pre></div>
+<div class="sourceCode" id="cb1487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1487-1"><a href="tem-valores-ausentes.html#cb1487-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e o contrário é (quem não é NA)</span></span>
+<span id="cb1487-2"><a href="tem-valores-ausentes.html#cb1487-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="sc">==</span> F</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [37]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb1488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1488-1"><a href="tem-valores-ausentes.html#cb1488-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou simplesmente</span></span>
-<span id="cb1488-2"><a href="tem-valores-ausentes.html#cb1488-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)</span></code></pre></div>
+<div class="sourceCode" id="cb1489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1489-1"><a href="tem-valores-ausentes.html#cb1489-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou simplesmente</span></span>
+<span id="cb1489-2"><a href="tem-valores-ausentes.html#cb1489-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
@@ -2717,19 +2717,19 @@ Fazer essa pergunta por colunas torna o entendimento mais fácil:</p>
 ## [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
 <p>Vetores lógicos <code>TRUE</code> e <code>FALSE</code> podem ser somados. <code>TRUE</code> corresponde a 1, e <code>FALSE</code> a 0.
 Usando o resultado de <code>is.na(avesc$urubu)</code> (ou qualquer outra variável de <code>avesc</code>) junto à função <code>sum()</code>, teremos então o número de valores faltantes na variável escolhida:</p>
-<div class="sourceCode" id="cb1490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1490-1"><a href="tem-valores-ausentes.html#cb1490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="co"># quantos sao?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1491-1"><a href="tem-valores-ausentes.html#cb1491-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="co"># quantos sao?</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb1492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1492-1"><a href="tem-valores-ausentes.html#cb1492-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="co"># quantos não são?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1493-1"><a href="tem-valores-ausentes.html#cb1493-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="co"># quantos não são?</span></span></code></pre></div>
 <pre><code>## [1] 59</code></pre>
-<div class="sourceCode" id="cb1494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1494-1"><a href="tem-valores-ausentes.html#cb1494-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e, isso é verdadeiro, né?</span></span>
-<span id="cb1494-2"><a href="tem-valores-ausentes.html#cb1494-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">sum</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="sc">+</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu))) <span class="sc">==</span> <span class="fu">nrow</span>(avesc)</span></code></pre></div>
+<div class="sourceCode" id="cb1495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1495-1"><a href="tem-valores-ausentes.html#cb1495-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e, isso é verdadeiro, né?</span></span>
+<span id="cb1495-2"><a href="tem-valores-ausentes.html#cb1495-2" aria-hidden="true" tabindex="-1"></a>(<span class="fu">sum</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="sc">+</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu))) <span class="sc">==</span> <span class="fu">nrow</span>(avesc)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Podemos perguntar quais posições do vetor lógico oriundo de <code>is.na(avesc$urubu)</code> são correspondentes a <code>NA</code> por meio da função <code>which()</code>.
 Teremos como resposta um vetor de números inteiros indicando o número das linhas com valores <code>NA</code> na <code>urubu</code>:</p>
-<div class="sourceCode" id="cb1496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1496-1"><a href="tem-valores-ausentes.html#cb1496-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="co"># vetor com indices das posições que são NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb1497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1497-1"><a href="tem-valores-ausentes.html#cb1497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)) <span class="co"># vetor com indices das posições que são NA</span></span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p>Vamos utilizar agora este resultado para filtrar o <code>data.frame</code> <code>avesc</code> e checar que linha é essa:</p>
-<div class="sourceCode" id="cb1498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1498-1"><a href="tem-valores-ausentes.html#cb1498-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="fu">which</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)), ] <span class="co"># mesma coisa, mas precisa de uma segunda função, então menos parcimonioso</span></span></code></pre></div>
+<div class="sourceCode" id="cb1499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1499-1"><a href="tem-valores-ausentes.html#cb1499-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="fu">which</span>(<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)), ] <span class="co"># mesma coisa, mas precisa de uma segunda função, então menos parcimonioso</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2770,7 +2770,7 @@ NA
 </tbody>
 </table>
 <p>Podemos filtrar também sem a função <code>which()</code>, usando apenas os vetores lógicos <code>TRUE</code> e <code>FALSE</code> oriundos da função <code>is.na()</code>:</p>
-<div class="sourceCode" id="cb1499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1499-1"><a href="tem-valores-ausentes.html#cb1499-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu), ] <span class="co"># mostra as linhas completas para os registros com NA na coluna urubu</span></span></code></pre></div>
+<div class="sourceCode" id="cb1500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1500-1"><a href="tem-valores-ausentes.html#cb1500-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu), ] <span class="co"># mostra as linhas completas para os registros com NA na coluna urubu</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2810,11 +2810,11 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1500-1"><a href="tem-valores-ausentes.html#cb1500-1" aria-hidden="true" tabindex="-1"></a><span class="do">## para ver se tem NA em uma das tres colunas com nomes de aves: usamos o operador | (quer dizer &#39;ou&#39;)</span></span>
-<span id="cb1500-2"><a href="tem-valores-ausentes.html#cb1500-2" aria-hidden="true" tabindex="-1"></a>meufiltro <span class="ot">&lt;-</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="sc">|</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>carcara) <span class="sc">|</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>seriema)</span>
-<span id="cb1500-3"><a href="tem-valores-ausentes.html#cb1500-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(avesc)) <span class="co"># soma dos valores NA nas tres colunas</span></span></code></pre></div>
+<div class="sourceCode" id="cb1501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1501-1"><a href="tem-valores-ausentes.html#cb1501-1" aria-hidden="true" tabindex="-1"></a><span class="do">## para ver se tem NA em uma das tres colunas com nomes de aves: usamos o operador | (quer dizer &#39;ou&#39;)</span></span>
+<span id="cb1501-2"><a href="tem-valores-ausentes.html#cb1501-2" aria-hidden="true" tabindex="-1"></a>meufiltro <span class="ot">&lt;-</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu) <span class="sc">|</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>carcara) <span class="sc">|</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>seriema)</span>
+<span id="cb1501-3"><a href="tem-valores-ausentes.html#cb1501-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(avesc)) <span class="co"># soma dos valores NA nas tres colunas</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb1502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1502-1"><a href="tem-valores-ausentes.html#cb1502-1" aria-hidden="true" tabindex="-1"></a>avesc[meufiltro, ] <span class="co"># mostra todas as linhas que tem algum valor NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb1503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1503-1"><a href="tem-valores-ausentes.html#cb1503-1" aria-hidden="true" tabindex="-1"></a>avesc[meufiltro, ] <span class="co"># mostra todas as linhas que tem algum valor NA</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2888,26 +2888,26 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1503-1"><a href="tem-valores-ausentes.html#cb1503-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Esses valores NA, na verdade são AUSENCIA da ave (não avistamento) numa determinada localidade (linha no dado). Portanto, NA neste caso deveria ser de fato 0.</span></span>
-<span id="cb1503-2"><a href="tem-valores-ausentes.html#cb1503-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1503-3"><a href="tem-valores-ausentes.html#cb1503-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Então, vamos corrigir estes valores</span></span>
-<span id="cb1503-4"><a href="tem-valores-ausentes.html#cb1503-4" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)</span>
-<span id="cb1503-5"><a href="tem-valores-ausentes.html#cb1503-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Podemos ver os valores de vários jeitos</span></span>
-<span id="cb1503-6"><a href="tem-valores-ausentes.html#cb1503-6" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>urubu[vl] <span class="co"># assim</span></span></code></pre></div>
+<div class="sourceCode" id="cb1504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1504-1"><a href="tem-valores-ausentes.html#cb1504-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Esses valores NA, na verdade são AUSENCIA da ave (não avistamento) numa determinada localidade (linha no dado). Portanto, NA neste caso deveria ser de fato 0.</span></span>
+<span id="cb1504-2"><a href="tem-valores-ausentes.html#cb1504-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1504-3"><a href="tem-valores-ausentes.html#cb1504-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Então, vamos corrigir estes valores</span></span>
+<span id="cb1504-4"><a href="tem-valores-ausentes.html#cb1504-4" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> <span class="fu">is.na</span>(avesc<span class="sc">$</span>urubu)</span>
+<span id="cb1504-5"><a href="tem-valores-ausentes.html#cb1504-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Podemos ver os valores de vários jeitos</span></span>
+<span id="cb1504-6"><a href="tem-valores-ausentes.html#cb1504-6" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>urubu[vl] <span class="co"># assim</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb1505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1505-1"><a href="tem-valores-ausentes.html#cb1505-1" aria-hidden="true" tabindex="-1"></a>avesc[vl, <span class="st">&quot;urubu&quot;</span>] <span class="co"># ou assim</span></span></code></pre></div>
+<div class="sourceCode" id="cb1506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1506-1"><a href="tem-valores-ausentes.html#cb1506-1" aria-hidden="true" tabindex="-1"></a>avesc[vl, <span class="st">&quot;urubu&quot;</span>] <span class="co"># ou assim</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb1507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1507-1"><a href="tem-valores-ausentes.html#cb1507-1" aria-hidden="true" tabindex="-1"></a>avesc[, <span class="st">&quot;urubu&quot;</span>][vl] <span class="co"># ou assim...</span></span></code></pre></div>
+<div class="sourceCode" id="cb1508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1508-1"><a href="tem-valores-ausentes.html#cb1508-1" aria-hidden="true" tabindex="-1"></a>avesc[, <span class="st">&quot;urubu&quot;</span>][vl] <span class="co"># ou assim...</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb1509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1509-1"><a href="tem-valores-ausentes.html#cb1509-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se podemos ver, podemos atribuir 0 para esse valor ausentes</span></span>
-<span id="cb1509-2"><a href="tem-valores-ausentes.html#cb1509-2" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>urubu[vl] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb1509-3"><a href="tem-valores-ausentes.html#cb1509-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1509-4"><a href="tem-valores-ausentes.html#cb1509-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Continuando, para as outras aves, mostrando variacoes de códigos</span></span>
-<span id="cb1509-5"><a href="tem-valores-ausentes.html#cb1509-5" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>carcara[<span class="fu">is.na</span>(avesc<span class="sc">$</span>carcara)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb1509-6"><a href="tem-valores-ausentes.html#cb1509-6" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>seriema[<span class="fu">is.na</span>(avesc<span class="sc">$</span>seriema) <span class="sc">==</span> T] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb1509-7"><a href="tem-valores-ausentes.html#cb1509-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1509-8"><a href="tem-valores-ausentes.html#cb1509-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Verificando se substituimos corretamente</span></span>
-<span id="cb1509-9"><a href="tem-valores-ausentes.html#cb1509-9" aria-hidden="true" tabindex="-1"></a>avesc[meufiltro, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1510-1"><a href="tem-valores-ausentes.html#cb1510-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se podemos ver, podemos atribuir 0 para esse valor ausentes</span></span>
+<span id="cb1510-2"><a href="tem-valores-ausentes.html#cb1510-2" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>urubu[vl] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1510-3"><a href="tem-valores-ausentes.html#cb1510-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1510-4"><a href="tem-valores-ausentes.html#cb1510-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Continuando, para as outras aves, mostrando variacoes de códigos</span></span>
+<span id="cb1510-5"><a href="tem-valores-ausentes.html#cb1510-5" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>carcara[<span class="fu">is.na</span>(avesc<span class="sc">$</span>carcara)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1510-6"><a href="tem-valores-ausentes.html#cb1510-6" aria-hidden="true" tabindex="-1"></a>avesc<span class="sc">$</span>seriema[<span class="fu">is.na</span>(avesc<span class="sc">$</span>seriema) <span class="sc">==</span> T] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1510-7"><a href="tem-valores-ausentes.html#cb1510-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1510-8"><a href="tem-valores-ausentes.html#cb1510-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Verificando se substituimos corretamente</span></span>
+<span id="cb1510-9"><a href="tem-valores-ausentes.html#cb1510-9" aria-hidden="true" tabindex="-1"></a>avesc[meufiltro, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2981,8 +2981,8 @@ CL
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1510-1"><a href="tem-valores-ausentes.html#cb1510-1" aria-hidden="true" tabindex="-1"></a><span class="co"># poderiamos ter feito a mudanca de uma vez</span></span>
-<span id="cb1510-2"><a href="tem-valores-ausentes.html#cb1510-2" aria-hidden="true" tabindex="-1"></a>aves2[meufiltro, ] <span class="co"># a cópia que fiz no início</span></span></code></pre></div>
+<div class="sourceCode" id="cb1511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1511-1"><a href="tem-valores-ausentes.html#cb1511-1" aria-hidden="true" tabindex="-1"></a><span class="co"># poderiamos ter feito a mudanca de uma vez</span></span>
+<span id="cb1511-2"><a href="tem-valores-ausentes.html#cb1511-2" aria-hidden="true" tabindex="-1"></a>aves2[meufiltro, ] <span class="co"># a cópia que fiz no início</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3056,12 +3056,12 @@ NA
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1511-1"><a href="tem-valores-ausentes.html#cb1511-1" aria-hidden="true" tabindex="-1"></a>aves2[meufiltro, ][<span class="fu">is.na</span>(aves2[meufiltro, ])] <span class="co"># visualizo só os NAs</span></span></code></pre></div>
+<div class="sourceCode" id="cb1512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1512-1"><a href="tem-valores-ausentes.html#cb1512-1" aria-hidden="true" tabindex="-1"></a>aves2[meufiltro, ][<span class="fu">is.na</span>(aves2[meufiltro, ])] <span class="co"># visualizo só os NAs</span></span></code></pre></div>
 <pre><code>## [1] NA NA NA NA</code></pre>
-<div class="sourceCode" id="cb1513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1513-1"><a href="tem-valores-ausentes.html#cb1513-1" aria-hidden="true" tabindex="-1"></a>aves2[meufiltro, ][<span class="fu">is.na</span>(aves2[meufiltro, ])] <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># atribuo 0</span></span>
-<span id="cb1513-2"><a href="tem-valores-ausentes.html#cb1513-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1513-3"><a href="tem-valores-ausentes.html#cb1513-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Agora esses valores são zero, certo?</span></span>
-<span id="cb1513-4"><a href="tem-valores-ausentes.html#cb1513-4" aria-hidden="true" tabindex="-1"></a>avesc[avesc<span class="sc">$</span>urubu <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> avesc<span class="sc">$</span>carcara <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> avesc<span class="sc">$</span>seriema <span class="sc">==</span> <span class="dv">0</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1514-1"><a href="tem-valores-ausentes.html#cb1514-1" aria-hidden="true" tabindex="-1"></a>aves2[meufiltro, ][<span class="fu">is.na</span>(aves2[meufiltro, ])] <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># atribuo 0</span></span>
+<span id="cb1514-2"><a href="tem-valores-ausentes.html#cb1514-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1514-3"><a href="tem-valores-ausentes.html#cb1514-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Agora esses valores são zero, certo?</span></span>
+<span id="cb1514-4"><a href="tem-valores-ausentes.html#cb1514-4" aria-hidden="true" tabindex="-1"></a>avesc[avesc<span class="sc">$</span>urubu <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> avesc<span class="sc">$</span>carcara <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> avesc<span class="sc">$</span>seriema <span class="sc">==</span> <span class="dv">0</span>, ]</span></code></pre></div>
 <table>
 <thead>
 <tr>

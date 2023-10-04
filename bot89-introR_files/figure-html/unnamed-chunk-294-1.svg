@@ -53,9 +53,18 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
-<circle cx='159.73' cy='231.32' r='4.27' style='stroke-width: 0.75; fill: #FF0000;' />
-<circle cx='245.07' cy='184.50' r='12.80' style='stroke-width: 0.75; fill: #FF0000;' />
-<circle cx='330.40' cy='137.69' r='17.07' style='stroke-width: 0.75; fill: #FF0000;' />
-<circle cx='415.73' cy='90.87' r='42.67' style='stroke-width: 0.75; fill: #FF0000;' />
+<rect x='117.07' y='207.91' width='42.67' height='46.81' style='stroke-width: 0.75;' />
+<line x1='202.40' y1='219.97' x2='214.46' y2='207.91' style='stroke-width: 0.75; stroke: #0000FF;' />
+<line x1='202.40' y1='232.70' x2='227.19' y2='207.91' style='stroke-width: 0.75; stroke: #0000FF;' />
+<line x1='202.40' y1='245.43' x2='239.91' y2='207.91' style='stroke-width: 0.75; stroke: #0000FF;' />
+<line x1='205.83' y1='254.73' x2='252.64' y2='207.91' style='stroke-width: 0.75; stroke: #0000FF;' />
+<line x1='218.56' y1='254.73' x2='265.37' y2='207.91' style='stroke-width: 0.75; stroke: #0000FF;' />
+<line x1='231.28' y1='254.73' x2='278.10' y2='207.91' style='stroke-width: 0.75; stroke: #0000FF;' />
+<line x1='244.01' y1='254.73' x2='287.73' y2='211.00' style='stroke-width: 0.75; stroke: #0000FF;' />
+<line x1='256.74' y1='254.73' x2='287.73' y2='223.73' style='stroke-width: 0.75; stroke: #0000FF;' />
+<line x1='269.47' y1='254.73' x2='287.73' y2='236.46' style='stroke-width: 0.75; stroke: #0000FF;' />
+<line x1='282.19' y1='254.73' x2='287.73' y2='249.19' style='stroke-width: 0.75; stroke: #0000FF;' />
+<polygon points='202.40,254.73 287.73,254.73 287.73,207.91 202.40,207.91 ' style='stroke-width: 0.75; stroke: #FF0000;' />
+<rect x='330.40' y='207.91' width='42.67' height='46.81' style='stroke-width: 3.75; stroke: #FFFF00; fill: #0000FF;' />
 </g>
 </svg>

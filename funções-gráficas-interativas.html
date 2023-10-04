@@ -557,52 +557,52 @@ div.csl-indent {
 <div id="locator" class="section level3 hasAnchor" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> <code>locator()</code><a href="funções-gráficas-interativas.html#locator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Esta função extrai coordenadas de um gráfico.</p>
-<div class="sourceCode" id="cb1006"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1006-1"><a href="funções-gráficas-interativas.html#cb1006-1" aria-hidden="true" tabindex="-1"></a>?locator <span class="co"># veja o help</span></span>
-<span id="cb1006-2"><a href="funções-gráficas-interativas.html#cb1006-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1006-3"><a href="funções-gráficas-interativas.html#cb1006-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fazemos um gráfico</span></span>
-<span id="cb1006-4"><a href="funções-gráficas-interativas.html#cb1006-4" aria-hidden="true" tabindex="-1"></a>?trees <span class="co"># se quiser entender esses dados</span></span>
-<span id="cb1006-5"><a href="funções-gráficas-interativas.html#cb1006-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;trees&quot;</span>)</span>
-<span id="cb1006-6"><a href="funções-gráficas-interativas.html#cb1006-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(trees)</span>
-<span id="cb1006-7"><a href="funções-gráficas-interativas.html#cb1006-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(trees)</span>
-<span id="cb1006-8"><a href="funções-gráficas-interativas.html#cb1006-8" aria-hidden="true" tabindex="-1"></a>Circunferencia <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth</span>
-<span id="cb1006-9"><a href="funções-gráficas-interativas.html#cb1006-9" aria-hidden="true" tabindex="-1"></a>Altura <span class="ot">&lt;-</span> trees<span class="sc">$</span>Height</span>
-<span id="cb1006-10"><a href="funções-gráficas-interativas.html#cb1006-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Circunferencia, Altura, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb1006-11"><a href="funções-gráficas-interativas.html#cb1006-11" aria-hidden="true" tabindex="-1"></a><span class="fu">locator</span>(<span class="at">n =</span> <span class="dv">1</span>)</span>
-<span id="cb1006-12"><a href="funções-gráficas-interativas.html#cb1006-12" aria-hidden="true" tabindex="-1"></a><span class="co"># clique na figura dentro do gráfico</span></span>
-<span id="cb1006-13"><a href="funções-gráficas-interativas.html#cb1006-13" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que no console há uma lista com os valores das coordenadas x e y</span></span>
-<span id="cb1006-14"><a href="funções-gráficas-interativas.html#cb1006-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1006-15"><a href="funções-gráficas-interativas.html#cb1006-15" aria-hidden="true" tabindex="-1"></a><span class="co"># pode fazer a mesma coisa já salvando as coordendas num ojbeto. Colete 2 pontos agora, traçando uma linha entre eles</span></span>
-<span id="cb1006-16"><a href="funções-gráficas-interativas.html#cb1006-16" aria-hidden="true" tabindex="-1"></a>cds <span class="ot">&lt;-</span> <span class="fu">locator</span>(<span class="at">n =</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb1006-17"><a href="funções-gráficas-interativas.html#cb1006-17" aria-hidden="true" tabindex="-1"></a>cds <span class="co"># dois valores para cada coordenada</span></span>
-<span id="cb1006-18"><a href="funções-gráficas-interativas.html#cb1006-18" aria-hidden="true" tabindex="-1"></a><span class="co"># posso usar os valores obtidos, por exemplo para plotar uma flexa</span></span>
-<span id="cb1006-19"><a href="funções-gráficas-interativas.html#cb1006-19" aria-hidden="true" tabindex="-1"></a>x0 <span class="ot">&lt;-</span> cds<span class="sc">$</span>x[<span class="dv">1</span>]</span>
-<span id="cb1006-20"><a href="funções-gráficas-interativas.html#cb1006-20" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> cds<span class="sc">$</span>x[<span class="dv">2</span>]</span>
-<span id="cb1006-21"><a href="funções-gráficas-interativas.html#cb1006-21" aria-hidden="true" tabindex="-1"></a>y0 <span class="ot">&lt;-</span> cds<span class="sc">$</span>y[<span class="dv">1</span>]</span>
-<span id="cb1006-22"><a href="funções-gráficas-interativas.html#cb1006-22" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> cds<span class="sc">$</span>y[<span class="dv">2</span>]</span>
-<span id="cb1006-23"><a href="funções-gráficas-interativas.html#cb1006-23" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(x0, y0, x1, y1, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1007"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1007-1"><a href="funções-gráficas-interativas.html#cb1007-1" aria-hidden="true" tabindex="-1"></a>?locator <span class="co"># veja o help</span></span>
+<span id="cb1007-2"><a href="funções-gráficas-interativas.html#cb1007-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1007-3"><a href="funções-gráficas-interativas.html#cb1007-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fazemos um gráfico</span></span>
+<span id="cb1007-4"><a href="funções-gráficas-interativas.html#cb1007-4" aria-hidden="true" tabindex="-1"></a>?trees <span class="co"># se quiser entender esses dados</span></span>
+<span id="cb1007-5"><a href="funções-gráficas-interativas.html#cb1007-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;trees&quot;</span>)</span>
+<span id="cb1007-6"><a href="funções-gráficas-interativas.html#cb1007-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(trees)</span>
+<span id="cb1007-7"><a href="funções-gráficas-interativas.html#cb1007-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(trees)</span>
+<span id="cb1007-8"><a href="funções-gráficas-interativas.html#cb1007-8" aria-hidden="true" tabindex="-1"></a>Circunferencia <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth</span>
+<span id="cb1007-9"><a href="funções-gráficas-interativas.html#cb1007-9" aria-hidden="true" tabindex="-1"></a>Altura <span class="ot">&lt;-</span> trees<span class="sc">$</span>Height</span>
+<span id="cb1007-10"><a href="funções-gráficas-interativas.html#cb1007-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Circunferencia, Altura, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb1007-11"><a href="funções-gráficas-interativas.html#cb1007-11" aria-hidden="true" tabindex="-1"></a><span class="fu">locator</span>(<span class="at">n =</span> <span class="dv">1</span>)</span>
+<span id="cb1007-12"><a href="funções-gráficas-interativas.html#cb1007-12" aria-hidden="true" tabindex="-1"></a><span class="co"># clique na figura dentro do gráfico</span></span>
+<span id="cb1007-13"><a href="funções-gráficas-interativas.html#cb1007-13" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que no console há uma lista com os valores das coordenadas x e y</span></span>
+<span id="cb1007-14"><a href="funções-gráficas-interativas.html#cb1007-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1007-15"><a href="funções-gráficas-interativas.html#cb1007-15" aria-hidden="true" tabindex="-1"></a><span class="co"># pode fazer a mesma coisa já salvando as coordendas num ojbeto. Colete 2 pontos agora, traçando uma linha entre eles</span></span>
+<span id="cb1007-16"><a href="funções-gráficas-interativas.html#cb1007-16" aria-hidden="true" tabindex="-1"></a>cds <span class="ot">&lt;-</span> <span class="fu">locator</span>(<span class="at">n =</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb1007-17"><a href="funções-gráficas-interativas.html#cb1007-17" aria-hidden="true" tabindex="-1"></a>cds <span class="co"># dois valores para cada coordenada</span></span>
+<span id="cb1007-18"><a href="funções-gráficas-interativas.html#cb1007-18" aria-hidden="true" tabindex="-1"></a><span class="co"># posso usar os valores obtidos, por exemplo para plotar uma flexa</span></span>
+<span id="cb1007-19"><a href="funções-gráficas-interativas.html#cb1007-19" aria-hidden="true" tabindex="-1"></a>x0 <span class="ot">&lt;-</span> cds<span class="sc">$</span>x[<span class="dv">1</span>]</span>
+<span id="cb1007-20"><a href="funções-gráficas-interativas.html#cb1007-20" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> cds<span class="sc">$</span>x[<span class="dv">2</span>]</span>
+<span id="cb1007-21"><a href="funções-gráficas-interativas.html#cb1007-21" aria-hidden="true" tabindex="-1"></a>y0 <span class="ot">&lt;-</span> cds<span class="sc">$</span>y[<span class="dv">1</span>]</span>
+<span id="cb1007-22"><a href="funções-gráficas-interativas.html#cb1007-22" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> cds<span class="sc">$</span>y[<span class="dv">2</span>]</span>
+<span id="cb1007-23"><a href="funções-gráficas-interativas.html#cb1007-23" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(x0, y0, x1, y1, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 </div>
 <div id="identify" class="section level3 hasAnchor" number="5.6.2">
 <h3><span class="header-section-number">5.6.2</span> <code>identify()</code><a href="funções-gráficas-interativas.html#identify" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Esta função identifica os pontos de um gráfico.</p>
-<div class="sourceCode" id="cb1007"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1007-1"><a href="funções-gráficas-interativas.html#cb1007-1" aria-hidden="true" tabindex="-1"></a>?identify <span class="co"># veja o help</span></span>
-<span id="cb1007-2"><a href="funções-gráficas-interativas.html#cb1007-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1007-3"><a href="funções-gráficas-interativas.html#cb1007-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fazemos um gráfico</span></span>
-<span id="cb1007-4"><a href="funções-gráficas-interativas.html#cb1007-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;trees&quot;</span>)</span>
-<span id="cb1007-5"><a href="funções-gráficas-interativas.html#cb1007-5" aria-hidden="true" tabindex="-1"></a>Circunferencia <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth</span>
-<span id="cb1007-6"><a href="funções-gráficas-interativas.html#cb1007-6" aria-hidden="true" tabindex="-1"></a>Altura <span class="ot">&lt;-</span> trees<span class="sc">$</span>Height</span>
-<span id="cb1007-7"><a href="funções-gráficas-interativas.html#cb1007-7" aria-hidden="true" tabindex="-1"></a><span class="co"># plotamos vazio</span></span>
-<span id="cb1007-8"><a href="funções-gráficas-interativas.html#cb1007-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Circunferencia, Altura, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb1007-9"><a href="funções-gráficas-interativas.html#cb1007-9" aria-hidden="true" tabindex="-1"></a>ss <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(trees), <span class="dv">1</span>) <span class="co"># um valor de indice aleatorio</span></span>
-<span id="cb1007-10"><a href="funções-gráficas-interativas.html#cb1007-10" aria-hidden="true" tabindex="-1"></a><span class="co"># um  ponto qualquer em vermelho</span></span>
-<span id="cb1007-11"><a href="funções-gráficas-interativas.html#cb1007-11" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(Circunferencia[ss], Altura[ss], <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">cex =</span> <span class="fl">1.5</span>, <span class="at">bg =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb1007-12"><a href="funções-gráficas-interativas.html#cb1007-12" aria-hidden="true" tabindex="-1"></a><span class="co"># o resto dos pontos em branco</span></span>
-<span id="cb1007-13"><a href="funções-gráficas-interativas.html#cb1007-13" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(Circunferencia[<span class="sc">-</span>ss], Altura[<span class="sc">-</span>ss], <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">cex =</span> <span class="fl">1.5</span>, <span class="at">bg =</span> <span class="st">&quot;white&quot;</span>)</span>
-<span id="cb1007-14"><a href="funções-gráficas-interativas.html#cb1007-14" aria-hidden="true" tabindex="-1"></a><span class="co"># identificar pontos. Execute a funçào e selecione no ponto vermelho</span></span>
-<span id="cb1007-15"><a href="funções-gráficas-interativas.html#cb1007-15" aria-hidden="true" tabindex="-1"></a><span class="fu">identify</span>(Circunferencia, Altura, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">tolerance =</span> <span class="dv">1</span>)</span>
-<span id="cb1007-16"><a href="funções-gráficas-interativas.html#cb1007-16" aria-hidden="true" tabindex="-1"></a><span class="co"># o numero que aparece no gráfico é o indice</span></span>
-<span id="cb1007-17"><a href="funções-gráficas-interativas.html#cb1007-17" aria-hidden="true" tabindex="-1"></a><span class="co"># portanto, deve ser igual ao valor de</span></span>
-<span id="cb1007-18"><a href="funções-gráficas-interativas.html#cb1007-18" aria-hidden="true" tabindex="-1"></a>ss</span>
-<span id="cb1007-19"><a href="funções-gráficas-interativas.html#cb1007-19" aria-hidden="true" tabindex="-1"></a>trees[ss, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1008"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1008-1"><a href="funções-gráficas-interativas.html#cb1008-1" aria-hidden="true" tabindex="-1"></a>?identify <span class="co"># veja o help</span></span>
+<span id="cb1008-2"><a href="funções-gráficas-interativas.html#cb1008-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1008-3"><a href="funções-gráficas-interativas.html#cb1008-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fazemos um gráfico</span></span>
+<span id="cb1008-4"><a href="funções-gráficas-interativas.html#cb1008-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;trees&quot;</span>)</span>
+<span id="cb1008-5"><a href="funções-gráficas-interativas.html#cb1008-5" aria-hidden="true" tabindex="-1"></a>Circunferencia <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth</span>
+<span id="cb1008-6"><a href="funções-gráficas-interativas.html#cb1008-6" aria-hidden="true" tabindex="-1"></a>Altura <span class="ot">&lt;-</span> trees<span class="sc">$</span>Height</span>
+<span id="cb1008-7"><a href="funções-gráficas-interativas.html#cb1008-7" aria-hidden="true" tabindex="-1"></a><span class="co"># plotamos vazio</span></span>
+<span id="cb1008-8"><a href="funções-gráficas-interativas.html#cb1008-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Circunferencia, Altura, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1008-9"><a href="funções-gráficas-interativas.html#cb1008-9" aria-hidden="true" tabindex="-1"></a>ss <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(trees), <span class="dv">1</span>) <span class="co"># um valor de indice aleatorio</span></span>
+<span id="cb1008-10"><a href="funções-gráficas-interativas.html#cb1008-10" aria-hidden="true" tabindex="-1"></a><span class="co"># um  ponto qualquer em vermelho</span></span>
+<span id="cb1008-11"><a href="funções-gráficas-interativas.html#cb1008-11" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(Circunferencia[ss], Altura[ss], <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">cex =</span> <span class="fl">1.5</span>, <span class="at">bg =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb1008-12"><a href="funções-gráficas-interativas.html#cb1008-12" aria-hidden="true" tabindex="-1"></a><span class="co"># o resto dos pontos em branco</span></span>
+<span id="cb1008-13"><a href="funções-gráficas-interativas.html#cb1008-13" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(Circunferencia[<span class="sc">-</span>ss], Altura[<span class="sc">-</span>ss], <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">cex =</span> <span class="fl">1.5</span>, <span class="at">bg =</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb1008-14"><a href="funções-gráficas-interativas.html#cb1008-14" aria-hidden="true" tabindex="-1"></a><span class="co"># identificar pontos. Execute a funçào e selecione no ponto vermelho</span></span>
+<span id="cb1008-15"><a href="funções-gráficas-interativas.html#cb1008-15" aria-hidden="true" tabindex="-1"></a><span class="fu">identify</span>(Circunferencia, Altura, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">tolerance =</span> <span class="dv">1</span>)</span>
+<span id="cb1008-16"><a href="funções-gráficas-interativas.html#cb1008-16" aria-hidden="true" tabindex="-1"></a><span class="co"># o numero que aparece no gráfico é o indice</span></span>
+<span id="cb1008-17"><a href="funções-gráficas-interativas.html#cb1008-17" aria-hidden="true" tabindex="-1"></a><span class="co"># portanto, deve ser igual ao valor de</span></span>
+<span id="cb1008-18"><a href="funções-gráficas-interativas.html#cb1008-18" aria-hidden="true" tabindex="-1"></a>ss</span>
+<span id="cb1008-19"><a href="funções-gráficas-interativas.html#cb1008-19" aria-hidden="true" tabindex="-1"></a>trees[ss, ]</span></code></pre></div>
 </div>
 </div>
             </section>

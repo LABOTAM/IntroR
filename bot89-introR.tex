@@ -261,7 +261,7 @@
 \makeatother
 \subtitle{Disciplina BOT89 - PPGBOT INPA}
 \author{Alberto Vicentini e Ricardo de Oliveira Perdiz}
-\date{Última atualização: 2023-09-29}
+\date{Última atualização: 2023-10-04}
 
 \begin{document}
 \maketitle
@@ -1592,7 +1592,7 @@ Vejamos:
 ##     }
 ##     ansmat
 ## }
-## <bytecode: 0x560b9a4c1638>
+## <bytecode: 0x555cfa47ca70>
 ## <environment: namespace:base>
 \end{verbatim}
 
@@ -1605,7 +1605,7 @@ Vejamos:
 \begin{verbatim}
 ## function (..., sep = " ", collapse = NULL, recycle0 = FALSE) 
 ## .Internal(paste(list(...), sep, collapse, recycle0))
-## <bytecode: 0x560b8ed3bff0>
+## <bytecode: 0x555cef20bff0>
 ## <environment: namespace:base>
 \end{verbatim}
 
@@ -5893,41 +5893,43 @@ A presença de valores às vezes impede certas análises de serem executadas.
 \hline
   & Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \hline
-4 & 4.6 & 3.1 & NA & 0.2 & setosa\\
-\hline
-13 & 4.8 & 3.0 & NA & 0.1 & setosa\\
+3 & 4.7 & NA & 1.3 & 0.2 & setosa\\
 \hline
 15 & 5.8 & NA & 1.2 & 0.2 & setosa\\
 \hline
-22 & 5.1 & NA & 1.5 & 0.4 & setosa\\
+16 & 5.7 & 4.4 & NA & 0.4 & setosa\\
 \hline
-24 & 5.1 & 3.3 & NA & 0.5 & setosa\\
+17 & 5.4 & NA & 1.3 & 0.4 & setosa\\
 \hline
-34 & 5.5 & NA & 1.4 & 0.2 & setosa\\
+18 & 5.1 & NA & 1.4 & 0.3 & setosa\\
 \hline
-40 & 5.1 & 3.4 & NA & 0.2 & setosa\\
+25 & 4.8 & NA & 1.9 & 0.2 & setosa\\
 \hline
-45 & 5.1 & 3.8 & NA & 0.4 & setosa\\
+33 & 5.2 & 4.1 & NA & 0.1 & setosa\\
 \hline
-71 & 5.9 & 3.2 & NA & 1.8 & versicolor\\
+44 & 5.0 & 3.5 & NA & 0.6 & setosa\\
 \hline
-89 & 5.6 & NA & 4.1 & 1.3 & versicolor\\
+60 & 5.2 & 2.7 & NA & 1.4 & versicolor\\
 \hline
-101 & 6.3 & 3.3 & NA & 2.5 & virginica\\
+76 & 6.6 & 3.0 & NA & 1.4 & versicolor\\
 \hline
-113 & 6.8 & NA & 5.5 & 2.1 & virginica\\
+90 & 5.5 & NA & 4.0 & 1.3 & versicolor\\
 \hline
-123 & 7.7 & 2.8 & NA & 2.0 & virginica\\
+91 & 5.5 & NA & 4.4 & 1.2 & versicolor\\
 \hline
-125 & 6.7 & NA & 5.7 & 2.1 & virginica\\
+93 & 5.8 & 2.6 & NA & 1.2 & versicolor\\
 \hline
-137 & 6.3 & NA & 5.6 & 2.4 & virginica\\
+95 & 5.6 & NA & 4.2 & 1.3 & versicolor\\
 \hline
-139 & 6.0 & NA & 4.8 & 1.8 & virginica\\
+98 & 6.2 & 2.9 & NA & 1.3 & versicolor\\
 \hline
-141 & 6.7 & 3.1 & NA & 2.4 & virginica\\
+126 & 7.2 & 3.2 & NA & 1.8 & virginica\\
 \hline
-145 & 6.7 & NA & NA & 2.5 & virginica\\
+142 & 6.9 & NA & 5.1 & 2.3 & virginica\\
+\hline
+143 & 5.8 & 2.7 & NA & 1.9 & virginica\\
+\hline
+149 & 6.2 & 3.4 & NA & 2.3 & virginica\\
 \hline
 150 & 5.9 & NA & 5.1 & 1.8 & virginica\\
 \hline
@@ -6119,8 +6121,13 @@ Para ordenar matrizes e \texttt{data.frames}, é preciso entender a diferença e
 \CommentTok{\# vamos mudar isso}
 \NormalTok{novo.iris }\OtherTok{\textless{}{-}}\NormalTok{ iris[idx, ] }\CommentTok{\# pego o vetor de indices dos valores ordenados e uso na indexacao para ordenar o objeto original segunda a coluna escolhida}
 \NormalTok{idx2 }\OtherTok{\textless{}{-}} \FunctionTok{order}\NormalTok{(novo.iris}\SpecialCharTok{$}\NormalTok{Sepal.Length) }\CommentTok{\# indice das linhas ordenadas segundo o comprimento das sepalas}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# note que agora essa expressão é verdadeira, porque o original já está ordenado segundo essa coluna}
-\FunctionTok{sum}\NormalTok{(novo.iris}\SpecialCharTok{$}\NormalTok{Sepal.Length[idx2] }\SpecialCharTok{==}\NormalTok{ novo.iris}\SpecialCharTok{$}\NormalTok{Sepal.Length) }\SpecialCharTok{==} \FunctionTok{nrow}\NormalTok{(novo.iris) }\CommentTok{\# é FALSO}
+\FunctionTok{sum}\NormalTok{(novo.iris}\SpecialCharTok{$}\NormalTok{Sepal.Length[idx2] }\SpecialCharTok{==}\NormalTok{ novo.iris}\SpecialCharTok{$}\NormalTok{Sepal.Length) }\SpecialCharTok{==} \FunctionTok{nrow}\NormalTok{(novo.iris) }\CommentTok{\# é VERDADEIRO}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6537,7 +6544,7 @@ Por isso, recomenda-se que:
 \item
   Padronize como você dá nome às colunas; nome de colunas e de linhas não devem ser muito longos, e deve-se \textbf{evitar acentos ou espaços em branco em nomes de colunas}. Isso é muito importante!
 \item
-  Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, anto para ler como para salvar arquivos de planilhas.
+  Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, tanto para ler como para salvar arquivos de planilhas.
 \end{itemize}
 
 \hypertarget{import-dados}{%
@@ -8443,7 +8450,7 @@ Vamos a um exemplo muito simples:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-212-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-218-1.pdf}
 
 Muitos argumentos da função \texttt{plot()} são parâmetros gráficos (Seções \ref{par-graficos-p1} e \ref{par-graficos-p2}).
 
@@ -8573,7 +8580,7 @@ Não há a necessidade de se definir a resolução, porque nesse tipo de imagem 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-215-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-221-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9036,7 +9043,7 @@ Você pode salvar os parâmetros globais antes de alterá-los.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-223-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-229-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9114,7 +9121,7 @@ Você pode salvar os parâmetros globais antes de alterá-los.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-225-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-231-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9155,7 +9162,7 @@ A diferença entre os dois parâmetros é que \texttt{mfrow()} preenche o espaç
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-226-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-232-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9178,7 +9185,7 @@ A diferença entre os dois parâmetros é que \texttt{mfrow()} preenche o espaç
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-226-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-232-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9353,7 +9360,7 @@ O argumento \texttt{pch} pode ser um número\footnote{Valores do argumento \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-232-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-238-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9362,7 +9369,7 @@ O argumento \texttt{pch} pode ser um número\footnote{Valores do argumento \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-232-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-238-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9373,7 +9380,7 @@ O argumento \texttt{pch} pode ser um número\footnote{Valores do argumento \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-232-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-238-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9449,7 +9456,7 @@ O argumento \texttt{pch} pode ser um número\footnote{Valores do argumento \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-232-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-238-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9474,7 +9481,7 @@ Se colocar 0.5 teremos 50\%; se 1.5, teremos 150\% do tamanho padrão.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-233-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-239-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9483,7 +9490,7 @@ Se colocar 0.5 teremos 50\%; se 1.5, teremos 150\% do tamanho padrão.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-233-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-239-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9492,7 +9499,7 @@ Se colocar 0.5 teremos 50\%; se 1.5, teremos 150\% do tamanho padrão.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-233-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-239-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9520,7 +9527,7 @@ Se colocar 0.5 teremos 50\%; se 1.5, teremos 150\% do tamanho padrão.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-233-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-239-4.pdf}
 
 \hypertarget{linhas}{%
 \subsection{Linhas}\label{linhas}}
@@ -9544,7 +9551,7 @@ Os argumentos \texttt{lwd} e \texttt{lty} controlam a espessura e o tipo das lin
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-234-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9553,7 +9560,7 @@ Os argumentos \texttt{lwd} e \texttt{lty} controlam a espessura e o tipo das lin
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-234-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9562,7 +9569,7 @@ Os argumentos \texttt{lwd} e \texttt{lty} controlam a espessura e o tipo das lin
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-234-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9571,7 +9578,7 @@ Os argumentos \texttt{lwd} e \texttt{lty} controlam a espessura e o tipo das lin
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-234-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-4.pdf}
 
 \hypertarget{cores-de-suxedmbolos---col-e-bg}{%
 \subsection{\texorpdfstring{Cores de símbolos - \texttt{col} e \texttt{bg}}{Cores de símbolos - col e bg}}\label{cores-de-suxedmbolos---col-e-bg}}
@@ -9588,7 +9595,7 @@ Já o argumento \texttt{bg} define as cores do preenchimento dos símbolos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-235-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-241-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9626,7 +9633,7 @@ Já o argumento \texttt{bg} define as cores do preenchimento dos símbolos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-235-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-241-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9635,7 +9642,7 @@ Já o argumento \texttt{bg} define as cores do preenchimento dos símbolos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-235-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-241-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9645,7 +9652,7 @@ Já o argumento \texttt{bg} define as cores do preenchimento dos símbolos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-235-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-241-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9655,7 +9662,7 @@ Já o argumento \texttt{bg} define as cores do preenchimento dos símbolos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-235-5.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-241-5.pdf}
 
 \hypertarget{funuxe7uxf5es-que-definem-cores}{%
 \subsection{Funções que definem cores}\label{funuxe7uxf5es-que-definem-cores}}
@@ -9728,7 +9735,7 @@ As funções \texttt{rainbow()} ou \texttt{terrain.colors()} geram gradientes de
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-246-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9738,7 +9745,7 @@ As funções \texttt{rainbow()} ou \texttt{terrain.colors()} geram gradientes de
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-246-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9748,7 +9755,7 @@ As funções \texttt{rainbow()} ou \texttt{terrain.colors()} geram gradientes de
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-246-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9758,7 +9765,7 @@ As funções \texttt{rainbow()} ou \texttt{terrain.colors()} geram gradientes de
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-246-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9768,7 +9775,7 @@ As funções \texttt{rainbow()} ou \texttt{terrain.colors()} geram gradientes de
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-5.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-246-5.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9778,7 +9785,7 @@ As funções \texttt{rainbow()} ou \texttt{terrain.colors()} geram gradientes de
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-6.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-246-6.pdf}
 
 As funções \texttt{rgb()} ou \texttt{hsv()} geram qualquer tipo de cor para ser utilizados nos gráficos.
 
@@ -9814,7 +9821,7 @@ blue & 0\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-242-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-248-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9824,7 +9831,7 @@ blue & 0\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-242-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-248-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9834,7 +9841,7 @@ blue & 0\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-242-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-248-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9844,7 +9851,7 @@ blue & 0\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-242-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-248-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9854,7 +9861,7 @@ blue & 0\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-242-5.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-248-5.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9864,7 +9871,7 @@ blue & 0\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-242-6.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-248-6.pdf}
 
 \hypertarget{graf-alto-nivel}{%
 \section{Funções gráficas de alto nível}\label{graf-alto-nivel}}
@@ -9916,7 +9923,7 @@ Vamos plotá-lo:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-246-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-252-1.pdf}
 
 Vamos mudar alguns argumentos da função \texttt{plot()}.
 Acrescentaremos um tipo diferente de ponto (argumento \texttt{pch}), uma cor vermelha para o fundo do ponto (argumento \texttt{bg}), um novo texto para o eixo x (argumento \texttt{xlab}), um novo texto para o eixo y (argumento \texttt{ylab}), e um título para o plot (argumento \texttt{main}):
@@ -9927,7 +9934,7 @@ Acrescentaremos um tipo diferente de ponto (argumento \texttt{pch}), uma cor ver
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-247-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-253-1.pdf}
 
 Vamos trabalhar agora com uma matriz de duas colunas:
 
@@ -9953,7 +9960,7 @@ Vamos utilizar a matriz de duas colunas \texttt{mm} diretamente como primeiro ar
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-249-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-255-1.pdf}
 
 Podemos também especificar separadamente os eixos x e y, utilizando os vetores \texttt{xx} e \texttt{yy}, utilizados para compor a matriz \texttt{mm}:
 
@@ -9964,7 +9971,7 @@ Podemos também especificar separadamente os eixos x e y, utilizando os vetores 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-250-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-256-1.pdf}
 
 Se temos um conjunto de dados e queremos ver a relação entre si de todas as colunas do conjunto, podemos simplesmente usar:
 
@@ -9984,7 +9991,7 @@ Se temos um conjunto de dados e queremos ver a relação entre si de todas as co
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-252-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-258-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10021,7 +10028,7 @@ Vamos utilizar apenas a variável \texttt{Sepal.Length} do conjunto de dados \te
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-255-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-261-1.pdf}
 Vamos diminuir os espaçamentos entre as barras e colorí-las:
 
 \begin{Shaded}
@@ -10031,7 +10038,7 @@ Vamos diminuir os espaçamentos entre as barras e colorí-las:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-256-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-262-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10078,7 +10085,7 @@ Esta função é importante por mostrar a variação em uma variável qualquer e
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-258-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-264-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10087,7 +10094,7 @@ Esta função é importante por mostrar a variação em uma variável qualquer e
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-258-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-264-2.pdf}
 
 \hypertarget{barplot}{%
 \subsection{\texorpdfstring{\texttt{barplot()}}{barplot()}}\label{barplot}}
@@ -10160,7 +10167,7 @@ Esta função gera um gráfico de barras simples.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-260-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-266-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10168,7 +10175,7 @@ Esta função gera um gráfico de barras simples.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-260-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-266-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10222,7 +10229,7 @@ Esta função gera um gráfico de barras simples.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-260-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-266-3.pdf}
 
 \hypertarget{plot.phylo}{%
 \subsection{\texorpdfstring{\texttt{plot.phylo()}}{plot.phylo()}}\label{plot.phylo}}
@@ -10262,7 +10269,7 @@ Depois, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-262-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-268-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10288,7 +10295,7 @@ Depois, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-264-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-270-1.pdf}
 
 \hypertarget{image-e-countour}{%
 \subsection{\texorpdfstring{\texttt{image()} e \texttt{countour()}}{image() e countour()}}\label{image-e-countour}}
@@ -10317,7 +10324,7 @@ Depois, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-267-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-273-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10344,7 +10351,7 @@ Depois, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-269-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-275-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10367,7 +10374,7 @@ Depois, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-271-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-277-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10377,7 +10384,7 @@ Depois, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-271-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-277-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10418,7 +10425,7 @@ Agora, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-274-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-280-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10426,7 +10433,7 @@ Agora, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-274-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-280-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10535,7 +10542,7 @@ A função \texttt{legend()} permite colocar uma legenda sobre um gráfico abert
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-277-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-283-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10547,7 +10554,7 @@ A função \texttt{legend()} permite colocar uma legenda sobre um gráfico abert
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-277-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-283-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10557,7 +10564,7 @@ A função \texttt{legend()} permite colocar uma legenda sobre um gráfico abert
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-277-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-283-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10572,7 +10579,7 @@ A função \texttt{legend()} permite colocar uma legenda sobre um gráfico abert
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-277-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-283-4.pdf}
 
 \hypertarget{points}{%
 \subsection{\texorpdfstring{\texttt{points()}}{points()}}\label{points}}
@@ -10676,7 +10683,7 @@ Tree & age & circumference\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-278-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-284-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10723,7 +10730,7 @@ Tree & age & circumference\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-278-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-284-2.pdf}
 
 \hypertarget{text-e-mtext}{%
 \subsection{\texorpdfstring{\texttt{text()} e \texttt{mtext()}}{text() e mtext()}}\label{text-e-mtext}}
@@ -10801,7 +10808,7 @@ Tree & age & circumference\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-280-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-286-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10841,7 +10848,7 @@ Tree & age & circumference\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-280-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-286-2.pdf}
 
 \hypertarget{axis}{%
 \subsection{\texorpdfstring{\texttt{axis()}}{axis()}}\label{axis}}
@@ -10868,7 +10875,7 @@ A função \texttt{axis()} adiciona eixos individualmente.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-282-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-288-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10882,7 +10889,7 @@ A função \texttt{axis()} adiciona eixos individualmente.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-282-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-288-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10893,7 +10900,7 @@ A função \texttt{axis()} adiciona eixos individualmente.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-282-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-288-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10907,7 +10914,7 @@ A função \texttt{axis()} adiciona eixos individualmente.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-282-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-288-4.pdf}
 
 \hypertarget{abline}{%
 \subsection{\texorpdfstring{\texttt{abline()}}{abline()}}\label{abline}}
@@ -10935,7 +10942,7 @@ Esta função plota uma linha reta sobre um gráfico, ou uma linha de ajuste de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-284-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-290-1.pdf}
 
 \hypertarget{arrows-rect-polygon-e-segments}{%
 \subsection{\texorpdfstring{\texttt{arrows()}, \texttt{rect()}, \texttt{polygon()} e \texttt{segments()}}{arrows(), rect(), polygon() e segments()}}\label{arrows-rect-polygon-e-segments}}
@@ -10960,7 +10967,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-286-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-292-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10970,7 +10977,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-286-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-292-2.pdf}
 
 \hypertarget{retuxe2ngulos}{%
 \subsubsection{Retângulos}\label{retuxe2ngulos}}
@@ -10993,7 +11000,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-288-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-294-1.pdf}
 
 \hypertarget{poluxedgonos}{%
 \subsubsection{Polígonos}\label{poluxedgonos}}
@@ -11011,7 +11018,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-290-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-296-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11020,7 +11027,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-290-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-296-2.pdf}
 
 \hypertarget{segmentos-de-linhas}{%
 \subsubsection{Segmentos de linhas}\label{segmentos-de-linhas}}
@@ -11039,7 +11046,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-292-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-298-1.pdf}
 
 \hypertarget{symbols}{%
 \subsection{\texorpdfstring{\texttt{symbols()}}{symbols()}}\label{symbols}}
@@ -11062,7 +11069,7 @@ A função \texttt{symbols()} é uma de alto nível, mas com a adição do argum
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-294-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-300-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11071,7 +11078,7 @@ A função \texttt{symbols()} é uma de alto nível, mas com a adição do argum
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-294-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-300-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11088,7 +11095,7 @@ A função \texttt{symbols()} é uma de alto nível, mas com a adição do argum
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-294-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-300-3.pdf}
 
 \hypertarget{funuxe7uxf5es-gruxe1ficas-interativas}{%
 \section{Funções gráficas interativas}\label{funuxe7uxf5es-gruxe1ficas-interativas}}
@@ -11565,13 +11572,13 @@ A função \texttt{lapply()} aplica uma função \texttt{FUN} para cada elemento
 
 \begin{verbatim}
 ## [[1]]
-## [1] 523.46
+## [1] 523.4
 ## 
 ## [[2]]
-## [1] 48.53333
+## [1] 46.3
 ## 
 ## [[3]]
-## [1] 1536.967
+## [1] 1534.989
 \end{verbatim}
 
 \begin{Shaded}
@@ -11583,7 +11590,7 @@ A função \texttt{lapply()} aplica uma função \texttt{FUN} para cada elemento
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  523.46000   48.53333 1536.96667
+## [1]  523.400   46.300 1534.989
 \end{verbatim}
 
 \hypertarget{por-categoria-de-um-fator}{%
@@ -14132,7 +14139,7 @@ Utilizaremos três tabelas para esta prática:
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-360}Tabela 1}
+\caption{\label{tab:unnamed-chunk-366}Tabela 1}
 \centering
 \begin{tabular}[t]{l|l|l}
 \hline
@@ -14194,7 +14201,7 @@ Pentaphylacaceae & Freziera & carinata\\
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-362}Tabela 2}
+\caption{\label{tab:unnamed-chunk-368}Tabela 2}
 \centering
 \begin{tabular}[t]{l|l|l}
 \hline
@@ -14229,7 +14236,7 @@ Annonaceae & Guatteria & Magnoliids\\
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-364}Tabela 3}
+\caption{\label{tab:unnamed-chunk-370}Tabela 3}
 \centering
 \begin{tabular}[t]{l|l|l|l}
 \hline
@@ -16609,7 +16616,7 @@ Amostraremos \texttt{N} valores de um vetor qualquer:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-418-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-424-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16665,7 +16672,7 @@ Esta função permite gerar essa distribuição de valores aleatórios que segue
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-421-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-427-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16676,7 +16683,7 @@ Esta função permite gerar essa distribuição de valores aleatórios que segue
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-421-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-427-2.pdf}
 
 \hypertarget{pnorm}{%
 \subsubsection{\texorpdfstring{\texttt{pnorm()}}{pnorm()}}\label{pnorm}}
@@ -16739,7 +16746,7 @@ Qual percentual de pessoas não cabe em um assento de 15 polegadas?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-424-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-430-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16783,7 +16790,7 @@ Qual largura de assento garante que 95\% da população caberá?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-426-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-432-1.pdf}
 
 \hypertarget{dnorm}{%
 \subsubsection{\texorpdfstring{\texttt{dnorm()}}{dnorm()}}\label{dnorm}}
@@ -16822,7 +16829,7 @@ pessoa com quadril de 12 polegadas?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-428-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-434-1.pdf}
 
 \hypertarget{sabermais-distribuicoes}{%
 \section{Para saber mais:}\label{sabermais-distribuicoes}}
@@ -17737,7 +17744,7 @@ Vamos utilizar o conjunto \texttt{dados} carregado acima para utilizar as funç�
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-443-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-449-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -18575,7 +18582,7 @@ Vamos utilizar o conjunto \texttt{dados} carregado acima para utilizar as funç�
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-445-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-451-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -19984,7 +19991,7 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max. & NA's\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-490-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-496-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20005,7 +20012,7 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max. & NA's\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-490-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-496-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20015,7 +20022,7 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max. & NA's\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-490-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-496-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20129,7 +20136,7 @@ chauas & 1 & 7 & 1 & 320 & 80 & Myrcia sulfiflora\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-493-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-499-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20171,7 +20178,7 @@ chauas & 1 & 3 & 1 & 170 & 80 & Myrcia sulfiflora & 54.11268\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-493-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-499-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20191,7 +20198,7 @@ chauas & 1 & 3 & 1 & 170 & 80 & Myrcia sulfiflora & 54.11268\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-493-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-499-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20200,7 +20207,7 @@ chauas & 1 & 3 & 1 & 170 & 80 & Myrcia sulfiflora & 54.11268\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-493-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-499-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20208,7 +20215,7 @@ chauas & 1 & 3 & 1 & 170 & 80 & Myrcia sulfiflora & 54.11268\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-493-5.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-499-5.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20216,7 +20223,7 @@ chauas & 1 & 3 & 1 & 170 & 80 & Myrcia sulfiflora & 54.11268\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-493-6.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-499-6.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20258,7 +20265,7 @@ chauas & 1 & 3 & 1 & 170 & 80 & Myrcia sulfiflora & 54.11268\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-493-7.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-499-7.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20271,7 +20278,7 @@ chauas & 1 & 3 & 1 & 170 & 80 & Myrcia sulfiflora & 54.11268\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-493-8.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-499-8.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20379,7 +20386,7 @@ Tabebuia cassinoides & Myrcia sulfiflora & Mela 1 & jussara & Psidium sp\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-494-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-500-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20388,7 +20395,7 @@ Tabebuia cassinoides & Myrcia sulfiflora & Mela 1 & jussara & Psidium sp\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-494-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-500-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20397,7 +20404,7 @@ Tabebuia cassinoides & Myrcia sulfiflora & Mela 1 & jussara & Psidium sp\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-494-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-500-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20409,7 +20416,7 @@ Tabebuia cassinoides & Myrcia sulfiflora & Mela 1 & jussara & Psidium sp\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-494-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-500-4.pdf}
 
 \hypertarget{resumo-de-gruxe1ficos-univariados}{%
 \subsection{Resumo de gráficos univariados}\label{resumo-de-gruxe1ficos-univariados}}
@@ -20448,7 +20455,7 @@ chauas & 1 & 7 & 1 & 320 & 80 & Myrcia sulfiflora & 101.85916\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-495-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-501-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20459,7 +20466,7 @@ chauas & 1 & 7 & 1 & 320 & 80 & Myrcia sulfiflora & 101.85916\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-495-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-501-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20490,7 +20497,7 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max.\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-495-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-501-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20501,7 +20508,7 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max.\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-495-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-501-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20526,7 +20533,7 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max.\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-497-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-503-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20540,7 +20547,7 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max.\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-497-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-503-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20557,7 +20564,7 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max.\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-497-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-503-3.pdf}
 
 \hypertarget{as-variuxe1veis-tuxeam-distribuiuxe7uxe3o-normal}{%
 \section{As variáveis têm distribuição normal?}\label{as-variuxe1veis-tuxeam-distribuiuxe7uxe3o-normal}}
@@ -20586,7 +20593,7 @@ Com isso você pode visualizar a distribuição dos seus dados e sobrepor a isso
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-500-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-506-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20599,7 +20606,7 @@ Com isso você pode visualizar a distribuição dos seus dados e sobrepor a isso
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-500-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-506-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20647,7 +20654,7 @@ Com isso você pode visualizar a distribuição dos seus dados e sobrepor a isso
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-504-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-510-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20709,7 +20716,7 @@ A função \texttt{rnorm()} gera um conjunto de dados aleatórios que tem distri
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-506-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-512-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20811,7 +20818,7 @@ A função \texttt{rnorm()} gera um conjunto de dados aleatórios que tem distri
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-506-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-512-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20898,7 +20905,7 @@ x & percentil & q.norm\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-506-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-512-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20920,7 +20927,7 @@ x & percentil & q.norm\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-508-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-514-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20932,7 +20939,7 @@ x & percentil & q.norm\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-508-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-514-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20944,7 +20951,7 @@ x & percentil & q.norm\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-508-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-514-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20955,7 +20962,7 @@ x & percentil & q.norm\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-508-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-514-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20965,7 +20972,7 @@ x & percentil & q.norm\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-508-5.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-514-5.pdf}
 
 \hypertarget{sabermais-aed-univariadas}{%
 \section{Para saber mais:}\label{sabermais-aed-univariadas}}
@@ -21782,7 +21789,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21791,7 +21798,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21816,7 +21823,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21825,7 +21832,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-4.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-4.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21833,7 +21840,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-5.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-5.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21841,7 +21848,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-6.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-6.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21861,7 +21868,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-7.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-7.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21882,7 +21889,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-8.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-8.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21890,7 +21897,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-9.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-9.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21899,7 +21906,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-551-10.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-557-10.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21914,7 +21921,7 @@ A função \texttt{pairs()} mostra as correlações das variáveis par a par de 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-553-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-559-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -21990,7 +21997,7 @@ As funções \texttt{xyplot()} e \texttt{bwplot()} são oriundas do pacote \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-555-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-561-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22018,7 +22025,7 @@ As funções \texttt{xyplot()} e \texttt{bwplot()} são oriundas do pacote \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-558-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-564-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22027,7 +22034,7 @@ As funções \texttt{xyplot()} e \texttt{bwplot()} são oriundas do pacote \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-558-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-564-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22088,7 +22095,7 @@ chauas & 1 & 7 & 1 & 320 & 80 & Myrcia sulfiflora & 80424.77\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-560-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-566-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22097,7 +22104,7 @@ chauas & 1 & 7 & 1 & 320 & 80 & Myrcia sulfiflora & 80424.77\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-560-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-566-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22106,7 +22113,7 @@ chauas & 1 & 7 & 1 & 320 & 80 & Myrcia sulfiflora & 80424.77\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-560-3.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-566-3.pdf}
 
 \hypertarget{aed-multivar}{%
 \chapter{AED de multivariadas}\label{aed-multivar}}
@@ -22165,7 +22172,7 @@ Para entender o que essas funções fazem, vamos ver um exemplo simples de cálc
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-563-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-569-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22297,7 +22304,7 @@ Vamos agora instalar o pacote e carregar o pacote \texttt{labdsv}:
 ##  $ type  : chr "NMDS"
 ##  - attr(*, "class")= chr [1:2] "dsvord" "nmds"
 ##  - attr(*, "call")= language bestnmds(dis = mdist, k = 2)
-##  - attr(*, "timestamp")= chr "Fri Sep 29 15:23:54 2023"
+##  - attr(*, "timestamp")= chr "Wed Oct  4 14:26:25 2023"
 \end{verbatim}
 
 \begin{Shaded}
@@ -22355,7 +22362,7 @@ Vamos agora instalar o pacote e carregar o pacote \texttt{labdsv}:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-568-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-574-1.pdf}
 
 \hypertarget{exemplo-com-dados-morfoluxf3gicos}{%
 \subsection{Exemplo com dados morfológicos}\label{exemplo-com-dados-morfoluxf3gicos}}
@@ -22620,7 +22627,7 @@ Vamos utilizar a função \texttt{vegdist()} do pacote \texttt{vegan} \citep{R-v
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-582-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-588-1.pdf}
 
 \hypertarget{anuxe1lises-de-agrupamento}{%
 \section{Análises de agrupamento}\label{anuxe1lises-de-agrupamento}}
@@ -22675,7 +22682,7 @@ Também facilita a geração de gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-587-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-593-1.pdf}
 
 \hypertarget{agrupamento-por-upgma}{%
 \subsection{Agrupamento por UPGMA}\label{agrupamento-por-upgma}}
@@ -22687,7 +22694,7 @@ Também facilita a geração de gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-588-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-594-1.pdf}
 
 \hypertarget{agrupamento-por-centruxf3ides}{%
 \subsection{Agrupamento por centróides}\label{agrupamento-por-centruxf3ides}}
@@ -22699,7 +22706,7 @@ Também facilita a geração de gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-589-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-595-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22723,7 +22730,7 @@ Vamos converter nossos objetos \texttt{gp} e \texttt{gp3} para objetos de classe
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-591-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-597-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22732,7 +22739,7 @@ Vamos converter nossos objetos \texttt{gp} e \texttt{gp3} para objetos de classe
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-592-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-598-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22741,7 +22748,7 @@ Vamos converter nossos objetos \texttt{gp} e \texttt{gp3} para objetos de classe
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-593-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-599-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22752,7 +22759,7 @@ Vamos converter nossos objetos \texttt{gp} e \texttt{gp3} para objetos de classe
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-594-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-600-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22761,7 +22768,7 @@ Vamos converter nossos objetos \texttt{gp} e \texttt{gp3} para objetos de classe
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-595-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-601-1.pdf}
 
 \hypertarget{exemplo-floruxedstico}{%
 \subsection{Exemplo florístico}\label{exemplo-floruxedstico}}
@@ -23006,7 +23013,7 @@ retiro-5 & retiro & retiro-5\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-611-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-617-1.pdf}
 
 Agora vamos visualizar o resultado na forma de um agrupamento:
 
@@ -23017,7 +23024,7 @@ Agora vamos visualizar o resultado na forma de um agrupamento:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-612-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-618-1.pdf}
 
 Para aprimorar a figura, vamos utilizar a função \texttt{as.phylo()} do pacote \texttt{ape} \citep{R-ape} para converter o objeto \texttt{cluster} de classe \texttt{dendrogram} para um de classe \texttt{phylo}.
 
@@ -23080,7 +23087,7 @@ Plota o NMDS:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-619-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-625-1.pdf}
 
 Agora, vamos plotar o agrupamento:
 
@@ -23097,7 +23104,7 @@ Agora, vamos plotar o agrupamento:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-620-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-626-1.pdf}
 
 \hypertarget{anuxe1lise-de-coordenadas-principais-pcoa}{%
 \subsection{Análise de Coordenadas Principais (PCoA)}\label{anuxe1lise-de-coordenadas-principais-pcoa}}
@@ -23139,7 +23146,7 @@ Leiam aqui uma \href{http://occamstypewriter.org/boboh/2012/01/17/pca_and_pcoa_e
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-621-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-627-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -23163,7 +23170,7 @@ Leiam aqui uma \href{http://occamstypewriter.org/boboh/2012/01/17/pca_and_pcoa_e
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-623-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-629-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -23346,7 +23353,7 @@ Leiam aqui uma \href{http://occamstypewriter.org/boboh/2012/01/17/pca_and_pcoa_e
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-624-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-630-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -23381,7 +23388,7 @@ Petal.Width & 2.0004259 & -0.1699399\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-626-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-632-1.pdf}
 
 \hypertarget{componentes-principais-pca}{%
 \section{Componentes Principais (PCA)}\label{componentes-principais-pca}}
@@ -23472,7 +23479,7 @@ Vamos fazer uma figura utilizando a função \texttt{ordiplot()} do pacote \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-631-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-637-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -23488,7 +23495,7 @@ Vamos fazer uma figura utilizando a função \texttt{ordiplot()} do pacote \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-631-2.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-637-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -23498,7 +23505,7 @@ Vamos fazer uma figura utilizando a função \texttt{ordiplot()} do pacote \text
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-632-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-638-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -23534,7 +23541,7 @@ Petal.Width & 0.5648565 & -0.0669420 & -0.6342727 & 0.5235971\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-634-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-640-1.pdf}
 
 \hypertarget{appendix-apuxeandice}{%
 \appendix \addcontentsline{toc}{chapter}{\appendixname}}
@@ -24417,7 +24424,7 @@ Vejamos na prática como funciona:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-656-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-662-1.pdf}
 
 Dentro das funções que plotam os dados efetivamente (e.g., \texttt{geom\_point()}, \texttt{geom\_boxplot()}), devemos sempre usar a função \texttt{aes()}: nela inserimos os eixos \texttt{x} e \texttt{y}, informando sempre o nome das colunas \emph{sem aspas}.
 Se quisermos colorir os pontos em função das espécies, fazemos:
@@ -24429,7 +24436,7 @@ Se quisermos colorir os pontos em função das espécies, fazemos:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-657-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-663-1.pdf}
 
 Por trabalhar em camadas, podemos atribuir os resultados dessas operações a objetos. Por exemplo, vamos passar o resultado da ação acima para um objeto \texttt{meugrafico} e mudar os temas do gráfico:
 
@@ -24446,7 +24453,7 @@ Por trabalhar em camadas, podemos atribuir os resultados dessas operações a ob
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-659-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-665-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -24454,7 +24461,7 @@ Por trabalhar em camadas, podemos atribuir os resultados dessas operações a ob
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-660-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-666-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -24462,7 +24469,7 @@ Por trabalhar em camadas, podemos atribuir os resultados dessas operações a ob
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-661-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-667-1.pdf}
 
 Podemos facilmente também gerar um gráfico para cada espécie utilizando a função \texttt{facet\_wrap()}:
 
@@ -24472,7 +24479,7 @@ Podemos facilmente também gerar um gráfico para cada espécie utilizando a fun
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-662-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-668-1.pdf}
 
 Não temos a intenção de cobrir todo o uso do pacote \texttt{ggplot2} nesta postagem. Existem muitas páginas com excelentes tutoriais na internet que podem ser visitadas para um maior aprofundamento nas ferramentas deste pacote (vejam abaixo na seção \protect\hyperlink{sabermais-tidyverse}{\textbf{Para saber mais}}).
 Queremos aqui demonstrar o uso concomitante do pacote \texttt{ggplot2} dentro de uma linha de trabalho associada ao pacote \texttt{dplyr}.
@@ -24498,7 +24505,7 @@ Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjun
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-663-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-669-1.pdf}
 
 \hypertarget{diagrama-de-caixas}{%
 \subsection{Diagrama de caixas}\label{diagrama-de-caixas}}
@@ -24514,7 +24521,7 @@ Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjun
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-664-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-670-1.pdf}
 
 \hypertarget{histograma}{%
 \subsection{Histograma}\label{histograma}}
@@ -24535,7 +24542,7 @@ Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjun
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-665-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-671-1.pdf}
 
 \hypertarget{baser}{%
 \section{\texorpdfstring{Comparando o mesmo conjunto de ações entre \texttt{base} R e \texttt{dplyr}}{Comparando o mesmo conjunto de ações entre base R e dplyr}}\label{baser}}
@@ -24776,7 +24783,7 @@ virginica & 4.700000 & 1.115873 & 0.2828427 & 0.0381613\\
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-666-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-672-1.pdf}
 
 Vejam que os resultados são iguais, com exceção da estética diferente proporcionada pelo pacote \texttt{ggplot2}.
 Porém, há uma mudança notável em como a manipulação dos dados é feita quando utilizamos o operador \texttt{\%\textgreater{}\%} dentro do fluxo de trabalho, como \protect\hyperlink{pipe}{resumido acima}: a leitura é feita da esquerda para a direita, podemos reduzir a criação de objetos intermediários na área de trabalho, e o código pode ser lido com mais clareza.
@@ -25052,7 +25059,7 @@ Acesso em: \url{https://www.youtube.com/embed/hvWJr0khuwc}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-669-1.pdf}
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-675-1.pdf}
 
 \backmatter
 

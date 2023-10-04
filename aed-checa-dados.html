@@ -574,14 +574,14 @@ seus dados.
 </ul>
 </div>
 <p>Vamos começar importando os dados ao R:</p>
-<div class="sourceCode" id="cb1461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1461-1"><a href="aed-checa-dados.html#cb1461-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Lendo a planilha com read.table</span></span>
-<span id="cb1461-2"><a href="aed-checa-dados.html#cb1461-2" aria-hidden="true" tabindex="-1"></a>avesc <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;aves_cerrado.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="at">as.is =</span> T, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1462-1"><a href="aed-checa-dados.html#cb1462-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Lendo a planilha com read.table</span></span>
+<span id="cb1462-2"><a href="aed-checa-dados.html#cb1462-2" aria-hidden="true" tabindex="-1"></a>avesc <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;aves_cerrado.csv&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="at">as.is =</span> T, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
 <p>Repare no argumento <code>na.strings</code> da função <code>read.table()</code>.
 Ele é importante na importação de dados pois garante a codificação de valores ausentes usando a constante lógica <code>NA</code> do R.
 Se você não definir isso, o padrão é reconhecer apenas células que tenham o texto <strong>NA</strong> como valor faltante.
 Veja também o uso do argumento <code>as.is = TRUE</code>, que indica que não se deve converter colunas de texto em fatores (ou você pode usar o argumento <code>stringsAsFactors</code> para isso; este mesmo argumento é utilizado também na função <code>data.frame()</code>).
 Vamos ver as primeiras 10 linhas do objeto <code>avesc</code>:</p>
-<div class="sourceCode" id="cb1462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1462-1"><a href="aed-checa-dados.html#cb1462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avesc, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1463-1"><a href="aed-checa-dados.html#cb1463-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avesc, <span class="dv">10</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -775,12 +775,12 @@ Ce
 </tbody>
 </table>
 <p>Vamos criar uma cópia para usarmos depois.</p>
-<div class="sourceCode" id="cb1463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1463-1"><a href="aed-checa-dados.html#cb1463-1" aria-hidden="true" tabindex="-1"></a>aves2 <span class="ot">&lt;-</span> avesc</span></code></pre></div>
+<div class="sourceCode" id="cb1464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1464-1"><a href="aed-checa-dados.html#cb1464-1" aria-hidden="true" tabindex="-1"></a>aves2 <span class="ot">&lt;-</span> avesc</span></code></pre></div>
 <p>É sempre bom verificar se os dados foram importados corretamente.
 É sempre um bom procedimento checarmos as dimensões do objeto com a função <code>dim()</code>, primeiras e últimas linhas e colunas do objeto com funções <code>head()</code> e <code>tail()</code> respectivamente</p>
-<div class="sourceCode" id="cb1464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1464-1"><a href="aed-checa-dados.html#cb1464-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(avesc) <span class="co"># a dimensao do objeto (linhas e colunas)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1465-1"><a href="aed-checa-dados.html#cb1465-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(avesc) <span class="co"># a dimensao do objeto (linhas e colunas)</span></span></code></pre></div>
 <pre><code>## [1] 60  4</code></pre>
-<div class="sourceCode" id="cb1466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1466-1"><a href="aed-checa-dados.html#cb1466-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avesc, <span class="dv">3</span>) <span class="co"># a cabeca do objeto (tres primeiras linhas)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1467-1"><a href="aed-checa-dados.html#cb1467-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(avesc, <span class="dv">3</span>) <span class="co"># a cabeca do objeto (tres primeiras linhas)</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -854,7 +854,7 @@ Ce
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1467-1"><a href="aed-checa-dados.html#cb1467-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(avesc, <span class="dv">3</span>) <span class="co"># a cauda do objeto (tres ultimas linhas)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1468-1"><a href="aed-checa-dados.html#cb1468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(avesc, <span class="dv">3</span>) <span class="co"># a cauda do objeto (tres ultimas linhas)</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -928,7 +928,7 @@ CL
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1468-1"><a href="aed-checa-dados.html#cb1468-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="fu">nrow</span>(avesc), ] <span class="co"># ultima linha</span></span></code></pre></div>
+<div class="sourceCode" id="cb1469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1469-1"><a href="aed-checa-dados.html#cb1469-1" aria-hidden="true" tabindex="-1"></a>avesc[<span class="fu">nrow</span>(avesc), ] <span class="co"># ultima linha</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -970,8 +970,8 @@ CL
 </table>
 <p>Parece que está tudo certo!
 Vamos checar a estrutura do objeto:</p>
-<div class="sourceCode" id="cb1469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1469-1"><a href="aed-checa-dados.html#cb1469-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra a estrutura do data.frame</span></span>
-<span id="cb1469-2"><a href="aed-checa-dados.html#cb1469-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(avesc)</span></code></pre></div>
+<div class="sourceCode" id="cb1470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1470-1"><a href="aed-checa-dados.html#cb1470-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra a estrutura do data.frame</span></span>
+<span id="cb1470-2"><a href="aed-checa-dados.html#cb1470-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(avesc)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    60 obs. of  4 variables:
 ##  $ fisionomia: chr  &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; &quot;Ce&quot; ...
 ##  $ urubu     : int  5 7 5 3 4 NA 6 4 2 5 ...
@@ -979,8 +979,8 @@ Vamos checar a estrutura do objeto:</p>
 ##  $ seriema   : int  6 6 4 5 4 NA 4 10 6 7 ...</code></pre>
 <p>Reparem que há uma variável de texto (<code>chr</code>) e três variáveis de números inteiros (<code>int</code>).
 Próximo passo é sempre checar um sumário estatístico das variáveis presentes no objeto usando a função <code>summary()</code>:</p>
-<div class="sourceCode" id="cb1471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1471-1"><a href="aed-checa-dados.html#cb1471-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra um resumo da variacao nas colunas</span></span>
-<span id="cb1471-2"><a href="aed-checa-dados.html#cb1471-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(avesc)</span></code></pre></div>
+<div class="sourceCode" id="cb1472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1472-1"><a href="aed-checa-dados.html#cb1472-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra um resumo da variacao nas colunas</span></span>
+<span id="cb1472-2"><a href="aed-checa-dados.html#cb1472-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(avesc)</span></code></pre></div>
 <table>
 <thead>
 <tr>

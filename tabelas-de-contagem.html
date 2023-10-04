@@ -556,13 +556,13 @@ div.csl-indent {
 <h2><span class="header-section-number">7.2</span> Tabelas de contagem<a href="tabelas-de-contagem.html#tabelas-de-contagem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Vamos usar utilizar os mesmos dados de caixetas utilizados na seção <a href="tabela-dinamica.html#tabela-dinamica">7.1</a>.
 A função <code>table()</code> permite contar valores em fatores e vetores.</p>
-<div class="sourceCode" id="cb1191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1191-1"><a href="tabelas-de-contagem.html#cb1191-1" aria-hidden="true" tabindex="-1"></a>caixeta <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">header =</span> T)</span></code></pre></div>
-<div class="sourceCode" id="cb1192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1192-1"><a href="tabelas-de-contagem.html#cb1192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1192-1"><a href="tabelas-de-contagem.html#cb1192-1" aria-hidden="true" tabindex="-1"></a>caixeta <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">header =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb1193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1193-1"><a href="tabelas-de-contagem.html#cb1193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;
 ## [8] &quot;ab&quot;</code></pre>
-<div class="sourceCode" id="cb1194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1194-1"><a href="tabelas-de-contagem.html#cb1194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tem a coluna especie</span></span></code></pre></div>
-<div class="sourceCode" id="cb1195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1195-1"><a href="tabelas-de-contagem.html#cb1195-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)</span></span>
-<span id="cb1195-2"><a href="tabelas-de-contagem.html#cb1195-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>especie)</span></code></pre></div>
+<div class="sourceCode" id="cb1195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1195-1"><a href="tabelas-de-contagem.html#cb1195-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tem a coluna especie</span></span></code></pre></div>
+<div class="sourceCode" id="cb1196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1196-1"><a href="tabelas-de-contagem.html#cb1196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)</span></span>
+<span id="cb1196-2"><a href="tabelas-de-contagem.html#cb1196-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>especie)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -921,8 +921,8 @@ Tibouchina nutticeps
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1196-1"><a href="tabelas-de-contagem.html#cb1196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra as tres especies mais abundantes</span></span>
-<span id="cb1196-2"><a href="tabelas-de-contagem.html#cb1196-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1197-1"><a href="tabelas-de-contagem.html#cb1197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra as tres especies mais abundantes</span></span>
+<span id="cb1197-2"><a href="tabelas-de-contagem.html#cb1197-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(caixeta<span class="sc">$</span>especie), <span class="at">decreasing =</span> T)[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -951,8 +951,8 @@ Mela 1
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1197-1"><a href="tabelas-de-contagem.html#cb1197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quantos individuos por localidade?</span></span>
-<span id="cb1197-2"><a href="tabelas-de-contagem.html#cb1197-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>local)</span></code></pre></div>
+<div class="sourceCode" id="cb1198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1198-1"><a href="tabelas-de-contagem.html#cb1198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quantos individuos por localidade?</span></span>
+<span id="cb1198-2"><a href="tabelas-de-contagem.html#cb1198-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(caixeta<span class="sc">$</span>local)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -981,9 +981,9 @@ retiro
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1198-1"><a href="tabelas-de-contagem.html#cb1198-1" aria-hidden="true" tabindex="-1"></a><span class="co"># especie por localidade</span></span>
-<span id="cb1198-2"><a href="tabelas-de-contagem.html#cb1198-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(caixeta<span class="sc">$</span>especie, caixeta<span class="sc">$</span>local)</span></code></pre></div>
-<div class="sourceCode" id="cb1199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1199-1"><a href="tabelas-de-contagem.html#cb1199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb, <span class="dv">3</span>) <span class="co"># mostra as tres primeiras linhas</span></span></code></pre></div>
+<div class="sourceCode" id="cb1199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1199-1"><a href="tabelas-de-contagem.html#cb1199-1" aria-hidden="true" tabindex="-1"></a><span class="co"># especie por localidade</span></span>
+<span id="cb1199-2"><a href="tabelas-de-contagem.html#cb1199-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(caixeta<span class="sc">$</span>especie, caixeta<span class="sc">$</span>local)</span></code></pre></div>
+<div class="sourceCode" id="cb1200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1200-1"><a href="tabelas-de-contagem.html#cb1200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb, <span class="dv">3</span>) <span class="co"># mostra as tres primeiras linhas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1045,12 +1045,12 @@ bombacaceae
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1200-1"><a href="tabelas-de-contagem.html#cb1200-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tabela de presenca e ausencia de especie por localidade</span></span>
-<span id="cb1200-2"><a href="tabelas-de-contagem.html#cb1200-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(caixeta<span class="sc">$</span>especie, caixeta<span class="sc">$</span>local)</span>
-<span id="cb1200-3"><a href="tabelas-de-contagem.html#cb1200-3" aria-hidden="true" tabindex="-1"></a><span class="co"># quem tem mais de 0 individuos está presente</span></span>
-<span id="cb1200-4"><a href="tabelas-de-contagem.html#cb1200-4" aria-hidden="true" tabindex="-1"></a><span class="co"># portanto, substituo por 1</span></span>
-<span id="cb1200-5"><a href="tabelas-de-contagem.html#cb1200-5" aria-hidden="true" tabindex="-1"></a>tb[tb <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div>
-<div class="sourceCode" id="cb1201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1201-1"><a href="tabelas-de-contagem.html#cb1201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1201-1"><a href="tabelas-de-contagem.html#cb1201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tabela de presenca e ausencia de especie por localidade</span></span>
+<span id="cb1201-2"><a href="tabelas-de-contagem.html#cb1201-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(caixeta<span class="sc">$</span>especie, caixeta<span class="sc">$</span>local)</span>
+<span id="cb1201-3"><a href="tabelas-de-contagem.html#cb1201-3" aria-hidden="true" tabindex="-1"></a><span class="co"># quem tem mais de 0 individuos está presente</span></span>
+<span id="cb1201-4"><a href="tabelas-de-contagem.html#cb1201-4" aria-hidden="true" tabindex="-1"></a><span class="co"># portanto, substituo por 1</span></span>
+<span id="cb1201-5"><a href="tabelas-de-contagem.html#cb1201-5" aria-hidden="true" tabindex="-1"></a>tb[tb <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb1202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1202-1"><a href="tabelas-de-contagem.html#cb1202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1154,8 +1154,8 @@ Calophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1202-1"><a href="tabelas-de-contagem.html#cb1202-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sendo assim, posso ver o numero de especie por localidade aplicando a suma das linha que tem 1 para cada coluna</span></span>
-<span id="cb1202-2"><a href="tabelas-de-contagem.html#cb1202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(tb, <span class="dv">2</span>, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb1203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1203-1"><a href="tabelas-de-contagem.html#cb1203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sendo assim, posso ver o numero de especie por localidade aplicando a suma das linha que tem 1 para cada coluna</span></span>
+<span id="cb1203-2"><a href="tabelas-de-contagem.html#cb1203-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(tb, <span class="dv">2</span>, sum)</span></code></pre></div>
 <pre><code>## chauas jureia retiro 
 ##     13     22     13</code></pre>
 </div>

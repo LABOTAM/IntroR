@@ -21,25 +21,6 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
-</g>
-<defs>
-  <clipPath id='cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng=='>
-    <rect x='59.04' y='59.04' width='414.72' height='227.52' />
-  </clipPath>
-</defs>
-<g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
-<circle cx='74.40' cy='67.47' r='2.70' style='stroke-width: 0.75;' />
-<circle cx='117.07' cy='90.87' r='2.70' style='stroke-width: 0.75;' />
-<circle cx='159.73' cy='114.28' r='2.70' style='stroke-width: 0.75;' />
-<circle cx='202.40' cy='137.69' r='2.70' style='stroke-width: 0.75;' />
-<circle cx='245.07' cy='161.10' r='2.70' style='stroke-width: 0.75;' />
-<circle cx='287.73' cy='184.50' r='2.70' style='stroke-width: 0.75;' />
-<circle cx='330.40' cy='207.91' r='2.70' style='stroke-width: 0.75;' />
-<circle cx='373.07' cy='231.32' r='2.70' style='stroke-width: 0.75;' />
-<circle cx='415.73' cy='254.73' r='2.70' style='stroke-width: 0.75;' />
-<circle cx='458.40' cy='278.13' r='2.70' style='stroke-width: 0.75;' />
-</g>
-<g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
 <line x1='117.07' y1='286.56' x2='458.40' y2='286.56' style='stroke-width: 0.75;' />
 <line x1='117.07' y1='286.56' x2='117.07' y2='293.76' style='stroke-width: 0.75;' />
 <line x1='202.40' y1='286.56' x2='202.40' y2='293.76' style='stroke-width: 0.75;' />
@@ -63,8 +44,15 @@
 <text transform='translate(41.76,114.28) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='7.64px' lengthAdjust='spacingAndGlyphs'>8</text>
 <text transform='translate(41.76,67.47) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='15.28px' lengthAdjust='spacingAndGlyphs'>10</text>
 <polygon points='59.04,286.56 473.76,286.56 473.76,59.04 59.04,59.04 ' style='stroke-width: 0.75;' />
-<text x='266.40' y='34.77' text-anchor='middle' style='font-size: 14.40px; font-weight: bold; font-family: "Liberation Sans";' textLength='276.61px' lengthAdjust='spacingAndGlyphs'>Plotando uma matriz de 2 colunas</text>
-<text x='266.40' y='341.28' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='37.04px' lengthAdjust='spacingAndGlyphs'>Eixo X</text>
-<text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='36.14px' lengthAdjust='spacingAndGlyphs'>Eixo Y</text>
+<text x='266.40' y='341.28' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='26.96px' lengthAdjust='spacingAndGlyphs'>1:10</text>
+<text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='26.96px' lengthAdjust='spacingAndGlyphs'>1:10</text>
+</g>
+<defs>
+  <clipPath id='cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng=='>
+    <rect x='59.04' y='59.04' width='414.72' height='227.52' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
+<polygon points='202.40,254.73 351.73,254.73 381.60,184.50 287.73,114.28 202.40,254.73 ' style='stroke-width: 1.50; fill: #FF0000;' />
 </g>
 </svg>

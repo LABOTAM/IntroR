@@ -554,17 +554,17 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="chernoff" class="section level1 hasAnchor" number="18">
 <h1><span class="header-section-number">D</span> Caras de Chernoff<a href="chernoff.html#chernoff" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb1921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1921-1"><a href="chernoff.html#cb1921-1" aria-hidden="true" tabindex="-1"></a><span class="co">#as carinhas de Chernoff são geradas pelo pacote TeachingDemos</span></span>
-<span id="cb1921-2"><a href="chernoff.html#cb1921-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;TeachingDemos&quot;</span>)</span>
-<span id="cb1921-3"><a href="chernoff.html#cb1921-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1921-4"><a href="chernoff.html#cb1921-4" aria-hidden="true" tabindex="-1"></a><span class="co">#uma matriz com variaveis</span></span>
-<span id="cb1921-5"><a href="chernoff.html#cb1921-5" aria-hidden="true" tabindex="-1"></a>pessoas <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">&quot;pessoa&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span>
-<span id="cb1921-6"><a href="chernoff.html#cb1921-6" aria-hidden="true" tabindex="-1"></a>altura <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>,<span class="at">mean=</span><span class="fl">1.7</span>,<span class="at">sd=</span><span class="fl">0.2</span>)</span>
-<span id="cb1921-7"><a href="chernoff.html#cb1921-7" aria-hidden="true" tabindex="-1"></a>dedao <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>,<span class="at">mean=</span><span class="fl">0.05</span>,<span class="at">sd=</span><span class="fl">0.002</span>)</span>
-<span id="cb1921-8"><a href="chernoff.html#cb1921-8" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">=</span> <span class="fu">data.frame</span>(altura,dedao)</span>
-<span id="cb1921-9"><a href="chernoff.html#cb1921-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mm) <span class="ot">=</span> pessoas</span>
-<span id="cb1921-10"><a href="chernoff.html#cb1921-10" aria-hidden="true" tabindex="-1"></a><span class="fu">faces</span>(mm)</span></code></pre></div>
-<p><img src="bot89-introR_files/figure-html/unnamed-chunk-683-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb1922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1922-1"><a href="chernoff.html#cb1922-1" aria-hidden="true" tabindex="-1"></a><span class="co">#as carinhas de Chernoff são geradas pelo pacote TeachingDemos</span></span>
+<span id="cb1922-2"><a href="chernoff.html#cb1922-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;TeachingDemos&quot;</span>)</span>
+<span id="cb1922-3"><a href="chernoff.html#cb1922-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1922-4"><a href="chernoff.html#cb1922-4" aria-hidden="true" tabindex="-1"></a><span class="co">#uma matriz com variaveis</span></span>
+<span id="cb1922-5"><a href="chernoff.html#cb1922-5" aria-hidden="true" tabindex="-1"></a>pessoas <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">&quot;pessoa&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span>
+<span id="cb1922-6"><a href="chernoff.html#cb1922-6" aria-hidden="true" tabindex="-1"></a>altura <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>,<span class="at">mean=</span><span class="fl">1.7</span>,<span class="at">sd=</span><span class="fl">0.2</span>)</span>
+<span id="cb1922-7"><a href="chernoff.html#cb1922-7" aria-hidden="true" tabindex="-1"></a>dedao <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>,<span class="at">mean=</span><span class="fl">0.05</span>,<span class="at">sd=</span><span class="fl">0.002</span>)</span>
+<span id="cb1922-8"><a href="chernoff.html#cb1922-8" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">=</span> <span class="fu">data.frame</span>(altura,dedao)</span>
+<span id="cb1922-9"><a href="chernoff.html#cb1922-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mm) <span class="ot">=</span> pessoas</span>
+<span id="cb1922-10"><a href="chernoff.html#cb1922-10" aria-hidden="true" tabindex="-1"></a><span class="fu">faces</span>(mm)</span></code></pre></div>
+<p><img src="bot89-introR_files/figure-html/unnamed-chunk-689-1.svg" width="672" /></p>
 
 </div>
             </section>

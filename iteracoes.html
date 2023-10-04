@@ -564,11 +564,11 @@ Se você compreende os <em>LOOPS</em>, pode fazer o que essas funções fazem se
 <div id="exemplo-1" class="section level4 hasAnchor" number="6.3.1.1">
 <h4><span class="header-section-number">6.3.1.1</span> Exemplo 1<a href="iteracoes.html#exemplo-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Um exemplo simples do que seria uma iteração com o comando <code>for(){}</code>:</p>
-<div class="sourceCode" id="cb1123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1123-1"><a href="iteracoes.html#cb1123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos imprimir na tela as letras do objeto LETTERS</span></span>
-<span id="cb1123-2"><a href="iteracoes.html#cb1123-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (let <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(LETTERS)) {</span>
-<span id="cb1123-3"><a href="iteracoes.html#cb1123-3" aria-hidden="true" tabindex="-1"></a>  paraimprimir <span class="ot">&lt;-</span> <span class="fu">paste</span>(LETTERS[let], <span class="st">&quot; é a letra de índice &quot;</span>, let)</span>
-<span id="cb1123-4"><a href="iteracoes.html#cb1123-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(paraimprimir)</span>
-<span id="cb1123-5"><a href="iteracoes.html#cb1123-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1124-1"><a href="iteracoes.html#cb1124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos imprimir na tela as letras do objeto LETTERS</span></span>
+<span id="cb1124-2"><a href="iteracoes.html#cb1124-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (let <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(LETTERS)) {</span>
+<span id="cb1124-3"><a href="iteracoes.html#cb1124-3" aria-hidden="true" tabindex="-1"></a>  paraimprimir <span class="ot">&lt;-</span> <span class="fu">paste</span>(LETTERS[let], <span class="st">&quot; é a letra de índice &quot;</span>, let)</span>
+<span id="cb1124-4"><a href="iteracoes.html#cb1124-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(paraimprimir)</span>
+<span id="cb1124-5"><a href="iteracoes.html#cb1124-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;A  é a letra de índice  1&quot;
 ## [1] &quot;B  é a letra de índice  2&quot;
 ## [1] &quot;C  é a letra de índice  3&quot;
@@ -599,11 +599,11 @@ Se você compreende os <em>LOOPS</em>, pode fazer o que essas funções fazem se
 </div>
 <div id="exemplo-2" class="section level4 hasAnchor" number="6.3.1.2">
 <h4><span class="header-section-number">6.3.1.2</span> Exemplo 2<a href="iteracoes.html#exemplo-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1125-1"><a href="iteracoes.html#cb1125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazendo um loop com for(){} replicando o que a função apply() faz</span></span>
-<span id="cb1125-2"><a href="iteracoes.html#cb1125-2" aria-hidden="true" tabindex="-1"></a><span class="co"># criamos uma matriz</span></span>
-<span id="cb1125-3"><a href="iteracoes.html#cb1125-3" aria-hidden="true" tabindex="-1"></a>vetn <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">1</span>)</span>
-<span id="cb1125-4"><a href="iteracoes.html#cb1125-4" aria-hidden="true" tabindex="-1"></a>mvetn <span class="ot">&lt;-</span> <span class="fu">matrix</span>(vetn, <span class="at">ncol =</span> <span class="dv">10</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
-<span id="cb1125-5"><a href="iteracoes.html#cb1125-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mvetn)</span></code></pre></div>
+<div class="sourceCode" id="cb1126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1126-1"><a href="iteracoes.html#cb1126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazendo um loop com for(){} replicando o que a função apply() faz</span></span>
+<span id="cb1126-2"><a href="iteracoes.html#cb1126-2" aria-hidden="true" tabindex="-1"></a><span class="co"># criamos uma matriz</span></span>
+<span id="cb1126-3"><a href="iteracoes.html#cb1126-3" aria-hidden="true" tabindex="-1"></a>vetn <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">1</span>)</span>
+<span id="cb1126-4"><a href="iteracoes.html#cb1126-4" aria-hidden="true" tabindex="-1"></a>mvetn <span class="ot">&lt;-</span> <span class="fu">matrix</span>(vetn, <span class="at">ncol =</span> <span class="dv">10</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
+<span id="cb1126-5"><a href="iteracoes.html#cb1126-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mvetn)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -854,18 +854,18 @@ linha 6
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1126-1"><a href="iteracoes.html#cb1126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazendo algo == apply(mvetn,2,mean)</span></span>
-<span id="cb1126-2"><a href="iteracoes.html#cb1126-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um objeto para salvar o resultado</span></span>
-<span id="cb1126-3"><a href="iteracoes.html#cb1126-3" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb1126-4"><a href="iteracoes.html#cb1126-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (coluna <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mvetn)) {</span>
-<span id="cb1126-5"><a href="iteracoes.html#cb1126-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># pega a coluna</span></span>
-<span id="cb1126-6"><a href="iteracoes.html#cb1126-6" aria-hidden="true" tabindex="-1"></a>  cl <span class="ot">&lt;-</span> mvetn[, coluna]</span>
-<span id="cb1126-7"><a href="iteracoes.html#cb1126-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calcula a media</span></span>
-<span id="cb1126-8"><a href="iteracoes.html#cb1126-8" aria-hidden="true" tabindex="-1"></a>  mcl <span class="ot">&lt;-</span> <span class="fu">mean</span>(cl)</span>
-<span id="cb1126-9"><a href="iteracoes.html#cb1126-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Média da coluna&quot;</span>, <span class="fu">colnames</span>(mvetn)[cl], <span class="st">&quot;=&quot;</span>, <span class="fu">round</span>(mcl, <span class="dv">2</span>)))</span>
-<span id="cb1126-10"><a href="iteracoes.html#cb1126-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># salva o resultado com a media do item anterior</span></span>
-<span id="cb1126-11"><a href="iteracoes.html#cb1126-11" aria-hidden="true" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> <span class="fu">c</span>(resultado, mcl)</span>
-<span id="cb1126-12"><a href="iteracoes.html#cb1126-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1127-1"><a href="iteracoes.html#cb1127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazendo algo == apply(mvetn,2,mean)</span></span>
+<span id="cb1127-2"><a href="iteracoes.html#cb1127-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um objeto para salvar o resultado</span></span>
+<span id="cb1127-3"><a href="iteracoes.html#cb1127-3" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb1127-4"><a href="iteracoes.html#cb1127-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (coluna <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mvetn)) {</span>
+<span id="cb1127-5"><a href="iteracoes.html#cb1127-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># pega a coluna</span></span>
+<span id="cb1127-6"><a href="iteracoes.html#cb1127-6" aria-hidden="true" tabindex="-1"></a>  cl <span class="ot">&lt;-</span> mvetn[, coluna]</span>
+<span id="cb1127-7"><a href="iteracoes.html#cb1127-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calcula a media</span></span>
+<span id="cb1127-8"><a href="iteracoes.html#cb1127-8" aria-hidden="true" tabindex="-1"></a>  mcl <span class="ot">&lt;-</span> <span class="fu">mean</span>(cl)</span>
+<span id="cb1127-9"><a href="iteracoes.html#cb1127-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Média da coluna&quot;</span>, <span class="fu">colnames</span>(mvetn)[cl], <span class="st">&quot;=&quot;</span>, <span class="fu">round</span>(mcl, <span class="dv">2</span>)))</span>
+<span id="cb1127-10"><a href="iteracoes.html#cb1127-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># salva o resultado com a media do item anterior</span></span>
+<span id="cb1127-11"><a href="iteracoes.html#cb1127-11" aria-hidden="true" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> <span class="fu">c</span>(resultado, mcl)</span>
+<span id="cb1127-12"><a href="iteracoes.html#cb1127-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>##  [1] &quot;Média da coluna NA = 30.02&quot; &quot;Média da coluna NA = 30.02&quot;
 ##  [3] &quot;Média da coluna NA = 30.02&quot; &quot;Média da coluna NA = 30.02&quot;
 ##  [5] &quot;Média da coluna NA = 30.02&quot; &quot;Média da coluna NA = 30.02&quot;
@@ -916,16 +916,16 @@ linha 6
 ##  [5] &quot;Média da coluna NA = 30.69&quot; &quot;Média da coluna NA = 30.69&quot;
 ##  [7] &quot;Média da coluna NA = 30.69&quot; &quot;Média da coluna NA = 30.69&quot;
 ##  [9] &quot;Média da coluna NA = 30.69&quot; &quot;Média da coluna NA = 30.69&quot;</code></pre>
-<div class="sourceCode" id="cb1128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1128-1"><a href="iteracoes.html#cb1128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adicona o nome das colunas</span></span>
-<span id="cb1128-2"><a href="iteracoes.html#cb1128-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resultado) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(mvetn)</span>
-<span id="cb1128-3"><a href="iteracoes.html#cb1128-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ver o resultado</span></span>
-<span id="cb1128-4"><a href="iteracoes.html#cb1128-4" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<div class="sourceCode" id="cb1129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1129-1"><a href="iteracoes.html#cb1129-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adicona o nome das colunas</span></span>
+<span id="cb1129-2"><a href="iteracoes.html#cb1129-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resultado) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(mvetn)</span>
+<span id="cb1129-3"><a href="iteracoes.html#cb1129-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ver o resultado</span></span>
+<span id="cb1129-4"><a href="iteracoes.html#cb1129-4" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
 <pre><code>##  coluna 1  coluna 2  coluna 3  coluna 4  coluna 5  coluna 6  coluna 7  coluna 8 
 ##  30.02231  29.76714  29.91783  29.79591  30.21034  29.85470  30.33654  30.32650 
 ##  coluna 9 coluna 10 
 ##  29.94533  30.69054</code></pre>
-<div class="sourceCode" id="cb1130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1130-1"><a href="iteracoes.html#cb1130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identico ao apply, maior controle de como a média é aplicada</span></span>
-<span id="cb1130-2"><a href="iteracoes.html#cb1130-2" aria-hidden="true" tabindex="-1"></a>resultado <span class="sc">==</span> <span class="fu">apply</span>(mvetn, <span class="dv">2</span>, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb1131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1131-1"><a href="iteracoes.html#cb1131-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identico ao apply, maior controle de como a média é aplicada</span></span>
+<span id="cb1131-2"><a href="iteracoes.html#cb1131-2" aria-hidden="true" tabindex="-1"></a>resultado <span class="sc">==</span> <span class="fu">apply</span>(mvetn, <span class="dv">2</span>, mean)</span></code></pre></div>
 <pre><code>##  coluna 1  coluna 2  coluna 3  coluna 4  coluna 5  coluna 6  coluna 7  coluna 8 
 ##      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE 
 ##  coluna 9 coluna 10 
@@ -934,51 +934,51 @@ linha 6
 <div id="exemplo-3" class="section level4 hasAnchor" number="6.3.1.3">
 <h4><span class="header-section-number">6.3.1.3</span> Exemplo 3<a href="iteracoes.html#exemplo-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Agora usando <code>for(){}</code> para fazer algo como o <code>tapply()</code>.</p>
-<div class="sourceCode" id="cb1132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1132-1"><a href="iteracoes.html#cb1132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazendo algo == tapply(mvetn[,2],mvetn$classe,sum)</span></span>
-<span id="cb1132-2"><a href="iteracoes.html#cb1132-2" aria-hidden="true" tabindex="-1"></a><span class="co"># criamos uma matriz</span></span>
-<span id="cb1132-3"><a href="iteracoes.html#cb1132-3" aria-hidden="true" tabindex="-1"></a>vetn <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">1</span>)</span>
-<span id="cb1132-4"><a href="iteracoes.html#cb1132-4" aria-hidden="true" tabindex="-1"></a>mvetn <span class="ot">&lt;-</span> <span class="fu">matrix</span>(vetn, <span class="at">ncol =</span> <span class="dv">10</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
-<span id="cb1132-5"><a href="iteracoes.html#cb1132-5" aria-hidden="true" tabindex="-1"></a><span class="co"># transformamos num data.frame adicionando uma coluna categorica</span></span>
-<span id="cb1132-6"><a href="iteracoes.html#cb1132-6" aria-hidden="true" tabindex="-1"></a>mvetn <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">classe =</span> <span class="fu">sample</span>(<span class="fu">paste</span>(<span class="st">&quot;categ&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>), <span class="at">size =</span> <span class="fu">nrow</span>(mvetn), <span class="at">replace =</span> T), mvetn)</span>
-<span id="cb1132-7"><a href="iteracoes.html#cb1132-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mvetn[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
-<span id="cb1132-8"><a href="iteracoes.html#cb1132-8" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um objeto para salvar o resultado</span></span>
-<span id="cb1132-9"><a href="iteracoes.html#cb1132-9" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb1132-10"><a href="iteracoes.html#cb1132-10" aria-hidden="true" tabindex="-1"></a><span class="co"># para cada categoria</span></span>
-<span id="cb1132-11"><a href="iteracoes.html#cb1132-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (ct <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(mvetn<span class="sc">$</span>classe))) {</span>
-<span id="cb1132-12"><a href="iteracoes.html#cb1132-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># pega a categoria</span></span>
-<span id="cb1132-13"><a href="iteracoes.html#cb1132-13" aria-hidden="true" tabindex="-1"></a>  cl <span class="ot">&lt;-</span> <span class="fu">levels</span>(mvetn<span class="sc">$</span>classe)[ct]</span>
-<span id="cb1132-14"><a href="iteracoes.html#cb1132-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filtra os dados (vetor logico)</span></span>
-<span id="cb1132-15"><a href="iteracoes.html#cb1132-15" aria-hidden="true" tabindex="-1"></a>  vl <span class="ot">&lt;-</span> mvetn<span class="sc">$</span>classe <span class="sc">==</span> cl</span>
-<span id="cb1132-16"><a href="iteracoes.html#cb1132-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calcula a soma dos dados da categoria</span></span>
-<span id="cb1132-17"><a href="iteracoes.html#cb1132-17" aria-hidden="true" tabindex="-1"></a>  soma <span class="ot">&lt;-</span> <span class="fu">sum</span>(mvetn[vl, <span class="dv">2</span>], <span class="at">na.rm =</span> T)</span>
-<span id="cb1132-18"><a href="iteracoes.html#cb1132-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># imprime o passo</span></span>
-<span id="cb1132-19"><a href="iteracoes.html#cb1132-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;A soma da categoria&quot;</span>, cl, <span class="st">&quot; é igual a &quot;</span>, soma))</span>
-<span id="cb1132-20"><a href="iteracoes.html#cb1132-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># junta os resultados</span></span>
-<span id="cb1132-21"><a href="iteracoes.html#cb1132-21" aria-hidden="true" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> <span class="fu">c</span>(resultado, soma)</span>
-<span id="cb1132-22"><a href="iteracoes.html#cb1132-22" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1132-23"><a href="iteracoes.html#cb1132-23" aria-hidden="true" tabindex="-1"></a><span class="co"># atribui nomes aos elementos do vetor de somas</span></span>
-<span id="cb1132-24"><a href="iteracoes.html#cb1132-24" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resultado) <span class="ot">&lt;-</span> <span class="fu">levels</span>(mvetn<span class="sc">$</span>classe)</span>
-<span id="cb1132-25"><a href="iteracoes.html#cb1132-25" aria-hidden="true" tabindex="-1"></a><span class="co"># confere</span></span>
-<span id="cb1132-26"><a href="iteracoes.html#cb1132-26" aria-hidden="true" tabindex="-1"></a>resultado <span class="sc">==</span> <span class="fu">tapply</span>(mvetn[, <span class="dv">2</span>], mvetn<span class="sc">$</span>classe, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb1133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1133-1"><a href="iteracoes.html#cb1133-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazendo algo == tapply(mvetn[,2],mvetn$classe,sum)</span></span>
+<span id="cb1133-2"><a href="iteracoes.html#cb1133-2" aria-hidden="true" tabindex="-1"></a><span class="co"># criamos uma matriz</span></span>
+<span id="cb1133-3"><a href="iteracoes.html#cb1133-3" aria-hidden="true" tabindex="-1"></a>vetn <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">30</span>, <span class="dv">1</span>)</span>
+<span id="cb1133-4"><a href="iteracoes.html#cb1133-4" aria-hidden="true" tabindex="-1"></a>mvetn <span class="ot">&lt;-</span> <span class="fu">matrix</span>(vetn, <span class="at">ncol =</span> <span class="dv">10</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
+<span id="cb1133-5"><a href="iteracoes.html#cb1133-5" aria-hidden="true" tabindex="-1"></a><span class="co"># transformamos num data.frame adicionando uma coluna categorica</span></span>
+<span id="cb1133-6"><a href="iteracoes.html#cb1133-6" aria-hidden="true" tabindex="-1"></a>mvetn <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">classe =</span> <span class="fu">sample</span>(<span class="fu">paste</span>(<span class="st">&quot;categ&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>), <span class="at">size =</span> <span class="fu">nrow</span>(mvetn), <span class="at">replace =</span> T), mvetn)</span>
+<span id="cb1133-7"><a href="iteracoes.html#cb1133-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mvetn[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb1133-8"><a href="iteracoes.html#cb1133-8" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um objeto para salvar o resultado</span></span>
+<span id="cb1133-9"><a href="iteracoes.html#cb1133-9" aria-hidden="true" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb1133-10"><a href="iteracoes.html#cb1133-10" aria-hidden="true" tabindex="-1"></a><span class="co"># para cada categoria</span></span>
+<span id="cb1133-11"><a href="iteracoes.html#cb1133-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (ct <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">levels</span>(mvetn<span class="sc">$</span>classe))) {</span>
+<span id="cb1133-12"><a href="iteracoes.html#cb1133-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># pega a categoria</span></span>
+<span id="cb1133-13"><a href="iteracoes.html#cb1133-13" aria-hidden="true" tabindex="-1"></a>  cl <span class="ot">&lt;-</span> <span class="fu">levels</span>(mvetn<span class="sc">$</span>classe)[ct]</span>
+<span id="cb1133-14"><a href="iteracoes.html#cb1133-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filtra os dados (vetor logico)</span></span>
+<span id="cb1133-15"><a href="iteracoes.html#cb1133-15" aria-hidden="true" tabindex="-1"></a>  vl <span class="ot">&lt;-</span> mvetn<span class="sc">$</span>classe <span class="sc">==</span> cl</span>
+<span id="cb1133-16"><a href="iteracoes.html#cb1133-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calcula a soma dos dados da categoria</span></span>
+<span id="cb1133-17"><a href="iteracoes.html#cb1133-17" aria-hidden="true" tabindex="-1"></a>  soma <span class="ot">&lt;-</span> <span class="fu">sum</span>(mvetn[vl, <span class="dv">2</span>], <span class="at">na.rm =</span> T)</span>
+<span id="cb1133-18"><a href="iteracoes.html#cb1133-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># imprime o passo</span></span>
+<span id="cb1133-19"><a href="iteracoes.html#cb1133-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;A soma da categoria&quot;</span>, cl, <span class="st">&quot; é igual a &quot;</span>, soma))</span>
+<span id="cb1133-20"><a href="iteracoes.html#cb1133-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># junta os resultados</span></span>
+<span id="cb1133-21"><a href="iteracoes.html#cb1133-21" aria-hidden="true" tabindex="-1"></a>  resultado <span class="ot">&lt;-</span> <span class="fu">c</span>(resultado, soma)</span>
+<span id="cb1133-22"><a href="iteracoes.html#cb1133-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1133-23"><a href="iteracoes.html#cb1133-23" aria-hidden="true" tabindex="-1"></a><span class="co"># atribui nomes aos elementos do vetor de somas</span></span>
+<span id="cb1133-24"><a href="iteracoes.html#cb1133-24" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resultado) <span class="ot">&lt;-</span> <span class="fu">levels</span>(mvetn<span class="sc">$</span>classe)</span>
+<span id="cb1133-25"><a href="iteracoes.html#cb1133-25" aria-hidden="true" tabindex="-1"></a><span class="co"># confere</span></span>
+<span id="cb1133-26"><a href="iteracoes.html#cb1133-26" aria-hidden="true" tabindex="-1"></a>resultado <span class="sc">==</span> <span class="fu">tapply</span>(mvetn[, <span class="dv">2</span>], mvetn<span class="sc">$</span>classe, sum)</span></code></pre></div>
 </div>
 <div id="exemplo-4" class="section level4 hasAnchor" number="6.3.1.4">
 <h4><span class="header-section-number">6.3.1.4</span> Exemplo 4<a href="iteracoes.html#exemplo-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Calculando somas e médias de linhas, similar ao que podemos fazer com a função <code>apply()</code>:</p>
-<div class="sourceCode" id="cb1133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1133-1"><a href="iteracoes.html#cb1133-1" aria-hidden="true" tabindex="-1"></a>somas <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># objeto vazio para salvar soma de cada linha</span></span>
-<span id="cb1133-2"><a href="iteracoes.html#cb1133-2" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># objeto vazio para salvar medias de cada linha</span></span>
-<span id="cb1133-3"><a href="iteracoes.html#cb1133-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(X)) { <span class="co"># para cada linha</span></span>
-<span id="cb1133-4"><a href="iteracoes.html#cb1133-4" aria-hidden="true" tabindex="-1"></a>  somai <span class="ot">&lt;-</span> <span class="fu">sum</span>(X[i, ]) <span class="co"># soma dos valores na linha i</span></span>
-<span id="cb1133-5"><a href="iteracoes.html#cb1133-5" aria-hidden="true" tabindex="-1"></a>  somas <span class="ot">&lt;-</span> <span class="fu">c</span>(somas, somai) <span class="co"># junta a somai com o resto (que estará vazio na primeira vez)</span></span>
-<span id="cb1133-6"><a href="iteracoes.html#cb1133-6" aria-hidden="true" tabindex="-1"></a>  mediai <span class="ot">&lt;-</span> <span class="fu">mean</span>(X[i, ]) <span class="co"># média  dos valores na linha i</span></span>
-<span id="cb1133-7"><a href="iteracoes.html#cb1133-7" aria-hidden="true" tabindex="-1"></a>  medias <span class="ot">&lt;-</span> <span class="fu">c</span>(medias, mediai) <span class="co"># junta as medias</span></span>
-<span id="cb1133-8"><a href="iteracoes.html#cb1133-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1133-9"><a href="iteracoes.html#cb1133-9" aria-hidden="true" tabindex="-1"></a><span class="co"># como a matriz tem nomes, acrescenta esses nomes aos vetores com resultados</span></span>
-<span id="cb1133-10"><a href="iteracoes.html#cb1133-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(medias) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(X)</span>
-<span id="cb1133-11"><a href="iteracoes.html#cb1133-11" aria-hidden="true" tabindex="-1"></a>medias</span></code></pre></div>
+<div class="sourceCode" id="cb1134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1134-1"><a href="iteracoes.html#cb1134-1" aria-hidden="true" tabindex="-1"></a>somas <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># objeto vazio para salvar soma de cada linha</span></span>
+<span id="cb1134-2"><a href="iteracoes.html#cb1134-2" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># objeto vazio para salvar medias de cada linha</span></span>
+<span id="cb1134-3"><a href="iteracoes.html#cb1134-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(X)) { <span class="co"># para cada linha</span></span>
+<span id="cb1134-4"><a href="iteracoes.html#cb1134-4" aria-hidden="true" tabindex="-1"></a>  somai <span class="ot">&lt;-</span> <span class="fu">sum</span>(X[i, ]) <span class="co"># soma dos valores na linha i</span></span>
+<span id="cb1134-5"><a href="iteracoes.html#cb1134-5" aria-hidden="true" tabindex="-1"></a>  somas <span class="ot">&lt;-</span> <span class="fu">c</span>(somas, somai) <span class="co"># junta a somai com o resto (que estará vazio na primeira vez)</span></span>
+<span id="cb1134-6"><a href="iteracoes.html#cb1134-6" aria-hidden="true" tabindex="-1"></a>  mediai <span class="ot">&lt;-</span> <span class="fu">mean</span>(X[i, ]) <span class="co"># média  dos valores na linha i</span></span>
+<span id="cb1134-7"><a href="iteracoes.html#cb1134-7" aria-hidden="true" tabindex="-1"></a>  medias <span class="ot">&lt;-</span> <span class="fu">c</span>(medias, mediai) <span class="co"># junta as medias</span></span>
+<span id="cb1134-8"><a href="iteracoes.html#cb1134-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1134-9"><a href="iteracoes.html#cb1134-9" aria-hidden="true" tabindex="-1"></a><span class="co"># como a matriz tem nomes, acrescenta esses nomes aos vetores com resultados</span></span>
+<span id="cb1134-10"><a href="iteracoes.html#cb1134-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(medias) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(X)</span>
+<span id="cb1134-11"><a href="iteracoes.html#cb1134-11" aria-hidden="true" tabindex="-1"></a>medias</span></code></pre></div>
 <pre><code>## ln 1 ln 2 ln 3 ln 4 
 ##   17   18   19   20</code></pre>
-<div class="sourceCode" id="cb1135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1135-1"><a href="iteracoes.html#cb1135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(somas) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(X)</span>
-<span id="cb1135-2"><a href="iteracoes.html#cb1135-2" aria-hidden="true" tabindex="-1"></a>somas</span></code></pre></div>
+<div class="sourceCode" id="cb1136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1136-1"><a href="iteracoes.html#cb1136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(somas) <span class="ot">&lt;-</span> <span class="fu">rownames</span>(X)</span>
+<span id="cb1136-2"><a href="iteracoes.html#cb1136-2" aria-hidden="true" tabindex="-1"></a>somas</span></code></pre></div>
 <pre><code>## ln 1 ln 2 ln 3 ln 4 
 ##  153  162  171  180</code></pre>
 </div>
@@ -989,16 +989,16 @@ linha 6
 Um exemplo simples:</p>
 <div id="exemplo-1-1" class="section level4 hasAnchor" number="6.3.2.1">
 <h4><span class="header-section-number">6.3.2.1</span> Exemplo 1<a href="iteracoes.html#exemplo-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1137-1"><a href="iteracoes.html#cb1137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um vetor de valores aleatorizados</span></span>
-<span id="cb1137-2"><a href="iteracoes.html#cb1137-2" aria-hidden="true" tabindex="-1"></a>vet <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>)</span>
-<span id="cb1137-3"><a href="iteracoes.html#cb1137-3" aria-hidden="true" tabindex="-1"></a><span class="co"># amostra um valor do vetor até que este valor seja 10</span></span>
-<span id="cb1137-4"><a href="iteracoes.html#cb1137-4" aria-hidden="true" tabindex="-1"></a>conta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb1137-5"><a href="iteracoes.html#cb1137-5" aria-hidden="true" tabindex="-1"></a>valor <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb1137-6"><a href="iteracoes.html#cb1137-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (valor <span class="sc">!=</span> <span class="dv">10</span>) {</span>
-<span id="cb1137-7"><a href="iteracoes.html#cb1137-7" aria-hidden="true" tabindex="-1"></a>  valor <span class="ot">&lt;-</span> <span class="fu">sample</span>(vet, <span class="dv">1</span>)</span>
-<span id="cb1137-8"><a href="iteracoes.html#cb1137-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;o valor selecionado na iteração&quot;</span>, conta, <span class="st">&quot;foi de &quot;</span>, valor))</span>
-<span id="cb1137-9"><a href="iteracoes.html#cb1137-9" aria-hidden="true" tabindex="-1"></a>  conta <span class="ot">&lt;-</span> conta <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb1137-10"><a href="iteracoes.html#cb1137-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1138-1"><a href="iteracoes.html#cb1138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um vetor de valores aleatorizados</span></span>
+<span id="cb1138-2"><a href="iteracoes.html#cb1138-2" aria-hidden="true" tabindex="-1"></a>vet <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb1138-3"><a href="iteracoes.html#cb1138-3" aria-hidden="true" tabindex="-1"></a><span class="co"># amostra um valor do vetor até que este valor seja 10</span></span>
+<span id="cb1138-4"><a href="iteracoes.html#cb1138-4" aria-hidden="true" tabindex="-1"></a>conta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1138-5"><a href="iteracoes.html#cb1138-5" aria-hidden="true" tabindex="-1"></a>valor <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1138-6"><a href="iteracoes.html#cb1138-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (valor <span class="sc">!=</span> <span class="dv">10</span>) {</span>
+<span id="cb1138-7"><a href="iteracoes.html#cb1138-7" aria-hidden="true" tabindex="-1"></a>  valor <span class="ot">&lt;-</span> <span class="fu">sample</span>(vet, <span class="dv">1</span>)</span>
+<span id="cb1138-8"><a href="iteracoes.html#cb1138-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;o valor selecionado na iteração&quot;</span>, conta, <span class="st">&quot;foi de &quot;</span>, valor))</span>
+<span id="cb1138-9"><a href="iteracoes.html#cb1138-9" aria-hidden="true" tabindex="-1"></a>  conta <span class="ot">&lt;-</span> conta <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1138-10"><a href="iteracoes.html#cb1138-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;o valor selecionado na iteração 1 foi de  81&quot;
 ## [1] &quot;o valor selecionado na iteração 2 foi de  23&quot;
 ## [1] &quot;o valor selecionado na iteração 3 foi de  30&quot;
@@ -1018,22 +1018,22 @@ Um exemplo simples:</p>
 <h3><span class="header-section-number">6.3.3</span> Iteração com <code>for(){}</code> e a condicional <code>if(){}</code><a href="iteracoes.html#iteração-com-for-e-a-condicional-if" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="exemplo-1-2" class="section level4 hasAnchor" number="6.3.3.1">
 <h4><span class="header-section-number">6.3.3.1</span> Exemplo 1<a href="iteracoes.html#exemplo-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1139-1"><a href="iteracoes.html#cb1139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um vetor de valores aleatorizados</span></span>
-<span id="cb1139-2"><a href="iteracoes.html#cb1139-2" aria-hidden="true" tabindex="-1"></a>vet <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">60</span>, <span class="at">replace =</span> T)</span>
-<span id="cb1139-3"><a href="iteracoes.html#cb1139-3" aria-hidden="true" tabindex="-1"></a><span class="co"># amostra um valor do vetor até que este valor seja 10</span></span>
-<span id="cb1139-4"><a href="iteracoes.html#cb1139-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (v <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
-<span id="cb1139-5"><a href="iteracoes.html#cb1139-5" aria-hidden="true" tabindex="-1"></a>  valor <span class="ot">&lt;-</span> <span class="fu">sample</span>(vet, <span class="dv">1</span>)</span>
-<span id="cb1139-6"><a href="iteracoes.html#cb1139-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (valor <span class="sc">==</span> <span class="dv">10</span>) {</span>
-<span id="cb1139-7"><a href="iteracoes.html#cb1139-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># se o valor selecionado aleatoriamente for 10, ou seja se a expressão valor==10 for TRUE execute:</span></span>
-<span id="cb1139-8"><a href="iteracoes.html#cb1139-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># imprima isso</span></span>
-<span id="cb1139-9"><a href="iteracoes.html#cb1139-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;A primeira vez que o valor 10 foi selecionado aleatoriamente foi quando o objeto v assumiu o valor de&quot;</span>, v))</span>
-<span id="cb1139-10"><a href="iteracoes.html#cb1139-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># interrompa (quebre) o loop</span></span>
-<span id="cb1139-11"><a href="iteracoes.html#cb1139-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span> <span class="co"># note este argumento</span></span>
-<span id="cb1139-12"><a href="iteracoes.html#cb1139-12" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb1139-13"><a href="iteracoes.html#cb1139-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># caso contrario, valor!=10, imprime o valor selecionado e continua o loop</span></span>
-<span id="cb1139-14"><a href="iteracoes.html#cb1139-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;O valor selecionado foi &quot;</span>, valor, <span class="st">&quot;no indice&quot;</span>, v))</span>
-<span id="cb1139-15"><a href="iteracoes.html#cb1139-15" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1139-16"><a href="iteracoes.html#cb1139-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1140-1"><a href="iteracoes.html#cb1140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cria um vetor de valores aleatorizados</span></span>
+<span id="cb1140-2"><a href="iteracoes.html#cb1140-2" aria-hidden="true" tabindex="-1"></a>vet <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">60</span>, <span class="at">replace =</span> T)</span>
+<span id="cb1140-3"><a href="iteracoes.html#cb1140-3" aria-hidden="true" tabindex="-1"></a><span class="co"># amostra um valor do vetor até que este valor seja 10</span></span>
+<span id="cb1140-4"><a href="iteracoes.html#cb1140-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (v <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span>) {</span>
+<span id="cb1140-5"><a href="iteracoes.html#cb1140-5" aria-hidden="true" tabindex="-1"></a>  valor <span class="ot">&lt;-</span> <span class="fu">sample</span>(vet, <span class="dv">1</span>)</span>
+<span id="cb1140-6"><a href="iteracoes.html#cb1140-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (valor <span class="sc">==</span> <span class="dv">10</span>) {</span>
+<span id="cb1140-7"><a href="iteracoes.html#cb1140-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># se o valor selecionado aleatoriamente for 10, ou seja se a expressão valor==10 for TRUE execute:</span></span>
+<span id="cb1140-8"><a href="iteracoes.html#cb1140-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># imprima isso</span></span>
+<span id="cb1140-9"><a href="iteracoes.html#cb1140-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;A primeira vez que o valor 10 foi selecionado aleatoriamente foi quando o objeto v assumiu o valor de&quot;</span>, v))</span>
+<span id="cb1140-10"><a href="iteracoes.html#cb1140-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># interrompa (quebre) o loop</span></span>
+<span id="cb1140-11"><a href="iteracoes.html#cb1140-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span> <span class="co"># note este argumento</span></span>
+<span id="cb1140-12"><a href="iteracoes.html#cb1140-12" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb1140-13"><a href="iteracoes.html#cb1140-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># caso contrario, valor!=10, imprime o valor selecionado e continua o loop</span></span>
+<span id="cb1140-14"><a href="iteracoes.html#cb1140-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;O valor selecionado foi &quot;</span>, valor, <span class="st">&quot;no indice&quot;</span>, v))</span>
+<span id="cb1140-15"><a href="iteracoes.html#cb1140-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1140-16"><a href="iteracoes.html#cb1140-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>É possível que o script acima repita as 10000 vezes do <code>for(){}</code> sem encontrar o valor 10, até porque o 10 pode não estar em vet se não for amostrado.<br />
 <!-- A expressão `if(){}` não precisa necessariamente estar dentro de um loop, ela é independente.   --></p>
 </div>
