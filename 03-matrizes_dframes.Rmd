@@ -532,14 +532,20 @@ Para ordenar matrizes e `data.frames`, é preciso entender a diferença entre du
 ```{r}
 # ordenação
 str(iris)
+```
 
+
+```{r}
 # funcao SORT()
 o1 <- sort(iris$Sepal.Length) # pega os valores ordenados da coluna comprimento de sépala
 o1 # sao valores de sepalas do menor para o maior
 # em ordem decrescente
 o2 <- sort(iris$Sepal.Length, decreasing = T)
 o2 # sao valores de sepalas do maior para o menor
+```
 
+
+```{r}
 # FUNCAO order()
 # qual o indice dos valores ordenados em ordem crescente?
 o3 <- order(iris$Sepal.Length)
@@ -550,19 +556,31 @@ iris$Sepal.Length[o3]
 iris$Sepal.Length[o3] == sort(iris$Sepal.Length) # as comparações para a par são identicas
 # então esta expressão também é verdadeira:
 sum(iris$Sepal.Length[o3] == sort(iris$Sepal.Length)) == nrow(iris)
+```
 
+
+```{r}
 # portanto a função sort ordena os valores e funcao order mostra apenas os indices dos valores ordenados. Assim, posso usar a funcao order() para ordenar data.frames, matrizes e vetores
 idx <- order(iris$Sepal.Length) # indice das linhas ordenadas segundo o comprimento das sepalas
 # compara com o original:
 sum(iris$Sepal.Length[idx] == iris$Sepal.Length) == nrow(iris) # é FALSO porque em iris as linhas não estão originalmente ordenadas segundo o comprimento.
+```
 
+
+```{r}
 # vamos mudar isso
 novo.iris <- iris[idx, ] # pego o vetor de indices dos valores ordenados e uso na indexacao para ordenar o objeto original segunda a coluna escolhida
 idx2 <- order(novo.iris$Sepal.Length) # indice das linhas ordenadas segundo o comprimento das sepalas
+```
+
+
+```{r}
 # note que agora essa expressão é verdadeira, porque o original já está ordenado segundo essa coluna
-sum(novo.iris$Sepal.Length[idx2] == novo.iris$Sepal.Length) == nrow(novo.iris) # é FALSO
+sum(novo.iris$Sepal.Length[idx2] == novo.iris$Sepal.Length) == nrow(novo.iris) # é VERDADEIRO
+```
 
 
+```{r}
 # AGORA ORDENANDO POR MULTIPLAS COLUNAS
 idx <- order(iris$Species, iris$Sepal.Length, decreasing = TRUE) # por especie e por sepala em ordem decrescente
 
@@ -631,7 +649,7 @@ Por isso, recomenda-se que:
 
 * Padronize como você dá nome às colunas;  nome de colunas e de linhas não devem ser muito longos, e deve-se **evitar acentos ou espaços em branco em nomes de colunas**. Isso é muito importante!
 
-* Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, anto para ler como para salvar arquivos de planilhas.
+* Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, tanto para ler como para salvar arquivos de planilhas.
 
 ### Importando dados {#import-dados}
 

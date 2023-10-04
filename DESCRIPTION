@@ -1,7 +1,7 @@
 Package: placeholder
 Type: Book
-Title: Curso básico de introdução ao R - BOT 89 PPBGBOT INPA
-Version: 0.1
+Title: Curso básico de introdução ao R
+Version: 0.2
 Imports: bookdown, rmarkdown, knitr, printr, dplyr, ggplot2, magrittr, purrr, tidyr, tibble, readr, kableExtra, ape, maps, vegan, labdsv, TeachingDemos
 Remotes: rstudio/bookdown
 Encoding: UTF-8
