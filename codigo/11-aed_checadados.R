@@ -20,8 +20,8 @@
 #' Vamos começar importando os dados ao R:
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## ## Lendo a planilha com read.table
-## avesc <- read.table("aves_cerrado.csv", row.names = 1, header = T, sep = ";", dec = ",", as.is = T, na.strings = c("NA", "", "NULL"))
+# ## Lendo a planilha com read.table
+# avesc <- read.table("aves_cerrado.csv", row.names = 1, header = T, sep = ";", dec = ",", as.is = T, na.strings = c("NA", "", "NULL"))
 
 #' 
 ## ----include = FALSE----------------------------------------------------------
@@ -68,8 +68,8 @@ str(avesc)
 #' Próximo passo é sempre checar um sumário estatístico das variáveis presentes no objeto usando a função `summary()`:
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## # mostra um resumo da variacao nas colunas
-## summary(avesc)
+# # mostra um resumo da variacao nas colunas
+# summary(avesc)
 
 #' 
 ## ----eval=TRUE, echo=FALSE----------------------------------------------------
@@ -92,7 +92,7 @@ kable(summary(avesc))
 #' Vejam o `?` da constante lógica `NA` para entender o significado dela no R:
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## ?NA
+# ?NA
 
 #' 
 #' Continuemos de onde paramos na seção anterior.
@@ -101,8 +101,8 @@ kable(summary(avesc))
 #' Vamos checar primeiramanete a variável `avesc$urubu`:
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## avesc$urubu == NA ## erro: não retorna verdadeiro ou falso
-## avesc[avesc$urubu == NA, ] ## também não funciona
+# avesc$urubu == NA ## erro: não retorna verdadeiro ou falso
+# avesc[avesc$urubu == NA, ] ## também não funciona
 
 #' 
 #' Reparem que os comandos acima, apesar de funcionarem, não respondem à nossa pergunta que é saber quais linhas possuem `NA`.
@@ -298,7 +298,7 @@ str(avesc)
 
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## summary(avesc)
+# summary(avesc)
 
 #' 
 ## ----eval=TRUE, echo=FALSE----------------------------------------------------

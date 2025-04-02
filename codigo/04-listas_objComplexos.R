@@ -9,7 +9,7 @@
 #' A indexação de listas é dado pelo operador `[[indice_ou_nome]]` ou `lista$` seguida do nome (se os elementos da lista tem nome; e.g. `lista$nomeDeUmElementoDaLista`).  
 #' 
 ## ----eval = FALSE, echo = TRUE------------------------------------------------
-## ?list # veja o help
+# ?list # veja o help
 
 #' 
 #' 

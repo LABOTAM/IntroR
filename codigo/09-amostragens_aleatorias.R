@@ -87,7 +87,7 @@ hist(outraamostra, density = 10, add = T, col = "black")
 #' Esta função permite gerar essa distribuição de valores aleatórios que seguem uma distribuição normal se soubermos a média e o desvio padrão.  
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## ?rnorm # veja o help da função
+# ?rnorm # veja o help da função
 
 #' 
 ## -----------------------------------------------------------------------------

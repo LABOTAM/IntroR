@@ -19,8 +19,8 @@
 #' Vamos importar novamente os conjuntos de dados de [avistamento de aves do cerrado](https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv) (utilizado no capítulo \@ref(aed-checa-dados)) e de [parcelas em caixetais](https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv) (utilizado no capítulo \@ref(sumar-dados)):
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## ## Lendo a planilha com read.table
-## avesc <- read.table("aves_cerrado.csv", row.names = 1, header = T, sep = ";", dec = ",", as.is = T, na.strings = c("NA", "", "NULL"))
+# ## Lendo a planilha com read.table
+# avesc <- read.table("aves_cerrado.csv", row.names = 1, header = T, sep = ";", dec = ",", as.is = T, na.strings = c("NA", "", "NULL"))
 
 #' 
 ## ----include = FALSE----------------------------------------------------------
@@ -28,8 +28,8 @@ load("dados/aves_cerrado.rda")
 
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## caixeta <- read.csv("caixeta.csv") ## arquivo caixeta.csv deve estar no diretorio de trabalho
-## # note que mantemos todos os argumentos padrão (veja o formato do arquivo caixeta)
+# caixeta <- read.csv("caixeta.csv") ## arquivo caixeta.csv deve estar no diretorio de trabalho
+# # note que mantemos todos os argumentos padrão (veja o formato do arquivo caixeta)
 
 #' 
 ## ----include = FALSE, message=FALSE-------------------------------------------
@@ -43,8 +43,8 @@ avesc[, 2:4]
 
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## # podemos fazer um resumo estatístico da distribuição de cada uma dessas colunas
-## summary(avesc[, 2:4])
+# # podemos fazer um resumo estatístico da distribuição de cada uma dessas colunas
+# summary(avesc[, 2:4])
 
 #' 
 ## ----eval=TRUE, echo=FALSE----------------------------------------------------
@@ -63,8 +63,8 @@ kable(summary(avesc[, 2:4]))
 #' 
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## # e não podemos fazer isso apenas com a função sd para todas as colunas
-## sd(avesc[, 2:4]) # ops deprecado (eu estou trabalhando com uma matriz)
+# # e não podemos fazer isso apenas com a função sd para todas as colunas
+# sd(avesc[, 2:4]) # ops deprecado (eu estou trabalhando com uma matriz)
 
 #' 
 #' 
@@ -113,8 +113,8 @@ abline(h = quantile(avesc$urubu, na.rm = TRUE), col = "blue", lwd = 2)
 #' 
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## # Média truncada = e.g. TIRANDO 10% DOS VALORES NOS EXTREMOS (posso ver como muda, caso tenha valores extremos, vai mudar muito)
-## ?mean # veja o argumento trim
+# # Média truncada = e.g. TIRANDO 10% DOS VALORES NOS EXTREMOS (posso ver como muda, caso tenha valores extremos, vai mudar muito)
+# ?mean # veja o argumento trim
 
 #' 
 #' 
@@ -246,8 +246,8 @@ dim(caixeta)
 #' 
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## # ve o histograma na forma de pontos:
-## ?stripchart
+# # ve o histograma na forma de pontos:
+# ?stripchart
 
 #' 
 #' 
@@ -286,7 +286,7 @@ par(olp)
 #' 
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## ?density # veja o help disso
+# ?density # veja o help disso
 
 #' 
 #' 
@@ -306,8 +306,8 @@ abline(v = mean(caixeta$h), col = "green", lwd = 2, lty = "solid")
 #' 
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## ## Adicionando uma curva da normal aos graficos
-## ?dnorm # veja o help dessa função e suas variantes. veremos isso melhor abaixo
+# ## Adicionando uma curva da normal aos graficos
+# ?dnorm # veja o help dessa função e suas variantes. veremos isso melhor abaixo
 
 #' 
 #' 
@@ -318,7 +318,7 @@ dnorm(seq(0, 1, by = 0.25), mean = mean(caixeta$h), sd = sd(caixeta$h)) # esses 
 #' 
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## ?curve # veja que curve depende de uma função, ela traça a curva de uma f(x), num intervalo especificado de x (que foi plotado por hist)
+# ?curve # veja que curve depende de uma função, ela traça a curva de uma f(x), num intervalo especificado de x (que foi plotado por hist)
 
 #' 
 #' 
@@ -341,13 +341,13 @@ curve(expr = dnorm(x, mean = mean(caixeta$h), sd = sd(caixeta$h)), add = T, col 
 #' A função `rnorm()` gera um conjunto de dados aleatórios que tem distribuição normal.
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## # Teste de normalidade
-## ######################################
-## ## Exemplo para o qqplot
-## ##########################################
-## 
-## # vamos simular valores
-## ?rnorm # funcao que gera valores aleatórios que seguem uma distribuicao normal
+# # Teste de normalidade
+# ######################################
+# ## Exemplo para o qqplot
+# ##########################################
+# 
+# # vamos simular valores
+# ?rnorm # funcao que gera valores aleatórios que seguem uma distribuicao normal
 
 #' 
 #' 
@@ -400,8 +400,8 @@ abline(0, 1, col = "red") # relacao esperada, caso os dados venham de uma popula
 #' 
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## ## A funcao qqnorm ja faz isto de uma vez para voce:
-## ?qqnorm # veja o help
+# ## A funcao qqnorm ja faz isto de uma vez para voce:
+# ?qqnorm # veja o help
 
 #' 
 ## -----------------------------------------------------------------------------
