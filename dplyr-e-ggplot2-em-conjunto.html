@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A.5 dplyr e ggplot2 em conjunto | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A.5 dplyr e ggplot2 em conjunto | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -558,33 +559,33 @@ div.csl-indent {
 Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjunto de dados <code>iris</code>, vamos fazer uma exploração muito breve nesses dados.</p>
 <div id="gráfico-de-espalhamento" class="section level3 hasAnchor" number="15.5.1">
 <h3><span class="header-section-number">A.5.1</span> Gráfico de espalhamento<a href="dplyr-e-ggplot2-em-conjunto.html#gráfico-de-espalhamento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1905-1"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1905-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb1905-2"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1905-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, Sepal.Width, Sepal.Length) <span class="sc">%&gt;%</span></span>
-<span id="cb1905-3"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1905-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(.) <span class="sc">+</span> <span class="co"># lembrem-se que o data.frame com colunas selecionadas acima aqui e representado por um `.`</span></span>
-<span id="cb1905-4"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1905-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb1905-5"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1905-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1905-6"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1905-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1907-1"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb1907-2"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-2" tabindex="-1"></a>  <span class="fu">select</span>(Species, Sepal.Width, Sepal.Length) <span class="sc">%&gt;%</span></span>
+<span id="cb1907-3"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(.) <span class="sc">+</span> <span class="co"># lembrem-se que o data.frame com colunas selecionadas acima aqui e representado por um `.`</span></span>
+<span id="cb1907-4"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb1907-5"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1907-6"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-669-1.svg" width="672" /></p>
 </div>
 <div id="diagrama-de-caixas" class="section level3 hasAnchor" number="15.5.2">
 <h3><span class="header-section-number">A.5.2</span> Diagrama de caixas<a href="dplyr-e-ggplot2-em-conjunto.html#diagrama-de-caixas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1906-1"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1906-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb1906-2"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1906-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, Sepal.Length) <span class="sc">%&gt;%</span></span>
-<span id="cb1906-3"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1906-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(.) <span class="sc">+</span></span>
-<span id="cb1906-4"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1906-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb1906-5"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1906-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Espécies de Iris&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1906-6"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1906-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1908-1"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1908-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb1908-2"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1908-2" tabindex="-1"></a>  <span class="fu">select</span>(Species, Sepal.Length) <span class="sc">%&gt;%</span></span>
+<span id="cb1908-3"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1908-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(.) <span class="sc">+</span></span>
+<span id="cb1908-4"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1908-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb1908-5"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1908-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Espécies de Iris&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1908-6"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1908-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Comprimento de sépala (cm)&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-670-1.svg" width="672" /></p>
 </div>
 <div id="histograma" class="section level3 hasAnchor" number="15.5.3">
 <h3><span class="header-section-number">A.5.3</span> Histograma<a href="dplyr-e-ggplot2-em-conjunto.html#histograma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1907-1"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb1907-2"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Species, Sepal.Width) <span class="sc">%&gt;%</span></span>
-<span id="cb1907-3"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(.) <span class="sc">+</span></span>
-<span id="cb1907-4"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb1907-5"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1907-6"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequência&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1907-7"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1907-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb1909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1909-1"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1909-1" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb1909-2"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1909-2" tabindex="-1"></a>  <span class="fu">select</span>(Species, Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb1909-3"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1909-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(.) <span class="sc">+</span></span>
+<span id="cb1909-4"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1909-4" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb1909-5"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1909-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Largura de sépala (cm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1909-6"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1909-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequência&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1909-7"><a href="dplyr-e-ggplot2-em-conjunto.html#cb1909-7" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species)</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-671-1.svg" width="672" /></p>
 </div>
@@ -609,43 +610,43 @@ Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjun
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/15-tidyverse.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/15-tidyverse.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/15-tidyverse.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/15-tidyverse.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

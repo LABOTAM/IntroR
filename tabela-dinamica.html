@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.1 Tabelas dinâmicas | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.1 Tabelas dinâmicas | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -558,13 +559,13 @@ div.csl-indent {
 Já a função <code>aggregate()</code> faz o mesmo, mas permite múltiplos fatores e sempre retorna um <code>data.frame</code>.</p>
 <p>Vamos usar dados de parcelas em <a href="https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv">caixetais</a>, formações dominadas por <em>Tabebuia cassinoides</em> (Lam.) D.C. (Bignoniaceae), espécie comum da Mata Atlântica nos estados de São Paulo, Minas Gerais, Rio de Janeiro e Espírito Santo.
 Baixe o arquivo para seu computador e instale-o na sua pasta de trabalho antes de seguir com os comandos abaixo.</p>
-<div class="sourceCode" id="cb1168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1168-1"><a href="tabela-dinamica.html#cb1168-1" aria-hidden="true" tabindex="-1"></a>caixeta <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">header =</span> T)</span></code></pre></div>
-<div class="sourceCode" id="cb1169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1169-1"><a href="tabela-dinamica.html#cb1169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1170-1"><a href="tabela-dinamica.html#cb1170-1" tabindex="-1"></a>caixeta <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">header =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb1171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1171-1"><a href="tabela-dinamica.html#cb1171-1" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
-<div class="sourceCode" id="cb1171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1171-1"><a href="tabela-dinamica.html#cb1171-1" aria-hidden="true" tabindex="-1"></a><span class="do">## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores</span></span>
-<span id="cb1171-2"><a href="tabela-dinamica.html#cb1171-2" aria-hidden="true" tabindex="-1"></a>?tapply <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb1172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1172-1"><a href="tabela-dinamica.html#cb1172-1" aria-hidden="true" tabindex="-1"></a><span class="co"># altura máxima de cada especie</span></span>
-<span id="cb1172-2"><a href="tabela-dinamica.html#cb1172-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(caixeta<span class="sc">$</span>h, <span class="at">INDEX =</span> caixeta<span class="sc">$</span>especie, <span class="at">FUN =</span> max)</span></code></pre></div>
+<div class="sourceCode" id="cb1173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1173-1"><a href="tabela-dinamica.html#cb1173-1" tabindex="-1"></a><span class="do">## tapply: resumo de uma variavel numerica, separada por niveis de um ou mais fatores</span></span>
+<span id="cb1173-2"><a href="tabela-dinamica.html#cb1173-2" tabindex="-1"></a>?tapply <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb1174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1174-1"><a href="tabela-dinamica.html#cb1174-1" tabindex="-1"></a><span class="co"># altura máxima de cada especie</span></span>
+<span id="cb1174-2"><a href="tabela-dinamica.html#cb1174-2" tabindex="-1"></a><span class="fu">tapply</span>(caixeta<span class="sc">$</span>h, <span class="at">INDEX =</span> caixeta<span class="sc">$</span>especie, <span class="at">FUN =</span> max)</span></code></pre></div>
 <pre><code>##    Alchornea triplinervia       Andira fraxinifolia               bombacaceae 
 ##                       140                        90                       150 
 ##        Cabralea canjerana Callophyllum brasiliensis  Calophyllum brasiliensis 
@@ -595,20 +596,20 @@ Baixe o arquivo para seu computador e instale-o na sua pasta de trabalho antes d
 ##                        70                        60                       480 
 ##      Tibouchina nutticeps 
 ##                        50</code></pre>
-<div class="sourceCode" id="cb1174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1174-1"><a href="tabela-dinamica.html#cb1174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># circunferencia media por localidade</span></span>
-<span id="cb1174-2"><a href="tabela-dinamica.html#cb1174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(caixeta<span class="sc">$</span>cap, <span class="at">INDEX =</span> caixeta<span class="sc">$</span>local, <span class="at">FUN =</span> mean)</span></code></pre></div>
+<div class="sourceCode" id="cb1176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1176-1"><a href="tabela-dinamica.html#cb1176-1" tabindex="-1"></a><span class="co"># circunferencia media por localidade</span></span>
+<span id="cb1176-2"><a href="tabela-dinamica.html#cb1176-2" tabindex="-1"></a><span class="fu">tapply</span>(caixeta<span class="sc">$</span>cap, <span class="at">INDEX =</span> caixeta<span class="sc">$</span>local, <span class="at">FUN =</span> mean)</span></code></pre></div>
 <pre><code>##   chauas   jureia   retiro 
 ## 293.6385 404.4813 236.5972</code></pre>
-<div class="sourceCode" id="cb1176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1176-1"><a href="tabela-dinamica.html#cb1176-1" aria-hidden="true" tabindex="-1"></a><span class="do">## &quot;Tabelas dinamicas&quot;: funcao aggregate</span></span>
-<span id="cb1176-2"><a href="tabela-dinamica.html#cb1176-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Criar data.frame com altura media dos fustes por especie e por local</span></span></code></pre></div>
-<div class="sourceCode" id="cb1177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1177-1"><a href="tabela-dinamica.html#cb1177-1" aria-hidden="true" tabindex="-1"></a>?aggregate <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb1178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1178-1"><a href="tabela-dinamica.html#cb1178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1178-1"><a href="tabela-dinamica.html#cb1178-1" tabindex="-1"></a><span class="do">## &quot;Tabelas dinamicas&quot;: funcao aggregate</span></span>
+<span id="cb1178-2"><a href="tabela-dinamica.html#cb1178-2" tabindex="-1"></a><span class="do">## Criar data.frame com altura media dos fustes por especie e por local</span></span></code></pre></div>
+<div class="sourceCode" id="cb1179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1179-1"><a href="tabela-dinamica.html#cb1179-1" tabindex="-1"></a>?aggregate <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb1180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1180-1"><a href="tabela-dinamica.html#cb1180-1" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
-<div class="sourceCode" id="cb1180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1180-1"><a href="tabela-dinamica.html#cb1180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># circunferencia máxima por especie</span></span>
-<span id="cb1180-2"><a href="tabela-dinamica.html#cb1180-2" aria-hidden="true" tabindex="-1"></a>ob1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>cap, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> max)</span>
-<span id="cb1180-3"><a href="tabela-dinamica.html#cb1180-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ob1) <span class="co"># obtenho um data frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb1182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1182-1"><a href="tabela-dinamica.html#cb1182-1" tabindex="-1"></a><span class="co"># circunferencia máxima por especie</span></span>
+<span id="cb1182-2"><a href="tabela-dinamica.html#cb1182-2" tabindex="-1"></a>ob1 <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>cap, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> max)</span>
+<span id="cb1182-3"><a href="tabela-dinamica.html#cb1182-3" tabindex="-1"></a><span class="fu">class</span>(ob1) <span class="co"># obtenho um data frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1182-1"><a href="tabela-dinamica.html#cb1182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ob1)</span></code></pre></div>
+<div class="sourceCode" id="cb1184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1184-1"><a href="tabela-dinamica.html#cb1184-1" tabindex="-1"></a><span class="fu">head</span>(ob1)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -671,11 +672,11 @@ Calophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1183-1"><a href="tabela-dinamica.html#cb1183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># neste caso também poderia fazer assim</span></span>
-<span id="cb1183-2"><a href="tabela-dinamica.html#cb1183-2" aria-hidden="true" tabindex="-1"></a>ob2 <span class="ot">&lt;-</span> <span class="fu">tapply</span>(caixeta<span class="sc">$</span>h, caixeta<span class="sc">$</span>especie, max)</span>
-<span id="cb1183-3"><a href="tabela-dinamica.html#cb1183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ob2) <span class="co"># mas neste caso nos temos um array (um vetor unidimensional)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1185-1"><a href="tabela-dinamica.html#cb1185-1" tabindex="-1"></a><span class="co"># neste caso também poderia fazer assim</span></span>
+<span id="cb1185-2"><a href="tabela-dinamica.html#cb1185-2" tabindex="-1"></a>ob2 <span class="ot">&lt;-</span> <span class="fu">tapply</span>(caixeta<span class="sc">$</span>h, caixeta<span class="sc">$</span>especie, max)</span>
+<span id="cb1185-3"><a href="tabela-dinamica.html#cb1185-3" tabindex="-1"></a><span class="fu">class</span>(ob2) <span class="co"># mas neste caso nos temos um array (um vetor unidimensional)</span></span></code></pre></div>
 <pre><code>## [1] &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb1185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1185-1"><a href="tabela-dinamica.html#cb1185-1" aria-hidden="true" tabindex="-1"></a>ob2[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1187-1"><a href="tabela-dinamica.html#cb1187-1" tabindex="-1"></a>ob2[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div>
 <pre><code>##    Alchornea triplinervia       Andira fraxinifolia               bombacaceae 
 ##                       140                        90                       150 
 ##        Cabralea canjerana Callophyllum brasiliensis  Calophyllum brasiliensis 
@@ -684,9 +685,9 @@ Calophyllum brasiliensis
 ##                        70                       100                       110 
 ##      Cryptocaria moschata 
 ##                       140</code></pre>
-<div class="sourceCode" id="cb1187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1187-1"><a href="tabela-dinamica.html#cb1187-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas se eu quiser por localidade e por especie, preciso usar aggregate</span></span>
-<span id="cb1187-2"><a href="tabela-dinamica.html#cb1187-2" aria-hidden="true" tabindex="-1"></a>caixeta.alt <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>h, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, <span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> max)</span></code></pre></div>
-<div class="sourceCode" id="cb1188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1188-1"><a href="tabela-dinamica.html#cb1188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta.alt)</span></code></pre></div>
+<div class="sourceCode" id="cb1189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1189-1"><a href="tabela-dinamica.html#cb1189-1" tabindex="-1"></a><span class="co"># mas se eu quiser por localidade e por especie, preciso usar aggregate</span></span>
+<span id="cb1189-2"><a href="tabela-dinamica.html#cb1189-2" tabindex="-1"></a>caixeta.alt <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>h, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, <span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> max)</span></code></pre></div>
+<div class="sourceCode" id="cb1190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1190-1"><a href="tabela-dinamica.html#cb1190-1" tabindex="-1"></a><span class="fu">head</span>(caixeta.alt)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -770,15 +771,15 @@ Callophyllum brasiliensis
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1189-1"><a href="tabela-dinamica.html#cb1189-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Vamos calcular a area basal (soma da area de todo os fustes)</span></span>
-<span id="cb1189-2"><a href="tabela-dinamica.html#cb1189-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1189-3"><a href="tabela-dinamica.html#cb1189-3" aria-hidden="true" tabindex="-1"></a><span class="do">## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:</span></span>
-<span id="cb1189-4"><a href="tabela-dinamica.html#cb1189-4" aria-hidden="true" tabindex="-1"></a>caixeta<span class="sc">$</span>ab <span class="ot">&lt;-</span> caixeta<span class="sc">$</span>cap<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="dv">4</span> <span class="sc">*</span> pi</span>
-<span id="cb1189-5"><a href="tabela-dinamica.html#cb1189-5" aria-hidden="true" tabindex="-1"></a><span class="do">## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes</span></span>
-<span id="cb1189-6"><a href="tabela-dinamica.html#cb1189-6" aria-hidden="true" tabindex="-1"></a>caixeta<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>ab, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, <span class="at">parcela =</span> caixeta<span class="sc">$</span>parcela, <span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> sum)</span>
-<span id="cb1189-7"><a href="tabela-dinamica.html#cb1189-7" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1191-1"><a href="tabela-dinamica.html#cb1191-1" tabindex="-1"></a><span class="do">## Vamos calcular a area basal (soma da area de todo os fustes)</span></span>
+<span id="cb1191-2"><a href="tabela-dinamica.html#cb1191-2" tabindex="-1"></a></span>
+<span id="cb1191-3"><a href="tabela-dinamica.html#cb1191-3" tabindex="-1"></a><span class="do">## calculando a area basal de cada fuste, considerando o fuste um círculo perfeito, poderíamos usar:</span></span>
+<span id="cb1191-4"><a href="tabela-dinamica.html#cb1191-4" tabindex="-1"></a>caixeta<span class="sc">$</span>ab <span class="ot">&lt;-</span> caixeta<span class="sc">$</span>cap<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="dv">4</span> <span class="sc">*</span> pi</span>
+<span id="cb1191-5"><a href="tabela-dinamica.html#cb1191-5" tabindex="-1"></a><span class="do">## e agora criamos a planilha, com aggregate, somando as areas basais dos fustes</span></span>
+<span id="cb1191-6"><a href="tabela-dinamica.html#cb1191-6" tabindex="-1"></a>caixeta<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(caixeta<span class="sc">$</span>ab, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, <span class="at">parcela =</span> caixeta<span class="sc">$</span>parcela, <span class="at">especie =</span> caixeta<span class="sc">$</span>especie), <span class="at">FUN =</span> sum)</span>
+<span id="cb1191-7"><a href="tabela-dinamica.html#cb1191-7" tabindex="-1"></a><span class="fu">class</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1191-1"><a href="tabela-dinamica.html#cb1191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1193-1"><a href="tabela-dinamica.html#cb1193-1" tabindex="-1"></a><span class="fu">head</span>(caixeta<span class="fl">.2</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -904,43 +905,43 @@ Alchornea triplinervia
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/07-sumarizacao_dados.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/07-sumarizacao_dados.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/07-sumarizacao_dados.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/07-sumarizacao_dados.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

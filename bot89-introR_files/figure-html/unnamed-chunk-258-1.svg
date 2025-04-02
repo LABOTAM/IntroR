@@ -38,7 +38,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpNDIuNzd8MTE4Ljg2fDQyLjc3fDkwLjA2)'>
-<text x='80.81' y='69.58' text-anchor='middle' style='font-size: 11.50px; font-family: "Liberation Sans";' textLength='75.25px' lengthAdjust='spacingAndGlyphs'>Sepal.Length</text>
+<text x='80.81' y='69.30' text-anchor='middle' style='font-size: 10.48px; font-family: "Liberation Sans";' textLength='68.50px' lengthAdjust='spacingAndGlyphs'>Sepal.Length</text>
 </g>
 <defs>
   <clipPath id='cpNDIuNzd8MTE4Ljg2fDk5LjU2fDE0Ni44NQ=='>
@@ -940,7 +940,7 @@
 <polygon points='128.36,146.85 204.45,146.85 204.45,99.56 128.36,99.56 ' style='stroke-width: 0.75;' />
 </g>
 <g clip-path='url(#cpMTI4LjM2fDIwNC40NXw5OS41NnwxNDYuODU=)'>
-<text x='166.41' y='126.38' text-anchor='middle' style='font-size: 11.50px; font-family: "Liberation Sans";' textLength='68.99px' lengthAdjust='spacingAndGlyphs'>Sepal.Width</text>
+<text x='166.41' y='126.10' text-anchor='middle' style='font-size: 10.48px; font-family: "Liberation Sans";' textLength='62.81px' lengthAdjust='spacingAndGlyphs'>Sepal.Width</text>
 </g>
 <defs>
   <clipPath id='cpMTI4LjM2fDIwNC40NXwxNTYuMzZ8MjAzLjY0'>
@@ -1805,7 +1805,7 @@
 <polygon points='213.96,203.64 290.04,203.64 290.04,156.36 213.96,156.36 ' style='stroke-width: 0.75;' />
 </g>
 <g clip-path='url(#cpMjEzLjk2fDI5MC4wNHwxNTYuMzZ8MjAzLjY0)'>
-<text x='252.00' y='183.17' text-anchor='middle' style='font-size: 11.50px; font-family: "Liberation Sans";' textLength='71.68px' lengthAdjust='spacingAndGlyphs'>Petal.Length</text>
+<text x='252.00' y='182.89' text-anchor='middle' style='font-size: 10.48px; font-family: "Liberation Sans";' textLength='65.25px' lengthAdjust='spacingAndGlyphs'>Petal.Length</text>
 </g>
 <defs>
   <clipPath id='cpMjEzLjk2fDI5MC4wNHwyMTMuMTV8MjYwLjQ0'>
@@ -2691,7 +2691,7 @@
 <polygon points='299.55,260.44 375.64,260.44 375.64,213.15 299.55,213.15 ' style='stroke-width: 0.75;' />
 </g>
 <g clip-path='url(#cpMjk5LjU1fDM3NS42NHwyMTMuMTV8MjYwLjQ0)'>
-<text x='337.59' y='241.08' text-anchor='middle' style='font-size: 11.50px; font-family: "Liberation Sans";' textLength='65.42px' lengthAdjust='spacingAndGlyphs'>Petal.Width</text>
+<text x='337.59' y='240.70' text-anchor='middle' style='font-size: 10.48px; font-family: "Liberation Sans";' textLength='59.56px' lengthAdjust='spacingAndGlyphs'>Petal.Width</text>
 </g>
 <defs>
   <clipPath id='cpMjk5LjU1fDM3NS42NHwyNjkuOTR8MzE3LjIz'>
@@ -3597,6 +3597,6 @@
 <text transform='translate(478.34,271.69) rotate(-90)' text-anchor='middle' style='font-size: 7.92px; font-family: "Liberation Sans";' textLength='12.58px' lengthAdjust='spacingAndGlyphs'>3.0</text>
 </g>
 <g clip-path='url(#cpMzg1LjE0fDQ2MS4yM3wyNjkuOTR8MzE3LjIz)'>
-<text x='423.19' y='296.76' text-anchor='middle' style='font-size: 11.50px; font-family: "Liberation Sans";' textLength='44.27px' lengthAdjust='spacingAndGlyphs'>Species</text>
+<text x='423.19' y='296.48' text-anchor='middle' style='font-size: 10.48px; font-family: "Liberation Sans";' textLength='40.30px' lengthAdjust='spacingAndGlyphs'>Species</text>
 </g>
 </svg>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.1 Matrizes de distância | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.1 Matrizes de distância | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -558,32 +559,32 @@ div.csl-indent {
 Por exemplo, para estimar a similaridade entre diferentes comunidades vegetais segundo a presença ou ausência de espécies (ou um índice de similaridade que leva em conta as abundâncias relativas); para estimar a similaridade entre espécies ou a relação entre similaridade genética ou morfológica e distância geográfica etc.</p>
 <p>A função <code>dist()</code> é a mais básica do R para calcular dissimilaridades entre objetos.
 Ela calcula dissimilaridades segundo diferentes métodos (argumento <code>method</code>).
-Há também a função <code>vegdist()</code> do pacote <code>vegan</code> <span class="citation">(<a href="#ref-R-vegan" role="doc-biblioref">Oksanen et al. 2020</a>)</span> que faz a mesma coisa, mas tem índices de dissimilaridade que <code>dist()</code> não implementa, muito dos quais muito usados em ecologia de comunidades.</p>
+Há também a função <code>vegdist()</code> do pacote <code>vegan</code> <span class="citation">(<a href="#ref-R-vegan">Oksanen et al. 2020</a>)</span> que faz a mesma coisa, mas tem índices de dissimilaridade que <code>dist()</code> não implementa, muito dos quais muito usados em ecologia de comunidades.</p>
 <p>Busque ler o <code>?</code> dessas duas funções (execute <code>?dist</code> e <code>?vegdist</code> no console), atentando para os diferentes índices de dissimilaridade.
 Na função <code>vegdist()</code>, você encontra os principais <strong>índices de dissimilaridade</strong> usados em ecologia.</p>
 <p>Para entender o que essas funções fazem, vamos ver um exemplo simples de cálculo de distância euclidiana, que é o método padrão de <code>dist()</code>.</p>
-<div class="sourceCode" id="cb1760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1760-1"><a href="matrizes-de-distância.html#cb1760-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usando o método euclidiano</span></span>
-<span id="cb1760-2"><a href="matrizes-de-distância.html#cb1760-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plota um gráfico vazio com coordenadas x e y de 1 a 10</span></span>
-<span id="cb1760-3"><a href="matrizes-de-distância.html#cb1760-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb1760-4"><a href="matrizes-de-distância.html#cb1760-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1760-5"><a href="matrizes-de-distância.html#cb1760-5" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona dois pontos:</span></span>
-<span id="cb1760-6"><a href="matrizes-de-distância.html#cb1760-6" aria-hidden="true" tabindex="-1"></a><span class="co"># um na coordenada 4,4</span></span>
-<span id="cb1760-7"><a href="matrizes-de-distância.html#cb1760-7" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb1760-8"><a href="matrizes-de-distância.html#cb1760-8" aria-hidden="true" tabindex="-1"></a><span class="co"># outro na coordenada x=8, y=8</span></span>
-<span id="cb1760-9"><a href="matrizes-de-distância.html#cb1760-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">8</span>, <span class="dv">8</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb1760-10"><a href="matrizes-de-distância.html#cb1760-10" aria-hidden="true" tabindex="-1"></a><span class="co"># a distancia euclidiana entre eles é dada por essa linha</span></span>
-<span id="cb1760-11"><a href="matrizes-de-distância.html#cb1760-11" aria-hidden="true" tabindex="-1"></a><span class="fu">segments</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">8</span>)</span>
-<span id="cb1760-12"><a href="matrizes-de-distância.html#cb1760-12" aria-hidden="true" tabindex="-1"></a><span class="co"># essa linha é a hipotenusa do triângulo</span></span>
-<span id="cb1760-13"><a href="matrizes-de-distância.html#cb1760-13" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">4</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">4</span>), <span class="at">density =</span> <span class="dv">40</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1762-1"><a href="matrizes-de-distância.html#cb1762-1" tabindex="-1"></a><span class="co"># usando o método euclidiano</span></span>
+<span id="cb1762-2"><a href="matrizes-de-distância.html#cb1762-2" tabindex="-1"></a><span class="co"># plota um gráfico vazio com coordenadas x e y de 1 a 10</span></span>
+<span id="cb1762-3"><a href="matrizes-de-distância.html#cb1762-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1762-4"><a href="matrizes-de-distância.html#cb1762-4" tabindex="-1"></a></span>
+<span id="cb1762-5"><a href="matrizes-de-distância.html#cb1762-5" tabindex="-1"></a><span class="co"># adiciona dois pontos:</span></span>
+<span id="cb1762-6"><a href="matrizes-de-distância.html#cb1762-6" tabindex="-1"></a><span class="co"># um na coordenada 4,4</span></span>
+<span id="cb1762-7"><a href="matrizes-de-distância.html#cb1762-7" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb1762-8"><a href="matrizes-de-distância.html#cb1762-8" tabindex="-1"></a><span class="co"># outro na coordenada x=8, y=8</span></span>
+<span id="cb1762-9"><a href="matrizes-de-distância.html#cb1762-9" tabindex="-1"></a><span class="fu">points</span>(<span class="dv">8</span>, <span class="dv">8</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1762-10"><a href="matrizes-de-distância.html#cb1762-10" tabindex="-1"></a><span class="co"># a distancia euclidiana entre eles é dada por essa linha</span></span>
+<span id="cb1762-11"><a href="matrizes-de-distância.html#cb1762-11" tabindex="-1"></a><span class="fu">segments</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb1762-12"><a href="matrizes-de-distância.html#cb1762-12" tabindex="-1"></a><span class="co"># essa linha é a hipotenusa do triângulo</span></span>
+<span id="cb1762-13"><a href="matrizes-de-distância.html#cb1762-13" tabindex="-1"></a><span class="fu">polygon</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">4</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">4</span>), <span class="at">density =</span> <span class="dv">40</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-569-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1761-1"><a href="matrizes-de-distância.html#cb1761-1" aria-hidden="true" tabindex="-1"></a><span class="co"># portanto a distancia entre os pontos, por Pitágoras, é</span></span>
-<span id="cb1761-2"><a href="matrizes-de-distância.html#cb1761-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sqrt(hipotenusa) = sum(catetoA^2+catetoB^2)</span></span>
-<span id="cb1761-3"><a href="matrizes-de-distância.html#cb1761-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">8</span> <span class="sc">-</span> <span class="dv">4</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="dv">8</span> <span class="sc">-</span> <span class="dv">4</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb1761-4"><a href="matrizes-de-distância.html#cb1761-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1761-5"><a href="matrizes-de-distância.html#cb1761-5" aria-hidden="true" tabindex="-1"></a><span class="co"># agora usando a função dist</span></span>
-<span id="cb1761-6"><a href="matrizes-de-distância.html#cb1761-6" aria-hidden="true" tabindex="-1"></a><span class="co"># coloco as coordenadas dos dois pontos acima num data.frame</span></span>
-<span id="cb1761-7"><a href="matrizes-de-distância.html#cb1761-7" aria-hidden="true" tabindex="-1"></a>pontos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>))</span>
-<span id="cb1761-8"><a href="matrizes-de-distância.html#cb1761-8" aria-hidden="true" tabindex="-1"></a>pontos</span></code></pre></div>
+<div class="sourceCode" id="cb1763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1763-1"><a href="matrizes-de-distância.html#cb1763-1" tabindex="-1"></a><span class="co"># portanto a distancia entre os pontos, por Pitágoras, é</span></span>
+<span id="cb1763-2"><a href="matrizes-de-distância.html#cb1763-2" tabindex="-1"></a><span class="co"># sqrt(hipotenusa) = sum(catetoA^2+catetoB^2)</span></span>
+<span id="cb1763-3"><a href="matrizes-de-distância.html#cb1763-3" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">8</span> <span class="sc">-</span> <span class="dv">4</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (<span class="dv">8</span> <span class="sc">-</span> <span class="dv">4</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb1763-4"><a href="matrizes-de-distância.html#cb1763-4" tabindex="-1"></a></span>
+<span id="cb1763-5"><a href="matrizes-de-distância.html#cb1763-5" tabindex="-1"></a><span class="co"># agora usando a função dist</span></span>
+<span id="cb1763-6"><a href="matrizes-de-distância.html#cb1763-6" tabindex="-1"></a><span class="co"># coloco as coordenadas dos dois pontos acima num data.frame</span></span>
+<span id="cb1763-7"><a href="matrizes-de-distância.html#cb1763-7" tabindex="-1"></a>pontos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">X =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>), <span class="at">Y =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>))</span>
+<span id="cb1763-8"><a href="matrizes-de-distância.html#cb1763-8" tabindex="-1"></a>pontos</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -614,16 +615,16 @@ Y
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1762-1"><a href="matrizes-de-distância.html#cb1762-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calcula a distancia euclidiana para essas variáveis (X e Y)</span></span>
-<span id="cb1762-2"><a href="matrizes-de-distância.html#cb1762-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dist</span>(pontos, <span class="at">method =</span> <span class="st">&quot;eucl&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1764-1"><a href="matrizes-de-distância.html#cb1764-1" tabindex="-1"></a><span class="co"># calcula a distancia euclidiana para essas variáveis (X e Y)</span></span>
+<span id="cb1764-2"><a href="matrizes-de-distância.html#cb1764-2" tabindex="-1"></a><span class="fu">dist</span>(pontos, <span class="at">method =</span> <span class="st">&quot;eucl&quot;</span>)</span></code></pre></div>
 <pre><code>##          1
 ## 2 5.656854</code></pre>
-<div class="sourceCode" id="cb1764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1764-1"><a href="matrizes-de-distância.html#cb1764-1" aria-hidden="true" tabindex="-1"></a><span class="co"># entao isso é verdadeiro</span></span>
-<span id="cb1764-2"><a href="matrizes-de-distância.html#cb1764-2" aria-hidden="true" tabindex="-1"></a>d <span class="sc">==</span> <span class="fu">dist</span>(pontos, <span class="at">method =</span> <span class="st">&quot;eucl&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1766-1"><a href="matrizes-de-distância.html#cb1766-1" tabindex="-1"></a><span class="co"># entao isso é verdadeiro</span></span>
+<span id="cb1766-2"><a href="matrizes-de-distância.html#cb1766-2" tabindex="-1"></a>d <span class="sc">==</span> <span class="fu">dist</span>(pontos, <span class="at">method =</span> <span class="st">&quot;eucl&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-R-vegan" class="csl-entry">
 Oksanen, Jari, F. Guillaume Blanchet, Michael Friendly, Roeland Kindt, Pierre Legendre, Dan McGlinn, Peter R. Minchin, et al. 2020. <em>vegan: Community Ecology Package</em>. <a href="https://CRAN.R-project.org/package=vegan">https://CRAN.R-project.org/package=vegan</a>.
 </div>
@@ -648,43 +649,43 @@ Oksanen, Jari, F. Guillaume Blanchet, Michael Friendly, Roeland Kindt, Pierre Le
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/14-aed_checamultivar.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/14-aed_checamultivar.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/14-aed_checamultivar.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/14-aed_checamultivar.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

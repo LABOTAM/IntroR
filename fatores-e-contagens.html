@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13.2 Fatores e contagens | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13.2 Fatores e contagens | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -556,11 +557,11 @@ div.csl-indent {
 <h2><span class="header-section-number">13.2</span> Fatores e contagens<a href="fatores-e-contagens.html#fatores-e-contagens" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Já vimos a função <code>table()</code> para contar valores em fatores e vetores em casos de <a href="aed-univar.html#aed-univar">univariados</a>.
 Podemos usar a mesma função para gerar tabelas de contingência entre dois ou mais fatores.</p>
-<div class="sourceCode" id="cb1663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1663-1"><a href="fatores-e-contagens.html#cb1663-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Numero de fustes de cada especie por local</span></span>
-<span id="cb1663-2"><a href="fatores-e-contagens.html#cb1663-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(caixeta<span class="sc">$</span>especie, caixeta<span class="sc">$</span>local)</span>
-<span id="cb1663-3"><a href="fatores-e-contagens.html#cb1663-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1665-1"><a href="fatores-e-contagens.html#cb1665-1" tabindex="-1"></a><span class="do">## Numero de fustes de cada especie por local</span></span>
+<span id="cb1665-2"><a href="fatores-e-contagens.html#cb1665-2" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(caixeta<span class="sc">$</span>especie, caixeta<span class="sc">$</span>local)</span>
+<span id="cb1665-3"><a href="fatores-e-contagens.html#cb1665-3" tabindex="-1"></a><span class="fu">class</span>(tb)</span></code></pre></div>
 <pre><code>## [1] &quot;table&quot;</code></pre>
-<div class="sourceCode" id="cb1665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1665-1"><a href="fatores-e-contagens.html#cb1665-1" aria-hidden="true" tabindex="-1"></a>tb</span></code></pre></div>
+<div class="sourceCode" id="cb1667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1667-1"><a href="fatores-e-contagens.html#cb1667-1" tabindex="-1"></a>tb</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1182,13 +1183,13 @@ Tibouchina nutticeps
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1666-1"><a href="fatores-e-contagens.html#cb1666-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convertemos num data.frame</span></span>
-<span id="cb1666-2"><a href="fatores-e-contagens.html#cb1666-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">as.data.frame.matrix</span>(tb)</span>
-<span id="cb1666-3"><a href="fatores-e-contagens.html#cb1666-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1668-1"><a href="fatores-e-contagens.html#cb1668-1" tabindex="-1"></a><span class="co"># convertemos num data.frame</span></span>
+<span id="cb1668-2"><a href="fatores-e-contagens.html#cb1668-2" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">as.data.frame.matrix</span>(tb)</span>
+<span id="cb1668-3"><a href="fatores-e-contagens.html#cb1668-3" tabindex="-1"></a><span class="fu">class</span>(tb)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1668-1"><a href="fatores-e-contagens.html#cb1668-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculo o total de individuos por especie</span></span>
-<span id="cb1668-2"><a href="fatores-e-contagens.html#cb1668-2" aria-hidden="true" tabindex="-1"></a>total <span class="ot">&lt;-</span> <span class="fu">apply</span>(tb, <span class="dv">1</span>, sum)</span>
-<span id="cb1668-3"><a href="fatores-e-contagens.html#cb1668-3" aria-hidden="true" tabindex="-1"></a>total</span></code></pre></div>
+<div class="sourceCode" id="cb1670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1670-1"><a href="fatores-e-contagens.html#cb1670-1" tabindex="-1"></a><span class="co"># calculo o total de individuos por especie</span></span>
+<span id="cb1670-2"><a href="fatores-e-contagens.html#cb1670-2" tabindex="-1"></a>total <span class="ot">&lt;-</span> <span class="fu">apply</span>(tb, <span class="dv">1</span>, sum)</span>
+<span id="cb1670-3"><a href="fatores-e-contagens.html#cb1670-3" tabindex="-1"></a>total</span></code></pre></div>
 <pre><code>##    Alchornea triplinervia       Andira fraxinifolia               bombacaceae 
 ##                        15                         4                         1 
 ##        Cabralea canjerana Callophyllum brasiliensis  Calophyllum brasiliensis 
@@ -1219,9 +1220,9 @@ Tibouchina nutticeps
 ##                         1                        10                       698 
 ##      Tibouchina nutticeps 
 ##                         2</code></pre>
-<div class="sourceCode" id="cb1670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1670-1"><a href="fatores-e-contagens.html#cb1670-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ordeno minha tabela orginal pelo total em ordem decrescente de abundância</span></span>
-<span id="cb1670-2"><a href="fatores-e-contagens.html#cb1670-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> tb[<span class="fu">order</span>(total, <span class="at">decreasing =</span> T), ]</span></code></pre></div>
-<div class="sourceCode" id="cb1671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1671-1"><a href="fatores-e-contagens.html#cb1671-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1672-1"><a href="fatores-e-contagens.html#cb1672-1" tabindex="-1"></a><span class="co"># ordeno minha tabela orginal pelo total em ordem decrescente de abundância</span></span>
+<span id="cb1672-2"><a href="fatores-e-contagens.html#cb1672-2" tabindex="-1"></a>tb <span class="ot">&lt;-</span> tb[<span class="fu">order</span>(total, <span class="at">decreasing =</span> T), ]</span></code></pre></div>
+<div class="sourceCode" id="cb1673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1673-1"><a href="fatores-e-contagens.html#cb1673-1" tabindex="-1"></a><span class="fu">head</span>(tb)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1325,10 +1326,10 @@ Alchornea triplinervia
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1672-1"><a href="fatores-e-contagens.html#cb1672-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se eu quiser uma tabela de presença e ausência</span></span>
-<span id="cb1672-2"><a href="fatores-e-contagens.html#cb1672-2" aria-hidden="true" tabindex="-1"></a><span class="co"># bastaria substituir os valores&gt;0 por 1</span></span>
-<span id="cb1672-3"><a href="fatores-e-contagens.html#cb1672-3" aria-hidden="true" tabindex="-1"></a>tb[tb <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div>
-<div class="sourceCode" id="cb1673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1673-1"><a href="fatores-e-contagens.html#cb1673-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1674-1"><a href="fatores-e-contagens.html#cb1674-1" tabindex="-1"></a><span class="co"># se eu quiser uma tabela de presença e ausência</span></span>
+<span id="cb1674-2"><a href="fatores-e-contagens.html#cb1674-2" tabindex="-1"></a><span class="co"># bastaria substituir os valores&gt;0 por 1</span></span>
+<span id="cb1674-3"><a href="fatores-e-contagens.html#cb1674-3" tabindex="-1"></a>tb[tb <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb1675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1675-1"><a href="fatores-e-contagens.html#cb1675-1" tabindex="-1"></a><span class="fu">head</span>(tb)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1432,19 +1433,19 @@ Alchornea triplinervia
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1674-1"><a href="fatores-e-contagens.html#cb1674-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assim, agora eu posso saber quantas especie por localidade</span></span>
-<span id="cb1674-2"><a href="fatores-e-contagens.html#cb1674-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(tb, <span class="dv">2</span>, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb1676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1676-1"><a href="fatores-e-contagens.html#cb1676-1" tabindex="-1"></a><span class="co"># assim, agora eu posso saber quantas especie por localidade</span></span>
+<span id="cb1676-2"><a href="fatores-e-contagens.html#cb1676-2" tabindex="-1"></a><span class="fu">apply</span>(tb, <span class="dv">2</span>, sum)</span></code></pre></div>
 <pre><code>## chauas jureia retiro 
 ##     13     22     13</code></pre>
 <p>A função <code>xtabs()</code> tabula dados de frequência.</p>
-<div class="sourceCode" id="cb1676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1676-1"><a href="fatores-e-contagens.html#cb1676-1" aria-hidden="true" tabindex="-1"></a><span class="do">## xtabs: tabulacao de dados de frequencia</span></span>
-<span id="cb1676-2"><a href="fatores-e-contagens.html#cb1676-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Vamos usar  Dataframe dos sobreviventes dos sobreviventes e mortos do Titanic</span></span>
-<span id="cb1676-3"><a href="fatores-e-contagens.html#cb1676-3" aria-hidden="true" tabindex="-1"></a>?Titanic <span class="co"># veja o que são esses dados</span></span></code></pre></div>
-<div class="sourceCode" id="cb1677"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1677-1"><a href="fatores-e-contagens.html#cb1677-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Titanic&quot;</span>) <span class="co"># puxamos esse dado</span></span>
-<span id="cb1677-2"><a href="fatores-e-contagens.html#cb1677-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Titanic)</span></code></pre></div>
+<div class="sourceCode" id="cb1678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1678-1"><a href="fatores-e-contagens.html#cb1678-1" tabindex="-1"></a><span class="do">## xtabs: tabulacao de dados de frequencia</span></span>
+<span id="cb1678-2"><a href="fatores-e-contagens.html#cb1678-2" tabindex="-1"></a><span class="do">## Vamos usar  Dataframe dos sobreviventes dos sobreviventes e mortos do Titanic</span></span>
+<span id="cb1678-3"><a href="fatores-e-contagens.html#cb1678-3" tabindex="-1"></a>?Titanic <span class="co"># veja o que são esses dados</span></span></code></pre></div>
+<div class="sourceCode" id="cb1679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1679-1"><a href="fatores-e-contagens.html#cb1679-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Titanic&quot;</span>) <span class="co"># puxamos esse dado</span></span>
+<span id="cb1679-2"><a href="fatores-e-contagens.html#cb1679-2" tabindex="-1"></a><span class="fu">class</span>(Titanic)</span></code></pre></div>
 <pre><code>## [1] &quot;table&quot;</code></pre>
-<div class="sourceCode" id="cb1679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1679-1"><a href="fatores-e-contagens.html#cb1679-1" aria-hidden="true" tabindex="-1"></a>tit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(Titanic) <span class="co"># converte em data.frame</span></span>
-<span id="cb1679-2"><a href="fatores-e-contagens.html#cb1679-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1681-1"><a href="fatores-e-contagens.html#cb1681-1" tabindex="-1"></a>tit <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(Titanic) <span class="co"># converte em data.frame</span></span>
+<span id="cb1681-2"><a href="fatores-e-contagens.html#cb1681-2" tabindex="-1"></a><span class="fu">head</span>(tit)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1570,20 +1571,20 @@ No
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1680-1"><a href="fatores-e-contagens.html#cb1680-1" aria-hidden="true" tabindex="-1"></a><span class="co"># classe de passageiros</span></span>
-<span id="cb1680-2"><a href="fatores-e-contagens.html#cb1680-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1682-1"><a href="fatores-e-contagens.html#cb1682-1" tabindex="-1"></a><span class="co"># classe de passageiros</span></span>
+<span id="cb1682-2"><a href="fatores-e-contagens.html#cb1682-2" tabindex="-1"></a><span class="fu">names</span>(tit)</span></code></pre></div>
 <pre><code>## [1] &quot;Class&quot;    &quot;Sex&quot;      &quot;Age&quot;      &quot;Survived&quot; &quot;Freq&quot;</code></pre>
-<div class="sourceCode" id="cb1682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1682-1"><a href="fatores-e-contagens.html#cb1682-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1684-1"><a href="fatores-e-contagens.html#cb1684-1" tabindex="-1"></a><span class="fu">str</span>(tit)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    32 obs. of  5 variables:
 ##  $ Class   : Factor w/ 4 levels &quot;1st&quot;,&quot;2nd&quot;,&quot;3rd&quot;,..: 1 2 3 4 1 2 3 4 1 2 ...
 ##  $ Sex     : Factor w/ 2 levels &quot;Male&quot;,&quot;Female&quot;: 1 1 1 1 2 2 2 2 1 1 ...
 ##  $ Age     : Factor w/ 2 levels &quot;Child&quot;,&quot;Adult&quot;: 1 1 1 1 1 1 1 1 2 2 ...
 ##  $ Survived: Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Freq    : num  0 0 35 0 0 0 17 0 118 154 ...</code></pre>
-<div class="sourceCode" id="cb1684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1684-1"><a href="fatores-e-contagens.html#cb1684-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Quanto sobreviventes por sexo?</span></span></code></pre></div>
-<div class="sourceCode" id="cb1685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1685-1"><a href="fatores-e-contagens.html#cb1685-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Precisamos da funcao xtabs</span></span>
-<span id="cb1685-2"><a href="fatores-e-contagens.html#cb1685-2" aria-hidden="true" tabindex="-1"></a>?xtabs <span class="co"># veja o help dessa funcão:</span></span></code></pre></div>
-<div class="sourceCode" id="cb1686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1686-1"><a href="fatores-e-contagens.html#cb1686-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(Freq <span class="sc">~</span> Sex <span class="sc">+</span> Survived, <span class="at">data =</span> tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1686-1"><a href="fatores-e-contagens.html#cb1686-1" tabindex="-1"></a><span class="do">## Quanto sobreviventes por sexo?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1687-1"><a href="fatores-e-contagens.html#cb1687-1" tabindex="-1"></a><span class="do">## Precisamos da funcao xtabs</span></span>
+<span id="cb1687-2"><a href="fatores-e-contagens.html#cb1687-2" tabindex="-1"></a>?xtabs <span class="co"># veja o help dessa funcão:</span></span></code></pre></div>
+<div class="sourceCode" id="cb1688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1688-1"><a href="fatores-e-contagens.html#cb1688-1" tabindex="-1"></a><span class="fu">xtabs</span>(Freq <span class="sc">~</span> Sex <span class="sc">+</span> Survived, <span class="at">data =</span> tit)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1622,9 +1623,9 @@ Female
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1687-1"><a href="fatores-e-contagens.html#cb1687-1" aria-hidden="true" tabindex="-1"></a><span class="co"># em porcentagem</span></span>
-<span id="cb1687-2"><a href="fatores-e-contagens.html#cb1687-2" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Sex <span class="sc">+</span> Survived, <span class="at">data =</span> tit)</span></code></pre></div>
-<div class="sourceCode" id="cb1688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1688-1"><a href="fatores-e-contagens.html#cb1688-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tb, <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1689-1"><a href="fatores-e-contagens.html#cb1689-1" tabindex="-1"></a><span class="co"># em porcentagem</span></span>
+<span id="cb1689-2"><a href="fatores-e-contagens.html#cb1689-2" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Sex <span class="sc">+</span> Survived, <span class="at">data =</span> tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1690-1"><a href="fatores-e-contagens.html#cb1690-1" tabindex="-1"></a><span class="fu">prop.table</span>(tb, <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1663,8 +1664,8 @@ Female
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1689-1"><a href="fatores-e-contagens.html#cb1689-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou, se preferir</span></span>
-<span id="cb1689-2"><a href="fatores-e-contagens.html#cb1689-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(tb, <span class="at">margin =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1691-1"><a href="fatores-e-contagens.html#cb1691-1" tabindex="-1"></a><span class="co"># ou, se preferir</span></span>
+<span id="cb1691-2"><a href="fatores-e-contagens.html#cb1691-2" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(tb, <span class="at">margin =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1703,8 +1704,8 @@ Female
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1690-1"><a href="fatores-e-contagens.html#cb1690-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quanto sobreviventes por classe de viagem?</span></span>
-<span id="cb1690-2"><a href="fatores-e-contagens.html#cb1690-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xtabs</span>(Freq <span class="sc">~</span> Class <span class="sc">+</span> Survived, <span class="at">data =</span> tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1692-1"><a href="fatores-e-contagens.html#cb1692-1" tabindex="-1"></a><span class="co"># Quanto sobreviventes por classe de viagem?</span></span>
+<span id="cb1692-2"><a href="fatores-e-contagens.html#cb1692-2" tabindex="-1"></a><span class="fu">xtabs</span>(Freq <span class="sc">~</span> Class <span class="sc">+</span> Survived, <span class="at">data =</span> tit)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1765,13 +1766,13 @@ Crew
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1691-1"><a href="fatores-e-contagens.html#cb1691-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que na primeira classe 203 sobreviveram</span></span>
-<span id="cb1691-2"><a href="fatores-e-contagens.html#cb1691-2" aria-hidden="true" tabindex="-1"></a><span class="co"># eu poderia ter perguntado isso assim:</span></span>
-<span id="cb1691-3"><a href="fatores-e-contagens.html#cb1691-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(tit[tit<span class="sc">$</span>Class <span class="sc">==</span> <span class="st">&quot;1st&quot;</span> <span class="sc">&amp;</span> tit<span class="sc">$</span>Survived <span class="sc">==</span> <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Freq&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1693-1"><a href="fatores-e-contagens.html#cb1693-1" tabindex="-1"></a><span class="co"># note que na primeira classe 203 sobreviveram</span></span>
+<span id="cb1693-2"><a href="fatores-e-contagens.html#cb1693-2" tabindex="-1"></a><span class="co"># eu poderia ter perguntado isso assim:</span></span>
+<span id="cb1693-3"><a href="fatores-e-contagens.html#cb1693-3" tabindex="-1"></a><span class="fu">sum</span>(tit[tit<span class="sc">$</span>Class <span class="sc">==</span> <span class="st">&quot;1st&quot;</span> <span class="sc">&amp;</span> tit<span class="sc">$</span>Survived <span class="sc">==</span> <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Freq&quot;</span>])</span></code></pre></div>
 <pre><code>## [1] 203</code></pre>
-<div class="sourceCode" id="cb1693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1693-1"><a href="fatores-e-contagens.html#cb1693-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou seja, a funcao xtabs calculou a soma da frequencia</span></span>
-<span id="cb1693-2"><a href="fatores-e-contagens.html#cb1693-2" aria-hidden="true" tabindex="-1"></a><span class="co"># porcentagem</span></span>
-<span id="cb1693-3"><a href="fatores-e-contagens.html#cb1693-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">xtabs</span>(Freq <span class="sc">~</span> Class <span class="sc">+</span> Survived, <span class="at">data =</span> tit), <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1695-1"><a href="fatores-e-contagens.html#cb1695-1" tabindex="-1"></a><span class="co"># ou seja, a funcao xtabs calculou a soma da frequencia</span></span>
+<span id="cb1695-2"><a href="fatores-e-contagens.html#cb1695-2" tabindex="-1"></a><span class="co"># porcentagem</span></span>
+<span id="cb1695-3"><a href="fatores-e-contagens.html#cb1695-3" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">xtabs</span>(Freq <span class="sc">~</span> Class <span class="sc">+</span> Survived, <span class="at">data =</span> tit), <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1832,9 +1833,9 @@ Crew
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1694-1"><a href="fatores-e-contagens.html#cb1694-1" aria-hidden="true" tabindex="-1"></a><span class="do">## E para combinacoes de mais de duas variaveis</span></span>
-<span id="cb1694-2"><a href="fatores-e-contagens.html#cb1694-2" aria-hidden="true" tabindex="-1"></a>tb2 <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Class <span class="sc">+</span> Survived <span class="sc">+</span> Sex, <span class="at">data =</span> tit)</span></code></pre></div>
-<div class="sourceCode" id="cb1695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1695-1"><a href="fatores-e-contagens.html#cb1695-1" aria-hidden="true" tabindex="-1"></a>tb2 <span class="co"># veja o resultado e observe duas virgulas</span></span></code></pre></div>
+<div class="sourceCode" id="cb1696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1696-1"><a href="fatores-e-contagens.html#cb1696-1" tabindex="-1"></a><span class="do">## E para combinacoes de mais de duas variaveis</span></span>
+<span id="cb1696-2"><a href="fatores-e-contagens.html#cb1696-2" tabindex="-1"></a>tb2 <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Class <span class="sc">+</span> Survived <span class="sc">+</span> Sex, <span class="at">data =</span> tit)</span></code></pre></div>
+<div class="sourceCode" id="cb1697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1697-1"><a href="fatores-e-contagens.html#cb1697-1" tabindex="-1"></a>tb2 <span class="co"># veja o resultado e observe duas virgulas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2079,7 +2080,7 @@ Female
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1696-1"><a href="fatores-e-contagens.html#cb1696-1" aria-hidden="true" tabindex="-1"></a>tb2[, , <span class="dv">1</span>] <span class="co"># para Female</span></span></code></pre></div>
+<div class="sourceCode" id="cb1698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1698-1"><a href="fatores-e-contagens.html#cb1698-1" tabindex="-1"></a>tb2[, , <span class="dv">1</span>] <span class="co"># para Female</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2140,7 +2141,7 @@ Crew
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1697-1"><a href="fatores-e-contagens.html#cb1697-1" aria-hidden="true" tabindex="-1"></a>tb2[, , <span class="dv">2</span>] <span class="co"># note que não vimos isso antes, tb2, neste caso é um array, que um objeto que pode ter múltiplas dimensões, por isso as duas vírgulas, porque tem 3 dimensoes</span></span></code></pre></div>
+<div class="sourceCode" id="cb1699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1699-1"><a href="fatores-e-contagens.html#cb1699-1" tabindex="-1"></a>tb2[, , <span class="dv">2</span>] <span class="co"># note que não vimos isso antes, tb2, neste caso é um array, que um objeto que pode ter múltiplas dimensões, por isso as duas vírgulas, porque tem 3 dimensoes</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2222,43 +2223,43 @@ Crew
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/13-aed_checabivar.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/13-aed_checabivar.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/13-aed_checabivar.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/13-aed_checabivar.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

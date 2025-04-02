@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -556,12 +557,12 @@ div.csl-indent {
 <h1 class="title">Curso básico de introdução à linguagem R</h1>
 <h2 class="subtitle"><em>Disciplina BOT89 - PPGBOT INPA</em></h2>
 <p class="author"><em>Alberto Vicentini e Ricardo de Oliveira Perdiz</em></p>
-<p class="date"><em>Última atualização: 2023-10-06</em></p>
+<p class="date"><em>Última atualização: 2025-04-02</em></p>
 </div>
 <div id="prefácio" class="section level1 unnumbered hasAnchor">
 <h1>Prefácio<a href="index.html#prefácio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89) do <a href="http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/">Programa de Pós-Graduação em Ciências Biológicas (Botânica)</a> do INPA, ofertada desde o ano de 2011.</p>
-<p>Inicialmente, a disciplina consistiu de uma modificação da documentação do curso de <a href="http://ecor.ib.usp.br/doku.php">Introdução à Linguagem R</a> oferecida pelo <a href="https://posecologia.ib.usp.br/">Programa de Pós-graduação em Ecologia</a> do Instituto de Biociências da Universidade de São Paulo, atualmente ministrada pelo professor Dr. <a href="http://labtrop.ib.usp.br/">Alexandre Adalardo de Oliveira</a>, e que contem aulas de autoria dos professores Drs. A. A. de Oliveira, <a href="http://cmq.esalq.usp.br/">João Luís Ferreira Batista</a>, <a href="http://ecologia.ib.usp.br/let/doku.php?id=prado:start">Paulo Inácio K. L. Prado</a>, e Rodrigo Augusto Santinelo Pereira <span class="citation">(<a href="#ref-Batista2009" role="doc-biblioref">Batista, I., e Oliveira 2009</a>)</span>.
+<p>Inicialmente, a disciplina consistiu de uma modificação da documentação do curso de <a href="http://ecor.ib.usp.br/doku.php">Introdução à Linguagem R</a> oferecida pelo <a href="https://posecologia.ib.usp.br/">Programa de Pós-graduação em Ecologia</a> do Instituto de Biociências da Universidade de São Paulo, atualmente ministrada pelo professor Dr. <a href="http://labtrop.ib.usp.br/">Alexandre Adalardo de Oliveira</a>, e que contem aulas de autoria dos professores Drs. A. A. de Oliveira, <a href="http://cmq.esalq.usp.br/">João Luís Ferreira Batista</a>, <a href="http://ecologia.ib.usp.br/let/doku.php?id=prado:start">Paulo Inácio K. L. Prado</a>, e Rodrigo Augusto Santinelo Pereira <span class="citation">(<a href="#ref-Batista2009">Batista, I., e Oliveira 2009</a>)</span>.
 Como exemplo, parte dos dados (dados de <a href="https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv">avistamento de aves no Cerrado</a> e <a href="https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv">Levantamento em Caixetais</a>) utilizados em nossas aulas são originários desta disciplina da Ecologia da USP.</p>
 <p>Modificações nessa estrutura foram feitas por Alberto Vicentini ao longo dos últimos 10 anos em disciplinas anuais ofertadas no Programa de pós-graduação em Ciências Biológicas (Botânica) do Instituto Nacional de Pesquisas da Amazônia (INPA).
 Ricardo Perdiz transpôs as aulas originais formatadas em <code>dokuwiki</code> para o formato <a href="https://rmarkdown.rstudio.com/">Rmarkdown</a>.
@@ -570,7 +571,7 @@ Também fez correções e acrescentou (poucos) novos conteúdos.</p>
 Ressaltamos que <strong>isto não é um curso de estatística</strong>.</p>
 </div>
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-Batista2009" class="csl-entry">
 Batista, J. L. F., Prado P. I., e A. A. Oliveira. 2009. <em><span>Introdução ao R - Uma Apostila online</span></em>. <a href="http://ecologia.ib.usp.br/bie5782">http://ecologia.ib.usp.br/bie5782</a>.
 </div>
@@ -595,43 +596,43 @@ Batista, J. L. F., Prado P. I., e A. A. Oliveira. 2009. <em><span>Introdução a
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

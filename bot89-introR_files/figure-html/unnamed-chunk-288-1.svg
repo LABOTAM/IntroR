@@ -56,9 +56,9 @@
 <line x1='59.04' y1='243.02' x2='51.84' y2='243.02' style='stroke-width: 0.75;' />
 <line x1='59.04' y1='172.80' x2='51.84' y2='172.80' style='stroke-width: 0.75;' />
 <line x1='59.04' y1='102.58' x2='51.84' y2='102.58' style='stroke-width: 0.75;' />
-<text x='44.64' y='247.40' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='39.31px' lengthAdjust='spacingAndGlyphs'>setosa</text>
-<text x='44.64' y='177.17' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='58.57px' lengthAdjust='spacingAndGlyphs'>versicolor</text>
-<text x='44.64' y='106.95' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='51.02px' lengthAdjust='spacingAndGlyphs'>virginica</text>
+<text transform='translate(41.76,243.02) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='39.31px' lengthAdjust='spacingAndGlyphs'>setosa</text>
+<text transform='translate(41.76,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='58.57px' lengthAdjust='spacingAndGlyphs'>versicolor</text>
+<text transform='translate(41.76,102.58) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='51.02px' lengthAdjust='spacingAndGlyphs'>virginica</text>
 <line x1='95.73' y1='286.56' x2='469.07' y2='286.56' style='stroke-width: 0.75;' />
 <line x1='95.73' y1='286.56' x2='95.73' y2='293.76' style='stroke-width: 0.75;' />
 <line x1='149.07' y1='286.56' x2='149.07' y2='293.76' style='stroke-width: 0.75;' />
@@ -68,14 +68,14 @@
 <line x1='362.40' y1='286.56' x2='362.40' y2='293.76' style='stroke-width: 0.75;' />
 <line x1='415.73' y1='286.56' x2='415.73' y2='293.76' style='stroke-width: 0.75;' />
 <line x1='469.07' y1='286.56' x2='469.07' y2='293.76' style='stroke-width: 0.75;' />
-<text transform='translate(100.11,300.96) rotate(-90)' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>4.5</text>
-<text transform='translate(153.44,300.96) rotate(-90)' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>5.0</text>
-<text transform='translate(206.77,300.96) rotate(-90)' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>5.5</text>
-<text transform='translate(260.11,300.96) rotate(-90)' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>6.0</text>
-<text transform='translate(313.44,300.96) rotate(-90)' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>6.5</text>
-<text transform='translate(366.77,300.96) rotate(-90)' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>7.0</text>
-<text transform='translate(420.11,300.96) rotate(-90)' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>7.5</text>
-<text transform='translate(473.44,300.96) rotate(-90)' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>8.0</text>
+<text x='95.73' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>4.5</text>
+<text x='149.07' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>5.0</text>
+<text x='202.40' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>5.5</text>
+<text x='255.73' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>6.0</text>
+<text x='309.07' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>6.5</text>
+<text x='362.40' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>7.0</text>
+<text x='415.73' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>7.5</text>
+<text x='469.07' y='312.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='19.09px' lengthAdjust='spacingAndGlyphs'>8.0</text>
 <text x='266.40' y='341.28' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='104.04px' lengthAdjust='spacingAndGlyphs'>iris$Sepal.Length</text>
 <text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='71.70px' lengthAdjust='spacingAndGlyphs'>iris$Species</text>
 <polygon points='59.04,286.56 473.76,286.56 473.76,59.04 59.04,59.04 ' style='stroke-width: 0.75;' />

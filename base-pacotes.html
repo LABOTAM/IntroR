@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.3 R-base e pacotes | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.3 R-base e pacotes | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -561,19 +562,19 @@ div.csl-indent {
 </ul>
 <p>As funções do pacote <code>base</code> vêm junto com o programa e você não precisa se preocupar com isso.
 Pacotes, por outro lado, devem ser instalados pelo usuário conforme a necessidade.
-Por exemplo, para trabalhar com dados filogenéticos, você pode necessitar do pacote <a href="https://cran.r-project.org/web/packages/ape/index.html">ape</a> <span class="citation">(<a href="#ref-R-ape" role="doc-biblioref">Paradis et al. 2020</a>)</span>, que já tem várias funções preparadas para análises filogenéticas.
+Por exemplo, para trabalhar com dados filogenéticos, você pode necessitar do pacote <a href="https://cran.r-project.org/web/packages/ape/index.html">ape</a> <span class="citation">(<a href="#ref-R-ape">Paradis et al. 2020</a>)</span>, que já tem várias funções preparadas para análises filogenéticas.
 Se você necessitar deste pacote, por exemplo, basta executar o seguinte comando no console do R:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="base-pacotes.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="base-pacotes.html#cb16-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>)</span></code></pre></div>
 <p>Para trabalhar com pacotes você primeiro precisa definir um repositório, ou seja, um servidor, de vários disponíveis (espelhos do repositório oficial), de onde o R buscará o pacote desejado.
 Pode-se também o menu do R ou do RStudio para instalar pacotes e definir um repositório padrão para sua instalação.</p>
 <p>Como tudo no R, você pode executar comandos que estão no menu usando funções.
 Por exemplo, ao invés de usarmos o menu do R para definir um repositório e instalar um pacote, vamos executar estas ações por meio de um script:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="base-pacotes.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># isso pode não funcionar se estiver no INPA por causa do Proxy.</span></span>
-<span id="cb17-2"><a href="base-pacotes.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chooseCRANmirror</span>() <span class="co"># seleciona repositório</span></span>
-<span id="cb17-3"><a href="base-pacotes.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>) <span class="co"># instala o pacote Ape</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="base-pacotes.html#cb17-1" tabindex="-1"></a><span class="co"># isso pode não funcionar se estiver no INPA por causa do Proxy.</span></span>
+<span id="cb17-2"><a href="base-pacotes.html#cb17-2" tabindex="-1"></a><span class="fu">chooseCRANmirror</span>() <span class="co"># seleciona repositório</span></span>
+<span id="cb17-3"><a href="base-pacotes.html#cb17-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ape&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>) <span class="co"># instala o pacote Ape</span></span></code></pre></div>
 </div>
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-R-ape" class="csl-entry">
 Paradis, Emmanuel, Simon Blomberg, Ben Bolker, Joseph Brown, Santiago Claramunt, Julien Claude, Hoa Sien Cuong, et al. 2020. <em>ape: Analyses of Phylogenetics and Evolution</em>. <a href="http://ape-package.ird.fr/">http://ape-package.ird.fr/</a>.
 </div>
@@ -598,43 +599,43 @@ Paradis, Emmanuel, Simon Blomberg, Ben Bolker, Joseph Brown, Santiago Claramunt,
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/01-intro.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/01-intro.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/01-intro.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/01-intro.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

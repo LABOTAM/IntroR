@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Caso você possua um computador | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Caso você possua um computador | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -568,11 +569,11 @@ Ademais, ambientes de desenvolvimento integrado (do inglês <em>Integrated Devel
 <h3>Baixe os pacotes abaixo<a href="caso-você-possua-um-computador.html#baixe-os-pacotes-abaixo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Serão necessários o uso de alguns pacotes de R (veja seção <a href="base-pacotes.html#base-pacotes">1.3</a> para entender o que são pacotes de R) para poder fazer uso tanto do repositório localmente quanto fazer uso das próprias aulas.
 Então, rode o comando abaixo para instalar esses pacotes em seu computador:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="caso-você-possua-um-computador.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;rmarkdown&#39;</span>, <span class="st">&#39;bookdown&#39;</span>, <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;kableExtra&#39;</span>, <span class="st">&#39;ape&#39;</span>, <span class="st">&#39;labdsv&#39;</span>, <span class="st">&#39;vegan&#39;</span>, <span class="st">&#39;maps&#39;</span>, <span class="st">&#39;readxl&#39;</span>, <span class="st">&#39;readr&#39;</span>, <span class="st">&#39;data.table&#39;</span>, <span class="st">&#39;rgdal&#39;</span>, <span class="st">&#39;taxize&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="caso-você-possua-um-computador.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;rmarkdown&#39;</span>, <span class="st">&#39;bookdown&#39;</span>, <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;kableExtra&#39;</span>, <span class="st">&#39;ape&#39;</span>, <span class="st">&#39;labdsv&#39;</span>, <span class="st">&#39;vegan&#39;</span>, <span class="st">&#39;maps&#39;</span>, <span class="st">&#39;readxl&#39;</span>, <span class="st">&#39;readr&#39;</span>, <span class="st">&#39;data.table&#39;</span>, <span class="st">&#39;rgdal&#39;</span>, <span class="st">&#39;taxize&#39;</span>))</span></code></pre></div>
 <p>Há uma lista de pacotes que serão utilizados apenas no apêndice <a href="base-tidyverse.html#base-tidyverse">A</a>.
 Eles não são necessários para acompanhar o curso, mas caso você chegue a este apêndice, eles serão necessários.
 Portanto, caso queira já instalá-los, execute o comando abaixo:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="caso-você-possua-um-computador.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;ggplot2&#39;</span>, <span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;tibble&#39;</span>, <span class="st">&#39;tidyr&#39;</span>, <span class="st">&#39;purrr&#39;</span>, <span class="st">&#39;magrittr&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="caso-você-possua-um-computador.html#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&#39;ggplot2&#39;</span>, <span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;tibble&#39;</span>, <span class="st">&#39;tidyr&#39;</span>, <span class="st">&#39;purrr&#39;</span>, <span class="st">&#39;magrittr&#39;</span>))</span></code></pre></div>
 </div>
 <div id="baixe-o-repositório-para-seu-computador" class="section level3 unnumbered hasAnchor">
 <h3>Baixe o repositório para seu computador<a href="caso-você-possua-um-computador.html#baixe-o-repositório-para-seu-computador" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -587,7 +588,7 @@ Figura 0.1: Imagem inicial do repositório hospedado no GitHub contendo o códig
 Clique neste botão e aparecerão algumas opções.
 Clique no botão <strong>Download Zip</strong>, destacado em vermelho na figura <a href="caso-você-possua-um-computador.html#fig:baixa-repo">0.2</a>, e escolha onde você quer salvar o arquivo.</p>
 <div class="figure"><span style="display:block;" id="fig:baixa-repo"></span>
-<img src="figuras/baixa_repo.png" alt="Destaque do botão &quot;Code&quot; (retângulo &quot;azul&quot; pontilhado circundando o botão, com uma seta &quot;azul&quot; apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor &quot;vermelha&quot; destacando a opção `Download Zip.`" width="60%" />
+&lt;img src=“figuras/baixa_repo.png” alt=“Destaque do botão”Code” (retângulo “azul” pontilhado circundando o botão, com uma seta “azul” apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor “vermelha” destacando a opção <code>Download Zip.</code>” width=“60%” /&gt;
 <p class="caption">
 Figura 0.2: Destaque do botão “Code” (retângulo “azul” pontilhado circundando o botão, com uma seta “azul” apontando para o mesmo botão) presente na página inicial do repositório hospedado no GitHub contendo o código fonte deste livro. Há um outro retângulo de cor “vermelha” destacando a opção <code>Download Zip.</code>
 </p>
@@ -663,43 +664,43 @@ Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repo
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

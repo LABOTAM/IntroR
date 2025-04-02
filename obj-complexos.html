@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.2 Objetos complexos | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.2 Objetos complexos | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -562,79 +563,79 @@ Abaixo mostramos um exemplo através de um mapa dos municípios brasileiros.
 Para isso, vamos precisar baixar um arquivo (<a href="https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosshape.zip" class="uri">https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosshape.zip</a>).
 Baixe este arquivo comprimido que contem os arquivos de um único <em>shapefile</em>.
 Descomprima-o na sua pasta de trabalho e você perceberá que haverá vários arquivos associados.
-Para trabalhar com esses arquivos, vamos utilizar os pacotes <code>maps</code> <span class="citation">(<a href="#ref-R-maps" role="doc-biblioref">Brownrigg 2018</a>)</span> e <code>rgdal</code> <span class="citation">(<a href="#ref-R-rgdal" role="doc-biblioref">Bivand, Keitt, e Rowlingson 2020</a>)</span>.</p>
-<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="obj-complexos.html#cb776-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos precisar de dois pacotes para dados espaciais</span></span>
-<span id="cb776-2"><a href="obj-complexos.html#cb776-2" aria-hidden="true" tabindex="-1"></a><span class="co"># se não tiver instalado, instale com as dependencias</span></span>
-<span id="cb776-3"><a href="obj-complexos.html#cb776-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c(&quot;maps&quot;, &quot;rgdal&quot;), dependencies = TRUE)</span></span>
-<span id="cb776-4"><a href="obj-complexos.html#cb776-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;maps&quot;</span>)</span>
-<span id="cb776-5"><a href="obj-complexos.html#cb776-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rgdal&quot;</span>)</span>
-<span id="cb776-6"><a href="obj-complexos.html#cb776-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-7"><a href="obj-complexos.html#cb776-7" aria-hidden="true" tabindex="-1"></a><span class="co"># agora mudem o diretorio para pasta que contem os arquivos shape</span></span>
-<span id="cb776-8"><a href="obj-complexos.html#cb776-8" aria-hidden="true" tabindex="-1"></a><span class="co"># lembre que voces podem tanto utilizar a funcao `setwd()` quanto clicar em Ferramentas/Tools na barra de opcoes do RStudio para mudar o diretorio de trabalho</span></span>
-<span id="cb776-9"><a href="obj-complexos.html#cb776-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;shp&quot;</span>) <span class="co"># lista arquivos shape na pasta</span></span>
-<span id="cb776-10"><a href="obj-complexos.html#cb776-10" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o help da função para ler shapefiles</span></span>
-<span id="cb776-11"><a href="obj-complexos.html#cb776-11" aria-hidden="true" tabindex="-1"></a>?readOGR</span>
-<span id="cb776-12"><a href="obj-complexos.html#cb776-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-13"><a href="obj-complexos.html#cb776-13" aria-hidden="true" tabindex="-1"></a><span class="co"># le o shape file com objeto espacial no R</span></span>
-<span id="cb776-14"><a href="obj-complexos.html#cb776-14" aria-hidden="true" tabindex="-1"></a>mp <span class="ot">&lt;-</span> <span class="fu">readOGR</span>(<span class="at">dsn =</span> <span class="st">&quot;MUNICIPIOS.shp&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;MUNICIPIOS&quot;</span>, <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
-<span id="cb776-15"><a href="obj-complexos.html#cb776-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mp) <span class="co"># veja o mapa</span></span>
-<span id="cb776-16"><a href="obj-complexos.html#cb776-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-17"><a href="obj-complexos.html#cb776-17" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mp) <span class="co"># é um objeto de classe SpatialPolygonsDataFrame</span></span>
-<span id="cb776-18"><a href="obj-complexos.html#cb776-18" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mp) <span class="co"># a estrutura é complexa</span></span>
-<span id="cb776-19"><a href="obj-complexos.html#cb776-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-20"><a href="obj-complexos.html#cb776-20" aria-hidden="true" tabindex="-1"></a><span class="co"># tem elementos definidos por $, que interpretado diretamente, é corresponde a um data.frame que é o dado associado à cada polígono no arquivo (attribute table do shapefile).</span></span>
-<span id="cb776-21"><a href="obj-complexos.html#cb776-21" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mp)</span>
-<span id="cb776-22"><a href="obj-complexos.html#cb776-22" aria-hidden="true" tabindex="-1"></a>mp<span class="sc">$</span>NOME_MUNI</span>
-<span id="cb776-23"><a href="obj-complexos.html#cb776-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mp)</span>
-<span id="cb776-24"><a href="obj-complexos.html#cb776-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-25"><a href="obj-complexos.html#cb776-25" aria-hidden="true" tabindex="-1"></a><span class="co"># tem elementos definidos por @</span></span>
-<span id="cb776-26"><a href="obj-complexos.html#cb776-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ver o help da função</span></span>
-<span id="cb776-27"><a href="obj-complexos.html#cb776-27" aria-hidden="true" tabindex="-1"></a><span class="co"># ?slot</span></span>
-<span id="cb776-28"><a href="obj-complexos.html#cb776-28" aria-hidden="true" tabindex="-1"></a><span class="co"># slotNames(mp) #lista quais são esses elementos</span></span>
-<span id="cb776-29"><a href="obj-complexos.html#cb776-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-30"><a href="obj-complexos.html#cb776-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-31"><a href="obj-complexos.html#cb776-31" aria-hidden="true" tabindex="-1"></a>mp<span class="sc">@</span>data <span class="co"># é o mesmo data.frame que é automaticamente reconhecido na expressão acima</span></span>
-<span id="cb776-32"><a href="obj-complexos.html#cb776-32" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mp) <span class="sc">==</span> <span class="fu">dim</span>(mp<span class="sc">@</span>data)</span>
-<span id="cb776-33"><a href="obj-complexos.html#cb776-33" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mp) <span class="sc">==</span> <span class="fu">names</span>(mp<span class="sc">@</span>data)</span>
-<span id="cb776-34"><a href="obj-complexos.html#cb776-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-35"><a href="obj-complexos.html#cb776-35" aria-hidden="true" tabindex="-1"></a><span class="co"># area do mapa dos municipios (os limites em latitude e longitude da área)</span></span>
-<span id="cb776-36"><a href="obj-complexos.html#cb776-36" aria-hidden="true" tabindex="-1"></a>mp<span class="sc">@</span>bbox</span>
-<span id="cb776-37"><a href="obj-complexos.html#cb776-37" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mp<span class="sc">@</span>bbox)</span>
-<span id="cb776-38"><a href="obj-complexos.html#cb776-38" aria-hidden="true" tabindex="-1"></a><span class="co"># adicionamos o mapa mundi sobre isso</span></span>
-<span id="cb776-39"><a href="obj-complexos.html#cb776-39" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="at">add =</span> T)</span>
-<span id="cb776-40"><a href="obj-complexos.html#cb776-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-41"><a href="obj-complexos.html#cb776-41" aria-hidden="true" tabindex="-1"></a><span class="co"># mp@polygons define cada poligono individualmente numa lista</span></span>
-<span id="cb776-42"><a href="obj-complexos.html#cb776-42" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mp<span class="sc">@</span>polygons)</span>
-<span id="cb776-43"><a href="obj-complexos.html#cb776-43" aria-hidden="true" tabindex="-1"></a>mp<span class="sc">@</span>polygons[[<span class="dv">1</span>]] <span class="co"># um elemento qualquer</span></span>
-<span id="cb776-44"><a href="obj-complexos.html#cb776-44" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mp<span class="sc">@</span>polygons[[<span class="dv">1</span>]])</span>
-<span id="cb776-45"><a href="obj-complexos.html#cb776-45" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mp<span class="sc">@</span>polygons[[<span class="dv">1</span>]])</span>
-<span id="cb776-46"><a href="obj-complexos.html#cb776-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-47"><a href="obj-complexos.html#cb776-47" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que este objeto tem vários elementos definidos por @</span></span>
-<span id="cb776-48"><a href="obj-complexos.html#cb776-48" aria-hidden="true" tabindex="-1"></a><span class="co"># slotNames(mp@polygons[[1]]) #slots desse objeto</span></span>
-<span id="cb776-49"><a href="obj-complexos.html#cb776-49" aria-hidden="true" tabindex="-1"></a>mp<span class="sc">@</span>polygons[[<span class="dv">1</span>]]<span class="sc">@</span>labpt <span class="co"># o centroid do polígono 1 que é o municipio de:</span></span>
-<span id="cb776-50"><a href="obj-complexos.html#cb776-50" aria-hidden="true" tabindex="-1"></a>mp<span class="sc">@</span>data<span class="sc">$</span>NOME_MUNI[<span class="dv">1</span>] <span class="co"># Chuí</span></span>
-<span id="cb776-51"><a href="obj-complexos.html#cb776-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-52"><a href="obj-complexos.html#cb776-52" aria-hidden="true" tabindex="-1"></a><span class="co"># qual elemento é manaus?</span></span>
-<span id="cb776-53"><a href="obj-complexos.html#cb776-53" aria-hidden="true" tabindex="-1"></a>gp <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;Manaus&quot;</span>, mp<span class="sc">@</span>data<span class="sc">$</span>NOME_MUNI)</span>
-<span id="cb776-54"><a href="obj-complexos.html#cb776-54" aria-hidden="true" tabindex="-1"></a><span class="co"># pega o polígono de manaus</span></span>
-<span id="cb776-55"><a href="obj-complexos.html#cb776-55" aria-hidden="true" tabindex="-1"></a>manaus <span class="ot">&lt;-</span> mp<span class="sc">@</span>polygons[[gp]]</span>
-<span id="cb776-56"><a href="obj-complexos.html#cb776-56" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(manaus)</span>
-<span id="cb776-57"><a href="obj-complexos.html#cb776-57" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(manaus)</span>
-<span id="cb776-58"><a href="obj-complexos.html#cb776-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb776-59"><a href="obj-complexos.html#cb776-59" aria-hidden="true" tabindex="-1"></a><span class="co"># plota manaus</span></span>
-<span id="cb776-60"><a href="obj-complexos.html#cb776-60" aria-hidden="true" tabindex="-1"></a><span class="co"># dev.off() #fecha dispositivos gráficos podes precisar disso</span></span>
-<span id="cb776-61"><a href="obj-complexos.html#cb776-61" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="at">xlim =</span> mp<span class="sc">@</span>bbox[<span class="st">&quot;x&quot;</span>, ], <span class="at">ylim =</span> mp<span class="sc">@</span>bbox[<span class="st">&quot;y&quot;</span>, ])</span>
-<span id="cb776-62"><a href="obj-complexos.html#cb776-62" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(manaus<span class="sc">@</span>Polygons[[<span class="dv">1</span>]]<span class="sc">@</span>coords, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb776-63"><a href="obj-complexos.html#cb776-63" aria-hidden="true" tabindex="-1"></a><span class="co"># centroides do poligono de manaus</span></span>
-<span id="cb776-64"><a href="obj-complexos.html#cb776-64" aria-hidden="true" tabindex="-1"></a>ctro <span class="ot">&lt;-</span> manaus<span class="sc">@</span>Polygons[[<span class="dv">1</span>]]<span class="sc">@</span>labpt</span>
-<span id="cb776-65"><a href="obj-complexos.html#cb776-65" aria-hidden="true" tabindex="-1"></a>ctro[<span class="dv">2</span>] <span class="ot">&lt;-</span> ctro[<span class="dv">2</span>] <span class="sc">+</span> <span class="fl">1.5</span> <span class="co"># adiciona 1.5 graus na latitude para não plotar sobre o poligono do municipio</span></span>
-<span id="cb776-66"><a href="obj-complexos.html#cb776-66" aria-hidden="true" tabindex="-1"></a><span class="co"># plota no nome</span></span>
-<span id="cb776-67"><a href="obj-complexos.html#cb776-67" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> ctro[<span class="dv">1</span>], <span class="at">y =</span> ctro[<span class="dv">2</span>], <span class="at">labels =</span> <span class="st">&quot;Manaus&quot;</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code></pre></div>
+Para trabalhar com esses arquivos, vamos utilizar os pacotes <code>maps</code> <span class="citation">(<a href="#ref-R-maps">Brownrigg 2018</a>)</span> e <code>rgdal</code> <span class="citation">(<a href="#ref-R-rgdal">Bivand, Keitt, e Rowlingson 2020</a>)</span>.</p>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="obj-complexos.html#cb776-1" tabindex="-1"></a><span class="co"># vamos precisar de dois pacotes para dados espaciais</span></span>
+<span id="cb776-2"><a href="obj-complexos.html#cb776-2" tabindex="-1"></a><span class="co"># se não tiver instalado, instale com as dependencias</span></span>
+<span id="cb776-3"><a href="obj-complexos.html#cb776-3" tabindex="-1"></a><span class="co"># install.packages(c(&quot;maps&quot;, &quot;rgdal&quot;), dependencies = TRUE)</span></span>
+<span id="cb776-4"><a href="obj-complexos.html#cb776-4" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;maps&quot;</span>)</span>
+<span id="cb776-5"><a href="obj-complexos.html#cb776-5" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;rgdal&quot;</span>)</span>
+<span id="cb776-6"><a href="obj-complexos.html#cb776-6" tabindex="-1"></a></span>
+<span id="cb776-7"><a href="obj-complexos.html#cb776-7" tabindex="-1"></a><span class="co"># agora mudem o diretorio para pasta que contem os arquivos shape</span></span>
+<span id="cb776-8"><a href="obj-complexos.html#cb776-8" tabindex="-1"></a><span class="co"># lembre que voces podem tanto utilizar a funcao `setwd()` quanto clicar em Ferramentas/Tools na barra de opcoes do RStudio para mudar o diretorio de trabalho</span></span>
+<span id="cb776-9"><a href="obj-complexos.html#cb776-9" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;shp&quot;</span>) <span class="co"># lista arquivos shape na pasta</span></span>
+<span id="cb776-10"><a href="obj-complexos.html#cb776-10" tabindex="-1"></a><span class="co"># veja o help da função para ler shapefiles</span></span>
+<span id="cb776-11"><a href="obj-complexos.html#cb776-11" tabindex="-1"></a>?readOGR</span>
+<span id="cb776-12"><a href="obj-complexos.html#cb776-12" tabindex="-1"></a></span>
+<span id="cb776-13"><a href="obj-complexos.html#cb776-13" tabindex="-1"></a><span class="co"># le o shape file com objeto espacial no R</span></span>
+<span id="cb776-14"><a href="obj-complexos.html#cb776-14" tabindex="-1"></a>mp <span class="ot">&lt;-</span> <span class="fu">readOGR</span>(<span class="at">dsn =</span> <span class="st">&quot;MUNICIPIOS.shp&quot;</span>, <span class="at">layer =</span> <span class="st">&quot;MUNICIPIOS&quot;</span>, <span class="at">encoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb776-15"><a href="obj-complexos.html#cb776-15" tabindex="-1"></a><span class="fu">plot</span>(mp) <span class="co"># veja o mapa</span></span>
+<span id="cb776-16"><a href="obj-complexos.html#cb776-16" tabindex="-1"></a></span>
+<span id="cb776-17"><a href="obj-complexos.html#cb776-17" tabindex="-1"></a><span class="fu">class</span>(mp) <span class="co"># é um objeto de classe SpatialPolygonsDataFrame</span></span>
+<span id="cb776-18"><a href="obj-complexos.html#cb776-18" tabindex="-1"></a><span class="fu">str</span>(mp) <span class="co"># a estrutura é complexa</span></span>
+<span id="cb776-19"><a href="obj-complexos.html#cb776-19" tabindex="-1"></a></span>
+<span id="cb776-20"><a href="obj-complexos.html#cb776-20" tabindex="-1"></a><span class="co"># tem elementos definidos por $, que interpretado diretamente, é corresponde a um data.frame que é o dado associado à cada polígono no arquivo (attribute table do shapefile).</span></span>
+<span id="cb776-21"><a href="obj-complexos.html#cb776-21" tabindex="-1"></a><span class="fu">names</span>(mp)</span>
+<span id="cb776-22"><a href="obj-complexos.html#cb776-22" tabindex="-1"></a>mp<span class="sc">$</span>NOME_MUNI</span>
+<span id="cb776-23"><a href="obj-complexos.html#cb776-23" tabindex="-1"></a><span class="fu">dim</span>(mp)</span>
+<span id="cb776-24"><a href="obj-complexos.html#cb776-24" tabindex="-1"></a></span>
+<span id="cb776-25"><a href="obj-complexos.html#cb776-25" tabindex="-1"></a><span class="co"># tem elementos definidos por @</span></span>
+<span id="cb776-26"><a href="obj-complexos.html#cb776-26" tabindex="-1"></a><span class="co"># ver o help da função</span></span>
+<span id="cb776-27"><a href="obj-complexos.html#cb776-27" tabindex="-1"></a><span class="co"># ?slot</span></span>
+<span id="cb776-28"><a href="obj-complexos.html#cb776-28" tabindex="-1"></a><span class="co"># slotNames(mp) #lista quais são esses elementos</span></span>
+<span id="cb776-29"><a href="obj-complexos.html#cb776-29" tabindex="-1"></a></span>
+<span id="cb776-30"><a href="obj-complexos.html#cb776-30" tabindex="-1"></a></span>
+<span id="cb776-31"><a href="obj-complexos.html#cb776-31" tabindex="-1"></a>mp<span class="sc">@</span>data <span class="co"># é o mesmo data.frame que é automaticamente reconhecido na expressão acima</span></span>
+<span id="cb776-32"><a href="obj-complexos.html#cb776-32" tabindex="-1"></a><span class="fu">dim</span>(mp) <span class="sc">==</span> <span class="fu">dim</span>(mp<span class="sc">@</span>data)</span>
+<span id="cb776-33"><a href="obj-complexos.html#cb776-33" tabindex="-1"></a><span class="fu">names</span>(mp) <span class="sc">==</span> <span class="fu">names</span>(mp<span class="sc">@</span>data)</span>
+<span id="cb776-34"><a href="obj-complexos.html#cb776-34" tabindex="-1"></a></span>
+<span id="cb776-35"><a href="obj-complexos.html#cb776-35" tabindex="-1"></a><span class="co"># area do mapa dos municipios (os limites em latitude e longitude da área)</span></span>
+<span id="cb776-36"><a href="obj-complexos.html#cb776-36" tabindex="-1"></a>mp<span class="sc">@</span>bbox</span>
+<span id="cb776-37"><a href="obj-complexos.html#cb776-37" tabindex="-1"></a><span class="fu">plot</span>(mp<span class="sc">@</span>bbox)</span>
+<span id="cb776-38"><a href="obj-complexos.html#cb776-38" tabindex="-1"></a><span class="co"># adicionamos o mapa mundi sobre isso</span></span>
+<span id="cb776-39"><a href="obj-complexos.html#cb776-39" tabindex="-1"></a><span class="fu">map</span>(<span class="at">add =</span> T)</span>
+<span id="cb776-40"><a href="obj-complexos.html#cb776-40" tabindex="-1"></a></span>
+<span id="cb776-41"><a href="obj-complexos.html#cb776-41" tabindex="-1"></a><span class="co"># mp@polygons define cada poligono individualmente numa lista</span></span>
+<span id="cb776-42"><a href="obj-complexos.html#cb776-42" tabindex="-1"></a><span class="fu">class</span>(mp<span class="sc">@</span>polygons)</span>
+<span id="cb776-43"><a href="obj-complexos.html#cb776-43" tabindex="-1"></a>mp<span class="sc">@</span>polygons[[<span class="dv">1</span>]] <span class="co"># um elemento qualquer</span></span>
+<span id="cb776-44"><a href="obj-complexos.html#cb776-44" tabindex="-1"></a><span class="fu">class</span>(mp<span class="sc">@</span>polygons[[<span class="dv">1</span>]])</span>
+<span id="cb776-45"><a href="obj-complexos.html#cb776-45" tabindex="-1"></a><span class="fu">str</span>(mp<span class="sc">@</span>polygons[[<span class="dv">1</span>]])</span>
+<span id="cb776-46"><a href="obj-complexos.html#cb776-46" tabindex="-1"></a></span>
+<span id="cb776-47"><a href="obj-complexos.html#cb776-47" tabindex="-1"></a><span class="co"># veja que este objeto tem vários elementos definidos por @</span></span>
+<span id="cb776-48"><a href="obj-complexos.html#cb776-48" tabindex="-1"></a><span class="co"># slotNames(mp@polygons[[1]]) #slots desse objeto</span></span>
+<span id="cb776-49"><a href="obj-complexos.html#cb776-49" tabindex="-1"></a>mp<span class="sc">@</span>polygons[[<span class="dv">1</span>]]<span class="sc">@</span>labpt <span class="co"># o centroid do polígono 1 que é o municipio de:</span></span>
+<span id="cb776-50"><a href="obj-complexos.html#cb776-50" tabindex="-1"></a>mp<span class="sc">@</span>data<span class="sc">$</span>NOME_MUNI[<span class="dv">1</span>] <span class="co"># Chuí</span></span>
+<span id="cb776-51"><a href="obj-complexos.html#cb776-51" tabindex="-1"></a></span>
+<span id="cb776-52"><a href="obj-complexos.html#cb776-52" tabindex="-1"></a><span class="co"># qual elemento é manaus?</span></span>
+<span id="cb776-53"><a href="obj-complexos.html#cb776-53" tabindex="-1"></a>gp <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;Manaus&quot;</span>, mp<span class="sc">@</span>data<span class="sc">$</span>NOME_MUNI)</span>
+<span id="cb776-54"><a href="obj-complexos.html#cb776-54" tabindex="-1"></a><span class="co"># pega o polígono de manaus</span></span>
+<span id="cb776-55"><a href="obj-complexos.html#cb776-55" tabindex="-1"></a>manaus <span class="ot">&lt;-</span> mp<span class="sc">@</span>polygons[[gp]]</span>
+<span id="cb776-56"><a href="obj-complexos.html#cb776-56" tabindex="-1"></a><span class="fu">class</span>(manaus)</span>
+<span id="cb776-57"><a href="obj-complexos.html#cb776-57" tabindex="-1"></a><span class="fu">str</span>(manaus)</span>
+<span id="cb776-58"><a href="obj-complexos.html#cb776-58" tabindex="-1"></a></span>
+<span id="cb776-59"><a href="obj-complexos.html#cb776-59" tabindex="-1"></a><span class="co"># plota manaus</span></span>
+<span id="cb776-60"><a href="obj-complexos.html#cb776-60" tabindex="-1"></a><span class="co"># dev.off() #fecha dispositivos gráficos podes precisar disso</span></span>
+<span id="cb776-61"><a href="obj-complexos.html#cb776-61" tabindex="-1"></a><span class="fu">map</span>(<span class="at">xlim =</span> mp<span class="sc">@</span>bbox[<span class="st">&quot;x&quot;</span>, ], <span class="at">ylim =</span> mp<span class="sc">@</span>bbox[<span class="st">&quot;y&quot;</span>, ])</span>
+<span id="cb776-62"><a href="obj-complexos.html#cb776-62" tabindex="-1"></a><span class="fu">polygon</span>(manaus<span class="sc">@</span>Polygons[[<span class="dv">1</span>]]<span class="sc">@</span>coords, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb776-63"><a href="obj-complexos.html#cb776-63" tabindex="-1"></a><span class="co"># centroides do poligono de manaus</span></span>
+<span id="cb776-64"><a href="obj-complexos.html#cb776-64" tabindex="-1"></a>ctro <span class="ot">&lt;-</span> manaus<span class="sc">@</span>Polygons[[<span class="dv">1</span>]]<span class="sc">@</span>labpt</span>
+<span id="cb776-65"><a href="obj-complexos.html#cb776-65" tabindex="-1"></a>ctro[<span class="dv">2</span>] <span class="ot">&lt;-</span> ctro[<span class="dv">2</span>] <span class="sc">+</span> <span class="fl">1.5</span> <span class="co"># adiciona 1.5 graus na latitude para não plotar sobre o poligono do municipio</span></span>
+<span id="cb776-66"><a href="obj-complexos.html#cb776-66" tabindex="-1"></a><span class="co"># plota no nome</span></span>
+<span id="cb776-67"><a href="obj-complexos.html#cb776-67" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x =</span> ctro[<span class="dv">1</span>], <span class="at">y =</span> ctro[<span class="dv">2</span>], <span class="at">labels =</span> <span class="st">&quot;Manaus&quot;</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 
 </div>
 <!-- </div> -->
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-R-rgdal" class="csl-entry">
 Bivand, Roger, Tim Keitt, e Barry Rowlingson. 2020. <em>rgdal: Bindings for the Geospatial Data Abstraction Library</em>. <a href="https://CRAN.R-project.org/package=rgdal">https://CRAN.R-project.org/package=rgdal</a>.
 </div>
@@ -662,43 +663,43 @@ Brownrigg, Ray. 2018. <em>maps: Draw Geographical Maps</em>. <a href="https://CR
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/04-listas_objComplexos.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/04-listas_objComplexos.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/04-listas_objComplexos.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/04-listas_objComplexos.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

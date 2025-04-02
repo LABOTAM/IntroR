@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Análise exploratória de dados (AED) | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Análise exploratória de dados (AED) | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -564,14 +565,14 @@ AED abrange AID (Texto traduzido da <a href="https://en.wikipedia.org/wiki/Explo
 </blockquote>
 <p><img src="figuras/aed.png" width="100%" /></p>
 <blockquote>
-<p>Muitas vezes esquecemos como funciona a ciência e a engenharia. Idéias vêm mais frequentemente de exploração anterior do que de descargas atmosféricas. (…) <strong>Encontrar a pergunta é muitas vezes mais importante do que encontrar a resposta</strong>. Análise exploratória de dados é uma atitude, uma flexibilidade que depende de visualização gráfica, não é um conjunto de técnicas <span class="citation">(<a href="#ref-Tukey1980" role="doc-biblioref">Tukey 1980</a>)</span>.</p>
+<p>Muitas vezes esquecemos como funciona a ciência e a engenharia. Idéias vêm mais frequentemente de exploração anterior do que de descargas atmosféricas. (…) <strong>Encontrar a pergunta é muitas vezes mais importante do que encontrar a resposta</strong>. Análise exploratória de dados é uma atitude, uma flexibilidade que depende de visualização gráfica, não é um conjunto de técnicas <span class="citation">(<a href="#ref-Tukey1980">Tukey 1980</a>)</span>.</p>
 </blockquote>
 <p>Em sistemática e taxonomia, uma ciência histórica, a análise exploratória é fundamental, pois é através dela que podemos postular boas hipóteses e usar teste de hipóteses para confirmá-las.</p>
 <blockquote>
 <p>Aplicar a análise exploratória de dados para criar hipóteses e então usar os mesmos dados para testar essas hipóteses deve ser evitado.
 Se alguém tem conhecimento <em>a priori</em> limitado, então uma abordagem válida é criar dois conjuntos de dados: aplicar exploração de dados sobre o primeiro conjunto para criar hipóteses e usar o segundo conjunto de dados para testar essas hipóteses .
 Tal processo, no entanto, só é prático para conjuntos de dados grandes.
-Independentemente da situação específica, o uso constante e a estruturação de relatórios transparentes de exploração sistemática de dados melhorariam a qualidade da pesquisa ecológica e de quaisquer recomendações que ela produziria <span class="citation">(<a href="#ref-Zuuretal2010" role="doc-biblioref">Zuur, Ieno, e Elphick 2010</a>)</span>.</p>
+Independentemente da situação específica, o uso constante e a estruturação de relatórios transparentes de exploração sistemática de dados melhorariam a qualidade da pesquisa ecológica e de quaisquer recomendações que ela produziria <span class="citation">(<a href="#ref-Zuuretal2010">Zuur, Ieno, e Elphick 2010</a>)</span>.</p>
 </blockquote>
 <p>A análise exploratória não é <em>dragagem</em> de dados! Assume-se que o pesquisador formulou hipóteses biológicas plausíveis <em>a priori</em> amparadas pela teoria.</p>
 </div>
@@ -586,16 +587,16 @@ Independentemente da situação específica, o uso constante e a estruturação 
 </div>
 <div id="para-ler" class="section level3 unnumbered hasAnchor">
 <h3>Para ler<a href="análise-exploratória-de-dados-aed.html#para-ler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dois artigos que você deveria ler: <span class="citation">Tukey (<a href="#ref-Tukey1980" role="doc-biblioref">1980</a>)</span> e <span class="citation">Zuur, Ieno, e Elphick (<a href="#ref-Zuuretal2010" role="doc-biblioref">2010</a>)</span>.</p>
+<p>Dois artigos que você deveria ler: <span class="citation">Tukey (<a href="#ref-Tukey1980">1980</a>)</span> e <span class="citation">Zuur, Ieno, e Elphick (<a href="#ref-Zuuretal2010">2010</a>)</span>.</p>
 </div>
 </div>
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-Tukey1980" class="csl-entry">
-Tukey, John W. 1980. <span>"We need both exploratory and confirmatory"</span>. <em>The American Statistician</em> 34 (1): 23–25. <a href="https://doi.org/10.1080/00031305.1980.10482706">https://doi.org/10.1080/00031305.1980.10482706</a>.
+Tukey, John W. 1980. <span>“We need both exploratory and confirmatory”</span>. <em>The American Statistician</em> 34 (1): 23–25. <a href="https://doi.org/10.1080/00031305.1980.10482706">https://doi.org/10.1080/00031305.1980.10482706</a>.
 </div>
 <div id="ref-Zuuretal2010" class="csl-entry">
-Zuur, Alain F., Elena N. Ieno, e Chris S. Elphick. 2010. <span>"A protocol for data exploration to avoid common statistical problems"</span>. <em>Methods in Ecology and Evolution</em> 1 (1): 3–14. <a href="https://doi.org/10.1111/j.2041-210X.2009.00001.x">https://doi.org/10.1111/j.2041-210X.2009.00001.x</a>.
+Zuur, Alain F., Elena N. Ieno, e Chris S. Elphick. 2010. <span>“A protocol for data exploration to avoid common statistical problems”</span>. <em>Methods in Ecology and Evolution</em> 1 (1): 3–14. <a href="https://doi.org/10.1111/j.2041-210X.2009.00001.x">https://doi.org/10.1111/j.2041-210X.2009.00001.x</a>.
 </div>
 </div>
             </section>
@@ -618,43 +619,43 @@ Zuur, Alain F., Elena N. Ieno, e Chris S. Elphick. 2010. <span>"A protocol for d
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

@@ -7,16 +7,19 @@
   12pt,
 ]{krantz}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -46,13 +49,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -60,7 +63,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -69,7 +72,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -236,9 +239,9 @@
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 % Make links footnotes instead of hotlinks:
 \DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
 \hypersetup{
@@ -261,7 +264,7 @@
 \makeatother
 \subtitle{Disciplina BOT89 - PPGBOT INPA}
 \author{Alberto Vicentini e Ricardo de Oliveira Perdiz}
-\date{Última atualização: 2023-10-06}
+\date{Última atualização: 2025-04-02}
 
 \begin{document}
 \maketitle
@@ -273,8 +276,7 @@
 }
 \listoffigures
 \listoftables
-\hypertarget{prefuxe1cio}{%
-\chapter*{Prefácio}\label{prefuxe1cio}}
+\chapter*{Prefácio}\label{prefuxe1cio}
 
 
 Este livro foi criado inicialmente para servir como um material de apoio básico aos estudantes da disciplina Preparação de dados para Análises Estatísticas - Introdução ao R (BOT-89) do \href{http://www.portais.atrio.scire.net.br/inpa-ppgbot/index.php/pt/}{Programa de Pós-Graduação em Ciências Biológicas (Botânica)} do INPA, ofertada desde o ano de 2011.
@@ -289,8 +291,7 @@ Também fez correções e acrescentou (poucos) novos conteúdos.
 Nossa meta é prover uma introdução básica da linguagem de programação R, que é extremamente poderosa para manipulação de dados, análises estatísticas, produção de gráficos e de documentos dinâmicos, e cujo domínio oferece um grande ganho de produtividade a todo cientista e facilita o entendimento de métodos analíticos.
 Ressaltamos que \textbf{isto não é um curso de estatística}.
 
-\hypertarget{estrutura-do-livro}{%
-\section*{Estrutura do livro}\label{estrutura-do-livro}}
+\section*{Estrutura do livro}\label{estrutura-do-livro}
 
 
 \begin{rmdwarning}
@@ -356,14 +357,12 @@ Por fim, temos o apêndice contendo materiais suplementares:
   \textbf{Apêndice \ref{chernoff}} apresenta um código para gerar as \href{http://www.fics.edu.br/index.php/augusto_guzzo/article/view/67/78}{caras de Chernoff}, que é uma maneira divertida de aprender a lidar com dados multivariados.
 \end{itemize}
 
-\hypertarget{agradecimentos}{%
-\section*{Agradecimentos}\label{agradecimentos}}
+\section*{Agradecimentos}\label{agradecimentos}
 
 
 Agradecemos aos Drs. Alexandre Oliveira, João Luís Ferreira Batista, Paulo Inácio K. L. Prado, e Rodrigo Augusto Santinelo Pereira, por permitirem o uso de conteúdo parcial da disciplina introdutória ministrada por eles na USP como base para a criação deste livro.
 
-\hypertarget{pruxe9-requisitos}{%
-\section*{Pré-requisitos}\label{pruxe9-requisitos}}
+\section*{Pré-requisitos}\label{pruxe9-requisitos}
 
 
 Devido ao modo como foi construído, este livro pode ser tanto lido quanto ``executado'', uma vez que seus arquivos são o que chamamos de \emph{Rmarkdown}, uma linguagem que mistura texto com código.
@@ -372,18 +371,15 @@ Não é necessário ter um computador próprio, apesar de que possuir um facilit
 Entendemos que nosso país ainda carece de muito investimento na melhora da qualidade de vida da população em geral, o que inclui acesso facilitado aos bens de informática.
 Desta forma, providenciamos duas maneiras de o leitor deste livro fazer bem uso das informações aqui contidas.
 
-\hypertarget{caso-vocuxea-possua-um-computador}{%
-\section*{Caso você possua um computador}\label{caso-vocuxea-possua-um-computador}}
+\section*{Caso você possua um computador}\label{caso-vocuxea-possua-um-computador}
 
 
-\hypertarget{instale-o-r}{%
-\subsection*{Instale o R}\label{instale-o-r}}
+\subsection*{Instale o R}\label{instale-o-r}
 
 
 Baixe e instale o \href{https://www.r-project.org/}{R}, próprio para o seu sistema operacional.
 
-\hypertarget{instale-um-ambiente-de-desenvolvimento-integrado---ide}{%
-\subsection*{Instale um ambiente de desenvolvimento integrado - IDE}\label{instale-um-ambiente-de-desenvolvimento-integrado---ide}}
+\subsection*{Instale um ambiente de desenvolvimento integrado - IDE}\label{instale-um-ambiente-de-desenvolvimento-integrado---ide}
 
 
 Recomendamos que o software \href{https://www.rstudio.com/products/rstudio/download/}{RStudio} seja instalado no seu computador, pois ele foi criado facilitar a interação do usuário com os múltiplos recursos oferecidos pela linguagem, em especial os inúmeros pacotes desenvolvidos por funcionários desta empresa, entre os quais se inclui o pacote \href{https://github.com/rstudio/bookdown}{bookdown}, utilizado para construir este livro online.
@@ -391,8 +387,7 @@ Ademais, ambientes de desenvolvimento integrado (do inglês \emph{Integrated Dev
 
 Existem outras alternativas de software, tais como o \href{https://atom.io/}{Atom} e o \href{https://code.visualstudio.com/}{Visual Studio Code}. Fique à vontade para escolher.
 
-\hypertarget{baixe-os-pacotes-abaixo}{%
-\subsection*{Baixe os pacotes abaixo}\label{baixe-os-pacotes-abaixo}}
+\subsection*{Baixe os pacotes abaixo}\label{baixe-os-pacotes-abaixo}
 
 
 Serão necessários o uso de alguns pacotes de R (veja seção \ref{base-pacotes} para entender o que são pacotes de R) para poder fazer uso tanto do repositório localmente quanto fazer uso das próprias aulas.
@@ -414,8 +409,7 @@ Portanto, caso queira já instalá-los, execute o comando abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{baixe-o-reposituxf3rio-para-seu-computador}{%
-\subsection*{Baixe o repositório para seu computador}\label{baixe-o-reposituxf3rio-para-seu-computador}}
+\subsection*{Baixe o repositório para seu computador}\label{baixe-o-reposituxf3rio-para-seu-computador}
 
 
 Acesse a \href{https://github.com/LABOTAM/IntroR}{página do repositório} contendo os código fonte deste livro (Fig. \ref{fig:repo}).
@@ -510,20 +504,17 @@ Clique no nome dos scripts abaixo para levá-lo direto ao arquivo dentro do repo
   \href{https://github.com/LABOTAM/IntroR/tree/main/codigo/19-referencias.R}{19-referencias.R}
 \end{itemize}
 
-\hypertarget{caso-vocuxea-nuxe3o-possua-um-computador}{%
-\section*{Caso você não possua um computador}\label{caso-vocuxea-nuxe3o-possua-um-computador}}
+\section*{Caso você não possua um computador}\label{caso-vocuxea-nuxe3o-possua-um-computador}
 
 
 O Google oferece um serviço chamado \href{https://research.google.com/colaboratory/faq.html}{Google Colab} que pode ser utilizado em computadores, em celulares modernos com acesso à internet e possuídores de um navegador, e em tablets.
 
 Em breve, apresentaremos aqui um endereço contendo todo o conteúdo deste livro já convertido para o formato de um Jupyter Notebook, que é o modelo de arquivo utilizado pelo Google Colab.
 
-\hypertarget{o-que-uxe9-o-r-e-por-qual-razuxe3o-vocuxea-deve-se-preocupar-em-programar}{%
-\section*{O que é o R e por qual razão você deve se preocupar em programar}\label{o-que-uxe9-o-r-e-por-qual-razuxe3o-vocuxea-deve-se-preocupar-em-programar}}
+\section*{O que é o R e por qual razão você deve se preocupar em programar}\label{o-que-uxe9-o-r-e-por-qual-razuxe3o-vocuxea-deve-se-preocupar-em-programar}
 
 
-\hypertarget{o-r-em-poucas-palavras}{%
-\subsection*{O R em poucas palavras}\label{o-r-em-poucas-palavras}}
+\subsection*{O R em poucas palavras}\label{o-r-em-poucas-palavras}
 
 
 \begin{quote}
@@ -558,8 +549,7 @@ Por ser uma linguagem de programação, \textbf{no R você pode fazer tudo}. A p
 Com o desenvolvimento da linguagem na última década, você pode gerar aplicativos (\href{https://shiny.rstudio.com/}{Shiny}) e relatório dinâmicos usando \href{http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio}{Rmarkdown}, facilitando a formatação gráfica e a reprodutibilidade dos seus artigos, relatórios e projetos científicos.
 \end{quote}
 
-\hypertarget{por-que-programar}{%
-\subsection*{Por que programar?}\label{por-que-programar}}
+\subsection*{Por que programar?}\label{por-que-programar}
 
 
 \begin{quote}
@@ -586,12 +576,10 @@ A maioria dos programas de computador não é muito boa. O código no seu laptop
 \includegraphics[width=1.01\linewidth]{figuras/aprendizadogeekvsnongeek} \caption{Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek).}\label{fig:unnamed-chunk-5}
 \end{figure}
 
-\hypertarget{anuxe1lise-exploratuxf3ria-de-dados-aed}{%
-\section*{Análise exploratória de dados (AED)}\label{anuxe1lise-exploratuxf3ria-de-dados-aed}}
+\section*{Análise exploratória de dados (AED)}\label{anuxe1lise-exploratuxf3ria-de-dados-aed}
 
 
-\hypertarget{o-que-uxe9-aed-e-por-que-fazer-aed}{%
-\subsection*{O que é AED e por que fazer AED?}\label{o-que-uxe9-aed-e-por-que-fazer-aed}}
+\subsection*{O que é AED e por que fazer AED?}\label{o-que-uxe9-aed-e-por-que-fazer-aed}
 
 
 \begin{quote}
@@ -618,8 +606,7 @@ Independentemente da situação específica, o uso constante e a estruturação 
 
 A análise exploratória não é \emph{dragagem} de dados! Assume-se que o pesquisador formulou hipóteses biológicas plausíveis \emph{a priori} amparadas pela teoria.
 
-\hypertarget{objetivos-da-aed}{%
-\subsection*{Objetivos da AED}\label{objetivos-da-aed}}
+\subsection*{Objetivos da AED}\label{objetivos-da-aed}
 
 
 \begin{itemize}
@@ -634,20 +621,17 @@ A análise exploratória não é \emph{dragagem} de dados! Assume-se que o pesqu
   Avaliar se os dados atendem às premissas dos procedimentos estatísticos escolhidos.
 \end{itemize}
 
-\hypertarget{para-ler}{%
-\subsection*{Para ler}\label{para-ler}}
+\subsection*{Para ler}\label{para-ler}
 
 
 Dois artigos que você deveria ler: \citet{Tukey1980} e \citet{Zuuretal2010}.
 
-\hypertarget{exercuxedcios-no-notar}{%
-\section*{\texorpdfstring{Exercícios no \textbf{notaR}}{Exercícios no notaR}}\label{exercuxedcios-no-notar}}
+\section*{\texorpdfstring{Exercícios no \textbf{notaR}}{Exercícios no notaR}}\label{exercuxedcios-no-notar}
 
 
 Ao fim de alguns capítulos, disponibilizaremos em seções chamadas \textbf{Exercícios} uma lista de endereços ligados ao \href{http://www.lage.ib.usp.br/notar/index.php}{notaR}, um sistema criado para auxiliar no aprendizado da linguagem R desenvolvido pelo laboratório de Ecologia Teórica da Universidade de São Paulo \citep{Chalometal2012}.
 
-\hypertarget{conhecendo-o-notar}{%
-\subsection*{\texorpdfstring{Conhecendo o \textbf{notaR}}{Conhecendo o notaR}}\label{conhecendo-o-notar}}
+\subsection*{\texorpdfstring{Conhecendo o \textbf{notaR}}{Conhecendo o notaR}}\label{conhecendo-o-notar}
 
 
 Os exercícios do notaR obrigam o usuário a construir um script de R a partir de um enunciado, acabando por fugir do tradicional \textbf{copia-cola} de tutoriais de R.
@@ -704,8 +688,7 @@ Uma lista de todos os exercícios \textbf{notaR} incluídos neste livro está re
   Resolva o exercício \href{http://notar.ib.usp.br/exercicio/37}{103.9 Lembrando matrizes e listas}.
 \end{itemize}
 
-\hypertarget{referuxeancias-uxfateis}{%
-\section*{Referências úteis}\label{referuxeancias-uxfateis}}
+\section*{Referências úteis}\label{referuxeancias-uxfateis}
 
 
 Listamos abaixo algumas referências importantes para complementar o seu estudo:
@@ -722,8 +705,7 @@ Listamos abaixo algumas referências importantes para complementar o seu estudo:
   \href{http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=bot89:precurso:rmarkdown:inicio}{Relatórios dinâmicos com R Markdown}.
 \end{itemize}
 
-\hypertarget{sobre-os-autores}{%
-\chapter*{Sobre os autores}\label{sobre-os-autores}}
+\chapter*{Sobre os autores}\label{sobre-os-autores}
 
 
 Alberto é doutor em Ecologia, Evolução e Sistemática, com uma ênfase em Evolução pela Universidade do Missouri, Saint Louis (University of Missouri Saint Louis).
@@ -737,23 +719,20 @@ Ama correr e pedalar, e também se divertir e aprender com sua filha.
 
 \mainmatter
 
-\hypertarget{part-parte-i}{%
-\part{Parte I}\label{part-parte-i}}
+\part{Parte I}\label{part-parte-i}
 
 Um passo a passo para conhecer a sintaxe básica da linguagem de programação e o potencial de usar o R como ferramenta científica.
 
-\hypertarget{intro}{%
-\chapter{Conceitos introdutórios}\label{intro}}
+\chapter{Conceitos introdutórios}\label{intro}
 
 Recomendamos que o usuário siga a ordem dos capítulos, especialmente se é a primeira vez que o mesmo está lidando com o R.
 Use o R via RStudio, é mais simples.
 Busque executar cada script linha por linha, procurando entender o que cada linha faz e o que cada comando representa.
-E para cada função nova, busque a \protect\hyperlink{help}{ajuda do R}, leia o que significam cada um dos argumentos.
+E para cada função nova, busque a \hyperref[help]{ajuda do R}, leia o que significam cada um dos argumentos.
 Altere os argumentos das funções e veja o que acontece.
 Explore!
 
-\hypertarget{console-e-scripts}{%
-\section{Console e scripts}\label{console-e-scripts}}
+\section{Console e scripts}\label{console-e-scripts}
 
 As figuras abaixo mostram imagens relativamente similares ao que os usuários do R padrão (Figura \ref{fig:pad-r}) e RStudio (Figura \ref{fig:studio-r}) verão ao iniciarem esses programas.
 
@@ -774,8 +753,7 @@ Ao abrirem o R ou o RStudio você terão basicamente duas janelas principais:
 \includegraphics[width=1\linewidth]{figuras/rstudio} \caption{ Imagem de uma sessão do RStudio com três painéis abertos.}\label{fig:studio-r}
 \end{figure}
 
-\hypertarget{linguagem-objeto-orientada}{%
-\section{Linguagem objeto-orientada}\label{linguagem-objeto-orientada}}
+\section{Linguagem objeto-orientada}\label{linguagem-objeto-orientada}
 
 A chave para entender o R é que trata-se de uma linguagem.
 Uma linguagem para manipular objetos \citep{VenablesRipley2002}.
@@ -893,8 +871,7 @@ Por exemplo, vamos listar os objetos criados no passo anterior:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{base-pacotes}{%
-\section{R-base e pacotes}\label{base-pacotes}}
+\section{R-base e pacotes}\label{base-pacotes}
 
 Como vimos acima, um script do tipo função é um objeto que executa um conjunto de comandos e recebe argumentos que modificam o que o script realiza. Existem dois tipos de funções:
 
@@ -930,8 +907,7 @@ Por exemplo, ao invés de usarmos o menu do R para definir um repositório e ins
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{help}{%
-\section{Ajuda no R}\label{help}}
+\section{Ajuda no R}\label{help}
 
 Toda função no R, oriunda tanto do pacote base ou dos pacotes extras, possui um pedaço de texto chamado de ``ajuda'' e que possui uma instrução sobre a utilização da mesma.
 Para obter esta instrução, é muito fácil.
@@ -1048,8 +1024,7 @@ Ao digitar uma das opções acima, o R vai abrir uma janela (no RStudio, vai col
 
 Todos esses trechos de ajuda (\texttt{?}) do R têm a mesma estrutura e devem ser acessados constantemente para o bom entendimento do funcionamento das funções e seus argumentos.
 
-\hypertarget{uxe1rea-de-trabalho-vs.-pasta-de-trabalho}{%
-\section{Área de trabalho vs.~Pasta de Trabalho}\label{uxe1rea-de-trabalho-vs.-pasta-de-trabalho}}
+\section{Área de trabalho vs.~Pasta de Trabalho}\label{uxe1rea-de-trabalho-vs.-pasta-de-trabalho}
 
 Dois conceitos são fundamentais para trabalhar no R:
 
@@ -1181,8 +1156,7 @@ Se este arquivo Scrip01.R está na minha pasta de trabalho, então posso execut�
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{dicas-de-organizauxe7uxe3o-do-trabalho}{%
-\section{Dicas de organização do trabalho}\label{dicas-de-organizauxe7uxe3o-do-trabalho}}
+\section{Dicas de organização do trabalho}\label{dicas-de-organizauxe7uxe3o-do-trabalho}
 
 Você irá manipular diversos arquivos durante a execução de qualquer projeto e precisa organizar os arquivos para não se perder e poder voltar a eles quando necessário.
 
@@ -1206,8 +1180,7 @@ Da mesma forma para salvar resultados a partir do R.
 O \href{https://rstudio.com/}{RStudio} \citep{rstudio} facilita esse processo para você, permitindo que você crie um projeto.
 Um projeto basicamente consiste em definir uma pasta de trabalho para que, toda vez que você abrí-lo, a pasta que contem o arquivo de término \texttt{.Rproj} seja a sua pasta de trabalho. Alternativamente, você pode simplesmente indicar a pasta de trabalho toda vez que iniciar uma atividade utilizando as funções \texttt{setwd()} no console ou em um script.
 
-\hypertarget{dicas-de-erros-comuns-de-sintaxe-da-linguagem-r}{%
-\section{Dicas de erros comuns de sintaxe da linguagem R}\label{dicas-de-erros-comuns-de-sintaxe-da-linguagem-r}}
+\section{Dicas de erros comuns de sintaxe da linguagem R}\label{dicas-de-erros-comuns-de-sintaxe-da-linguagem-r}
 
 Abrir e esquecer de fechar parênteses, colchetes e aspas é um dos erros mais comuns no início da caminhada rumo ao aprendizado de qualquer linguagem de programação, e é necessário muita paciência\footnote{Lembrem-se sempre de que vocês não são os únicos a ter de lidar com a frustração durante o aprendizado de uma linguagem de programação. É importante estarem conscientes dessa verdade. Vejam esta postagem: \url{https://www.codingame.com/blog/dealing-with-programming-frustration-the-right-way/}} por parte do usuário para aprender a lidar com a frustração dos sucessivos erros que aparecem no caminho.
 Mesmo usuários mais experientes têm que aprender a lidar com os erros, que são comuns, o que levou o programador Patrick Burns a publicar um curioso livro sob o título \href{https://www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The R Inferno} \citep{Burns2012_rinferno}.
@@ -1216,8 +1189,7 @@ Há opções na configuração que autorizam o software a checar seu código e i
 Sugerimos fortemente a instalação de uma IDE para usar o R.
 Segue então uma brevíssima lista de erros super comuns que iniciantes enfrentam no aprendizado da linguagem R.
 
-\hypertarget{paruxeanteses}{%
-\subsection{Parênteses}\label{paruxeanteses}}
+\subsection{Parênteses}\label{paruxeanteses}
 
 Lembre-se sempre de, ao abrir um parêntese, fechá-lo.
 Caso contrário, a ação não se completará e seu console ficará travado com um sinal de \texttt{+} aguardando que seu código seja completo.
@@ -1241,8 +1213,7 @@ Ele será executado perfeitamente.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{vuxedrgulas}{%
-\subsection{Vírgulas}\label{vuxedrgulas}}
+\subsection{Vírgulas}\label{vuxedrgulas}
 
 Ao concatenar elementos ou ao adicionar valores em argumentos de funções, é necessário lembrar sempre de colocar as vírgulas em seus devidos lugares.
 Caso contrário \ldots{} mais um erro!
@@ -1255,7 +1226,7 @@ Tentem executar o código abaixo:
 \end{Shaded}
 
 \begin{verbatim}
-## Error: <text>:1:22: unexpected numeric constant
+## Error in parse(text = input): <text>:1:22: unexpected numeric constant
 ## 1: numeros <- c(1, 5, 6 7
 ##                          ^
 \end{verbatim}
@@ -1270,8 +1241,7 @@ Será executado sem problemas.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{aspas}{%
-\subsection{Aspas}\label{aspas}}
+\subsection{Aspas}\label{aspas}
 
 Textos são especificados dentro de aspas duplas \texttt{""} ou aspas simples \texttt{\textquotesingle{}\textquotesingle{}}; tanto faz qual você usa, o importante é sempre que abrir aspas, fechar as aspas com o mesmo tipo.
 Se seu texto tem acentos, use aspas duplas para delimitá-lo.
@@ -1306,8 +1276,7 @@ Rode isso no seu console:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{nuxfameros}{%
-\subsection{Números}\label{nuxfameros}}
+\subsection{Números}\label{nuxfameros}
 
 Números são sempre especificados sem aspas; se você colocar qualquer número entre aspas, ele será interpretado como texto:
 
@@ -1342,8 +1311,7 @@ Isso não vai funcionar porque \texttt{obj2} não é um número.
 
 Caso você insista em rodar, receberá a seguinte mensagem: \texttt{Error\ in\ obj2\ +\ 1\ :\ non-numeric\ argument\ to\ binary\ operator}.
 
-\hypertarget{nomes-de-objetos}{%
-\subsection{Nomes de objetos}\label{nomes-de-objetos}}
+\subsection{Nomes de objetos}\label{nomes-de-objetos}
 
 Nomes de objetos não podem ter espaço em branco e aspas são ignoradas:
 
@@ -1354,7 +1322,7 @@ Nomes de objetos não podem ter espaço em branco e aspas são ignoradas:
 \end{Shaded}
 
 \begin{verbatim}
-## Error: <text>:1:5: unexpected numeric constant
+## Error in parse(text = input): <text>:1:5: unexpected numeric constant
 ## 1: obj 1
 ##         ^
 \end{verbatim}
@@ -1388,13 +1356,12 @@ Nomes de objetos não podem ter espaço em branco e aspas são ignoradas:
 \end{Shaded}
 
 \begin{verbatim}
-## Error: <text>:1:4: unexpected string constant
+## Error in parse(text = input): <text>:1:4: unexpected string constant
 ## 1: obj"1"
 ##        ^
 \end{verbatim}
 
-\hypertarget{atribuiuxe7uxe3o-de-objetos}{%
-\subsection{Atribuição de objetos}\label{atribuiuxe7uxe3o-de-objetos}}
+\subsection{Atribuição de objetos}\label{atribuiuxe7uxe3o-de-objetos}
 
 A \textbf{atribuição de valores aos objetos} pode ser feita com dois operadores equivalentes, \texttt{=} ou \texttt{\textless{}-} (este pode ser utilizado no sentido inverso também \texttt{-\textgreater{}}):
 
@@ -1415,8 +1382,7 @@ A \textbf{atribuição de valores aos objetos} pode ser feita com dois operadore
 ## [1] "meu texto"
 \end{verbatim}
 
-\hypertarget{busque-entender-as-partes}{%
-\subsection{Busque entender as partes}\label{busque-entender-as-partes}}
+\subsection{Busque entender as partes}\label{busque-entender-as-partes}
 
 Se você tiver dificuldade no entendimento de um script do R que está tentando rodar, separe os termos das linhas e expressões para entender o que cada parte está fazendo.
 Também pode alterar os valores dos argumentos para entender o funcionamento de uma função, ou simplesmente digitar a função sem os parênteses para ver o script que ela contem.
@@ -1582,7 +1548,7 @@ Vejamos:
 ##     ans <- lapply(X = ans[index], FUN = FUN, ...)
 ##     ansmat <- array(if (simplify && all(lengths(ans) == 1L)) {
 ##         ans <- unlist(ans, recursive = FALSE, use.names = FALSE)
-##         if (!is.null(ans) && is.na(default) && is.atomic(ans)) 
+##         if (is.na(default) && is.atomic(ans)) 
 ##             vector(typeof(ans))
 ##         else default
 ##     }
@@ -1592,7 +1558,7 @@ Vejamos:
 ##     }
 ##     ansmat
 ## }
-## <bytecode: 0x555712d40ee8>
+## <bytecode: 0x55ab30256d60>
 ## <environment: namespace:base>
 \end{verbatim}
 
@@ -1605,17 +1571,15 @@ Vejamos:
 \begin{verbatim}
 ## function (..., sep = " ", collapse = NULL, recycle0 = FALSE) 
 ## .Internal(paste(list(...), sep, collapse, recycle0))
-## <bytecode: 0x555707af1730>
+## <bytecode: 0x55ab20d0bc98>
 ## <environment: namespace:base>
 \end{verbatim}
 
-\hypertarget{o-r-como-calculadora}{%
-\section{O R como calculadora}\label{o-r-como-calculadora}}
+\section{O R como calculadora}\label{o-r-como-calculadora}
 
 O R é uma calculadora potente. Os exemplos abaixo mostram a informação básica necessária ao uso da ferramenta.
 
-\hypertarget{operadores}{%
-\subsection{Operadores}\label{operadores}}
+\subsection{Operadores}\label{operadores}
 
 \begin{itemize}
 \item
@@ -1754,8 +1718,7 @@ Objetos numéricos podem ser usados nas fórmulas aritméticas:
 ## [1] 27
 \end{verbatim}
 
-\hypertarget{preceduxeancia-de-paruxeanteses}{%
-\subsection{Precedência de parênteses}\label{preceduxeancia-de-paruxeanteses}}
+\subsection{Precedência de parênteses}\label{preceduxeancia-de-paruxeanteses}
 
 O uso de parênteses permite construir qualquer lógica de precedência no cálculo.
 Vamos atribuir valores a três objetos e fazer operações matemáticas com eles para exemplificar:
@@ -1810,8 +1773,7 @@ Os resultados não serão os mesmos para:
 ## [1] 64
 \end{verbatim}
 
-\hypertarget{funuxe7uxf5es-e-constantes-matemuxe1ticas}{%
-\subsection{Funções e constantes matemáticas}\label{funuxe7uxf5es-e-constantes-matemuxe1ticas}}
+\subsection{Funções e constantes matemáticas}\label{funuxe7uxf5es-e-constantes-matemuxe1ticas}
 
 Algumas operações aritméticas podem ser realizadas com algumas funções genéricas que apresentamos no exemplo de código abaixo.
 Veja o \texttt{?} para qualquer uma das funções abaixo e siga os links relacionados para ver todas as possibilidades dessas funções genéricas de uso genérico.
@@ -2029,8 +1991,7 @@ Veremos adiante que essas funções e operações matemáticas são aplicáveis 
 ## [1] 3
 \end{verbatim}
 
-\hypertarget{valor-na}{%
-\subsection{NA e valores afins}\label{valor-na}}
+\subsection{NA e valores afins}\label{valor-na}
 
 Frequentemente no R, quando você realiza uma operação errada ou inválida, o R retorna um dos seguintes códigos (constantes lógicas), que \textbf{são entendidos pelo R como esses valores} e portanto podem ser usados na atribuição à objetos:
 
@@ -2135,8 +2096,7 @@ Ele pode ser atribuído a um objeto:
 ## [1] NaN
 \end{verbatim}
 
-\hypertarget{exercuxedcios}{%
-\section{Exercícios}\label{exercuxedcios}}
+\section{Exercícios}\label{exercuxedcios}
 
 Como prática, vamos iniciar com dois exercícios do \textbf{notaR} para que você se familiarize tanto com a linguagem R quanto com o sistema \textbf{notaR}:
 
@@ -2148,17 +2108,14 @@ Como prática, vamos iniciar com dois exercícios do \textbf{notaR} para que voc
   Resolva o exercício \href{http://notar.ib.usp.br/exercicio/15}{101.05 Remoção Com Critério}.
 \end{itemize}
 
-\hypertarget{vetores}{%
-\chapter{Objeto I - Vetores}\label{vetores}}
+\chapter{Objeto I - Vetores}\label{vetores}
 
-\hypertarget{vetores-e-operauxe7uxf5es-vetoriais-i}{%
-\section{Vetores e operações vetoriais I}\label{vetores-e-operauxe7uxf5es-vetoriais-i}}
+\section{Vetores e operações vetoriais I}\label{vetores-e-operauxe7uxf5es-vetoriais-i}
 
 Vetor no R é um tipo de objeto que concatena múltiplos valores de uma mesma classe.
 É fundamental que você entenda vetores para poder entender objetos mais complexos.
 
-\hypertarget{criauxe7uxe3o-de-vetores}{%
-\subsection{Criação de Vetores}\label{criauxe7uxe3o-de-vetores}}
+\subsection{Criação de Vetores}\label{criauxe7uxe3o-de-vetores}
 
 A função \texttt{c()} é usada na criação de vetores, pois combina ou concatena elementos.
 Podemos concatenar números:
@@ -2300,8 +2257,7 @@ Vejamos abaixo alguns deles:
 ##  [7] "July"      "August"    "September" "October"   "November"  "December"
 \end{verbatim}
 
-\hypertarget{sequuxeancias-numuxe9ricas-repetiuxe7uxf5es}{%
-\subsection{Sequências Numéricas \& Repetições}\label{sequuxeancias-numuxe9ricas-repetiuxe7uxf5es}}
+\subsection{Sequências Numéricas \& Repetições}\label{sequuxeancias-numuxe9ricas-repetiuxe7uxf5es}
 
 É possível criar vetores numéricos usando a função \texttt{seq()} ou o operador \texttt{:}.
 
@@ -2437,8 +2393,7 @@ Podemos também utilizar a função \texttt{rep()} com vetores de texto:
 ## [9] "pera"
 \end{verbatim}
 
-\hypertarget{operauxe7uxf5es-matemuxe1ticas-com-vetores}{%
-\section{Operações Matemáticas com Vetores}\label{operauxe7uxf5es-matemuxe1ticas-com-vetores}}
+\section{Operações Matemáticas com Vetores}\label{operauxe7uxf5es-matemuxe1ticas-com-vetores}
 
 Todas as operações aplicadas a um vetor são aplicadas a cada um de seus elementos:
 
@@ -2569,8 +2524,7 @@ Quanto temos vetores de tamanhos não múltiplos entre si, como por exemplo o ob
 ##  [1] 0 0 0 0 0 3 1 2 3 1
 \end{verbatim}
 
-\hypertarget{funuxe7uxf5es-com-vetores}{%
-\section{Funções com Vetores}\label{funuxe7uxf5es-com-vetores}}
+\section{Funções com Vetores}\label{funuxe7uxf5es-com-vetores}
 
 Algumas funções operam sobre todo o vetor e não sobre cada elemento individualmente.
 Essas funções são utilizadas constantemente no R e, portanto, devemos conhecer as principais:
@@ -2757,8 +2711,7 @@ Essas funções são utilizadas constantemente no R e, portanto, devemos conhece
 ## [1]  2  6 12 20 24 27 32 39
 \end{verbatim}
 
-\hypertarget{classes}{%
-\section{Classes de vetores e fatores}\label{classes}}
+\section{Classes de vetores e fatores}\label{classes}
 
 Para entender os conceitos, vamos primeiro conhecer algumas funções úteis no entendimento das classes de objetos do R e algumas funções importantes: \texttt{class()}, \texttt{is.{[}class{]}()} e \texttt{as.{[}class{]}()}.
 
@@ -3263,8 +3216,7 @@ Porém, se convertermos esses objetos para a classe \texttt{Date}, então podere
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{indexacao}{%
-\section{Indexação}\label{indexacao}}
+\section{Indexação}\label{indexacao}
 
 Já vimos que vetores são conjuntos de valores da mesma classe (seção \ref{vetores}).
 Esses valores tem uma posição dentro do vetor, ou seja, possuem um \textbf{índice}.\\
@@ -3283,8 +3235,7 @@ Entender indexação é fundamental para escrever bons códigos no R, pois isso 
 
 Aqui vamos ver indexação de vetores, que é dada pelo operador \texttt{{[}{]}}.
 
-\hypertarget{usando-uxedndices-numuxe9ricos}{%
-\subsection{Usando índices numéricos}\label{usando-uxedndices-numuxe9ricos}}
+\subsection{Usando índices numéricos}\label{usando-uxedndices-numuxe9ricos}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3331,8 +3282,7 @@ Aqui vamos ver indexação de vetores, que é dada pelo operador \texttt{{[}{]}}
 ## [1] 3
 \end{verbatim}
 
-\hypertarget{usando-uxedndices-de-nomes}{%
-\subsection{Usando índices de nomes}\label{usando-uxedndices-de-nomes}}
+\subsection{Usando índices de nomes}\label{usando-uxedndices-de-nomes}
 
 Índices de nomes são elementos essenciais na manipulação de dados reais, pois nomes de linhas (seus registros) e nomes de colunas (suas variáveis) são nomes dos elementos que compõem a sua matriz.
 Índice de nomes preservam o identificador dos seus objetos (registros).
@@ -3454,15 +3404,13 @@ Uma outra função útil se chama \texttt{paste()}, muito utilizada na manipula�
 ##     8
 \end{verbatim}
 
-\hypertarget{vetor-operador-logico}{%
-\section{Vetores e operadores lógicos}\label{vetor-operador-logico}}
+\section{Vetores e operadores lógicos}\label{vetor-operador-logico}
 
 Para manipular dados no R, entender vetores lógicos e operadores lógicos é fundamental.
 Vetores lógicos são vetores de verdadeiros (\texttt{TRUE} ou apenas \texttt{T}, sempre em letras maiúsculas) ou falsos (\texttt{FALSE} ou \texttt{F}).
 Eles podem ser convertidos em vetores numéricos e, portanto, operados matematicamente (\texttt{T} = 1, e \texttt{F} = 0).
 
-\hypertarget{perg-vetores}{%
-\subsection{Fazendo perguntas à vetores}\label{perg-vetores}}
+\subsection{Fazendo perguntas à vetores}\label{perg-vetores}
 
 Vetores lógicos podem ser respostas às perguntas feitas por \textbf{operadores lógicos}:
 
@@ -3928,8 +3876,7 @@ Operadores auxiliares permitem combinar perguntas:
 ## [1] 20
 \end{verbatim}
 
-\hypertarget{vetor-filtro-logico}{%
-\subsection{Filtrando dados com vetores lógicos}\label{vetor-filtro-logico}}
+\subsection{Filtrando dados com vetores lógicos}\label{vetor-filtro-logico}
 
 Vetores lógicos podem ser usados como índices (Seção \ref{indexacao}) para filtrar elementos de um vetor.
 É através deste conceito que podemos filtrar dados de matrizes e criar subconjunto de dados.
@@ -4040,8 +3987,7 @@ Mais de uma palavra pode ser buscada ao mesmo tempo.
 ## [1] "banana"  "laranja"
 \end{verbatim}
 
-\hypertarget{filtro-dados-ausentes}{%
-\subsection{Perguntando por valores ausentes - NA}\label{filtro-dados-ausentes}}
+\subsection{Perguntando por valores ausentes - NA}\label{filtro-dados-ausentes}
 
 Vimos anteriormente como o R codifica valores ausentes (seção \ref{valor-na}): converte em uma classe lógica definida pela palavra \texttt{NA} em maiúsculo.
 E nossos dados frequentemente têm valores ausentes.
@@ -4202,8 +4148,7 @@ Há uma outra função chamada \texttt{na.omit()} que elimina valores \texttt{NA
 ## [1] "pera"   "banana" "mamão"
 \end{verbatim}
 
-\hypertarget{sabermais-vetores}{%
-\section{Para saber mais:}\label{sabermais-vetores}}
+\section{Para saber mais:}\label{sabermais-vetores}
 
 Veja nossas vídeoaulas com parte do conteúdo deste capítulo:
 
@@ -4219,8 +4164,7 @@ Veja nossas vídeoaulas com parte do conteúdo deste capítulo:
   \href{http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:6vetores:video01_bot89-2020-04-07_07.52.00.mp4}{Vetores e Operadores Lógicos}.
 \end{itemize}
 
-\hypertarget{exercuxedcios-1}{%
-\section{Exercícios}\label{exercuxedcios-1}}
+\section{Exercícios}\label{exercuxedcios-1}
 
 \begin{itemize}
 \tightlist
@@ -4238,11 +4182,9 @@ Veja nossas vídeoaulas com parte do conteúdo deste capítulo:
   Resolva o exercício \href{http://notar.ib.usp.br/exercicio/18}{101.03 Objetos de Data}.
 \end{itemize}
 
-\hypertarget{mat-dframe}{%
-\chapter{\texorpdfstring{Objeto II - Matrizes e \texttt{data.frames}}{Objeto II - Matrizes e data.frames}}\label{mat-dframe}}
+\chapter{\texorpdfstring{Objeto II - Matrizes e \texttt{data.frames}}{Objeto II - Matrizes e data.frames}}\label{mat-dframe}
 
-\hypertarget{matriz-vs.-data.frame}{%
-\section{\texorpdfstring{Matriz vs.~\texttt{data.frame}}{Matriz vs.~data.frame}}\label{matriz-vs.-data.frame}}
+\section{\texorpdfstring{Matriz vs.~\texttt{data.frame}}{Matriz vs.~data.frame}}\label{matriz-vs.-data.frame}
 
 Objetos de classe \texttt{matrix} ou \texttt{data.frame} são objetos bidimensionais (tem linhas e colunas), e constituem a forma como nossos dados estão organizados.
 Precisamos entender a diferença entre essas classes e suas propriedades.
@@ -4256,8 +4198,7 @@ Quando importamos dados ao R, geralmente atribuímos os dados a um objeto de cla
 Podemos converter um objeto de classe \texttt{matrix} para \texttt{data.frame} e vice-versa, usando as funções \texttt{as.data.frame()} ou \texttt{as.matrix()}.
 Porém, quando convertemos os dados para um objeto de classe \texttt{matrix}, todos os dados passam a ser da mesma classe, geralmente havendo perda de dados.
 
-\hypertarget{criando-matrizes}{%
-\subsection{Criando matrizes}\label{criando-matrizes}}
+\subsection{Criando matrizes}\label{criando-matrizes}
 
 Poder criar uma matriz no R é muito útil para várias finalidades como, por exemplo, simular dados em testes de permutação ou preencher uma tabela com resultados de uma análise.
 Matrizes podem ser criadas de diferentes formas (e.g., pode juntar matrizes pelas linhas e colunas, ou pode extrair sub-matrizes de uma matriz).
@@ -4525,8 +4466,7 @@ v1 & v2 & v3 & novovetor\\
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{criando-data.frames}{%
-\subsection{\texorpdfstring{Criando \texttt{data.frames}}{Criando data.frames}}\label{criando-data.frames}}
+\subsection{\texorpdfstring{Criando \texttt{data.frames}}{Criando data.frames}}\label{criando-data.frames}
 
 Objetos de classe \texttt{data.frame} são tabelas de dados, apresentam duas dimensões, e permitem misturar dados de classes diferentes, numéricos, texto (character ou factor) e lógicos.
 Quando importamos nossos dados ao R, em geral criamos objetos de classe \texttt{data.frame}.
@@ -4737,8 +4677,7 @@ RegistorID & CodigoZ & Pessoa\\
 ##  $ Pessoa    : chr  "fulano" "jose" "joaquim" "martin" ...
 \end{verbatim}
 
-\hypertarget{funuxe7uxf5es-importantes-na-manipulauxe7uxe3o-de-matrizes-e-data.frames}{%
-\subsection{\texorpdfstring{Funções importantes na manipulação de matrizes e \texttt{data.frames}}{Funções importantes na manipulação de matrizes e data.frames}}\label{funuxe7uxf5es-importantes-na-manipulauxe7uxe3o-de-matrizes-e-data.frames}}
+\subsection{\texorpdfstring{Funções importantes na manipulação de matrizes e \texttt{data.frames}}{Funções importantes na manipulação de matrizes e data.frames}}\label{funuxe7uxf5es-importantes-na-manipulauxe7uxe3o-de-matrizes-e-data.frames}
 
 As funções \texttt{head()} e \texttt{tail()} mostram o cabeçalho e rodapé tanto para matrizes como para \texttt{data.frames}, respectivamente.
 Vejam o \texttt{?} dessas duas funções:
@@ -5176,8 +5115,7 @@ Reparem que um mesmo nome de linha pode ser utilizado em mais de uma linha de um
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{indexauxe7uxe3o-de-matriz-e-data.frame}{%
-\section{\texorpdfstring{Indexação de matriz e \texttt{data.frame}}{Indexação de matriz e data.frame}}\label{indexauxe7uxe3o-de-matriz-e-data.frame}}
+\section{\texorpdfstring{Indexação de matriz e \texttt{data.frame}}{Indexação de matriz e data.frame}}\label{indexauxe7uxe3o-de-matriz-e-data.frame}
 
 Entender indexação é fundamental para manipular dados no R.
 Em indexação de vetores (seção \ref{indexacao}), vimos que é possível usar números, códigos/nomes ou valores de verdadeiro ou falso (lógico), como elementos para visualizar, filtrar e mudar dados em vetores unidimensionais.
@@ -5186,8 +5124,7 @@ O mesmo operador, \texttt{{[}{]}}, pode ser usado para indexação de uma matriz
 A única diferença é que, por matrizes e \texttt{data.frames} serem bidimensionais, precisamos indicar a qual dimensão estamos nos referindo.
 Portanto o operador de indexação para matrizes e data.frame tem a seguinte estrutura, \texttt{{[}indiceDeLinha\ ,\ indiceDeColuna{]}}, em que a vírgula separa os índices de linha e coluna.
 
-\hypertarget{matrizes}{%
-\subsection{Matrizes}\label{matrizes}}
+\subsection{Matrizes}\label{matrizes}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5457,8 +5394,7 @@ linha3 & 3 & 6 & 9\\
 \hline
 \end{tabular}
 
-\hypertarget{data.frame}{%
-\subsection{\texorpdfstring{\texttt{data.frame}}{data.frame}}\label{data.frame}}
+\subsection{\texorpdfstring{\texttt{data.frame}}{data.frame}}\label{data.frame}
 
 O operador \texttt{{[}indiceDeLinha\ ,\ indiceDeColuna{]}} também funciona para \texttt{data.frames}.
 Outro operador útil na manipulação de \texttt{data.frames} é o \texttt{\$}.
@@ -5676,11 +5612,9 @@ Adicionar colunas em uma matriz é um pouco diferente do que se faz com um \text
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{filtrando-e-ordenando-matrizes-e-data.frames}{%
-\section{\texorpdfstring{Filtrando e ordenando matrizes e \texttt{data.frames}}{Filtrando e ordenando matrizes e data.frames}}\label{filtrando-e-ordenando-matrizes-e-data.frames}}
+\section{\texorpdfstring{Filtrando e ordenando matrizes e \texttt{data.frames}}{Filtrando e ordenando matrizes e data.frames}}\label{filtrando-e-ordenando-matrizes-e-data.frames}
 
-\hypertarget{filtragem-de-dados}{%
-\subsection{Filtragem de dados}\label{filtragem-de-dados}}
+\subsection{Filtragem de dados}\label{filtragem-de-dados}
 
 Já vimos como fazer perguntas sobre vetores (Seção \ref{perg-vetores}) e obter vetores lógicos ou valores de índices que nos permitem extrair ou filtrar de vetores os dados que satisfazem às condições das perguntas feitas.
 Aqui vamos estender isso para objetos de classe \texttt{matrix} e \texttt{data.frame}, porque é através de vetores lógicos ou de matrizes lógicas que podemos filtrar dados de objetos bidimensionais.
@@ -5831,8 +5765,7 @@ Aqui vamos estender isso para objetos de classe \texttt{matrix} e \texttt{data.f
 ## [1] TRUE
 \end{verbatim}
 
-\hypertarget{dados-com-valores-ausentes}{%
-\subsubsection{Dados com valores ausentes}\label{dados-com-valores-ausentes}}
+\subsubsection{Dados com valores ausentes}\label{dados-com-valores-ausentes}
 
 As funções\texttt{is.na()} e \texttt{na.omit()} vistas anteriormente (Seção \ref{filtro-dados-ausentes}) permitem eliminar linhas e colunas que tenham valores ausentes.
 A presença de valores às vezes impede certas análises de serem executadas.
@@ -5893,45 +5826,45 @@ A presença de valores às vezes impede certas análises de serem executadas.
 \hline
   & Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \hline
-1 & 5.1 & 3.5 & NA & 0.2 & setosa\\
+14 & 4.3 & 3.0 & NA & 0.1 & setosa\\
 \hline
-9 & 4.4 & 2.9 & NA & 0.2 & setosa\\
+19 & 5.7 & NA & 1.7 & 0.3 & setosa\\
 \hline
-29 & 5.2 & 3.4 & NA & 0.2 & setosa\\
+23 & 4.6 & 3.6 & NA & 0.2 & setosa\\
 \hline
-37 & 5.5 & 3.5 & NA & 0.2 & setosa\\
+25 & 4.8 & NA & 1.9 & 0.2 & setosa\\
 \hline
-38 & 4.9 & 3.6 & NA & 0.1 & setosa\\
+36 & 5.0 & NA & 1.2 & 0.2 & setosa\\
 \hline
-44 & 5.0 & 3.5 & NA & 0.6 & setosa\\
+54 & 5.5 & 2.3 & NA & 1.3 & versicolor\\
 \hline
-54 & 5.5 & NA & 4.0 & 1.3 & versicolor\\
-\hline
-64 & 6.1 & NA & 4.7 & 1.4 & versicolor\\
+58 & 4.9 & 2.4 & NA & 1.0 & versicolor\\
 \hline
 65 & 5.6 & 2.9 & NA & 1.3 & versicolor\\
 \hline
-73 & 6.3 & 2.5 & NA & 1.5 & versicolor\\
+69 & 6.2 & 2.2 & NA & 1.5 & versicolor\\
 \hline
-78 & 6.7 & NA & 5.0 & 1.7 & versicolor\\
+72 & 6.1 & 2.8 & NA & 1.3 & versicolor\\
 \hline
-89 & 5.6 & 3.0 & NA & 1.3 & versicolor\\
+79 & 6.0 & NA & 4.5 & 1.5 & versicolor\\
 \hline
-98 & 6.2 & NA & 4.3 & 1.3 & versicolor\\
+80 & 5.7 & NA & 3.5 & 1.0 & versicolor\\
 \hline
-117 & 6.5 & NA & 5.5 & 1.8 & virginica\\
+86 & 6.0 & NA & 4.5 & 1.6 & versicolor\\
 \hline
-124 & 6.3 & NA & 4.9 & 1.8 & virginica\\
+88 & 6.3 & NA & 4.4 & 1.3 & versicolor\\
 \hline
-127 & 6.2 & NA & 4.8 & 1.8 & virginica\\
+91 & 5.5 & 2.6 & NA & 1.2 & versicolor\\
 \hline
-130 & 7.2 & NA & 5.8 & 1.6 & virginica\\
+92 & 6.1 & 3.0 & NA & 1.4 & versicolor\\
 \hline
-132 & 7.9 & 3.8 & NA & 2.0 & virginica\\
+108 & 7.3 & NA & 6.3 & 1.8 & virginica\\
 \hline
-136 & 7.7 & NA & 6.1 & 2.3 & virginica\\
+126 & 7.2 & NA & 6.0 & 1.8 & virginica\\
 \hline
-142 & 6.9 & NA & 5.1 & 2.3 & virginica\\
+133 & 6.4 & 2.8 & NA & 2.2 & virginica\\
+\hline
+147 & 6.3 & NA & 5.0 & 1.9 & virginica\\
 \hline
 \end{tabular}
 
@@ -5957,8 +5890,7 @@ A presença de valores às vezes impede certas análises de serem executadas.
 ## [1] 0
 \end{verbatim}
 
-\hypertarget{ordenauxe7uxe3o-de-dados}{%
-\subsection{Ordenação de dados}\label{ordenauxe7uxe3o-de-dados}}
+\subsection{Ordenação de dados}\label{ordenauxe7uxe3o-de-dados}
 
 Para ordenar matrizes e \texttt{data.frames}, é preciso entender a diferença entre duas funções:
 
@@ -6477,8 +6409,7 @@ Para ordenar matrizes e \texttt{data.frames}, é preciso entender a diferença e
 ## [39] 6.2 6.1 6.1 6.0 6.0 5.9 5.8 5.8 5.8 5.7 5.6 4.9
 \end{verbatim}
 
-\hypertarget{importando-e-exportando-dados-no-r}{%
-\section{Importando e exportando dados no R}\label{importando-e-exportando-dados-no-r}}
+\section{Importando e exportando dados no R}\label{importando-e-exportando-dados-no-r}
 
 \begin{rmdwarning}
 ATENÇÃO! Se você utiliza Windows, e no seu gerenciador de arquivos os
@@ -6495,8 +6426,7 @@ Não cobriremos a importação desses tipos aqui, mas você pode pesquisar sozin
 É frequente encontrarmos problemas de acentuação e na transferibilidade entre sistemas operacionais diferentes (Mac, Linux, Windows).
 A palavra chave aqui é \href{https://en.wikipedia.org/wiki/Character_encoding}{codificação de caracteres} (em inglês, ``character encoding'').
 
-\hypertarget{arquivos-de-texto-simples-para-estocar-dados}{%
-\subsection{Arquivos de texto simples para estocar dados}\label{arquivos-de-texto-simples-para-estocar-dados}}
+\subsection{Arquivos de texto simples para estocar dados}\label{arquivos-de-texto-simples-para-estocar-dados}
 
 Muitos dados que obtemos online e os próprios scripts do R são do formato mais simples que existe, que são arquivos de texto, geralmente arquivos salvos com extensões \texttt{.csv} ou \texttt{.txt}.
 Arquivos desse tipo podem ser abertos em qualquer editor de texto, em qualquer sistema operacional e em qualquer versão.
@@ -6547,11 +6477,9 @@ Por isso, recomenda-se que:
   Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, tanto para ler como para salvar arquivos de planilhas.
 \end{itemize}
 
-\hypertarget{import-dados}{%
-\subsection{Importando dados}\label{import-dados}}
+\subsection{Importando dados}\label{import-dados}
 
-\hypertarget{pacote-base-do-r}{%
-\subsubsection{Pacote base do R}\label{pacote-base-do-r}}
+\subsubsection{Pacote base do R}\label{pacote-base-do-r}
 
 A principal função para importar dados no R é \texttt{read.table()}.
 Ela funciona para importar arquivos em formato de texto simples (\texttt{.csv}, \texttt{.txt}).
@@ -6687,8 +6615,7 @@ Podemos usar o argumento \texttt{na.strings} para corrigir isso durante a import
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{pacote-readr}{%
-\subsubsection{Pacote readr}\label{pacote-readr}}
+\subsubsection{Pacote readr}\label{pacote-readr}
 
 A principal função para ler arquivos do pacote \texttt{readr} \citep{R-readr} se chama \texttt{read\_delim()}.
 Funciona de maneira parecida com o \texttt{read.table()} com algumas pequenas diferenças: não converte colunas de texto que possam ser categorizadas em fatores (\texttt{read.table()} faz isso por padrão), retorna um \texttt{tibble} no lugar de um data.frame (\texttt{tibbles} são \texttt{data.frames} diferentes na maneira como aparecem no console; além de mostrar apenas uma porção dos dados, para cada coluna há a indicação do tipo de variável presente), assume por padrão que o dado importado possui cabeçalho.
@@ -6717,8 +6644,7 @@ Como no pacote \texttt{base}, também podemos ler arquivos diretamente da rede:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{pacote-data.table}{%
-\subsubsection{Pacote data.table}\label{pacote-data.table}}
+\subsubsection{Pacote data.table}\label{pacote-data.table}
 
 A principal função para ler arquivos do pacote \texttt{data.table} \citep{R-datatable} se chama \texttt{fread()}.
 Este pacote é muito conhecido devido à velocidade de suas ações, funcionando perfeitamente para dados grandes.
@@ -6748,8 +6674,7 @@ Também podemos ler arquivos diretamente da rede, providenciando um endereço qu
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{importando-do-excel-diretamente}{%
-\subsubsection{Importando do Excel diretamente}\label{importando-do-excel-diretamente}}
+\subsubsection{Importando do Excel diretamente}\label{importando-do-excel-diretamente}
 
 Utilizamos o pacote \texttt{readxl}\citep{R-readxl} para ler dados de arquivos Excel, isto é, arquivos \texttt{.xlsx} ou \texttt{.xls}.
 A principal função para importar dados deste pacote se chama \texttt{read\_excel()}.
@@ -6778,11 +6703,9 @@ Veja o \texttt{?} das funções usadas para conhecer parâmetros opcionais para 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exportando-dados}{%
-\subsection{Exportando dados}\label{exportando-dados}}
+\subsection{Exportando dados}\label{exportando-dados}
 
-\hypertarget{pacote-base-do-r-1}{%
-\subsubsection{Pacote base do R}\label{pacote-base-do-r-1}}
+\subsubsection{Pacote base do R}\label{pacote-base-do-r-1}
 
 A principal função do pacote \texttt{base} do R para exportar dados se chama \texttt{write.table()}.
 Ela funciona para exportar arquivos em formato de texto simples (\texttt{.csv}, \texttt{.txt}) e usa basicamente os mesmos argumentos da função \texttt{read.table()}.
@@ -6831,8 +6754,7 @@ Por se tratar de uma função do pacote \texttt{base}, não é necessário recor
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{pacote-readr-1}{%
-\subsubsection{\texorpdfstring{Pacote \texttt{readr}}{Pacote readr}}\label{pacote-readr-1}}
+\subsubsection{\texorpdfstring{Pacote \texttt{readr}}{Pacote readr}}\label{pacote-readr-1}
 
 A principal função do pacote \texttt{readr}para exportar dados se chama \texttt{write\_delim()}.
 Ela exporta \texttt{data.frames} em formato de texto simples (\texttt{.csv}, \texttt{.txt}), utilizando basicamente os mesmos argumentos da função \texttt{read\_delim()}, pertencente ao mesmo pacote.
@@ -6846,8 +6768,7 @@ Ela exporta \texttt{data.frames} em formato de texto simples (\texttt{.csv}, \te
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{pacote-data.table-1}{%
-\subsubsection{\texorpdfstring{Pacote \texttt{data.table}}{Pacote data.table}}\label{pacote-data.table-1}}
+\subsubsection{\texorpdfstring{Pacote \texttt{data.table}}{Pacote data.table}}\label{pacote-data.table-1}
 
 A principal função do pacote \texttt{data.table} para exportar \texttt{data.frames} em formato de texto simples (\texttt{.csv}, \texttt{.txt}) se chama \texttt{fwrite()} e usa basicamente os mesmos argumentos da função \texttt{read\_delim()}, pertencente ao pacote \texttt{readr}.
 
@@ -6859,8 +6780,7 @@ A principal função do pacote \texttt{data.table} para exportar \texttt{data.fr
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{outras-funuxe7uxf5es-uxfateis}{%
-\subsection{Outras funções úteis}\label{outras-funuxe7uxf5es-uxfateis}}
+\subsection{Outras funções úteis}\label{outras-funuxe7uxf5es-uxfateis}
 
 A função \texttt{scan()} lê um arquivo de texto em qualquer formato para um vetor ou lista no R.
 Trata-se de uma função genérica que é bom memorizar.
@@ -6949,8 +6869,7 @@ Vamos usar o mesmo arquivo \texttt{municipiosbrasil.csv} para demonstrar sua uti
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{sabermais-indexacao-matrizes-dframes}{%
-\section{Para saber mais:}\label{sabermais-indexacao-matrizes-dframes}}
+\section{Para saber mais:}\label{sabermais-indexacao-matrizes-dframes}
 
 \begin{itemize}
 \tightlist
@@ -6960,8 +6879,7 @@ Vamos usar o mesmo arquivo \texttt{municipiosbrasil.csv} para demonstrar sua uti
   Vídeoaula de \href{http://www.botanicaamazonica.wiki.br/labotam/lib/exe/fetch.php?media=bot89:precurso:3matrizes:video01_bot89-2020-04-08_11.41.08.mp4}{filtragem e ordenação de matrizes}.
 \end{itemize}
 
-\hypertarget{exercuxedcios-2}{%
-\section{Exercícios}\label{exercuxedcios-2}}
+\section{Exercícios}\label{exercuxedcios-2}
 
 \begin{itemize}
 \tightlist
@@ -6973,11 +6891,9 @@ Vamos usar o mesmo arquivo \texttt{municipiosbrasil.csv} para demonstrar sua uti
   Resolva o exercício \href{http://notar.ib.usp.br/exercicio/13}{103.03 Criando uma Matriz}.
 \end{itemize}
 
-\hypertarget{lista-objcompl}{%
-\chapter{Objeto III - Listas e objetos complexos}\label{lista-objcompl}}
+\chapter{Objeto III - Listas e objetos complexos}\label{lista-objcompl}
 
-\hypertarget{listas}{%
-\section{Listas}\label{listas}}
+\section{Listas}\label{listas}
 
 O resultado de muitas análises são objetos de classe \texttt{list} e você precisa entender o que isso significa.
 Listas permitem organizar diferentes classes de objetos numa estrutura hierárquica organizada.
@@ -8313,8 +8229,7 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 ## [145] 6.7 6.7 6.3 6.5 6.2 5.9
 \end{verbatim}
 
-\hypertarget{obj-complexos}{%
-\section{Objetos complexos}\label{obj-complexos}}
+\section{Objetos complexos}\label{obj-complexos}
 
 Em alguns casos como, por exemplo, em arquivos de dados espaciais (shapefiles), que apresentam estruturas complexas que incluem as especificações dos polígonos, pontos ou linhas, a projeção espacial e os dados associados, exige-se um objeto que possua uma estrutura de complexidade similar.
 
@@ -8400,11 +8315,9 @@ Para trabalhar com esses arquivos, vamos utilizar os pacotes \texttt{maps} \cite
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{func-graf}{%
-\chapter{Funções gráficas}\label{func-graf}}
+\chapter{Funções gráficas}\label{func-graf}
 
-\hypertarget{dispositivos-gruxe1ficos}{%
-\section{Dispositivos Gráficos}\label{dispositivos-gruxe1ficos}}
+\section{Dispositivos Gráficos}\label{dispositivos-gruxe1ficos}
 
 Existem dois principais tipos de \textbf{dispositivos (Devices) gráficos} no R que basicamente significam onde você imprimirá um gráfico ou figura.
 Isso pode ocorrer:
@@ -8416,11 +8329,10 @@ Isso pode ocorrer:
   Em um arquivo em formato \texttt{.pdf}, \texttt{.jpeg}, \texttt{.tiff}, \texttt{.png}, \texttt{.eps} etc.
 \end{itemize}
 
-\hypertarget{funuxe7uxe3o-plot}{%
-\subsection{\texorpdfstring{Função \texttt{plot()}}{Função plot()}}\label{funuxe7uxe3o-plot}}
+\subsection{\texorpdfstring{Função \texttt{plot()}}{Função plot()}}\label{funuxe7uxe3o-plot}
 
 A função \texttt{plot()} (ou \texttt{plot.default()}) é a principal função genérica para gerar gráficos no R.
-Veremos isso com mais detalhes na seção \protect\hyperlink{graf-alto-nivel}{Funções gráficas de alto nível}.
+Veremos isso com mais detalhes na seção \hyperref[graf-alto-nivel]{Funções gráficas de alto nível}.
 Aqui demonstraremos o uso da função simplificadamente para facilitar as demais explicações.
 Entenda que geramos gráficos com essa função.
 Vamos a um exemplo muito simples:
@@ -8454,8 +8366,7 @@ Vamos a um exemplo muito simples:
 
 Muitos argumentos da função \texttt{plot()} são parâmetros gráficos (Seções \ref{par-graficos-p1} e \ref{par-graficos-p2}).
 
-\hypertarget{dispositivos-de-tela}{%
-\subsection{Dispositivos de Tela}\label{dispositivos-de-tela}}
+\subsection{Dispositivos de Tela}\label{dispositivos-de-tela}
 
 Quando você usa funções para gerar um gráfico, o R ou RStudio usa automaticamente um dispositivo de tela.
 No entanto, você pode abrir novas janelas com as seguintes funções:
@@ -8491,8 +8402,7 @@ No entanto, você pode abrir novas janelas com as seguintes funções:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{listar-e-controlar-dispositivos}{%
-\subsection{Listar e controlar dispositivos}\label{listar-e-controlar-dispositivos}}
+\subsection{Listar e controlar dispositivos}\label{listar-e-controlar-dispositivos}
 
 Existem funções que permitem trabalhar com vários dispositivos ao mesmo tempo, controlando o uso dos dispositivos abertos.
 Pode haver, por exemplo, várias janelas diferentes mostrando gráficos diferentes durante um trabalho.
@@ -8555,8 +8465,7 @@ As principais funções para trabalhar com dispositivos são:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{dispositivos-de-arquivos}{%
-\subsection{Dispositivos de arquivos}\label{dispositivos-de-arquivos}}
+\subsection{Dispositivos de arquivos}\label{dispositivos-de-arquivos}
 
 Há vários dispositivos para gerar arquivos com imagens.
 As funções em geral têm o nome do tipo de arquivo gerado.
@@ -8566,8 +8475,7 @@ Essas funções são ótimas ferramentas para incluir nos seus scripts visando a
 Procure na revista em que você deseja publicar seu artigo as especificações técnicas das figuras.
 Em seguida, cheque os parâmetros das funções gráficas (Seções \ref{par-graficos-p1} e \ref{par-graficos-p2}) para você ser capaz de gerar figuras na especificação exata da revista selecionada.
 
-\hypertarget{figuras-vetoriais-em-pdf-ou-postscript}{%
-\subsection{\texorpdfstring{Figuras vetoriais em \texttt{pdf} ou \texttt{postscript}}{Figuras vetoriais em pdf ou postscript}}\label{figuras-vetoriais-em-pdf-ou-postscript}}
+\subsection{\texorpdfstring{Figuras vetoriais em \texttt{pdf} ou \texttt{postscript}}{Figuras vetoriais em pdf ou postscript}}\label{figuras-vetoriais-em-pdf-ou-postscript}
 
 Em nossa opinião, as funções \texttt{pdf()} e \texttt{postscript()} são as mais importantes para a geração de figuras, porque elas geram arquivos de excelente qualidade por serem vetoriais.
 Não há a necessidade de se definir a resolução, porque nesse tipo de imagem isso não existe.
@@ -8608,8 +8516,7 @@ Não há a necessidade de se definir a resolução, porque nesse tipo de imagem 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{figuras-raster}{%
-\subsection{Figuras raster}\label{figuras-raster}}
+\subsection{Figuras raster}\label{figuras-raster}
 
 As funções \texttt{jpeg()}, \texttt{png()} e \texttt{tiff()} geram imagens em pixels, cuja qualidade depende muito da definição da resolução.
 
@@ -8650,8 +8557,7 @@ verá o pixel. Por isso, recomendamos que vocÊ trabalhe sempre com a
 função \texttt{pdf()}.
 \end{rmdidea}
 
-\hypertarget{par-graficos-p1}{%
-\section{Parâmetros gráficos, parte I - Margem, fonte, proporções}\label{par-graficos-p1}}
+\section{Parâmetros gráficos, parte I - Margem, fonte, proporções}\label{par-graficos-p1}
 
 Para fazer boas figuras no R, você precisa muitas vezes controlar \textbf{parâmetros gráficos dos dispositivos}, como margem da figura, tamanho de fonte, tipo da fonte, distância das legendas dos eixos x e y, se essas legendas são horizontais ou verticais, o tipo símbolos dos pontos, as cores dos simbolos etc.
 Você pode definir esses parâmetros diretamente nas funções gráficas de alto-nível \texttt{highlevel\ plot\textgreater{}\ (...,\ \textless{}tag\textgreater{}\ =\ \textless{}value\textgreater{})}, onde um valor (value) de um parâmetro (tag) pode ser adicionado diretamente como argumento de uma função de alto-nível.
@@ -8995,8 +8901,7 @@ Você pode salvar os parâmetros globais antes de alterá-los.
 ## [1] FALSE
 \end{verbatim}
 
-\hypertarget{margem-da-figura}{%
-\subsection{Margem da figura}\label{margem-da-figura}}
+\subsection{Margem da figura}\label{margem-da-figura}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9018,7 +8923,13 @@ Você pode salvar os parâmetros globais antes de alterá-los.
   \AttributeTok{bg =}\NormalTok{ vcl,}
   \AttributeTok{cex =} \FloatTok{0.8}
 \NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-229-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# ALTERANDO A MARGEM em NUMEROS DE LINHAS}
 \CommentTok{\# salva o valor padrao para resgatar ao final}
 \NormalTok{op }\OtherTok{\textless{}{-}} \FunctionTok{par}\NormalTok{(}\AttributeTok{no.readonly =} \ConstantTok{TRUE}\NormalTok{)}
@@ -9040,20 +8951,13 @@ Você pode salvar os parâmetros globais antes de alterá-los.
   \AttributeTok{bg =}\NormalTok{ vcl,}
   \AttributeTok{cex =} \FloatTok{0.8}
 \NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-229-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{\# voltando ao original}
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mar =}\NormalTok{ op}\SpecialCharTok{$}\NormalTok{mar)}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{aspecto-dos-eixos}{%
-\subsection{Aspecto dos eixos}\label{aspecto-dos-eixos}}
+\subsection{Aspecto dos eixos}\label{aspecto-dos-eixos}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9096,8 +9000,7 @@ Você pode salvar os parâmetros globais antes de alterá-los.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{proporuxe7uxe3o-dos-eixos}{%
-\subsection{Proporção dos eixos}\label{proporuxe7uxe3o-dos-eixos}}
+\subsection{Proporção dos eixos}\label{proporuxe7uxe3o-dos-eixos}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9114,10 +9017,6 @@ Você pode salvar os parâmetros globais antes de alterá-los.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{plot}\NormalTok{(Sepalas, Petalas, }\AttributeTok{pch =}\NormalTok{ sbs, }\AttributeTok{bg =}\NormalTok{ vcl, }\AttributeTok{cex =} \FloatTok{0.8}\NormalTok{)}
-
-\CommentTok{\# agora mantendo a proporção dos eixos (sem esticar nenhum dos dois)}
-\FunctionTok{par}\NormalTok{(}\AttributeTok{pty =} \StringTok{"s"}\NormalTok{)}
-\FunctionTok{plot}\NormalTok{(Sepalas, Petalas, }\AttributeTok{pch =}\NormalTok{ sbs, }\AttributeTok{bg =}\NormalTok{ vcl, }\AttributeTok{cex =} \FloatTok{0.8}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9125,12 +9024,15 @@ Você pode salvar os parâmetros globais antes de alterá-los.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# agora mantendo a proporção dos eixos (sem esticar nenhum dos dois)}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{pty =} \StringTok{"s"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(Sepalas, Petalas, }\AttributeTok{pch =}\NormalTok{ sbs, }\AttributeTok{bg =}\NormalTok{ vcl, }\AttributeTok{cex =} \FloatTok{0.8}\NormalTok{)}
+
 \CommentTok{\# se não notou diferença, expandir o dispositivo onde está desenhando a figura}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{muxfaltiplas-figuras-na-mesma-tela-ou-puxe1gina-com-mfrow-e-mfcol}{%
-\subsection{\texorpdfstring{Múltiplas figuras na mesma tela ou página com \texttt{mfrow()} e \texttt{mfcol()}}{Múltiplas figuras na mesma tela ou página com mfrow() e mfcol()}}\label{muxfaltiplas-figuras-na-mesma-tela-ou-puxe1gina-com-mfrow-e-mfcol}}
+\subsection{\texorpdfstring{Múltiplas figuras na mesma tela ou página com \texttt{mfrow()} e \texttt{mfcol()}}{Múltiplas figuras na mesma tela ou página com mfrow() e mfcol()}}\label{muxfaltiplas-figuras-na-mesma-tela-ou-puxe1gina-com-mfrow-e-mfcol}
 
 Você pode colocar diferentes gráficos na mesma tela ou na mesma página de um pdf, por exemplo. Temos duas formas de fazer isso.
 Os parâmetros \texttt{mfrow} e \texttt{mfcol} dividem os dispositivo em células de tamanhos idênticos.
@@ -9175,7 +9077,13 @@ A diferença entre os dois parâmetros é que \texttt{mfrow()} preenche o espaç
   \CommentTok{\# adiciona uma letra para você ver a ordem e comparar com o exemplo 3}
   \FunctionTok{mtext}\NormalTok{(LETTERS[f], }\AttributeTok{side =} \DecValTok{3}\NormalTok{, }\AttributeTok{line =} \DecValTok{0}\NormalTok{, }\AttributeTok{adj =} \DecValTok{0}\NormalTok{, }\AttributeTok{font =} \DecValTok{2}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{) }\CommentTok{\# esta é uma função de baixo nível que falaremos depois}
 \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
+\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-232-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# EXEMPLO 3}
 \FunctionTok{par}\NormalTok{(}\AttributeTok{mfcol =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)) }\CommentTok{\# mesma coisa mas preenchendo por colunas (compare com a figura acima)}
 \ControlFlowTok{for}\NormalTok{ (f }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{) \{}
@@ -9184,8 +9092,6 @@ A diferença entre os dois parâmetros é que \texttt{mfrow()} preenche o espaç
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
-
-\includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-232-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9207,8 +9113,7 @@ A diferença entre os dois parâmetros é que \texttt{mfrow()} preenche o espaç
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{muxfaltiplas-figuras-na-mesma-image-usando-a-funuxe7uxe3o-layout}{%
-\subsection{\texorpdfstring{Múltiplas figuras na mesma image usando a função \texttt{layout()}}{Múltiplas figuras na mesma image usando a função layout()}}\label{muxfaltiplas-figuras-na-mesma-image-usando-a-funuxe7uxe3o-layout}}
+\subsection{\texorpdfstring{Múltiplas figuras na mesma image usando a função \texttt{layout()}}{Múltiplas figuras na mesma image usando a função layout()}}\label{muxfaltiplas-figuras-na-mesma-image-usando-a-funuxe7uxe3o-layout}
 
 A função \texttt{layout()} também permite dividir um dispositivo para múltiplas figuras, mas de uma forma muito mais complexa.
 
@@ -9262,8 +9167,7 @@ Podemos salvar essas figuras em um \texttt{pdf}:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{par-graficos-p2}{%
-\section{Parâmetros gráficos, parte II - Símbolos e cores}\label{par-graficos-p2}}
+\section{Parâmetros gráficos, parte II - Símbolos e cores}\label{par-graficos-p2}
 
 Você pode fazer o que quiser na produção de um gráfico no R.
 Isso requer conhecer bem os parâmetros gráficos que já apresentamos de forma geral anteriormente (ver seção \ref{par-graficos-p1}).
@@ -9286,8 +9190,7 @@ Os parâmetros gráficos que fazem isso são principalmente os seguintes:
   \texttt{lwd} - espessura das linhas.
 \end{itemize}
 
-\hypertarget{tipo-de-suxedmbolo---pch}{%
-\subsection{\texorpdfstring{Tipo de símbolo - \texttt{pch}}{Tipo de símbolo - pch}}\label{tipo-de-suxedmbolo---pch}}
+\subsection{\texorpdfstring{Tipo de símbolo - \texttt{pch}}{Tipo de símbolo - pch}}\label{tipo-de-suxedmbolo---pch}
 
 Nós queremos símbolos, em geral, para adicionar em um gráfico os pontos referentes às nossas unidades amostrais.
 Portanto, esse tipo de símbolo no R é chamado de \texttt{points}, e já vimos a função de baixo-nível \texttt{points()}, que depende desse argumento ou parâmetro.
@@ -9464,8 +9367,7 @@ O argumento \texttt{pch} pode ser um número\footnote{Valores do argumento \text
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{tamanho-dos-pontos---cex}{%
-\subsection{\texorpdfstring{Tamanho dos pontos - \texttt{cex}}{Tamanho dos pontos - cex}}\label{tamanho-dos-pontos---cex}}
+\subsection{\texorpdfstring{Tamanho dos pontos - \texttt{cex}}{Tamanho dos pontos - cex}}\label{tamanho-dos-pontos---cex}
 
 O argumento genérico \texttt{cex} especifica o tamanho dos pontos relativo ao padrão do dispositivo.
 Aceita um valor numérico que é multiplicado pelo valor do seu dispositivo.
@@ -9529,8 +9431,7 @@ Se colocar 0.5 teremos 50\%; se 1.5, teremos 150\% do tamanho padrão.
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-239-4.pdf}
 
-\hypertarget{linhas}{%
-\subsection{Linhas}\label{linhas}}
+\subsection{Linhas}\label{linhas}
 
 Os argumentos \texttt{lwd} e \texttt{lty} controlam a espessura e o tipo das linhas, respectivamente.
 
@@ -9580,8 +9481,7 @@ Os argumentos \texttt{lwd} e \texttt{lty} controlam a espessura e o tipo das lin
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-240-4.pdf}
 
-\hypertarget{cores-de-suxedmbolos---col-e-bg}{%
-\subsection{\texorpdfstring{Cores de símbolos - \texttt{col} e \texttt{bg}}{Cores de símbolos - col e bg}}\label{cores-de-suxedmbolos---col-e-bg}}
+\subsection{\texorpdfstring{Cores de símbolos - \texttt{col} e \texttt{bg}}{Cores de símbolos - col e bg}}\label{cores-de-suxedmbolos---col-e-bg}
 
 O argumento \texttt{col} define cores para os símbolos. No caso de símbolos de uma única cor, utilizamos apenas este argumento.
 Já o argumento \texttt{bg} define as cores do preenchimento dos símbolos.
@@ -9664,8 +9564,7 @@ Já o argumento \texttt{bg} define as cores do preenchimento dos símbolos.
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-241-5.pdf}
 
-\hypertarget{funuxe7uxf5es-que-definem-cores}{%
-\subsection{Funções que definem cores}\label{funuxe7uxf5es-que-definem-cores}}
+\subsection{Funções que definem cores}\label{funuxe7uxf5es-que-definem-cores}
 
 Cores podem ser definidas por palavras ou por códigos.
 As funções \texttt{colors()} ou \texttt{colours()} listam cores pelo nome.
@@ -9873,8 +9772,7 @@ blue & 0\\
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-248-6.pdf}
 
-\hypertarget{graf-alto-nivel}{%
-\section{Funções gráficas de alto nível}\label{graf-alto-nivel}}
+\section{Funções gráficas de alto nível}\label{graf-alto-nivel}
 
 Funções gráficas de alto-nível (\emph{highlevel plots}) são as funções que usamos para gerar os gráficos.
 Além da função genérica \texttt{plot()}, veremos apenas alguns poucos exemplos, mas existem diversas funções gráficas de alto nível, muitas das quais dependem de pacotes específicos.
@@ -9890,10 +9788,9 @@ No \texttt{?} do pacote graphics, você encontra ajuda para funções gráficas 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{plot---uma-funuxe7uxe3o-genuxe9rica}{%
-\subsection{\texorpdfstring{\texttt{plot()} - uma função genérica}{plot() - uma função genérica}}\label{plot---uma-funuxe7uxe3o-genuxe9rica}}
+\subsection{\texorpdfstring{\texttt{plot()} - uma função genérica}{plot() - uma função genérica}}\label{plot---uma-funuxe7uxe3o-genuxe9rica}
 
-A função \texttt{plot()} é a principal para produção de gráficos porque é uma \textbf{função genérica} que irá gerar um gráfico dependendo da \protect\hyperlink{classes}{classe do objeto}. Em muitos casos, não precisamos usar outras funções, porque a depender da classe do objeto, esta função automaticamente entenderá o que você precisa.
+A função \texttt{plot()} é a principal para produção de gráficos porque é uma \textbf{função genérica} que irá gerar um gráfico dependendo da \hyperref[classes]{classe do objeto}. Em muitos casos, não precisamos usar outras funções, porque a depender da classe do objeto, esta função automaticamente entenderá o que você precisa.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9999,8 +9896,7 @@ Se temos um conjunto de dados e queremos ver a relação entre si de todas as co
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{hist}{%
-\subsection{\texorpdfstring{\texttt{hist()}}{hist()}}\label{hist}}
+\subsection{\texorpdfstring{\texttt{hist()}}{hist()}}\label{hist}
 
 Esta importante função serve para visualizar a variação de uma variável apenas.
 
@@ -10046,8 +9942,7 @@ Vamos diminuir os espaçamentos entre as barras e colorí-las:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{boxplot}{%
-\subsection{\texorpdfstring{\texttt{boxplot()}}{boxplot()}}\label{boxplot}}
+\subsection{\texorpdfstring{\texttt{boxplot()}}{boxplot()}}\label{boxplot}
 
 Esta função é importante por mostrar a variação em uma variável qualquer em relação às categorias de um fator.
 É uma das melhores formas gráficas para mostrar a distribuição de valores de uma variável em relação às categorias.
@@ -10096,8 +9991,7 @@ Esta função é importante por mostrar a variação em uma variável qualquer e
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-264-2.pdf}
 
-\hypertarget{barplot}{%
-\subsection{\texorpdfstring{\texttt{barplot()}}{barplot()}}\label{barplot}}
+\subsection{\texorpdfstring{\texttt{barplot()}}{barplot()}}\label{barplot}
 
 Esta função gera um gráfico de barras simples.
 
@@ -10231,8 +10125,7 @@ Esta função gera um gráfico de barras simples.
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-266-3.pdf}
 
-\hypertarget{plot.phylo}{%
-\subsection{\texorpdfstring{\texttt{plot.phylo()}}{plot.phylo()}}\label{plot.phylo}}
+\subsection{\texorpdfstring{\texttt{plot.phylo()}}{plot.phylo()}}\label{plot.phylo}
 
 O pacote \href{https://cran.r-project.org/web/packages/ape/index.html}{Ape (Analyses of Phylogenetics and Evolution)} \citep{R-ape} possui uma função para desenhar uma filogenia.
 Caso você não tenha instalado o pacote \texttt{ape} ainda, faça-o assim:
@@ -10289,16 +10182,19 @@ Depois, siga o exemplo abaixo:
 \begin{Highlighting}[]
 \CommentTok{\# portanto posso incluir argumentos de plot.phylo() quando uso a função plot() para plotar um objeto de classe phylo}
 \FunctionTok{plot}\NormalTok{(phy, }\AttributeTok{no.margin =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{tip.color =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\DecValTok{3}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\DecValTok{3}\NormalTok{)))}
-
-\CommentTok{\# seria o mesmo que dizer}
-\FunctionTok{plot.phylo}\NormalTok{(phy, }\AttributeTok{no.margin =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{tip.color =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\DecValTok{3}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\DecValTok{3}\NormalTok{)))}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-270-1.pdf}
 
-\hypertarget{image-e-countour}{%
-\subsection{\texorpdfstring{\texttt{image()} e \texttt{countour()}}{image() e countour()}}\label{image-e-countour}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# seria o mesmo que dizer}
+\FunctionTok{plot.phylo}\NormalTok{(phy, }\AttributeTok{no.margin =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{tip.color =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\DecValTok{3}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\DecValTok{3}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{\texorpdfstring{\texttt{image()} e \texttt{countour()}}{image() e countour()}}\label{image-e-countour}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10369,8 +10265,6 @@ Depois, siga o exemplo abaixo:
 \begin{Highlighting}[]
 \CommentTok{\# outra opção é fazermos os contornos (ou curvas de nível neste caso do vulcão)}
 \FunctionTok{contour}\NormalTok{(volcano)}
-\CommentTok{\# vamos mudar o número de níveis para o mesmo usado para as cores}
-\FunctionTok{contour}\NormalTok{(volcano, }\AttributeTok{nlevels =} \DecValTok{12}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10378,6 +10272,9 @@ Depois, siga o exemplo abaixo:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# vamos mudar o número de níveis para o mesmo usado para as cores}
+\FunctionTok{contour}\NormalTok{(volcano, }\AttributeTok{nlevels =} \DecValTok{12}\NormalTok{)}
+
 \CommentTok{\# vamos juntar essas figuras em uma só}
 \FunctionTok{image}\NormalTok{(volcano, }\AttributeTok{col =}\NormalTok{ cores)}
 \FunctionTok{contour}\NormalTok{(volcano, }\AttributeTok{nlevels =} \DecValTok{12}\NormalTok{, }\AttributeTok{add =} \ConstantTok{TRUE}\NormalTok{)}
@@ -10395,8 +10292,7 @@ Depois, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{map}{%
-\subsection{\texorpdfstring{\texttt{map()}}{map()}}\label{map}}
+\subsection{\texorpdfstring{\texttt{map()}}{map()}}\label{map}
 
 O pacote \href{https://cran.r-project.org/web/packages/maps/index.html}{maps} \citep{R-maps} fornece funções para desenhar mapas com divisões administrativas.
 A função \texttt{map()} é uma de alto-nível.
@@ -10455,8 +10351,7 @@ Agora, siga o exemplo abaixo:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{xlim-e-ylim}{%
-\subsection{\texorpdfstring{\texttt{xlim} e \texttt{ylim}}{xlim e ylim}}\label{xlim-e-ylim}}
+\subsection{\texorpdfstring{\texttt{xlim} e \texttt{ylim}}{xlim e ylim}}\label{xlim-e-ylim}
 
 Esses dois parâmetros gráficos permitem ajustar o tamanho dos eixos de um gráfico, impondo limites.
 
@@ -10487,15 +10382,13 @@ Esses dois parâmetros gráficos permitem ajustar o tamanho dos eixos de um grá
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{graf-baixo-nivel}{%
-\section{Funções gráficas de baixo nível}\label{graf-baixo-nivel}}
+\section{Funções gráficas de baixo nível}\label{graf-baixo-nivel}
 
 Funções de baixo nível são funções que permitem \textbf{ADICIONAR} elementos em um gráfico já aberto com as funções \texttt{plot()} ou \texttt{plot.new()}.
 Muitas vezes você pode usar uma função de alto nível para fazer a mesma coisa com o argumento \texttt{add\ =\ TRUE}.
 Vamos ver alguns exemplos mais comumente utilizados de funções de baixo-nível.
 
-\hypertarget{legend}{%
-\subsection{\texorpdfstring{\texttt{legend()}}{legend()}}\label{legend}}
+\subsection{\texorpdfstring{\texttt{legend()}}{legend()}}\label{legend}
 
 A função \texttt{legend()} permite colocar uma legenda sobre um gráfico aberto por uma função de alto nível.
 
@@ -10581,8 +10474,7 @@ A função \texttt{legend()} permite colocar uma legenda sobre um gráfico abert
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-283-4.pdf}
 
-\hypertarget{points}{%
-\subsection{\texorpdfstring{\texttt{points()}}{points()}}\label{points}}
+\subsection{\texorpdfstring{\texttt{points()}}{points()}}\label{points}
 
 Esta função genérica serve para adicionar pontos, linhas, simbolos etc, segundo coordenadas \texttt{x} ou \texttt{x+y} em um gráfico aberto por uma função de alto nível.
 
@@ -10732,8 +10624,7 @@ Tree & age & circumference\\
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-284-2.pdf}
 
-\hypertarget{text-e-mtext}{%
-\subsection{\texorpdfstring{\texttt{text()} e \texttt{mtext()}}{text() e mtext()}}\label{text-e-mtext}}
+\subsection{\texorpdfstring{\texttt{text()} e \texttt{mtext()}}{text() e mtext()}}\label{text-e-mtext}
 
 \texttt{text()} e \texttt{mtext()}- funções para plotar textos (\textgreater= 1 caracter de comprimento) sobre uma figura de alto nível. text() plota dentro da área da figura através de coordendas, mtext() plota fora da área da figura com indicação do lado (side) e da distância da linha dos eixos (line).
 
@@ -10850,8 +10741,7 @@ Tree & age & circumference\\
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-286-2.pdf}
 
-\hypertarget{axis}{%
-\subsection{\texorpdfstring{\texttt{axis()}}{axis()}}\label{axis}}
+\subsection{\texorpdfstring{\texttt{axis()}}{axis()}}\label{axis}
 
 A função \texttt{axis()} adiciona eixos individualmente.
 É importante quando desejamos combinar dois gráficos em um só.
@@ -10867,11 +10757,6 @@ A função \texttt{axis()} adiciona eixos individualmente.
 \CommentTok{\# algumas vezes queremos adicionar eixos, ou formatar o eixo de uma forma individualizada}
 \CommentTok{\# por exemplo, na seguinte figura, queremos colocar o nome das especies no eixo y em posicao horizontal}
 \FunctionTok{plot}\NormalTok{(iris}\SpecialCharTok{$}\NormalTok{Sepal.Length }\SpecialCharTok{\textasciitilde{}}\NormalTok{ iris}\SpecialCharTok{$}\NormalTok{Species, }\AttributeTok{horizontal =} \ConstantTok{TRUE}\NormalTok{)}
-
-\CommentTok{\# o argumento para isso é par(las=2)}
-\CommentTok{\# se mudar isso eu mudo para todos os eixos}
-\FunctionTok{par}\NormalTok{(}\AttributeTok{las =} \DecValTok{2}\NormalTok{)}
-\FunctionTok{plot}\NormalTok{(iris}\SpecialCharTok{$}\NormalTok{Sepal.Length }\SpecialCharTok{\textasciitilde{}}\NormalTok{ iris}\SpecialCharTok{$}\NormalTok{Species, }\AttributeTok{horizontal =} \ConstantTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -10879,6 +10764,11 @@ A função \texttt{axis()} adiciona eixos individualmente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# o argumento para isso é par(las=2)}
+\CommentTok{\# se mudar isso eu mudo para todos os eixos}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{las =} \DecValTok{2}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(iris}\SpecialCharTok{$}\NormalTok{Sepal.Length }\SpecialCharTok{\textasciitilde{}}\NormalTok{ iris}\SpecialCharTok{$}\NormalTok{Species, }\AttributeTok{horizontal =} \ConstantTok{TRUE}\NormalTok{)}
+
 \CommentTok{\# mas eu quero apenas o eixo y}
 \FunctionTok{par}\NormalTok{(}\AttributeTok{las =} \DecValTok{1}\NormalTok{) }\CommentTok{\# voltamos ao padrao 1}
 
@@ -10916,8 +10806,7 @@ A função \texttt{axis()} adiciona eixos individualmente.
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-288-4.pdf}
 
-\hypertarget{abline}{%
-\subsection{\texorpdfstring{\texttt{abline()}}{abline()}}\label{abline}}
+\subsection{\texorpdfstring{\texttt{abline()}}{abline()}}\label{abline}
 
 Esta função plota uma linha reta sobre um gráfico, ou uma linha de ajuste de uma correlação ou regressão.
 
@@ -10944,13 +10833,11 @@ Esta função plota uma linha reta sobre um gráfico, ou uma linha de ajuste de 
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-290-1.pdf}
 
-\hypertarget{arrows-rect-polygon-e-segments}{%
-\subsection{\texorpdfstring{\texttt{arrows()}, \texttt{rect()}, \texttt{polygon()} e \texttt{segments()}}{arrows(), rect(), polygon() e segments()}}\label{arrows-rect-polygon-e-segments}}
+\subsection{\texorpdfstring{\texttt{arrows()}, \texttt{rect()}, \texttt{polygon()} e \texttt{segments()}}{arrows(), rect(), polygon() e segments()}}\label{arrows-rect-polygon-e-segments}
 
 Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas sobre sobre gráficos, respectivamente.
 
-\hypertarget{flechas}{%
-\subsubsection{Flechas}\label{flechas}}
+\subsubsection{Flechas}\label{flechas}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10979,8 +10866,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-292-2.pdf}
 
-\hypertarget{retuxe2ngulos}{%
-\subsubsection{Retângulos}\label{retuxe2ngulos}}
+\subsubsection{Retângulos}\label{retuxe2ngulos}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11002,8 +10888,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-294-1.pdf}
 
-\hypertarget{poluxedgonos}{%
-\subsubsection{Polígonos}\label{poluxedgonos}}
+\subsubsection{Polígonos}\label{poluxedgonos}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11029,8 +10914,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-296-2.pdf}
 
-\hypertarget{segmentos-de-linhas}{%
-\subsubsection{Segmentos de linhas}\label{segmentos-de-linhas}}
+\subsubsection{Segmentos de linhas}\label{segmentos-de-linhas}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11048,8 +10932,7 @@ Estas funções plotam flechas, retângulos, polígonos, ou segmentos de linhas 
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-298-1.pdf}
 
-\hypertarget{symbols}{%
-\subsection{\texorpdfstring{\texttt{symbols()}}{symbols()}}\label{symbols}}
+\subsection{\texorpdfstring{\texttt{symbols()}}{symbols()}}\label{symbols}
 
 A função \texttt{symbols()} é uma de alto nível, mas com a adição do argumento \texttt{add=TRUE}, ela pode ser utilizada para adicionar sobre gráficos já plotados símbolos que expressam quantidades.
 
@@ -11097,11 +10980,9 @@ A função \texttt{symbols()} é uma de alto nível, mas com a adição do argum
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-300-3.pdf}
 
-\hypertarget{funuxe7uxf5es-gruxe1ficas-interativas}{%
-\section{Funções gráficas interativas}\label{funuxe7uxf5es-gruxe1ficas-interativas}}
+\section{Funções gráficas interativas}\label{funuxe7uxf5es-gruxe1ficas-interativas}
 
-\hypertarget{locator}{%
-\subsection{\texorpdfstring{\texttt{locator()}}{locator()}}\label{locator}}
+\subsection{\texorpdfstring{\texttt{locator()}}{locator()}}\label{locator}
 
 Esta função extrai coordenadas de um gráfico.
 
@@ -11133,8 +11014,7 @@ Esta função extrai coordenadas de um gráfico.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{identify}{%
-\subsection{\texorpdfstring{\texttt{identify()}}{identify()}}\label{identify}}
+\subsection{\texorpdfstring{\texttt{identify()}}{identify()}}\label{identify}
 
 Esta função identifica os pontos de um gráfico.
 
@@ -11162,8 +11042,7 @@ Esta função identifica os pontos de um gráfico.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{sabermais-disp-grafico}{%
-\section{Para saber mais:}\label{sabermais-disp-grafico}}
+\section{Para saber mais:}\label{sabermais-disp-grafico}
 
 (1). Vídeoaulas com conteúdos parciais deste capítulo:
 
@@ -11186,8 +11065,7 @@ Esta função identifica os pontos de um gráfico.
 
 (2). \href{http://www.r-graph-gallery.com/}{R Gallery} - página que tem exemplos de gráficos do R e os códigos correspondentes.
 
-\hypertarget{exercuxedcios-3}{%
-\section{Exercícios}\label{exercuxedcios-3}}
+\section{Exercícios}\label{exercuxedcios-3}
 
 Esta série de exercícios exemplificam algumas funções que serão retomadas no tutorial de AED (Capítulos \ref{aed-checa-dados}, \ref{aed-univar}, \ref{aed-bivar} e \ref{aed-multivar}).
 Procure exercitar o que aprenderam até aqui.
@@ -11209,18 +11087,15 @@ O conjunto de dados \href{http://www.lage.ib.usp.br/notar/files/alunos2018.txt}{
   Resolva o exercício \href{http://notar.ib.usp.br/exercicio/78}{105.01 Editando alguns parâmetros gráficos}.
 \end{itemize}
 
-\hypertarget{iter-cflux}{%
-\chapter{Iteração e controle de fluxo}\label{iter-cflux}}
+\chapter{Iteração e controle de fluxo}\label{iter-cflux}
 
-\hypertarget{func-apply}{%
-\section{\texorpdfstring{Funções da família \texttt{apply()}}{Funções da família apply()}}\label{func-apply}}
+\section{\texorpdfstring{Funções da família \texttt{apply()}}{Funções da família apply()}}\label{func-apply}
 
 Algumas funções da família \texttt{apply()} são muito úteis na manipulação de dados e descrição de dados.
 Essas funções são muito poderosas, porque permitem você fazer iterações de forma simples, ou seja, você pode aplicar uma função a vários objetos simultaneamente com funções dessa família.
 O que você faz com essas funções você também faz com as iterações que fazem uso da expressão \texttt{for()\{\}} (veja seção \ref{iteracoes}), mas essas funções simplificam e aceleram o processo.
 
-\hypertarget{em-uma-matriz}{%
-\subsection{Em uma matriz}\label{em-uma-matriz}}
+\subsection{Em uma matriz}\label{em-uma-matriz}
 
 A função \texttt{apply()} poderia ser traduzida como:
 
@@ -11420,8 +11295,7 @@ Portanto, ao dominar a função \texttt{apply()}, você acaba por não precisar 
 ##   2.5   6.5  10.5  14.5  18.5  22.5  26.5  30.5  34.5
 \end{verbatim}
 
-\hypertarget{em-um-vetor-ou-lista}{%
-\subsection{Em um vetor ou lista}\label{em-um-vetor-ou-lista}}
+\subsection{Em um vetor ou lista}\label{em-um-vetor-ou-lista}
 
 A função \texttt{lapply()} aplica uma função \texttt{FUN} para cada elemento de um vetor ou de uma lista, e retorna um objeto de classe \texttt{list}.
 
@@ -11572,13 +11446,13 @@ A função \texttt{lapply()} aplica uma função \texttt{FUN} para cada elemento
 
 \begin{verbatim}
 ## [[1]]
-## [1] 523.4
+## [1] 495.78
 ## 
 ## [[2]]
-## [1] 46.3
+## [1] 49.43333
 ## 
 ## [[3]]
-## [1] 1534.989
+## [1] 1551.178
 \end{verbatim}
 
 \begin{Shaded}
@@ -11590,11 +11464,10 @@ A função \texttt{lapply()} aplica uma função \texttt{FUN} para cada elemento
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  523.400   46.300 1534.989
+## [1]  495.78000   49.43333 1551.17778
 \end{verbatim}
 
-\hypertarget{por-categoria-de-um-fator}{%
-\subsection{Por categoria de um fator}\label{por-categoria-de-um-fator}}
+\subsection{Por categoria de um fator}\label{por-categoria-de-um-fator}
 
 A função \texttt{tapply()} aplica uma função \texttt{FUN} em uma coluna numérica individualizando os resultados para cada categoria de um determinado fator.
 
@@ -11730,14 +11603,12 @@ A função \texttt{tapply()} aplica uma função \texttt{FUN} em uma coluna num�
 ## [1] 4.3 5.8
 \end{verbatim}
 
-\hypertarget{condicionais}{%
-\section{Condicionais}\label{condicionais}}
+\section{Condicionais}\label{condicionais}
 
 Condicionais são expressões que permitem a um programa a tomada de decisões.
-Vamos tratar aqui das condicionais \texttt{if\ ()}, \texttt{if\ ()\ else\ \{\}}, e \texttt{ifelse\ ()} (veja a seção \protect\hyperlink{sabermais-condic}{Para saber mais} para mais informações).
+Vamos tratar aqui das condicionais \texttt{if\ ()}, \texttt{if\ ()\ else\ \{\}}, e \texttt{ifelse\ ()} (veja a seção \hyperref[sabermais-condic]{Para saber mais} para mais informações).
 
-\hypertarget{condicional-if}{%
-\subsection{\texorpdfstring{Condicional \texttt{if\ ()}}{Condicional if ()}}\label{condicional-if}}
+\subsection{\texorpdfstring{Condicional \texttt{if\ ()}}{Condicional if ()}}\label{condicional-if}
 
 A expressão \texttt{if\ ()} avalia um vetor atômico (ou de índice 1) lógico e executa o que estiver entre \texttt{\{\}} se o valor do vetor for verdadeiro (TRUE).
 
@@ -11751,10 +11622,9 @@ if (condicao) {
 \end{verbatim}
 
 Dentro do par de parênteses, deve haver uma \textbf{condição.}
-Condições em R são feitas com operadores lógicos: \texttt{==}, \texttt{!=}, \texttt{\textgreater{}}, \texttt{\textless{}} etc (veja a seção @ref(\#vetor-operador-logico) para relembrar; veja também a seção \protect\hyperlink{sabermais-condic}{Para saber mais} pois apresenta \emph{links} para vídeoaulas importantes).
+Condições em R são feitas com operadores lógicos: \texttt{==}, \texttt{!=}, \texttt{\textgreater{}}, \texttt{\textless{}} etc (veja a seção @ref(\#vetor-operador-logico) para relembrar; veja também a seção \hyperref[sabermais-condic]{Para saber mais} pois apresenta \emph{links} para vídeoaulas importantes).
 
-\hypertarget{exemplo-01}{%
-\subsubsection{Exemplo 01}\label{exemplo-01}}
+\subsubsection{Exemplo 01}\label{exemplo-01}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11820,13 +11690,11 @@ Reparem na condição que deve ser satisfeita dentro dos parênteses: \texttt{TR
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{condicional-if-com-o-else}{%
-\subsection{\texorpdfstring{Condicional \texttt{if\ ()} com o \texttt{else}}{Condicional if () com o else}}\label{condicional-if-com-o-else}}
+\subsection{\texorpdfstring{Condicional \texttt{if\ ()} com o \texttt{else}}{Condicional if () com o else}}\label{condicional-if-com-o-else}
 
 A condicional \texttt{if\ ()} pode ser expandida para \texttt{if\ ()\ \{\ \}\ else\ \{\}}: execute em \texttt{\{\}} se \texttt{if\ ()} for VERDADEIRO, caso contrário (== else), execute o que estiver entre o segundo par \texttt{\{\}}.
 
-\hypertarget{exemplo-01-1}{%
-\subsubsection{Exemplo 01}\label{exemplo-01-1}}
+\subsubsection{Exemplo 01}\label{exemplo-01-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11857,8 +11725,7 @@ A condicional \texttt{if\ ()} pode ser expandida para \texttt{if\ ()\ \{\ \}\ el
 ## [1] "Se eu somar o meu número  77 com 3, eu vou obter  80"
 \end{verbatim}
 
-\hypertarget{exemplo-02}{%
-\subsubsection{Exemplo 02}\label{exemplo-02}}
+\subsubsection{Exemplo 02}\label{exemplo-02}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11947,8 +11814,7 @@ Rubiaceae & Lamiids\\
 ## [1] "A família Rubiaceae pertence ao clado das Lamiids"
 \end{verbatim}
 
-\hypertarget{condicional-ifelse}{%
-\subsection{\texorpdfstring{Condicional \texttt{ifelse()}}{Condicional ifelse()}}\label{condicional-ifelse}}
+\subsection{\texorpdfstring{Condicional \texttt{ifelse()}}{Condicional ifelse()}}\label{condicional-ifelse}
 
 \begin{verbatim}
 ifelse(condicao, executa se VERDADEIRO, executa se FALSO)
@@ -12464,8 +12330,7 @@ Solanaceae & Nenhuma dessas famílias é uma Sapindales\\
 \hline
 \end{tabular}
 
-\hypertarget{iteracoes}{%
-\section{Iterações}\label{iteracoes}}
+\section{Iterações}\label{iteracoes}
 
 Vocês usaram várias funções da família \texttt{apply}, especialmente \texttt{apply()} e \texttt{tapply()}, que são funções especiais que repetem uma mesma função \texttt{FUN} para cada objeto de um conjunto (vetores, matrizes, valores atômicos).
 Essas funções utilizam portanto a lógica de iterações (em inglês, \emph{loops}), ou seja, fazem a mesma ação repetidas vezes; em outras palavras, fazem \emph{LOOPs}, dão voltas, realizam o mesmo percurso várias vezes, percorrem um circuito.
@@ -12474,11 +12339,9 @@ As expressões \texttt{for()\{\}} e \texttt{while()\{\}} permitem fazer \emph{LO
 Aprendê-las é o mesmo que aprender todas as funções da família \texttt{apply} juntas (\texttt{apply()}, \texttt{tapply()}, \texttt{sapply()}, \texttt{lapply()}, \texttt{mapply()} etc).
 Se você compreende os \emph{LOOPS}, pode fazer o que essas funções fazem sem precisar delas (embora elas possam executar a tarefa mais rapidamente).
 
-\hypertarget{iterauxe7uxe3o-com-for}{%
-\subsection{\texorpdfstring{Iteração com \texttt{for()\{\}}}{Iteração com for()\{\}}}\label{iterauxe7uxe3o-com-for}}
+\subsection{\texorpdfstring{Iteração com \texttt{for()\{\}}}{Iteração com for()\{\}}}\label{iterauxe7uxe3o-com-for}
 
-\hypertarget{exemplo-1}{%
-\subsubsection{Exemplo 1}\label{exemplo-1}}
+\subsubsection{Exemplo 1}\label{exemplo-1}
 
 Um exemplo simples do que seria uma iteração com o comando \texttt{for()\{\}}:
 
@@ -12523,8 +12386,7 @@ Um exemplo simples do que seria uma iteração com o comando \texttt{for()\{\}}:
 
 Ou seja, para cada elemento do objeto \texttt{let}, assumindo os valores na sequência do elemento 1 ao elemento corresponden ao comprimento (== \texttt{length(LETTERS)}) do objeto LETTERS, execute o que está dentro de \texttt{\{\}}.
 
-\hypertarget{exemplo-2}{%
-\subsubsection{Exemplo 2}\label{exemplo-2}}
+\subsubsection{Exemplo 2}\label{exemplo-2}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12654,8 +12516,7 @@ linha 6 & 29.88561 & 28.47641 & 29.62197 & 30.23359 & 29.96315 & 28.71014 & 30.4
 ##      TRUE      TRUE
 \end{verbatim}
 
-\hypertarget{exemplo-3}{%
-\subsubsection{Exemplo 3}\label{exemplo-3}}
+\subsubsection{Exemplo 3}\label{exemplo-3}
 
 Agora usando \texttt{for()\{\}} para fazer algo como o \texttt{tapply()}.
 
@@ -12690,8 +12551,7 @@ Agora usando \texttt{for()\{\}} para fazer algo como o \texttt{tapply()}.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exemplo-4}{%
-\subsubsection{Exemplo 4}\label{exemplo-4}}
+\subsubsection{Exemplo 4}\label{exemplo-4}
 
 Calculando somas e médias de linhas, similar ao que podemos fazer com a função \texttt{apply()}:
 
@@ -12728,14 +12588,12 @@ Calculando somas e médias de linhas, similar ao que podemos fazer com a funçã
 ##  153  162  171  180
 \end{verbatim}
 
-\hypertarget{iterauxe7uxe3o-com-while}{%
-\subsection{\texorpdfstring{Iteração com \texttt{while()\{\}}}{Iteração com while()\{\}}}\label{iterauxe7uxe3o-com-while}}
+\subsection{\texorpdfstring{Iteração com \texttt{while()\{\}}}{Iteração com while()\{\}}}\label{iterauxe7uxe3o-com-while}
 
 O comando \texttt{while()\{\}} funciona de forma parecida, mas faz algo ENQUANTO (em inglês, \emph{while}) a condição em \texttt{while()\{\}} seja verdadeira.
 Um exemplo simples:
 
-\hypertarget{exemplo-1-1}{%
-\subsubsection{Exemplo 1}\label{exemplo-1-1}}
+\subsubsection{Exemplo 1}\label{exemplo-1-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12768,11 +12626,9 @@ Um exemplo simples:
 ## [1] "o valor selecionado na iteração 13 foi de  10"
 \end{verbatim}
 
-\hypertarget{iterauxe7uxe3o-com-for-e-a-condicional-if}{%
-\subsection{\texorpdfstring{Iteração com \texttt{for()\{\}} e a condicional \texttt{if()\{\}}}{Iteração com for()\{\} e a condicional if()\{\}}}\label{iterauxe7uxe3o-com-for-e-a-condicional-if}}
+\subsection{\texorpdfstring{Iteração com \texttt{for()\{\}} e a condicional \texttt{if()\{\}}}{Iteração com for()\{\} e a condicional if()\{\}}}\label{iterauxe7uxe3o-com-for-e-a-condicional-if}
 
-\hypertarget{exemplo-1-2}{%
-\subsubsection{Exemplo 1}\label{exemplo-1-2}}
+\subsubsection{Exemplo 1}\label{exemplo-1-2}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12797,8 +12653,7 @@ Um exemplo simples:
 
 É possível que o script acima repita as 10000 vezes do \texttt{for()\{\}} sem encontrar o valor 10, até porque o 10 pode não estar em vet se não for amostrado.\\
 
-\hypertarget{criando-ou-modificando-funuxe7uxf5es}{%
-\section{Criando ou modificando funções}\label{criando-ou-modificando-funuxe7uxf5es}}
+\section{Criando ou modificando funções}\label{criando-ou-modificando-funuxe7uxf5es}
 
 Funções são objetos que contêm um script que usa os argumentos (também objetos) para executar alguma coisa.
 A expressão \texttt{function()\{\}} é utilizada para criar funções.
@@ -12828,8 +12683,7 @@ function(meu_argumento1, meu_argumento2, ...) {
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exemplo-i}{%
-\subsection{Exemplo I}\label{exemplo-i}}
+\subsection{Exemplo I}\label{exemplo-i}
 
 Vamos fazer a nossa versão da função \texttt{mean()}, que tira a média aritmética dos valores de um vetor.
 
@@ -12921,8 +12775,7 @@ Vamos agora utilizar a função:
 ## NULL
 \end{verbatim}
 
-\hypertarget{exemplo-ii}{%
-\subsection{Exemplo II}\label{exemplo-ii}}
+\subsection{Exemplo II}\label{exemplo-ii}
 
 Os \emph{loops} por meio da expressão \texttt{for()\{\}} e a condicional \texttt{if} são muito úteis dentro de funções.
 Sua função pode, por exemplo, ser construida para que um argumento possa assumir diferentes valores e, a depender do valor, executar uma coisa diferente.
@@ -13035,8 +12888,7 @@ Vamos utilizar a função recém-criada:
 ## [1] "Encontrei o valor 250 no indice,  36 do vetor indicado"
 \end{verbatim}
 
-\hypertarget{sabermais-condic}{%
-\section{Para saber mais:}\label{sabermais-condic}}
+\section{Para saber mais:}\label{sabermais-condic}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -13060,11 +12912,9 @@ Vamos utilizar a função recém-criada:
   Auxílio do R - executem a expressão \texttt{?Control} no R e vejam a explicação sobre condicionais.
 \end{enumerate}
 
-\hypertarget{sumar-dados}{%
-\chapter{Sumarização de dados}\label{sumar-dados}}
+\chapter{Sumarização de dados}\label{sumar-dados}
 
-\hypertarget{tabela-dinamica}{%
-\section{Tabelas dinâmicas}\label{tabela-dinamica}}
+\section{Tabelas dinâmicas}\label{tabela-dinamica}
 
 A função \texttt{tapply()} calcula alguma funcão sobre um vetor numérico para cada categoria de um fator.
 Já a função \texttt{aggregate()} faz o mesmo, mas permite múltiplos fatores e sempre retorna um \texttt{data.frame}.
@@ -13306,8 +13156,7 @@ jureia & 5 & Alchornea triplinervia & 273397.10\\
 \hline
 \end{tabular}
 
-\hypertarget{tabelas-de-contagem}{%
-\section{Tabelas de contagem}\label{tabelas-de-contagem}}
+\section{Tabelas de contagem}\label{tabelas-de-contagem}
 
 Vamos usar utilizar os mesmos dados de caixetas utilizados na seção \ref{tabela-dinamica}.
 A função \texttt{table()} permite contar valores em fatores e vetores.
@@ -13535,8 +13384,7 @@ Calophyllum brasiliensis & 0 & 1 & 0\\
 ##     13     22     13
 \end{verbatim}
 
-\hypertarget{luxf3gica-da-junuxe7uxe3o-de-tabelas}{%
-\section{Lógica da junção de tabelas}\label{luxf3gica-da-junuxe7uxe3o-de-tabelas}}
+\section{Lógica da junção de tabelas}\label{luxf3gica-da-junuxe7uxe3o-de-tabelas}
 
 Unir tabelas é uma prática corriqueira com bases de dados.
 É comum termos dados relacionados em tabelas diferentes, recurso que minimiza a entrada de redundância e portanto de erros nos nossos dados.
@@ -13721,8 +13569,7 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 Suponhamos que você queira adicionar à tabela \texttt{iris} uma coluna com informação que está na tabela sppinfo.
 Podemos pensar em duas maneiras de executar esta ação.
 
-\hypertarget{juncao-tbl-maneira1}{%
-\subsection{\texorpdfstring{Maneira 1 - função \texttt{match()}}{Maneira 1 - função match()}}\label{juncao-tbl-maneira1}}
+\subsection{\texorpdfstring{Maneira 1 - função \texttt{match()}}{Maneira 1 - função match()}}\label{juncao-tbl-maneira1}
 
 Pegaremos as linhas da tabela \texttt{sppinfo} com correspondência a cada linha da tabela \texttt{iris}.
 Para isso, devemos ter o \textbf{índice} da tabela \texttt{sppinfo} segundo o valor da coluna \texttt{Species}, que é o identificador em comum entre as duas tabelas:
@@ -13788,11 +13635,10 @@ setosa.5 & 5.4 & 3.9 & 1.7 & 0.4 & setosa & Iris setosa Pall. ex Link & Pall. ex
 \hline
 \end{tabular}
 
-\hypertarget{maneira-2---uxedndices-nominais}{%
-\subsection{Maneira 2 - índices nominais}\label{maneira-2---uxedndices-nominais}}
+\subsection{Maneira 2 - índices nominais}\label{maneira-2---uxedndices-nominais}
 
 A tabela \texttt{sppinfo} contem nomes de linhas que correspondem aos valores que estão na coluna \texttt{iris\$Species}.
-Portanto, para fazer a mesma coisa que fizemos na \protect\hyperlink{juncao-tbl-maneira1}{maneira 1}, nós poderíamos simplesmente filtrar através dos nomes das linhas da tabela \texttt{sppinfo}:
+Portanto, para fazer a mesma coisa que fizemos na \hyperref[juncao-tbl-maneira1]{maneira 1}, nós poderíamos simplesmente filtrar através dos nomes das linhas da tabela \texttt{sppinfo}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14109,15 +13955,13 @@ setosa.49 & 5.9 & 3.0 & 5.1 & 1.8 & virginica & Iris setosa Pall. ex Link & Pall
 \hline
 \end{tabular}
 
-\hypertarget{junuxe7uxe3o-de-tabelas-utilizando-funuxe7uxf5es}{%
-\section[Junção de tabelas utilizando funções]{\texorpdfstring{Junção de tabelas utilizando funções\footnote{Texto publicado originalmente no blog de R.O.Perdiz (\url{https://www.ricardoperdiz.com/blog/2020-04-juncao-tbl/})}}{Junção de tabelas utilizando funções}}\label{junuxe7uxe3o-de-tabelas-utilizando-funuxe7uxf5es}}
+\section[Junção de tabelas utilizando funções]{\texorpdfstring{Junção de tabelas utilizando funções\footnote{Texto publicado originalmente no blog de R.O.Perdiz (\url{https://www.ricardoperdiz.com/blog/2020-04-juncao-tbl/})}}{Junção de tabelas utilizando funções}}\label{junuxe7uxe3o-de-tabelas-utilizando-funuxe7uxf5es}
 
 O pacote \texttt{base} do R fornece uma função que executa essa ação, chamada \texttt{merge()}.
 Porém, há alguns tipos de junções não podem ser executados com esta função, o que nos levará ao uso de vetores lógicos em conjunto com a função \texttt{interaction()}.
 Daremos exemplos com essas duas novas maneiras.
 
-\hypertarget{dados-para-nossa-pruxe1tica}{%
-\subsection{Dados para nossa prática}\label{dados-para-nossa-pruxe1tica}}
+\subsection{Dados para nossa prática}\label{dados-para-nossa-pruxe1tica}
 
 Utilizaremos três tabelas para esta prática:
 
@@ -14257,15 +14101,13 @@ Annonaceae & Guatteria & Magnoliids\\
 \end{tabular}
 \end{table}
 
-\hypertarget{maneira-3---funuxe7uxe3o-merge}{%
-\subsection{\texorpdfstring{Maneira 3 - função \texttt{merge()}}{Maneira 3 - função merge()}}\label{maneira-3---funuxe7uxe3o-merge}}
+\subsection{\texorpdfstring{Maneira 3 - função \texttt{merge()}}{Maneira 3 - função merge()}}\label{maneira-3---funuxe7uxe3o-merge}
 
 O básico para entender a função \texttt{merge()} é saber que existem dois argumentos, \texttt{x} e \texttt{y}, que correspondem aos \texttt{data.frames} de entrada.
 Quando unimos tabelas, existem junções que adicionam variáveis, e junções que filtram variáveis.
-Vamos ver abaixo 4 tipos da primeira ( \protect\hyperlink{interna}{junção interna}, \protect\hyperlink{esquerda}{junção à esquerda}, \protect\hyperlink{direita}{junção à direita}, \protect\hyperlink{total}{junção total}), e dois tipos desta última ( \protect\hyperlink{semi}{semijunção} e \protect\hyperlink{anti}{antijunção}).
+Vamos ver abaixo 4 tipos da primeira ( \hyperref[interna]{junção interna}, \hyperref[esquerda]{junção à esquerda}, \hyperref[direita]{junção à direita}, \hyperref[total]{junção total}), e dois tipos desta última ( \hyperref[semi]{semijunção} e \hyperref[anti]{antijunção}).
 
-\hypertarget{interna}{%
-\subsubsection{Junção interna}\label{interna}}
+\subsubsection{Junção interna}\label{interna}
 
 \begin{rmdidea}
 Ao juntarmos tabelas \texttt{x} e \texttt{y}, temos todas as linhas de
@@ -14458,10 +14300,9 @@ Solanaceae & Duckeodendron & cestroides & Lamiids\\
 Vejam que houve a incorporação dos valores da coluna \texttt{epiteto}, presente apenas na tabela 2, em que há correspondência entre as tabelas 1 e 2.
 É importante notar que as famílias \textcolor{red}{Lauraceae, Anisophylleaceae, e Pentaphylacaceae} ficaram de fora, pois não são encontradas na tabela \texttt{y}, isto é, a tabela 2, assim como seus respectivos gêneros e epítetos associados a estes.
 Gêneros presentes na tabela 1 de famílias em comum entre ambas as tabelas também não foram incorporados nessa junção, pois nãp encontram correspondência na tabela 2: \textcolor{red}{Dacryodes, Trattinnickia, Markea, Solanum, Allophylastrum, Cupania, Duroia, Cinchona}.
-Revejam o conceito de \protect\hyperlink{interna}{junção interna} para entender o porquê desse acontecimento.
+Revejam o conceito de \hyperref[interna]{junção interna} para entender o porquê desse acontecimento.
 
-\hypertarget{esquerda}{%
-\subsubsection{Junção à esquerda}\label{esquerda}}
+\subsubsection{Junção à esquerda}\label{esquerda}
 
 \begin{rmdidea}
 Ao juntarmos tabelas \texttt{x} e \texttt{y}, temos todas as linhas de
@@ -14617,10 +14458,9 @@ Agora, temos uma nova situação. Para os valores de \texttt{x} sem correspondê
 Reparem na coluna \texttt{clado} e vejam que isso ocorreu apenas nesta variável.
 Por exemplo, vejam a família Anisophylleaceae. Ela ocorre apenas na tabela 1 e, portanto, não possui nenhum valor de \texttt{clado}a ssociado a ela, pois esta variável ocorre apenas na tabela 2. Com a junção das tabelas, essa variável é retida, porém sem a existência de um valor para a família, é inserido então o valor \texttt{NA}.
 Temos também o caso de Annonaceae, presente na tabela 2. A família não é recuperada na junção interna, pois ela não existe na tabela 1 dentro da variável \texttt{familia} e, portanto, não apresenta correspondência com nenhum dado da tabela 1.
-Revejam o conceito de \protect\hyperlink{esquerda}{junção à esquerda} para entender o porquê desse acontecimento.
+Revejam o conceito de \hyperref[esquerda]{junção à esquerda} para entender o porquê desse acontecimento.
 
-\hypertarget{direita}{%
-\subsubsection{Junção à direita}\label{direita}}
+\subsubsection{Junção à direita}\label{direita}
 
 \begin{rmdidea}
 Ao juntarmos tabelas \texttt{x} e \texttt{y}, temos todas as linhas de
@@ -14797,10 +14637,9 @@ Solanaceae & Duckeodendron & cestroides & Lamiids\\
 
 Notem que agora todos os dados da tabela 2 foram mantidos.
 Houve a inserção de um valor \texttt{NA} para a família Annonaceae na variável \texttt{epiteto}, pois esta variável não está presente na tabela 2.
-Revejam o conceito de \protect\hyperlink{direita}{junção à direita} para entender o porquê desse acontecimento.
+Revejam o conceito de \hyperref[direita]{junção à direita} para entender o porquê desse acontecimento.
 
-\hypertarget{total}{%
-\subsubsection{Junção total}\label{total}}
+\subsubsection{Junção total}\label{total}
 
 \begin{rmdidea}
 Ao juntarmos tabelas \texttt{x} e \texttt{y}, temos todas as linhas e
@@ -14866,10 +14705,9 @@ Solanaceae & Solanum & cyathophorum & NA\\
 
 Reparem que valores \texttt{NA} são colocados nos valores da tabela 2 referentes à coluna \texttt{epiteto}, ausente na tabela 1.
 O mesmo se passa com valores da coluna \texttt{clado}, presente na tabela 2 e ausente na tabela 1.
-Revejam o conceito de \protect\hyperlink{total}{junção total} para entender o porquê desse acontecimento.
+Revejam o conceito de \hyperref[total]{junção total} para entender o porquê desse acontecimento.
 
-\hypertarget{semi}{%
-\subsubsection{Semijunção}\label{semi}}
+\subsubsection{Semijunção}\label{semi}
 
 \begin{rmdidea}
 Ao juntarmos tabelas \texttt{x} e \texttt{y}, temos todas as linhas de
@@ -15023,8 +14861,7 @@ epiteto
 \end{tabular}
 \end{table}
 
-\hypertarget{maneira-4---vetores-luxf3gicos-e-a-funuxe7uxe3o-interaction}{%
-\paragraph{\texorpdfstring{Maneira 4 - vetores lógicos e a função \texttt{interaction()}}{Maneira 4 - vetores lógicos e a função interaction()}}\label{maneira-4---vetores-luxf3gicos-e-a-funuxe7uxe3o-interaction}}
+\paragraph{\texorpdfstring{Maneira 4 - vetores lógicos e a função \texttt{interaction()}}{Maneira 4 - vetores lógicos e a função interaction()}}\label{maneira-4---vetores-luxf3gicos-e-a-funuxe7uxe3o-interaction}
 
 Para executar uma semijunção com o pacote \texttt{base} do R, devemos fazer uso de vetores lógicos e da função \texttt{interaction()}, pois a função \texttt{merge()} não fornece uma maneira de se obter o que desejamos.
 
@@ -15112,8 +14949,7 @@ Agora utilizamos a mesma função \texttt{interaction} e o operador \texttt{\%in
 \hline
 \end{tabular}
 
-\hypertarget{anti}{%
-\subsubsection{Antijunção}\label{anti}}
+\subsubsection{Antijunção}\label{anti}
 
 \begin{rmdidea}
 Retorna todas as linhas de \texttt{x} em que não há correspondência em
@@ -15164,8 +15000,7 @@ Portanto, podemos utilizar o inverso de nosso vetor lógico \texttt{linhas} e ut
 \hline
 \end{tabular}
 
-\hypertarget{para-saber-mais}{%
-\section{Para saber mais}\label{para-saber-mais}}
+\section{Para saber mais}\label{para-saber-mais}
 
 \begin{itemize}
 \tightlist
@@ -15179,8 +15014,7 @@ Portanto, podemos utilizar o inverso de nosso vetor lógico \texttt{linhas} e ut
   \href{https://www.sqlfromhell.com/entendendo-join-sql/}{Entendendo o JOIN do SQL (ou Junções)} - Obtive as imagens aqui apresentadas desta página. Há uma boa explicação com SQL como pano de fundo para operações de junções de tabela.
 \end{itemize}
 
-\hypertarget{exercuxedcios-4}{%
-\section{Exercícios}\label{exercuxedcios-4}}
+\section{Exercícios}\label{exercuxedcios-4}
 
 \begin{itemize}
 \tightlist
@@ -15196,14 +15030,11 @@ Portanto, podemos utilizar o inverso de nosso vetor lógico \texttt{linhas} e ut
   Resolva o exercício \href{http://notar.ib.usp.br/exercicio/35}{103.8 De vetor a data.frame ordenado}.
 \end{itemize}
 
-\hypertarget{manip-txt-arq-pasta}{%
-\chapter{Manipulação de textos, arquivos e pastas}\label{manip-txt-arq-pasta}}
+\chapter{Manipulação de textos, arquivos e pastas}\label{manip-txt-arq-pasta}
 
-\hypertarget{funuxe7uxf5es-para-manipulauxe7uxe3o-e-busca-de-textos}{%
-\section{Funções para manipulação e busca de textos}\label{funuxe7uxf5es-para-manipulauxe7uxe3o-e-busca-de-textos}}
+\section{Funções para manipulação e busca de textos}\label{funuxe7uxf5es-para-manipulauxe7uxe3o-e-busca-de-textos}
 
-\hypertarget{colar-ou-concatenar-textos}{%
-\subsection{Colar ou concatenar textos}\label{colar-ou-concatenar-textos}}
+\subsection{Colar ou concatenar textos}\label{colar-ou-concatenar-textos}
 
 A função \texttt{paste()} concatena textos.
 
@@ -15291,8 +15122,7 @@ Basta usar o argumento \texttt{collapse} e indicar qual será o elemento que uni
 ## [1] "banana mais maça mais pera"
 \end{verbatim}
 
-\hypertarget{quebrar-ou-desconcatenar-textos}{%
-\subsection{Quebrar ou desconcatenar textos}\label{quebrar-ou-desconcatenar-textos}}
+\subsection{Quebrar ou desconcatenar textos}\label{quebrar-ou-desconcatenar-textos}
 
 A função \texttt{strsplit()} quebra um vetor de texto segundo um separador determinado pelo argumento \texttt{split}, e retorna uma lista como resultado.
 
@@ -15326,7 +15156,7 @@ Note que o resultado da ação é um objeto de classe lista:
 ## [1] "list"
 \end{verbatim}
 
-Então, para pegar o resultado da ação da função \texttt{strsplit()}, devemos usar o que aprendemos em \protect\hyperlink{listas}{indexação de listas}.
+Então, para pegar o resultado da ação da função \texttt{strsplit()}, devemos usar o que aprendemos em \hyperref[listas]{indexação de listas}.
 Para indexar listas, devemos usar duplo colchetes \texttt{{[}{[}n{]}{]}}, em que \texttt{n} é o número do elemento que desejamos reter.
 Vejamos abaixo que retemos o resultado de \texttt{strsplit()} no vetor \texttt{txt} em um objeto \texttt{pl}:
 
@@ -15378,8 +15208,7 @@ Agora o objeto \texttt{pl} é um vetor de texto e de tamanho corresponde ao núm
 ## [1] 7
 \end{verbatim}
 
-\hypertarget{um-exemplo-pruxe1tico}{%
-\subsubsection{Um exemplo prático}\label{um-exemplo-pruxe1tico}}
+\subsubsection{Um exemplo prático}\label{um-exemplo-pruxe1tico}
 
 Suponha que você tenha uma tabela em que o nome da espécie esteja em uma única coluna e você queira separar o gênero do epíteto.
 Podemos usar a função \texttt{strsplit()} para resolver essa situação.
@@ -15543,8 +15372,7 @@ Licaria tenuicarpa & 30 & Licaria & tenuicarpa\\
 ##  $ SPP    : chr  "guianensis" "longifolia" "tenuicarpa"
 \end{verbatim}
 
-\hypertarget{altera-caixa-do-texto}{%
-\subsection{Altera caixa do texto}\label{altera-caixa-do-texto}}
+\subsection{Altera caixa do texto}\label{altera-caixa-do-texto}
 
 As funções \texttt{toupper()} e \texttt{tolower()} mudam a caixa do texto, isto é, convertem o texto para totalmente maiúsculas ou minúsculas, respectivamente.
 
@@ -15600,8 +15428,7 @@ As funções \texttt{toupper()} e \texttt{tolower()} mudam a caixa do texto, ist
 ## [1] "Um texto qualquer"
 \end{verbatim}
 
-\hypertarget{remove-espauxe7os-em-branco}{%
-\subsection{Remove espaços em branco}\label{remove-espauxe7os-em-branco}}
+\subsection{Remove espaços em branco}\label{remove-espauxe7os-em-branco}
 
 A função \texttt{trimws()} remove espaços em branco no início e final do texto.\\
 Repare que isso ocorre no objeto \texttt{txt2} criado abaixo:
@@ -15648,8 +15475,7 @@ Vejamos:
 ## [1] "Outro texto com espacos em branco no inicio e fim     "
 \end{verbatim}
 
-\hypertarget{substitui-ou-pega-parte-de-texto}{%
-\subsection{Substitui ou pega parte de texto}\label{substitui-ou-pega-parte-de-texto}}
+\subsection{Substitui ou pega parte de texto}\label{substitui-ou-pega-parte-de-texto}
 
 A função \texttt{gsub()} busca padrões de um texto para substituí-los por outro em um vetor de caracteres.
 
@@ -15721,8 +15547,7 @@ Por fim, a função \texttt{nchar()} conta o número de caracteres contidos em u
 ## [1] "muita COISA"
 \end{verbatim}
 
-\hypertarget{expressuxf5es-regulares}{%
-\subsection{Expressões Regulares}\label{expressuxf5es-regulares}}
+\subsection{Expressões Regulares}\label{expressuxf5es-regulares}
 
 \href{https://pt.wikipedia.org/wiki/Express\%C3\%A3o_regular}{Expressões regulares} são modelos lógicos para buscar caracteres em textos.
 É uma ferramenta muito poderosa usada em computação. Não é fácil entender e usar expressões regulares, mas é muito poderoso e importante conhecer os recursos.
@@ -15788,10 +15613,9 @@ Algumas funções que buscam por padrões interpretam expressões regulares para
 Por exemplo, \texttt{gsub()} e \texttt{grep()} são duas funções parecidas, que buscam por um padrão (argumento \texttt{pattern}) em textos.
 Enquanto \texttt{gsub()} busca e permite substituir o padrão por outro texto, \texttt{grep()} retorna o índice do elemento que contém o padrão de interesse.
 O argumento \texttt{pattern}, citado anteriormente, pode ser um texto simples ou uma expressão regular, então é importante que você entenda um pouco sobre isso.
-Expressões regulares podem ser bem complexas e até existem sites que lhe permitem entender e gerar uma expressão regular para uma busca especifica (veja abaixo na seção \protect\hyperlink{sabermais-manip-txt-arqs-fld}{\textbf{Para saber mais}}).
+Expressões regulares podem ser bem complexas e até existem sites que lhe permitem entender e gerar uma expressão regular para uma busca especifica (veja abaixo na seção \hyperref[sabermais-manip-txt-arqs-fld]{\textbf{Para saber mais}}).
 
-\hypertarget{remove-acentos}{%
-\subsection{Remove Acentos}\label{remove-acentos}}
+\subsection{Remove Acentos}\label{remove-acentos}
 
 Remover acentos e padronizar textos podem ser importantes quando estamos comparando dados.
 Por exemplo, quando queremos verificar se os nomes que aparecem em uma coluna estão padronizados, devemos checar se há duplicidade de palavras devido à presença de um acento em uma palavra e ausência em outra (e.g., odores ``cítrico'' e ``citrico'' são computados como duas palavras diferentes).
@@ -15851,8 +15675,7 @@ Não há uma função específica, mas como tudo pode ser feito no R, uma soluç
 ## [1] "macarrao tambem tem acentos, ne?"
 \end{verbatim}
 
-\hypertarget{metacaracteres}{%
-\subsection{Metacaracteres}\label{metacaracteres}}
+\subsection{Metacaracteres}\label{metacaracteres}
 
 Metacaracteres são caracteres que em uma expressão regular apresentam um significado especial e por isso não são interpretados como tal.
 Alguns metacaracteres são:
@@ -15873,7 +15696,7 @@ Alguns metacaracteres são:
 \item
   \texttt{(} e \texttt{)} para agrupamentos;
 \item
-  \texttt{{[}} e \texttt{{]}} definem classes de caracteres em expressões regulares (veja abaixo na seção \protect\hyperlink{classes-caracteres}{Classes de caracteres}).
+  \texttt{{[}} e \texttt{{]}} definem classes de caracteres em expressões regulares (veja abaixo na seção \hyperref[classes-caracteres]{Classes de caracteres}).
 \end{itemize}
 
 Suponha que você importe ao R um conjunto de dados de uma planilha usando, por exemplo, a função \texttt{read.table()}, e que os nomes das colunas no original tinham muitos espaços em branco.
@@ -16041,8 +15864,7 @@ Suponha também que isso acontece toda vez que você importa dados ao R e já es
 ## [1] "um texto com simbolo MAIS" "sem o simbolo"
 \end{verbatim}
 
-\hypertarget{classes-caracteres}{%
-\subsection{Classes de caracteres}\label{classes-caracteres}}
+\subsection{Classes de caracteres}\label{classes-caracteres}
 
 Algumas classes de caracteres podem ser utilizadas em buscas com expressões regulares:
 
@@ -16195,8 +16017,7 @@ Suponha que você precisa substituir todos os valores que não contenham letras 
 ## [29] "blue3"          "blue4"
 \end{verbatim}
 
-\hypertarget{barra-invertida}{%
-\subsection{\texorpdfstring{Barra invertida \texttt{\textbackslash{}}}{Barra invertida \textbackslash{}}}\label{barra-invertida}}
+\subsection{\texorpdfstring{Barra invertida \texttt{\textbackslash{}}}{Barra invertida \textbackslash{}}}\label{barra-invertida}
 
 O uso da barra invertida \texttt{\textbackslash{}} (em inglês, \emph{backslash}) indica ao R que a expressão regular espera lidar com tabulações, quebra de linhas e outros símbolos especiais.
 Isso é fundamental se você quer incluir/buscar num texto por aspas, parênteses, colchetes, barras, metacaracteres, etc.
@@ -16301,14 +16122,13 @@ Porém, podemos combinar aspas simples e duplas para fazer isso:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{manipulauxe7uxe3o-de-pastas-e-arquivos}{%
-\section{Manipulação de pastas e arquivos}\label{manipulauxe7uxe3o-de-pastas-e-arquivos}}
+\section{Manipulação de pastas e arquivos}\label{manipulauxe7uxe3o-de-pastas-e-arquivos}
 
 As funções abaixo auxiliam a checagem de arquivos dentro de pastas, possibilitam a criação de pastas, e a cópia de arquivos dentro do sistema.
 Dominar essas funções e algumas outras correlatas são importantíssimas, por exemplo, no ramo da bioinformática.
 No dia a dia, dominá-las também possibilitará que muito tempo seja poupado em atividades maçantes, como copiar ou mover muitos arquivos de uma pasta a outra.
 
-Vamos analisar o uso das funções \texttt{dir()}, \texttt{dir.create()} e \texttt{file.copy()} (vejam a seção \protect\hyperlink{sabermais-manip-txt-arqs-fld}{Para saber mais} para mais informações).
+Vamos analisar o uso das funções \texttt{dir()}, \texttt{dir.create()} e \texttt{file.copy()} (vejam a seção \hyperref[sabermais-manip-txt-arqs-fld]{Para saber mais} para mais informações).
 Não esqueçam de checar o \texttt{?} de cada função (e.g., \texttt{?dir}) para auxiliar no entendimento do funcionamento de cada uma das funções.
 
 \begin{Shaded}
@@ -16351,8 +16171,7 @@ Não esqueçam de checar o \texttt{?} de cada função (e.g., \texttt{?dir}) par
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{sabermais-manip-txt-arqs-fld}{%
-\section{Para saber mais:}\label{sabermais-manip-txt-arqs-fld}}
+\section{Para saber mais:}\label{sabermais-manip-txt-arqs-fld}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -16379,11 +16198,9 @@ Não esqueçam de checar o \texttt{?} de cada função (e.g., \texttt{?dir}) par
   Pacote \href{https://github.com/r-lib/fs}{fs} - Um pacote que agrupa funções para manipulações de arquivos e pastas, e que apresenta algumas melhoras sobre o conjunto de funções do pacote base do R. Além disso, há alguns tutoriais disponíveis.
 \end{enumerate}
 
-\hypertarget{amost-aleat}{%
-\chapter{Amostragens aleatórias}\label{amost-aleat}}
+\chapter{Amostragens aleatórias}\label{amost-aleat}
 
-\hypertarget{funuxe7uxf5es-para-gerar-permutauxe7uxf5es-e-simular-dados}{%
-\section{Funções para gerar permutações e simular dados}\label{funuxe7uxf5es-para-gerar-permutauxe7uxf5es-e-simular-dados}}
+\section{Funções para gerar permutações e simular dados}\label{funuxe7uxf5es-para-gerar-permutauxe7uxf5es-e-simular-dados}
 
 A função \texttt{sample()} aleatoriza valores em um vetor, com ou sem repetição, ou amostra um certo número de valores aleatoriamente de um vetor de valores.
 
@@ -16624,10 +16441,9 @@ Amostraremos \texttt{N} valores de um vetor qualquer:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{distribuiuxe7uxf5es-aleatuxf3rias}{%
-\section{Distribuições aleatórias}\label{distribuiuxe7uxf5es-aleatuxf3rias}}
+\section{Distribuições aleatórias}\label{distribuiuxe7uxf5es-aleatuxf3rias}
 
-O R disponibiliza um conjunto um conjunto de funções para gerar densidade, distribuição cumulativa, quantis e geração aleatória de variáveis com diferentes distribuições de probabilidade (veja a seção \protect\hyperlink{sabermais-distribuicoes}{Para saber mais} para mais informações).
+O R disponibiliza um conjunto um conjunto de funções para gerar densidade, distribuição cumulativa, quantis e geração aleatória de variáveis com diferentes distribuições de probabilidade (veja a seção \hyperref[sabermais-distribuicoes]{Para saber mais} para mais informações).
 
 Aqui vamos conhecer as funções que geram variáveis aleatórias para duas distribuições probabilísticas:
 
@@ -16645,13 +16461,11 @@ Aqui vamos conhecer as funções que geram variáveis aleatórias para duas dist
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{distribuiuxe7uxe3o-normal}{%
-\subsection{Distribuição Normal}\label{distribuiuxe7uxe3o-normal}}
+\subsection{Distribuição Normal}\label{distribuiuxe7uxe3o-normal}
 
 Segundo as companhias aéreas dos EUA, a largura dos quadris dos homens norte-americanos segue uma curva normal, com média de 14.4 polegadas, e desvio-padrão de 1 polegada.
 
-\hypertarget{rnorm}{%
-\subsubsection{\texorpdfstring{\texttt{rnorm()}}{rnorm()}}\label{rnorm}}
+\subsubsection{\texorpdfstring{\texttt{rnorm()}}{rnorm()}}\label{rnorm}
 
 Esta função permite gerar essa distribuição de valores aleatórios que seguem uma distribuição normal se soubermos a média e o desvio padrão.
 
@@ -16685,8 +16499,7 @@ Esta função permite gerar essa distribuição de valores aleatórios que segue
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-427-2.pdf}
 
-\hypertarget{pnorm}{%
-\subsubsection{\texorpdfstring{\texttt{pnorm()}}{pnorm()}}\label{pnorm}}
+\subsubsection{\texorpdfstring{\texttt{pnorm()}}{pnorm()}}\label{pnorm}
 
 Esta função permite responder à pergunta:
 
@@ -16755,8 +16568,7 @@ Qual percentual de pessoas não cabe em um assento de 15 polegadas?
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{qnorm}{%
-\subsubsection{\texorpdfstring{\texttt{qnorm()}}{qnorm()}}\label{qnorm}}
+\subsubsection{\texorpdfstring{\texttt{qnorm()}}{qnorm()}}\label{qnorm}
 
 Esta função permite responder à pergunta:
 
@@ -16792,8 +16604,7 @@ Qual largura de assento garante que 95\% da população caberá?
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-432-1.pdf}
 
-\hypertarget{dnorm}{%
-\subsubsection{\texorpdfstring{\texttt{dnorm()}}{dnorm()}}\label{dnorm}}
+\subsubsection{\texorpdfstring{\texttt{dnorm()}}{dnorm()}}\label{dnorm}
 
 A função \texttt{dnorm()} gera a densidade probabilística para um conjunto de valores, tendo em vista uma distribuição normal de mesma média e mesmo desvio padrão.
 Podemos responder à pergunta:
@@ -16831,8 +16642,7 @@ pessoa com quadril de 12 polegadas?
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-434-1.pdf}
 
-\hypertarget{sabermais-distribuicoes}{%
-\section{Para saber mais:}\label{sabermais-distribuicoes}}
+\section{Para saber mais:}\label{sabermais-distribuicoes}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -16841,8 +16651,7 @@ pessoa com quadril de 12 polegadas?
   \href{http://www.r-tutor.com/elementary-statistics/probability-distributions}{Probability distributions}.
 \end{enumerate}
 
-\hypertarget{exercuxedcios-5}{%
-\section{Exercícios}\label{exercuxedcios-5}}
+\section{Exercícios}\label{exercuxedcios-5}
 
 \begin{itemize}
 \tightlist
@@ -16852,14 +16661,12 @@ pessoa com quadril de 12 polegadas?
   Resolva o exercício \href{http://notar.ib.usp.br/exercicio/37}{103.9 Lembrando matrizes e listas}.
 \end{itemize}
 
-\hypertarget{extr-dados}{%
-\chapter{Extraindo dados de colunas descritivas}\label{extr-dados}}
+\chapter{Extraindo dados de colunas descritivas}\label{extr-dados}
 
 Na compilação de dados de especímenes botânicos, informações sobre a planta e o habitat estão em geral anotadas na forma de textos (notas), num formato pouco útil para entender os atributos dos organismos.
 Os scripts aqui relacionados mostram exemplos de como extrair informações dessas colunas descritivas, categorizando informações de \textbf{habito}, \textbf{fertilidade}, \textbf{textura do solo}, \textbf{habitat}, \textbf{dap}, \textbf{altura}.
 
-\hypertarget{dados-categuxf3ricos}{%
-\section{Dados categóricos}\label{dados-categuxf3ricos}}
+\section{Dados categóricos}\label{dados-categuxf3ricos}
 
 A lógica básica é simples.
 Para cada tipo de informação (variável), buscaremos por um conjunto de palavras e suas variantes, e substituiermos todas elas por uma única palavra, criando estados de variação (\textbf{categorias}).
@@ -16868,8 +16675,7 @@ Por exemplo, na busca por hábito você deveria buscar a palavra \texttt{epífit
 Não precisa se preocupar com acentos nem se a palavra está em caixa alta ou baixa.
 Criaremos uma função para ignorar isso nas comparações.
 
-\hypertarget{passo-01---lista-de-referuxeancia}{%
-\subsection{Passo 01 - Lista de referência}\label{passo-01---lista-de-referuxeancia}}
+\subsection{Passo 01 - Lista de referência}\label{passo-01---lista-de-referuxeancia}
 
 Você cria uma lista de referencia (veja a seção \ref{listas-ref} para exemplos de listas de referência) para cada variável que quer buscar, composta de vetores com palavras ou parte de palavras a serem buscadas.
 Cada vetor tem um nome, que é a palavra que define a categoria (estados de variação da variável).
@@ -16900,8 +16706,7 @@ Vamos primeiro criar uma lista de referência usando a construção \texttt{obj{
 Vejam que em nossa lista de referência \texttt{referencias} incluímos primeiramente arvoreta e depois árvore, porque \textbf{árvore} faz parte da palavra \textbf{arvoreta}, e nós desejamos diferenciar as duas categorias.
 Note que erros de grafia e palavras em diferentes idiomas podem ser inseridos nesses vetores como palavras a serem buscadas.
 
-\hypertarget{passo-02---funuxe7uxf5es-que-fazem-a-busca}{%
-\subsection{Passo 02 - Funções que fazem a busca}\label{passo-02---funuxe7uxf5es-que-fazem-a-busca}}
+\subsection{Passo 02 - Funções que fazem a busca}\label{passo-02---funuxe7uxf5es-que-fazem-a-busca}
 
 Primeiro criaremos uma função \texttt{removeacentos()}, que pega um texto ou vetor de textos e remove acentos.
 Isso é útil porque é frequente a mesma palavra aparecer com e sem acentos, por isso é melhor ignorar acentos nas comparações.
@@ -16958,8 +16763,7 @@ O segundo argumento da função, \texttt{referencias}, é uma lista de comprimen
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{passo-03---usando-a-funuxe7uxe3o}{%
-\subsection{Passo 03 - Usando a função}\label{passo-03---usando-a-funuxe7uxe3o}}
+\subsection{Passo 03 - Usando a função}\label{passo-03---usando-a-funuxe7uxe3o}
 
 Vamos utilizar dados de exemplo para testar a função. Baixe o arquivo presente neste endereço (\url{https://github.com/LABOTAM/IntroR/blob/main/dados/pegados_dados_exemplo.csv}).
 Ele apresenta uma coluna com notas de exsicatas para ilustrar nosso exemplo.
@@ -17010,8 +16814,7 @@ Ele apresenta uma coluna com notas de exsicatas para ilustrar nosso exemplo.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{listas-ref}{%
-\section{Listas de referência}\label{listas-ref}}
+\section{Listas de referência}\label{listas-ref}
 
 As listas de referência abaixo podem ser úteis e você pode acrescentar termos de busca a cada categoria.
 A ordem das categorias na lista deve ser pensada de forma que minimize erros.
@@ -17023,8 +16826,7 @@ O formato básico é:
 lista{[}{[}``categoria a definir''{]}{]} = c(vetor com as palavras a serem encontradas que indiquem a categoria)
 \end{quote}
 
-\hypertarget{huxe1bito-da-planta}{%
-\subsection{Hábito da planta}\label{huxe1bito-da-planta}}
+\subsection{Hábito da planta}\label{huxe1bito-da-planta}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -17044,8 +16846,7 @@ lista{[}{[}``categoria a definir''{]}{]} = c(vetor com as palavras a serem encon
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{estado-de-fertilidade-da-amostra}{%
-\subsection{Estado de fertilidade da amostra}\label{estado-de-fertilidade-da-amostra}}
+\subsection{Estado de fertilidade da amostra}\label{estado-de-fertilidade-da-amostra}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -17057,8 +16858,7 @@ lista{[}{[}``categoria a definir''{]}{]} = c(vetor com as palavras a serem encon
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{classes-de-huxe1bitat}{%
-\subsection{Classes de hábitat}\label{classes-de-huxe1bitat}}
+\subsection{Classes de hábitat}\label{classes-de-huxe1bitat}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -17080,8 +16880,7 @@ lista{[}{[}``categoria a definir''{]}{]} = c(vetor com as palavras a serem encon
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{textura-do-solo}{%
-\subsection{Textura do solo}\label{textura-do-solo}}
+\subsection{Textura do solo}\label{textura-do-solo}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -17094,8 +16893,7 @@ lista{[}{[}``categoria a definir''{]}{]} = c(vetor com as palavras a serem encon
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exsudato}{%
-\subsection{Exsudato}\label{exsudato}}
+\subsection{Exsudato}\label{exsudato}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -17107,13 +16905,11 @@ lista{[}{[}``categoria a definir''{]}{]} = c(vetor com as palavras a serem encon
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{extraindo-altura-e-dap}{%
-\section{Extraindo altura e dap}\label{extraindo-altura-e-dap}}
+\section{Extraindo altura e dap}\label{extraindo-altura-e-dap}
 
 Funções para extrair altura e diâmetro à altura do peito (DAP) de colunas descritivas.
 
-\hypertarget{altura}{%
-\subsection{Altura}\label{altura}}
+\subsection{Altura}\label{altura}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -17223,8 +17019,7 @@ Funções para extrair altura e diâmetro à altura do peito (DAP) de colunas de
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{dap}{%
-\subsection{DAP}\label{dap}}
+\subsection{DAP}\label{dap}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -17313,8 +17108,7 @@ Funções para extrair altura e diâmetro à altura do peito (DAP) de colunas de
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{usando-essas-funuxe7uxf5es}{%
-\section{Usando essas funções}\label{usando-essas-funuxe7uxf5es}}
+\section{Usando essas funções}\label{usando-essas-funuxe7uxf5es}
 
 Vamos utilizar o conjunto \texttt{dados} carregado acima para utilizar as funções que criamos anteriormente:
 
@@ -17324,8 +17118,7 @@ Vamos utilizar o conjunto \texttt{dados} carregado acima para utilizar as funç�
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{obtendo-valores-de-altura}{%
-\subsection{Obtendo valores de altura}\label{obtendo-valores-de-altura}}
+\subsection{Obtendo valores de altura}\label{obtendo-valores-de-altura}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -17341,21 +17134,18 @@ Vamos utilizar o conjunto \texttt{dados} carregado acima para utilizar as funç�
 \begin{verbatim}
 ## Warning in mean(as.numeric(trimws(xxx, which = "both")), na.rm = T): NAs
 ## introduced by coercion
-
 ## Warning in mean(as.numeric(trimws(xxx, which = "both")), na.rm = T): NAs
 ## introduced by coercion
 \end{verbatim}
 
 \begin{verbatim}
 ## Warning in FUN(X[[i]], ...): NAs introduced by coercion
-
 ## Warning in FUN(X[[i]], ...): NAs introduced by coercion
 \end{verbatim}
 
 \begin{verbatim}
 ## Warning in mean(as.numeric(trimws(xxx, which = "both")), na.rm = T): NAs
 ## introduced by coercion
-
 ## Warning in mean(as.numeric(trimws(xxx, which = "both")), na.rm = T): NAs
 ## introduced by coercion
 \end{verbatim}
@@ -17753,8 +17543,7 @@ Vamos utilizar o conjunto \texttt{dados} carregado acima para utilizar as funç�
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{obtendo-valores-de-dap}{%
-\subsection{Obtendo valores de DAP}\label{obtendo-valores-de-dap}}
+\subsection{Obtendo valores de DAP}\label{obtendo-valores-de-dap}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -18595,13 +18384,11 @@ Reparem que ambas as funções ainda precisam de alguns ajustes.
 Retirar variáveis de vetores de texto é algo complexo, especialmente quando não se há um padrão, fato observado comumente nas etiquetas de espécimes coletados e depositados em herbários.
 Ainda assim, conseguimos extrair bastante informação da coluna de notas de texto estocada em \texttt{txt.org}.
 
-\hypertarget{part-parte-ii}{%
-\part{Parte II}\label{part-parte-ii}}
+\part{Parte II}\label{part-parte-ii}
 
 Tutorial para orientar a AED a ser realizada com dados de interesse do aluno.
 
-\hypertarget{aed-checa-dados}{%
-\chapter{Checagem dos dados}\label{aed-checa-dados}}
+\chapter{Checagem dos dados}\label{aed-checa-dados}
 
 No tutorial abaixo vamos usar dados de avistamento de aves em fisionomias de cerrado.
 Baixem o arquivo contendo esses dados (\url{https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv}) para a sua pasta de trabalho.
@@ -18791,8 +18578,7 @@ Próximo passo é sempre checar um sumário estatístico das variáveis presente
 
 Há indicação de presença de valores \texttt{NA} nas variáveis numéricas, que são valores faltantes.
 
-\hypertarget{tem-valores-ausentes}{%
-\section{Tem valores ausentes?}\label{tem-valores-ausentes}}
+\section{Tem valores ausentes?}\label{tem-valores-ausentes}
 
 \begin{rmdquestion}
 Há valores ausentes em nossos dados? Eles são mesmo faltantes? Ou seja,
@@ -19424,8 +19210,7 @@ CL9 & CL & 19 & 0 & 5\\
 \hline
 \end{tabular}
 
-\hypertarget{colunas-com-fatores}{%
-\section{Colunas com fatores}\label{colunas-com-fatores}}
+\section{Colunas com fatores}\label{colunas-com-fatores}
 
 \begin{rmdquestion}
 As colunas com fatores estão codificadas corretamente?
@@ -19659,11 +19444,9 @@ CC & Ce & CL\\
 \hline
 \end{tabular}
 
-\hypertarget{aed-univar}{%
-\chapter{AED de univariadas}\label{aed-univar}}
+\chapter{AED de univariadas}\label{aed-univar}
 
-\hypertarget{qual-a-distribuiuxe7uxe3o-dos-valores-numuxe9ricos}{%
-\section{Qual a distribuição dos valores numéricos?}\label{qual-a-distribuiuxe7uxe3o-dos-valores-numuxe9ricos}}
+\section{Qual a distribuição dos valores numéricos?}\label{qual-a-distribuiuxe7uxe3o-dos-valores-numuxe9ricos}
 
 \begin{rmdquestion}
 Onde os dados estão centrados? Como eles estão espalhados? Eles são
@@ -19672,13 +19455,12 @@ Existem \href{https://en.wikipedia.org/wiki/Outlier\%7Coutlier}{valores
 extremos}?
 \end{rmdquestion}
 
-Já vimos \protect\hyperlink{vetores}{algumas operações matemáticas com vetores} e também \protect\hyperlink{graf-alto-nivel}{como usar as funções \texttt{hist()} e \texttt{boxplot()}} para gerar figuras de distribuição de variáveis numéricas individualmente.
-Vimos também como fazer iterações usando \protect\hyperlink{func-apply}{funções da família \texttt{apply()}}.
+Já vimos \hyperref[vetores]{algumas operações matemáticas com vetores} e também \hyperref[graf-alto-nivel]{como usar as funções \texttt{hist()} e \texttt{boxplot()}} para gerar figuras de distribuição de variáveis numéricas individualmente.
+Vimos também como fazer iterações usando \hyperref[func-apply]{funções da família \texttt{apply()}}.
 Também já aprendemos sobre a função \texttt{summary()}, que faz um resumo de todas as variáveis nos seus dados e aqui vamos entender isso melhor, apresentando a função \texttt{quantile()}, que permite extrair os \href{https://en.wikipedia.org/wiki/Quantile}{quantis}, que são valores que dividem uma distribuição probabilística em intervalos iguais de probabilidade.
 Com essas ferramentas, podemos descrever a distribuição de nossas variáveis numéricas.
 
-\hypertarget{dados-do-tutorial}{%
-\subsection{Dados do tutorial}\label{dados-do-tutorial}}
+\subsection{Dados do tutorial}\label{dados-do-tutorial}
 
 Vamos importar novamente os conjuntos de dados de \href{https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv}{avistamento de aves do cerrado} (utilizado no capítulo \ref{aed-checa-dados}) e de \href{https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv}{parcelas em caixetais} (utilizado no capítulo \ref{sumar-dados}):
 
@@ -20286,10 +20068,9 @@ chauas & 1 & 3 & 1 & 170 & 80 & Myrcia sulfiflora & 54.11268\\
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{tabelas-de-variuxe1veis-categuxf3ricas}{%
-\section{Tabelas de variáveis categóricas}\label{tabelas-de-variuxe1veis-categuxf3ricas}}
+\section{Tabelas de variáveis categóricas}\label{tabelas-de-variuxe1veis-categuxf3ricas}
 
-A função \texttt{table()} permite contar valores em fatores e vetores e você pode \protect\hyperlink{graf-alto-nivel}{relembrar como usar a função \texttt{barplot()}} para gerar gráficos de barra simples:
+A função \texttt{table()} permite contar valores em fatores e vetores e você pode \hyperref[graf-alto-nivel]{relembrar como usar a função \texttt{barplot()}} para gerar gráficos de barra simples:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -20418,8 +20199,7 @@ Tabebuia cassinoides & Myrcia sulfiflora & Mela 1 & jussara & Psidium sp\\
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-500-4.pdf}
 
-\hypertarget{resumo-de-gruxe1ficos-univariados}{%
-\subsection{Resumo de gráficos univariados}\label{resumo-de-gruxe1ficos-univariados}}
+\subsection{Resumo de gráficos univariados}\label{resumo-de-gruxe1ficos-univariados}
 
 Além das funções gráficas apresentadas acima, vamos ver aqui as funções \texttt{dotchart()} e \texttt{stripchart()}, úteis para visualizar dados brutos.
 
@@ -20566,8 +20346,7 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max.\\
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-503-3.pdf}
 
-\hypertarget{as-variuxe1veis-tuxeam-distribuiuxe7uxe3o-normal}{%
-\section{As variáveis têm distribuição normal?}\label{as-variuxe1veis-tuxeam-distribuiuxe7uxe3o-normal}}
+\section{As variáveis têm distribuição normal?}\label{as-variuxe1veis-tuxeam-distribuiuxe7uxe3o-normal}
 
 A função \texttt{density()} que juntamente com \texttt{hist()}, que você já conhece, permite visualizar a densidade probabilística de uma variável numérica, ou seja descreve a \href{https://pt.wikipedia.org/wiki/Distribui\%C3\%A7\%C3\%A3o_de_probabilidade}{distribuição de probabilidade}, isto é, a chance de uma variável assumir um valor ao longo de um espaço (densidade) de valores.
 
@@ -20974,8 +20753,7 @@ x & percentil & q.norm\\
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-514-5.pdf}
 
-\hypertarget{sabermais-aed-univariadas}{%
-\section{Para saber mais:}\label{sabermais-aed-univariadas}}
+\section{Para saber mais:}\label{sabermais-aed-univariadas}
 
 \begin{itemize}
 \tightlist
@@ -20983,16 +20761,14 @@ x & percentil & q.norm\\
   \href{http://www.botanicaamazonica.wiki.br/labotam/doku.php?id=disciplinas:bot89_2013:exercicio07}{Exercicio AED Univariadas}.
 \end{itemize}
 
-\hypertarget{aed-bivar}{%
-\chapter{AED de bivariadas}\label{aed-bivar}}
+\chapter{AED de bivariadas}\label{aed-bivar}
 
 \begin{rmdquestion}
 Existe alguma relação entre as variáveis? A relação é linear? Há
 colinearidade? Ou seja, diferentes variáveis tem o mesmo padrão?
 \end{rmdquestion}
 
-\hypertarget{dados-do-tutorial-1}{%
-\section{Dados do tutorial}\label{dados-do-tutorial-1}}
+\section{Dados do tutorial}\label{dados-do-tutorial-1}
 
 Vamos importar novamente os conjuntos de dados de \href{https://github.com/LABOTAM/IntroR/blob/main/dados/aves_cerrado.csv}{avistamento de aves do cerrado} (utilizado no capítulo \ref{aed-checa-dados}) e de \href{https://github.com/LABOTAM/IntroR/blob/main/dados/caixeta.csv}{parcelas em caixetais} (utilizado no capítulo \ref{sumar-dados}):
 
@@ -21010,10 +20786,9 @@ Vamos importar novamente os conjuntos de dados de \href{https://github.com/LABOT
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{fatores-e-contagens}{%
-\section{Fatores e contagens}\label{fatores-e-contagens}}
+\section{Fatores e contagens}\label{fatores-e-contagens}
 
-Já vimos a função \texttt{table()} para contar valores em fatores e vetores em casos de \protect\hyperlink{aed-univar}{univariados}.
+Já vimos a função \texttt{table()} para contar valores em fatores e vetores em casos de \hyperref[aed-univar]{univariados}.
 Podemos usar a mesma função para gerar tabelas de contingência entre dois ou mais fatores.
 
 \begin{Shaded}
@@ -21541,8 +21316,7 @@ Crew & 3 & 20\\
 \hline
 \end{tabular}
 
-\hypertarget{variuxe1vel-numuxe9rica-vs.-fator}{%
-\section{Variável numérica vs.~fator}\label{variuxe1vel-numuxe9rica-vs.-fator}}
+\section{Variável numérica vs.~fator}\label{variuxe1vel-numuxe9rica-vs.-fator}
 
 A função \texttt{tapply()} faz uso de uma função sobre sobre um vetor numérico para cada categoria de um fator.
 A função \texttt{aggregate()} faz o mesmo, mas permite múltiplos fatores e retorna um \texttt{data.frame}.
@@ -21767,8 +21541,7 @@ jureia & 5 & Alchornea triplinervia & 273397.10\\
 \hline
 \end{tabular}
 
-\hypertarget{variuxe1vel-numuxe9rica-vs.-numuxe9rica}{%
-\section{Variável numérica vs.~numérica}\label{variuxe1vel-numuxe9rica-vs.-numuxe9rica}}
+\section{Variável numérica vs.~numérica}\label{variuxe1vel-numuxe9rica-vs.-numuxe9rica}
 
 \begin{rmdquestion}
 Qual a relação entre as variáveis? É linear? Que hipóteses ou
@@ -21973,8 +21746,7 @@ Petal.Width & 0.8179411 & -0.3661259 & 0.9628654 & 1.0000000\\
 ## [1] TRUE TRUE TRUE TRUE TRUE TRUE
 \end{verbatim}
 
-\hypertarget{outros-gruxe1ficos-bivariados}{%
-\section{Outros gráficos bivariados}\label{outros-gruxe1ficos-bivariados}}
+\section{Outros gráficos bivariados}\label{outros-gruxe1ficos-bivariados}
 
 As funções \texttt{xyplot()} e \texttt{bwplot()} são oriundas do pacote \texttt{lattice} \citep{R-lattice} e permitem visualizar rapidamente relações entre variáveis por subgrupos de forma simples e rápida.
 
@@ -22115,8 +21887,7 @@ chauas & 1 & 7 & 1 & 320 & 80 & Myrcia sulfiflora & 80424.77\\
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-566-3.pdf}
 
-\hypertarget{aed-multivar}{%
-\chapter{AED de multivariadas}\label{aed-multivar}}
+\chapter{AED de multivariadas}\label{aed-multivar}
 
 Neste tutorial, vamos utilizar os pacotes abaixo.
 Caso você não possua algum dos pacotes listados, lembre-se de instalar cada um utilizando o comando abaixo:
@@ -22139,8 +21910,7 @@ Carregue-os todos e siga em frente.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{matrizes-de-distuxe2ncia}{%
-\section{Matrizes de distância}\label{matrizes-de-distuxe2ncia}}
+\section{Matrizes de distância}\label{matrizes-de-distuxe2ncia}
 
 Matrizes de distância ou dissimilaridade são muito usadas em AEDs multivariadas.
 Por exemplo, para estimar a similaridade entre diferentes comunidades vegetais segundo a presença ou ausência de espécies (ou um índice de similaridade que leva em conta as abundâncias relativas); para estimar a similaridade entre espécies ou a relação entre similaridade genética ou morfológica e distância geográfica etc.
@@ -22220,15 +21990,13 @@ X & Y\\
 ## [1] TRUE
 \end{verbatim}
 
-\hypertarget{ordenauxe7uxe3o-com-matrizes-de-distuxe2ncia}{%
-\section{Ordenação com matrizes de distância}\label{ordenauxe7uxe3o-com-matrizes-de-distuxe2ncia}}
+\section{Ordenação com matrizes de distância}\label{ordenauxe7uxe3o-com-matrizes-de-distuxe2ncia}
 
 Reduzir espaços multivariados em poucas dimensões a partir de matrizes de distância é útil quando nossas variáveis não têm distribuição normal, que é uma das premissas da \emph{Análise de Componentes Principais} (PCA) e outros métodos de ordenação paramétricos.
 
 Se você parte de uma matriz de distância, pode fazer ordenações multivariadas com dados não normais ou mesmo dados categóricos e semi-quantitativos, desde que com eles você possa calcular uma matriz de distância.
 
-\hypertarget{escalonamento-nuxe3o-muxe9trico-multimensional-nmds}{%
-\section{Escalonamento Não-Métrico Multimensional (NMDS)}\label{escalonamento-nuxe3o-muxe9trico-multimensional-nmds}}
+\section{Escalonamento Não-Métrico Multimensional (NMDS)}\label{escalonamento-nuxe3o-muxe9trico-multimensional-nmds}
 
 A \href{https://en.wikipedia.org/wiki/Multidimensional_scaling}{NMDS} é uma técnica de ordenação multivariada que permite visualizar graficamente distâncias entre objetos.
 No R há várias funções que executam isso: \texttt{isoMDS()}; \texttt{cmdscale()}; e \texttt{nmds()} e \texttt{bestnmds()} do pacote \texttt{labdsv} \citep{R-labdsv}.
@@ -22278,13 +22046,13 @@ Vamos agora instalar o pacote e carregar o pacote \texttt{labdsv}:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 3.557932e-13 8.167216e-03 2.228642e+01 3.791436e+01 6.603351e-03
+##  [1] 3.700077e-13 8.167216e-03 2.228642e+01 3.791436e+01 6.603351e-03
 ##  [6] 6.029306e-03 2.109747e+01 9.041554e-03 4.415954e-03 4.861851e-01
 ## [11] 4.001459e-03 8.141675e-03 9.111469e-03 3.737914e+01 6.265940e-03
 ## [16] 4.124426e+01 9.818992e+00 2.702450e+01 3.316186e-03 3.712228e+01
 ## 
 ## best result = 1
-## with stress = 3.557932e-13
+## with stress = 3.700077e-13
 \end{verbatim}
 
 \begin{Shaded}
@@ -22296,15 +22064,15 @@ Vamos agora instalar o pacote e carregar o pacote \texttt{labdsv}:
 
 \begin{verbatim}
 ## List of 3
-##  $ points: num [1:21, 1:2] -18.2 -12.9 17.3 -14.7 -16.4 ...
+##  $ points: num [1:21, 1:2] 18.2 12.9 -17.3 14.7 16.4 ...
 ##   ..- attr(*, "dimnames")=List of 2
 ##   .. ..$ : chr [1:21] "3" "14" "74" "135" ...
 ##   .. ..$ : NULL
-##  $ stress: num 3.56e-13
+##  $ stress: num 3.7e-13
 ##  $ type  : chr "NMDS"
 ##  - attr(*, "class")= chr [1:2] "dsvord" "nmds"
 ##  - attr(*, "call")= language bestnmds(dis = mdist, k = 2)
-##  - attr(*, "timestamp")= chr "Fri Oct  6 18:32:02 2023"
+##  - attr(*, "timestamp")= chr "Wed Apr  2 16:41:56 2025"
 \end{verbatim}
 
 \begin{Shaded}
@@ -22316,7 +22084,7 @@ Vamos agora instalar o pacote e carregar o pacote \texttt{labdsv}:
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 3.557932e-13
+## [1] 3.700077e-13
 \end{verbatim}
 
 \begin{Shaded}
@@ -22364,8 +22132,7 @@ Vamos agora instalar o pacote e carregar o pacote \texttt{labdsv}:
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-574-1.pdf}
 
-\hypertarget{exemplo-com-dados-morfoluxf3gicos}{%
-\subsection{Exemplo com dados morfológicos}\label{exemplo-com-dados-morfoluxf3gicos}}
+\subsection{Exemplo com dados morfológicos}\label{exemplo-com-dados-morfoluxf3gicos}
 
 Um exemplo de NMDS para mostra a similaridade entre indivíduos de \emph{Iris} a partir de uma matriz de distância morfológica usando os dados de \texttt{iris} do R.
 
@@ -22629,8 +22396,7 @@ Vamos utilizar a função \texttt{vegdist()} do pacote \texttt{vegan} \citep{R-v
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-588-1.pdf}
 
-\hypertarget{anuxe1lises-de-agrupamento}{%
-\section{Análises de agrupamento}\label{anuxe1lises-de-agrupamento}}
+\section{Análises de agrupamento}\label{anuxe1lises-de-agrupamento}
 
 A função \texttt{hclust()} faz uma análise de agrupamento a partir de uma matriz de distância e segundo um método.
 Gera um objeto de classe \texttt{hclust} que contem a estrutura hierárquica da similaridade entre os seus dados (a hierarquia dada pela distância mais o método de agrupamento).
@@ -22671,8 +22437,7 @@ Também facilita a geração de gráficos.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{agrupamento-pelo-muxe9todo-da-muxednima-variuxe2ncia}{%
-\subsection{Agrupamento pelo método da mínima variância}\label{agrupamento-pelo-muxe9todo-da-muxednima-variuxe2ncia}}
+\subsection{Agrupamento pelo método da mínima variância}\label{agrupamento-pelo-muxe9todo-da-muxednima-variuxe2ncia}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22684,8 +22449,7 @@ Também facilita a geração de gráficos.
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-593-1.pdf}
 
-\hypertarget{agrupamento-por-upgma}{%
-\subsection{Agrupamento por UPGMA}\label{agrupamento-por-upgma}}
+\subsection{Agrupamento por UPGMA}\label{agrupamento-por-upgma}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22696,8 +22460,7 @@ Também facilita a geração de gráficos.
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-594-1.pdf}
 
-\hypertarget{agrupamento-por-centruxf3ides}{%
-\subsection{Agrupamento por centróides}\label{agrupamento-por-centruxf3ides}}
+\subsection{Agrupamento por centróides}\label{agrupamento-por-centruxf3ides}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -22770,8 +22533,7 @@ Vamos converter nossos objetos \texttt{gp} e \texttt{gp3} para objetos de classe
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-601-1.pdf}
 
-\hypertarget{exemplo-floruxedstico}{%
-\subsection{Exemplo florístico}\label{exemplo-floruxedstico}}
+\subsection{Exemplo florístico}\label{exemplo-floruxedstico}
 
 Vamos explorar a similaridade florística entre parcelas com os dados de caixetais novamente.
 
@@ -23106,8 +22868,7 @@ Agora, vamos plotar o agrupamento:
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-626-1.pdf}
 
-\hypertarget{anuxe1lise-de-coordenadas-principais-pcoa}{%
-\subsection{Análise de Coordenadas Principais (PCoA)}\label{anuxe1lise-de-coordenadas-principais-pcoa}}
+\subsection{Análise de Coordenadas Principais (PCoA)}\label{anuxe1lise-de-coordenadas-principais-pcoa}
 
 A função \texttt{capscale()}faz uma análise de coordenadas principais (ou escalonamento multidimensional métrico ou clássico).
 É parecida com uma Análise de Componentes Principais (PCA), mas é baseada em matrizes de distância.
@@ -23390,8 +23151,7 @@ Petal.Width & 2.0004259 & -0.1699399\\
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-632-1.pdf}
 
-\hypertarget{componentes-principais-pca}{%
-\section{Componentes Principais (PCA)}\label{componentes-principais-pca}}
+\section{Componentes Principais (PCA)}\label{componentes-principais-pca}
 
 \href{https://pt.wikipedia.org/wiki/An\%C3\%A1lise_de_componentes_principais}{Análise de Componentes Principais (PCA)} é o método mais conhecido de ordenação, mas diferentemente dos métodos que se baseiam em matrizes de distância (ver abaixo) que são mais flexíveis e menos exigentes quanto à premissas estatísticas, a ordenação com PCA tem as seguintes limitações:
 
@@ -23543,12 +23303,10 @@ Petal.Width & 0.5648565 & -0.0669420 & -0.6342727 & 0.5235971\\
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-640-1.pdf}
 
-\hypertarget{appendix-apuxeandice}{%
-\appendix \addcontentsline{toc}{chapter}{\appendixname}}
+\appendix \addcontentsline{toc}{chapter}{\appendixname}
 
 
-\hypertarget{base-tidyverse}{%
-\chapter{Base R vs.~Tidyverse}\label{base-tidyverse}}
+\chapter{Base R vs.~Tidyverse}\label{base-tidyverse}
 
 A linguagem R completou 20 anos de idade neste mês de março de 2020, e a cada dia se torna mais popular.
 \href{https://fossbytes.com/most-popular-programming-languages/}{Pesquisa recente} publicada no mês de março feita pelo TIOBE Programming Community Index, um site que agrega indicadores sobre a popularidade de linguagens de programação, posiciona a linguagem como a 11º entre as mais populares no mundo A TIOBE agrega dados do Google, Yahoo, Bing, Wikipedia, Youtube, Badu, e Amazon, para gerar estes resultados, que são apresentados mensalmente.
@@ -23561,8 +23319,7 @@ Parte dessa popularidade é relativamente recente, podendo ser verificada a part
 \caption{Porcentagem de visitas às questões pertinentes a algumas linguagens de programação na plataforma \emph{Stack Overflow}. Dados obtidos apenas de países desenvolvidos segundo o Banco Mundial. Nota-se o aumento quase linear referente à linguagem R a partir do ano 2014. Figura extraída desta postagem: \url{https://stackoverflow.blog/2017/10/10/impressive-growth-r/}}
 \end{figure}
 
-\hypertarget{o-que-uxe9-o-tidyverse}{%
-\section[O que é o Tidyverse?]{\texorpdfstring{O que é o Tidyverse?\footnote{Texto publicado originalmente no blog de R.O.Perdiz (\url{https://www.ricardoperdiz.com/blog/2020-04-tidyverse/})}}{O que é o Tidyverse?}}\label{o-que-uxe9-o-tidyverse}}
+\section[O que é o Tidyverse?]{\texorpdfstring{O que é o Tidyverse?\footnote{Texto publicado originalmente no blog de R.O.Perdiz (\url{https://www.ricardoperdiz.com/blog/2020-04-tidyverse/})}}{O que é o Tidyverse?}}\label{o-que-uxe9-o-tidyverse}
 
 O \href{https://www.tidyverse.org/}{Tidyverse} é um conjunto de pacotes de R desenvolvidos para a ciência de dados.
 Todos os pacotes compartilham uma mesma filosofia e gramática da linguagem. Por exemplo, a estrutura das funções é sempre a mesma:
@@ -23586,8 +23343,7 @@ Todos os pacotes compartilham uma mesma filosofia e gramática da linguagem. Por
 
 Pretendemos aqui apresentar apenas funcionalidades básicas de dois dos pacotes deste universo, e mostrar como se tornam poderosas quando integrados ao mesmo fluxo de trabalho.
 
-\hypertarget{dplyr-e-ggplot2-suxedmbolos-do-tidyverse}{%
-\subsection{\texorpdfstring{\texttt{dplyr} e \texttt{ggplot2}, símbolos do Tidyverse}{dplyr e ggplot2, símbolos do Tidyverse}}\label{dplyr-e-ggplot2-suxedmbolos-do-tidyverse}}
+\subsection{\texorpdfstring{\texttt{dplyr} e \texttt{ggplot2}, símbolos do Tidyverse}{dplyr e ggplot2, símbolos do Tidyverse}}\label{dplyr-e-ggplot2-suxedmbolos-do-tidyverse}
 
 Talvez os pacotes mais conhecidos deste universo sejam o \texttt{dplyr} e o \texttt{ggplot2}.
 Enquanto o primeiro é especializado na manipulação de dados, o segundo é voltado para a produção de plots.
@@ -23598,8 +23354,7 @@ Seguindo o mesmo caminho, o pacote \texttt{ggplot2} (Tabela \ref{tab:ggcom}), ta
 Dentro desta nova sintaxe em R, o operador \texttt{+} ganhou uma nova função.
 Nas próximas seções, vamos ver alguns exemplos práticos utilizando esses dois pacotes.
 
-\hypertarget{usando-o-dplyr}{%
-\section{\texorpdfstring{Usando o \texttt{dplyr}}{Usando o dplyr}}\label{usando-o-dplyr}}
+\section{\texorpdfstring{Usando o \texttt{dplyr}}{Usando o dplyr}}\label{usando-o-dplyr}
 
 Vamos utilizar o famoso conjunto \texttt{iris}\footnote{O famoso conjunto de dados \texttt{iris} consiste de observações de comprimentos e larguras de sépalas e pétalas de 3 espécies de \emph{Iris}, um gênero de plantas herbáceas da família Iridaceae. O conjunto de dados possui 150 linhas e 5 colunas. Para quem quiser saber mais sobre esses dados, leia \href{https://archive.ics.uci.edu/ml/datasets/Iris}{aqui}.} para aprender a manipular os dados com as ferramentas do \texttt{dplyr}.
 
@@ -23635,8 +23390,7 @@ group\_by() & agrupa os dados segundo grupos\\
 \end{tabular}
 \end{table}
 
-\hypertarget{selecionando-colunas-com-select}{%
-\subsection{\texorpdfstring{Selecionando colunas com \texttt{select()}}{Selecionando colunas com select()}}\label{selecionando-colunas-com-select}}
+\subsection{\texorpdfstring{Selecionando colunas com \texttt{select()}}{Selecionando colunas com select()}}\label{selecionando-colunas-com-select}
 
 Agora, vamos utilizar a função \texttt{select()} para selecionar colunas. Ela funciona da seguinte maneira:
 
@@ -23758,8 +23512,7 @@ Petal.Length & Petal.Width\\
 \hline
 \end{tabular}
 
-\hypertarget{filtrando-dados-com-filter}{%
-\subsection{\texorpdfstring{Filtrando dados com \texttt{filter()}}{Filtrando dados com filter()}}\label{filtrando-dados-com-filter}}
+\subsection{\texorpdfstring{Filtrando dados com \texttt{filter()}}{Filtrando dados com filter()}}\label{filtrando-dados-com-filter}
 
 Se desejamos filtrar os dados segundo alguma informação, devemos utilizar a função \texttt{filter()}.
 Por exemplo, se quiser checar os dados de pétalas apenas para a espécie \texttt{setosa}, fazemos assim:
@@ -23873,8 +23626,7 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species & razaopetsep\
 \hline
 \end{tabular}
 
-\hypertarget{destrinchando-as-funuxe7uxf5es-group_by-e-summarise}{%
-\subsection{\texorpdfstring{Destrinchando as funções \texttt{group\_by} e \texttt{summarise}}{Destrinchando as funções group\_by e summarise}}\label{destrinchando-as-funuxe7uxf5es-group_by-e-summarise}}
+\subsection{\texorpdfstring{Destrinchando as funções \texttt{group\_by} e \texttt{summarise}}{Destrinchando as funções group\_by e summarise}}\label{destrinchando-as-funuxe7uxf5es-group_by-e-summarise}
 
 As funções \texttt{group\_by} e \texttt{summarise} resumem o propósito do pacote \texttt{dplyr}, pois permitem em poucas linhas de comando sumariar os dados, e partem do princípio, muito presente no R através das funções da família \texttt{apply}, chamado \textbf{split-apply-combine} que, em tradução livre, pode ser entendido como uma sequência lógica de ação: quebre em grupos, aplique uma função, e combine os resultados.
 Vamos partir para o uso dessas funções agrupando os dados em função da coluna \texttt{Species} e calculando a média do comprimento das pétalas (variável \texttt{Petal.Length}):
@@ -24047,8 +23799,7 @@ virginica & 50 & 6.588 & 5.552\\
 \hline
 \end{tabular}
 
-\hypertarget{o-operador-e-o-encadeamento-de-auxe7uxf5es}{%
-\section{\texorpdfstring{O operador \texttt{\%\textgreater{}\%} e o encadeamento de ações}{O operador \%\textgreater\% e o encadeamento de ações}}\label{o-operador-e-o-encadeamento-de-auxe7uxf5es}}
+\section{\texorpdfstring{O operador \texttt{\%\textgreater{}\%} e o encadeamento de ações}{O operador \%\textgreater\% e o encadeamento de ações}}\label{o-operador-e-o-encadeamento-de-auxe7uxf5es}
 
 Notem que nada do que vimos até aqui parece ser muito relevante se comparamos com o que pode ser feito com o pacote \texttt{base} do R. Vejamos:
 
@@ -24220,8 +23971,7 @@ Segundo \href{https://magrittr.tidyverse.org/articles/magrittr.html}{palavras do
 Será? Vamos tentar entender isso na prática.
 Vamos retomar os exemplos acima com a introdução do operador \texttt{\%\textgreater{}\%} e usá-lo para efetuar dois conjuntos de comandos, expostos abaixo:
 
-\hypertarget{com1}{%
-\subsection{Conjunto de comandos 1}\label{com1}}
+\subsection{Conjunto de comandos 1}\label{com1}
 
 \begin{verbatim}
 # Chamar o data.frame `iris`, então...
@@ -24231,8 +23981,7 @@ Vamos retomar os exemplos acima com a introdução do operador \texttt{\%\textgr
 # Atribui o resultado dessa operação a um objeto chamado `res1`
 \end{verbatim}
 
-\hypertarget{com2}{%
-\subsection{Conjunto de comandos 2}\label{com2}}
+\subsection{Conjunto de comandos 2}\label{com2}
 
 \begin{verbatim}
 # Chamar o data.frame `iris`, então...
@@ -24251,7 +24000,7 @@ Primeiramente, carreguemos o pacote \texttt{magrittr}:
 \end{Highlighting}
 \end{Shaded}
 
-Executando o conjunto de \protect\hyperlink{com1}{comandos 1}, temos:
+Executando o conjunto de \hyperref[com1]{comandos 1}, temos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -24284,7 +24033,7 @@ virginica & 50 & 5.552 & 6.588\\
 \hline
 \end{tabular}
 
-Fazendo o mesmo com o conjunto de \protect\hyperlink{com2}{comandos 2}, temos:
+Fazendo o mesmo com o conjunto de \hyperref[com2]{comandos 2}, temos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -24320,7 +24069,7 @@ N & petala\_l\_media & sepala\_l\_media\\
 Notem que o código fica formatado da maneira que funciona nosso pensamento sobre as ações a serem executadas: pegamos os dados, efetuamos transformações, e agregamos os resultados, praticamente da mesma maneira que o código é executado.
 Como diz o autor na \href{https://magrittr.tidyverse.org/articles/magrittr.html}{vinheta de introdução ao operador \texttt{\%\textgreater{}\%}}, é como uma receita, fácil de ler, fácil de seguir (\texttt{It’s\ like\ a\ recipe\ –\ easy\ to\ read,\ easy\ to\ follow!}).
 Em conformidade com este entendimento, sugere-se que leiamos o operador \texttt{\%\textgreater{}\%} como \textbf{ENTÃO}, implicando em uma passagem do resultado da ação à esquerda para a função à direita.
-Por isso, eu fiz questão de incluir em ambos os conjuntos de comandos, \protect\hyperlink{com1}{1} e \protect\hyperlink{com2}{2}, a palavra \texttt{então...} ao fim de cada sentença.
+Por isso, eu fiz questão de incluir em ambos os conjuntos de comandos, \hyperref[com1]{1} e \hyperref[com2]{2}, a palavra \texttt{então...} ao fim de cada sentença.
 
 Um ponto importante que deve ser levado em consideração é que o uso do operador \texttt{\%\textgreater{}\%} permite que escondamos o \texttt{data.frame} de entrada nas funções.
 Vejamos na prática para entender.
@@ -24371,8 +24120,7 @@ Depois, há outros desafios, como entender o que cada função faz, e em qual or
 Por fim, o código é lido de dentro para fora, um sentido nada intuitivo.
 Foi pensando em tornar a leitura do código mais fácil que o autor decidiu criar este operador na linguagem R, uma vez que essa lógica já é extensivamente utilizada em algumas outras linguagens de programação, como \texttt{F\#} (representada como \texttt{\textbar{}\textgreater{}} e o \texttt{bash} (e similares) (representada como \texttt{\textbar{}}).
 
-\hypertarget{pipe}{%
-\subsection{\texorpdfstring{Resumo do operador \texttt{\%\textgreater{}\%}:}{Resumo do operador \%\textgreater\%:}}\label{pipe}}
+\subsection{\texorpdfstring{Resumo do operador \texttt{\%\textgreater{}\%}:}{Resumo do operador \%\textgreater\%:}}\label{pipe}
 
 \begin{itemize}
 \item
@@ -24383,8 +24131,7 @@ Foi pensando em tornar a leitura do código mais fácil que o autor decidiu cria
   facilita a leitura do código, pois transforma a própria escrita em uma receita.
 \end{itemize}
 
-\hypertarget{usando-o-ggplot2}{%
-\section{\texorpdfstring{Usando o \texttt{ggplot2}}{Usando o ggplot2}}\label{usando-o-ggplot2}}
+\section{\texorpdfstring{Usando o \texttt{ggplot2}}{Usando o ggplot2}}\label{usando-o-ggplot2}
 
 O pacote \texttt{ggplot2} funciona de maneira diferente da função \texttt{plot()} do pacote \texttt{base} do R, pois trabalha em camadas.
 Similarmente ao pacote \texttt{dplyr}, começamos com o \texttt{data.frame} que desejamos plotar, contudo, passos posteriores são bem diferentes, e se assemelham mais ao uso do operador \texttt{\%\textgreater{}\%} do pacote \texttt{magrittr}.
@@ -24481,18 +24228,16 @@ Podemos facilmente também gerar um gráfico para cada espécie utilizando a fun
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-668-1.pdf}
 
-Não temos a intenção de cobrir todo o uso do pacote \texttt{ggplot2} nesta postagem. Existem muitas páginas com excelentes tutoriais na internet que podem ser visitadas para um maior aprofundamento nas ferramentas deste pacote (vejam abaixo na seção \protect\hyperlink{sabermais-tidyverse}{\textbf{Para saber mais}}).
+Não temos a intenção de cobrir todo o uso do pacote \texttt{ggplot2} nesta postagem. Existem muitas páginas com excelentes tutoriais na internet que podem ser visitadas para um maior aprofundamento nas ferramentas deste pacote (vejam abaixo na seção \hyperref[sabermais-tidyverse]{\textbf{Para saber mais}}).
 Queremos aqui demonstrar o uso concomitante do pacote \texttt{ggplot2} dentro de uma linha de trabalho associada ao pacote \texttt{dplyr}.
 Passemos para a seção abaixo.
 
-\hypertarget{dplyr-e-ggplot2-em-conjunto}{%
-\section{\texorpdfstring{\texttt{dplyr} e \texttt{ggplot2} em conjunto}{dplyr e ggplot2 em conjunto}}\label{dplyr-e-ggplot2-em-conjunto}}
+\section{\texorpdfstring{\texttt{dplyr} e \texttt{ggplot2} em conjunto}{dplyr e ggplot2 em conjunto}}\label{dplyr-e-ggplot2-em-conjunto}
 
 Durante uma análise exploratória de dados, muitas perguntas surgem com a análise de gráficos simples, que podemos criar com poucas linhas de comando.
 Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjunto de dados \texttt{iris}, vamos fazer uma exploração muito breve nesses dados.
 
-\hypertarget{gruxe1fico-de-espalhamento}{%
-\subsection{Gráfico de espalhamento}\label{gruxe1fico-de-espalhamento}}
+\subsection{Gráfico de espalhamento}\label{gruxe1fico-de-espalhamento}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -24507,8 +24252,7 @@ Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjun
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-669-1.pdf}
 
-\hypertarget{diagrama-de-caixas}{%
-\subsection{Diagrama de caixas}\label{diagrama-de-caixas}}
+\subsection{Diagrama de caixas}\label{diagrama-de-caixas}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -24523,8 +24267,7 @@ Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjun
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-670-1.pdf}
 
-\hypertarget{histograma}{%
-\subsection{Histograma}\label{histograma}}
+\subsection{Histograma}\label{histograma}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -24544,8 +24287,7 @@ Com os comandos ensinados nos passos anteriores, e novamente utilizando o conjun
 
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-671-1.pdf}
 
-\hypertarget{baser}{%
-\section{\texorpdfstring{Comparando o mesmo conjunto de ações entre \texttt{base} R e \texttt{dplyr}}{Comparando o mesmo conjunto de ações entre base R e dplyr}}\label{baser}}
+\section{\texorpdfstring{Comparando o mesmo conjunto de ações entre \texttt{base} R e \texttt{dplyr}}{Comparando o mesmo conjunto de ações entre base R e dplyr}}\label{baser}
 
 Abaixo, para efeitos de comparação, executamos as mesmas ações usando os pacotes \texttt{base} e \texttt{dplyr}; ao utilizar o \texttt{dplyr}, também fizemos uso do operador \texttt{\%\textgreater{}\%}.
 
@@ -24786,13 +24528,12 @@ virginica & 4.700000 & 1.115873 & 0.2828427 & 0.0381613\\
 \includegraphics{bot89-introR_files/figure-latex/unnamed-chunk-672-1.pdf}
 
 Vejam que os resultados são iguais, com exceção da estética diferente proporcionada pelo pacote \texttt{ggplot2}.
-Porém, há uma mudança notável em como a manipulação dos dados é feita quando utilizamos o operador \texttt{\%\textgreater{}\%} dentro do fluxo de trabalho, como \protect\hyperlink{pipe}{resumido acima}: a leitura é feita da esquerda para a direita, podemos reduzir a criação de objetos intermediários na área de trabalho, e o código pode ser lido com mais clareza.
+Porém, há uma mudança notável em como a manipulação dos dados é feita quando utilizamos o operador \texttt{\%\textgreater{}\%} dentro do fluxo de trabalho, como \hyperref[pipe]{resumido acima}: a leitura é feita da esquerda para a direita, podemos reduzir a criação de objetos intermediários na área de trabalho, e o código pode ser lido com mais clareza.
 Postagens futuras abordarão com mais detalhes outros usos deste operador e de alguns outros inclusos no mesmo pacote, porém com funções levemente diferentes.
 
-\hypertarget{e-o-uso-do-operador-com-o-pacote-base}{%
-\subsection{\texorpdfstring{E o uso do operador \texttt{\%\textgreater{}\%} com o pacote \texttt{base}?}{E o uso do operador \%\textgreater\% com o pacote base?}}\label{e-o-uso-do-operador-com-o-pacote-base}}
+\subsection{\texorpdfstring{E o uso do operador \texttt{\%\textgreater{}\%} com o pacote \texttt{base}?}{E o uso do operador \%\textgreater\% com o pacote base?}}\label{e-o-uso-do-operador-com-o-pacote-base}
 
-Apesar de termos explorado até aqui o uso do operador \texttt{\%\textgreater{}\%} apenas com o pacote \texttt{dplyr}, ele pode ser utilizado com qualquer função no R. Vamos retormar o exemplo da \protect\hyperlink{baser}{seção acima} com comandos do pacote \texttt{base} do R, porém adicionando o operador \texttt{\%\textgreater{}\%} na manipulação dos dados:
+Apesar de termos explorado até aqui o uso do operador \texttt{\%\textgreater{}\%} apenas com o pacote \texttt{dplyr}, ele pode ser utilizado com qualquer função no R. Vamos retormar o exemplo da \hyperref[baser]{seção acima} com comandos do pacote \texttt{base} do R, porém adicionando o operador \texttt{\%\textgreater{}\%} na manipulação dos dados:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -24860,8 +24601,7 @@ virginica & 4.700000 & 1.115873 & 0.2828427 & 0.0381613\\
 
 Reparem que, mesmo utilizando o operador \texttt{\%\textgreater{}\%}, algumas transformações realizadas com \textbf{poucas linhas de código} com o pacote \texttt{dplyr} em uma cadeia de comandos (o chamado \texttt{pipeline} em inglês) não são possíveis com o uso do pacote \texttt{base} do R, notadamente a criação de colunas, o rearranjo de colunas, e o sumário de dados.
 
-\hypertarget{tidyverse-um-resumo}{%
-\section{Tidyverse, um resumo}\label{tidyverse-um-resumo}}
+\section{Tidyverse, um resumo}\label{tidyverse-um-resumo}
 
 David Robinson, autor do pacote \href{https://github.com/tidymodels/broom}{broom}, um dos membros do tidyverse, explica em sua postagem \href{http://varianceexplained.org/r/teach-tidyverse/}{\textbf{Teach the tidyverse to beginners}} que sua preferência por ensinar as ferramentas dos pacotes pertencentes ao tidyverse primeiramente a seus alunos se deve à compatibilidade da filosofia de ensino deste universo com o que ele acredita que seja ideal em uma filosofia de ensino: \textbf{deve haver uma, preferencialmente apenas uma, maneira óbvia de se fazer}, mote emprestado do guia de 19 princípios da linguagem de programação Python, conhecido como \href{https://en.wikipedia.org/wiki/Zen_of_Python}{Zen of Python}.
 Essa filosofia se contrapõe, por exemplo, ao mote da linguagem Perl, que é \texttt{Há\ sempre\ mais\ de\ uma\ maneira\ de\ se\ fazer} (nota pessoal: Isso pode ser observado na linguagem R, são sempre múltiplos os caminhos para se chegar a um resultado).
@@ -24893,15 +24633,14 @@ O uso do \texttt{\%\textgreater{}\%} oferece outros aspectos a serem considerado
 \end{itemize}
 
 Nem tudo são flores em nenhum dos pontos abordados acima.
-Há muita controvérsia sobre o caminho a ser tomado em aulas da linguagem R nos dias atuais, que passam pela pergunta: ensinar primeiro o pacote \texttt{base} do R e suas funcionalidades básicas, ou começar pelas ferramentas do \texttt{tidyverse} (ver mais na seção \protect\hyperlink{sabermais-tidyverse}{\textbf{Para saber mais}}.
+Há muita controvérsia sobre o caminho a ser tomado em aulas da linguagem R nos dias atuais, que passam pela pergunta: ensinar primeiro o pacote \texttt{base} do R e suas funcionalidades básicas, ou começar pelas ferramentas do \texttt{tidyverse} (ver mais na seção \hyperref[sabermais-tidyverse]{\textbf{Para saber mais}}.
 Não vamos entrar nesse embate nesta postagem.
 O que podemos afirmar é que qualquer pacote de R, com exceção do pacote \texttt{base}, foi construído em cima das funcionalidades deste último, logo, sem este pacote, não estaríamos nem aqui falando de funcionalidades do \texttt{dplyr} e afins.
 
 Quisemos aqui apresentar funcionalidades básicas de alguns pacotes que podem ser adotadas ou não pelos alunos, e mostrar como podem ser incorporadas no fluxo diário das manipulações de dados.
 Caso queiram ver manipulações mais complexas em tabelas utilizando as ferramentas do tidyverse, convido-os a checarem estas duas postagens: \href{https://www.ricardoperdiz.com/blog/2020-03-obtendo-dados-e-plotando-mapas-no-r-versão-3/}{importando e manipulando dados no R}, e um \href{https://www.ricardoperdiz.com/blog/2019-09-mapa-macrolobium/}{tutorial para gerar o mapa de distribuição de Macrolobium aracaense Farroñay}.
 
-\hypertarget{sabermais-tidyverse}{%
-\section{Para saber mais:}\label{sabermais-tidyverse}}
+\section{Para saber mais:}\label{sabermais-tidyverse}
 
 As postagens abaixo variam entre posições favoráveis ou desfavoráveis ao Tidyverse.
 Abrangem desde opiniões pessoais sobre o porquê de não ensinar essas ferramentas aos iniciantes na linguagem a questões de performance computacional desse universo quando comparado com o base R.
@@ -24928,8 +24667,7 @@ Leiam e tirem suas próprias conclusões.
   \href{https://magrittr.tidyverse.org/articles/magrittr.html}{Introducing magrittr} - Vinheta de introdução às funcionalidades do operador \texttt{\%\textgreater{}\%}
 \end{enumerate}
 
-\hypertarget{unzip}{%
-\chapter{Baixar e descomprimir um arquivo}\label{unzip}}
+\chapter{Baixar e descomprimir um arquivo}\label{unzip}
 
 Caso você queira baixar e descomprimir um arquivo \texttt{.zip} no próprio R, ao invés de baixá-lo manualmente, siga os comandos abaixo.
 Utilizaremos um arquivo utilizado na seção \ref{obj-complexos}.
@@ -24965,84 +24703,68 @@ Utilizaremos um arquivo utilizado na seção \ref{obj-complexos}.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{videos}{%
-\chapter{Aulas em vídeo}\label{videos}}
+\chapter{Aulas em vídeo}\label{videos}
 
 Gravamos vídeoaulas para a maior parte do material aqui ofertado.
 Elas estão agrupadas abaixo para facilitar a visualização e o entendimento dos tópicos abordados.
 
-\hypertarget{importando-e-exportando-dados}{%
-\section{Importando e exportando dados}\label{importando-e-exportando-dados}}
+\section{Importando e exportando dados}\label{importando-e-exportando-dados}
 
 Acesso em: \url{https://www.youtube.com/embed/3OYkXsoAHS4}
 
-\hypertarget{criauxe7uxe3o-de-vetores-1}{%
-\section{Criação de vetores}\label{criauxe7uxe3o-de-vetores-1}}
+\section{Criação de vetores}\label{criauxe7uxe3o-de-vetores-1}
 
 Acesso em: \url{https://www.youtube.com/embed/qXSZkGoDk1Y}
 
-\hypertarget{classes-de-vetores-e-fatores}{%
-\section{Classes de vetores e fatores}\label{classes-de-vetores-e-fatores}}
+\section{Classes de vetores e fatores}\label{classes-de-vetores-e-fatores}
 
 Acesso em: \url{https://www.youtube.com/embed/CAXnQpYgJ3Y}
 
-\hypertarget{sequuxeancias-numuxe9ricas-e-repetiuxe7uxf5es-operauxe7uxf5es-e-funuxe7uxf5es-com-vetores}{%
-\section{Sequências numéricas e repetições, operações e funções com vetores}\label{sequuxeancias-numuxe9ricas-e-repetiuxe7uxf5es-operauxe7uxf5es-e-funuxe7uxf5es-com-vetores}}
+\section{Sequências numéricas e repetições, operações e funções com vetores}\label{sequuxeancias-numuxe9ricas-e-repetiuxe7uxf5es-operauxe7uxf5es-e-funuxe7uxf5es-com-vetores}
 
 Acesso em: \url{https://www.youtube.com/embed/PJ02yj0gnWc}
 
-\hypertarget{listas-1}{%
-\section{Listas}\label{listas-1}}
+\section{Listas}\label{listas-1}
 
 Acesso em: \url{https://www.youtube.com/embed/gBGFGslcbfU}
 
-\hypertarget{criando-matrizes-1}{%
-\section{Criando matrizes}\label{criando-matrizes-1}}
+\section{Criando matrizes}\label{criando-matrizes-1}
 
 Acesso em: \url{https://www.youtube.com/embed/cA4ETA6qfB4}
 
-\hypertarget{criando-dataframes-e-operauxe7uxf5es-importantes-em-matrizes-e-dataframes}{%
-\section{Criando dataframes, e operações importantes em matrizes e dataframes}\label{criando-dataframes-e-operauxe7uxf5es-importantes-em-matrizes-e-dataframes}}
+\section{Criando dataframes, e operações importantes em matrizes e dataframes}\label{criando-dataframes-e-operauxe7uxf5es-importantes-em-matrizes-e-dataframes}
 
 Acesso em: \url{https://www.youtube.com/embed/27HgQHV5zBs}
 
-\hypertarget{indexauxe7uxe3o-de-matrizes-e-dataframes}{%
-\section{Indexação de matrizes e dataframes}\label{indexauxe7uxe3o-de-matrizes-e-dataframes}}
+\section{Indexação de matrizes e dataframes}\label{indexauxe7uxe3o-de-matrizes-e-dataframes}
 
 Acesso em: \url{https://www.youtube.com/embed/CJILnDzVviQ}
 
-\hypertarget{condicionais-1}{%
-\section{Condicionais}\label{condicionais-1}}
+\section{Condicionais}\label{condicionais-1}
 
 Acesso em: \url{https://www.youtube.com/embed/8Z_k02PwQZc}
 
-\hypertarget{funuxe7uxf5es-da-famuxedlia-apply}{%
-\section{\texorpdfstring{Funções da família \texttt{apply()}}{Funções da família apply()}}\label{funuxe7uxf5es-da-famuxedlia-apply}}
+\section{\texorpdfstring{Funções da família \texttt{apply()}}{Funções da família apply()}}\label{funuxe7uxf5es-da-famuxedlia-apply}
 
 Acesso em: \url{https://www.youtube.com/embed/Fs0is2251Sw}
 
-\hypertarget{funuxe7uxf5es-de-manipulauxe7uxe3o-de-pasta-e-arquivos}{%
-\section{Funções de manipulação de pasta e arquivos}\label{funuxe7uxf5es-de-manipulauxe7uxe3o-de-pasta-e-arquivos}}
+\section{Funções de manipulação de pasta e arquivos}\label{funuxe7uxf5es-de-manipulauxe7uxe3o-de-pasta-e-arquivos}
 
 Acesso em: \url{https://www.youtube.com/embed/TbY5nEQTwLw}
 
-\hypertarget{funuxe7uxf5es-de-manipulauxe7uxe3o-de-texto---parte-01}{%
-\section{Funções de manipulação de texto - parte 01}\label{funuxe7uxf5es-de-manipulauxe7uxe3o-de-texto---parte-01}}
+\section{Funções de manipulação de texto - parte 01}\label{funuxe7uxf5es-de-manipulauxe7uxe3o-de-texto---parte-01}
 
 Acesso em: \url{https://www.youtube.com/embed/at5XpBAT1sI}
 
-\hypertarget{funuxe7uxf5es-de-manipulauxe7uxe3o-de-texto---parte-02}{%
-\section{Funções de manipulação de texto - parte 02}\label{funuxe7uxf5es-de-manipulauxe7uxe3o-de-texto---parte-02}}
+\section{Funções de manipulação de texto - parte 02}\label{funuxe7uxf5es-de-manipulauxe7uxe3o-de-texto---parte-02}
 
 Acesso em: \url{https://www.youtube.com/embed/j6O6e96qmEc}
 
-\hypertarget{objetos-complexos}{%
-\section{Objetos complexos}\label{objetos-complexos}}
+\section{Objetos complexos}\label{objetos-complexos}
 
 Acesso em: \url{https://www.youtube.com/embed/hvWJr0khuwc}
 
-\hypertarget{chernoff}{%
-\chapter{Caras de Chernoff}\label{chernoff}}
+\chapter{Caras de Chernoff}\label{chernoff}
 
 \begin{Shaded}
 \begin{Highlighting}[]

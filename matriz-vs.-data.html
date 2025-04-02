@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.1 Matriz vs. data.frame | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.1 Matriz vs. data.frame | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -567,20 +568,20 @@ Porém, quando convertemos os dados para um objeto de classe <code>matrix</code>
 <p>Poder criar uma matriz no R é muito útil para várias finalidades como, por exemplo, simular dados em testes de permutação ou preencher uma tabela com resultados de uma análise.
 Matrizes podem ser criadas de diferentes formas (e.g., pode juntar matrizes pelas linhas e colunas, ou pode extrair sub-matrizes de uma matriz).
 Para criar matrizes, a função básica se chama <code>matrix()</code>:</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="matriz-vs.-data.html#cb471-1" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o help da função</span></span>
-<span id="cb471-2"><a href="matriz-vs.-data.html#cb471-2" aria-hidden="true" tabindex="-1"></a>?matrix</span>
-<span id="cb471-3"><a href="matriz-vs.-data.html#cb471-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb471-4"><a href="matriz-vs.-data.html#cb471-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a função se usa assim: matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</span></span>
-<span id="cb471-5"><a href="matriz-vs.-data.html#cb471-5" aria-hidden="true" tabindex="-1"></a><span class="co"># onde:</span></span>
-<span id="cb471-6"><a href="matriz-vs.-data.html#cb471-6" aria-hidden="true" tabindex="-1"></a><span class="co"># data = NA #um vetor de comprimento igual ao número de células desejadas que é nrow*ncol.</span></span>
-<span id="cb471-7"><a href="matriz-vs.-data.html#cb471-7" aria-hidden="true" tabindex="-1"></a><span class="co"># byrow = FALSE #A forma de preenchimento da planilha pelos dados em data. Se byrow=TRUE, então ele preenche pelas linhas, senão pelas</span></span>
-<span id="cb471-8"><a href="matriz-vs.-data.html#cb471-8" aria-hidden="true" tabindex="-1"></a><span class="co"># colunas</span></span>
-<span id="cb471-9"><a href="matriz-vs.-data.html#cb471-9" aria-hidden="true" tabindex="-1"></a><span class="co"># nrow = número de linhas</span></span>
-<span id="cb471-10"><a href="matriz-vs.-data.html#cb471-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ncol = número de colunas</span></span>
-<span id="cb471-11"><a href="matriz-vs.-data.html#cb471-11" aria-hidden="true" tabindex="-1"></a><span class="co"># dimnames = um objeto do tipo lista (que ainda não vimos), com dois vetores, um com os nomes das linhas, outro com os nomes das colunas.</span></span></code></pre></div>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="matriz-vs.-data.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exemplo 1 - matriz de 3x3 com zeros</span></span>
-<span id="cb472-2"><a href="matriz-vs.-data.html#cb472-2" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> F, <span class="at">dimnames =</span> <span class="cn">NULL</span>)</span>
-<span id="cb472-3"><a href="matriz-vs.-data.html#cb472-3" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="matriz-vs.-data.html#cb471-1" tabindex="-1"></a><span class="co"># veja o help da função</span></span>
+<span id="cb471-2"><a href="matriz-vs.-data.html#cb471-2" tabindex="-1"></a>?matrix</span>
+<span id="cb471-3"><a href="matriz-vs.-data.html#cb471-3" tabindex="-1"></a></span>
+<span id="cb471-4"><a href="matriz-vs.-data.html#cb471-4" tabindex="-1"></a><span class="co"># a função se usa assim: matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)</span></span>
+<span id="cb471-5"><a href="matriz-vs.-data.html#cb471-5" tabindex="-1"></a><span class="co"># onde:</span></span>
+<span id="cb471-6"><a href="matriz-vs.-data.html#cb471-6" tabindex="-1"></a><span class="co"># data = NA #um vetor de comprimento igual ao número de células desejadas que é nrow*ncol.</span></span>
+<span id="cb471-7"><a href="matriz-vs.-data.html#cb471-7" tabindex="-1"></a><span class="co"># byrow = FALSE #A forma de preenchimento da planilha pelos dados em data. Se byrow=TRUE, então ele preenche pelas linhas, senão pelas</span></span>
+<span id="cb471-8"><a href="matriz-vs.-data.html#cb471-8" tabindex="-1"></a><span class="co"># colunas</span></span>
+<span id="cb471-9"><a href="matriz-vs.-data.html#cb471-9" tabindex="-1"></a><span class="co"># nrow = número de linhas</span></span>
+<span id="cb471-10"><a href="matriz-vs.-data.html#cb471-10" tabindex="-1"></a><span class="co"># ncol = número de colunas</span></span>
+<span id="cb471-11"><a href="matriz-vs.-data.html#cb471-11" tabindex="-1"></a><span class="co"># dimnames = um objeto do tipo lista (que ainda não vimos), com dois vetores, um com os nomes das linhas, outro com os nomes das colunas.</span></span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="matriz-vs.-data.html#cb472-1" tabindex="-1"></a><span class="co"># exemplo 1 - matriz de 3x3 com zeros</span></span>
+<span id="cb472-2"><a href="matriz-vs.-data.html#cb472-2" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> F, <span class="at">dimnames =</span> <span class="cn">NULL</span>)</span>
+<span id="cb472-3"><a href="matriz-vs.-data.html#cb472-3" tabindex="-1"></a>mm</span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -618,12 +619,12 @@ Para criar matrizes, a função básica se chama <code>matrix()</code>:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="matriz-vs.-data.html#cb473-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que data tem comprimento 1, apenas 1 valor. Pela regra da reciclagem ele é repetido até completar o total necessário dado por nrow*ncol</span></span>
-<span id="cb473-2"><a href="matriz-vs.-data.html#cb473-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb473-3"><a href="matriz-vs.-data.html#cb473-3" aria-hidden="true" tabindex="-1"></a><span class="co"># exemplo2 - matriz de 3x3 com valores</span></span>
-<span id="cb473-4"><a href="matriz-vs.-data.html#cb473-4" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span> <span class="co"># nove valores</span></span>
-<span id="cb473-5"><a href="matriz-vs.-data.html#cb473-5" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> dd, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> F, <span class="at">dimnames =</span> <span class="cn">NULL</span>)</span>
-<span id="cb473-6"><a href="matriz-vs.-data.html#cb473-6" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="matriz-vs.-data.html#cb473-1" tabindex="-1"></a><span class="co"># note que data tem comprimento 1, apenas 1 valor. Pela regra da reciclagem ele é repetido até completar o total necessário dado por nrow*ncol</span></span>
+<span id="cb473-2"><a href="matriz-vs.-data.html#cb473-2" tabindex="-1"></a></span>
+<span id="cb473-3"><a href="matriz-vs.-data.html#cb473-3" tabindex="-1"></a><span class="co"># exemplo2 - matriz de 3x3 com valores</span></span>
+<span id="cb473-4"><a href="matriz-vs.-data.html#cb473-4" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span> <span class="co"># nove valores</span></span>
+<span id="cb473-5"><a href="matriz-vs.-data.html#cb473-5" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> dd, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> F, <span class="at">dimnames =</span> <span class="cn">NULL</span>)</span>
+<span id="cb473-6"><a href="matriz-vs.-data.html#cb473-6" tabindex="-1"></a>mm</span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -661,9 +662,9 @@ Para criar matrizes, a função básica se chama <code>matrix()</code>:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="matriz-vs.-data.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando byrow para TRUE preenchemos pelas linhas</span></span>
-<span id="cb474-2"><a href="matriz-vs.-data.html#cb474-2" aria-hidden="true" tabindex="-1"></a>mm2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> dd, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">dimnames =</span> <span class="cn">NULL</span>)</span>
-<span id="cb474-3"><a href="matriz-vs.-data.html#cb474-3" aria-hidden="true" tabindex="-1"></a>mm2</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="matriz-vs.-data.html#cb474-1" tabindex="-1"></a><span class="co"># mudando byrow para TRUE preenchemos pelas linhas</span></span>
+<span id="cb474-2"><a href="matriz-vs.-data.html#cb474-2" tabindex="-1"></a>mm2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> dd, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">dimnames =</span> <span class="cn">NULL</span>)</span>
+<span id="cb474-3"><a href="matriz-vs.-data.html#cb474-3" tabindex="-1"></a>mm2</span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -701,19 +702,19 @@ Para criar matrizes, a função básica se chama <code>matrix()</code>:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="matriz-vs.-data.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exemplo3 - matriz de 3x3 com valores e nomes de colunas e linhas</span></span>
-<span id="cb475-2"><a href="matriz-vs.-data.html#cb475-2" aria-hidden="true" tabindex="-1"></a><span class="co"># define dimensao</span></span>
-<span id="cb475-3"><a href="matriz-vs.-data.html#cb475-3" aria-hidden="true" tabindex="-1"></a>nrow <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb475-4"><a href="matriz-vs.-data.html#cb475-4" aria-hidden="true" tabindex="-1"></a>ncol <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb475-5"><a href="matriz-vs.-data.html#cb475-5" aria-hidden="true" tabindex="-1"></a><span class="co"># define data</span></span>
-<span id="cb475-6"><a href="matriz-vs.-data.html#cb475-6" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span> <span class="co"># nove valores</span></span>
-<span id="cb475-7"><a href="matriz-vs.-data.html#cb475-7" aria-hidden="true" tabindex="-1"></a><span class="co"># define nome de colunas</span></span>
-<span id="cb475-8"><a href="matriz-vs.-data.html#cb475-8" aria-hidden="true" tabindex="-1"></a>cln <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span>ncol, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb475-9"><a href="matriz-vs.-data.html#cb475-9" aria-hidden="true" tabindex="-1"></a><span class="co"># define nome de linhas</span></span>
-<span id="cb475-10"><a href="matriz-vs.-data.html#cb475-10" aria-hidden="true" tabindex="-1"></a>lln <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span>nrow, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb475-11"><a href="matriz-vs.-data.html#cb475-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb475-12"><a href="matriz-vs.-data.html#cb475-12" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> dd, <span class="at">nrow =</span> nrow, <span class="at">ncol =</span> ncol, <span class="at">byrow =</span> F, <span class="at">dimnames =</span> <span class="fu">list</span>(lln, cln))</span>
-<span id="cb475-13"><a href="matriz-vs.-data.html#cb475-13" aria-hidden="true" tabindex="-1"></a>mm</span></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="matriz-vs.-data.html#cb475-1" tabindex="-1"></a><span class="co"># exemplo3 - matriz de 3x3 com valores e nomes de colunas e linhas</span></span>
+<span id="cb475-2"><a href="matriz-vs.-data.html#cb475-2" tabindex="-1"></a><span class="co"># define dimensao</span></span>
+<span id="cb475-3"><a href="matriz-vs.-data.html#cb475-3" tabindex="-1"></a>nrow <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb475-4"><a href="matriz-vs.-data.html#cb475-4" tabindex="-1"></a>ncol <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb475-5"><a href="matriz-vs.-data.html#cb475-5" tabindex="-1"></a><span class="co"># define data</span></span>
+<span id="cb475-6"><a href="matriz-vs.-data.html#cb475-6" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span> <span class="co"># nove valores</span></span>
+<span id="cb475-7"><a href="matriz-vs.-data.html#cb475-7" tabindex="-1"></a><span class="co"># define nome de colunas</span></span>
+<span id="cb475-8"><a href="matriz-vs.-data.html#cb475-8" tabindex="-1"></a>cln <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span>ncol, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb475-9"><a href="matriz-vs.-data.html#cb475-9" tabindex="-1"></a><span class="co"># define nome de linhas</span></span>
+<span id="cb475-10"><a href="matriz-vs.-data.html#cb475-10" tabindex="-1"></a>lln <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span>nrow, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb475-11"><a href="matriz-vs.-data.html#cb475-11" tabindex="-1"></a></span>
+<span id="cb475-12"><a href="matriz-vs.-data.html#cb475-12" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> dd, <span class="at">nrow =</span> nrow, <span class="at">ncol =</span> ncol, <span class="at">byrow =</span> F, <span class="at">dimnames =</span> <span class="fu">list</span>(lln, cln))</span>
+<span id="cb475-13"><a href="matriz-vs.-data.html#cb475-13" tabindex="-1"></a>mm</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -780,20 +781,20 @@ linha3
 <li><p><code>rbind()</code>, que vem do inglês <em>row bind</em>, ou seja, cole linhas;</p></li>
 <li><p><code>cbind()</code>, que vem do inglês <em>column bind</em>, ou seja, cole colunas.</p></li>
 </ul>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="matriz-vs.-data.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vetores numéricos de mesmo comprimento</span></span>
-<span id="cb476-2"><a href="matriz-vs.-data.html#cb476-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb476-3"><a href="matriz-vs.-data.html#cb476-3" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
-<span id="cb476-4"><a href="matriz-vs.-data.html#cb476-4" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span></span>
-<span id="cb476-5"><a href="matriz-vs.-data.html#cb476-5" aria-hidden="true" tabindex="-1"></a><span class="co"># essas duas condições devem ser verdadeiras</span></span>
-<span id="cb476-6"><a href="matriz-vs.-data.html#cb476-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(v1) <span class="sc">==</span> <span class="fu">length</span>(v2)</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="matriz-vs.-data.html#cb476-1" tabindex="-1"></a><span class="co"># vetores numéricos de mesmo comprimento</span></span>
+<span id="cb476-2"><a href="matriz-vs.-data.html#cb476-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb476-3"><a href="matriz-vs.-data.html#cb476-3" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb476-4"><a href="matriz-vs.-data.html#cb476-4" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb476-5"><a href="matriz-vs.-data.html#cb476-5" tabindex="-1"></a><span class="co"># essas duas condições devem ser verdadeiras</span></span>
+<span id="cb476-6"><a href="matriz-vs.-data.html#cb476-6" tabindex="-1"></a><span class="fu">length</span>(v1) <span class="sc">==</span> <span class="fu">length</span>(v2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="matriz-vs.-data.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(v1) <span class="sc">==</span> <span class="fu">length</span>(v3)</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="matriz-vs.-data.html#cb478-1" tabindex="-1"></a><span class="fu">length</span>(v1) <span class="sc">==</span> <span class="fu">length</span>(v3)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="matriz-vs.-data.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="co"># entao posso criar uma matriz juntando esses vetores em linhas ou colunas</span></span>
-<span id="cb480-2"><a href="matriz-vs.-data.html#cb480-2" aria-hidden="true" tabindex="-1"></a>mml <span class="ot">&lt;-</span> <span class="fu">rbind</span>(v1, v2, v3)</span>
-<span id="cb480-3"><a href="matriz-vs.-data.html#cb480-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mml) <span class="co"># criou um matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="matriz-vs.-data.html#cb480-1" tabindex="-1"></a><span class="co"># entao posso criar uma matriz juntando esses vetores em linhas ou colunas</span></span>
+<span id="cb480-2"><a href="matriz-vs.-data.html#cb480-2" tabindex="-1"></a>mml <span class="ot">&lt;-</span> <span class="fu">rbind</span>(v1, v2, v3)</span>
+<span id="cb480-3"><a href="matriz-vs.-data.html#cb480-3" tabindex="-1"></a><span class="fu">class</span>(mml) <span class="co"># criou um matrix</span></span></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="matriz-vs.-data.html#cb482-1" aria-hidden="true" tabindex="-1"></a>mml</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="matriz-vs.-data.html#cb482-1" tabindex="-1"></a>mml</span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -903,18 +904,18 @@ v3
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="matriz-vs.-data.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou</span></span>
-<span id="cb483-2"><a href="matriz-vs.-data.html#cb483-2" aria-hidden="true" tabindex="-1"></a>mmc <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v1, v2, v3)</span>
-<span id="cb483-3"><a href="matriz-vs.-data.html#cb483-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mmc)</span></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="matriz-vs.-data.html#cb483-1" tabindex="-1"></a><span class="co"># ou</span></span>
+<span id="cb483-2"><a href="matriz-vs.-data.html#cb483-2" tabindex="-1"></a>mmc <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v1, v2, v3)</span>
+<span id="cb483-3"><a href="matriz-vs.-data.html#cb483-3" tabindex="-1"></a><span class="fu">class</span>(mmc)</span></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="matriz-vs.-data.html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou se eu já tenho uma matriz, posso usar essas funções para adicionar novas linhas ou colunas</span></span>
-<span id="cb485-2"><a href="matriz-vs.-data.html#cb485-2" aria-hidden="true" tabindex="-1"></a>novovetor <span class="ot">&lt;-</span> <span class="dv">31</span><span class="sc">:</span><span class="dv">40</span></span>
-<span id="cb485-3"><a href="matriz-vs.-data.html#cb485-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb485-4"><a href="matriz-vs.-data.html#cb485-4" aria-hidden="true" tabindex="-1"></a><span class="co"># por linha</span></span>
-<span id="cb485-5"><a href="matriz-vs.-data.html#cb485-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(mml) <span class="sc">==</span> <span class="fu">length</span>(novovetor) <span class="co"># neste caso o número de colunas da matrix precisa ser igual ao número de elementos no vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="matriz-vs.-data.html#cb485-1" tabindex="-1"></a><span class="co"># ou se eu já tenho uma matriz, posso usar essas funções para adicionar novas linhas ou colunas</span></span>
+<span id="cb485-2"><a href="matriz-vs.-data.html#cb485-2" tabindex="-1"></a>novovetor <span class="ot">&lt;-</span> <span class="dv">31</span><span class="sc">:</span><span class="dv">40</span></span>
+<span id="cb485-3"><a href="matriz-vs.-data.html#cb485-3" tabindex="-1"></a></span>
+<span id="cb485-4"><a href="matriz-vs.-data.html#cb485-4" tabindex="-1"></a><span class="co"># por linha</span></span>
+<span id="cb485-5"><a href="matriz-vs.-data.html#cb485-5" tabindex="-1"></a><span class="fu">ncol</span>(mml) <span class="sc">==</span> <span class="fu">length</span>(novovetor) <span class="co"># neste caso o número de colunas da matrix precisa ser igual ao número de elementos no vetor</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="matriz-vs.-data.html#cb487-1" aria-hidden="true" tabindex="-1"></a>mml <span class="ot">&lt;-</span> <span class="fu">rbind</span>(mml, novovetor) <span class="co"># junto a matrix existente com o novo vetor, adicionando uma nova linha</span></span>
-<span id="cb487-2"><a href="matriz-vs.-data.html#cb487-2" aria-hidden="true" tabindex="-1"></a>mml</span></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="matriz-vs.-data.html#cb487-1" tabindex="-1"></a>mml <span class="ot">&lt;-</span> <span class="fu">rbind</span>(mml, novovetor) <span class="co"># junto a matrix existente com o novo vetor, adicionando uma nova linha</span></span>
+<span id="cb487-2"><a href="matriz-vs.-data.html#cb487-2" tabindex="-1"></a>mml</span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -1059,13 +1060,13 @@ novovetor
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="matriz-vs.-data.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que a nova linha recebeu como nome o nome do objeto que continha o dado</span></span>
-<span id="cb488-2"><a href="matriz-vs.-data.html#cb488-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb488-3"><a href="matriz-vs.-data.html#cb488-3" aria-hidden="true" tabindex="-1"></a><span class="co"># por coluna</span></span>
-<span id="cb488-4"><a href="matriz-vs.-data.html#cb488-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(mmc) <span class="sc">==</span> <span class="fu">length</span>(novovetor) <span class="co"># neste caso o número de linhas da matrix precisa ser igual ao número de elementos no vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="matriz-vs.-data.html#cb488-1" tabindex="-1"></a><span class="co"># note que a nova linha recebeu como nome o nome do objeto que continha o dado</span></span>
+<span id="cb488-2"><a href="matriz-vs.-data.html#cb488-2" tabindex="-1"></a></span>
+<span id="cb488-3"><a href="matriz-vs.-data.html#cb488-3" tabindex="-1"></a><span class="co"># por coluna</span></span>
+<span id="cb488-4"><a href="matriz-vs.-data.html#cb488-4" tabindex="-1"></a><span class="fu">nrow</span>(mmc) <span class="sc">==</span> <span class="fu">length</span>(novovetor) <span class="co"># neste caso o número de linhas da matrix precisa ser igual ao número de elementos no vetor</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="matriz-vs.-data.html#cb490-1" aria-hidden="true" tabindex="-1"></a>mmc <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mmc, novovetor) <span class="co"># junto a matrix existente com o novo vetor, adicionando uma nova coluna</span></span>
-<span id="cb490-2"><a href="matriz-vs.-data.html#cb490-2" aria-hidden="true" tabindex="-1"></a>mmc</span></code></pre></div>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="matriz-vs.-data.html#cb490-1" tabindex="-1"></a>mmc <span class="ot">&lt;-</span> <span class="fu">cbind</span>(mmc, novovetor) <span class="co"># junto a matrix existente com o novo vetor, adicionando uma nova coluna</span></span>
+<span id="cb490-2"><a href="matriz-vs.-data.html#cb490-2" tabindex="-1"></a>mmc</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1226,56 +1227,56 @@ novovetor
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="matriz-vs.-data.html#cb491-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que a nova coluna recebeu como nome o nome do objeto que continha o dado</span></span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="matriz-vs.-data.html#cb491-1" tabindex="-1"></a><span class="co"># note que a nova coluna recebeu como nome o nome do objeto que continha o dado</span></span></code></pre></div>
 </div>
 <div id="criando-data.frames" class="section level3 hasAnchor" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Criando <code>data.frames</code><a href="matriz-vs.-data.html#criando-data.frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Objetos de classe <code>data.frame</code> são tabelas de dados, apresentam duas dimensões, e permitem misturar dados de classes diferentes, numéricos, texto (character ou factor) e lógicos.
 Quando importamos nossos dados ao R, em geral criamos objetos de classe <code>data.frame</code>.
 Para criar ou converter dados em data.frames, podemos usar as funções <code>data.frame()</code> e <code>as.data.frame()</code>.</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="matriz-vs.-data.html#cb492-1" aria-hidden="true" tabindex="-1"></a>?data.frame <span class="co"># veja o help das funções acima</span></span></code></pre></div>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="matriz-vs.-data.html#cb493-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a funcao que cria o objeto é</span></span>
-<span id="cb493-2"><a href="matriz-vs.-data.html#cb493-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(..., <span class="at">row.names =</span> <span class="cn">NULL</span>, <span class="at">check.rows =</span> <span class="cn">FALSE</span>, <span class="at">check.names =</span> <span class="cn">TRUE</span>, <span class="at">stringsAsFactors =</span> <span class="fu">default.stringsAsFactors</span>())</span>
-<span id="cb493-3"><a href="matriz-vs.-data.html#cb493-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb493-4"><a href="matriz-vs.-data.html#cb493-4" aria-hidden="true" tabindex="-1"></a><span class="co"># de todos os argumentos os mais importantes são:</span></span>
-<span id="cb493-5"><a href="matriz-vs.-data.html#cb493-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ...  #que pode ser vetores ou tag = vetor (os dados da tabela)</span></span>
-<span id="cb493-6"><a href="matriz-vs.-data.html#cb493-6" aria-hidden="true" tabindex="-1"></a><span class="co"># stringsAsFactors #que especifica se queremos os textos como vetores ou fatores</span></span></code></pre></div>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="matriz-vs.-data.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exemplo 1 -</span></span>
-<span id="cb494-2"><a href="matriz-vs.-data.html#cb494-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Primeiro criamos alguns dados</span></span>
-<span id="cb494-3"><a href="matriz-vs.-data.html#cb494-3" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor numerico</span></span>
-<span id="cb494-4"><a href="matriz-vs.-data.html#cb494-4" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb494-5"><a href="matriz-vs.-data.html#cb494-5" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor de letras do mesmo comprimento usando a constante LETTERS</span></span>
-<span id="cb494-6"><a href="matriz-vs.-data.html#cb494-6" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb494-7"><a href="matriz-vs.-data.html#cb494-7" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor de palavras de mesmo comprimento</span></span>
-<span id="cb494-8"><a href="matriz-vs.-data.html#cb494-8" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;fulano&quot;</span>, <span class="st">&quot;jose&quot;</span>, <span class="st">&quot;joaquim&quot;</span>, <span class="st">&quot;martin&quot;</span>), <span class="at">length.out =</span> <span class="fu">length</span>(v1))</span>
-<span id="cb494-9"><a href="matriz-vs.-data.html#cb494-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb494-10"><a href="matriz-vs.-data.html#cb494-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Juntamos num data.frame com fatores</span></span>
-<span id="cb494-11"><a href="matriz-vs.-data.html#cb494-11" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(v1, v2, v3, <span class="at">stringsAsFactors =</span> T)</span>
-<span id="cb494-12"><a href="matriz-vs.-data.html#cb494-12" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dd) <span class="co"># é um data frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="matriz-vs.-data.html#cb492-1" tabindex="-1"></a>?data.frame <span class="co"># veja o help das funções acima</span></span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="matriz-vs.-data.html#cb493-1" tabindex="-1"></a><span class="co"># a funcao que cria o objeto é</span></span>
+<span id="cb493-2"><a href="matriz-vs.-data.html#cb493-2" tabindex="-1"></a><span class="fu">data.frame</span>(..., <span class="at">row.names =</span> <span class="cn">NULL</span>, <span class="at">check.rows =</span> <span class="cn">FALSE</span>, <span class="at">check.names =</span> <span class="cn">TRUE</span>, <span class="at">stringsAsFactors =</span> <span class="fu">default.stringsAsFactors</span>())</span>
+<span id="cb493-3"><a href="matriz-vs.-data.html#cb493-3" tabindex="-1"></a></span>
+<span id="cb493-4"><a href="matriz-vs.-data.html#cb493-4" tabindex="-1"></a><span class="co"># de todos os argumentos os mais importantes são:</span></span>
+<span id="cb493-5"><a href="matriz-vs.-data.html#cb493-5" tabindex="-1"></a><span class="co"># ...  #que pode ser vetores ou tag = vetor (os dados da tabela)</span></span>
+<span id="cb493-6"><a href="matriz-vs.-data.html#cb493-6" tabindex="-1"></a><span class="co"># stringsAsFactors #que especifica se queremos os textos como vetores ou fatores</span></span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="matriz-vs.-data.html#cb494-1" tabindex="-1"></a><span class="co"># exemplo 1 -</span></span>
+<span id="cb494-2"><a href="matriz-vs.-data.html#cb494-2" tabindex="-1"></a><span class="co"># Primeiro criamos alguns dados</span></span>
+<span id="cb494-3"><a href="matriz-vs.-data.html#cb494-3" tabindex="-1"></a><span class="co"># um vetor numerico</span></span>
+<span id="cb494-4"><a href="matriz-vs.-data.html#cb494-4" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb494-5"><a href="matriz-vs.-data.html#cb494-5" tabindex="-1"></a><span class="co"># um vetor de letras do mesmo comprimento usando a constante LETTERS</span></span>
+<span id="cb494-6"><a href="matriz-vs.-data.html#cb494-6" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb494-7"><a href="matriz-vs.-data.html#cb494-7" tabindex="-1"></a><span class="co"># um vetor de palavras de mesmo comprimento</span></span>
+<span id="cb494-8"><a href="matriz-vs.-data.html#cb494-8" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;fulano&quot;</span>, <span class="st">&quot;jose&quot;</span>, <span class="st">&quot;joaquim&quot;</span>, <span class="st">&quot;martin&quot;</span>), <span class="at">length.out =</span> <span class="fu">length</span>(v1))</span>
+<span id="cb494-9"><a href="matriz-vs.-data.html#cb494-9" tabindex="-1"></a></span>
+<span id="cb494-10"><a href="matriz-vs.-data.html#cb494-10" tabindex="-1"></a><span class="co"># Juntamos num data.frame com fatores</span></span>
+<span id="cb494-11"><a href="matriz-vs.-data.html#cb494-11" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(v1, v2, v3, <span class="at">stringsAsFactors =</span> T)</span>
+<span id="cb494-12"><a href="matriz-vs.-data.html#cb494-12" tabindex="-1"></a><span class="fu">class</span>(dd) <span class="co"># é um data frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="matriz-vs.-data.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dd) <span class="co"># dimensoes, linhas e colunas</span></span></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="matriz-vs.-data.html#cb496-1" tabindex="-1"></a><span class="fu">dim</span>(dd) <span class="co"># dimensoes, linhas e colunas</span></span></code></pre></div>
 <pre><code>## [1] 10  3</code></pre>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="matriz-vs.-data.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(dd) <span class="co"># numero de colunas</span></span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="matriz-vs.-data.html#cb498-1" tabindex="-1"></a><span class="fu">ncol</span>(dd) <span class="co"># numero de colunas</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="matriz-vs.-data.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dd) <span class="co"># numero de linhas</span></span></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="matriz-vs.-data.html#cb500-1" tabindex="-1"></a><span class="fu">nrow</span>(dd) <span class="co"># numero de linhas</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="matriz-vs.-data.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd) <span class="co"># estrutura do objeto (veja as classes das colunas)</span></span></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="matriz-vs.-data.html#cb502-1" tabindex="-1"></a><span class="fu">str</span>(dd) <span class="co"># estrutura do objeto (veja as classes das colunas)</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    10 obs. of  3 variables:
 ##  $ v1: int  1 2 3 4 5 6 7 8 9 10
 ##  $ v2: Factor w/ 10 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,..: 1 2 3 4 5 6 7 8 9 10
 ##  $ v3: Factor w/ 4 levels &quot;fulano&quot;,&quot;joaquim&quot;,..: 1 3 2 4 1 3 2 4 1 3</code></pre>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="matriz-vs.-data.html#cb504-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JUNTAMOS SEM FATORES</span></span>
-<span id="cb504-2"><a href="matriz-vs.-data.html#cb504-2" aria-hidden="true" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(v1, v2, v3, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb504-3"><a href="matriz-vs.-data.html#cb504-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dd2) <span class="co"># é um data frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="matriz-vs.-data.html#cb504-1" tabindex="-1"></a><span class="co"># JUNTAMOS SEM FATORES</span></span>
+<span id="cb504-2"><a href="matriz-vs.-data.html#cb504-2" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(v1, v2, v3, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb504-3"><a href="matriz-vs.-data.html#cb504-3" tabindex="-1"></a><span class="fu">class</span>(dd2) <span class="co"># é um data frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="matriz-vs.-data.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd2) <span class="co"># estrutura do objeto (veja as classes das colunas)</span></span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="matriz-vs.-data.html#cb506-1" tabindex="-1"></a><span class="fu">str</span>(dd2) <span class="co"># estrutura do objeto (veja as classes das colunas)</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    10 obs. of  3 variables:
 ##  $ v1: int  1 2 3 4 5 6 7 8 9 10
 ##  $ v2: chr  &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; ...
 ##  $ v3: chr  &quot;fulano&quot; &quot;jose&quot; &quot;joaquim&quot; &quot;martin&quot; ...</code></pre>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="matriz-vs.-data.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="co"># juntamos com nome de colunas (tag = vetor)</span></span>
-<span id="cb508-2"><a href="matriz-vs.-data.html#cb508-2" aria-hidden="true" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">RegistorID =</span> v1, <span class="at">CodigoZ =</span> v2, <span class="at">Pessoa =</span> v3, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb508-3"><a href="matriz-vs.-data.html#cb508-3" aria-hidden="true" tabindex="-1"></a>dd2</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="matriz-vs.-data.html#cb508-1" tabindex="-1"></a><span class="co"># juntamos com nome de colunas (tag = vetor)</span></span>
+<span id="cb508-2"><a href="matriz-vs.-data.html#cb508-2" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">RegistorID =</span> v1, <span class="at">CodigoZ =</span> v2, <span class="at">Pessoa =</span> v3, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb508-3"><a href="matriz-vs.-data.html#cb508-3" tabindex="-1"></a>dd2</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1403,27 +1404,27 @@ jose
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="matriz-vs.-data.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora vamos usar o cbind que vimos acima</span></span>
-<span id="cb509-2"><a href="matriz-vs.-data.html#cb509-2" aria-hidden="true" tabindex="-1"></a>dz <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v1, v2, v3)</span>
-<span id="cb509-3"><a href="matriz-vs.-data.html#cb509-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ou entao usando tag=vetor para ter nomes das colunas de acordo</span></span>
-<span id="cb509-4"><a href="matriz-vs.-data.html#cb509-4" aria-hidden="true" tabindex="-1"></a>dz <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">RegistorID =</span> v1, <span class="at">CodigoZ =</span> v2, <span class="at">Pessoa =</span> v3)</span>
-<span id="cb509-5"><a href="matriz-vs.-data.html#cb509-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dz) <span class="co"># isso cria uma matriz</span></span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="matriz-vs.-data.html#cb509-1" tabindex="-1"></a><span class="co"># agora vamos usar o cbind que vimos acima</span></span>
+<span id="cb509-2"><a href="matriz-vs.-data.html#cb509-2" tabindex="-1"></a>dz <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v1, v2, v3)</span>
+<span id="cb509-3"><a href="matriz-vs.-data.html#cb509-3" tabindex="-1"></a><span class="co"># ou entao usando tag=vetor para ter nomes das colunas de acordo</span></span>
+<span id="cb509-4"><a href="matriz-vs.-data.html#cb509-4" tabindex="-1"></a>dz <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">RegistorID =</span> v1, <span class="at">CodigoZ =</span> v2, <span class="at">Pessoa =</span> v3)</span>
+<span id="cb509-5"><a href="matriz-vs.-data.html#cb509-5" tabindex="-1"></a><span class="fu">class</span>(dz) <span class="co"># isso cria uma matriz</span></span></code></pre></div>
 <pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="matriz-vs.-data.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dz) <span class="co"># todos os dados são da mesma classe (texto)</span></span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="matriz-vs.-data.html#cb511-1" tabindex="-1"></a><span class="fu">str</span>(dz) <span class="co"># todos os dados são da mesma classe (texto)</span></span></code></pre></div>
 <pre><code>##  chr [1:10, 1:3] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot; &quot;7&quot; &quot;8&quot; &quot;9&quot; &quot;10&quot; &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; ...
 ##  - attr(*, &quot;dimnames&quot;)=List of 2
 ##   ..$ : NULL
 ##   ..$ : chr [1:3] &quot;RegistorID&quot; &quot;CodigoZ&quot; &quot;Pessoa&quot;</code></pre>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="matriz-vs.-data.html#cb513-1" aria-hidden="true" tabindex="-1"></a>dz <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dz) <span class="co"># convertemos num data.frame</span></span>
-<span id="cb513-2"><a href="matriz-vs.-data.html#cb513-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dz) <span class="co"># é um data.frame</span></span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="matriz-vs.-data.html#cb513-1" tabindex="-1"></a>dz <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dz) <span class="co"># convertemos num data.frame</span></span>
+<span id="cb513-2"><a href="matriz-vs.-data.html#cb513-2" tabindex="-1"></a><span class="fu">class</span>(dz) <span class="co"># é um data.frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="matriz-vs.-data.html#cb515-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dz) <span class="co"># converte numeros para numerico e texto para fator</span></span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="matriz-vs.-data.html#cb515-1" tabindex="-1"></a><span class="fu">str</span>(dz) <span class="co"># converte numeros para numerico e texto para fator</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    10 obs. of  3 variables:
 ##  $ RegistorID: chr  &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
 ##  $ CodigoZ   : chr  &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; ...
 ##  $ Pessoa    : chr  &quot;fulano&quot; &quot;jose&quot; &quot;joaquim&quot; &quot;martin&quot; ...</code></pre>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="matriz-vs.-data.html#cb517-1" aria-hidden="true" tabindex="-1"></a>dz <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">as.matrix</span>(dz), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="co"># convertemos num data.frame sem fatores</span></span>
-<span id="cb517-2"><a href="matriz-vs.-data.html#cb517-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dz) <span class="co"># converte numeros para numerico e texto para character</span></span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="matriz-vs.-data.html#cb517-1" tabindex="-1"></a>dz <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">as.matrix</span>(dz), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="co"># convertemos num data.frame sem fatores</span></span>
+<span id="cb517-2"><a href="matriz-vs.-data.html#cb517-2" tabindex="-1"></a><span class="fu">str</span>(dz) <span class="co"># converte numeros para numerico e texto para character</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    10 obs. of  3 variables:
 ##  $ RegistorID: chr  &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
 ##  $ CodigoZ   : chr  &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; ...
@@ -1433,19 +1434,19 @@ jose
 <h3><span class="header-section-number">3.1.3</span> Funções importantes na manipulação de matrizes e <code>data.frames</code><a href="matriz-vs.-data.html#funções-importantes-na-manipulação-de-matrizes-e-data.frames" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As funções <code>head()</code> e <code>tail()</code> mostram o cabeçalho e rodapé tanto para matrizes como para <code>data.frames</code>, respectivamente.
 Vejam o <code>?</code> dessas duas funções:</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="matriz-vs.-data.html#cb519-1" aria-hidden="true" tabindex="-1"></a>?head</span>
-<span id="cb519-2"><a href="matriz-vs.-data.html#cb519-2" aria-hidden="true" tabindex="-1"></a>?tail</span></code></pre></div>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="matriz-vs.-data.html#cb520-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primeiro criamos alguns dados</span></span>
-<span id="cb520-2"><a href="matriz-vs.-data.html#cb520-2" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor numerico</span></span>
-<span id="cb520-3"><a href="matriz-vs.-data.html#cb520-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb520-4"><a href="matriz-vs.-data.html#cb520-4" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor de letras do mesmo comprimento usando a constante LETTERS</span></span>
-<span id="cb520-5"><a href="matriz-vs.-data.html#cb520-5" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb520-6"><a href="matriz-vs.-data.html#cb520-6" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor de palavras de mesmo comprimento</span></span>
-<span id="cb520-7"><a href="matriz-vs.-data.html#cb520-7" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;fulano&quot;</span>, <span class="st">&quot;jose&quot;</span>, <span class="st">&quot;joaquim&quot;</span>, <span class="st">&quot;martin&quot;</span>), <span class="at">length.out =</span> <span class="fu">length</span>(v1))</span>
-<span id="cb520-8"><a href="matriz-vs.-data.html#cb520-8" aria-hidden="true" tabindex="-1"></a><span class="co"># juntamos com nome de colunas (tag = vetor) e com</span></span>
-<span id="cb520-9"><a href="matriz-vs.-data.html#cb520-9" aria-hidden="true" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">RegistorID =</span> v1, <span class="at">CodigoZ =</span> v2, <span class="at">Pessoa =</span> v3, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb520-10"><a href="matriz-vs.-data.html#cb520-10" aria-hidden="true" tabindex="-1"></a><span class="co"># cabeçalho</span></span>
-<span id="cb520-11"><a href="matriz-vs.-data.html#cb520-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dd2) <span class="co"># primeiras 6 linhas</span></span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="matriz-vs.-data.html#cb519-1" tabindex="-1"></a>?head</span>
+<span id="cb519-2"><a href="matriz-vs.-data.html#cb519-2" tabindex="-1"></a>?tail</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="matriz-vs.-data.html#cb520-1" tabindex="-1"></a><span class="co"># Primeiro criamos alguns dados</span></span>
+<span id="cb520-2"><a href="matriz-vs.-data.html#cb520-2" tabindex="-1"></a><span class="co"># um vetor numerico</span></span>
+<span id="cb520-3"><a href="matriz-vs.-data.html#cb520-3" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb520-4"><a href="matriz-vs.-data.html#cb520-4" tabindex="-1"></a><span class="co"># um vetor de letras do mesmo comprimento usando a constante LETTERS</span></span>
+<span id="cb520-5"><a href="matriz-vs.-data.html#cb520-5" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb520-6"><a href="matriz-vs.-data.html#cb520-6" tabindex="-1"></a><span class="co"># um vetor de palavras de mesmo comprimento</span></span>
+<span id="cb520-7"><a href="matriz-vs.-data.html#cb520-7" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;fulano&quot;</span>, <span class="st">&quot;jose&quot;</span>, <span class="st">&quot;joaquim&quot;</span>, <span class="st">&quot;martin&quot;</span>), <span class="at">length.out =</span> <span class="fu">length</span>(v1))</span>
+<span id="cb520-8"><a href="matriz-vs.-data.html#cb520-8" tabindex="-1"></a><span class="co"># juntamos com nome de colunas (tag = vetor) e com</span></span>
+<span id="cb520-9"><a href="matriz-vs.-data.html#cb520-9" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">RegistorID =</span> v1, <span class="at">CodigoZ =</span> v2, <span class="at">Pessoa =</span> v3, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb520-10"><a href="matriz-vs.-data.html#cb520-10" tabindex="-1"></a><span class="co"># cabeçalho</span></span>
+<span id="cb520-11"><a href="matriz-vs.-data.html#cb520-11" tabindex="-1"></a><span class="fu">head</span>(dd2) <span class="co"># primeiras 6 linhas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1529,7 +1530,7 @@ jose
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="matriz-vs.-data.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dd2, <span class="dv">3</span>) <span class="co"># três primeiras linhas</span></span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="matriz-vs.-data.html#cb521-1" tabindex="-1"></a><span class="fu">head</span>(dd2, <span class="dv">3</span>) <span class="co"># três primeiras linhas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1580,8 +1581,8 @@ joaquim
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="matriz-vs.-data.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rodapé</span></span>
-<span id="cb522-2"><a href="matriz-vs.-data.html#cb522-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(dd2) <span class="co"># seis últimas linhas</span></span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="matriz-vs.-data.html#cb522-1" tabindex="-1"></a><span class="co"># rodapé</span></span>
+<span id="cb522-2"><a href="matriz-vs.-data.html#cb522-2" tabindex="-1"></a><span class="fu">tail</span>(dd2) <span class="co"># seis últimas linhas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1685,7 +1686,7 @@ jose
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="matriz-vs.-data.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(dd2, <span class="dv">3</span>) <span class="co"># três últimas linhas</span></span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="matriz-vs.-data.html#cb523-1" tabindex="-1"></a><span class="fu">tail</span>(dd2, <span class="dv">3</span>) <span class="co"># três últimas linhas</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1748,23 +1749,23 @@ jose
 </tbody>
 </table>
 <p>As funções <code>dim()</code>, <code>nrow()</code> e <code>ncol()</code> informam as dimensões de matrizes e data.frames, número de linhas, e número de colunas, respectivamente.</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="matriz-vs.-data.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dd2) <span class="co"># vetor com dois valores, número de linhas e número de colunas</span></span></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="matriz-vs.-data.html#cb524-1" tabindex="-1"></a><span class="fu">dim</span>(dd2) <span class="co"># vetor com dois valores, número de linhas e número de colunas</span></span></code></pre></div>
 <pre><code>## [1] 10  3</code></pre>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="matriz-vs.-data.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dd2) <span class="co"># número de linhas do data.frame ou matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="matriz-vs.-data.html#cb526-1" tabindex="-1"></a><span class="fu">nrow</span>(dd2) <span class="co"># número de linhas do data.frame ou matrix</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="matriz-vs.-data.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(dd2) <span class="co"># número de colunas do data.frame ou matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="matriz-vs.-data.html#cb528-1" tabindex="-1"></a><span class="fu">ncol</span>(dd2) <span class="co"># número de colunas do data.frame ou matrix</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="matriz-vs.-data.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">as.matrix</span>(dd2))</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="matriz-vs.-data.html#cb530-1" tabindex="-1"></a><span class="fu">nrow</span>(<span class="fu">as.matrix</span>(dd2))</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="matriz-vs.-data.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">as.matrix</span>(dd2))</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="matriz-vs.-data.html#cb532-1" tabindex="-1"></a><span class="fu">ncol</span>(<span class="fu">as.matrix</span>(dd2))</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <p>As funções <code>str()</code> e <code>summary()</code> informam a estrutura dos <code>data.frames</code> e o resumo dos dados, respectivamente.</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="matriz-vs.-data.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd2) <span class="co"># mostra a estrutura do objeto, quais colunas, classes de colunas e total de valores</span></span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="matriz-vs.-data.html#cb534-1" tabindex="-1"></a><span class="fu">str</span>(dd2) <span class="co"># mostra a estrutura do objeto, quais colunas, classes de colunas e total de valores</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    10 obs. of  3 variables:
 ##  $ RegistorID: int  1 2 3 4 5 6 7 8 9 10
 ##  $ CodigoZ   : Factor w/ 10 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,..: 1 2 3 4 5 6 7 8 9 10
 ##  $ Pessoa    : Factor w/ 4 levels &quot;fulano&quot;,&quot;joaquim&quot;,..: 1 3 2 4 1 3 2 4 1 3</code></pre>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="matriz-vs.-data.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(dd2) <span class="co"># mostra para cada coluna a variação encontrada: estatística descritiva de variáveis numéricas, contagem por categoria de fatores, etc. Veremos isso adiante.</span></span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="matriz-vs.-data.html#cb536-1" tabindex="-1"></a><span class="fu">summary</span>(dd2) <span class="co"># mostra para cada coluna a variação encontrada: estatística descritiva de variáveis numéricas, contagem por categoria de fatores, etc. Veremos isso adiante.</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1879,16 +1880,16 @@ NA
 Em um <code>data.frame</code>, os nomes de linhas DEVEM SER ÚNICOS e não podem ter duas linhas com o mesmo nome.
 São códigos que identificam registros únicos.
 Isso é muito importante para o entendimento dos identificadores dos seus dados.</p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="matriz-vs.-data.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos criar uma matriz com nomes de linhas e colunas</span></span>
-<span id="cb537-2"><a href="matriz-vs.-data.html#cb537-2" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)))</span>
-<span id="cb537-3"><a href="matriz-vs.-data.html#cb537-3" aria-hidden="true" tabindex="-1"></a><span class="co"># e converter essa matrix para um data.frame</span></span>
-<span id="cb537-4"><a href="matriz-vs.-data.html#cb537-4" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mm)</span>
-<span id="cb537-5"><a href="matriz-vs.-data.html#cb537-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb537-6"><a href="matriz-vs.-data.html#cb537-6" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos também criar outra matriz SEM nomes de linhas e colunas</span></span>
-<span id="cb537-7"><a href="matriz-vs.-data.html#cb537-7" aria-hidden="true" tabindex="-1"></a>mm2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb537-8"><a href="matriz-vs.-data.html#cb537-8" aria-hidden="true" tabindex="-1"></a><span class="co"># e converter essa matrix para um data.frame</span></span>
-<span id="cb537-9"><a href="matriz-vs.-data.html#cb537-9" aria-hidden="true" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mm2)</span>
-<span id="cb537-10"><a href="matriz-vs.-data.html#cb537-10" aria-hidden="true" tabindex="-1"></a>dd2</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="matriz-vs.-data.html#cb537-1" tabindex="-1"></a><span class="co"># vamos criar uma matriz com nomes de linhas e colunas</span></span>
+<span id="cb537-2"><a href="matriz-vs.-data.html#cb537-2" tabindex="-1"></a>mm <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">paste</span>(<span class="st">&quot;linha&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>), <span class="fu">paste</span>(<span class="st">&quot;coluna&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)))</span>
+<span id="cb537-3"><a href="matriz-vs.-data.html#cb537-3" tabindex="-1"></a><span class="co"># e converter essa matrix para um data.frame</span></span>
+<span id="cb537-4"><a href="matriz-vs.-data.html#cb537-4" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mm)</span>
+<span id="cb537-5"><a href="matriz-vs.-data.html#cb537-5" tabindex="-1"></a></span>
+<span id="cb537-6"><a href="matriz-vs.-data.html#cb537-6" tabindex="-1"></a><span class="co"># vamos também criar outra matriz SEM nomes de linhas e colunas</span></span>
+<span id="cb537-7"><a href="matriz-vs.-data.html#cb537-7" tabindex="-1"></a>mm2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb537-8"><a href="matriz-vs.-data.html#cb537-8" tabindex="-1"></a><span class="co"># e converter essa matrix para um data.frame</span></span>
+<span id="cb537-9"><a href="matriz-vs.-data.html#cb537-9" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mm2)</span>
+<span id="cb537-10"><a href="matriz-vs.-data.html#cb537-10" tabindex="-1"></a>dd2</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1939,31 +1940,31 @@ V3
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="matriz-vs.-data.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para os objetos com nomes podemos ver os nomes</span></span>
-<span id="cb538-2"><a href="matriz-vs.-data.html#cb538-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mm)</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="matriz-vs.-data.html#cb538-1" tabindex="-1"></a><span class="co"># para os objetos com nomes podemos ver os nomes</span></span>
+<span id="cb538-2"><a href="matriz-vs.-data.html#cb538-2" tabindex="-1"></a><span class="fu">rownames</span>(mm)</span></code></pre></div>
 <pre><code>## [1] &quot;linha1&quot; &quot;linha2&quot; &quot;linha3&quot;</code></pre>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="matriz-vs.-data.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(dd)</span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="matriz-vs.-data.html#cb540-1" tabindex="-1"></a><span class="fu">rownames</span>(dd)</span></code></pre></div>
 <pre><code>## [1] &quot;linha1&quot; &quot;linha2&quot; &quot;linha3&quot;</code></pre>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="matriz-vs.-data.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mm)</span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="matriz-vs.-data.html#cb542-1" tabindex="-1"></a><span class="fu">colnames</span>(mm)</span></code></pre></div>
 <pre><code>## [1] &quot;coluna1&quot; &quot;coluna2&quot; &quot;coluna3&quot;</code></pre>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="matriz-vs.-data.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dd)</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="matriz-vs.-data.html#cb544-1" tabindex="-1"></a><span class="fu">colnames</span>(dd)</span></code></pre></div>
 <pre><code>## [1] &quot;coluna1&quot; &quot;coluna2&quot; &quot;coluna3&quot;</code></pre>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="matriz-vs.-data.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para os objetos sem nomes</span></span>
-<span id="cb546-2"><a href="matriz-vs.-data.html#cb546-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mm2) <span class="co"># nulo, não tem nome</span></span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="matriz-vs.-data.html#cb546-1" tabindex="-1"></a><span class="co"># para os objetos sem nomes</span></span>
+<span id="cb546-2"><a href="matriz-vs.-data.html#cb546-2" tabindex="-1"></a><span class="fu">rownames</span>(mm2) <span class="co"># nulo, não tem nome</span></span></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="matriz-vs.-data.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(dd2) <span class="co"># números em formato de texto</span></span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="matriz-vs.-data.html#cb548-1" tabindex="-1"></a><span class="fu">rownames</span>(dd2) <span class="co"># números em formato de texto</span></span></code></pre></div>
 <pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="matriz-vs.-data.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mm2) <span class="co"># nulo, não tem nome</span></span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="matriz-vs.-data.html#cb550-1" tabindex="-1"></a><span class="fu">colnames</span>(mm2) <span class="co"># nulo, não tem nome</span></span></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="matriz-vs.-data.html#cb552-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dd2) <span class="co"># V1 a Vncol(dd) - ele cria nomes das colunas</span></span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="matriz-vs.-data.html#cb552-1" tabindex="-1"></a><span class="fu">colnames</span>(dd2) <span class="co"># V1 a Vncol(dd) - ele cria nomes das colunas</span></span></code></pre></div>
 <pre><code>## [1] &quot;V1&quot; &quot;V2&quot; &quot;V3&quot;</code></pre>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="matriz-vs.-data.html#cb554-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que no caso do data.frame dd2, apesar de não ter nome de linha e coluna, o R criou uma para ele. DATA.FRAMES SEMPRE TEM NOME DE LINHAS E COLUNAS. Note que o nome das linhas apesar de números correspondentes aos índices, são de fato TEXTO</span></span></code></pre></div>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="matriz-vs.-data.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="co"># essas funções permitem VER mas também permitem ATRIBUIR (modificar) nomes</span></span>
-<span id="cb555-2"><a href="matriz-vs.-data.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="co"># modificando quem já tem nome (matriz, mas funciona igual para dd)</span></span>
-<span id="cb555-3"><a href="matriz-vs.-data.html#cb555-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mm) <span class="co"># nomes atuais</span></span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="matriz-vs.-data.html#cb554-1" tabindex="-1"></a><span class="co"># note que no caso do data.frame dd2, apesar de não ter nome de linha e coluna, o R criou uma para ele. DATA.FRAMES SEMPRE TEM NOME DE LINHAS E COLUNAS. Note que o nome das linhas apesar de números correspondentes aos índices, são de fato TEXTO</span></span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="matriz-vs.-data.html#cb555-1" tabindex="-1"></a><span class="co"># essas funções permitem VER mas também permitem ATRIBUIR (modificar) nomes</span></span>
+<span id="cb555-2"><a href="matriz-vs.-data.html#cb555-2" tabindex="-1"></a><span class="co"># modificando quem já tem nome (matriz, mas funciona igual para dd)</span></span>
+<span id="cb555-3"><a href="matriz-vs.-data.html#cb555-3" tabindex="-1"></a><span class="fu">colnames</span>(mm) <span class="co"># nomes atuais</span></span></code></pre></div>
 <pre><code>## [1] &quot;coluna1&quot; &quot;coluna2&quot; &quot;coluna3&quot;</code></pre>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="matriz-vs.-data.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mm) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;novonome1&quot;</span>, <span class="st">&quot;novonome2&quot;</span>, <span class="st">&quot;novonome3&quot;</span>)</span>
-<span id="cb557-2"><a href="matriz-vs.-data.html#cb557-2" aria-hidden="true" tabindex="-1"></a>mm <span class="co"># veja como o nome das colunas mudou</span></span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="matriz-vs.-data.html#cb557-1" tabindex="-1"></a><span class="fu">colnames</span>(mm) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;novonome1&quot;</span>, <span class="st">&quot;novonome2&quot;</span>, <span class="st">&quot;novonome3&quot;</span>)</span>
+<span id="cb557-2"><a href="matriz-vs.-data.html#cb557-2" tabindex="-1"></a>mm <span class="co"># veja como o nome das colunas mudou</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2025,15 +2026,15 @@ linha3
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="matriz-vs.-data.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudando apenas o nome da coluna2</span></span>
-<span id="cb558-2"><a href="matriz-vs.-data.html#cb558-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mm)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;colunaDOIS&quot;</span></span>
-<span id="cb558-3"><a href="matriz-vs.-data.html#cb558-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mm) <span class="co"># nomes atuais</span></span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="matriz-vs.-data.html#cb558-1" tabindex="-1"></a><span class="co"># mudando apenas o nome da coluna2</span></span>
+<span id="cb558-2"><a href="matriz-vs.-data.html#cb558-2" tabindex="-1"></a><span class="fu">colnames</span>(mm)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;colunaDOIS&quot;</span></span>
+<span id="cb558-3"><a href="matriz-vs.-data.html#cb558-3" tabindex="-1"></a><span class="fu">colnames</span>(mm) <span class="co"># nomes atuais</span></span></code></pre></div>
 <pre><code>## [1] &quot;novonome1&quot;  &quot;colunaDOIS&quot; &quot;novonome3&quot;</code></pre>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="matriz-vs.-data.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="co"># atribuindo quando não tem nome</span></span>
-<span id="cb560-2"><a href="matriz-vs.-data.html#cb560-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mm2) <span class="co"># está vazio ou não existe (NULL)</span></span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="matriz-vs.-data.html#cb560-1" tabindex="-1"></a><span class="co"># atribuindo quando não tem nome</span></span>
+<span id="cb560-2"><a href="matriz-vs.-data.html#cb560-2" tabindex="-1"></a><span class="fu">colnames</span>(mm2) <span class="co"># está vazio ou não existe (NULL)</span></span></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="matriz-vs.-data.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mm2) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;banana&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mm2), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
-<span id="cb562-2"><a href="matriz-vs.-data.html#cb562-2" aria-hidden="true" tabindex="-1"></a>mm2 <span class="co"># agora tem nome de coluna</span></span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="matriz-vs.-data.html#cb562-1" tabindex="-1"></a><span class="fu">colnames</span>(mm2) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;banana&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(mm2), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb562-2"><a href="matriz-vs.-data.html#cb562-2" tabindex="-1"></a>mm2 <span class="co"># agora tem nome de coluna</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2084,10 +2085,10 @@ banana-3
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="matriz-vs.-data.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mm2) <span class="co"># nomes de linhas também está vazio</span></span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="matriz-vs.-data.html#cb563-1" tabindex="-1"></a><span class="fu">rownames</span>(mm2) <span class="co"># nomes de linhas também está vazio</span></span></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="matriz-vs.-data.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mm2) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;chuchu&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mm2), <span class="at">sep =</span> <span class="st">&quot;.&quot;</span>)</span>
-<span id="cb565-2"><a href="matriz-vs.-data.html#cb565-2" aria-hidden="true" tabindex="-1"></a>mm2 <span class="co"># agora tem nomes de linha e coluna</span></span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="matriz-vs.-data.html#cb565-1" tabindex="-1"></a><span class="fu">rownames</span>(mm2) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;chuchu&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mm2), <span class="at">sep =</span> <span class="st">&quot;.&quot;</span>)</span>
+<span id="cb565-2"><a href="matriz-vs.-data.html#cb565-2" tabindex="-1"></a>mm2 <span class="co"># agora tem nomes de linha e coluna</span></span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2150,9 +2151,9 @@ chuchu.3
 </tbody>
 </table>
 <p>Vamos tentar atribuir um mesmo nome de linha <code>teste1</code> a duas linhas de nossa matriz <code>mm2</code> e ver o que acontece:</p>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="matriz-vs.-data.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mm2)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;teste1&quot;</span> <span class="co"># coloque o nome teste1 para as linhas 1 e 2 FUNCIONA PARA MATRIX</span></span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="matriz-vs.-data.html#cb566-1" tabindex="-1"></a><span class="fu">rownames</span>(mm2)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;teste1&quot;</span> <span class="co"># coloque o nome teste1 para as linhas 1 e 2 FUNCIONA PARA MATRIX</span></span></code></pre></div>
 <p>Reparem que um mesmo nome de linha pode ser utilizado em mais de uma linha de uma matriz. Será que isso pode ser feito em um <code>data.frame</code>? Vejamos:</p>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="matriz-vs.-data.html#cb567-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(dd)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;teste1&quot;</span> <span class="co"># nao funciona, porque ele não aceita nomes repetidos de linhas em DATA.FRAMES</span></span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="matriz-vs.-data.html#cb567-1" tabindex="-1"></a><span class="fu">rownames</span>(dd)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;teste1&quot;</span> <span class="co"># nao funciona, porque ele não aceita nomes repetidos de linhas em DATA.FRAMES</span></span></code></pre></div>
 </div>
 </div>
             </section>
@@ -2175,43 +2176,43 @@ chuchu.3
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/03-matrizes_dframes.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/03-matrizes_dframes.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/03-matrizes_dframes.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/03-matrizes_dframes.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

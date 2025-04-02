@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A.4 Usando o ggplot2 | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A.4 Usando o ggplot2 | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -642,26 +643,26 @@ Divide os gráficos segundo categoria especificada
 A função básica do pacote é <code>ggplot()</code>: nela, informamos nosso conjunto de dados no primeiro argumento.
 Após o primeiro passo, fazemos uso de funções para plotar dados em forma de um espalhamento (scatterplots usando a função <code>geom_point()</code>), gráficos de barra (<code>geom_bar</code>), diagramas de caixa (<code>geom_boxplot()</code>), entre outras.
 Vejamos na prática como funciona:</p>
-<div class="sourceCode" id="cb1898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1898-1"><a href="usando-o-ggplot2.html#cb1898-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um grafico de espalhamento da variavel Sepal.Length no eixo X e Petal.Length no eixo Y utilizando o conjunto de dados iris</span></span>
-<span id="cb1898-2"><a href="usando-o-ggplot2.html#cb1898-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span></span>
-<span id="cb1898-3"><a href="usando-o-ggplot2.html#cb1898-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length))</span></code></pre></div>
+<div class="sourceCode" id="cb1900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1900-1"><a href="usando-o-ggplot2.html#cb1900-1" tabindex="-1"></a><span class="co"># um grafico de espalhamento da variavel Sepal.Length no eixo X e Petal.Length no eixo Y utilizando o conjunto de dados iris</span></span>
+<span id="cb1900-2"><a href="usando-o-ggplot2.html#cb1900-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span></span>
+<span id="cb1900-3"><a href="usando-o-ggplot2.html#cb1900-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length))</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-662-1.svg" width="672" /></p>
 <p>Dentro das funções que plotam os dados efetivamente (e.g., <code>geom_point()</code>, <code>geom_boxplot()</code>), devemos sempre usar a função <code>aes()</code>: nela inserimos os eixos <code>x</code> e <code>y</code>, informando sempre o nome das colunas <em>sem aspas</em>.
 Se quisermos colorir os pontos em função das espécies, fazemos:</p>
-<div class="sourceCode" id="cb1899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1899-1"><a href="usando-o-ggplot2.html#cb1899-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span></span>
-<span id="cb1899-2"><a href="usando-o-ggplot2.html#cb1899-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length, <span class="at">color =</span> Species))</span></code></pre></div>
+<div class="sourceCode" id="cb1901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1901-1"><a href="usando-o-ggplot2.html#cb1901-1" tabindex="-1"></a><span class="fu">ggplot</span>(iris) <span class="sc">+</span></span>
+<span id="cb1901-2"><a href="usando-o-ggplot2.html#cb1901-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length, <span class="at">color =</span> Species))</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-663-1.svg" width="672" /></p>
 <p>Por trabalhar em camadas, podemos atribuir os resultados dessas operações a objetos. Por exemplo, vamos passar o resultado da ação acima para um objeto <code>meugrafico</code> e mudar os temas do gráfico:</p>
-<div class="sourceCode" id="cb1900"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1900-1"><a href="usando-o-ggplot2.html#cb1900-1" aria-hidden="true" tabindex="-1"></a>meugrafico <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris) <span class="sc">+</span></span>
-<span id="cb1900-2"><a href="usando-o-ggplot2.html#cb1900-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length, <span class="at">color =</span> Species))</span></code></pre></div>
-<div class="sourceCode" id="cb1901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1901-1"><a href="usando-o-ggplot2.html#cb1901-1" aria-hidden="true" tabindex="-1"></a>meugrafico <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="co"># Existem varios outros temas pre-definidos no ggplot2</span></span></code></pre></div>
+<div class="sourceCode" id="cb1902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1902-1"><a href="usando-o-ggplot2.html#cb1902-1" tabindex="-1"></a>meugrafico <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris) <span class="sc">+</span></span>
+<span id="cb1902-2"><a href="usando-o-ggplot2.html#cb1902-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length, <span class="at">color =</span> Species))</span></code></pre></div>
+<div class="sourceCode" id="cb1903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1903-1"><a href="usando-o-ggplot2.html#cb1903-1" tabindex="-1"></a>meugrafico <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="co"># Existem varios outros temas pre-definidos no ggplot2</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-665-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1902"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1902-1"><a href="usando-o-ggplot2.html#cb1902-1" aria-hidden="true" tabindex="-1"></a>meugrafico <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="co"># Para utilizar os outros temas, e so verificar o help de funcoes que comecam com theme_OUTROSnomes</span></span></code></pre></div>
+<div class="sourceCode" id="cb1904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1904-1"><a href="usando-o-ggplot2.html#cb1904-1" tabindex="-1"></a>meugrafico <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="co"># Para utilizar os outros temas, e so verificar o help de funcoes que comecam com theme_OUTROSnomes</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-666-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1903-1"><a href="usando-o-ggplot2.html#cb1903-1" aria-hidden="true" tabindex="-1"></a>meugrafico <span class="sc">+</span> <span class="fu">theme_void</span>() <span class="co"># - existem, por exemplo, os temas theme_grey, theme_classic, theme_light etc</span></span></code></pre></div>
+<div class="sourceCode" id="cb1905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1905-1"><a href="usando-o-ggplot2.html#cb1905-1" tabindex="-1"></a>meugrafico <span class="sc">+</span> <span class="fu">theme_void</span>() <span class="co"># - existem, por exemplo, os temas theme_grey, theme_classic, theme_light etc</span></span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-667-1.svg" width="672" /></p>
 <p>Podemos facilmente também gerar um gráfico para cada espécie utilizando a função <code>facet_wrap()</code>:</p>
-<div class="sourceCode" id="cb1904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1904-1"><a href="usando-o-ggplot2.html#cb1904-1" aria-hidden="true" tabindex="-1"></a>meugrafico <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb1906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1906-1"><a href="usando-o-ggplot2.html#cb1906-1" tabindex="-1"></a>meugrafico <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-668-1.svg" width="672" /></p>
 <p>Não temos a intenção de cobrir todo o uso do pacote <code>ggplot2</code> nesta postagem. Existem muitas páginas com excelentes tutoriais na internet que podem ser visitadas para um maior aprofundamento nas ferramentas deste pacote (vejam abaixo na seção <a href="sabermais-tidyverse.html#sabermais-tidyverse"><strong>Para saber mais</strong></a>).
 Queremos aqui demonstrar o uso concomitante do pacote <code>ggplot2</code> dentro de uma linha de trabalho associada ao pacote <code>dplyr</code>.
@@ -687,43 +688,43 @@ Passemos para a seção abaixo.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/15-tidyverse.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/15-tidyverse.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/15-tidyverse.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/15-tidyverse.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

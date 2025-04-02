@@ -68,11 +68,11 @@
 <text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='43.83px' lengthAdjust='spacingAndGlyphs'>NMDS2</text>
 </g>
 <g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
-<circle cx='398.14' cy='213.98' r='4.05' style='stroke-width: 0.75; fill: #FF0000;' />
-<rect x='394.55' y='231.99' width='7.18' height='7.18' style='stroke-width: 0.75; fill: #00FF00;' />
-<polygon points='398.14,262.26 403.21,257.18 398.14,252.11 393.06,257.18 ' style='stroke-width: 0.75; fill: #0000FF;' />
-<text x='408.94' y='218.36' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='42.80px' lengthAdjust='spacingAndGlyphs'>chauas</text>
-<text x='408.94' y='239.96' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='33.69px' lengthAdjust='spacingAndGlyphs'>jureia</text>
-<text x='408.94' y='261.56' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='32.10px' lengthAdjust='spacingAndGlyphs'>retiro</text>
+<circle cx='394.03' cy='213.98' r='4.05' style='stroke-width: 0.75; fill: #FF0000;' />
+<rect x='390.44' y='231.99' width='7.18' height='7.18' style='stroke-width: 0.75; fill: #00FF00;' />
+<polygon points='394.03,262.26 399.10,257.18 394.03,252.11 388.95,257.18 ' style='stroke-width: 0.75; fill: #0000FF;' />
+<text x='404.83' y='218.36' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='42.80px' lengthAdjust='spacingAndGlyphs'>chauas</text>
+<text x='404.83' y='239.96' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='33.69px' lengthAdjust='spacingAndGlyphs'>jureia</text>
+<text x='404.83' y='261.56' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='32.10px' lengthAdjust='spacingAndGlyphs'>retiro</text>
 </g>
 </svg>

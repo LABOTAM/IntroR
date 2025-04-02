@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13.5 Outros gráficos bivariados | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13.5 Outros gráficos bivariados | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -554,31 +555,31 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="outros-gráficos-bivariados" class="section level2 hasAnchor" number="13.5">
 <h2><span class="header-section-number">13.5</span> Outros gráficos bivariados<a href="outros-gráficos-bivariados.html#outros-gráficos-bivariados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As funções <code>xyplot()</code> e <code>bwplot()</code> são oriundas do pacote <code>lattice</code> <span class="citation">(<a href="#ref-R-lattice" role="doc-biblioref">Sarkar 2020</a>)</span> e permitem visualizar rapidamente relações entre variáveis por subgrupos de forma simples e rápida.</p>
-<div class="sourceCode" id="cb1743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1743-1"><a href="outros-gráficos-bivariados.html#cb1743-1" aria-hidden="true" tabindex="-1"></a><span class="co"># muitas funções do R interpretam formulas, que é uma forma simbólica curta para designar coisas complexas</span></span>
-<span id="cb1743-2"><a href="outros-gráficos-bivariados.html#cb1743-2" aria-hidden="true" tabindex="-1"></a>?formula <span class="co"># leia com atenção a sessão de detalhes de como você pode especificar formulas, se ainda não fez isso, pois isso é uma forma de indicar ao R um modelo para graficar</span></span></code></pre></div>
-<div class="sourceCode" id="cb1744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1744-1"><a href="outros-gráficos-bivariados.html#cb1744-1" aria-hidden="true" tabindex="-1"></a><span class="co"># no objeto iris</span></span>
-<span id="cb1744-2"><a href="outros-gráficos-bivariados.html#cb1744-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepal.Length <span class="sc">+</span> Sepal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">13</span>))</span>
-<span id="cb1744-3"><a href="outros-gráficos-bivariados.html#cb1744-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris, <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb1744-4"><a href="outros-gráficos-bivariados.html#cb1744-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Sepal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris, <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb1744-5"><a href="outros-gráficos-bivariados.html#cb1744-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ou seja a primeira figura é o mesmo que fazer:</span></span>
-<span id="cb1744-6"><a href="outros-gráficos-bivariados.html#cb1744-6" aria-hidden="true" tabindex="-1"></a>tt <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length <span class="sc">+</span> iris<span class="sc">$</span>Sepal.Width</span>
-<span id="cb1744-7"><a href="outros-gráficos-bivariados.html#cb1744-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tt <span class="sc">~</span> iris<span class="sc">$</span>Species, <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<p>As funções <code>xyplot()</code> e <code>bwplot()</code> são oriundas do pacote <code>lattice</code> <span class="citation">(<a href="#ref-R-lattice">Sarkar 2020</a>)</span> e permitem visualizar rapidamente relações entre variáveis por subgrupos de forma simples e rápida.</p>
+<div class="sourceCode" id="cb1745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1745-1"><a href="outros-gráficos-bivariados.html#cb1745-1" tabindex="-1"></a><span class="co"># muitas funções do R interpretam formulas, que é uma forma simbólica curta para designar coisas complexas</span></span>
+<span id="cb1745-2"><a href="outros-gráficos-bivariados.html#cb1745-2" tabindex="-1"></a>?formula <span class="co"># leia com atenção a sessão de detalhes de como você pode especificar formulas, se ainda não fez isso, pois isso é uma forma de indicar ao R um modelo para graficar</span></span></code></pre></div>
+<div class="sourceCode" id="cb1746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1746-1"><a href="outros-gráficos-bivariados.html#cb1746-1" tabindex="-1"></a><span class="co"># no objeto iris</span></span>
+<span id="cb1746-2"><a href="outros-gráficos-bivariados.html#cb1746-2" tabindex="-1"></a><span class="fu">plot</span>(Sepal.Length <span class="sc">+</span> Sepal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">13</span>))</span>
+<span id="cb1746-3"><a href="outros-gráficos-bivariados.html#cb1746-3" tabindex="-1"></a><span class="fu">plot</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris, <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1746-4"><a href="outros-gráficos-bivariados.html#cb1746-4" tabindex="-1"></a><span class="fu">plot</span>(Sepal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris, <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;&quot;</span>, <span class="at">xaxt =</span> <span class="st">&quot;n&quot;</span>, <span class="at">yaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1746-5"><a href="outros-gráficos-bivariados.html#cb1746-5" tabindex="-1"></a><span class="co"># ou seja a primeira figura é o mesmo que fazer:</span></span>
+<span id="cb1746-6"><a href="outros-gráficos-bivariados.html#cb1746-6" tabindex="-1"></a>tt <span class="ot">&lt;-</span> iris<span class="sc">$</span>Sepal.Length <span class="sc">+</span> iris<span class="sc">$</span>Sepal.Width</span>
+<span id="cb1746-7"><a href="outros-gráficos-bivariados.html#cb1746-7" tabindex="-1"></a><span class="fu">plot</span>(tt <span class="sc">~</span> iris<span class="sc">$</span>Species, <span class="at">add =</span> T, <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-561-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1745-1"><a href="outros-gráficos-bivariados.html#cb1745-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pois neste caso estamos plotando boxplots e a distribuicao dos valores da interacao entre comprimento e largura é basicamente a soma dos valores</span></span></code></pre></div>
-<div class="sourceCode" id="cb1746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1746-1"><a href="outros-gráficos-bivariados.html#cb1746-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Graficos condicionados com o pacote lattice</span></span>
-<span id="cb1746-2"><a href="outros-gráficos-bivariados.html#cb1746-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;lattice&quot;</span>) <span class="co"># carregue o pacote</span></span></code></pre></div>
-<div class="sourceCode" id="cb1747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1747-1"><a href="outros-gráficos-bivariados.html#cb1747-1" aria-hidden="true" tabindex="-1"></a><span class="co"># qual a relacao entre comprimento de sepalas e comprimento de petalas por especie?</span></span>
-<span id="cb1747-2"><a href="outros-gráficos-bivariados.html#cb1747-2" aria-hidden="true" tabindex="-1"></a>?xyplot <span class="co"># veja o help dessa funcao</span></span></code></pre></div>
-<div class="sourceCode" id="cb1748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1748-1"><a href="outros-gráficos-bivariados.html#cb1748-1" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(Sepal.Length <span class="sc">~</span> Petal.Length <span class="sc">|</span> Species, <span class="at">data =</span> iris)</span></code></pre></div>
+<div class="sourceCode" id="cb1747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1747-1"><a href="outros-gráficos-bivariados.html#cb1747-1" tabindex="-1"></a><span class="co"># pois neste caso estamos plotando boxplots e a distribuicao dos valores da interacao entre comprimento e largura é basicamente a soma dos valores</span></span></code></pre></div>
+<div class="sourceCode" id="cb1748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1748-1"><a href="outros-gráficos-bivariados.html#cb1748-1" tabindex="-1"></a><span class="do">## Graficos condicionados com o pacote lattice</span></span>
+<span id="cb1748-2"><a href="outros-gráficos-bivariados.html#cb1748-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;lattice&quot;</span>) <span class="co"># carregue o pacote</span></span></code></pre></div>
+<div class="sourceCode" id="cb1749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1749-1"><a href="outros-gráficos-bivariados.html#cb1749-1" tabindex="-1"></a><span class="co"># qual a relacao entre comprimento de sepalas e comprimento de petalas por especie?</span></span>
+<span id="cb1749-2"><a href="outros-gráficos-bivariados.html#cb1749-2" tabindex="-1"></a>?xyplot <span class="co"># veja o help dessa funcao</span></span></code></pre></div>
+<div class="sourceCode" id="cb1750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1750-1"><a href="outros-gráficos-bivariados.html#cb1750-1" tabindex="-1"></a><span class="fu">xyplot</span>(Sepal.Length <span class="sc">~</span> Petal.Length <span class="sc">|</span> Species, <span class="at">data =</span> iris)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-564-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1749-1"><a href="outros-gráficos-bivariados.html#cb1749-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou mais complexo. Qual a relação entre as quatro variaveis em iris, por especie?</span></span>
-<span id="cb1749-2"><a href="outros-gráficos-bivariados.html#cb1749-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(Sepal.Length <span class="sc">+</span> Sepal.Width <span class="sc">~</span> Petal.Length <span class="sc">+</span> Petal.Width <span class="sc">|</span> Species, <span class="at">data =</span> iris, <span class="at">scales =</span> <span class="st">&quot;sliced&quot;</span>, <span class="at">auto.key =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb1751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1751-1"><a href="outros-gráficos-bivariados.html#cb1751-1" tabindex="-1"></a><span class="co"># ou mais complexo. Qual a relação entre as quatro variaveis em iris, por especie?</span></span>
+<span id="cb1751-2"><a href="outros-gráficos-bivariados.html#cb1751-2" tabindex="-1"></a><span class="fu">xyplot</span>(Sepal.Length <span class="sc">+</span> Sepal.Width <span class="sc">~</span> Petal.Length <span class="sc">+</span> Petal.Width <span class="sc">|</span> Species, <span class="at">data =</span> iris, <span class="at">scales =</span> <span class="st">&quot;sliced&quot;</span>, <span class="at">auto.key =</span> T)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-564-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb1750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1750-1"><a href="outros-gráficos-bivariados.html#cb1750-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que neste caso as correlacoes estao individualizadas por espécie e que as cores representam as relações das variáveis par par</span></span></code></pre></div>
-<div class="sourceCode" id="cb1751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1751-1"><a href="outros-gráficos-bivariados.html#cb1751-1" aria-hidden="true" tabindex="-1"></a>?bwplot <span class="co"># para multiplos boxplots</span></span></code></pre></div>
-<div class="sourceCode" id="cb1752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1752-1"><a href="outros-gráficos-bivariados.html#cb1752-1" aria-hidden="true" tabindex="-1"></a><span class="do">## um data.frame com as duas especies mais abundantes do caixetal</span></span>
-<span id="cb1752-2"><a href="outros-gráficos-bivariados.html#cb1752-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1752-1"><a href="outros-gráficos-bivariados.html#cb1752-1" tabindex="-1"></a><span class="co"># note que neste caso as correlacoes estao individualizadas por espécie e que as cores representam as relações das variáveis par par</span></span></code></pre></div>
+<div class="sourceCode" id="cb1753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1753-1"><a href="outros-gráficos-bivariados.html#cb1753-1" tabindex="-1"></a>?bwplot <span class="co"># para multiplos boxplots</span></span></code></pre></div>
+<div class="sourceCode" id="cb1754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1754-1"><a href="outros-gráficos-bivariados.html#cb1754-1" tabindex="-1"></a><span class="do">## um data.frame com as duas especies mais abundantes do caixetal</span></span>
+<span id="cb1754-2"><a href="outros-gráficos-bivariados.html#cb1754-2" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -767,27 +768,27 @@ Myrcia sulfiflora
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1753-1"><a href="outros-gráficos-bivariados.html#cb1753-1" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(caixeta<span class="sc">$</span>especie)</span>
-<span id="cb1753-2"><a href="outros-gráficos-bivariados.html#cb1753-2" aria-hidden="true" tabindex="-1"></a>maisabund <span class="ot">&lt;-</span> <span class="fu">names</span>(tb[<span class="fu">order</span>(tb, <span class="at">decreasing =</span> T)][<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
-<span id="cb1753-3"><a href="outros-gráficos-bivariados.html#cb1753-3" aria-hidden="true" tabindex="-1"></a>maisabund</span></code></pre></div>
+<div class="sourceCode" id="cb1755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1755-1"><a href="outros-gráficos-bivariados.html#cb1755-1" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(caixeta<span class="sc">$</span>especie)</span>
+<span id="cb1755-2"><a href="outros-gráficos-bivariados.html#cb1755-2" tabindex="-1"></a>maisabund <span class="ot">&lt;-</span> <span class="fu">names</span>(tb[<span class="fu">order</span>(tb, <span class="at">decreasing =</span> T)][<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span>
+<span id="cb1755-3"><a href="outros-gráficos-bivariados.html#cb1755-3" tabindex="-1"></a>maisabund</span></code></pre></div>
 <pre><code>## [1] &quot;Tabebuia cassinoides&quot; &quot;Myrcia sulfiflora&quot;</code></pre>
-<div class="sourceCode" id="cb1755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1755-1"><a href="outros-gráficos-bivariados.html#cb1755-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filtra os dados orginais para essas especies</span></span>
-<span id="cb1755-2"><a href="outros-gráficos-bivariados.html#cb1755-2" aria-hidden="true" tabindex="-1"></a>caixeta2 <span class="ot">&lt;-</span> caixeta[caixeta<span class="sc">$</span>especie <span class="sc">%in%</span> maisabund, ]</span>
-<span id="cb1755-3"><a href="outros-gráficos-bivariados.html#cb1755-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1755-4"><a href="outros-gráficos-bivariados.html#cb1755-4" aria-hidden="true" tabindex="-1"></a><span class="co"># distribuicao dos valores de altura por local para cada especie</span></span>
-<span id="cb1755-5"><a href="outros-gráficos-bivariados.html#cb1755-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bwplot</span>(h <span class="sc">~</span> local <span class="sc">|</span> especie, <span class="at">data =</span> caixeta2)</span></code></pre></div>
+<div class="sourceCode" id="cb1757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1757-1"><a href="outros-gráficos-bivariados.html#cb1757-1" tabindex="-1"></a><span class="co"># filtra os dados orginais para essas especies</span></span>
+<span id="cb1757-2"><a href="outros-gráficos-bivariados.html#cb1757-2" tabindex="-1"></a>caixeta2 <span class="ot">&lt;-</span> caixeta[caixeta<span class="sc">$</span>especie <span class="sc">%in%</span> maisabund, ]</span>
+<span id="cb1757-3"><a href="outros-gráficos-bivariados.html#cb1757-3" tabindex="-1"></a></span>
+<span id="cb1757-4"><a href="outros-gráficos-bivariados.html#cb1757-4" tabindex="-1"></a><span class="co"># distribuicao dos valores de altura por local para cada especie</span></span>
+<span id="cb1757-5"><a href="outros-gráficos-bivariados.html#cb1757-5" tabindex="-1"></a><span class="fu">bwplot</span>(h <span class="sc">~</span> local <span class="sc">|</span> especie, <span class="at">data =</span> caixeta2)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-566-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1756-1"><a href="outros-gráficos-bivariados.html#cb1756-1" aria-hidden="true" tabindex="-1"></a><span class="co"># distribuicao dos valores de cap por classes de altura, por especie</span></span>
-<span id="cb1756-2"><a href="outros-gráficos-bivariados.html#cb1756-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bwplot</span>(h <span class="sc">~</span> cap <span class="sc">|</span> especie, <span class="at">data =</span> caixeta2)</span></code></pre></div>
+<div class="sourceCode" id="cb1758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1758-1"><a href="outros-gráficos-bivariados.html#cb1758-1" tabindex="-1"></a><span class="co"># distribuicao dos valores de cap por classes de altura, por especie</span></span>
+<span id="cb1758-2"><a href="outros-gráficos-bivariados.html#cb1758-2" tabindex="-1"></a><span class="fu">bwplot</span>(h <span class="sc">~</span> cap <span class="sc">|</span> especie, <span class="at">data =</span> caixeta2)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-566-2.svg" width="672" /></p>
-<div class="sourceCode" id="cb1757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1757-1"><a href="outros-gráficos-bivariados.html#cb1757-1" aria-hidden="true" tabindex="-1"></a><span class="co"># relacao altura vs cap por especie e por local</span></span>
-<span id="cb1757-2"><a href="outros-gráficos-bivariados.html#cb1757-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xyplot</span>(h <span class="sc">~</span> cap <span class="sc">|</span> especie <span class="sc">+</span> local, <span class="at">data =</span> caixeta2, <span class="at">auto.key =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb1759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1759-1"><a href="outros-gráficos-bivariados.html#cb1759-1" tabindex="-1"></a><span class="co"># relacao altura vs cap por especie e por local</span></span>
+<span id="cb1759-2"><a href="outros-gráficos-bivariados.html#cb1759-2" tabindex="-1"></a><span class="fu">xyplot</span>(h <span class="sc">~</span> cap <span class="sc">|</span> especie <span class="sc">+</span> local, <span class="at">data =</span> caixeta2, <span class="at">auto.key =</span> T)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-566-3.svg" width="672" /></p>
 
 </div>
 <!-- </div> -->
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-R-lattice" class="csl-entry">
 Sarkar, Deepayan. 2020. <em>lattice: Trellis Graphics for R</em>. <a href="http://lattice.r-forge.r-project.org/">http://lattice.r-forge.r-project.org/</a>.
 </div>
@@ -812,43 +813,43 @@ Sarkar, Deepayan. 2020. <em>lattice: Trellis Graphics for R</em>. <a href="http:
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/13-aed_checabivar.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/13-aed_checabivar.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/13-aed_checabivar.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/13-aed_checabivar.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>O que é o R e por qual razão você deve se preocupar em programar | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="O que é o R e por qual razão você deve se preocupar em programar | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -560,7 +561,7 @@ div.csl-indent {
 <p><em>O R é um software livre e gratuito de desenvolvimento coletivo e é muito útil para quem trabalha com ciências e precisa manipular e analisar dados, gerar gráficos e publicações dinâmicas. Tem uma comunidade enorme de usuários e colaboradores e está disponível gratuitamente em diversos repositórios espalhados pelo mundo</em> (<a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>).</p>
 </blockquote>
 <blockquote>
-<p><em>O R foi criado para permitir a melhor e mais ampla exploração de dados possível, (…) mas sempre explicando a natureza dos métodos utilizados, num formato aberto (livre) e compreensível</em> <span class="citation">(<a href="#ref-Chambers2008" role="doc-biblioref">Chambers 2008</a>)</span>.</p>
+<p><em>O R foi criado para permitir a melhor e mais ampla exploração de dados possível, (…) mas sempre explicando a natureza dos métodos utilizados, num formato aberto (livre) e compreensível</em> <span class="citation">(<a href="#ref-Chambers2008">Chambers 2008</a>)</span>.</p>
 </blockquote>
 <blockquote>
 <p><em>O R é uma linguagem de programação; você conversa com o R através de um código</em>.</p>
@@ -590,13 +591,13 @@ div.csl-indent {
 <p><strong>É tentador tratar todas as coisas como se fossem pregos, se a única ferramenta que você tem é um martelo</strong> (Abraham Maslow, 1996, <a href="https://en.wikipedia.org/wiki/Law_of_the_instrument">Lei do Instrumento</a>)! Liberte-se da camisa de força dos softwares de estatística que limitam as análises que você pode fazer e como pode fazer.</p>
 </blockquote>
 <blockquote>
-<p><em>Um dos objetivos da análise estatística é o de destilar um conjunto longo e complicado de dados em um número pequeno de estatísticas descritivas que façam sentido. Muitos dos pacotes estatísticos de computadores modernos, no entanto, fazem exatamente o oposto disso. Eles produzem automaticamente um número excessivo de resultados que termina sendo aceito sem crítica; pode levar à super interpretação dos dados; e incentiva o mal hábito de <strong>jogar dados e cuspir resultados</strong> (data trawling). O R, por outro lado, não lhe diz nada a não ser aquilo que você peça explicitamente</em> <span class="citation">(<a href="#ref-Crawley2007" role="doc-biblioref">Crawley 2007</a>)</span>.</p>
+<p><em>Um dos objetivos da análise estatística é o de destilar um conjunto longo e complicado de dados em um número pequeno de estatísticas descritivas que façam sentido. Muitos dos pacotes estatísticos de computadores modernos, no entanto, fazem exatamente o oposto disso. Eles produzem automaticamente um número excessivo de resultados que termina sendo aceito sem crítica; pode levar à super interpretação dos dados; e incentiva o mal hábito de <strong>jogar dados e cuspir resultados</strong> (data trawling). O R, por outro lado, não lhe diz nada a não ser aquilo que você peça explicitamente</em> <span class="citation">(<a href="#ref-Crawley2007">Crawley 2007</a>)</span>.</p>
 </blockquote>
 <blockquote>
 <p>(…) aprender a programar é importante porque desenvolve habilidades analíticas e de resolução de problemas. É uma atividade criativa, um meio de expressar idéias abstratas. Assim, programar é divertido e é muito mais do que uma habilidade profissional. Ao projetar programas, aprendemos muitas habilidades que são importantes para todas as profissões. Essas habilidades podem ser resumidas como: (1) Leitura crítica, (2) Pensamento analítico, (3) Síntese criativa (<a href="http://programmingstage.blogspot.com.br/2012/05/why-programming-is-important.html">Why programming is important</a>).</p>
 </blockquote>
 <blockquote>
-<p><em>Uma das coisas mais importantes que você (como cientista) pode fazer é dedicar um tempo para aprender uma linguagem de programação de verdade. Aprender a programar é como aprender outro idioma: exige tempo e treinamento, e não há resultados práticos imediatos. Mas se você supera essa primeira subida íngreme da curva de aprendizado, os ganhos como cientista são enormes. Programar não vai apenas livrar você da camisa de força dos pacotes estatísticos, mas também irá aguçar suas habilidades analíticas e ampliar os horizontes de modelagem (..) e estatística</em> <span class="citation">(<a href="#ref-Gotelli2013" role="doc-biblioref">Gotelli e Ellison 2013</a>)</span>.</p>
+<p><em>Uma das coisas mais importantes que você (como cientista) pode fazer é dedicar um tempo para aprender uma linguagem de programação de verdade. Aprender a programar é como aprender outro idioma: exige tempo e treinamento, e não há resultados práticos imediatos. Mas se você supera essa primeira subida íngreme da curva de aprendizado, os ganhos como cientista são enormes. Programar não vai apenas livrar você da camisa de força dos pacotes estatísticos, mas também irá aguçar suas habilidades analíticas e ampliar os horizontes de modelagem (..) e estatística</em> <span class="citation">(<a href="#ref-Gotelli2013">Gotelli e Ellison 2013</a>)</span>.</p>
 </blockquote>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="figuras/aprendizadogeekvsnongeek.png" alt="Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que tem medo de código (non-geek)." width="101%" />
@@ -607,7 +608,7 @@ Figura 0.3: Curvas de aprendizagem do aluno Sabichão (Geek) e de um aluno que t
 </div>
 </div>
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-Chambers2008" class="csl-entry">
 Chambers, John M. 2008. <em>Programming with R</em>. Editado por W. Härdle e David Hand. Springer. <a href="https://doi.org/10.1007/978-0-387-75936-4">https://doi.org/10.1007/978-0-387-75936-4</a>.
 </div>
@@ -638,43 +639,43 @@ Gotelli, Nicholas J., e Aaron M. Ellison. 2013. <em><span>A Primer of Ecological
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/index.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/index.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

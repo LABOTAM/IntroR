@@ -217,10 +217,10 @@
 <text x='309.07' y='131.66' text-anchor='middle' style='font-size: 9.60px;fill: #00FF00; font-family: "Liberation Sans";' textLength='9.39px' lengthAdjust='spacingAndGlyphs'>VI</text>
 <text x='277.07' y='124.52' text-anchor='middle' style='font-size: 9.60px;fill: #00FF00; font-family: "Liberation Sans";' textLength='9.39px' lengthAdjust='spacingAndGlyphs'>VI</text>
 <text x='245.07' y='135.23' text-anchor='middle' style='font-size: 9.60px;fill: #00FF00; font-family: "Liberation Sans";' textLength='9.39px' lengthAdjust='spacingAndGlyphs'>VI</text>
-<rect x='334.74' y='184.61' width='97.55' height='79.20' style='stroke-width: 0.00;' />
-<text x='356.34' y='206.98' style='font-size: 12.00px;fill: #FF0000; font-family: "Liberation Sans";' textLength='61.19px' lengthAdjust='spacingAndGlyphs'>Iris setosa</text>
-<text x='356.34' y='228.58' style='font-size: 12.00px;fill: #0000FF; font-family: "Liberation Sans";' textLength='80.45px' lengthAdjust='spacingAndGlyphs'>Iris versicolor</text>
-<text x='356.34' y='250.18' style='font-size: 12.00px;fill: #00FF00; font-family: "Liberation Sans";' textLength='72.90px' lengthAdjust='spacingAndGlyphs'>Iris virginica</text>
+<rect x='324.84' y='184.61' width='107.45' height='79.20' style='stroke-width: 0.00; fill: #FFFFFF;' />
+<text x='346.44' y='206.98' style='font-size: 12.00px;fill: #FF0000; font-family: "Liberation Sans";' textLength='61.19px' lengthAdjust='spacingAndGlyphs'>Iris setosa</text>
+<text x='346.44' y='228.58' style='font-size: 12.00px;fill: #0000FF; font-family: "Liberation Sans";' textLength='80.45px' lengthAdjust='spacingAndGlyphs'>Iris versicolor</text>
+<text x='346.44' y='250.18' style='font-size: 12.00px;fill: #00FF00; font-family: "Liberation Sans";' textLength='72.90px' lengthAdjust='spacingAndGlyphs'>Iris virginica</text>
 <text x='95.73' y='102.91' style='font-size: 12.00px;fill: #FFFF00; font-family: "Liberation Sans";' textLength='73.58px' lengthAdjust='spacingAndGlyphs'>Exemplo Iris</text>
 <text x='95.73' y='102.91' text-anchor='end' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='73.58px' lengthAdjust='spacingAndGlyphs'>Exemplo Iris</text>
 <text x='110.45' y='108.35' text-anchor='middle' style='font-size: 12.00px;fill: #A020F0; font-family: "Liberation Sans";' textLength='73.58px' lengthAdjust='spacingAndGlyphs'>Exemplo Iris</text>

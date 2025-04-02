@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.4 Importando e exportando dados no R | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.4 Importando e exportando dados no R | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -627,105 +628,105 @@ Veja os controles na importação quanto aos elementos acima:</p>
 <li><p>Salve o arquivo como <code>*.ods</code>;</p></li>
 <li><p>Salve novamente como <code>*.csv</code> - veja como você tem controle na exportação quanto aos elementos acima.</p></li>
 </ul>
-<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="importando-e-exportando-dados-no-r.html#cb685-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se você colocou o arquivo na sua pasta de trabalho, ele deve estar visível por</span></span>
-<span id="cb685-2"><a href="importando-e-exportando-dados-no-r.html#cb685-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="importando-e-exportando-dados-no-r.html#cb686-1" aria-hidden="true" tabindex="-1"></a><span class="co"># então posso ler sem precisar especificar o caminho até o arquivo</span></span>
-<span id="cb686-2"><a href="importando-e-exportando-dados-no-r.html#cb686-2" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o help da função antes de começar</span></span>
-<span id="cb686-3"><a href="importando-e-exportando-dados-no-r.html#cb686-3" aria-hidden="true" tabindex="-1"></a>?read.table</span>
-<span id="cb686-4"><a href="importando-e-exportando-dados-no-r.html#cb686-4" aria-hidden="true" tabindex="-1"></a><span class="co"># os seguintes argumentos são mais importantes:</span></span>
-<span id="cb686-5"><a href="importando-e-exportando-dados-no-r.html#cb686-5" aria-hidden="true" tabindex="-1"></a><span class="co"># sep = &quot; &quot; #o codigo que separa as colunas, o padrão é espaço</span></span>
-<span id="cb686-6"><a href="importando-e-exportando-dados-no-r.html#cb686-6" aria-hidden="true" tabindex="-1"></a><span class="co"># quote = &quot;\&quot;&#39;&quot;  #o que define células de texto - o padrão é interpretar tanto aspa simples como dupla presentes</span></span>
-<span id="cb686-7"><a href="importando-e-exportando-dados-no-r.html#cb686-7" aria-hidden="true" tabindex="-1"></a><span class="co"># dec = &quot;.&quot; #ponto é a casa decimal padrão</span></span>
-<span id="cb686-8"><a href="importando-e-exportando-dados-no-r.html#cb686-8" aria-hidden="true" tabindex="-1"></a><span class="co"># header = FALSE #a primeira linha não tem o nome de colunas</span></span>
-<span id="cb686-9"><a href="importando-e-exportando-dados-no-r.html#cb686-9" aria-hidden="true" tabindex="-1"></a><span class="co"># as.is = FALSE #o padrão é converter texto em fatores, se usar T não fará isso</span></span>
-<span id="cb686-10"><a href="importando-e-exportando-dados-no-r.html#cb686-10" aria-hidden="true" tabindex="-1"></a><span class="co"># na.strings #se definir, pode informar aqui que símbolos em células inteiras que sejam interpretados como valores ausentes (NA)</span></span>
-<span id="cb686-11"><a href="importando-e-exportando-dados-no-r.html#cb686-11" aria-hidden="true" tabindex="-1"></a><span class="co"># encoding #codificação da acentuação. o padrão é &#39;unknown&#39; (desconhecido), na qual ele reconhece segundo o sistema operacional. As opções mais usadas são &#39;latin1&#39; ou &#39;utf8&#39; e alterne com isso se você tem problemas com acentos.</span></span></code></pre></div>
-<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="importando-e-exportando-dados-no-r.html#cb687-1" aria-hidden="true" tabindex="-1"></a><span class="co"># o arquivo original tem os seguintes formatos:</span></span>
-<span id="cb687-2"><a href="importando-e-exportando-dados-no-r.html#cb687-2" aria-hidden="true" tabindex="-1"></a><span class="co"># colunas separadas por tabulação (no R isso é definido pela expressão regular &quot;\t&quot;)</span></span>
-<span id="cb687-3"><a href="importando-e-exportando-dados-no-r.html#cb687-3" aria-hidden="true" tabindex="-1"></a><span class="co"># decimal com ponto</span></span>
-<span id="cb687-4"><a href="importando-e-exportando-dados-no-r.html#cb687-4" aria-hidden="true" tabindex="-1"></a><span class="co"># não tem aspas definindo as colunas de texto.</span></span>
-<span id="cb687-5"><a href="importando-e-exportando-dados-no-r.html#cb687-5" aria-hidden="true" tabindex="-1"></a><span class="co"># a primeira linha é o nome das colunas.</span></span>
-<span id="cb687-6"><a href="importando-e-exportando-dados-no-r.html#cb687-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Então, para ler posso usar:</span></span>
-<span id="cb687-7"><a href="importando-e-exportando-dados-no-r.html#cb687-7" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T)</span>
-<span id="cb687-8"><a href="importando-e-exportando-dados-no-r.html#cb687-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dd) <span class="co"># data.frame</span></span>
-<span id="cb687-9"><a href="importando-e-exportando-dados-no-r.html#cb687-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dd) <span class="co"># dimensão do objeto</span></span>
-<span id="cb687-10"><a href="importando-e-exportando-dados-no-r.html#cb687-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dd) <span class="co"># cabeçalho do data.frame</span></span>
-<span id="cb687-11"><a href="importando-e-exportando-dados-no-r.html#cb687-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb687-12"><a href="importando-e-exportando-dados-no-r.html#cb687-12" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o que aconteceria se eu achasse que no meu arquivo as colunas são separadas por vírgula</span></span>
-<span id="cb687-13"><a href="importando-e-exportando-dados-no-r.html#cb687-13" aria-hidden="true" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">header =</span> T)</span>
-<span id="cb687-14"><a href="importando-e-exportando-dados-no-r.html#cb687-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dd2)</span>
-<span id="cb687-15"><a href="importando-e-exportando-dados-no-r.html#cb687-15" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dd2) <span class="co"># apenas 1 coluna, porque o separador informado não é o mesmo dos dados</span></span>
-<span id="cb687-16"><a href="importando-e-exportando-dados-no-r.html#cb687-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb687-17"><a href="importando-e-exportando-dados-no-r.html#cb687-17" aria-hidden="true" tabindex="-1"></a><span class="co"># e se o encoding do meu arquivo estiver errado?</span></span>
-<span id="cb687-18"><a href="importando-e-exportando-dados-no-r.html#cb687-18" aria-hidden="true" tabindex="-1"></a>dd3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">encoding =</span> <span class="st">&quot;latin1&quot;</span>)</span>
-<span id="cb687-19"><a href="importando-e-exportando-dados-no-r.html#cb687-19" aria-hidden="true" tabindex="-1"></a>dd3[<span class="dv">5562</span>, ] <span class="co"># veja o que aconteceu com os acentos nessa linha</span></span>
-<span id="cb687-20"><a href="importando-e-exportando-dados-no-r.html#cb687-20" aria-hidden="true" tabindex="-1"></a>dd[<span class="dv">5562</span>, ] <span class="co"># no original o encoding não é &quot;latin1&quot;</span></span>
-<span id="cb687-21"><a href="importando-e-exportando-dados-no-r.html#cb687-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb687-22"><a href="importando-e-exportando-dados-no-r.html#cb687-22" aria-hidden="true" tabindex="-1"></a><span class="co"># veja a estrutura do objeto correto</span></span>
-<span id="cb687-23"><a href="importando-e-exportando-dados-no-r.html#cb687-23" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd)</span>
-<span id="cb687-24"><a href="importando-e-exportando-dados-no-r.html#cb687-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Poxa, todas as colunas são fatores, mesmo as colunas Latitude e Longitude que são numéricas.</span></span>
-<span id="cb687-25"><a href="importando-e-exportando-dados-no-r.html#cb687-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Deve ter algum valor nessas colunas que não são numéricos.</span></span>
-<span id="cb687-26"><a href="importando-e-exportando-dados-no-r.html#cb687-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Quais são?</span></span>
-<span id="cb687-27"><a href="importando-e-exportando-dados-no-r.html#cb687-27" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> <span class="fu">is.na</span>(<span class="fu">as.numeric</span>(<span class="fu">as.vector</span>(dd<span class="sc">$</span>Latitude))) <span class="co"># quais são NA quando eu converto para numérico? Pois esses devem ser valores de texto e não numéricos. Note que converti o fator para vetor antes de converter para numérico. A função is.na pergunta o que é NA, pois os textos que não podem ser convertidos para número serão valores ausentes (NA)</span></span>
-<span id="cb687-28"><a href="importando-e-exportando-dados-no-r.html#cb687-28" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vl)</span>
-<span id="cb687-29"><a href="importando-e-exportando-dados-no-r.html#cb687-29" aria-hidden="true" tabindex="-1"></a>dd[vl, ] <span class="co"># essas linhas tem a palavra &quot;NULL&quot; para Latitude e Longitude no arquivo original (volte lá para confirmar), e o R não reconheceu isso como ausente NA. Como vetores devem ser da mesma classe, os números dessas colunas foram codificados como texto e as colunas convertidas a fatores de texto que é o padrão da função read.table()</span></span></code></pre></div>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="importando-e-exportando-dados-no-r.html#cb685-1" tabindex="-1"></a><span class="co"># se você colocou o arquivo na sua pasta de trabalho, ele deve estar visível por</span></span>
+<span id="cb685-2"><a href="importando-e-exportando-dados-no-r.html#cb685-2" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="importando-e-exportando-dados-no-r.html#cb686-1" tabindex="-1"></a><span class="co"># então posso ler sem precisar especificar o caminho até o arquivo</span></span>
+<span id="cb686-2"><a href="importando-e-exportando-dados-no-r.html#cb686-2" tabindex="-1"></a><span class="co"># veja o help da função antes de começar</span></span>
+<span id="cb686-3"><a href="importando-e-exportando-dados-no-r.html#cb686-3" tabindex="-1"></a>?read.table</span>
+<span id="cb686-4"><a href="importando-e-exportando-dados-no-r.html#cb686-4" tabindex="-1"></a><span class="co"># os seguintes argumentos são mais importantes:</span></span>
+<span id="cb686-5"><a href="importando-e-exportando-dados-no-r.html#cb686-5" tabindex="-1"></a><span class="co"># sep = &quot; &quot; #o codigo que separa as colunas, o padrão é espaço</span></span>
+<span id="cb686-6"><a href="importando-e-exportando-dados-no-r.html#cb686-6" tabindex="-1"></a><span class="co"># quote = &quot;\&quot;&#39;&quot;  #o que define células de texto - o padrão é interpretar tanto aspa simples como dupla presentes</span></span>
+<span id="cb686-7"><a href="importando-e-exportando-dados-no-r.html#cb686-7" tabindex="-1"></a><span class="co"># dec = &quot;.&quot; #ponto é a casa decimal padrão</span></span>
+<span id="cb686-8"><a href="importando-e-exportando-dados-no-r.html#cb686-8" tabindex="-1"></a><span class="co"># header = FALSE #a primeira linha não tem o nome de colunas</span></span>
+<span id="cb686-9"><a href="importando-e-exportando-dados-no-r.html#cb686-9" tabindex="-1"></a><span class="co"># as.is = FALSE #o padrão é converter texto em fatores, se usar T não fará isso</span></span>
+<span id="cb686-10"><a href="importando-e-exportando-dados-no-r.html#cb686-10" tabindex="-1"></a><span class="co"># na.strings #se definir, pode informar aqui que símbolos em células inteiras que sejam interpretados como valores ausentes (NA)</span></span>
+<span id="cb686-11"><a href="importando-e-exportando-dados-no-r.html#cb686-11" tabindex="-1"></a><span class="co"># encoding #codificação da acentuação. o padrão é &#39;unknown&#39; (desconhecido), na qual ele reconhece segundo o sistema operacional. As opções mais usadas são &#39;latin1&#39; ou &#39;utf8&#39; e alterne com isso se você tem problemas com acentos.</span></span></code></pre></div>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="importando-e-exportando-dados-no-r.html#cb687-1" tabindex="-1"></a><span class="co"># o arquivo original tem os seguintes formatos:</span></span>
+<span id="cb687-2"><a href="importando-e-exportando-dados-no-r.html#cb687-2" tabindex="-1"></a><span class="co"># colunas separadas por tabulação (no R isso é definido pela expressão regular &quot;\t&quot;)</span></span>
+<span id="cb687-3"><a href="importando-e-exportando-dados-no-r.html#cb687-3" tabindex="-1"></a><span class="co"># decimal com ponto</span></span>
+<span id="cb687-4"><a href="importando-e-exportando-dados-no-r.html#cb687-4" tabindex="-1"></a><span class="co"># não tem aspas definindo as colunas de texto.</span></span>
+<span id="cb687-5"><a href="importando-e-exportando-dados-no-r.html#cb687-5" tabindex="-1"></a><span class="co"># a primeira linha é o nome das colunas.</span></span>
+<span id="cb687-6"><a href="importando-e-exportando-dados-no-r.html#cb687-6" tabindex="-1"></a><span class="co"># Então, para ler posso usar:</span></span>
+<span id="cb687-7"><a href="importando-e-exportando-dados-no-r.html#cb687-7" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb687-8"><a href="importando-e-exportando-dados-no-r.html#cb687-8" tabindex="-1"></a><span class="fu">class</span>(dd) <span class="co"># data.frame</span></span>
+<span id="cb687-9"><a href="importando-e-exportando-dados-no-r.html#cb687-9" tabindex="-1"></a><span class="fu">dim</span>(dd) <span class="co"># dimensão do objeto</span></span>
+<span id="cb687-10"><a href="importando-e-exportando-dados-no-r.html#cb687-10" tabindex="-1"></a><span class="fu">head</span>(dd) <span class="co"># cabeçalho do data.frame</span></span>
+<span id="cb687-11"><a href="importando-e-exportando-dados-no-r.html#cb687-11" tabindex="-1"></a></span>
+<span id="cb687-12"><a href="importando-e-exportando-dados-no-r.html#cb687-12" tabindex="-1"></a><span class="co"># veja o que aconteceria se eu achasse que no meu arquivo as colunas são separadas por vírgula</span></span>
+<span id="cb687-13"><a href="importando-e-exportando-dados-no-r.html#cb687-13" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb687-14"><a href="importando-e-exportando-dados-no-r.html#cb687-14" tabindex="-1"></a><span class="fu">head</span>(dd2)</span>
+<span id="cb687-15"><a href="importando-e-exportando-dados-no-r.html#cb687-15" tabindex="-1"></a><span class="fu">dim</span>(dd2) <span class="co"># apenas 1 coluna, porque o separador informado não é o mesmo dos dados</span></span>
+<span id="cb687-16"><a href="importando-e-exportando-dados-no-r.html#cb687-16" tabindex="-1"></a></span>
+<span id="cb687-17"><a href="importando-e-exportando-dados-no-r.html#cb687-17" tabindex="-1"></a><span class="co"># e se o encoding do meu arquivo estiver errado?</span></span>
+<span id="cb687-18"><a href="importando-e-exportando-dados-no-r.html#cb687-18" tabindex="-1"></a>dd3 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">encoding =</span> <span class="st">&quot;latin1&quot;</span>)</span>
+<span id="cb687-19"><a href="importando-e-exportando-dados-no-r.html#cb687-19" tabindex="-1"></a>dd3[<span class="dv">5562</span>, ] <span class="co"># veja o que aconteceu com os acentos nessa linha</span></span>
+<span id="cb687-20"><a href="importando-e-exportando-dados-no-r.html#cb687-20" tabindex="-1"></a>dd[<span class="dv">5562</span>, ] <span class="co"># no original o encoding não é &quot;latin1&quot;</span></span>
+<span id="cb687-21"><a href="importando-e-exportando-dados-no-r.html#cb687-21" tabindex="-1"></a></span>
+<span id="cb687-22"><a href="importando-e-exportando-dados-no-r.html#cb687-22" tabindex="-1"></a><span class="co"># veja a estrutura do objeto correto</span></span>
+<span id="cb687-23"><a href="importando-e-exportando-dados-no-r.html#cb687-23" tabindex="-1"></a><span class="fu">str</span>(dd)</span>
+<span id="cb687-24"><a href="importando-e-exportando-dados-no-r.html#cb687-24" tabindex="-1"></a><span class="co"># Poxa, todas as colunas são fatores, mesmo as colunas Latitude e Longitude que são numéricas.</span></span>
+<span id="cb687-25"><a href="importando-e-exportando-dados-no-r.html#cb687-25" tabindex="-1"></a><span class="co"># Deve ter algum valor nessas colunas que não são numéricos.</span></span>
+<span id="cb687-26"><a href="importando-e-exportando-dados-no-r.html#cb687-26" tabindex="-1"></a><span class="co"># Quais são?</span></span>
+<span id="cb687-27"><a href="importando-e-exportando-dados-no-r.html#cb687-27" tabindex="-1"></a>vl <span class="ot">&lt;-</span> <span class="fu">is.na</span>(<span class="fu">as.numeric</span>(<span class="fu">as.vector</span>(dd<span class="sc">$</span>Latitude))) <span class="co"># quais são NA quando eu converto para numérico? Pois esses devem ser valores de texto e não numéricos. Note que converti o fator para vetor antes de converter para numérico. A função is.na pergunta o que é NA, pois os textos que não podem ser convertidos para número serão valores ausentes (NA)</span></span>
+<span id="cb687-28"><a href="importando-e-exportando-dados-no-r.html#cb687-28" tabindex="-1"></a><span class="fu">sum</span>(vl)</span>
+<span id="cb687-29"><a href="importando-e-exportando-dados-no-r.html#cb687-29" tabindex="-1"></a>dd[vl, ] <span class="co"># essas linhas tem a palavra &quot;NULL&quot; para Latitude e Longitude no arquivo original (volte lá para confirmar), e o R não reconheceu isso como ausente NA. Como vetores devem ser da mesma classe, os números dessas colunas foram codificados como texto e as colunas convertidas a fatores de texto que é o padrão da função read.table()</span></span></code></pre></div>
 <p>Podemos usar o argumento <code>na.strings</code> para corrigir isso durante a importação:</p>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="importando-e-exportando-dados-no-r.html#cb688-1" aria-hidden="true" tabindex="-1"></a>dd4 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
-<span id="cb688-2"><a href="importando-e-exportando-dados-no-r.html#cb688-2" aria-hidden="true" tabindex="-1"></a><span class="co"># qualquer CELULA INTEIRA que contenha NULL ou NA ou esteja vazia SERÁ INTERPRETADA COMO VALOR AUSENTE e codificada como NA no R.</span></span>
-<span id="cb688-3"><a href="importando-e-exportando-dados-no-r.html#cb688-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd4)</span>
-<span id="cb688-4"><a href="importando-e-exportando-dados-no-r.html#cb688-4" aria-hidden="true" tabindex="-1"></a><span class="co"># note que agora as colunas Latitude e Longitude foram interpretadas como número</span></span>
-<span id="cb688-5"><a href="importando-e-exportando-dados-no-r.html#cb688-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb688-6"><a href="importando-e-exportando-dados-no-r.html#cb688-6" aria-hidden="true" tabindex="-1"></a><span class="co"># mas o que acontece se informamos mal a casa decimal?</span></span>
-<span id="cb688-7"><a href="importando-e-exportando-dados-no-r.html#cb688-7" aria-hidden="true" tabindex="-1"></a>dd5 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
-<span id="cb688-8"><a href="importando-e-exportando-dados-no-r.html#cb688-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd5)</span>
-<span id="cb688-9"><a href="importando-e-exportando-dados-no-r.html#cb688-9" aria-hidden="true" tabindex="-1"></a><span class="co"># como tem ponto como definição de casa decimal no arquivo de dados, as colunas numéricas foram novamente interpretadas como texto.</span></span>
-<span id="cb688-10"><a href="importando-e-exportando-dados-no-r.html#cb688-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb688-11"><a href="importando-e-exportando-dados-no-r.html#cb688-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Texto como vetores ou fatores?</span></span>
-<span id="cb688-12"><a href="importando-e-exportando-dados-no-r.html#cb688-12" aria-hidden="true" tabindex="-1"></a>dd4 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
-<span id="cb688-13"><a href="importando-e-exportando-dados-no-r.html#cb688-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd4) <span class="co"># todas as colunas de texto neste objeto foram interpretadas como fatores</span></span>
-<span id="cb688-14"><a href="importando-e-exportando-dados-no-r.html#cb688-14" aria-hidden="true" tabindex="-1"></a><span class="co"># o argumento as.is permite corrigir isso. &quot;as is&quot; significa &quot;como está&quot; nos dados originais, então valores de texto são lidos como vetores de caracteres não codificados em fatores.</span></span>
-<span id="cb688-15"><a href="importando-e-exportando-dados-no-r.html#cb688-15" aria-hidden="true" tabindex="-1"></a>dd6 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
-<span id="cb688-16"><a href="importando-e-exportando-dados-no-r.html#cb688-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>,</span>
-<span id="cb688-17"><a href="importando-e-exportando-dados-no-r.html#cb688-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
-<span id="cb688-18"><a href="importando-e-exportando-dados-no-r.html#cb688-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">header =</span> T,</span>
-<span id="cb688-19"><a href="importando-e-exportando-dados-no-r.html#cb688-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>,</span>
-<span id="cb688-20"><a href="importando-e-exportando-dados-no-r.html#cb688-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>),</span>
-<span id="cb688-21"><a href="importando-e-exportando-dados-no-r.html#cb688-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">as.is =</span> <span class="cn">TRUE</span></span>
-<span id="cb688-22"><a href="importando-e-exportando-dados-no-r.html#cb688-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb688-23"><a href="importando-e-exportando-dados-no-r.html#cb688-23" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd6) <span class="co"># diferentemente do objeto anterior, não há mais fatores</span></span></code></pre></div>
-<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="importando-e-exportando-dados-no-r.html#cb689-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lembram que colocamos o endereco do arquivo mais acima?</span></span>
-<span id="cb689-2"><a href="importando-e-exportando-dados-no-r.html#cb689-2" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos usar um endereco da internet para baixar um arquivo</span></span>
-<span id="cb689-3"><a href="importando-e-exportando-dados-no-r.html#cb689-3" aria-hidden="true" tabindex="-1"></a>dd7 <span class="ot">&lt;-</span></span>
-<span id="cb689-4"><a href="importando-e-exportando-dados-no-r.html#cb689-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read.table</span>(</span>
-<span id="cb689-5"><a href="importando-e-exportando-dados-no-r.html#cb689-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv&quot;</span>,</span>
-<span id="cb689-6"><a href="importando-e-exportando-dados-no-r.html#cb689-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
-<span id="cb689-7"><a href="importando-e-exportando-dados-no-r.html#cb689-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">header =</span> <span class="cn">TRUE</span></span>
-<span id="cb689-8"><a href="importando-e-exportando-dados-no-r.html#cb689-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb689-9"><a href="importando-e-exportando-dados-no-r.html#cb689-9" aria-hidden="true" tabindex="-1"></a>dd7</span>
-<span id="cb689-10"><a href="importando-e-exportando-dados-no-r.html#cb689-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dd7)</span>
-<span id="cb689-11"><a href="importando-e-exportando-dados-no-r.html#cb689-11" aria-hidden="true" tabindex="-1"></a><span class="co"># a função read.table tem vários outros argumentos. Veja o help e entenda isso bem.</span></span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="importando-e-exportando-dados-no-r.html#cb688-1" tabindex="-1"></a>dd4 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb688-2"><a href="importando-e-exportando-dados-no-r.html#cb688-2" tabindex="-1"></a><span class="co"># qualquer CELULA INTEIRA que contenha NULL ou NA ou esteja vazia SERÁ INTERPRETADA COMO VALOR AUSENTE e codificada como NA no R.</span></span>
+<span id="cb688-3"><a href="importando-e-exportando-dados-no-r.html#cb688-3" tabindex="-1"></a><span class="fu">str</span>(dd4)</span>
+<span id="cb688-4"><a href="importando-e-exportando-dados-no-r.html#cb688-4" tabindex="-1"></a><span class="co"># note que agora as colunas Latitude e Longitude foram interpretadas como número</span></span>
+<span id="cb688-5"><a href="importando-e-exportando-dados-no-r.html#cb688-5" tabindex="-1"></a></span>
+<span id="cb688-6"><a href="importando-e-exportando-dados-no-r.html#cb688-6" tabindex="-1"></a><span class="co"># mas o que acontece se informamos mal a casa decimal?</span></span>
+<span id="cb688-7"><a href="importando-e-exportando-dados-no-r.html#cb688-7" tabindex="-1"></a>dd5 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">dec =</span> <span class="st">&quot;,&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb688-8"><a href="importando-e-exportando-dados-no-r.html#cb688-8" tabindex="-1"></a><span class="fu">str</span>(dd5)</span>
+<span id="cb688-9"><a href="importando-e-exportando-dados-no-r.html#cb688-9" tabindex="-1"></a><span class="co"># como tem ponto como definição de casa decimal no arquivo de dados, as colunas numéricas foram novamente interpretadas como texto.</span></span>
+<span id="cb688-10"><a href="importando-e-exportando-dados-no-r.html#cb688-10" tabindex="-1"></a></span>
+<span id="cb688-11"><a href="importando-e-exportando-dados-no-r.html#cb688-11" tabindex="-1"></a><span class="co"># Texto como vetores ou fatores?</span></span>
+<span id="cb688-12"><a href="importando-e-exportando-dados-no-r.html#cb688-12" tabindex="-1"></a>dd4 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb688-13"><a href="importando-e-exportando-dados-no-r.html#cb688-13" tabindex="-1"></a><span class="fu">str</span>(dd4) <span class="co"># todas as colunas de texto neste objeto foram interpretadas como fatores</span></span>
+<span id="cb688-14"><a href="importando-e-exportando-dados-no-r.html#cb688-14" tabindex="-1"></a><span class="co"># o argumento as.is permite corrigir isso. &quot;as is&quot; significa &quot;como está&quot; nos dados originais, então valores de texto são lidos como vetores de caracteres não codificados em fatores.</span></span>
+<span id="cb688-15"><a href="importando-e-exportando-dados-no-r.html#cb688-15" tabindex="-1"></a>dd6 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(</span>
+<span id="cb688-16"><a href="importando-e-exportando-dados-no-r.html#cb688-16" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>,</span>
+<span id="cb688-17"><a href="importando-e-exportando-dados-no-r.html#cb688-17" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb688-18"><a href="importando-e-exportando-dados-no-r.html#cb688-18" tabindex="-1"></a>  <span class="at">header =</span> T,</span>
+<span id="cb688-19"><a href="importando-e-exportando-dados-no-r.html#cb688-19" tabindex="-1"></a>  <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>,</span>
+<span id="cb688-20"><a href="importando-e-exportando-dados-no-r.html#cb688-20" tabindex="-1"></a>  <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>),</span>
+<span id="cb688-21"><a href="importando-e-exportando-dados-no-r.html#cb688-21" tabindex="-1"></a>  <span class="at">as.is =</span> <span class="cn">TRUE</span></span>
+<span id="cb688-22"><a href="importando-e-exportando-dados-no-r.html#cb688-22" tabindex="-1"></a>)</span>
+<span id="cb688-23"><a href="importando-e-exportando-dados-no-r.html#cb688-23" tabindex="-1"></a><span class="fu">str</span>(dd6) <span class="co"># diferentemente do objeto anterior, não há mais fatores</span></span></code></pre></div>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="importando-e-exportando-dados-no-r.html#cb689-1" tabindex="-1"></a><span class="co"># Lembram que colocamos o endereco do arquivo mais acima?</span></span>
+<span id="cb689-2"><a href="importando-e-exportando-dados-no-r.html#cb689-2" tabindex="-1"></a><span class="co"># podemos usar um endereco da internet para baixar um arquivo</span></span>
+<span id="cb689-3"><a href="importando-e-exportando-dados-no-r.html#cb689-3" tabindex="-1"></a>dd7 <span class="ot">&lt;-</span></span>
+<span id="cb689-4"><a href="importando-e-exportando-dados-no-r.html#cb689-4" tabindex="-1"></a>  <span class="fu">read.table</span>(</span>
+<span id="cb689-5"><a href="importando-e-exportando-dados-no-r.html#cb689-5" tabindex="-1"></a>    <span class="st">&quot;https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv&quot;</span>,</span>
+<span id="cb689-6"><a href="importando-e-exportando-dados-no-r.html#cb689-6" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb689-7"><a href="importando-e-exportando-dados-no-r.html#cb689-7" tabindex="-1"></a>    <span class="at">header =</span> <span class="cn">TRUE</span></span>
+<span id="cb689-8"><a href="importando-e-exportando-dados-no-r.html#cb689-8" tabindex="-1"></a>  )</span>
+<span id="cb689-9"><a href="importando-e-exportando-dados-no-r.html#cb689-9" tabindex="-1"></a>dd7</span>
+<span id="cb689-10"><a href="importando-e-exportando-dados-no-r.html#cb689-10" tabindex="-1"></a><span class="fu">head</span>(dd7)</span>
+<span id="cb689-11"><a href="importando-e-exportando-dados-no-r.html#cb689-11" tabindex="-1"></a><span class="co"># a função read.table tem vários outros argumentos. Veja o help e entenda isso bem.</span></span></code></pre></div>
 </div>
 <div id="pacote-readr" class="section level4 hasAnchor" number="3.4.2.2">
 <h4><span class="header-section-number">3.4.2.2</span> Pacote readr<a href="importando-e-exportando-dados-no-r.html#pacote-readr" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>A principal função para ler arquivos do pacote <code>readr</code> <span class="citation">(<a href="#ref-R-readr" role="doc-biblioref">Wickham e Hester 2020</a>)</span> se chama <code>read_delim()</code>.
+<p>A principal função para ler arquivos do pacote <code>readr</code> <span class="citation">(<a href="#ref-R-readr">Wickham e Hester 2020</a>)</span> se chama <code>read_delim()</code>.
 Funciona de maneira parecida com o <code>read.table()</code> com algumas pequenas diferenças: não converte colunas de texto que possam ser categorizadas em fatores (<code>read.table()</code> faz isso por padrão), retorna um <code>tibble</code> no lugar de um data.frame (<code>tibbles</code> são <code>data.frames</code> diferentes na maneira como aparecem no console; além de mostrar apenas uma porção dos dados, para cada coluna há a indicação do tipo de variável presente), assume por padrão que o dado importado possui cabeçalho.
 Existem outras diferenças que podem ser melhor entendidas na página do pacote (<a href="https://github.com/tidyverse/readr" class="uri">https://github.com/tidyverse/readr</a>).
 Os argumentos possuem nomes diferentes do que os utilizados em <code>read.table()</code> e, como este, importa arquivos em formato de texto simples (<em>.csv</em> , <em>.txt</em>).</p>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="importando-e-exportando-dados-no-r.html#cb690-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote readr</span></span>
-<span id="cb690-2"><a href="importando-e-exportando-dados-no-r.html#cb690-2" aria-hidden="true" tabindex="-1"></a><span class="co"># usando como exemplo o mesmo arquivo municipiosbrasil.csv</span></span>
-<span id="cb690-3"><a href="importando-e-exportando-dados-no-r.html#cb690-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;readr&quot;</span>)</span>
-<span id="cb690-4"><a href="importando-e-exportando-dados-no-r.html#cb690-4" aria-hidden="true" tabindex="-1"></a>rr1 <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb690-5"><a href="importando-e-exportando-dados-no-r.html#cb690-5" aria-hidden="true" tabindex="-1"></a>rr1</span>
-<span id="cb690-6"><a href="importando-e-exportando-dados-no-r.html#cb690-6" aria-hidden="true" tabindex="-1"></a>dd7</span>
-<span id="cb690-7"><a href="importando-e-exportando-dados-no-r.html#cb690-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(rr1)</span>
-<span id="cb690-8"><a href="importando-e-exportando-dados-no-r.html#cb690-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dd7)</span></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="importando-e-exportando-dados-no-r.html#cb690-1" tabindex="-1"></a><span class="co"># pacote readr</span></span>
+<span id="cb690-2"><a href="importando-e-exportando-dados-no-r.html#cb690-2" tabindex="-1"></a><span class="co"># usando como exemplo o mesmo arquivo municipiosbrasil.csv</span></span>
+<span id="cb690-3"><a href="importando-e-exportando-dados-no-r.html#cb690-3" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;readr&quot;</span>)</span>
+<span id="cb690-4"><a href="importando-e-exportando-dados-no-r.html#cb690-4" tabindex="-1"></a>rr1 <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb690-5"><a href="importando-e-exportando-dados-no-r.html#cb690-5" tabindex="-1"></a>rr1</span>
+<span id="cb690-6"><a href="importando-e-exportando-dados-no-r.html#cb690-6" tabindex="-1"></a>dd7</span>
+<span id="cb690-7"><a href="importando-e-exportando-dados-no-r.html#cb690-7" tabindex="-1"></a><span class="fu">dim</span>(rr1)</span>
+<span id="cb690-8"><a href="importando-e-exportando-dados-no-r.html#cb690-8" tabindex="-1"></a><span class="fu">dim</span>(dd7)</span></code></pre></div>
 <p>Como no pacote <code>base</code>, também podemos ler arquivos diretamente da rede:</p>
-<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="importando-e-exportando-dados-no-r.html#cb691-1" aria-hidden="true" tabindex="-1"></a>rr2 <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb691-2"><a href="importando-e-exportando-dados-no-r.html#cb691-2" aria-hidden="true" tabindex="-1"></a>rr2</span></code></pre></div>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="importando-e-exportando-dados-no-r.html#cb691-1" tabindex="-1"></a>rr2 <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb691-2"><a href="importando-e-exportando-dados-no-r.html#cb691-2" tabindex="-1"></a>rr2</span></code></pre></div>
 </div>
 <div id="pacote-data.table" class="section level4 hasAnchor" number="3.4.2.3">
 <h4><span class="header-section-number">3.4.2.3</span> Pacote data.table<a href="importando-e-exportando-dados-no-r.html#pacote-data.table" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>A principal função para ler arquivos do pacote <code>data.table</code> <span class="citation">(<a href="#ref-R-datatable" role="doc-biblioref">Dowle e Srinivasan 2020</a>)</span> se chama <code>fread()</code>.
+<p>A principal função para ler arquivos do pacote <code>data.table</code> <span class="citation">(<a href="#ref-R-datatable">Dowle e Srinivasan 2020</a>)</span> se chama <code>fread()</code>.
 Este pacote é muito conhecido devido à velocidade de suas ações, funcionando perfeitamente para dados grandes.
 Esta função possui uma particularidade: o usuário não precisa indicar o separador; automaticamente ele descobre o separador e lê o arquivo.
 Em casos especiais, é necessário a indicação do separador com o argumento <code>sep</code>, igual ao <code>read.table()</code>.
@@ -733,38 +734,38 @@ Ao ler um arquivo, a função retorna também um <code>data.frame</code>, porém
 Mais informações, leiam atentamente o site do pacote: <a href="https://github.com/Rdatatable/data.table" class="uri">https://github.com/Rdatatable/data.table</a>.
 O pacote como um todo é uma excelente ferramenta na manipulação de dados.
 Como os pacotes citados acima, esta função é capaz de importar arquivos em formato de texto simples (<code>.csv</code> , <code>.txt</code>).</p>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="importando-e-exportando-dados-no-r.html#cb692-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pacote data.table</span></span>
-<span id="cb692-2"><a href="importando-e-exportando-dados-no-r.html#cb692-2" aria-hidden="true" tabindex="-1"></a><span class="co"># usando como exemplo o mesmo arquivo municipiosbrasil.csv</span></span>
-<span id="cb692-3"><a href="importando-e-exportando-dados-no-r.html#cb692-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;data.table&quot;</span>)</span>
-<span id="cb692-4"><a href="importando-e-exportando-dados-no-r.html#cb692-4" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;municipiosbrasil.csv&quot;</span>)</span>
-<span id="cb692-5"><a href="importando-e-exportando-dados-no-r.html#cb692-5" aria-hidden="true" tabindex="-1"></a>dt1</span></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="importando-e-exportando-dados-no-r.html#cb692-1" tabindex="-1"></a><span class="co"># pacote data.table</span></span>
+<span id="cb692-2"><a href="importando-e-exportando-dados-no-r.html#cb692-2" tabindex="-1"></a><span class="co"># usando como exemplo o mesmo arquivo municipiosbrasil.csv</span></span>
+<span id="cb692-3"><a href="importando-e-exportando-dados-no-r.html#cb692-3" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;data.table&quot;</span>)</span>
+<span id="cb692-4"><a href="importando-e-exportando-dados-no-r.html#cb692-4" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;municipiosbrasil.csv&quot;</span>)</span>
+<span id="cb692-5"><a href="importando-e-exportando-dados-no-r.html#cb692-5" tabindex="-1"></a>dt1</span></code></pre></div>
 <p>Também podemos ler arquivos diretamente da rede, providenciando um endereço que contenha um arquivo de texto simples:</p>
-<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="importando-e-exportando-dados-no-r.html#cb693-1" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv&quot;</span>)</span>
-<span id="cb693-2"><a href="importando-e-exportando-dados-no-r.html#cb693-2" aria-hidden="true" tabindex="-1"></a>dt2</span></code></pre></div>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="importando-e-exportando-dados-no-r.html#cb693-1" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv&quot;</span>)</span>
+<span id="cb693-2"><a href="importando-e-exportando-dados-no-r.html#cb693-2" tabindex="-1"></a>dt2</span></code></pre></div>
 </div>
 <div id="importando-do-excel-diretamente" class="section level4 hasAnchor" number="3.4.2.4">
 <h4><span class="header-section-number">3.4.2.4</span> Importando do Excel diretamente<a href="importando-e-exportando-dados-no-r.html#importando-do-excel-diretamente" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Utilizamos o pacote <code>readxl</code><span class="citation">(<a href="#ref-R-readxl" role="doc-biblioref">Wickham e Bryan 2019</a>)</span> para ler dados de arquivos Excel, isto é, arquivos <code>.xlsx</code> ou <code>.xls</code>.
+<p>Utilizamos o pacote <code>readxl</code><span class="citation">(<a href="#ref-R-readxl">Wickham e Bryan 2019</a>)</span> para ler dados de arquivos Excel, isto é, arquivos <code>.xlsx</code> ou <code>.xls</code>.
 A principal função para importar dados deste pacote se chama <code>read_excel()</code>.
 Os principais erros aqui podem ser por células unidas, cabeçalhos no topo da planilha, e acentos.
 Veja o <code>?</code> das funções usadas para conhecer parâmetros opcionais para resolver esses possíveis problemas.</p>
-<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="importando-e-exportando-dados-no-r.html#cb694-1" aria-hidden="true" tabindex="-1"></a><span class="co"># instale o pacote</span></span>
-<span id="cb694-2"><a href="importando-e-exportando-dados-no-r.html#cb694-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
-<span id="cb694-3"><a href="importando-e-exportando-dados-no-r.html#cb694-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb694-4"><a href="importando-e-exportando-dados-no-r.html#cb694-4" aria-hidden="true" tabindex="-1"></a><span class="co"># se o arquivo for xls</span></span>
-<span id="cb694-5"><a href="importando-e-exportando-dados-no-r.html#cb694-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Salve o arquivo municipiosbrasil.csv como xlsx ou xls</span></span>
-<span id="cb694-6"><a href="importando-e-exportando-dados-no-r.html#cb694-6" aria-hidden="true" tabindex="-1"></a>meuxlsx <span class="ot">&lt;-</span> <span class="st">&quot;municipiosbrasil.xlsx&quot;</span></span>
-<span id="cb694-7"><a href="importando-e-exportando-dados-no-r.html#cb694-7" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> meuxlsx, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
-<span id="cb694-8"><a href="importando-e-exportando-dados-no-r.html#cb694-8" aria-hidden="true" tabindex="-1"></a>dd</span>
-<span id="cb694-9"><a href="importando-e-exportando-dados-no-r.html#cb694-9" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dd)</span>
-<span id="cb694-10"><a href="importando-e-exportando-dados-no-r.html#cb694-10" aria-hidden="true" tabindex="-1"></a>dd</span>
-<span id="cb694-11"><a href="importando-e-exportando-dados-no-r.html#cb694-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb694-12"><a href="importando-e-exportando-dados-no-r.html#cb694-12" aria-hidden="true" tabindex="-1"></a><span class="co"># se o arquivo for xls</span></span>
-<span id="cb694-13"><a href="importando-e-exportando-dados-no-r.html#cb694-13" aria-hidden="true" tabindex="-1"></a>meuxls <span class="ot">&lt;-</span> <span class="st">&quot;municipiosbrasil.xls&quot;</span></span>
-<span id="cb694-14"><a href="importando-e-exportando-dados-no-r.html#cb694-14" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> meuxls, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
-<span id="cb694-15"><a href="importando-e-exportando-dados-no-r.html#cb694-15" aria-hidden="true" tabindex="-1"></a>dd</span>
-<span id="cb694-16"><a href="importando-e-exportando-dados-no-r.html#cb694-16" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dd)</span>
-<span id="cb694-17"><a href="importando-e-exportando-dados-no-r.html#cb694-17" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="importando-e-exportando-dados-no-r.html#cb694-1" tabindex="-1"></a><span class="co"># instale o pacote</span></span>
+<span id="cb694-2"><a href="importando-e-exportando-dados-no-r.html#cb694-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb694-3"><a href="importando-e-exportando-dados-no-r.html#cb694-3" tabindex="-1"></a></span>
+<span id="cb694-4"><a href="importando-e-exportando-dados-no-r.html#cb694-4" tabindex="-1"></a><span class="co"># se o arquivo for xls</span></span>
+<span id="cb694-5"><a href="importando-e-exportando-dados-no-r.html#cb694-5" tabindex="-1"></a><span class="co"># Salve o arquivo municipiosbrasil.csv como xlsx ou xls</span></span>
+<span id="cb694-6"><a href="importando-e-exportando-dados-no-r.html#cb694-6" tabindex="-1"></a>meuxlsx <span class="ot">&lt;-</span> <span class="st">&quot;municipiosbrasil.xlsx&quot;</span></span>
+<span id="cb694-7"><a href="importando-e-exportando-dados-no-r.html#cb694-7" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> meuxlsx, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb694-8"><a href="importando-e-exportando-dados-no-r.html#cb694-8" tabindex="-1"></a>dd</span>
+<span id="cb694-9"><a href="importando-e-exportando-dados-no-r.html#cb694-9" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dd)</span>
+<span id="cb694-10"><a href="importando-e-exportando-dados-no-r.html#cb694-10" tabindex="-1"></a>dd</span>
+<span id="cb694-11"><a href="importando-e-exportando-dados-no-r.html#cb694-11" tabindex="-1"></a></span>
+<span id="cb694-12"><a href="importando-e-exportando-dados-no-r.html#cb694-12" tabindex="-1"></a><span class="co"># se o arquivo for xls</span></span>
+<span id="cb694-13"><a href="importando-e-exportando-dados-no-r.html#cb694-13" tabindex="-1"></a>meuxls <span class="ot">&lt;-</span> <span class="st">&quot;municipiosbrasil.xls&quot;</span></span>
+<span id="cb694-14"><a href="importando-e-exportando-dados-no-r.html#cb694-14" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> meuxls, <span class="at">sheet =</span> <span class="dv">1</span>)</span>
+<span id="cb694-15"><a href="importando-e-exportando-dados-no-r.html#cb694-15" tabindex="-1"></a>dd</span>
+<span id="cb694-16"><a href="importando-e-exportando-dados-no-r.html#cb694-16" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(dd)</span>
+<span id="cb694-17"><a href="importando-e-exportando-dados-no-r.html#cb694-17" tabindex="-1"></a>dd</span></code></pre></div>
 </div>
 </div>
 <div id="exportando-dados" class="section level3 hasAnchor" number="3.4.3">
@@ -773,55 +774,55 @@ Veja o <code>?</code> das funções usadas para conhecer parâmetros opcionais p
 <h4><span class="header-section-number">3.4.3.1</span> Pacote base do R<a href="importando-e-exportando-dados-no-r.html#pacote-base-do-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A principal função do pacote <code>base</code> do R para exportar dados se chama <code>write.table()</code>.
 Ela funciona para exportar arquivos em formato de texto simples (<code>.csv</code>, <code>.txt</code>) e usa basicamente os mesmos argumentos da função <code>read.table()</code>.</p>
-<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="importando-e-exportando-dados-no-r.html#cb695-1" aria-hidden="true" tabindex="-1"></a>?write.table <span class="co"># veja o help - recomendo usar essa função genérica e evitar de usar atalhos tipo write.csv, que no fundo usam esta mesma função</span></span></code></pre></div>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="importando-e-exportando-dados-no-r.html#cb695-1" tabindex="-1"></a>?write.table <span class="co"># veja o help - recomendo usar essa função genérica e evitar de usar atalhos tipo write.csv, que no fundo usam esta mesma função</span></span></code></pre></div>
 <p>Por se tratar de uma função do pacote <code>base</code>, não é necessário recorrer a função <code>library()</code> para chamar nenhum pacote, pois a função encontra-se disponível a qualquer momento para ser utilizada no R:</p>
-<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="importando-e-exportando-dados-no-r.html#cb696-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos usar o mesmo arquivo</span></span>
-<span id="cb696-2"><a href="importando-e-exportando-dados-no-r.html#cb696-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>)</span>
-<span id="cb696-3"><a href="importando-e-exportando-dados-no-r.html#cb696-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ler o arquivo para o R para ter algo a exportar</span></span>
-<span id="cb696-4"><a href="importando-e-exportando-dados-no-r.html#cb696-4" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>), <span class="at">as.is =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb696-5"><a href="importando-e-exportando-dados-no-r.html#cb696-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd) <span class="co"># diferentemente do objeto anterior, não há mais fatores</span></span>
-<span id="cb696-6"><a href="importando-e-exportando-dados-no-r.html#cb696-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb696-7"><a href="importando-e-exportando-dados-no-r.html#cb696-7" aria-hidden="true" tabindex="-1"></a><span class="co"># filtrando apenas para municipios do Amazonas:</span></span>
-<span id="cb696-8"><a href="importando-e-exportando-dados-no-r.html#cb696-8" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> dd<span class="sc">$</span>Province <span class="sc">%in%</span> <span class="st">&quot;Amazonas&quot;</span></span>
-<span id="cb696-9"><a href="importando-e-exportando-dados-no-r.html#cb696-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vl) <span class="co"># quantos são?</span></span>
-<span id="cb696-10"><a href="importando-e-exportando-dados-no-r.html#cb696-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ou, desse jeito que é identico:</span></span>
-<span id="cb696-11"><a href="importando-e-exportando-dados-no-r.html#cb696-11" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> dd<span class="sc">$</span>Province <span class="sc">==</span> <span class="st">&quot;Amazonas&quot;</span></span>
-<span id="cb696-12"><a href="importando-e-exportando-dados-no-r.html#cb696-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vl)</span>
-<span id="cb696-13"><a href="importando-e-exportando-dados-no-r.html#cb696-13" aria-hidden="true" tabindex="-1"></a>dd.am <span class="ot">&lt;-</span> dd[vl, ]</span>
-<span id="cb696-14"><a href="importando-e-exportando-dados-no-r.html#cb696-14" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(dd.am) <span class="sc">==</span> <span class="fu">sum</span>(vl) <span class="co"># deve ser verdadeiro, certo?</span></span>
-<span id="cb696-15"><a href="importando-e-exportando-dados-no-r.html#cb696-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb696-16"><a href="importando-e-exportando-dados-no-r.html#cb696-16" aria-hidden="true" tabindex="-1"></a><span class="co"># salvando esses dados num novo arquivo com diferentes formatações:</span></span>
-<span id="cb696-17"><a href="importando-e-exportando-dados-no-r.html#cb696-17" aria-hidden="true" tabindex="-1"></a><span class="co"># separado por tabulação e textos sem aspas e células NA sem nada</span></span>
-<span id="cb696-18"><a href="importando-e-exportando-dados-no-r.html#cb696-18" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am1.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">na =</span> <span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb696-19"><a href="importando-e-exportando-dados-no-r.html#cb696-19" aria-hidden="true" tabindex="-1"></a><span class="co"># separado por tabulação e textos com aspas e células NA sem nada</span></span>
-<span id="cb696-20"><a href="importando-e-exportando-dados-no-r.html#cb696-20" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am2.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">na =</span> <span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb696-21"><a href="importando-e-exportando-dados-no-r.html#cb696-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb696-22"><a href="importando-e-exportando-dados-no-r.html#cb696-22" aria-hidden="true" tabindex="-1"></a><span class="co"># separado por vírgula e textos com aspas e células NA com a palavra valor.ausente</span></span>
-<span id="cb696-23"><a href="importando-e-exportando-dados-no-r.html#cb696-23" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am3.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">na =</span> <span class="st">&quot;valor.ausente&quot;</span>, <span class="at">quote =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb696-24"><a href="importando-e-exportando-dados-no-r.html#cb696-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb696-25"><a href="importando-e-exportando-dados-no-r.html#cb696-25" aria-hidden="true" tabindex="-1"></a><span class="co"># separado por vírgula e textos com aspas e células NA vazios e não adicona nomes das linhas como primeira coluna (row.names=FALSE). Pode deslocar a primeira linha na sua planilha SE você NAO USAR este argumento)</span></span>
-<span id="cb696-26"><a href="importando-e-exportando-dados-no-r.html#cb696-26" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am4.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">na =</span> <span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb696-27"><a href="importando-e-exportando-dados-no-r.html#cb696-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb696-28"><a href="importando-e-exportando-dados-no-r.html#cb696-28" aria-hidden="true" tabindex="-1"></a><span class="co"># separado por tabulação e textos sem aspas e células NA vazias, sem nomes das linhas, e quebra de linha no formato do windows (eol = &quot;\r\n&quot;)</span></span>
-<span id="cb696-29"><a href="importando-e-exportando-dados-no-r.html#cb696-29" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am5.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">na =</span> <span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">eol =</span> <span class="st">&quot;</span><span class="sc">\r\n</span><span class="st">&quot;</span>)</span>
-<span id="cb696-30"><a href="importando-e-exportando-dados-no-r.html#cb696-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb696-31"><a href="importando-e-exportando-dados-no-r.html#cb696-31" aria-hidden="true" tabindex="-1"></a><span class="co"># ABRA OS ARQUIVOS GERADOS NO SEU EDITOR DE TEXTO E COMPARE AS FORMATAÇÕES GERADAS</span></span></code></pre></div>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="importando-e-exportando-dados-no-r.html#cb696-1" tabindex="-1"></a><span class="co"># vamos usar o mesmo arquivo</span></span>
+<span id="cb696-2"><a href="importando-e-exportando-dados-no-r.html#cb696-2" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>)</span>
+<span id="cb696-3"><a href="importando-e-exportando-dados-no-r.html#cb696-3" tabindex="-1"></a><span class="co"># ler o arquivo para o R para ter algo a exportar</span></span>
+<span id="cb696-4"><a href="importando-e-exportando-dados-no-r.html#cb696-4" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">header =</span> T, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NULL&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>), <span class="at">as.is =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb696-5"><a href="importando-e-exportando-dados-no-r.html#cb696-5" tabindex="-1"></a><span class="fu">str</span>(dd) <span class="co"># diferentemente do objeto anterior, não há mais fatores</span></span>
+<span id="cb696-6"><a href="importando-e-exportando-dados-no-r.html#cb696-6" tabindex="-1"></a></span>
+<span id="cb696-7"><a href="importando-e-exportando-dados-no-r.html#cb696-7" tabindex="-1"></a><span class="co"># filtrando apenas para municipios do Amazonas:</span></span>
+<span id="cb696-8"><a href="importando-e-exportando-dados-no-r.html#cb696-8" tabindex="-1"></a>vl <span class="ot">&lt;-</span> dd<span class="sc">$</span>Province <span class="sc">%in%</span> <span class="st">&quot;Amazonas&quot;</span></span>
+<span id="cb696-9"><a href="importando-e-exportando-dados-no-r.html#cb696-9" tabindex="-1"></a><span class="fu">sum</span>(vl) <span class="co"># quantos são?</span></span>
+<span id="cb696-10"><a href="importando-e-exportando-dados-no-r.html#cb696-10" tabindex="-1"></a><span class="co"># ou, desse jeito que é identico:</span></span>
+<span id="cb696-11"><a href="importando-e-exportando-dados-no-r.html#cb696-11" tabindex="-1"></a>vl <span class="ot">&lt;-</span> dd<span class="sc">$</span>Province <span class="sc">==</span> <span class="st">&quot;Amazonas&quot;</span></span>
+<span id="cb696-12"><a href="importando-e-exportando-dados-no-r.html#cb696-12" tabindex="-1"></a><span class="fu">sum</span>(vl)</span>
+<span id="cb696-13"><a href="importando-e-exportando-dados-no-r.html#cb696-13" tabindex="-1"></a>dd.am <span class="ot">&lt;-</span> dd[vl, ]</span>
+<span id="cb696-14"><a href="importando-e-exportando-dados-no-r.html#cb696-14" tabindex="-1"></a><span class="fu">nrow</span>(dd.am) <span class="sc">==</span> <span class="fu">sum</span>(vl) <span class="co"># deve ser verdadeiro, certo?</span></span>
+<span id="cb696-15"><a href="importando-e-exportando-dados-no-r.html#cb696-15" tabindex="-1"></a></span>
+<span id="cb696-16"><a href="importando-e-exportando-dados-no-r.html#cb696-16" tabindex="-1"></a><span class="co"># salvando esses dados num novo arquivo com diferentes formatações:</span></span>
+<span id="cb696-17"><a href="importando-e-exportando-dados-no-r.html#cb696-17" tabindex="-1"></a><span class="co"># separado por tabulação e textos sem aspas e células NA sem nada</span></span>
+<span id="cb696-18"><a href="importando-e-exportando-dados-no-r.html#cb696-18" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am1.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">na =</span> <span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb696-19"><a href="importando-e-exportando-dados-no-r.html#cb696-19" tabindex="-1"></a><span class="co"># separado por tabulação e textos com aspas e células NA sem nada</span></span>
+<span id="cb696-20"><a href="importando-e-exportando-dados-no-r.html#cb696-20" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am2.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">na =</span> <span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb696-21"><a href="importando-e-exportando-dados-no-r.html#cb696-21" tabindex="-1"></a></span>
+<span id="cb696-22"><a href="importando-e-exportando-dados-no-r.html#cb696-22" tabindex="-1"></a><span class="co"># separado por vírgula e textos com aspas e células NA com a palavra valor.ausente</span></span>
+<span id="cb696-23"><a href="importando-e-exportando-dados-no-r.html#cb696-23" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am3.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">na =</span> <span class="st">&quot;valor.ausente&quot;</span>, <span class="at">quote =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb696-24"><a href="importando-e-exportando-dados-no-r.html#cb696-24" tabindex="-1"></a></span>
+<span id="cb696-25"><a href="importando-e-exportando-dados-no-r.html#cb696-25" tabindex="-1"></a><span class="co"># separado por vírgula e textos com aspas e células NA vazios e não adicona nomes das linhas como primeira coluna (row.names=FALSE). Pode deslocar a primeira linha na sua planilha SE você NAO USAR este argumento)</span></span>
+<span id="cb696-26"><a href="importando-e-exportando-dados-no-r.html#cb696-26" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am4.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">na =</span> <span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb696-27"><a href="importando-e-exportando-dados-no-r.html#cb696-27" tabindex="-1"></a></span>
+<span id="cb696-28"><a href="importando-e-exportando-dados-no-r.html#cb696-28" tabindex="-1"></a><span class="co"># separado por tabulação e textos sem aspas e células NA vazias, sem nomes das linhas, e quebra de linha no formato do windows (eol = &quot;\r\n&quot;)</span></span>
+<span id="cb696-29"><a href="importando-e-exportando-dados-no-r.html#cb696-29" tabindex="-1"></a><span class="fu">write.table</span>(dd.am, <span class="at">file =</span> <span class="st">&quot;muni-am5.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">na =</span> <span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">eol =</span> <span class="st">&quot;</span><span class="sc">\r\n</span><span class="st">&quot;</span>)</span>
+<span id="cb696-30"><a href="importando-e-exportando-dados-no-r.html#cb696-30" tabindex="-1"></a></span>
+<span id="cb696-31"><a href="importando-e-exportando-dados-no-r.html#cb696-31" tabindex="-1"></a><span class="co"># ABRA OS ARQUIVOS GERADOS NO SEU EDITOR DE TEXTO E COMPARE AS FORMATAÇÕES GERADAS</span></span></code></pre></div>
 </div>
 <div id="pacote-readr-1" class="section level4 hasAnchor" number="3.4.3.2">
 <h4><span class="header-section-number">3.4.3.2</span> Pacote <code>readr</code><a href="importando-e-exportando-dados-no-r.html#pacote-readr-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A principal função do pacote <code>readr</code>para exportar dados se chama <code>write_delim()</code>.
 Ela exporta <code>data.frames</code> em formato de texto simples (<code>.csv</code>, <code>.txt</code>), utilizando basicamente os mesmos argumentos da função <code>read_delim()</code>, pertencente ao mesmo pacote.</p>
-<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="importando-e-exportando-dados-no-r.html#cb697-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exportando dados com pacote readr</span></span>
-<span id="cb697-2"><a href="importando-e-exportando-dados-no-r.html#cb697-2" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando mesmo objeto criado com pacote base</span></span>
-<span id="cb697-3"><a href="importando-e-exportando-dados-no-r.html#cb697-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(dd.am, <span class="st">&quot;muni-am6.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb697-4"><a href="importando-e-exportando-dados-no-r.html#cb697-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(dd.am, <span class="st">&quot;muni-am7.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="importando-e-exportando-dados-no-r.html#cb697-1" tabindex="-1"></a><span class="co"># exportando dados com pacote readr</span></span>
+<span id="cb697-2"><a href="importando-e-exportando-dados-no-r.html#cb697-2" tabindex="-1"></a><span class="co"># utilizando mesmo objeto criado com pacote base</span></span>
+<span id="cb697-3"><a href="importando-e-exportando-dados-no-r.html#cb697-3" tabindex="-1"></a><span class="fu">write_delim</span>(dd.am, <span class="st">&quot;muni-am6.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb697-4"><a href="importando-e-exportando-dados-no-r.html#cb697-4" tabindex="-1"></a><span class="fu">write_delim</span>(dd.am, <span class="st">&quot;muni-am7.csv&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;;&quot;</span>)</span></code></pre></div>
 </div>
 <div id="pacote-data.table-1" class="section level4 hasAnchor" number="3.4.3.3">
 <h4><span class="header-section-number">3.4.3.3</span> Pacote <code>data.table</code><a href="importando-e-exportando-dados-no-r.html#pacote-data.table-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A principal função do pacote <code>data.table</code> para exportar <code>data.frames</code> em formato de texto simples (<code>.csv</code>, <code>.txt</code>) se chama <code>fwrite()</code> e usa basicamente os mesmos argumentos da função <code>read_delim()</code>, pertencente ao pacote <code>readr</code>.</p>
-<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="importando-e-exportando-dados-no-r.html#cb698-1" aria-hidden="true" tabindex="-1"></a><span class="co"># exportando dados com pacote data.table</span></span>
-<span id="cb698-2"><a href="importando-e-exportando-dados-no-r.html#cb698-2" aria-hidden="true" tabindex="-1"></a><span class="co"># utilizando mesmo objeto criado com pacote base</span></span>
-<span id="cb698-3"><a href="importando-e-exportando-dados-no-r.html#cb698-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(dd.am, <span class="st">&quot;muni-am8.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="importando-e-exportando-dados-no-r.html#cb698-1" tabindex="-1"></a><span class="co"># exportando dados com pacote data.table</span></span>
+<span id="cb698-2"><a href="importando-e-exportando-dados-no-r.html#cb698-2" tabindex="-1"></a><span class="co"># utilizando mesmo objeto criado com pacote base</span></span>
+<span id="cb698-3"><a href="importando-e-exportando-dados-no-r.html#cb698-3" tabindex="-1"></a><span class="fu">fwrite</span>(dd.am, <span class="st">&quot;muni-am8.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="outras-funções-úteis" class="section level3 hasAnchor" number="3.4.4">
@@ -829,30 +830,30 @@ Ela exporta <code>data.frames</code> em formato de texto simples (<code>.csv</co
 <p>A função <code>scan()</code> lê um arquivo de texto em qualquer formato para um vetor ou lista no R.
 Trata-se de uma função genérica que é bom memorizar.
 Vamos usar o mesmo arquivo <code>municipiosbrasil.csv</code> para demonstrar sua utilidade:</p>
-<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="importando-e-exportando-dados-no-r.html#cb699-1" aria-hidden="true" tabindex="-1"></a><span class="co"># esta função é muito util para ler linha por linha um arquivo de texto que você quer explorar.</span></span>
-<span id="cb699-2"><a href="importando-e-exportando-dados-no-r.html#cb699-2" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">what =</span> <span class="st">&quot;complex&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="importando-e-exportando-dados-no-r.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dd)</span></code></pre></div>
+<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="importando-e-exportando-dados-no-r.html#cb699-1" tabindex="-1"></a><span class="co"># esta função é muito util para ler linha por linha um arquivo de texto que você quer explorar.</span></span>
+<span id="cb699-2"><a href="importando-e-exportando-dados-no-r.html#cb699-2" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">what =</span> <span class="st">&quot;complex&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="importando-e-exportando-dados-no-r.html#cb700-1" tabindex="-1"></a><span class="fu">class</span>(dd)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="importando-e-exportando-dados-no-r.html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(dd) <span class="co"># cada linha é um elemento do vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="importando-e-exportando-dados-no-r.html#cb702-1" tabindex="-1"></a><span class="fu">length</span>(dd) <span class="co"># cada linha é um elemento do vetor</span></span></code></pre></div>
 <pre><code>## [1] 5568</code></pre>
-<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="importando-e-exportando-dados-no-r.html#cb704-1" aria-hidden="true" tabindex="-1"></a>dd[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="importando-e-exportando-dados-no-r.html#cb704-1" tabindex="-1"></a>dd[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Country\tProvince\tRegiao\tMunicipio\tLatitude\tLongitude&quot;</code></pre>
-<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="importando-e-exportando-dados-no-r.html#cb706-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usando tabulação</span></span>
-<span id="cb706-2"><a href="importando-e-exportando-dados-no-r.html#cb706-2" aria-hidden="true" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">what =</span> <span class="st">&quot;complex&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="importando-e-exportando-dados-no-r.html#cb707-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dd2)</span></code></pre></div>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="importando-e-exportando-dados-no-r.html#cb706-1" tabindex="-1"></a><span class="co"># usando tabulação</span></span>
+<span id="cb706-2"><a href="importando-e-exportando-dados-no-r.html#cb706-2" tabindex="-1"></a>dd2 <span class="ot">&lt;-</span> <span class="fu">scan</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">what =</span> <span class="st">&quot;complex&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="importando-e-exportando-dados-no-r.html#cb707-1" tabindex="-1"></a><span class="fu">class</span>(dd2)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="importando-e-exportando-dados-no-r.html#cb709-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(dd2) <span class="co"># cada célula é um elemento deste vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="importando-e-exportando-dados-no-r.html#cb709-1" tabindex="-1"></a><span class="fu">length</span>(dd2) <span class="co"># cada célula é um elemento deste vetor</span></span></code></pre></div>
 <pre><code>## [1] 33408</code></pre>
-<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="importando-e-exportando-dados-no-r.html#cb711-1" aria-hidden="true" tabindex="-1"></a>dd2[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="importando-e-exportando-dados-no-r.html#cb711-1" tabindex="-1"></a>dd2[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Country&quot;   &quot;Province&quot;  &quot;Regiao&quot;    &quot;Municipio&quot; &quot;Latitude&quot;</code></pre>
-<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="importando-e-exportando-dados-no-r.html#cb713-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nao faz muito sentido com esses dados que tem formato de tabela, mas essa função pode ser usada com qualquer arquivo de tipo texto, por exemplo:</span></span>
-<span id="cb713-2"><a href="importando-e-exportando-dados-no-r.html#cb713-2" aria-hidden="true" tabindex="-1"></a><span class="co"># de um artigo no qual você quer buscar palavras e tabular palavras chaves?</span></span>
-<span id="cb713-3"><a href="importando-e-exportando-dados-no-r.html#cb713-3" aria-hidden="true" tabindex="-1"></a><span class="co"># num log de uma análise feita por outro software (nao no R) do qual você quer extrair resultados a partir da lógica complicada do texto de resultado)</span></span>
-<span id="cb713-4"><a href="importando-e-exportando-dados-no-r.html#cb713-4" aria-hidden="true" tabindex="-1"></a><span class="co"># etc.</span></span></code></pre></div>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="importando-e-exportando-dados-no-r.html#cb713-1" tabindex="-1"></a><span class="co"># nao faz muito sentido com esses dados que tem formato de tabela, mas essa função pode ser usada com qualquer arquivo de tipo texto, por exemplo:</span></span>
+<span id="cb713-2"><a href="importando-e-exportando-dados-no-r.html#cb713-2" tabindex="-1"></a><span class="co"># de um artigo no qual você quer buscar palavras e tabular palavras chaves?</span></span>
+<span id="cb713-3"><a href="importando-e-exportando-dados-no-r.html#cb713-3" tabindex="-1"></a><span class="co"># num log de uma análise feita por outro software (nao no R) do qual você quer extrair resultados a partir da lógica complicada do texto de resultado)</span></span>
+<span id="cb713-4"><a href="importando-e-exportando-dados-no-r.html#cb713-4" tabindex="-1"></a><span class="co"># etc.</span></span></code></pre></div>
 </div>
 </div>
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-R-datatable" class="csl-entry">
 Dowle, Matt, e Arun Srinivasan. 2020. <em>data.table: Extension of ‘data.frame‘</em>. <a href="https://CRAN.R-project.org/package=data.table">https://CRAN.R-project.org/package=data.table</a>.
 </div>
@@ -889,43 +890,43 @@ Wickham, Hadley, e Jim Hester. 2020. <em>readr: Read Rectangular Text Data</em>.
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/03-matrizes_dframes.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/03-matrizes_dframes.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/03-matrizes_dframes.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/03-matrizes_dframes.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

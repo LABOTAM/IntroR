@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>D Caras de Chernoff | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="D Caras de Chernoff | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -554,16 +555,16 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="chernoff" class="section level1 hasAnchor" number="18">
 <h1><span class="header-section-number">D</span> Caras de Chernoff<a href="chernoff.html#chernoff" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb1922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1922-1"><a href="chernoff.html#cb1922-1" aria-hidden="true" tabindex="-1"></a><span class="co">#as carinhas de Chernoff são geradas pelo pacote TeachingDemos</span></span>
-<span id="cb1922-2"><a href="chernoff.html#cb1922-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;TeachingDemos&quot;</span>)</span>
-<span id="cb1922-3"><a href="chernoff.html#cb1922-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1922-4"><a href="chernoff.html#cb1922-4" aria-hidden="true" tabindex="-1"></a><span class="co">#uma matriz com variaveis</span></span>
-<span id="cb1922-5"><a href="chernoff.html#cb1922-5" aria-hidden="true" tabindex="-1"></a>pessoas <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">&quot;pessoa&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span>
-<span id="cb1922-6"><a href="chernoff.html#cb1922-6" aria-hidden="true" tabindex="-1"></a>altura <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>,<span class="at">mean=</span><span class="fl">1.7</span>,<span class="at">sd=</span><span class="fl">0.2</span>)</span>
-<span id="cb1922-7"><a href="chernoff.html#cb1922-7" aria-hidden="true" tabindex="-1"></a>dedao <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>,<span class="at">mean=</span><span class="fl">0.05</span>,<span class="at">sd=</span><span class="fl">0.002</span>)</span>
-<span id="cb1922-8"><a href="chernoff.html#cb1922-8" aria-hidden="true" tabindex="-1"></a>mm <span class="ot">=</span> <span class="fu">data.frame</span>(altura,dedao)</span>
-<span id="cb1922-9"><a href="chernoff.html#cb1922-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mm) <span class="ot">=</span> pessoas</span>
-<span id="cb1922-10"><a href="chernoff.html#cb1922-10" aria-hidden="true" tabindex="-1"></a><span class="fu">faces</span>(mm)</span></code></pre></div>
+<div class="sourceCode" id="cb1924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1924-1"><a href="chernoff.html#cb1924-1" tabindex="-1"></a><span class="co">#as carinhas de Chernoff são geradas pelo pacote TeachingDemos</span></span>
+<span id="cb1924-2"><a href="chernoff.html#cb1924-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;TeachingDemos&quot;</span>)</span>
+<span id="cb1924-3"><a href="chernoff.html#cb1924-3" tabindex="-1"></a></span>
+<span id="cb1924-4"><a href="chernoff.html#cb1924-4" tabindex="-1"></a><span class="co">#uma matriz com variaveis</span></span>
+<span id="cb1924-5"><a href="chernoff.html#cb1924-5" tabindex="-1"></a>pessoas <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">&quot;pessoa&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span>
+<span id="cb1924-6"><a href="chernoff.html#cb1924-6" tabindex="-1"></a>altura <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>,<span class="at">mean=</span><span class="fl">1.7</span>,<span class="at">sd=</span><span class="fl">0.2</span>)</span>
+<span id="cb1924-7"><a href="chernoff.html#cb1924-7" tabindex="-1"></a>dedao <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>,<span class="at">mean=</span><span class="fl">0.05</span>,<span class="at">sd=</span><span class="fl">0.002</span>)</span>
+<span id="cb1924-8"><a href="chernoff.html#cb1924-8" tabindex="-1"></a>mm <span class="ot">=</span> <span class="fu">data.frame</span>(altura,dedao)</span>
+<span id="cb1924-9"><a href="chernoff.html#cb1924-9" tabindex="-1"></a><span class="fu">rownames</span>(mm) <span class="ot">=</span> pessoas</span>
+<span id="cb1924-10"><a href="chernoff.html#cb1924-10" tabindex="-1"></a><span class="fu">faces</span>(mm)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-689-1.svg" width="672" /></p>
 
 </div>
@@ -587,43 +588,43 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/18-chernoff.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/18-chernoff.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/18-chernoff.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/18-chernoff.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

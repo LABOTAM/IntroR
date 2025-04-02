@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.4 Classes de vetores e fatores | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.4 Classes de vetores e fatores | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -565,73 +566,73 @@ div.csl-indent {
 <li><p><code>date</code> (para datas).</p></li>
 </ul>
 <p>A função <code>class()</code> nos permite saber a classe de um objeto do R.</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="classes.html#cb248-1" aria-hidden="true" tabindex="-1"></a>?class <span class="co"># veja o help dessa funcao</span></span></code></pre></div>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="classes.html#cb249-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span> <span class="co"># um vetor de números inteiros</span></span>
-<span id="cb249-2"><a href="classes.html#cb249-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="classes.html#cb248-1" tabindex="-1"></a>?class <span class="co"># veja o help dessa funcao</span></span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="classes.html#cb249-1" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span> <span class="co"># um vetor de números inteiros</span></span>
+<span id="cb249-2"><a href="classes.html#cb249-2" tabindex="-1"></a><span class="fu">class</span>(v1)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="classes.html#cb251-1" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="fl">0.5</span>) <span class="co"># um vetor de números</span></span>
-<span id="cb251-2"><a href="classes.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v2)</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="classes.html#cb251-1" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="at">by =</span> <span class="fl">0.5</span>) <span class="co"># um vetor de números</span></span>
+<span id="cb251-2"><a href="classes.html#cb251-2" tabindex="-1"></a><span class="fu">class</span>(v2)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="classes.html#cb253-1" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>) <span class="co"># um vetor de palavras (character)</span></span>
-<span id="cb253-2"><a href="classes.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v3)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="classes.html#cb253-1" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>) <span class="co"># um vetor de palavras (character)</span></span>
+<span id="cb253-2"><a href="classes.html#cb253-2" tabindex="-1"></a><span class="fu">class</span>(v3)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="classes.html#cb255-1" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F, F) <span class="co"># um vetor lógico</span></span>
-<span id="cb255-2"><a href="classes.html#cb255-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v4)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="classes.html#cb255-1" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F, F) <span class="co"># um vetor lógico</span></span>
+<span id="cb255-2"><a href="classes.html#cb255-2" tabindex="-1"></a><span class="fu">class</span>(v4)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="classes.html#cb257-1" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="st">&quot;A&quot;</span>, <span class="dv">20</span>, <span class="st">&quot;B&quot;</span>) <span class="co"># um vetor com misto de números e letras será convertido para texto</span></span>
-<span id="cb257-2"><a href="classes.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(v4)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="classes.html#cb257-1" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="st">&quot;A&quot;</span>, <span class="dv">20</span>, <span class="st">&quot;B&quot;</span>) <span class="co"># um vetor com misto de números e letras será convertido para texto</span></span>
+<span id="cb257-2"><a href="classes.html#cb257-2" tabindex="-1"></a><span class="fu">class</span>(v4)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="classes.html#cb259-1" aria-hidden="true" tabindex="-1"></a>v4</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="classes.html#cb259-1" tabindex="-1"></a>v4</span></code></pre></div>
 <pre><code>## [1] &quot;10&quot; &quot;A&quot;  &quot;20&quot; &quot;B&quot;</code></pre>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="classes.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que em v4 os elementos 10 e 20 viraram palavras, porque vetor só aceita elementos da mesma classe e enquanto um número pode ser convertido em texto, um texto não pode ser convertido em número. Por isso tudo é convertido para texto para a informação seja perdida (i.e. vire NA)</span></span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="classes.html#cb261-1" tabindex="-1"></a><span class="co"># veja que em v4 os elementos 10 e 20 viraram palavras, porque vetor só aceita elementos da mesma classe e enquanto um número pode ser convertido em texto, um texto não pode ser convertido em número. Por isso tudo é convertido para texto para a informação seja perdida (i.e. vire NA)</span></span></code></pre></div>
 <p>As funções genéricas <code>is.[class]()</code> permitem você perguntar se um vetor é de uma determinada classe (<code>is?</code>).
 Ao utilizar essas funções, o R retornará um vetor lógico, ou seja, verdadeiro ou falso dependendo da classe do objeto:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="classes.html#cb262-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span> <span class="co"># um vetor de números inteiros</span></span>
-<span id="cb262-2"><a href="classes.html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(v1) <span class="co"># verdadeiro</span></span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="classes.html#cb262-1" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span> <span class="co"># um vetor de números inteiros</span></span>
+<span id="cb262-2"><a href="classes.html#cb262-2" tabindex="-1"></a><span class="fu">is.integer</span>(v1) <span class="co"># verdadeiro</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="classes.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(v1) <span class="co"># também verdadeiro porque números inteiros também são números</span></span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="classes.html#cb264-1" tabindex="-1"></a><span class="fu">is.numeric</span>(v1) <span class="co"># também verdadeiro porque números inteiros também são números</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="classes.html#cb266-1" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>) <span class="co"># um vetor de palavras</span></span>
-<span id="cb266-2"><a href="classes.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(v3) <span class="co"># verdadeiro</span></span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="classes.html#cb266-1" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>) <span class="co"># um vetor de palavras</span></span>
+<span id="cb266-2"><a href="classes.html#cb266-2" tabindex="-1"></a><span class="fu">is.character</span>(v3) <span class="co"># verdadeiro</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="classes.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(v3) <span class="co"># falso, porque o vetor contém palavras</span></span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="classes.html#cb268-1" tabindex="-1"></a><span class="fu">is.numeric</span>(v3) <span class="co"># falso, porque o vetor contém palavras</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="classes.html#cb270-1" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="st">&quot;A&quot;</span>, <span class="dv">20</span>, <span class="st">&quot;B&quot;</span>) <span class="co"># um vetor com misto de números e letras</span></span>
-<span id="cb270-2"><a href="classes.html#cb270-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(v4) <span class="co"># falso, porque o vetor contém apenas palavras</span></span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="classes.html#cb270-1" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="st">&quot;A&quot;</span>, <span class="dv">20</span>, <span class="st">&quot;B&quot;</span>) <span class="co"># um vetor com misto de números e letras</span></span>
+<span id="cb270-2"><a href="classes.html#cb270-2" tabindex="-1"></a><span class="fu">is.numeric</span>(v4) <span class="co"># falso, porque o vetor contém apenas palavras</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="classes.html#cb272-1" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F, F) <span class="co"># um vetor lógico</span></span>
-<span id="cb272-2"><a href="classes.html#cb272-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(v4) <span class="co"># verdadeiro</span></span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="classes.html#cb272-1" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F, F) <span class="co"># um vetor lógico</span></span>
+<span id="cb272-2"><a href="classes.html#cb272-2" tabindex="-1"></a><span class="fu">is.logical</span>(v4) <span class="co"># verdadeiro</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="classes.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(v4) <span class="co"># falso</span></span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="classes.html#cb274-1" tabindex="-1"></a><span class="fu">is.numeric</span>(v4) <span class="co"># falso</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="classes.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(v4) <span class="co"># falso</span></span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="classes.html#cb276-1" tabindex="-1"></a><span class="fu">is.character</span>(v4) <span class="co"># falso</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>As funções genéricas <code>as.[class]()</code> (as = ‘como uma?’) permitem você converter um vetor de uma classe para outra.
 Em alguns casos, isso faz sentido; em outros, o retorno será de valores inexistentes (<code>NA</code>) ou não numéricos (<code>NaN</code>).</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="classes.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="co"># conversão total</span></span>
-<span id="cb278-2"><a href="classes.html#cb278-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span> <span class="co"># um vetor de números inteiros</span></span>
-<span id="cb278-3"><a href="classes.html#cb278-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(v1) <span class="co"># converte para texto um vetor numérico</span></span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="classes.html#cb278-1" tabindex="-1"></a><span class="co"># conversão total</span></span>
+<span id="cb278-2"><a href="classes.html#cb278-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span> <span class="co"># um vetor de números inteiros</span></span>
+<span id="cb278-3"><a href="classes.html#cb278-3" tabindex="-1"></a><span class="fu">as.character</span>(v1) <span class="co"># converte para texto um vetor numérico</span></span></code></pre></div>
 <pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot; &quot;15&quot;
 ## [16] &quot;16&quot; &quot;17&quot; &quot;18&quot; &quot;19&quot; &quot;20&quot;</code></pre>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="classes.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="co"># conversão parcial</span></span>
-<span id="cb280-2"><a href="classes.html#cb280-2" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="st">&quot;A&quot;</span>, <span class="dv">20</span>, <span class="st">&quot;B&quot;</span>) <span class="co"># um vetor com misto de números e letras</span></span>
-<span id="cb280-3"><a href="classes.html#cb280-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(v4) <span class="co"># converte cada elemento separadamente (regra da reciclagem é aplicada), o R vai conseguir mudar os textos que são números, mas as letras serão substituídas por NA e um aviso será dado quando isso acontecer</span></span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="classes.html#cb280-1" tabindex="-1"></a><span class="co"># conversão parcial</span></span>
+<span id="cb280-2"><a href="classes.html#cb280-2" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="st">&quot;A&quot;</span>, <span class="dv">20</span>, <span class="st">&quot;B&quot;</span>) <span class="co"># um vetor com misto de números e letras</span></span>
+<span id="cb280-3"><a href="classes.html#cb280-3" tabindex="-1"></a><span class="fu">as.numeric</span>(v4) <span class="co"># converte cada elemento separadamente (regra da reciclagem é aplicada), o R vai conseguir mudar os textos que são números, mas as letras serão substituídas por NA e um aviso será dado quando isso acontecer</span></span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] 10 NA 20 NA</code></pre>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="classes.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor de texto não pode virar número</span></span>
-<span id="cb283-2"><a href="classes.html#cb283-2" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>) <span class="co"># um vetor de palavras</span></span>
-<span id="cb283-3"><a href="classes.html#cb283-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(v3) <span class="co"># todos viram NA pois a conversão é inválida</span></span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="classes.html#cb283-1" tabindex="-1"></a><span class="co"># um vetor de texto não pode virar número</span></span>
+<span id="cb283-2"><a href="classes.html#cb283-2" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>) <span class="co"># um vetor de palavras</span></span>
+<span id="cb283-3"><a href="classes.html#cb283-3" tabindex="-1"></a><span class="fu">as.numeric</span>(v3) <span class="co"># todos viram NA pois a conversão é inválida</span></span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA</code></pre>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="classes.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas um vetor lógico pode virar número</span></span>
-<span id="cb286-2"><a href="classes.html#cb286-2" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F, F) <span class="co"># um vetor lógico</span></span>
-<span id="cb286-3"><a href="classes.html#cb286-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(v4) <span class="co"># verdadeiro vira 1 e falso vira 0 - isso é muito útil e é por isso que operações matemáticas funcionam com vetores lógicos:</span></span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="classes.html#cb286-1" tabindex="-1"></a><span class="co"># mas um vetor lógico pode virar número</span></span>
+<span id="cb286-2"><a href="classes.html#cb286-2" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(T, T, F, F) <span class="co"># um vetor lógico</span></span>
+<span id="cb286-3"><a href="classes.html#cb286-3" tabindex="-1"></a><span class="fu">as.numeric</span>(v4) <span class="co"># verdadeiro vira 1 e falso vira 0 - isso é muito útil e é por isso que operações matemáticas funcionam com vetores lógicos:</span></span></code></pre></div>
 <pre><code>## [1] 1 1 0 0</code></pre>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="classes.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v4)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="classes.html#cb288-1" tabindex="-1"></a><span class="fu">sum</span>(v4)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="classes.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v4)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="classes.html#cb290-1" tabindex="-1"></a><span class="fu">mean</span>(v4)</span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="classes.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(v4)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="classes.html#cb292-1" tabindex="-1"></a><span class="fu">min</span>(v4)</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>O <code>factor</code> (=fator) na linguagem do R é um tipo especial de vetor com elementos de texto (classe <code>character</code>), em que os valores de texto são categorias.
 Isso tem algumas vantagens operacionais e sempre que o R precisa de um vetor de texto no formato de <code>factor</code>, ele converte automaticamente (se possível).
@@ -642,75 +643,75 @@ Funções importantes a serem memorizadas são:</p>
 <li><p><code>levels()</code> - para ver (ou modificar) os níveis ou categorias de um fator;</p></li>
 <li><p><code>as.factor()</code> e <code>as.vector()</code> - para converter entre fator e vetor.</p></li>
 </ul>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="classes.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um exemplo de um vetor de palavras</span></span>
-<span id="cb294-2"><a href="classes.html#cb294-2" aria-hidden="true" tabindex="-1"></a>mvv <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abacate&quot;</span>, <span class="st">&quot;banama&quot;</span>, <span class="st">&quot;mamão&quot;</span>, <span class="st">&quot;uva&quot;</span>)</span>
-<span id="cb294-3"><a href="classes.html#cb294-3" aria-hidden="true" tabindex="-1"></a><span class="co"># repetindo cada fruta 3 vezes</span></span>
-<span id="cb294-4"><a href="classes.html#cb294-4" aria-hidden="true" tabindex="-1"></a>mvv <span class="ot">&lt;-</span> <span class="fu">rep</span>(mvv, <span class="at">each =</span> <span class="dv">3</span>)</span>
-<span id="cb294-5"><a href="classes.html#cb294-5" aria-hidden="true" tabindex="-1"></a><span class="co"># veja conteúdo</span></span>
-<span id="cb294-6"><a href="classes.html#cb294-6" aria-hidden="true" tabindex="-1"></a>mvv</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="classes.html#cb294-1" tabindex="-1"></a><span class="co"># um exemplo de um vetor de palavras</span></span>
+<span id="cb294-2"><a href="classes.html#cb294-2" tabindex="-1"></a>mvv <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abacate&quot;</span>, <span class="st">&quot;banama&quot;</span>, <span class="st">&quot;mamão&quot;</span>, <span class="st">&quot;uva&quot;</span>)</span>
+<span id="cb294-3"><a href="classes.html#cb294-3" tabindex="-1"></a><span class="co"># repetindo cada fruta 3 vezes</span></span>
+<span id="cb294-4"><a href="classes.html#cb294-4" tabindex="-1"></a>mvv <span class="ot">&lt;-</span> <span class="fu">rep</span>(mvv, <span class="at">each =</span> <span class="dv">3</span>)</span>
+<span id="cb294-5"><a href="classes.html#cb294-5" tabindex="-1"></a><span class="co"># veja conteúdo</span></span>
+<span id="cb294-6"><a href="classes.html#cb294-6" tabindex="-1"></a>mvv</span></code></pre></div>
 <pre><code>##  [1] &quot;abacate&quot; &quot;abacate&quot; &quot;abacate&quot; &quot;banama&quot;  &quot;banama&quot;  &quot;banama&quot;  &quot;mamão&quot;  
 ##  [8] &quot;mamão&quot;   &quot;mamão&quot;   &quot;uva&quot;     &quot;uva&quot;     &quot;uva&quot;</code></pre>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="classes.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="co"># qual a classe desse vetor?</span></span>
-<span id="cb296-2"><a href="classes.html#cb296-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mvv)</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="classes.html#cb296-1" tabindex="-1"></a><span class="co"># qual a classe desse vetor?</span></span>
+<span id="cb296-2"><a href="classes.html#cb296-2" tabindex="-1"></a><span class="fu">class</span>(mvv)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="classes.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos converter esse vetor de character para um fator</span></span>
-<span id="cb298-2"><a href="classes.html#cb298-2" aria-hidden="true" tabindex="-1"></a>mvv2 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(mvv)</span>
-<span id="cb298-3"><a href="classes.html#cb298-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mvv2) <span class="co"># de fato mudou para factor</span></span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="classes.html#cb298-1" tabindex="-1"></a><span class="co"># vamos converter esse vetor de character para um fator</span></span>
+<span id="cb298-2"><a href="classes.html#cb298-2" tabindex="-1"></a>mvv2 <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(mvv)</span>
+<span id="cb298-3"><a href="classes.html#cb298-3" tabindex="-1"></a><span class="fu">class</span>(mvv2) <span class="co"># de fato mudou para factor</span></span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="classes.html#cb300-1" aria-hidden="true" tabindex="-1"></a>mvv2 <span class="co"># compare a estrutura deste objeto com mvv (apareceu a a palavra Levels:, que mostra as categorias existentes no fator)</span></span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="classes.html#cb300-1" tabindex="-1"></a>mvv2 <span class="co"># compare a estrutura deste objeto com mvv (apareceu a a palavra Levels:, que mostra as categorias existentes no fator)</span></span></code></pre></div>
 <pre><code>##  [1] abacate abacate abacate banama  banama  banama  mamão   mamão   mamão  
 ## [10] uva     uva     uva    
 ## Levels: abacate banama mamão uva</code></pre>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="classes.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="co"># por ser um fator você pode</span></span>
-<span id="cb302-2"><a href="classes.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(mvv2) <span class="co"># você pode ver os níveis do fator, ou seja as categorias que ele contém)</span></span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="classes.html#cb302-1" tabindex="-1"></a><span class="co"># por ser um fator você pode</span></span>
+<span id="cb302-2"><a href="classes.html#cb302-2" tabindex="-1"></a><span class="fu">levels</span>(mvv2) <span class="co"># você pode ver os níveis do fator, ou seja as categorias que ele contém)</span></span></code></pre></div>
 <pre><code>## [1] &quot;abacate&quot; &quot;banama&quot;  &quot;mamão&quot;   &quot;uva&quot;</code></pre>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="classes.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(mvv2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abacate&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;mamão&quot;</span>, <span class="st">&quot;uva&quot;</span>) <span class="co"># você pode mudar/corrigir os níveis, aqui corrigindo banama por banana</span></span>
-<span id="cb304-2"><a href="classes.html#cb304-2" aria-hidden="true" tabindex="-1"></a>mvv2 <span class="co"># veja como mudaram as categorias e os valores</span></span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="classes.html#cb304-1" tabindex="-1"></a><span class="fu">levels</span>(mvv2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;abacate&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;mamão&quot;</span>, <span class="st">&quot;uva&quot;</span>) <span class="co"># você pode mudar/corrigir os níveis, aqui corrigindo banama por banana</span></span>
+<span id="cb304-2"><a href="classes.html#cb304-2" tabindex="-1"></a>mvv2 <span class="co"># veja como mudaram as categorias e os valores</span></span></code></pre></div>
 <pre><code>##  [1] abacate abacate abacate banana  banana  banana  mamão   mamão   mamão  
 ## [10] uva     uva     uva    
 ## Levels: abacate banana mamão uva</code></pre>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="classes.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(mvv2) <span class="co"># você pode converter o fator em numérico, de forma que cada categoria vire um número (muito útil isso)</span></span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="classes.html#cb306-1" tabindex="-1"></a><span class="fu">as.numeric</span>(mvv2) <span class="co"># você pode converter o fator em numérico, de forma que cada categoria vire um número (muito útil isso)</span></span></code></pre></div>
 <pre><code>##  [1] 1 1 1 2 2 2 3 3 3 4 4 4</code></pre>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="classes.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(mvv) <span class="co"># nao pode fazer a mesma coisa com um vetor de palavras</span></span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="classes.html#cb308-1" tabindex="-1"></a><span class="fu">as.numeric</span>(mvv) <span class="co"># nao pode fazer a mesma coisa com um vetor de palavras</span></span></code></pre></div>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA NA NA</code></pre>
 <p>A função <code>as.Date()</code> converte um vetor de trecho em um objeto de classe <code>date</code>.
 Datas são uma classe especial, que permite operações artiméticas para calcular distâncias temporais.</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="classes.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="co"># muitas vezes queremos calcular tempo entre duas observações, como por exemplo, entre duas medições consecutivas num estudo sobre crescimento de plantas</span></span>
-<span id="cb311-2"><a href="classes.html#cb311-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb311-3"><a href="classes.html#cb311-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Qual a diferença em dias entre duas datas?</span></span>
-<span id="cb311-4"><a href="classes.html#cb311-4" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="st">&quot;31/03/1964&quot;</span></span>
-<span id="cb311-5"><a href="classes.html#cb311-5" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="st">&quot;17/04/2016&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="classes.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eu nao posso simplesmente subtrair esses valores</span></span>
-<span id="cb312-2"><a href="classes.html#cb312-2" aria-hidden="true" tabindex="-1"></a>data2 <span class="sc">-</span> data1</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="classes.html#cb311-1" tabindex="-1"></a><span class="co"># muitas vezes queremos calcular tempo entre duas observações, como por exemplo, entre duas medições consecutivas num estudo sobre crescimento de plantas</span></span>
+<span id="cb311-2"><a href="classes.html#cb311-2" tabindex="-1"></a></span>
+<span id="cb311-3"><a href="classes.html#cb311-3" tabindex="-1"></a><span class="co"># Qual a diferença em dias entre duas datas?</span></span>
+<span id="cb311-4"><a href="classes.html#cb311-4" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="st">&quot;31/03/1964&quot;</span></span>
+<span id="cb311-5"><a href="classes.html#cb311-5" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="st">&quot;17/04/2016&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="classes.html#cb312-1" tabindex="-1"></a><span class="co"># eu nao posso simplesmente subtrair esses valores</span></span>
+<span id="cb312-2"><a href="classes.html#cb312-2" tabindex="-1"></a>data2 <span class="sc">-</span> data1</span></code></pre></div>
 <p>O R retorna uma mensagem de erro (<code>Error in data2 - data1 : non-numeric argument to binary operator</code>) porque esses objetos são de classe texto, e operações matemáticas só são permitidas com números ou datas.
 Vejam que a classe dos objetos criados acima são do tipo “texto” (<code>character</code>):</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="classes.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data1)</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="classes.html#cb313-1" tabindex="-1"></a><span class="fu">class</span>(data1)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="classes.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data2)</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="classes.html#cb315-1" tabindex="-1"></a><span class="fu">class</span>(data2)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>Porém, se convertermos esses objetos para a classe <code>Date</code>, então poderemos fazer operações matemáticas com eles:</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="classes.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas o R tem um classe para datas</span></span>
-<span id="cb317-2"><a href="classes.html#cb317-2" aria-hidden="true" tabindex="-1"></a><span class="co"># entao fazemos a conversao</span></span>
-<span id="cb317-3"><a href="classes.html#cb317-3" aria-hidden="true" tabindex="-1"></a>?as.Date <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="classes.html#cb318-1" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(data1, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span>
-<span id="cb318-2"><a href="classes.html#cb318-2" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(data2, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span>
-<span id="cb318-3"><a href="classes.html#cb318-3" aria-hidden="true" tabindex="-1"></a><span class="co"># agora a classe mudou</span></span>
-<span id="cb318-4"><a href="classes.html#cb318-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data1)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="classes.html#cb317-1" tabindex="-1"></a><span class="co"># mas o R tem um classe para datas</span></span>
+<span id="cb317-2"><a href="classes.html#cb317-2" tabindex="-1"></a><span class="co"># entao fazemos a conversao</span></span>
+<span id="cb317-3"><a href="classes.html#cb317-3" tabindex="-1"></a>?as.Date <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="classes.html#cb318-1" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(data1, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span>
+<span id="cb318-2"><a href="classes.html#cb318-2" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(data2, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span>
+<span id="cb318-3"><a href="classes.html#cb318-3" tabindex="-1"></a><span class="co"># agora a classe mudou</span></span>
+<span id="cb318-4"><a href="classes.html#cb318-4" tabindex="-1"></a><span class="fu">class</span>(data1)</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;</code></pre>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="classes.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data2)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="classes.html#cb320-1" tabindex="-1"></a><span class="fu">class</span>(data2)</span></code></pre></div>
 <pre><code>## [1] &quot;Date&quot;</code></pre>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="classes.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="co"># posso fazer matemática com data</span></span>
-<span id="cb322-2"><a href="classes.html#cb322-2" aria-hidden="true" tabindex="-1"></a>data2 <span class="sc">-</span> data1</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="classes.html#cb322-1" tabindex="-1"></a><span class="co"># posso fazer matemática com data</span></span>
+<span id="cb322-2"><a href="classes.html#cb322-2" tabindex="-1"></a>data2 <span class="sc">-</span> data1</span></code></pre></div>
 <pre><code>## Time difference of 19010 days</code></pre>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="classes.html#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note o argumento format, ele importa para o R possa entender o formato de sua data</span></span>
-<span id="cb324-2"><a href="classes.html#cb324-2" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> <span class="st">&quot;2016-04-21&quot;</span> <span class="co"># formato americano</span></span>
-<span id="cb324-3"><a href="classes.html#cb324-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(data3, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>) <span class="co"># se eu usasse isso com o mesmo formato acima, o resultado é NA, porque está mal especificado</span></span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="classes.html#cb324-1" tabindex="-1"></a><span class="co"># note o argumento format, ele importa para o R possa entender o formato de sua data</span></span>
+<span id="cb324-2"><a href="classes.html#cb324-2" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> <span class="st">&quot;2016-04-21&quot;</span> <span class="co"># formato americano</span></span>
+<span id="cb324-3"><a href="classes.html#cb324-3" tabindex="-1"></a><span class="fu">as.Date</span>(data3, <span class="at">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>) <span class="co"># se eu usasse isso com o mesmo formato acima, o resultado é NA, porque está mal especificado</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="classes.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas mudando a simbologia do argumento format</span></span>
-<span id="cb326-2"><a href="classes.html#cb326-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(data3, <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="classes.html#cb326-1" tabindex="-1"></a><span class="co"># mas mudando a simbologia do argumento format</span></span>
+<span id="cb326-2"><a href="classes.html#cb326-2" tabindex="-1"></a><span class="fu">as.Date</span>(data3, <span class="at">format =</span> <span class="st">&quot;%Y-%m-%d&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;2016-04-21&quot;</code></pre>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="classes.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ele reconhece</span></span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="classes.html#cb328-1" tabindex="-1"></a><span class="co"># ele reconhece</span></span></code></pre></div>
 </div>
             </section>
 
@@ -732,43 +733,43 @@ Vejam que a classe dos objetos criados acima são do tipo “texto” (<code>cha
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/02-vetores.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/02-vetores.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/02-vetores.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/02-vetores.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

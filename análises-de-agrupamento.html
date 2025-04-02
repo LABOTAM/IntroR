@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.4 Análises de agrupamento | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.4 Análises de agrupamento | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -558,68 +559,68 @@ div.csl-indent {
 Gera um objeto de classe <code>hclust</code> que contem a estrutura hierárquica da similaridade entre os seus dados (a hierarquia dada pela distância mais o método de agrupamento).</p>
 <p>Em análises de agrupamento, é normal lidar com objetos de classe <code>dendrogram</code>.
 Podemos converter alguns objetos para esta classe usando a função <code>as.dendrogram()</code>, que facilita a geração de gráficos.</p>
-<p>Outra classe importante é <code>phylo</code>, utilizada em objetos que contenham árvores filogenéticas (pacote <code>ape</code> de <span class="citation">Paradis et al. (<a href="#ref-R-ape" role="doc-biblioref">2020</a>)</span>).
+<p>Outra classe importante é <code>phylo</code>, utilizada em objetos que contenham árvores filogenéticas (pacote <code>ape</code> de <span class="citation">Paradis et al. (<a href="#ref-R-ape">2020</a>)</span>).
 Há a função <code>as.phylo()</code> que pode converter um objeto <code>hclust</code> para classe <code>phylo</code> e manipular o dendrograma como se fosse uma filogenia.
 Também facilita a geração de gráficos.</p>
-<div class="sourceCode" id="cb1804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1804-1"><a href="análises-de-agrupamento.html#cb1804-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos usar o arquivo com coordenadas dos municipios brasileiros</span></span>
-<span id="cb1804-2"><a href="análises-de-agrupamento.html#cb1804-2" aria-hidden="true" tabindex="-1"></a>muni <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">header =</span> T, <span class="at">as.is =</span> T, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb1805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1805-1"><a href="análises-de-agrupamento.html#cb1805-1" aria-hidden="true" tabindex="-1"></a>cids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Rio Branco&quot;</span>, <span class="st">&quot;Cruzeiro do Sul&quot;</span>, <span class="st">&quot;Tabatinga&quot;</span>, <span class="st">&quot;São Gabriel da Cachoeira&quot;</span>, <span class="st">&quot;Manaus&quot;</span>, <span class="st">&quot;Santarém&quot;</span>, <span class="st">&quot;Porto Velho&quot;</span>, <span class="st">&quot;Humaitá&quot;</span>, <span class="st">&quot;Belém&quot;</span>, <span class="st">&quot;Macapá&quot;</span>, <span class="st">&quot;Marabá&quot;</span>, <span class="st">&quot;Boa Vista&quot;</span>)</span>
-<span id="cb1805-2"><a href="análises-de-agrupamento.html#cb1805-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1805-3"><a href="análises-de-agrupamento.html#cb1805-3" aria-hidden="true" tabindex="-1"></a><span class="co"># filtrando os dados</span></span>
-<span id="cb1805-4"><a href="análises-de-agrupamento.html#cb1805-4" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> muni<span class="sc">$</span>Municipio <span class="sc">%in%</span> cids <span class="sc">&amp;</span> muni<span class="sc">$</span>Regiao <span class="sc">==</span> <span class="st">&quot;Norte&quot;</span></span>
-<span id="cb1805-5"><a href="análises-de-agrupamento.html#cb1805-5" aria-hidden="true" tabindex="-1"></a>muni <span class="ot">&lt;-</span> muni[vl, ]</span>
-<span id="cb1805-6"><a href="análises-de-agrupamento.html#cb1805-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(muni) <span class="ot">&lt;-</span> muni<span class="sc">$</span>Municipio</span>
-<span id="cb1805-7"><a href="análises-de-agrupamento.html#cb1805-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1805-8"><a href="análises-de-agrupamento.html#cb1805-8" aria-hidden="true" tabindex="-1"></a><span class="co"># calcula a distancia geografica entre essas cidades (em graus de latitude)</span></span>
-<span id="cb1805-9"><a href="análises-de-agrupamento.html#cb1805-9" aria-hidden="true" tabindex="-1"></a>mdist <span class="ot">&lt;-</span> <span class="fu">dist</span>(muni[, <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>)], <span class="at">method =</span> <span class="st">&quot;euclidean&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1806-1"><a href="análises-de-agrupamento.html#cb1806-1" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o help de hclust e também</span></span>
-<span id="cb1806-2"><a href="análises-de-agrupamento.html#cb1806-2" aria-hidden="true" tabindex="-1"></a><span class="co"># os diferente métodos de agrupamento</span></span>
-<span id="cb1806-3"><a href="análises-de-agrupamento.html#cb1806-3" aria-hidden="true" tabindex="-1"></a>?hclust</span></code></pre></div>
+<div class="sourceCode" id="cb1806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1806-1"><a href="análises-de-agrupamento.html#cb1806-1" tabindex="-1"></a><span class="co"># Vamos usar o arquivo com coordenadas dos municipios brasileiros</span></span>
+<span id="cb1806-2"><a href="análises-de-agrupamento.html#cb1806-2" tabindex="-1"></a>muni <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="at">file =</span> <span class="st">&quot;municipiosbrasil.csv&quot;</span>, <span class="at">header =</span> T, <span class="at">as.is =</span> T, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1807-1"><a href="análises-de-agrupamento.html#cb1807-1" tabindex="-1"></a>cids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Rio Branco&quot;</span>, <span class="st">&quot;Cruzeiro do Sul&quot;</span>, <span class="st">&quot;Tabatinga&quot;</span>, <span class="st">&quot;São Gabriel da Cachoeira&quot;</span>, <span class="st">&quot;Manaus&quot;</span>, <span class="st">&quot;Santarém&quot;</span>, <span class="st">&quot;Porto Velho&quot;</span>, <span class="st">&quot;Humaitá&quot;</span>, <span class="st">&quot;Belém&quot;</span>, <span class="st">&quot;Macapá&quot;</span>, <span class="st">&quot;Marabá&quot;</span>, <span class="st">&quot;Boa Vista&quot;</span>)</span>
+<span id="cb1807-2"><a href="análises-de-agrupamento.html#cb1807-2" tabindex="-1"></a></span>
+<span id="cb1807-3"><a href="análises-de-agrupamento.html#cb1807-3" tabindex="-1"></a><span class="co"># filtrando os dados</span></span>
+<span id="cb1807-4"><a href="análises-de-agrupamento.html#cb1807-4" tabindex="-1"></a>vl <span class="ot">&lt;-</span> muni<span class="sc">$</span>Municipio <span class="sc">%in%</span> cids <span class="sc">&amp;</span> muni<span class="sc">$</span>Regiao <span class="sc">==</span> <span class="st">&quot;Norte&quot;</span></span>
+<span id="cb1807-5"><a href="análises-de-agrupamento.html#cb1807-5" tabindex="-1"></a>muni <span class="ot">&lt;-</span> muni[vl, ]</span>
+<span id="cb1807-6"><a href="análises-de-agrupamento.html#cb1807-6" tabindex="-1"></a><span class="fu">rownames</span>(muni) <span class="ot">&lt;-</span> muni<span class="sc">$</span>Municipio</span>
+<span id="cb1807-7"><a href="análises-de-agrupamento.html#cb1807-7" tabindex="-1"></a></span>
+<span id="cb1807-8"><a href="análises-de-agrupamento.html#cb1807-8" tabindex="-1"></a><span class="co"># calcula a distancia geografica entre essas cidades (em graus de latitude)</span></span>
+<span id="cb1807-9"><a href="análises-de-agrupamento.html#cb1807-9" tabindex="-1"></a>mdist <span class="ot">&lt;-</span> <span class="fu">dist</span>(muni[, <span class="fu">c</span>(<span class="st">&quot;Longitude&quot;</span>, <span class="st">&quot;Latitude&quot;</span>)], <span class="at">method =</span> <span class="st">&quot;euclidean&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1808-1"><a href="análises-de-agrupamento.html#cb1808-1" tabindex="-1"></a><span class="co"># veja o help de hclust e também</span></span>
+<span id="cb1808-2"><a href="análises-de-agrupamento.html#cb1808-2" tabindex="-1"></a><span class="co"># os diferente métodos de agrupamento</span></span>
+<span id="cb1808-3"><a href="análises-de-agrupamento.html#cb1808-3" tabindex="-1"></a>?hclust</span></code></pre></div>
 <div id="agrupamento-pelo-método-da-mínima-variância" class="section level3 hasAnchor" number="14.4.1">
 <h3><span class="header-section-number">14.4.1</span> Agrupamento pelo método da mínima variância<a href="análises-de-agrupamento.html#agrupamento-pelo-método-da-mínima-variância" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1807-1"><a href="análises-de-agrupamento.html#cb1807-1" aria-hidden="true" tabindex="-1"></a>gp <span class="ot">&lt;-</span> <span class="fu">hclust</span>(mdist, <span class="at">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
-<span id="cb1807-2"><a href="análises-de-agrupamento.html#cb1807-2" aria-hidden="true" tabindex="-1"></a><span class="co"># visualizando</span></span>
-<span id="cb1807-3"><a href="análises-de-agrupamento.html#cb1807-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gp, <span class="at">main =</span> <span class="st">&quot;Cidades da região norte&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Distância geográfica (dd)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1809-1"><a href="análises-de-agrupamento.html#cb1809-1" tabindex="-1"></a>gp <span class="ot">&lt;-</span> <span class="fu">hclust</span>(mdist, <span class="at">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb1809-2"><a href="análises-de-agrupamento.html#cb1809-2" tabindex="-1"></a><span class="co"># visualizando</span></span>
+<span id="cb1809-3"><a href="análises-de-agrupamento.html#cb1809-3" tabindex="-1"></a><span class="fu">plot</span>(gp, <span class="at">main =</span> <span class="st">&quot;Cidades da região norte&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Distância geográfica (dd)&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-593-1.svg" width="672" /></p>
 </div>
 <div id="agrupamento-por-upgma" class="section level3 hasAnchor" number="14.4.2">
 <h3><span class="header-section-number">14.4.2</span> Agrupamento por UPGMA<a href="análises-de-agrupamento.html#agrupamento-por-upgma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1808-1"><a href="análises-de-agrupamento.html#cb1808-1" aria-hidden="true" tabindex="-1"></a>gp2 <span class="ot">&lt;-</span> <span class="fu">hclust</span>(mdist, <span class="at">method =</span> <span class="st">&quot;average&quot;</span>)</span>
-<span id="cb1808-2"><a href="análises-de-agrupamento.html#cb1808-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gp2, <span class="at">hang =</span> <span class="fl">0.1</span>, <span class="at">main =</span> <span class="st">&quot;Cidades da região norte&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Distância geográfica (dd)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1810-1"><a href="análises-de-agrupamento.html#cb1810-1" tabindex="-1"></a>gp2 <span class="ot">&lt;-</span> <span class="fu">hclust</span>(mdist, <span class="at">method =</span> <span class="st">&quot;average&quot;</span>)</span>
+<span id="cb1810-2"><a href="análises-de-agrupamento.html#cb1810-2" tabindex="-1"></a><span class="fu">plot</span>(gp2, <span class="at">hang =</span> <span class="fl">0.1</span>, <span class="at">main =</span> <span class="st">&quot;Cidades da região norte&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Distância geográfica (dd)&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-594-1.svg" width="672" /></p>
 </div>
 <div id="agrupamento-por-centróides" class="section level3 hasAnchor" number="14.4.3">
 <h3><span class="header-section-number">14.4.3</span> Agrupamento por centróides<a href="análises-de-agrupamento.html#agrupamento-por-centróides" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1809-1"><a href="análises-de-agrupamento.html#cb1809-1" aria-hidden="true" tabindex="-1"></a>gp3 <span class="ot">&lt;-</span> <span class="fu">hclust</span>(mdist, <span class="at">method =</span> <span class="st">&quot;centroid&quot;</span>)</span>
-<span id="cb1809-2"><a href="análises-de-agrupamento.html#cb1809-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gp3, <span class="at">hang =</span> <span class="fl">0.1</span>, <span class="at">main =</span> <span class="st">&quot;Cidades da região norte&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Distância geográfica (dd)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1811-1"><a href="análises-de-agrupamento.html#cb1811-1" tabindex="-1"></a>gp3 <span class="ot">&lt;-</span> <span class="fu">hclust</span>(mdist, <span class="at">method =</span> <span class="st">&quot;centroid&quot;</span>)</span>
+<span id="cb1811-2"><a href="análises-de-agrupamento.html#cb1811-2" tabindex="-1"></a><span class="fu">plot</span>(gp3, <span class="at">hang =</span> <span class="fl">0.1</span>, <span class="at">main =</span> <span class="st">&quot;Cidades da região norte&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Distância geográfica (dd)&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-595-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1810-1"><a href="análises-de-agrupamento.html#cb1810-1" aria-hidden="true" tabindex="-1"></a><span class="co"># teste outros métodos (entenda-os)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1812-1"><a href="análises-de-agrupamento.html#cb1812-1" tabindex="-1"></a><span class="co"># teste outros métodos (entenda-os)</span></span></code></pre></div>
 <p>Vamos converter nossos objetos <code>gp</code> e <code>gp3</code> para objetos de classe <code>phylo</code>, e gerar um gráfico para cada um.</p>
-<div class="sourceCode" id="cb1811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1811-1"><a href="análises-de-agrupamento.html#cb1811-1" aria-hidden="true" tabindex="-1"></a>?plot.phylo</span></code></pre></div>
-<div class="sourceCode" id="cb1812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1812-1"><a href="análises-de-agrupamento.html#cb1812-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;phylogram&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb1812-2"><a href="análises-de-agrupamento.html#cb1812-2" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>)</span>
-<span id="cb1812-3"><a href="análises-de-agrupamento.html#cb1812-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">2.5</span>, <span class="at">text =</span> <span class="st">&quot;Distância geográfica&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1813-1"><a href="análises-de-agrupamento.html#cb1813-1" tabindex="-1"></a>?plot.phylo</span></code></pre></div>
+<div class="sourceCode" id="cb1814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1814-1"><a href="análises-de-agrupamento.html#cb1814-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;phylogram&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1814-2"><a href="análises-de-agrupamento.html#cb1814-2" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>)</span>
+<span id="cb1814-3"><a href="análises-de-agrupamento.html#cb1814-3" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">2.5</span>, <span class="at">text =</span> <span class="st">&quot;Distância geográfica&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-597-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1813-1"><a href="análises-de-agrupamento.html#cb1813-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou entao, como cladograma, e nao usando o comprimento dos ramos (i.e. as distancias)</span></span>
-<span id="cb1813-2"><a href="análises-de-agrupamento.html#cb1813-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;cladogram&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">use.edge.length =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb1815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1815-1"><a href="análises-de-agrupamento.html#cb1815-1" tabindex="-1"></a><span class="co"># ou entao, como cladograma, e nao usando o comprimento dos ramos (i.e. as distancias)</span></span>
+<span id="cb1815-2"><a href="análises-de-agrupamento.html#cb1815-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;cladogram&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">use.edge.length =</span> F)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-598-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1814-1"><a href="análises-de-agrupamento.html#cb1814-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou entao, radial, com distancias</span></span>
-<span id="cb1814-2"><a href="análises-de-agrupamento.html#cb1814-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;radial&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">use.edge.length =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb1816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1816-1"><a href="análises-de-agrupamento.html#cb1816-1" tabindex="-1"></a><span class="co"># ou entao, radial, com distancias</span></span>
+<span id="cb1816-2"><a href="análises-de-agrupamento.html#cb1816-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;radial&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">use.edge.length =</span> T)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-599-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1815-1"><a href="análises-de-agrupamento.html#cb1815-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usando comprimento dos ramos (distancias+relacoes)</span></span>
-<span id="cb1815-2"><a href="análises-de-agrupamento.html#cb1815-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;phylogram&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">use.edge.length =</span> T)</span>
-<span id="cb1815-3"><a href="análises-de-agrupamento.html#cb1815-3" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>)</span>
-<span id="cb1815-4"><a href="análises-de-agrupamento.html#cb1815-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">2.5</span>, <span class="at">text =</span> <span class="st">&quot;Distância geográfica&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1817-1"><a href="análises-de-agrupamento.html#cb1817-1" tabindex="-1"></a><span class="co"># usando comprimento dos ramos (distancias+relacoes)</span></span>
+<span id="cb1817-2"><a href="análises-de-agrupamento.html#cb1817-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;phylogram&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">use.edge.length =</span> T)</span>
+<span id="cb1817-3"><a href="análises-de-agrupamento.html#cb1817-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>)</span>
+<span id="cb1817-4"><a href="análises-de-agrupamento.html#cb1817-4" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">2.5</span>, <span class="at">text =</span> <span class="st">&quot;Distância geográfica&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-600-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1816-1"><a href="análises-de-agrupamento.html#cb1816-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nao usando o comprimento dos ramos (relacoes apenas)</span></span>
-<span id="cb1816-2"><a href="análises-de-agrupamento.html#cb1816-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;phylogram&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">use.edge.length =</span> F, <span class="at">edge.color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">edge.width =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1818-1"><a href="análises-de-agrupamento.html#cb1818-1" tabindex="-1"></a><span class="co"># nao usando o comprimento dos ramos (relacoes apenas)</span></span>
+<span id="cb1818-2"><a href="análises-de-agrupamento.html#cb1818-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.phylo</span>(gp), <span class="at">type =</span> <span class="st">&quot;phylogram&quot;</span>, <span class="at">label.offset =</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">use.edge.length =</span> F, <span class="at">edge.color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">edge.width =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-601-1.svg" width="672" /></p>
 </div>
 <div id="exemplo-florístico" class="section level3 hasAnchor" number="14.4.4">
 <h3><span class="header-section-number">14.4.4</span> Exemplo florístico<a href="análises-de-agrupamento.html#exemplo-florístico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vamos explorar a similaridade florística entre parcelas com os dados de caixetais novamente.</p>
-<div class="sourceCode" id="cb1817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1817-1"><a href="análises-de-agrupamento.html#cb1817-1" aria-hidden="true" tabindex="-1"></a>caixeta <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">header =</span> T, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb1818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1818-1"><a href="análises-de-agrupamento.html#cb1818-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1819-1"><a href="análises-de-agrupamento.html#cb1819-1" tabindex="-1"></a>caixeta <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;caixeta.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">header =</span> T, <span class="at">na.strings =</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot;NULL&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1820-1"><a href="análises-de-agrupamento.html#cb1820-1" tabindex="-1"></a><span class="fu">head</span>(caixeta)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -787,15 +788,15 @@ Myrcia sulfiflora
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1819-1"><a href="análises-de-agrupamento.html#cb1819-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
+<div class="sourceCode" id="cb1821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1821-1"><a href="análises-de-agrupamento.html#cb1821-1" tabindex="-1"></a><span class="fu">names</span>(caixeta)</span></code></pre></div>
 <pre><code>## [1] &quot;local&quot;   &quot;parcela&quot; &quot;arvore&quot;  &quot;fuste&quot;   &quot;cap&quot;     &quot;h&quot;       &quot;especie&quot;</code></pre>
-<div class="sourceCode" id="cb1821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1821-1"><a href="análises-de-agrupamento.html#cb1821-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos visualizar a similaridade florística entre parcelas</span></span>
-<span id="cb1821-2"><a href="análises-de-agrupamento.html#cb1821-2" aria-hidden="true" tabindex="-1"></a><span class="co"># entao geramos uma tabela de parcela vs. especies</span></span>
-<span id="cb1821-3"><a href="análises-de-agrupamento.html#cb1821-3" aria-hidden="true" tabindex="-1"></a><span class="co"># primeiro um vetor com valores únicos para local+parcela</span></span>
-<span id="cb1821-4"><a href="análises-de-agrupamento.html#cb1821-4" aria-hidden="true" tabindex="-1"></a><span class="co"># porque o número da parcela repete entre locais</span></span>
-<span id="cb1821-5"><a href="análises-de-agrupamento.html#cb1821-5" aria-hidden="true" tabindex="-1"></a>parcelas <span class="ot">&lt;-</span> <span class="fu">paste</span>(caixeta<span class="sc">$</span>local, caixeta<span class="sc">$</span>parcela, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
-<span id="cb1821-6"><a href="análises-de-agrupamento.html#cb1821-6" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(parcelas, <span class="at">especies =</span> caixeta<span class="sc">$</span>especie)</span></code></pre></div>
-<div class="sourceCode" id="cb1822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1822-1"><a href="análises-de-agrupamento.html#cb1822-1" aria-hidden="true" tabindex="-1"></a>tb[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1823-1"><a href="análises-de-agrupamento.html#cb1823-1" tabindex="-1"></a><span class="co"># vamos visualizar a similaridade florística entre parcelas</span></span>
+<span id="cb1823-2"><a href="análises-de-agrupamento.html#cb1823-2" tabindex="-1"></a><span class="co"># entao geramos uma tabela de parcela vs. especies</span></span>
+<span id="cb1823-3"><a href="análises-de-agrupamento.html#cb1823-3" tabindex="-1"></a><span class="co"># primeiro um vetor com valores únicos para local+parcela</span></span>
+<span id="cb1823-4"><a href="análises-de-agrupamento.html#cb1823-4" tabindex="-1"></a><span class="co"># porque o número da parcela repete entre locais</span></span>
+<span id="cb1823-5"><a href="análises-de-agrupamento.html#cb1823-5" tabindex="-1"></a>parcelas <span class="ot">&lt;-</span> <span class="fu">paste</span>(caixeta<span class="sc">$</span>local, caixeta<span class="sc">$</span>parcela, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb1823-6"><a href="análises-de-agrupamento.html#cb1823-6" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(parcelas, <span class="at">especies =</span> caixeta<span class="sc">$</span>especie)</span></code></pre></div>
+<div class="sourceCode" id="cb1824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1824-1"><a href="análises-de-agrupamento.html#cb1824-1" tabindex="-1"></a>tb[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1121,23 +1122,23 @@ retiro-5
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1823-1"><a href="análises-de-agrupamento.html#cb1823-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb1825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1825-1"><a href="análises-de-agrupamento.html#cb1825-1" tabindex="-1"></a><span class="fu">dim</span>(tb)</span></code></pre></div>
 <pre><code>## [1] 15 43</code></pre>
-<div class="sourceCode" id="cb1825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1825-1"><a href="análises-de-agrupamento.html#cb1825-1" aria-hidden="true" tabindex="-1"></a><span class="co"># essa tabela contém o número de indivíduos de cada espécie</span></span>
-<span id="cb1825-2"><a href="análises-de-agrupamento.html#cb1825-2" aria-hidden="true" tabindex="-1"></a><span class="co"># em cada parcela</span></span>
-<span id="cb1825-3"><a href="análises-de-agrupamento.html#cb1825-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1825-4"><a href="análises-de-agrupamento.html#cb1825-4" aria-hidden="true" tabindex="-1"></a><span class="co"># calculando um índice de distancia de Jaccard para dados de presença e ausência</span></span>
-<span id="cb1825-5"><a href="análises-de-agrupamento.html#cb1825-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1825-6"><a href="análises-de-agrupamento.html#cb1825-6" aria-hidden="true" tabindex="-1"></a><span class="co"># transformando em uma tabela de presença e ausencia</span></span>
-<span id="cb1825-7"><a href="análises-de-agrupamento.html#cb1825-7" aria-hidden="true" tabindex="-1"></a>tb2 <span class="ot">&lt;-</span> tb</span>
-<span id="cb1825-8"><a href="análises-de-agrupamento.html#cb1825-8" aria-hidden="true" tabindex="-1"></a>tb2[tb2 <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb1827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1827-1"><a href="análises-de-agrupamento.html#cb1827-1" tabindex="-1"></a><span class="co"># essa tabela contém o número de indivíduos de cada espécie</span></span>
+<span id="cb1827-2"><a href="análises-de-agrupamento.html#cb1827-2" tabindex="-1"></a><span class="co"># em cada parcela</span></span>
+<span id="cb1827-3"><a href="análises-de-agrupamento.html#cb1827-3" tabindex="-1"></a></span>
+<span id="cb1827-4"><a href="análises-de-agrupamento.html#cb1827-4" tabindex="-1"></a><span class="co"># calculando um índice de distancia de Jaccard para dados de presença e ausência</span></span>
+<span id="cb1827-5"><a href="análises-de-agrupamento.html#cb1827-5" tabindex="-1"></a></span>
+<span id="cb1827-6"><a href="análises-de-agrupamento.html#cb1827-6" tabindex="-1"></a><span class="co"># transformando em uma tabela de presença e ausencia</span></span>
+<span id="cb1827-7"><a href="análises-de-agrupamento.html#cb1827-7" tabindex="-1"></a>tb2 <span class="ot">&lt;-</span> tb</span>
+<span id="cb1827-8"><a href="análises-de-agrupamento.html#cb1827-8" tabindex="-1"></a>tb2[tb2 <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span></code></pre></div>
 <p>Vamos utilizar a função <code>vegdist()</code> do pacote <code>vegan</code>.</p>
-<div class="sourceCode" id="cb1826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1826-1"><a href="análises-de-agrupamento.html#cb1826-1" aria-hidden="true" tabindex="-1"></a>?vegdist</span></code></pre></div>
-<div class="sourceCode" id="cb1827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1827-1"><a href="análises-de-agrupamento.html#cb1827-1" aria-hidden="true" tabindex="-1"></a>djac <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(tb2, <span class="at">method =</span> <span class="st">&quot;jaccard&quot;</span>)</span>
-<span id="cb1827-2"><a href="análises-de-agrupamento.html#cb1827-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(djac)</span></code></pre></div>
+<div class="sourceCode" id="cb1828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1828-1"><a href="análises-de-agrupamento.html#cb1828-1" tabindex="-1"></a>?vegdist</span></code></pre></div>
+<div class="sourceCode" id="cb1829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1829-1"><a href="análises-de-agrupamento.html#cb1829-1" tabindex="-1"></a>djac <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(tb2, <span class="at">method =</span> <span class="st">&quot;jaccard&quot;</span>)</span>
+<span id="cb1829-2"><a href="análises-de-agrupamento.html#cb1829-2" tabindex="-1"></a><span class="fu">class</span>(djac)</span></code></pre></div>
 <pre><code>## [1] &quot;dist&quot;</code></pre>
-<div class="sourceCode" id="cb1829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1829-1"><a href="análises-de-agrupamento.html#cb1829-1" aria-hidden="true" tabindex="-1"></a><span class="co"># é uma matriz de distancia entre parcela</span></span>
-<span id="cb1829-2"><a href="análises-de-agrupamento.html#cb1829-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(djac)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1831-1"><a href="análises-de-agrupamento.html#cb1831-1" tabindex="-1"></a><span class="co"># é uma matriz de distancia entre parcela</span></span>
+<span id="cb1831-2"><a href="análises-de-agrupamento.html#cb1831-2" tabindex="-1"></a><span class="fu">as.matrix</span>(djac)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1229,18 +1230,18 @@ chauas-4
 </tbody>
 </table>
 <p>Podemos fazer um NMDS com esse resultado:</p>
-<div class="sourceCode" id="cb1830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1830-1"><a href="análises-de-agrupamento.html#cb1830-1" aria-hidden="true" tabindex="-1"></a>onmds <span class="ot">&lt;-</span> <span class="fu">bestnmds</span>(djac, <span class="at">k =</span> <span class="dv">2</span>)</span>
-<span id="cb1830-2"><a href="análises-de-agrupamento.html#cb1830-2" aria-hidden="true" tabindex="-1"></a><span class="co"># parcelas 3 e 5 tem exatamente as mesmas espécies</span></span>
-<span id="cb1830-3"><a href="análises-de-agrupamento.html#cb1830-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos com colocar um valor super pequeno para essa distancia (quase zero)</span></span></code></pre></div>
-<div class="sourceCode" id="cb1831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1831-1"><a href="análises-de-agrupamento.html#cb1831-1" aria-hidden="true" tabindex="-1"></a>djac[djac <span class="sc">==</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="fl">0.0000000000000000001</span></span></code></pre></div>
-<div class="sourceCode" id="cb1832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1832-1"><a href="análises-de-agrupamento.html#cb1832-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora funciona</span></span>
-<span id="cb1832-2"><a href="análises-de-agrupamento.html#cb1832-2" aria-hidden="true" tabindex="-1"></a>onmds <span class="ot">&lt;-</span> <span class="fu">bestnmds</span>(djac, <span class="at">k =</span> <span class="dv">2</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1833-1"><a href="análises-de-agrupamento.html#cb1833-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plotando o resultado</span></span>
-<span id="cb1833-2"><a href="análises-de-agrupamento.html#cb1833-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pega cores e simbolos segundo o local</span></span>
-<span id="cb1833-3"><a href="análises-de-agrupamento.html#cb1833-3" aria-hidden="true" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, parcelas)</span>
-<span id="cb1833-4"><a href="análises-de-agrupamento.html#cb1833-4" aria-hidden="true" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="fu">unique</span>(ll)</span>
-<span id="cb1833-5"><a href="análises-de-agrupamento.html#cb1833-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(ll) <span class="ot">&lt;-</span> ll<span class="sc">$</span>parcelas</span>
-<span id="cb1833-6"><a href="análises-de-agrupamento.html#cb1833-6" aria-hidden="true" tabindex="-1"></a>ll</span></code></pre></div>
+<div class="sourceCode" id="cb1832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1832-1"><a href="análises-de-agrupamento.html#cb1832-1" tabindex="-1"></a>onmds <span class="ot">&lt;-</span> <span class="fu">bestnmds</span>(djac, <span class="at">k =</span> <span class="dv">2</span>)</span>
+<span id="cb1832-2"><a href="análises-de-agrupamento.html#cb1832-2" tabindex="-1"></a><span class="co"># parcelas 3 e 5 tem exatamente as mesmas espécies</span></span>
+<span id="cb1832-3"><a href="análises-de-agrupamento.html#cb1832-3" tabindex="-1"></a><span class="co"># vamos com colocar um valor super pequeno para essa distancia (quase zero)</span></span></code></pre></div>
+<div class="sourceCode" id="cb1833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1833-1"><a href="análises-de-agrupamento.html#cb1833-1" tabindex="-1"></a>djac[djac <span class="sc">==</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="fl">0.0000000000000000001</span></span></code></pre></div>
+<div class="sourceCode" id="cb1834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1834-1"><a href="análises-de-agrupamento.html#cb1834-1" tabindex="-1"></a><span class="co"># agora funciona</span></span>
+<span id="cb1834-2"><a href="análises-de-agrupamento.html#cb1834-2" tabindex="-1"></a>onmds <span class="ot">&lt;-</span> <span class="fu">bestnmds</span>(djac, <span class="at">k =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1835-1"><a href="análises-de-agrupamento.html#cb1835-1" tabindex="-1"></a><span class="co"># plotando o resultado</span></span>
+<span id="cb1835-2"><a href="análises-de-agrupamento.html#cb1835-2" tabindex="-1"></a><span class="co"># pega cores e simbolos segundo o local</span></span>
+<span id="cb1835-3"><a href="análises-de-agrupamento.html#cb1835-3" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">local =</span> caixeta<span class="sc">$</span>local, parcelas)</span>
+<span id="cb1835-4"><a href="análises-de-agrupamento.html#cb1835-4" tabindex="-1"></a>ll <span class="ot">&lt;-</span> <span class="fu">unique</span>(ll)</span>
+<span id="cb1835-5"><a href="análises-de-agrupamento.html#cb1835-5" tabindex="-1"></a><span class="fu">rownames</span>(ll) <span class="ot">&lt;-</span> ll<span class="sc">$</span>parcelas</span>
+<span id="cb1835-6"><a href="análises-de-agrupamento.html#cb1835-6" tabindex="-1"></a>ll</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1422,31 +1423,31 @@ retiro-5
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1834-1"><a href="análises-de-agrupamento.html#cb1834-1" aria-hidden="true" tabindex="-1"></a>rn <span class="ot">&lt;-</span> <span class="fu">rownames</span>(<span class="fu">as.matrix</span>(tb2))</span>
-<span id="cb1834-2"><a href="análises-de-agrupamento.html#cb1834-2" aria-hidden="true" tabindex="-1"></a>locais <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ll[rn, <span class="st">&quot;local&quot;</span>])</span>
-<span id="cb1834-3"><a href="análises-de-agrupamento.html#cb1834-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1834-4"><a href="análises-de-agrupamento.html#cb1834-4" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="fu">as.numeric</span>(locais)]</span>
-<span id="cb1834-5"><a href="análises-de-agrupamento.html#cb1834-5" aria-hidden="true" tabindex="-1"></a>pchs <span class="ot">&lt;-</span> (<span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>)[<span class="fu">as.numeric</span>(locais)]</span>
-<span id="cb1834-6"><a href="análises-de-agrupamento.html#cb1834-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(onmds<span class="sc">$</span>points, <span class="at">pch =</span> pchs, <span class="at">bg =</span> cores, <span class="at">xlab =</span> <span class="st">&quot;NMDS1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;NMDS2&quot;</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span>
-<span id="cb1834-7"><a href="análises-de-agrupamento.html#cb1834-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="fu">levels</span>(locais), <span class="at">pch =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">inset =</span> <span class="fl">0.05</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">pt.cex =</span> <span class="fl">1.5</span>, <span class="at">y.intersp =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1836-1"><a href="análises-de-agrupamento.html#cb1836-1" tabindex="-1"></a>rn <span class="ot">&lt;-</span> <span class="fu">rownames</span>(<span class="fu">as.matrix</span>(tb2))</span>
+<span id="cb1836-2"><a href="análises-de-agrupamento.html#cb1836-2" tabindex="-1"></a>locais <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ll[rn, <span class="st">&quot;local&quot;</span>])</span>
+<span id="cb1836-3"><a href="análises-de-agrupamento.html#cb1836-3" tabindex="-1"></a></span>
+<span id="cb1836-4"><a href="análises-de-agrupamento.html#cb1836-4" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)[<span class="fu">as.numeric</span>(locais)]</span>
+<span id="cb1836-5"><a href="análises-de-agrupamento.html#cb1836-5" tabindex="-1"></a>pchs <span class="ot">&lt;-</span> (<span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>)[<span class="fu">as.numeric</span>(locais)]</span>
+<span id="cb1836-6"><a href="análises-de-agrupamento.html#cb1836-6" tabindex="-1"></a><span class="fu">plot</span>(onmds<span class="sc">$</span>points, <span class="at">pch =</span> pchs, <span class="at">bg =</span> cores, <span class="at">xlab =</span> <span class="st">&quot;NMDS1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;NMDS2&quot;</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span>
+<span id="cb1836-7"><a href="análises-de-agrupamento.html#cb1836-7" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="fu">levels</span>(locais), <span class="at">pch =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">inset =</span> <span class="fl">0.05</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">pt.cex =</span> <span class="fl">1.5</span>, <span class="at">y.intersp =</span> <span class="fl">1.5</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-617-1.svg" width="672" /></p>
 <p>Agora vamos visualizar o resultado na forma de um agrupamento:</p>
-<div class="sourceCode" id="cb1835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1835-1"><a href="análises-de-agrupamento.html#cb1835-1" aria-hidden="true" tabindex="-1"></a>cluster <span class="ot">&lt;-</span> <span class="fu">hclust</span>(djac, <span class="at">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
-<span id="cb1835-2"><a href="análises-de-agrupamento.html#cb1835-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cluster, <span class="at">ylab =</span> <span class="st">&quot;Dissimilaridade Florística (Jaccard)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1837-1"><a href="análises-de-agrupamento.html#cb1837-1" tabindex="-1"></a>cluster <span class="ot">&lt;-</span> <span class="fu">hclust</span>(djac, <span class="at">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb1837-2"><a href="análises-de-agrupamento.html#cb1837-2" tabindex="-1"></a><span class="fu">plot</span>(cluster, <span class="at">ylab =</span> <span class="st">&quot;Dissimilaridade Florística (Jaccard)&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-618-1.svg" width="672" /></p>
-<p>Para aprimorar a figura, vamos utilizar a função <code>as.phylo()</code> do pacote <code>ape</code> <span class="citation">(<a href="#ref-R-ape" role="doc-biblioref">Paradis et al. 2020</a>)</span> para converter o objeto <code>cluster</code> de classe <code>dendrogram</code> para um de classe <code>phylo</code>.</p>
-<div class="sourceCode" id="cb1836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1836-1"><a href="análises-de-agrupamento.html#cb1836-1" aria-hidden="true" tabindex="-1"></a>pcl <span class="ot">&lt;-</span> <span class="fu">as.phylo</span>(cluster)</span>
-<span id="cb1836-2"><a href="análises-de-agrupamento.html#cb1836-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>))</span>
-<span id="cb1836-3"><a href="análises-de-agrupamento.html#cb1836-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pcl, <span class="at">tip.color =</span> cores, <span class="at">label.offset =</span> <span class="fl">0.02</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb1836-4"><a href="análises-de-agrupamento.html#cb1836-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pontos</span></span>
-<span id="cb1836-5"><a href="análises-de-agrupamento.html#cb1836-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tiplabels</span>(<span class="at">pch =</span> <span class="dv">21</span>, <span class="at">frame =</span> <span class="cn">NULL</span>, <span class="at">bg =</span> cores)</span>
-<span id="cb1836-6"><a href="análises-de-agrupamento.html#cb1836-6" aria-hidden="true" tabindex="-1"></a><span class="co"># eixo</span></span>
-<span id="cb1836-7"><a href="análises-de-agrupamento.html#cb1836-7" aria-hidden="true" tabindex="-1"></a><span class="fu">axisPhylo</span>()</span>
-<span id="cb1836-8"><a href="análises-de-agrupamento.html#cb1836-8" aria-hidden="true" tabindex="-1"></a><span class="co"># nome do eixo</span></span>
-<span id="cb1836-9"><a href="análises-de-agrupamento.html#cb1836-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">text =</span> <span class="st">&quot;Jaccard índice (0 ou 1)&quot;</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">2.5</span>)</span>
-<span id="cb1836-10"><a href="análises-de-agrupamento.html#cb1836-10" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">levels</span>(locais), <span class="at">pch =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">inset =</span> <span class="fl">0.01</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">pt.cex =</span> <span class="fl">1.5</span>, <span class="at">y.intersp =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<p>Para aprimorar a figura, vamos utilizar a função <code>as.phylo()</code> do pacote <code>ape</code> <span class="citation">(<a href="#ref-R-ape">Paradis et al. 2020</a>)</span> para converter o objeto <code>cluster</code> de classe <code>dendrogram</code> para um de classe <code>phylo</code>.</p>
+<div class="sourceCode" id="cb1838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1838-1"><a href="análises-de-agrupamento.html#cb1838-1" tabindex="-1"></a>pcl <span class="ot">&lt;-</span> <span class="fu">as.phylo</span>(cluster)</span>
+<span id="cb1838-2"><a href="análises-de-agrupamento.html#cb1838-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb1838-3"><a href="análises-de-agrupamento.html#cb1838-3" tabindex="-1"></a><span class="fu">plot</span>(pcl, <span class="at">tip.color =</span> cores, <span class="at">label.offset =</span> <span class="fl">0.02</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1838-4"><a href="análises-de-agrupamento.html#cb1838-4" tabindex="-1"></a><span class="co"># pontos</span></span>
+<span id="cb1838-5"><a href="análises-de-agrupamento.html#cb1838-5" tabindex="-1"></a><span class="fu">tiplabels</span>(<span class="at">pch =</span> <span class="dv">21</span>, <span class="at">frame =</span> <span class="cn">NULL</span>, <span class="at">bg =</span> cores)</span>
+<span id="cb1838-6"><a href="análises-de-agrupamento.html#cb1838-6" tabindex="-1"></a><span class="co"># eixo</span></span>
+<span id="cb1838-7"><a href="análises-de-agrupamento.html#cb1838-7" tabindex="-1"></a><span class="fu">axisPhylo</span>()</span>
+<span id="cb1838-8"><a href="análises-de-agrupamento.html#cb1838-8" tabindex="-1"></a><span class="co"># nome do eixo</span></span>
+<span id="cb1838-9"><a href="análises-de-agrupamento.html#cb1838-9" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">text =</span> <span class="st">&quot;Jaccard índice (0 ou 1)&quot;</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">2.5</span>)</span>
+<span id="cb1838-10"><a href="análises-de-agrupamento.html#cb1838-10" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">levels</span>(locais), <span class="at">pch =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">inset =</span> <span class="fl">0.01</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">pt.cex =</span> <span class="fl">1.5</span>, <span class="at">y.intersp =</span> <span class="fl">1.5</span>)</span></code></pre></div>
 <p>Vamos repetir essa operação considerando a abundância de espécies por parcelas contidos no objeto <code>tb</code> (usamos o índice de Sorensen).</p>
-<div class="sourceCode" id="cb1837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1837-1"><a href="análises-de-agrupamento.html#cb1837-1" aria-hidden="true" tabindex="-1"></a>tb[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1839-1"><a href="análises-de-agrupamento.html#cb1839-1" tabindex="-1"></a>tb[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1552,22 +1553,22 @@ chauas-4
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1838-1"><a href="análises-de-agrupamento.html#cb1838-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sorensen (bray na convencao do R)</span></span>
-<span id="cb1838-2"><a href="análises-de-agrupamento.html#cb1838-2" aria-hidden="true" tabindex="-1"></a>dsor <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(tb, <span class="at">method =</span> <span class="st">&quot;bray&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1839-1"><a href="análises-de-agrupamento.html#cb1839-1" aria-hidden="true" tabindex="-1"></a>onmds2 <span class="ot">&lt;-</span> <span class="fu">bestnmds</span>(dsor, <span class="at">k =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1840-1"><a href="análises-de-agrupamento.html#cb1840-1" tabindex="-1"></a><span class="co"># sorensen (bray na convencao do R)</span></span>
+<span id="cb1840-2"><a href="análises-de-agrupamento.html#cb1840-2" tabindex="-1"></a>dsor <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(tb, <span class="at">method =</span> <span class="st">&quot;bray&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1841-1"><a href="análises-de-agrupamento.html#cb1841-1" tabindex="-1"></a>onmds2 <span class="ot">&lt;-</span> <span class="fu">bestnmds</span>(dsor, <span class="at">k =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p>Plota o NMDS:</p>
-<div class="sourceCode" id="cb1840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1840-1"><a href="análises-de-agrupamento.html#cb1840-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(onmds2<span class="sc">$</span>points, <span class="at">pch =</span> pchs, <span class="at">bg =</span> cores, <span class="at">xlab =</span> <span class="st">&quot;NMDS1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;NMDS2&quot;</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span>
-<span id="cb1840-2"><a href="análises-de-agrupamento.html#cb1840-2" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="fu">levels</span>(locais), <span class="at">pch =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">inset =</span> <span class="fl">0.05</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">pt.cex =</span> <span class="fl">1.5</span>, <span class="at">y.intersp =</span> <span class="fl">1.5</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1842-1"><a href="análises-de-agrupamento.html#cb1842-1" tabindex="-1"></a><span class="fu">plot</span>(onmds2<span class="sc">$</span>points, <span class="at">pch =</span> pchs, <span class="at">bg =</span> cores, <span class="at">xlab =</span> <span class="st">&quot;NMDS1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;NMDS2&quot;</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span>
+<span id="cb1842-2"><a href="análises-de-agrupamento.html#cb1842-2" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="fu">levels</span>(locais), <span class="at">pch =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">inset =</span> <span class="fl">0.05</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">pt.cex =</span> <span class="fl">1.5</span>, <span class="at">y.intersp =</span> <span class="fl">1.5</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-625-1.svg" width="672" /></p>
 <p>Agora, vamos plotar o agrupamento:</p>
-<div class="sourceCode" id="cb1841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1841-1"><a href="análises-de-agrupamento.html#cb1841-1" aria-hidden="true" tabindex="-1"></a>cluster2 <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dsor, <span class="at">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
-<span id="cb1841-2"><a href="análises-de-agrupamento.html#cb1841-2" aria-hidden="true" tabindex="-1"></a>pcl2 <span class="ot">&lt;-</span> <span class="fu">as.phylo</span>(cluster2)</span>
-<span id="cb1841-3"><a href="análises-de-agrupamento.html#cb1841-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>))</span>
-<span id="cb1841-4"><a href="análises-de-agrupamento.html#cb1841-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pcl2, <span class="at">tip.color =</span> cores, <span class="at">label.offset =</span> <span class="fl">0.02</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
-<span id="cb1841-5"><a href="análises-de-agrupamento.html#cb1841-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tiplabels</span>(<span class="at">pch =</span> <span class="dv">21</span>, <span class="at">frame =</span> <span class="cn">NULL</span>, <span class="at">bg =</span> cores)</span>
-<span id="cb1841-6"><a href="análises-de-agrupamento.html#cb1841-6" aria-hidden="true" tabindex="-1"></a><span class="fu">axisPhylo</span>()</span>
-<span id="cb1841-7"><a href="análises-de-agrupamento.html#cb1841-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">text =</span> <span class="st">&quot;Sorensen índice (com abundância)&quot;</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">2.5</span>)</span>
-<span id="cb1841-8"><a href="análises-de-agrupamento.html#cb1841-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">levels</span>(locais), <span class="at">pch =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">inset =</span> <span class="fl">0.01</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">pt.cex =</span> <span class="fl">1.5</span>, <span class="at">y.intersp =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1843-1"><a href="análises-de-agrupamento.html#cb1843-1" tabindex="-1"></a>cluster2 <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dsor, <span class="at">method =</span> <span class="st">&quot;ward.D2&quot;</span>)</span>
+<span id="cb1843-2"><a href="análises-de-agrupamento.html#cb1843-2" tabindex="-1"></a>pcl2 <span class="ot">&lt;-</span> <span class="fu">as.phylo</span>(cluster2)</span>
+<span id="cb1843-3"><a href="análises-de-agrupamento.html#cb1843-3" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb1843-4"><a href="análises-de-agrupamento.html#cb1843-4" tabindex="-1"></a><span class="fu">plot</span>(pcl2, <span class="at">tip.color =</span> cores, <span class="at">label.offset =</span> <span class="fl">0.02</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1843-5"><a href="análises-de-agrupamento.html#cb1843-5" tabindex="-1"></a><span class="fu">tiplabels</span>(<span class="at">pch =</span> <span class="dv">21</span>, <span class="at">frame =</span> <span class="cn">NULL</span>, <span class="at">bg =</span> cores)</span>
+<span id="cb1843-6"><a href="análises-de-agrupamento.html#cb1843-6" tabindex="-1"></a><span class="fu">axisPhylo</span>()</span>
+<span id="cb1843-7"><a href="análises-de-agrupamento.html#cb1843-7" tabindex="-1"></a><span class="fu">mtext</span>(<span class="at">text =</span> <span class="st">&quot;Sorensen índice (com abundância)&quot;</span>, <span class="at">side =</span> <span class="dv">1</span>, <span class="at">line =</span> <span class="fl">2.5</span>)</span>
+<span id="cb1843-8"><a href="análises-de-agrupamento.html#cb1843-8" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="at">legend =</span> <span class="fu">levels</span>(locais), <span class="at">pch =</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, <span class="at">pt.bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="at">inset =</span> <span class="fl">0.01</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">cex =</span> <span class="dv">1</span>, <span class="at">pt.cex =</span> <span class="fl">1.5</span>, <span class="at">y.intersp =</span> <span class="fl">1.5</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-626-1.svg" width="672" /></p>
 </div>
 <div id="análise-de-coordenadas-principais-pcoa" class="section level3 hasAnchor" number="14.4.5">
@@ -1575,40 +1576,40 @@ chauas-4
 <p>A função <code>capscale()</code>faz uma análise de coordenadas principais (ou escalonamento multidimensional métrico ou clássico).
 É parecida com uma Análise de Componentes Principais (PCA), mas é baseada em matrizes de distância.
 Indica os efeitos das variáveis (parâmetro ‘’species’’) sobre os eixos.
-Já a função <code>ordiplot()</code> do pacote <code>vegan</code> <span class="citation">(<a href="#ref-R-vegan" role="doc-biblioref">Oksanen et al. 2020</a>)</span> permite graficar uma ordenação e os efeitos das variáveis (<code>sites</code> vs. <code>species</code>).</p>
+Já a função <code>ordiplot()</code> do pacote <code>vegan</code> <span class="citation">(<a href="#ref-R-vegan">Oksanen et al. 2020</a>)</span> permite graficar uma ordenação e os efeitos das variáveis (<code>sites</code> vs. <code>species</code>).</p>
 <p>Leiam aqui uma <a href="http://occamstypewriter.org/boboh/2012/01/17/pca_and_pcoa_explained/">comparação entre PCA e PCoA</a></p>
-<div class="sourceCode" id="cb1842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1842-1"><a href="análises-de-agrupamento.html#cb1842-1" aria-hidden="true" tabindex="-1"></a><span class="co"># análise de coordenadas principais</span></span>
-<span id="cb1842-2"><a href="análises-de-agrupamento.html#cb1842-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris) <span class="co"># carrega o conjunto de dados iris</span></span>
-<span id="cb1842-3"><a href="análises-de-agrupamento.html#cb1842-3" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> iris[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
-<span id="cb1842-4"><a href="análises-de-agrupamento.html#cb1842-4" aria-hidden="true" tabindex="-1"></a>mypcoa <span class="ot">&lt;-</span> <span class="fu">capscale</span>(dt <span class="sc">~</span> <span class="dv">1</span>, <span class="at">distance =</span> <span class="st">&quot;gower&quot;</span>, <span class="at">add =</span> F)</span>
-<span id="cb1842-5"><a href="análises-de-agrupamento.html#cb1842-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1842-6"><a href="análises-de-agrupamento.html#cb1842-6" aria-hidden="true" tabindex="-1"></a><span class="co"># quando da variação está explicado pelos eixos</span></span>
-<span id="cb1842-7"><a href="análises-de-agrupamento.html#cb1842-7" aria-hidden="true" tabindex="-1"></a>resumo <span class="ot">&lt;-</span> <span class="fu">summary</span>(mypcoa)</span>
-<span id="cb1842-8"><a href="análises-de-agrupamento.html#cb1842-8" aria-hidden="true" tabindex="-1"></a>var.expl <span class="ot">&lt;-</span> resumo<span class="sc">$</span>cont<span class="sc">$</span>importance</span>
-<span id="cb1842-9"><a href="análises-de-agrupamento.html#cb1842-9" aria-hidden="true" tabindex="-1"></a><span class="co"># veja a proporção cumulativa dos primeiros cinco eixos</span></span>
-<span id="cb1842-10"><a href="análises-de-agrupamento.html#cb1842-10" aria-hidden="true" tabindex="-1"></a>var.expl[<span class="st">&quot;Cumulative Proportion&quot;</span>, ][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1844-1"><a href="análises-de-agrupamento.html#cb1844-1" tabindex="-1"></a><span class="co"># análise de coordenadas principais</span></span>
+<span id="cb1844-2"><a href="análises-de-agrupamento.html#cb1844-2" tabindex="-1"></a><span class="fu">data</span>(iris) <span class="co"># carrega o conjunto de dados iris</span></span>
+<span id="cb1844-3"><a href="análises-de-agrupamento.html#cb1844-3" tabindex="-1"></a>dt <span class="ot">&lt;-</span> iris[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb1844-4"><a href="análises-de-agrupamento.html#cb1844-4" tabindex="-1"></a>mypcoa <span class="ot">&lt;-</span> <span class="fu">capscale</span>(dt <span class="sc">~</span> <span class="dv">1</span>, <span class="at">distance =</span> <span class="st">&quot;gower&quot;</span>, <span class="at">add =</span> F)</span>
+<span id="cb1844-5"><a href="análises-de-agrupamento.html#cb1844-5" tabindex="-1"></a></span>
+<span id="cb1844-6"><a href="análises-de-agrupamento.html#cb1844-6" tabindex="-1"></a><span class="co"># quando da variação está explicado pelos eixos</span></span>
+<span id="cb1844-7"><a href="análises-de-agrupamento.html#cb1844-7" tabindex="-1"></a>resumo <span class="ot">&lt;-</span> <span class="fu">summary</span>(mypcoa)</span>
+<span id="cb1844-8"><a href="análises-de-agrupamento.html#cb1844-8" tabindex="-1"></a>var.expl <span class="ot">&lt;-</span> resumo<span class="sc">$</span>cont<span class="sc">$</span>importance</span>
+<span id="cb1844-9"><a href="análises-de-agrupamento.html#cb1844-9" tabindex="-1"></a><span class="co"># veja a proporção cumulativa dos primeiros cinco eixos</span></span>
+<span id="cb1844-10"><a href="análises-de-agrupamento.html#cb1844-10" tabindex="-1"></a>var.expl[<span class="st">&quot;Cumulative Proportion&quot;</span>, ][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##      MDS1      MDS2      MDS3      MDS4      MDS5 
 ## 0.7468617 0.8614730 0.8946967 0.9148675 0.9289785</code></pre>
-<div class="sourceCode" id="cb1844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1844-1"><a href="análises-de-agrupamento.html#cb1844-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pega a proporção explicada por cada eixo</span></span>
-<span id="cb1844-2"><a href="análises-de-agrupamento.html#cb1844-2" aria-hidden="true" tabindex="-1"></a>tt <span class="ot">&lt;-</span> var.expl[<span class="st">&quot;Proportion Explained&quot;</span>, ][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb1844-3"><a href="análises-de-agrupamento.html#cb1844-3" aria-hidden="true" tabindex="-1"></a>tt <span class="ot">&lt;-</span> tt <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb1844-4"><a href="análises-de-agrupamento.html#cb1844-4" aria-hidden="true" tabindex="-1"></a><span class="co"># gera um gráfico de barras com isso</span></span>
-<span id="cb1844-5"><a href="análises-de-agrupamento.html#cb1844-5" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(tt, <span class="at">xlab =</span> <span class="st">&quot;Eixos MDS&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Variação explicada %&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1846-1"><a href="análises-de-agrupamento.html#cb1846-1" tabindex="-1"></a><span class="co"># pega a proporção explicada por cada eixo</span></span>
+<span id="cb1846-2"><a href="análises-de-agrupamento.html#cb1846-2" tabindex="-1"></a>tt <span class="ot">&lt;-</span> var.expl[<span class="st">&quot;Proportion Explained&quot;</span>, ][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb1846-3"><a href="análises-de-agrupamento.html#cb1846-3" tabindex="-1"></a>tt <span class="ot">&lt;-</span> tt <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb1846-4"><a href="análises-de-agrupamento.html#cb1846-4" tabindex="-1"></a><span class="co"># gera um gráfico de barras com isso</span></span>
+<span id="cb1846-5"><a href="análises-de-agrupamento.html#cb1846-5" tabindex="-1"></a><span class="fu">barplot</span>(tt, <span class="at">xlab =</span> <span class="st">&quot;Eixos MDS&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Variação explicada %&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-627-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1845-1"><a href="análises-de-agrupamento.html#cb1845-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fazendo uma figura com ordiplot</span></span>
-<span id="cb1845-2"><a href="análises-de-agrupamento.html#cb1845-2" aria-hidden="true" tabindex="-1"></a><span class="co"># veja o help</span></span>
-<span id="cb1845-3"><a href="análises-de-agrupamento.html#cb1845-3" aria-hidden="true" tabindex="-1"></a>?ordiplot</span></code></pre></div>
-<div class="sourceCode" id="cb1846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1846-1"><a href="análises-de-agrupamento.html#cb1846-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define cor e simbolo por especie</span></span>
-<span id="cb1846-2"><a href="análises-de-agrupamento.html#cb1846-2" aria-hidden="true" tabindex="-1"></a>tx <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(iris<span class="sc">$</span>Species)</span>
-<span id="cb1846-3"><a href="análises-de-agrupamento.html#cb1846-3" aria-hidden="true" tabindex="-1"></a><span class="co"># simbolos para os níveis</span></span>
-<span id="cb1846-4"><a href="análises-de-agrupamento.html#cb1846-4" aria-hidden="true" tabindex="-1"></a>upchs <span class="ot">&lt;-</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span></span>
-<span id="cb1846-5"><a href="análises-de-agrupamento.html#cb1846-5" aria-hidden="true" tabindex="-1"></a><span class="co"># cores para os níveis</span></span>
-<span id="cb1846-6"><a href="análises-de-agrupamento.html#cb1846-6" aria-hidden="true" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(<span class="fu">levels</span>(tx)), <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
-<span id="cb1846-7"><a href="análises-de-agrupamento.html#cb1846-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1846-8"><a href="análises-de-agrupamento.html#cb1846-8" aria-hidden="true" tabindex="-1"></a><span class="co"># gera a figura</span></span>
-<span id="cb1846-9"><a href="análises-de-agrupamento.html#cb1846-9" aria-hidden="true" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">ordiplot</span>(mypcoa, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1847-1"><a href="análises-de-agrupamento.html#cb1847-1" tabindex="-1"></a><span class="co"># fazendo uma figura com ordiplot</span></span>
+<span id="cb1847-2"><a href="análises-de-agrupamento.html#cb1847-2" tabindex="-1"></a><span class="co"># veja o help</span></span>
+<span id="cb1847-3"><a href="análises-de-agrupamento.html#cb1847-3" tabindex="-1"></a>?ordiplot</span></code></pre></div>
+<div class="sourceCode" id="cb1848"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1848-1"><a href="análises-de-agrupamento.html#cb1848-1" tabindex="-1"></a><span class="co"># define cor e simbolo por especie</span></span>
+<span id="cb1848-2"><a href="análises-de-agrupamento.html#cb1848-2" tabindex="-1"></a>tx <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(iris<span class="sc">$</span>Species)</span>
+<span id="cb1848-3"><a href="análises-de-agrupamento.html#cb1848-3" tabindex="-1"></a><span class="co"># simbolos para os níveis</span></span>
+<span id="cb1848-4"><a href="análises-de-agrupamento.html#cb1848-4" tabindex="-1"></a>upchs <span class="ot">&lt;-</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">23</span></span>
+<span id="cb1848-5"><a href="análises-de-agrupamento.html#cb1848-5" tabindex="-1"></a><span class="co"># cores para os níveis</span></span>
+<span id="cb1848-6"><a href="análises-de-agrupamento.html#cb1848-6" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">rainbow</span>(<span class="fu">length</span>(<span class="fu">levels</span>(tx)), <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1848-7"><a href="análises-de-agrupamento.html#cb1848-7" tabindex="-1"></a></span>
+<span id="cb1848-8"><a href="análises-de-agrupamento.html#cb1848-8" tabindex="-1"></a><span class="co"># gera a figura</span></span>
+<span id="cb1848-9"><a href="análises-de-agrupamento.html#cb1848-9" tabindex="-1"></a>fig <span class="ot">&lt;-</span> <span class="fu">ordiplot</span>(mypcoa, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-629-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1847-1"><a href="análises-de-agrupamento.html#cb1847-1" aria-hidden="true" tabindex="-1"></a>fig</span></code></pre></div>
+<div class="sourceCode" id="cb1849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1849-1"><a href="análises-de-agrupamento.html#cb1849-1" tabindex="-1"></a>fig</span></code></pre></div>
 <pre><code>## $species
 ##                    MDS1       MDS2
 ## Sepal.Length  2.0020165 -1.1230766
@@ -1773,14 +1774,14 @@ Já a função <code>ordiplot()</code> do pacote <code>vegan</code> <span class=
 ## [1] 5.974659
 ## attr(,&quot;class&quot;)
 ## [1] &quot;ordiplot&quot;</code></pre>
-<div class="sourceCode" id="cb1849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1849-1"><a href="análises-de-agrupamento.html#cb1849-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona os pontos de cada linha - ATENCAO - Rode os dois comandos abaixo juntos</span></span>
-<span id="cb1849-2"><a href="análises-de-agrupamento.html#cb1849-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(mypcoa, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb1849-3"><a href="análises-de-agrupamento.html#cb1849-3" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(fig, <span class="st">&quot;sites&quot;</span>, <span class="at">pch =</span> upchs[<span class="fu">as.numeric</span>(tx)], <span class="at">bg =</span> cores[<span class="fu">as.numeric</span>(tx)], <span class="at">col =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1851-1"><a href="análises-de-agrupamento.html#cb1851-1" tabindex="-1"></a><span class="co"># adiciona os pontos de cada linha - ATENCAO - Rode os dois comandos abaixo juntos</span></span>
+<span id="cb1851-2"><a href="análises-de-agrupamento.html#cb1851-2" tabindex="-1"></a><span class="fu">ordiplot</span>(mypcoa, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1851-3"><a href="análises-de-agrupamento.html#cb1851-3" tabindex="-1"></a><span class="fu">points</span>(fig, <span class="st">&quot;sites&quot;</span>, <span class="at">pch =</span> upchs[<span class="fu">as.numeric</span>(tx)], <span class="at">bg =</span> cores[<span class="fu">as.numeric</span>(tx)], <span class="at">col =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-630-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb1850"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1850-1"><a href="análises-de-agrupamento.html#cb1850-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pega os scores das variáveis</span></span>
-<span id="cb1850-2"><a href="análises-de-agrupamento.html#cb1850-2" aria-hidden="true" tabindex="-1"></a><span class="co"># que mostram os efeitos das variáveis usadas</span></span>
-<span id="cb1850-3"><a href="análises-de-agrupamento.html#cb1850-3" aria-hidden="true" tabindex="-1"></a>mls <span class="ot">&lt;-</span> vegan<span class="sc">::</span><span class="fu">scores</span>(mypcoa, <span class="at">display =</span> <span class="st">&quot;species&quot;</span>)</span>
-<span id="cb1850-4"><a href="análises-de-agrupamento.html#cb1850-4" aria-hidden="true" tabindex="-1"></a>mls</span></code></pre></div>
+<div class="sourceCode" id="cb1852"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1852-1"><a href="análises-de-agrupamento.html#cb1852-1" tabindex="-1"></a><span class="co"># pega os scores das variáveis</span></span>
+<span id="cb1852-2"><a href="análises-de-agrupamento.html#cb1852-2" tabindex="-1"></a><span class="co"># que mostram os efeitos das variáveis usadas</span></span>
+<span id="cb1852-3"><a href="análises-de-agrupamento.html#cb1852-3" tabindex="-1"></a>mls <span class="ot">&lt;-</span> vegan<span class="sc">::</span><span class="fu">scores</span>(mypcoa, <span class="at">display =</span> <span class="st">&quot;species&quot;</span>)</span>
+<span id="cb1852-4"><a href="análises-de-agrupamento.html#cb1852-4" tabindex="-1"></a>mls</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1841,16 +1842,16 @@ Petal.Width
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1851-1"><a href="análises-de-agrupamento.html#cb1851-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ordiplot</span>(mypcoa, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb1851-2"><a href="análises-de-agrupamento.html#cb1851-2" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(fig, <span class="st">&quot;sites&quot;</span>, <span class="at">pch =</span> upchs[<span class="fu">as.numeric</span>(tx)], <span class="at">bg =</span> cores[<span class="fu">as.numeric</span>(tx)], <span class="at">col =</span> <span class="st">&quot;white&quot;</span>)</span>
-<span id="cb1851-3"><a href="análises-de-agrupamento.html#cb1851-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plota flechas para esses efeitos</span></span>
-<span id="cb1851-4"><a href="análises-de-agrupamento.html#cb1851-4" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, mls[, <span class="dv">1</span>] <span class="sc">*</span> <span class="fl">0.8</span>, mls[, <span class="dv">2</span>] <span class="sc">*</span> <span class="fl">0.8</span>, <span class="at">length =</span> <span class="fl">0.05</span>, <span class="at">angle =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb1851-5"><a href="análises-de-agrupamento.html#cb1851-5" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(mls[, <span class="dv">1</span>] <span class="sc">*</span> <span class="fl">0.8</span>, mls[, <span class="dv">2</span>] <span class="sc">*</span> <span class="fl">0.8</span>, <span class="at">labels =</span> <span class="fu">rownames</span>(mls), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">pos =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1853-1"><a href="análises-de-agrupamento.html#cb1853-1" tabindex="-1"></a><span class="fu">ordiplot</span>(mypcoa, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb1853-2"><a href="análises-de-agrupamento.html#cb1853-2" tabindex="-1"></a><span class="fu">points</span>(fig, <span class="st">&quot;sites&quot;</span>, <span class="at">pch =</span> upchs[<span class="fu">as.numeric</span>(tx)], <span class="at">bg =</span> cores[<span class="fu">as.numeric</span>(tx)], <span class="at">col =</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb1853-3"><a href="análises-de-agrupamento.html#cb1853-3" tabindex="-1"></a><span class="co"># plota flechas para esses efeitos</span></span>
+<span id="cb1853-4"><a href="análises-de-agrupamento.html#cb1853-4" tabindex="-1"></a><span class="fu">arrows</span>(<span class="dv">0</span>, <span class="dv">0</span>, mls[, <span class="dv">1</span>] <span class="sc">*</span> <span class="fl">0.8</span>, mls[, <span class="dv">2</span>] <span class="sc">*</span> <span class="fl">0.8</span>, <span class="at">length =</span> <span class="fl">0.05</span>, <span class="at">angle =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb1853-5"><a href="análises-de-agrupamento.html#cb1853-5" tabindex="-1"></a><span class="fu">text</span>(mls[, <span class="dv">1</span>] <span class="sc">*</span> <span class="fl">0.8</span>, mls[, <span class="dv">2</span>] <span class="sc">*</span> <span class="fl">0.8</span>, <span class="at">labels =</span> <span class="fu">rownames</span>(mls), <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">cex =</span> <span class="fl">0.8</span>, <span class="at">pos =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="bot89-introR_files/figure-html/unnamed-chunk-632-1.svg" width="672" /></p>
 </div>
 </div>
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-R-vegan" class="csl-entry">
 Oksanen, Jari, F. Guillaume Blanchet, Michael Friendly, Roeland Kindt, Pierre Legendre, Dan McGlinn, Peter R. Minchin, et al. 2020. <em>vegan: Community Ecology Package</em>. <a href="https://CRAN.R-project.org/package=vegan">https://CRAN.R-project.org/package=vegan</a>.
 </div>
@@ -1878,43 +1879,43 @@ Paradis, Emmanuel, Simon Blomberg, Ben Bolker, Joseph Brown, Santiago Claramunt,
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/14-aed_checamultivar.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/14-aed_checamultivar.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/14-aed_checamultivar.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/14-aed_checamultivar.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

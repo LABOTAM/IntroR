@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1.8 O R como calculadora | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1.8 O R como calculadora | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -571,110 +572,110 @@ div.csl-indent {
 </ul>
 <p>Vamos testar os operadores abaixo.
 Execute cada operação, linha a linha:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="o-r-como-calculadora.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="o-r-como-calculadora.html#cb68-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="o-r-como-calculadora.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">-</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="o-r-como-calculadora.html#cb70-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">-</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="o-r-como-calculadora.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="o-r-como-calculadora.html#cb72-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="o-r-como-calculadora.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="o-r-como-calculadora.html#cb74-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="o-r-como-calculadora.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="o-r-como-calculadora.html#cb76-1" tabindex="-1"></a><span class="dv">3</span><span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] 27</code></pre>
 <p>Objetos numéricos podem ser usados nas fórmulas aritméticas:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="o-r-como-calculadora.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># atribua um valor a um ou mais objetos</span></span>
-<span id="cb78-2"><a href="o-r-como-calculadora.html#cb78-2" aria-hidden="true" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb78-3"><a href="o-r-como-calculadora.html#cb78-3" aria-hidden="true" tabindex="-1"></a>obj2 <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="o-r-como-calculadora.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># utilize objetos para fazer contas</span></span>
-<span id="cb79-2"><a href="o-r-como-calculadora.html#cb79-2" aria-hidden="true" tabindex="-1"></a>obj <span class="sc">+</span> obj2</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="o-r-como-calculadora.html#cb78-1" tabindex="-1"></a><span class="co"># atribua um valor a um ou mais objetos</span></span>
+<span id="cb78-2"><a href="o-r-como-calculadora.html#cb78-2" tabindex="-1"></a>obj <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb78-3"><a href="o-r-como-calculadora.html#cb78-3" tabindex="-1"></a>obj2 <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="o-r-como-calculadora.html#cb79-1" tabindex="-1"></a><span class="co"># utilize objetos para fazer contas</span></span>
+<span id="cb79-2"><a href="o-r-como-calculadora.html#cb79-2" tabindex="-1"></a>obj <span class="sc">+</span> obj2</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="o-r-como-calculadora.html#cb81-1" aria-hidden="true" tabindex="-1"></a>obj <span class="sc">-</span> obj2</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="o-r-como-calculadora.html#cb81-1" tabindex="-1"></a>obj <span class="sc">-</span> obj2</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="o-r-como-calculadora.html#cb83-1" aria-hidden="true" tabindex="-1"></a>obj <span class="sc">*</span> obj2</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="o-r-como-calculadora.html#cb83-1" tabindex="-1"></a>obj <span class="sc">*</span> obj2</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="o-r-como-calculadora.html#cb85-1" aria-hidden="true" tabindex="-1"></a>obj <span class="sc">/</span> obj2</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="o-r-como-calculadora.html#cb85-1" tabindex="-1"></a>obj <span class="sc">/</span> obj2</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="o-r-como-calculadora.html#cb87-1" aria-hidden="true" tabindex="-1"></a>obj<span class="sc">^</span>obj2</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="o-r-como-calculadora.html#cb87-1" tabindex="-1"></a>obj<span class="sc">^</span>obj2</span></code></pre></div>
 <pre><code>## [1] 27</code></pre>
 </div>
 <div id="precedência-de-parênteses" class="section level3 hasAnchor" number="1.8.2">
 <h3><span class="header-section-number">1.8.2</span> Precedência de parênteses<a href="o-r-como-calculadora.html#precedência-de-parênteses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O uso de parênteses permite construir qualquer lógica de precedência no cálculo.
 Vamos atribuir valores a três objetos e fazer operações matemáticas com eles para exemplificar:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="o-r-como-calculadora.html#cb89-1" aria-hidden="true" tabindex="-1"></a>o1 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb89-2"><a href="o-r-como-calculadora.html#cb89-2" aria-hidden="true" tabindex="-1"></a>o2 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb89-3"><a href="o-r-como-calculadora.html#cb89-3" aria-hidden="true" tabindex="-1"></a>o3 <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="o-r-como-calculadora.html#cb89-1" tabindex="-1"></a>o1 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb89-2"><a href="o-r-como-calculadora.html#cb89-2" tabindex="-1"></a>o2 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb89-3"><a href="o-r-como-calculadora.html#cb89-3" tabindex="-1"></a>o3 <span class="ot">&lt;-</span> <span class="dv">3</span></span></code></pre></div>
 <p>Os resultados não serão os mesmos para:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="o-r-como-calculadora.html#cb90-1" aria-hidden="true" tabindex="-1"></a>o1 <span class="sc">*</span> o2<span class="sc">^</span>o3 <span class="sc">-</span> <span class="dv">1</span> <span class="co"># =127</span></span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="o-r-como-calculadora.html#cb90-1" tabindex="-1"></a>o1 <span class="sc">*</span> o2<span class="sc">^</span>o3 <span class="sc">-</span> <span class="dv">1</span> <span class="co"># =127</span></span></code></pre></div>
 <pre><code>## [1] 127</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="o-r-como-calculadora.html#cb92-1" aria-hidden="true" tabindex="-1"></a>o1 <span class="sc">*</span> o2<span class="sc">^</span>(o3 <span class="sc">-</span> <span class="dv">1</span>) <span class="co"># =32</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="o-r-como-calculadora.html#cb92-1" tabindex="-1"></a>o1 <span class="sc">*</span> o2<span class="sc">^</span>(o3 <span class="sc">-</span> <span class="dv">1</span>) <span class="co"># =32</span></span></code></pre></div>
 <pre><code>## [1] 32</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="o-r-como-calculadora.html#cb94-1" aria-hidden="true" tabindex="-1"></a>(o1 <span class="sc">*</span> o2)<span class="sc">^</span>o3 <span class="sc">-</span> <span class="dv">1</span> <span class="co"># =511</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="o-r-como-calculadora.html#cb94-1" tabindex="-1"></a>(o1 <span class="sc">*</span> o2)<span class="sc">^</span>o3 <span class="sc">-</span> <span class="dv">1</span> <span class="co"># =511</span></span></code></pre></div>
 <pre><code>## [1] 511</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="o-r-como-calculadora.html#cb96-1" aria-hidden="true" tabindex="-1"></a>(o1 <span class="sc">*</span> o2)<span class="sc">^</span>(o3 <span class="sc">-</span> <span class="dv">1</span>) <span class="co"># =64</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="o-r-como-calculadora.html#cb96-1" tabindex="-1"></a>(o1 <span class="sc">*</span> o2)<span class="sc">^</span>(o3 <span class="sc">-</span> <span class="dv">1</span>) <span class="co"># =64</span></span></code></pre></div>
 <pre><code>## [1] 64</code></pre>
 </div>
 <div id="funções-e-constantes-matemáticas" class="section level3 hasAnchor" number="1.8.3">
 <h3><span class="header-section-number">1.8.3</span> Funções e constantes matemáticas<a href="o-r-como-calculadora.html#funções-e-constantes-matemáticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Algumas operações aritméticas podem ser realizadas com algumas funções genéricas que apresentamos no exemplo de código abaixo.
 Veja o <code>?</code> para qualquer uma das funções abaixo e siga os links relacionados para ver todas as possibilidades dessas funções genéricas de uso genérico.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="o-r-como-calculadora.html#cb98-1" aria-hidden="true" tabindex="-1"></a>?srqt</span>
-<span id="cb98-2"><a href="o-r-como-calculadora.html#cb98-2" aria-hidden="true" tabindex="-1"></a>?abs</span>
-<span id="cb98-3"><a href="o-r-como-calculadora.html#cb98-3" aria-hidden="true" tabindex="-1"></a>?log</span>
-<span id="cb98-4"><a href="o-r-como-calculadora.html#cb98-4" aria-hidden="true" tabindex="-1"></a>?log10</span>
-<span id="cb98-5"><a href="o-r-como-calculadora.html#cb98-5" aria-hidden="true" tabindex="-1"></a>?sin</span>
-<span id="cb98-6"><a href="o-r-como-calculadora.html#cb98-6" aria-hidden="true" tabindex="-1"></a>?cos</span>
-<span id="cb98-7"><a href="o-r-como-calculadora.html#cb98-7" aria-hidden="true" tabindex="-1"></a>?asin</span>
-<span id="cb98-8"><a href="o-r-como-calculadora.html#cb98-8" aria-hidden="true" tabindex="-1"></a>?ceiling</span>
-<span id="cb98-9"><a href="o-r-como-calculadora.html#cb98-9" aria-hidden="true" tabindex="-1"></a>?floor</span>
-<span id="cb98-10"><a href="o-r-como-calculadora.html#cb98-10" aria-hidden="true" tabindex="-1"></a>?round</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="o-r-como-calculadora.html#cb98-1" tabindex="-1"></a>?srqt</span>
+<span id="cb98-2"><a href="o-r-como-calculadora.html#cb98-2" tabindex="-1"></a>?abs</span>
+<span id="cb98-3"><a href="o-r-como-calculadora.html#cb98-3" tabindex="-1"></a>?log</span>
+<span id="cb98-4"><a href="o-r-como-calculadora.html#cb98-4" tabindex="-1"></a>?log10</span>
+<span id="cb98-5"><a href="o-r-como-calculadora.html#cb98-5" tabindex="-1"></a>?sin</span>
+<span id="cb98-6"><a href="o-r-como-calculadora.html#cb98-6" tabindex="-1"></a>?cos</span>
+<span id="cb98-7"><a href="o-r-como-calculadora.html#cb98-7" tabindex="-1"></a>?asin</span>
+<span id="cb98-8"><a href="o-r-como-calculadora.html#cb98-8" tabindex="-1"></a>?ceiling</span>
+<span id="cb98-9"><a href="o-r-como-calculadora.html#cb98-9" tabindex="-1"></a>?floor</span>
+<span id="cb98-10"><a href="o-r-como-calculadora.html#cb98-10" tabindex="-1"></a>?round</span></code></pre></div>
 <p>Veremos adiante que essas funções e operações matemáticas são aplicáveis à vetores.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="o-r-como-calculadora.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Raiz quadrada</span></span>
-<span id="cb99-2"><a href="o-r-como-calculadora.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="o-r-como-calculadora.html#cb99-1" tabindex="-1"></a><span class="co"># Raiz quadrada</span></span>
+<span id="cb99-2"><a href="o-r-como-calculadora.html#cb99-2" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="o-r-como-calculadora.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># valor absoluto</span></span>
-<span id="cb101-2"><a href="o-r-como-calculadora.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="o-r-como-calculadora.html#cb101-1" tabindex="-1"></a><span class="co"># valor absoluto</span></span>
+<span id="cb101-2"><a href="o-r-como-calculadora.html#cb101-2" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">12</span>)</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="o-r-como-calculadora.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">66</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="o-r-como-calculadora.html#cb103-1" tabindex="-1"></a><span class="fu">abs</span>(<span class="sc">-</span><span class="dv">66</span>)</span></code></pre></div>
 <pre><code>## [1] 66</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="o-r-como-calculadora.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(<span class="dv">66</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="o-r-como-calculadora.html#cb105-1" tabindex="-1"></a><span class="fu">abs</span>(<span class="dv">66</span>)</span></code></pre></div>
 <pre><code>## [1] 66</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="o-r-como-calculadora.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># logaritmo</span></span>
-<span id="cb107-2"><a href="o-r-como-calculadora.html#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>) <span class="co"># Logaritmo natural</span></span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="o-r-como-calculadora.html#cb107-1" tabindex="-1"></a><span class="co"># logaritmo</span></span>
+<span id="cb107-2"><a href="o-r-como-calculadora.html#cb107-2" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>) <span class="co"># Logaritmo natural</span></span></code></pre></div>
 <pre><code>## [1] 2.302585</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="o-r-como-calculadora.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="at">base =</span> <span class="dv">10</span>) <span class="co"># Logbase 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="o-r-como-calculadora.html#cb109-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="at">base =</span> <span class="dv">10</span>) <span class="co"># Logbase 10</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="o-r-como-calculadora.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>) <span class="co"># Também log de base 10</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="o-r-como-calculadora.html#cb111-1" tabindex="-1"></a><span class="fu">log10</span>(<span class="dv">10</span>) <span class="co"># Também log de base 10</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="o-r-como-calculadora.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># funções trigonométricas</span></span>
-<span id="cb113-2"><a href="o-r-como-calculadora.html#cb113-2" aria-hidden="true" tabindex="-1"></a>pi <span class="co"># é uma constante do R, um objeto chamado &quot;pi&quot; que tem o valor de 3.141593</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="o-r-como-calculadora.html#cb113-1" tabindex="-1"></a><span class="co"># funções trigonométricas</span></span>
+<span id="cb113-2"><a href="o-r-como-calculadora.html#cb113-2" tabindex="-1"></a>pi <span class="co"># é uma constante do R, um objeto chamado &quot;pi&quot; que tem o valor de 3.141593</span></span></code></pre></div>
 <pre><code>## [1] 3.141593</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="o-r-como-calculadora.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sin</span>(<span class="fl">0.5</span> <span class="sc">*</span> pi) <span class="co"># Seno</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="o-r-como-calculadora.html#cb115-1" tabindex="-1"></a><span class="fu">sin</span>(<span class="fl">0.5</span> <span class="sc">*</span> pi) <span class="co"># Seno</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="o-r-como-calculadora.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi) <span class="co"># Coseno</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="o-r-como-calculadora.html#cb117-1" tabindex="-1"></a><span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi) <span class="co"># Coseno</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="o-r-como-calculadora.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">asin</span>(<span class="dv">1</span>) <span class="co"># Arco seno (radianos)</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="o-r-como-calculadora.html#cb119-1" tabindex="-1"></a><span class="fu">asin</span>(<span class="dv">1</span>) <span class="co"># Arco seno (radianos)</span></span></code></pre></div>
 <pre><code>## [1] 1.570796</code></pre>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="o-r-como-calculadora.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">asin</span>(<span class="dv">1</span>) <span class="sc">/</span> pi <span class="sc">*</span> <span class="dv">180</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="o-r-como-calculadora.html#cb121-1" tabindex="-1"></a><span class="fu">asin</span>(<span class="dv">1</span>) <span class="sc">/</span> pi <span class="sc">*</span> <span class="dv">180</span></span></code></pre></div>
 <pre><code>## [1] 90</code></pre>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="o-r-como-calculadora.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arredondamentos</span></span>
-<span id="cb123-2"><a href="o-r-como-calculadora.html#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dois valores</span></span>
-<span id="cb123-3"><a href="o-r-como-calculadora.html#cb123-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">3.51</span></span>
-<span id="cb123-4"><a href="o-r-como-calculadora.html#cb123-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fl">3.49</span></span></code></pre></div>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="o-r-como-calculadora.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para o valor mais alto (ceiling = teto)</span></span>
-<span id="cb124-2"><a href="o-r-como-calculadora.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="o-r-como-calculadora.html#cb123-1" tabindex="-1"></a><span class="co"># arredondamentos</span></span>
+<span id="cb123-2"><a href="o-r-como-calculadora.html#cb123-2" tabindex="-1"></a><span class="co"># dois valores</span></span>
+<span id="cb123-3"><a href="o-r-como-calculadora.html#cb123-3" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">3.51</span></span>
+<span id="cb123-4"><a href="o-r-como-calculadora.html#cb123-4" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fl">3.49</span></span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="o-r-como-calculadora.html#cb124-1" tabindex="-1"></a><span class="co"># para o valor mais alto (ceiling = teto)</span></span>
+<span id="cb124-2"><a href="o-r-como-calculadora.html#cb124-2" tabindex="-1"></a><span class="fu">ceiling</span>(a)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="o-r-como-calculadora.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ceiling</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="o-r-como-calculadora.html#cb126-1" tabindex="-1"></a><span class="fu">ceiling</span>(b)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="o-r-como-calculadora.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para o valor mais baixo (floor = chão)</span></span>
-<span id="cb128-2"><a href="o-r-como-calculadora.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="o-r-como-calculadora.html#cb128-1" tabindex="-1"></a><span class="co"># para o valor mais baixo (floor = chão)</span></span>
+<span id="cb128-2"><a href="o-r-como-calculadora.html#cb128-2" tabindex="-1"></a><span class="fu">floor</span>(a)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="o-r-como-calculadora.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="o-r-como-calculadora.html#cb130-1" tabindex="-1"></a><span class="fu">floor</span>(b)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="o-r-como-calculadora.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arredonda dependendo se casa decimal é maior ou menor que 0.5</span></span>
-<span id="cb132-2"><a href="o-r-como-calculadora.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="o-r-como-calculadora.html#cb132-1" tabindex="-1"></a><span class="co"># arredonda dependendo se casa decimal é maior ou menor que 0.5</span></span>
+<span id="cb132-2"><a href="o-r-como-calculadora.html#cb132-2" tabindex="-1"></a><span class="fu">round</span>(a)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="o-r-como-calculadora.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="o-r-como-calculadora.html#cb134-1" tabindex="-1"></a><span class="fu">round</span>(b)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
 <div id="valor-na" class="section level3 hasAnchor" number="1.8.4">
@@ -686,29 +687,29 @@ Veja o <code>?</code> para qualquer uma das funções abaixo e siga os links rel
 <li><p><code>Inf</code> = infinito;</p></li>
 <li><p><code>-Inf</code> = infinito negativo.</p></li>
 </ul>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="o-r-como-calculadora.html#cb136-1" aria-hidden="true" tabindex="-1"></a>?<span class="cn">NA</span> <span class="co"># veja o help sobre isso</span></span></code></pre></div>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="o-r-como-calculadora.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um valor infinito negativo</span></span>
-<span id="cb137-2"><a href="o-r-como-calculadora.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">5</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="o-r-como-calculadora.html#cb136-1" tabindex="-1"></a>?<span class="cn">NA</span> <span class="co"># veja o help sobre isso</span></span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="o-r-como-calculadora.html#cb137-1" tabindex="-1"></a><span class="co"># um valor infinito negativo</span></span>
+<span id="cb137-2"><a href="o-r-como-calculadora.html#cb137-2" tabindex="-1"></a><span class="sc">-</span><span class="dv">5</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
 <pre><code>## [1] -Inf</code></pre>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="o-r-como-calculadora.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um valor infinito positivo</span></span>
-<span id="cb139-2"><a href="o-r-como-calculadora.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="o-r-como-calculadora.html#cb139-1" tabindex="-1"></a><span class="co"># um valor infinito positivo</span></span>
+<span id="cb139-2"><a href="o-r-como-calculadora.html#cb139-2" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">0</span></span></code></pre></div>
 <pre><code>## [1] Inf</code></pre>
 <p>Note que o símbolo <code>Inf</code> serve como valor:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="o-r-como-calculadora.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="dv">500000000000000000</span> <span class="sc">/</span> <span class="cn">Inf</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="o-r-como-calculadora.html#cb141-1" tabindex="-1"></a><span class="dv">500000000000000000</span> <span class="sc">/</span> <span class="cn">Inf</span></span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>Ele pode ser atribuído a um objeto:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="o-r-como-calculadora.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e que posso atribui-lo a um objeto</span></span>
-<span id="cb143-2"><a href="o-r-como-calculadora.html#cb143-2" aria-hidden="true" tabindex="-1"></a>mf <span class="ot">&lt;-</span> <span class="cn">Inf</span></span>
-<span id="cb143-3"><a href="o-r-como-calculadora.html#cb143-3" aria-hidden="true" tabindex="-1"></a><span class="dv">500</span> <span class="sc">/</span> mf</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="o-r-como-calculadora.html#cb143-1" tabindex="-1"></a><span class="co"># e que posso atribui-lo a um objeto</span></span>
+<span id="cb143-2"><a href="o-r-como-calculadora.html#cb143-2" tabindex="-1"></a>mf <span class="ot">&lt;-</span> <span class="cn">Inf</span></span>
+<span id="cb143-3"><a href="o-r-como-calculadora.html#cb143-3" tabindex="-1"></a><span class="dv">500</span> <span class="sc">/</span> mf</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="o-r-como-calculadora.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># valor inválido/inexistente</span></span>
-<span id="cb145-2"><a href="o-r-como-calculadora.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="o-r-como-calculadora.html#cb145-1" tabindex="-1"></a><span class="co"># valor inválido/inexistente</span></span>
+<span id="cb145-2"><a href="o-r-como-calculadora.html#cb145-2" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## Warning in sqrt(-1): NaNs produced</code></pre>
 <pre><code>## [1] NaN</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="o-r-como-calculadora.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># valores ausentes entram na matemática</span></span>
-<span id="cb148-2"><a href="o-r-como-calculadora.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="cn">NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="o-r-como-calculadora.html#cb148-1" tabindex="-1"></a><span class="co"># valores ausentes entram na matemática</span></span>
+<span id="cb148-2"><a href="o-r-como-calculadora.html#cb148-2" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="cn">NA</span></span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="o-r-como-calculadora.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="cn">NaN</span></span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="o-r-como-calculadora.html#cb150-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="cn">NaN</span></span></code></pre></div>
 <pre><code>## [1] NaN</code></pre>
 </div>
 </div>
@@ -732,43 +733,43 @@ Veja o <code>?</code> para qualquer uma das funções abaixo e siga os links rel
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/01-intro.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/01-intro.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/01-intro.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/01-intro.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

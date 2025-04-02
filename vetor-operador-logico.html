@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.6 Vetores e operadores lógicos | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.6 Vetores e operadores lógicos | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -575,97 +576,97 @@ Valores que possuam o valor <code>TRUE</code> são duplicados.
 Para checar os duplicados, devemos filtrar o resultado desta ação (veja na seção <a href="vetor-operador-logico.html#vetor-filtro-logico">2.6.2</a>).</p>
 <!-- Há funções úteis que auxiliam na filtragem de dados utilizando valores lógicos. -->
 <!-- A primeira se chama `grep()`, que busca parte de palavras em um vetor, e a segunda chama-se `duplicated()`, que busca valores repetidos.   -->
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="vetor-operador-logico.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor numerico</span></span>
-<span id="cb356-2"><a href="vetor-operador-logico.html#cb356-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
-<span id="cb356-3"><a href="vetor-operador-logico.html#cb356-3" aria-hidden="true" tabindex="-1"></a><span class="co"># quais valores de v1 são maiores ou iguais a 10</span></span>
-<span id="cb356-4"><a href="vetor-operador-logico.html#cb356-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> v1 <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="co"># vai retornar um vetor lógico</span></span>
-<span id="cb356-5"><a href="vetor-operador-logico.html#cb356-5" aria-hidden="true" tabindex="-1"></a>p1</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="vetor-operador-logico.html#cb356-1" tabindex="-1"></a><span class="co"># um vetor numerico</span></span>
+<span id="cb356-2"><a href="vetor-operador-logico.html#cb356-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb356-3"><a href="vetor-operador-logico.html#cb356-3" tabindex="-1"></a><span class="co"># quais valores de v1 são maiores ou iguais a 10</span></span>
+<span id="cb356-4"><a href="vetor-operador-logico.html#cb356-4" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> v1 <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="co"># vai retornar um vetor lógico</span></span>
+<span id="cb356-5"><a href="vetor-operador-logico.html#cb356-5" tabindex="-1"></a>p1</span></code></pre></div>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE
 ## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="vetor-operador-logico.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="co"># soma dos verdadeiros responde &quot;quantos valores de v1 são maiores ou iguais a 10, pois apenas esses valores são verdadeiros ou seja são 1)</span></span>
-<span id="cb358-2"><a href="vetor-operador-logico.html#cb358-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(p1)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="vetor-operador-logico.html#cb358-1" tabindex="-1"></a><span class="co"># soma dos verdadeiros responde &quot;quantos valores de v1 são maiores ou iguais a 10, pois apenas esses valores são verdadeiros ou seja são 1)</span></span>
+<span id="cb358-2"><a href="vetor-operador-logico.html#cb358-2" tabindex="-1"></a><span class="fu">sum</span>(p1)</span></code></pre></div>
 <pre><code>## [1] 11</code></pre>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="vetor-operador-logico.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="co"># experimente os demais operadores</span></span>
-<span id="cb360-2"><a href="vetor-operador-logico.html#cb360-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb360-3"><a href="vetor-operador-logico.html#cb360-3" aria-hidden="true" tabindex="-1"></a><span class="co"># a regra da reciclagem também se aplica neste conceito</span></span>
-<span id="cb360-4"><a href="vetor-operador-logico.html#cb360-4" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
-<span id="cb360-5"><a href="vetor-operador-logico.html#cb360-5" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
-<span id="cb360-6"><a href="vetor-operador-logico.html#cb360-6" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> v1 <span class="sc">==</span> v2 <span class="co"># compara cada par dos vetores que são idênticos</span></span>
-<span id="cb360-7"><a href="vetor-operador-logico.html#cb360-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="co"># é o vetor lógico resultando, todos os valores são verdadeiros</span></span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="vetor-operador-logico.html#cb360-1" tabindex="-1"></a><span class="co"># experimente os demais operadores</span></span>
+<span id="cb360-2"><a href="vetor-operador-logico.html#cb360-2" tabindex="-1"></a></span>
+<span id="cb360-3"><a href="vetor-operador-logico.html#cb360-3" tabindex="-1"></a><span class="co"># a regra da reciclagem também se aplica neste conceito</span></span>
+<span id="cb360-4"><a href="vetor-operador-logico.html#cb360-4" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb360-5"><a href="vetor-operador-logico.html#cb360-5" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb360-6"><a href="vetor-operador-logico.html#cb360-6" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> v1 <span class="sc">==</span> v2 <span class="co"># compara cada par dos vetores que são idênticos</span></span>
+<span id="cb360-7"><a href="vetor-operador-logico.html#cb360-7" tabindex="-1"></a>p2 <span class="co"># é o vetor lógico resultando, todos os valores são verdadeiros</span></span></code></pre></div>
 <pre><code>##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [16] TRUE TRUE TRUE TRUE TRUE</code></pre>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="vetor-operador-logico.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="co"># portanto, as seguintes expressões também são verdadeiras</span></span>
-<span id="cb362-2"><a href="vetor-operador-logico.html#cb362-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">==</span> v2) <span class="sc">==</span> <span class="fu">length</span>(v1)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="vetor-operador-logico.html#cb362-1" tabindex="-1"></a><span class="co"># portanto, as seguintes expressões também são verdadeiras</span></span>
+<span id="cb362-2"><a href="vetor-operador-logico.html#cb362-2" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">==</span> v2) <span class="sc">==</span> <span class="fu">length</span>(v1)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="vetor-operador-logico.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou então</span></span>
-<span id="cb364-2"><a href="vetor-operador-logico.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">==</span> v2) <span class="sc">==</span> <span class="fu">length</span>(v2)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="vetor-operador-logico.html#cb364-1" tabindex="-1"></a><span class="co"># ou então</span></span>
+<span id="cb364-2"><a href="vetor-operador-logico.html#cb364-2" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">==</span> v2) <span class="sc">==</span> <span class="fu">length</span>(v2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="vetor-operador-logico.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="co"># valores duplicados</span></span>
-<span id="cb366-2"><a href="vetor-operador-logico.html#cb366-2" aria-hidden="true" tabindex="-1"></a>vv <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb366-3"><a href="vetor-operador-logico.html#cb366-3" aria-hidden="true" tabindex="-1"></a>vv <span class="co"># apenas o dois é duplicado</span></span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="vetor-operador-logico.html#cb366-1" tabindex="-1"></a><span class="co"># valores duplicados</span></span>
+<span id="cb366-2"><a href="vetor-operador-logico.html#cb366-2" tabindex="-1"></a>vv <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb366-3"><a href="vetor-operador-logico.html#cb366-3" tabindex="-1"></a>vv <span class="co"># apenas o dois é duplicado</span></span></code></pre></div>
 <pre><code>## [1] 2 2 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="vetor-operador-logico.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="fu">duplicated</span>(vv) <span class="co"># note que esta função retorna TRUE apenas para dois dos três valores 2 (o primeiro não é duplicado)</span></span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="vetor-operador-logico.html#cb368-1" tabindex="-1"></a><span class="fu">duplicated</span>(vv) <span class="co"># note que esta função retorna TRUE apenas para dois dos três valores 2 (o primeiro não é duplicado)</span></span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="vetor-operador-logico.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comparando vetores</span></span>
-<span id="cb370-2"><a href="vetor-operador-logico.html#cb370-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb370-3"><a href="vetor-operador-logico.html#cb370-3" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb370-4"><a href="vetor-operador-logico.html#cb370-4" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">%in%</span> v2 <span class="co"># quantos elementos de v1 existem em v2</span></span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="vetor-operador-logico.html#cb370-1" tabindex="-1"></a><span class="co"># comparando vetores</span></span>
+<span id="cb370-2"><a href="vetor-operador-logico.html#cb370-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb370-3"><a href="vetor-operador-logico.html#cb370-3" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb370-4"><a href="vetor-operador-logico.html#cb370-4" tabindex="-1"></a>v1 <span class="sc">%in%</span> v2 <span class="co"># quantos elementos de v1 existem em v2</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="vetor-operador-logico.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">%in%</span> v2) <span class="co"># apenas 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="vetor-operador-logico.html#cb372-1" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">%in%</span> v2) <span class="co"># apenas 1</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="vetor-operador-logico.html#cb374-1" aria-hidden="true" tabindex="-1"></a>v2 <span class="sc">%in%</span> v1 <span class="co"># quais elementos de v2 estão em v1</span></span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="vetor-operador-logico.html#cb374-1" tabindex="-1"></a>v2 <span class="sc">%in%</span> v1 <span class="co"># quais elementos de v2 estão em v1</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="vetor-operador-logico.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v2 <span class="sc">%in%</span> v1) <span class="co"># os dois quatro</span></span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="vetor-operador-logico.html#cb376-1" tabindex="-1"></a><span class="fu">sum</span>(v2 <span class="sc">%in%</span> v1) <span class="co"># os dois quatro</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="vetor-operador-logico.html#cb378-1" aria-hidden="true" tabindex="-1"></a>notas.dos.alunos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">6.0</span>, <span class="fl">5.1</span>, <span class="fl">6.8</span>, <span class="fl">2.8</span>, <span class="fl">6.1</span>, <span class="fl">9.0</span>, <span class="fl">4.3</span>, <span class="fl">10.4</span>, <span class="fl">6.0</span>, <span class="fl">7.9</span>, <span class="fl">8.9</span>, <span class="fl">6.8</span>, <span class="fl">9.8</span>, <span class="fl">4.6</span>, <span class="fl">11.3</span>, <span class="fl">8.0</span>, <span class="fl">6.7</span>, <span class="fl">4.5</span>)</span>
-<span id="cb378-2"><a href="vetor-operador-logico.html#cb378-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Quantos aprovados?</span></span>
-<span id="cb378-3"><a href="vetor-operador-logico.html#cb378-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(notas.dos.alunos <span class="sc">&gt;=</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="vetor-operador-logico.html#cb378-1" tabindex="-1"></a>notas.dos.alunos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">6.0</span>, <span class="fl">5.1</span>, <span class="fl">6.8</span>, <span class="fl">2.8</span>, <span class="fl">6.1</span>, <span class="fl">9.0</span>, <span class="fl">4.3</span>, <span class="fl">10.4</span>, <span class="fl">6.0</span>, <span class="fl">7.9</span>, <span class="fl">8.9</span>, <span class="fl">6.8</span>, <span class="fl">9.8</span>, <span class="fl">4.6</span>, <span class="fl">11.3</span>, <span class="fl">8.0</span>, <span class="fl">6.7</span>, <span class="fl">4.5</span>)</span>
+<span id="cb378-2"><a href="vetor-operador-logico.html#cb378-2" tabindex="-1"></a><span class="do">## Quantos aprovados?</span></span>
+<span id="cb378-3"><a href="vetor-operador-logico.html#cb378-3" tabindex="-1"></a><span class="fu">sum</span>(notas.dos.alunos <span class="sc">&gt;=</span> <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 14</code></pre>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="vetor-operador-logico.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Qual a proporção de aprovados?</span></span>
-<span id="cb380-2"><a href="vetor-operador-logico.html#cb380-2" aria-hidden="true" tabindex="-1"></a>prop <span class="ot">&lt;-</span> <span class="fu">sum</span>(notas.dos.alunos <span class="sc">&gt;=</span> <span class="dv">5</span>) <span class="sc">/</span> <span class="fu">length</span>(notas.dos.alunos)</span>
-<span id="cb380-3"><a href="vetor-operador-logico.html#cb380-3" aria-hidden="true" tabindex="-1"></a>prop</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="vetor-operador-logico.html#cb380-1" tabindex="-1"></a><span class="co"># Qual a proporção de aprovados?</span></span>
+<span id="cb380-2"><a href="vetor-operador-logico.html#cb380-2" tabindex="-1"></a>prop <span class="ot">&lt;-</span> <span class="fu">sum</span>(notas.dos.alunos <span class="sc">&gt;=</span> <span class="dv">5</span>) <span class="sc">/</span> <span class="fu">length</span>(notas.dos.alunos)</span>
+<span id="cb380-3"><a href="vetor-operador-logico.html#cb380-3" tabindex="-1"></a>prop</span></code></pre></div>
 <pre><code>## [1] 0.7777778</code></pre>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="vetor-operador-logico.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ou em texto</span></span>
-<span id="cb382-2"><a href="vetor-operador-logico.html#cb382-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="fu">round</span>(prop <span class="sc">*</span> <span class="dv">100</span>), <span class="st">&quot;%&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="vetor-operador-logico.html#cb382-1" tabindex="-1"></a><span class="co"># ou em texto</span></span>
+<span id="cb382-2"><a href="vetor-operador-logico.html#cb382-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="fu">round</span>(prop <span class="sc">*</span> <span class="dv">100</span>), <span class="st">&quot;%&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;78%&quot;</code></pre>
 <p>Podemos usar também vetores de texto e fatores em conjunto com operadores lógicos.</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="vetor-operador-logico.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="co"># E VETORES DE TEXTO?</span></span>
-<span id="cb384-2"><a href="vetor-operador-logico.html#cb384-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;laranja&quot;</span>, <span class="st">&quot;limão&quot;</span>), <span class="dv">10</span>)</span>
-<span id="cb384-3"><a href="vetor-operador-logico.html#cb384-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="co"># um vetor de palavras</span></span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="vetor-operador-logico.html#cb384-1" tabindex="-1"></a><span class="co"># E VETORES DE TEXTO?</span></span>
+<span id="cb384-2"><a href="vetor-operador-logico.html#cb384-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;laranja&quot;</span>, <span class="st">&quot;limão&quot;</span>), <span class="dv">10</span>)</span>
+<span id="cb384-3"><a href="vetor-operador-logico.html#cb384-3" tabindex="-1"></a>v1 <span class="co"># um vetor de palavras</span></span></code></pre></div>
 <pre><code>##  [1] &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot;
 ##  [8] &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;   
 ## [15] &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot; 
 ## [22] &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;  
 ## [29] &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot;
 ## [36] &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;</code></pre>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="vetor-operador-logico.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quantos elementos são iguais a banana</span></span>
-<span id="cb386-2"><a href="vetor-operador-logico.html#cb386-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">==</span> <span class="st">&quot;banana&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="vetor-operador-logico.html#cb386-1" tabindex="-1"></a><span class="co"># quantos elementos são iguais a banana</span></span>
+<span id="cb386-2"><a href="vetor-operador-logico.html#cb386-2" tabindex="-1"></a>v1 <span class="sc">==</span> <span class="st">&quot;banana&quot;</span></span></code></pre></div>
 <pre><code>##  [1]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
 ## [13]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
 ## [25]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
 ## [37]  TRUE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="vetor-operador-logico.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">==</span> <span class="st">&quot;banana&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="vetor-operador-logico.html#cb388-1" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">==</span> <span class="st">&quot;banana&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="vetor-operador-logico.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="co"># também poderia perguntar: quantos elementos de v1 contém banana</span></span>
-<span id="cb390-2"><a href="vetor-operador-logico.html#cb390-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">%in%</span> <span class="st">&quot;banana&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="vetor-operador-logico.html#cb390-1" tabindex="-1"></a><span class="co"># também poderia perguntar: quantos elementos de v1 contém banana</span></span>
+<span id="cb390-2"><a href="vetor-operador-logico.html#cb390-2" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">%in%</span> <span class="st">&quot;banana&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="vetor-operador-logico.html#cb392-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">%in%</span> <span class="st">&quot;banana&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="vetor-operador-logico.html#cb392-1" tabindex="-1"></a>v1 <span class="sc">%in%</span> <span class="st">&quot;banana&quot;</span></span></code></pre></div>
 <pre><code>##  [1]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
 ## [13]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
 ## [25]  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
 ## [37]  TRUE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="vetor-operador-logico.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="co"># no caso acima == e %in% funcionam igual, mas o operador %in% é util quando quisermos comparar dois vetores de character</span></span>
-<span id="cb394-2"><a href="vetor-operador-logico.html#cb394-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;abacate&quot;</span>)</span>
-<span id="cb394-3"><a href="vetor-operador-logico.html#cb394-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="sc">%in%</span> v2 <span class="co"># quais elementos de v1 correspondem a elementos de v2</span></span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="vetor-operador-logico.html#cb394-1" tabindex="-1"></a><span class="co"># no caso acima == e %in% funcionam igual, mas o operador %in% é util quando quisermos comparar dois vetores de character</span></span>
+<span id="cb394-2"><a href="vetor-operador-logico.html#cb394-2" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;abacate&quot;</span>)</span>
+<span id="cb394-3"><a href="vetor-operador-logico.html#cb394-3" tabindex="-1"></a>v1 <span class="sc">%in%</span> v2 <span class="co"># quais elementos de v1 correspondem a elementos de v2</span></span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE
 ## [13]  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE
 ## [25]  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE
 ## [37]  TRUE  TRUE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="vetor-operador-logico.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">%in%</span> v2) <span class="co"># quantos são? 10 laranjas e 10 peras</span></span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="vetor-operador-logico.html#cb396-1" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">%in%</span> v2) <span class="co"># quantos são? 10 laranjas e 10 peras</span></span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="vetor-operador-logico.html#cb398-1" aria-hidden="true" tabindex="-1"></a>v2 <span class="sc">%in%</span> v1 <span class="co"># quais elementos de v2 estão em v1</span></span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="vetor-operador-logico.html#cb398-1" tabindex="-1"></a>v2 <span class="sc">%in%</span> v1 <span class="co"># quais elementos de v2 estão em v1</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="vetor-operador-logico.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v2 <span class="sc">%in%</span> v1) <span class="co"># quantos são (apenas laranja e pera, abacate não está)</span></span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="vetor-operador-logico.html#cb400-1" tabindex="-1"></a><span class="fu">sum</span>(v2 <span class="sc">%in%</span> v1) <span class="co"># quantos são (apenas laranja e pera, abacate não está)</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Operadores auxiliares permitem combinar perguntas:</p>
 <ul>
@@ -673,94 +674,94 @@ Para checar os duplicados, devemos filtrar o resultado desta ação (veja na se�
 <li><p><code>|</code> equivale a <code>OU</code> - essa condição OU essa outra;</p></li>
 <li><p><code>!</code> - inverte os valores da pergunta</p></li>
 </ul>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="vetor-operador-logico.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor</span></span>
-<span id="cb402-2"><a href="vetor-operador-logico.html#cb402-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
-<span id="cb402-3"><a href="vetor-operador-logico.html#cb402-3" aria-hidden="true" tabindex="-1"></a>v1</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="vetor-operador-logico.html#cb402-1" tabindex="-1"></a><span class="co"># um vetor</span></span>
+<span id="cb402-2"><a href="vetor-operador-logico.html#cb402-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb402-3"><a href="vetor-operador-logico.html#cb402-3" tabindex="-1"></a>v1</span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="vetor-operador-logico.html#cb404-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> v1 <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> v1 <span class="sc">&lt;=</span> <span class="dv">15</span> <span class="co"># quais elementos de v1 são maiores que 5 E menores ou iguais a 15</span></span>
-<span id="cb404-2"><a href="vetor-operador-logico.html#cb404-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(p1) <span class="co"># quantos são?</span></span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="vetor-operador-logico.html#cb404-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> v1 <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> v1 <span class="sc">&lt;=</span> <span class="dv">15</span> <span class="co"># quais elementos de v1 são maiores que 5 E menores ou iguais a 15</span></span>
+<span id="cb404-2"><a href="vetor-operador-logico.html#cb404-2" tabindex="-1"></a><span class="fu">sum</span>(p1) <span class="co"># quantos são?</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="vetor-operador-logico.html#cb406-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> v1 <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">|</span> v1 <span class="sc">&lt;=</span> <span class="dv">15</span> <span class="co"># quais elementos de v1 são maiores que 5 OU menores ou iguais a 15</span></span>
-<span id="cb406-2"><a href="vetor-operador-logico.html#cb406-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(p1) <span class="co"># quantos são</span></span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="vetor-operador-logico.html#cb406-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> v1 <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">|</span> v1 <span class="sc">&lt;=</span> <span class="dv">15</span> <span class="co"># quais elementos de v1 são maiores que 5 OU menores ou iguais a 15</span></span>
+<span id="cb406-2"><a href="vetor-operador-logico.html#cb406-2" tabindex="-1"></a><span class="fu">sum</span>(p1) <span class="co"># quantos são</span></span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="vetor-operador-logico.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !exclamação NEGA ou INVERTE verdadeiros e falsos</span></span>
-<span id="cb408-2"><a href="vetor-operador-logico.html#cb408-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
-<span id="cb408-3"><a href="vetor-operador-logico.html#cb408-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">==</span> <span class="dv">5</span>) <span class="co"># quantos v1 são iguais a 5?</span></span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="vetor-operador-logico.html#cb408-1" tabindex="-1"></a><span class="co"># !exclamação NEGA ou INVERTE verdadeiros e falsos</span></span>
+<span id="cb408-2"><a href="vetor-operador-logico.html#cb408-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span></span>
+<span id="cb408-3"><a href="vetor-operador-logico.html#cb408-3" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">==</span> <span class="dv">5</span>) <span class="co"># quantos v1 são iguais a 5?</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="vetor-operador-logico.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span>v1 <span class="sc">==</span> <span class="dv">5</span>) <span class="co"># quantos v1 são diferentes de 5?</span></span></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="vetor-operador-logico.html#cb410-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span>v1 <span class="sc">==</span> <span class="dv">5</span>) <span class="co"># quantos v1 são diferentes de 5?</span></span></code></pre></div>
 <pre><code>## [1] 19</code></pre>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="vetor-operador-logico.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">&gt;</span> <span class="dv">5</span>) <span class="co"># quantos v1 são maiores que 5?</span></span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="vetor-operador-logico.html#cb412-1" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">&gt;</span> <span class="dv">5</span>) <span class="co"># quantos v1 são maiores que 5?</span></span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="vetor-operador-logico.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span>v1 <span class="sc">&gt;</span> <span class="dv">5</span>) <span class="co"># quantos v1 são menores que 5?</span></span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="vetor-operador-logico.html#cb414-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span>v1 <span class="sc">&gt;</span> <span class="dv">5</span>) <span class="co"># quantos v1 são menores que 5?</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="vetor-operador-logico.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="co"># texto</span></span>
-<span id="cb416-2"><a href="vetor-operador-logico.html#cb416-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;laranja&quot;</span>, <span class="st">&quot;limão&quot;</span>), <span class="dv">10</span>)</span>
-<span id="cb416-3"><a href="vetor-operador-logico.html#cb416-3" aria-hidden="true" tabindex="-1"></a>v1 <span class="co"># um vetor de palavras</span></span></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="vetor-operador-logico.html#cb416-1" tabindex="-1"></a><span class="co"># texto</span></span>
+<span id="cb416-2"><a href="vetor-operador-logico.html#cb416-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;laranja&quot;</span>, <span class="st">&quot;limão&quot;</span>), <span class="dv">10</span>)</span>
+<span id="cb416-3"><a href="vetor-operador-logico.html#cb416-3" tabindex="-1"></a>v1 <span class="co"># um vetor de palavras</span></span></code></pre></div>
 <pre><code>##  [1] &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot;
 ##  [8] &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;   
 ## [15] &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot; 
 ## [22] &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;  
 ## [29] &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot;
 ## [36] &quot;limão&quot;   &quot;banana&quot;  &quot;pera&quot;    &quot;laranja&quot; &quot;limão&quot;</code></pre>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="vetor-operador-logico.html#cb418-1" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> v1 <span class="sc">==</span> <span class="st">&quot;banana&quot;</span> <span class="sc">&amp;</span> v1 <span class="sc">==</span> <span class="st">&quot;pera&quot;</span> <span class="co"># quantos elementos de v1 sao banana E sao pera</span></span>
-<span id="cb418-2"><a href="vetor-operador-logico.html#cb418-2" aria-hidden="true" tabindex="-1"></a>vl</span></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="vetor-operador-logico.html#cb418-1" tabindex="-1"></a>vl <span class="ot">&lt;-</span> v1 <span class="sc">==</span> <span class="st">&quot;banana&quot;</span> <span class="sc">&amp;</span> v1 <span class="sc">==</span> <span class="st">&quot;pera&quot;</span> <span class="co"># quantos elementos de v1 sao banana E sao pera</span></span>
+<span id="cb418-2"><a href="vetor-operador-logico.html#cb418-2" tabindex="-1"></a>vl</span></code></pre></div>
 <pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [37] FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="vetor-operador-logico.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vl) <span class="co"># nenhum valor satisfaz as duas condicoes</span></span></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="vetor-operador-logico.html#cb420-1" tabindex="-1"></a><span class="fu">sum</span>(vl) <span class="co"># nenhum valor satisfaz as duas condicoes</span></span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="vetor-operador-logico.html#cb422-1" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> v1 <span class="sc">==</span> <span class="st">&quot;banana&quot;</span> <span class="sc">|</span> v1 <span class="sc">==</span> <span class="st">&quot;pera&quot;</span> <span class="co"># quantos elementos de v1 sao banana ou sao pera</span></span>
-<span id="cb422-2"><a href="vetor-operador-logico.html#cb422-2" aria-hidden="true" tabindex="-1"></a>vl</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="vetor-operador-logico.html#cb422-1" tabindex="-1"></a>vl <span class="ot">&lt;-</span> v1 <span class="sc">==</span> <span class="st">&quot;banana&quot;</span> <span class="sc">|</span> v1 <span class="sc">==</span> <span class="st">&quot;pera&quot;</span> <span class="co"># quantos elementos de v1 sao banana ou sao pera</span></span>
+<span id="cb422-2"><a href="vetor-operador-logico.html#cb422-2" tabindex="-1"></a>vl</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE
 ## [13]  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE
 ## [25]  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE
 ## [37]  TRUE  TRUE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="vetor-operador-logico.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vl) <span class="co"># tem 20 valores que satisfazem 1 das condições</span></span></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="vetor-operador-logico.html#cb424-1" tabindex="-1"></a><span class="fu">sum</span>(vl) <span class="co"># tem 20 valores que satisfazem 1 das condições</span></span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="vetor-operador-logico.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="co"># isso é o mesmo que pergunta desse outro jeito:</span></span>
-<span id="cb426-2"><a href="vetor-operador-logico.html#cb426-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="vetor-operador-logico.html#cb426-1" tabindex="-1"></a><span class="co"># isso é o mesmo que pergunta desse outro jeito:</span></span>
+<span id="cb426-2"><a href="vetor-operador-logico.html#cb426-2" tabindex="-1"></a><span class="fu">sum</span>(v1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 </div>
 <div id="vetor-filtro-logico" class="section level3 hasAnchor" number="2.6.2">
 <h3><span class="header-section-number">2.6.2</span> Filtrando dados com vetores lógicos<a href="vetor-operador-logico.html#vetor-filtro-logico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vetores lógicos podem ser usados como índices (Seção <a href="indexacao.html#indexacao">2.5</a>) para filtrar elementos de um vetor.
 É através deste conceito que podemos filtrar dados de matrizes e criar subconjunto de dados.</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="vetor-operador-logico.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor com sequencia de 1 a 100</span></span>
-<span id="cb428-2"><a href="vetor-operador-logico.html#cb428-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
-<span id="cb428-3"><a href="vetor-operador-logico.html#cb428-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb428-4"><a href="vetor-operador-logico.html#cb428-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> v1 <span class="sc">&gt;</span> <span class="dv">15</span> <span class="co"># Pergunta 1 quantos são maiores que 15</span></span>
-<span id="cb428-5"><a href="vetor-operador-logico.html#cb428-5" aria-hidden="true" tabindex="-1"></a>v1[p1] <span class="co"># valores que satisfazem a pergunta 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="vetor-operador-logico.html#cb428-1" tabindex="-1"></a><span class="co"># um vetor com sequencia de 1 a 100</span></span>
+<span id="cb428-2"><a href="vetor-operador-logico.html#cb428-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb428-3"><a href="vetor-operador-logico.html#cb428-3" tabindex="-1"></a></span>
+<span id="cb428-4"><a href="vetor-operador-logico.html#cb428-4" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> v1 <span class="sc">&gt;</span> <span class="dv">15</span> <span class="co"># Pergunta 1 quantos são maiores que 15</span></span>
+<span id="cb428-5"><a href="vetor-operador-logico.html#cb428-5" tabindex="-1"></a>v1[p1] <span class="co"># valores que satisfazem a pergunta 1</span></span></code></pre></div>
 <pre><code>##  [1]  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34
 ## [20]  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53
 ## [39]  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
 ## [58]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91
 ## [77]  92  93  94  95  96  97  98  99 100</code></pre>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="vetor-operador-logico.html#cb430-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> v1 <span class="sc">&lt;=</span> <span class="dv">20</span> <span class="co"># Pergunta 2 quantos são menores ou iguais a 20</span></span>
-<span id="cb430-2"><a href="vetor-operador-logico.html#cb430-2" aria-hidden="true" tabindex="-1"></a>v1[p2] <span class="co"># valores que satisfazem a pergunta 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="vetor-operador-logico.html#cb430-1" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> v1 <span class="sc">&lt;=</span> <span class="dv">20</span> <span class="co"># Pergunta 2 quantos são menores ou iguais a 20</span></span>
+<span id="cb430-2"><a href="vetor-operador-logico.html#cb430-2" tabindex="-1"></a>v1[p2] <span class="co"># valores que satisfazem a pergunta 2</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="vetor-operador-logico.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quantos satisfazem as duas perguntas</span></span>
-<span id="cb432-2"><a href="vetor-operador-logico.html#cb432-2" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> p1 <span class="sc">&amp;</span> p2</span>
-<span id="cb432-3"><a href="vetor-operador-logico.html#cb432-3" aria-hidden="true" tabindex="-1"></a>v1[p2] <span class="co"># valores que satisfazem as duas perguntas</span></span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="vetor-operador-logico.html#cb432-1" tabindex="-1"></a><span class="co"># quantos satisfazem as duas perguntas</span></span>
+<span id="cb432-2"><a href="vetor-operador-logico.html#cb432-2" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> p1 <span class="sc">&amp;</span> p2</span>
+<span id="cb432-3"><a href="vetor-operador-logico.html#cb432-3" tabindex="-1"></a>v1[p2] <span class="co"># valores que satisfazem as duas perguntas</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
 <p>A função <code>grep()</code> permite a busca de uma palavra (ou pedaço dela) em um vetor de palavras.
 Mais de uma palavra pode ser buscada ao mesmo tempo.</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="vetor-operador-logico.html#cb434-1" aria-hidden="true" tabindex="-1"></a>?grep <span class="co"># veja o help dessa função e seus argumentos</span></span></code></pre></div>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="vetor-operador-logico.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor de palavras</span></span>
-<span id="cb435-2"><a href="vetor-operador-logico.html#cb435-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;laranja&quot;</span>, <span class="st">&quot;limão&quot;</span>), <span class="dv">5</span>)</span>
-<span id="cb435-3"><a href="vetor-operador-logico.html#cb435-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;an&quot;</span>, v1) <span class="co"># quais elementos tem a palavra &#39;an&#39; no nome?</span></span></code></pre></div>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="vetor-operador-logico.html#cb434-1" tabindex="-1"></a>?grep <span class="co"># veja o help dessa função e seus argumentos</span></span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="vetor-operador-logico.html#cb435-1" tabindex="-1"></a><span class="co"># um vetor de palavras</span></span>
+<span id="cb435-2"><a href="vetor-operador-logico.html#cb435-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;laranja&quot;</span>, <span class="st">&quot;limão&quot;</span>), <span class="dv">5</span>)</span>
+<span id="cb435-3"><a href="vetor-operador-logico.html#cb435-3" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;an&quot;</span>, v1) <span class="co"># quais elementos tem a palavra &#39;an&#39; no nome?</span></span></code></pre></div>
 <pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19</code></pre>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="vetor-operador-logico.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que é case.sensitive (depende se é maiusculo ou minúsculo)</span></span>
-<span id="cb437-2"><a href="vetor-operador-logico.html#cb437-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;An&quot;</span>, v1) <span class="co"># não encontra nada</span></span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="vetor-operador-logico.html#cb437-1" tabindex="-1"></a><span class="co"># note que é case.sensitive (depende se é maiusculo ou minúsculo)</span></span>
+<span id="cb437-2"><a href="vetor-operador-logico.html#cb437-2" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;An&quot;</span>, v1) <span class="co"># não encontra nada</span></span></code></pre></div>
 <pre><code>## integer(0)</code></pre>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="vetor-operador-logico.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;An&quot;</span>, v1, <span class="at">ignore.case =</span> T) <span class="co"># mas eu posso dizer para ele ignorar se é minusculo ou maiúsculo e ele encontra novamente</span></span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="vetor-operador-logico.html#cb439-1" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;An&quot;</span>, v1, <span class="at">ignore.case =</span> T) <span class="co"># mas eu posso dizer para ele ignorar se é minusculo ou maiúsculo e ele encontra novamente</span></span></code></pre></div>
 <pre><code>##  [1]  1  3  5  7  9 11 13 15 17 19</code></pre>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="vetor-operador-logico.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="co"># quem sao esses elementos</span></span>
-<span id="cb441-2"><a href="vetor-operador-logico.html#cb441-2" aria-hidden="true" tabindex="-1"></a>vl <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;An&quot;</span>, v1, <span class="at">ignore.case =</span> T) <span class="co"># pega os índices desses elementos</span></span>
-<span id="cb441-3"><a href="vetor-operador-logico.html#cb441-3" aria-hidden="true" tabindex="-1"></a>v1[vl]</span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="vetor-operador-logico.html#cb441-1" tabindex="-1"></a><span class="co"># quem sao esses elementos</span></span>
+<span id="cb441-2"><a href="vetor-operador-logico.html#cb441-2" tabindex="-1"></a>vl <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">&quot;An&quot;</span>, v1, <span class="at">ignore.case =</span> T) <span class="co"># pega os índices desses elementos</span></span>
+<span id="cb441-3"><a href="vetor-operador-logico.html#cb441-3" tabindex="-1"></a>v1[vl]</span></code></pre></div>
 <pre><code>##  [1] &quot;banana&quot;  &quot;laranja&quot; &quot;banana&quot;  &quot;laranja&quot; &quot;banana&quot;  &quot;laranja&quot; &quot;banana&quot; 
 ##  [8] &quot;laranja&quot; &quot;banana&quot;  &quot;laranja&quot;</code></pre>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="vetor-operador-logico.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(v1[vl]) <span class="co"># valores únicos desse vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="vetor-operador-logico.html#cb443-1" tabindex="-1"></a><span class="fu">unique</span>(v1[vl]) <span class="co"># valores únicos desse vetor</span></span></code></pre></div>
 <pre><code>## [1] &quot;banana&quot;  &quot;laranja&quot;</code></pre>
 </div>
 <div id="filtro-dados-ausentes" class="section level3 hasAnchor" number="2.6.3">
@@ -772,49 +773,49 @@ Então, muitas vezes precisamos tirar registros com valores ausentes ou colunas 
 <p>Perguntar por valores ausentes no R é feito por uma função especial chamada <code>is.na()</code>.
 A resposta da função é um vetor lógico indicando quem é e quem não é <code>NA</code>.
 Há uma outra função chamada <code>na.omit()</code> que elimina valores <code>NA</code> de um vetor.</p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="vetor-operador-logico.html#cb445-1" aria-hidden="true" tabindex="-1"></a>?is.na <span class="co"># veja o help</span></span></code></pre></div>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="vetor-operador-logico.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor com NAs</span></span>
-<span id="cb446-2"><a href="vetor-operador-logico.html#cb446-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb446-3"><a href="vetor-operador-logico.html#cb446-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(v1) <span class="co"># quem é NA?</span></span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="vetor-operador-logico.html#cb445-1" tabindex="-1"></a>?is.na <span class="co"># veja o help</span></span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="vetor-operador-logico.html#cb446-1" tabindex="-1"></a><span class="co"># um vetor com NAs</span></span>
+<span id="cb446-2"><a href="vetor-operador-logico.html#cb446-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb446-3"><a href="vetor-operador-logico.html#cb446-3" tabindex="-1"></a><span class="fu">is.na</span>(v1) <span class="co"># quem é NA?</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="vetor-operador-logico.html#cb448-1" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> v1[<span class="sc">!</span><span class="fu">is.na</span>(v1)] <span class="co"># criar um vetor novo com quem não é NA (note o !)</span></span>
-<span id="cb448-2"><a href="vetor-operador-logico.html#cb448-2" aria-hidden="true" tabindex="-1"></a>v2</span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="vetor-operador-logico.html#cb448-1" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> v1[<span class="sc">!</span><span class="fu">is.na</span>(v1)] <span class="co"># criar um vetor novo com quem não é NA (note o !)</span></span>
+<span id="cb448-2"><a href="vetor-operador-logico.html#cb448-2" tabindex="-1"></a>v2</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5 6</code></pre>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="vetor-operador-logico.html#cb450-1" aria-hidden="true" tabindex="-1"></a><span class="co"># isso também pode ser feito com na.omit()</span></span>
-<span id="cb450-2"><a href="vetor-operador-logico.html#cb450-2" aria-hidden="true" tabindex="-1"></a>?na.omit <span class="co"># veja o help dessa função</span></span></code></pre></div>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="vetor-operador-logico.html#cb451-1" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(v1)</span>
-<span id="cb451-2"><a href="vetor-operador-logico.html#cb451-2" aria-hidden="true" tabindex="-1"></a>v3 <span class="co"># a diferença é que criou um objeto de classe na.omit</span></span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="vetor-operador-logico.html#cb450-1" tabindex="-1"></a><span class="co"># isso também pode ser feito com na.omit()</span></span>
+<span id="cb450-2"><a href="vetor-operador-logico.html#cb450-2" tabindex="-1"></a>?na.omit <span class="co"># veja o help dessa função</span></span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="vetor-operador-logico.html#cb451-1" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(v1)</span>
+<span id="cb451-2"><a href="vetor-operador-logico.html#cb451-2" tabindex="-1"></a>v3 <span class="co"># a diferença é que criou um objeto de classe na.omit</span></span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5 6
 ## attr(,&quot;na.action&quot;)
 ## [1] 1 2
 ## attr(,&quot;class&quot;)
 ## [1] &quot;omit&quot;</code></pre>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="vetor-operador-logico.html#cb453-1" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(v3) <span class="co"># isso elimina a diferença, convertendo em vetor</span></span>
-<span id="cb453-2"><a href="vetor-operador-logico.html#cb453-2" aria-hidden="true" tabindex="-1"></a>v3 <span class="co"># agora é idêntico a v2</span></span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="vetor-operador-logico.html#cb453-1" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(v3) <span class="co"># isso elimina a diferença, convertendo em vetor</span></span>
+<span id="cb453-2"><a href="vetor-operador-logico.html#cb453-2" tabindex="-1"></a>v3 <span class="co"># agora é idêntico a v2</span></span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5 6</code></pre>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="vetor-operador-logico.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agora suponha o seguinte vetor</span></span>
-<span id="cb455-2"><a href="vetor-operador-logico.html#cb455-2" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;mamão&quot;</span>)</span>
-<span id="cb455-3"><a href="vetor-operador-logico.html#cb455-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(v4) <span class="co"># ops todos são falsos</span></span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="vetor-operador-logico.html#cb455-1" tabindex="-1"></a><span class="co"># agora suponha o seguinte vetor</span></span>
+<span id="cb455-2"><a href="vetor-operador-logico.html#cb455-2" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;NA&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;pera&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;mamão&quot;</span>)</span>
+<span id="cb455-3"><a href="vetor-operador-logico.html#cb455-3" tabindex="-1"></a><span class="fu">is.na</span>(v4) <span class="co"># ops todos são falsos</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="vetor-operador-logico.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="co"># isso porque &quot;NA&quot; é texto e não um objeto de classe lógica</span></span>
-<span id="cb457-2"><a href="vetor-operador-logico.html#cb457-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="vetor-operador-logico.html#cb457-1" tabindex="-1"></a><span class="co"># isso porque &quot;NA&quot; é texto e não um objeto de classe lógica</span></span>
+<span id="cb457-2"><a href="vetor-operador-logico.html#cb457-2" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">NA</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="vetor-operador-logico.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&quot;NA&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="vetor-operador-logico.html#cb459-1" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&quot;NA&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="vetor-operador-logico.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas eu poderia corrigir isso</span></span>
-<span id="cb461-2"><a href="vetor-operador-logico.html#cb461-2" aria-hidden="true" tabindex="-1"></a>v4[v4 <span class="sc">==</span> <span class="st">&quot;NA&quot;</span>] <span class="co"># vejo</span></span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="vetor-operador-logico.html#cb461-1" tabindex="-1"></a><span class="co"># mas eu poderia corrigir isso</span></span>
+<span id="cb461-2"><a href="vetor-operador-logico.html#cb461-2" tabindex="-1"></a>v4[v4 <span class="sc">==</span> <span class="st">&quot;NA&quot;</span>] <span class="co"># vejo</span></span></code></pre></div>
 <pre><code>## [1] &quot;NA&quot; &quot;NA&quot;</code></pre>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="vetor-operador-logico.html#cb463-1" aria-hidden="true" tabindex="-1"></a>v4[v4 <span class="sc">==</span> <span class="st">&quot;NA&quot;</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># corrijo</span></span>
-<span id="cb463-2"><a href="vetor-operador-logico.html#cb463-2" aria-hidden="true" tabindex="-1"></a>v4</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="vetor-operador-logico.html#cb463-1" tabindex="-1"></a>v4[v4 <span class="sc">==</span> <span class="st">&quot;NA&quot;</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span> <span class="co"># corrijo</span></span>
+<span id="cb463-2"><a href="vetor-operador-logico.html#cb463-2" tabindex="-1"></a>v4</span></code></pre></div>
 <pre><code>## [1] NA       NA       &quot;pera&quot;   &quot;banana&quot; &quot;mamão&quot;</code></pre>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="vetor-operador-logico.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(v4) <span class="co"># agora dois são NAs</span></span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="vetor-operador-logico.html#cb465-1" tabindex="-1"></a><span class="fu">is.na</span>(v4) <span class="co"># agora dois são NAs</span></span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="vetor-operador-logico.html#cb467-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note que agora todos são diferentes de &quot;NA&quot; como texto</span></span>
-<span id="cb467-2"><a href="vetor-operador-logico.html#cb467-2" aria-hidden="true" tabindex="-1"></a>v4[<span class="sc">!</span>v4 <span class="sc">==</span> <span class="st">&quot;NA&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="vetor-operador-logico.html#cb467-1" tabindex="-1"></a><span class="co"># note que agora todos são diferentes de &quot;NA&quot; como texto</span></span>
+<span id="cb467-2"><a href="vetor-operador-logico.html#cb467-2" tabindex="-1"></a>v4[<span class="sc">!</span>v4 <span class="sc">==</span> <span class="st">&quot;NA&quot;</span>]</span></code></pre></div>
 <pre><code>## [1] NA       NA       &quot;pera&quot;   &quot;banana&quot; &quot;mamão&quot;</code></pre>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="vetor-operador-logico.html#cb469-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mas isso de mostra quem não é corretamente</span></span>
-<span id="cb469-2"><a href="vetor-operador-logico.html#cb469-2" aria-hidden="true" tabindex="-1"></a>v5 <span class="ot">&lt;-</span> v4[<span class="sc">!</span><span class="fu">is.na</span>(v4)]</span>
-<span id="cb469-3"><a href="vetor-operador-logico.html#cb469-3" aria-hidden="true" tabindex="-1"></a>v5</span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="vetor-operador-logico.html#cb469-1" tabindex="-1"></a><span class="co"># mas isso de mostra quem não é corretamente</span></span>
+<span id="cb469-2"><a href="vetor-operador-logico.html#cb469-2" tabindex="-1"></a>v5 <span class="ot">&lt;-</span> v4[<span class="sc">!</span><span class="fu">is.na</span>(v4)]</span>
+<span id="cb469-3"><a href="vetor-operador-logico.html#cb469-3" tabindex="-1"></a>v5</span></code></pre></div>
 <pre><code>## [1] &quot;pera&quot;   &quot;banana&quot; &quot;mamão&quot;</code></pre>
 </div>
 </div>
@@ -838,43 +839,43 @@ Há uma outra função chamada <code>na.omit()</code> que elimina valores <code>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/02-vetores.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/02-vetores.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/02-vetores.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/02-vetores.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

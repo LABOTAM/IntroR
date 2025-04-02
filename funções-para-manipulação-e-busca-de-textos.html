@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.1 Funções para manipulação e busca de textos | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.1 Funções para manipulação e busca de textos | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -557,69 +558,69 @@ div.csl-indent {
 <div id="colar-ou-concatenar-textos" class="section level3 hasAnchor" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Colar ou concatenar textos<a href="funções-para-manipulação-e-busca-de-textos.html#colar-ou-concatenar-textos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>paste()</code> concatena textos.</p>
-<div class="sourceCode" id="cb1236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1236-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1236-1" aria-hidden="true" tabindex="-1"></a>?paste <span class="co"># veja o help dessa funcao</span></span></code></pre></div>
+<div class="sourceCode" id="cb1238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1238-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1238-1" tabindex="-1"></a>?paste <span class="co"># veja o help dessa funcao</span></span></code></pre></div>
 <p>Vamos criar dois vetores de texto, <code>txt</code> e <code>txt2</code>, para, em seguida, concatená-los com esta função:</p>
-<div class="sourceCode" id="cb1237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1237-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um vetor de texto</span></span>
-<span id="cb1237-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1237-2" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;maça&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
-<span id="cb1237-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1237-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outro vetor</span></span>
-<span id="cb1237-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1237-4" aria-hidden="true" tabindex="-1"></a>txt2 <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb1238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1238-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1238-1" aria-hidden="true" tabindex="-1"></a><span class="co"># concatenamos os textos par a par</span></span>
-<span id="cb1238-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1238-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(txt, txt2)</span></code></pre></div>
+<div class="sourceCode" id="cb1239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1239-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1239-1" tabindex="-1"></a><span class="co"># um vetor de texto</span></span>
+<span id="cb1239-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1239-2" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;maça&quot;</span>, <span class="st">&quot;pera&quot;</span>)</span>
+<span id="cb1239-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1239-3" tabindex="-1"></a><span class="co"># outro vetor</span></span>
+<span id="cb1239-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1239-4" tabindex="-1"></a>txt2 <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1240-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1240-1" tabindex="-1"></a><span class="co"># concatenamos os textos par a par</span></span>
+<span id="cb1240-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1240-2" tabindex="-1"></a><span class="fu">paste</span>(txt, txt2)</span></code></pre></div>
 <pre><code>## [1] &quot;banana A&quot; &quot;maça B&quot;   &quot;pera C&quot;</code></pre>
-<div class="sourceCode" id="cb1240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1240-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mudamos o separador</span></span>
-<span id="cb1240-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1240-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(txt, txt2, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1242-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1242-1" tabindex="-1"></a><span class="co"># mudamos o separador</span></span>
+<span id="cb1242-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1242-2" tabindex="-1"></a><span class="fu">paste</span>(txt, txt2, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;banana-A&quot; &quot;maça-B&quot;   &quot;pera-C&quot;</code></pre>
 <p>Podemos também unir os elementos contidos em um vetor em um único elemento, separados por algum símbolo.
 Basta usar o argumento <code>collapse</code> e indicar qual será o elemento que unirá os elementos contidos em um vetor:</p>
-<div class="sourceCode" id="cb1242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1242-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1242-1" aria-hidden="true" tabindex="-1"></a><span class="co"># imagine que queremos juntar os elementos de um vetor</span></span>
-<span id="cb1242-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1242-2" aria-hidden="true" tabindex="-1"></a><span class="co"># num único texto, separados por &quot;;&quot;</span></span>
-<span id="cb1242-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1242-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(txt, <span class="at">collapse =</span> <span class="st">&quot;;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1244-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1244-1" tabindex="-1"></a><span class="co"># imagine que queremos juntar os elementos de um vetor</span></span>
+<span id="cb1244-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1244-2" tabindex="-1"></a><span class="co"># num único texto, separados por &quot;;&quot;</span></span>
+<span id="cb1244-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1244-3" tabindex="-1"></a><span class="fu">paste</span>(txt, <span class="at">collapse =</span> <span class="st">&quot;;&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;banana;maça;pera&quot;</code></pre>
-<div class="sourceCode" id="cb1244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1244-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(txt, <span class="at">collapse =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1246-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1246-1" tabindex="-1"></a><span class="fu">paste</span>(txt, <span class="at">collapse =</span> <span class="st">&quot;/&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;banana/maça/pera&quot;</code></pre>
-<div class="sourceCode" id="cb1246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1246-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(txt, <span class="at">collapse =</span> <span class="st">&quot; e &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1248-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1248-1" tabindex="-1"></a><span class="fu">paste</span>(txt, <span class="at">collapse =</span> <span class="st">&quot; e &quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;banana e maça e pera&quot;</code></pre>
-<div class="sourceCode" id="cb1248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1248-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(txt, <span class="at">collapse =</span> <span class="st">&quot; mais &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1250-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1250-1" tabindex="-1"></a><span class="fu">paste</span>(txt, <span class="at">collapse =</span> <span class="st">&quot; mais &quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;banana mais maça mais pera&quot;</code></pre>
 </div>
 <div id="quebrar-ou-desconcatenar-textos" class="section level3 hasAnchor" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> Quebrar ou desconcatenar textos<a href="funções-para-manipulação-e-busca-de-textos.html#quebrar-ou-desconcatenar-textos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>strsplit()</code> quebra um vetor de texto segundo um separador determinado pelo argumento <code>split</code>, e retorna uma lista como resultado.</p>
-<div class="sourceCode" id="cb1250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1250-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1250-1" aria-hidden="true" tabindex="-1"></a>?strsplit</span></code></pre></div>
-<div class="sourceCode" id="cb1251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1251-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1251-1" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Este é um texto com várias palavras&quot;</span></span>
-<span id="cb1251-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">strsplit</span>(txt, <span class="at">split =</span> <span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1252-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1252-1" tabindex="-1"></a>?strsplit</span></code></pre></div>
+<div class="sourceCode" id="cb1253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1253-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1253-1" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Este é um texto com várias palavras&quot;</span></span>
+<span id="cb1253-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1253-2" tabindex="-1"></a><span class="fu">strsplit</span>(txt, <span class="at">split =</span> <span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;Este&quot;     &quot;é&quot;        &quot;um&quot;       &quot;texto&quot;    &quot;com&quot;      &quot;várias&quot;   &quot;palavras&quot;</code></pre>
 <p>Note que o resultado da ação é um objeto de classe lista:</p>
-<div class="sourceCode" id="cb1253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1253-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">strsplit</span>(txt, <span class="at">split =</span> <span class="st">&quot; &quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1255-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1255-1" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">strsplit</span>(txt, <span class="at">split =</span> <span class="st">&quot; &quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;list&quot;</code></pre>
 <p>Então, para pegar o resultado da ação da função <code>strsplit()</code>, devemos usar o que aprendemos em <a href="listas.html#listas">indexação de listas</a>.
 Para indexar listas, devemos usar duplo colchetes <code>[[n]]</code>, em que <code>n</code> é o número do elemento que desejamos reter.
 Vejamos abaixo que retemos o resultado de <code>strsplit()</code> no vetor <code>txt</code> em um objeto <code>pl</code>:</p>
-<div class="sourceCode" id="cb1255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1255-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1255-1" aria-hidden="true" tabindex="-1"></a>pl <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(txt, <span class="at">split =</span> <span class="st">&quot; &quot;</span>)</span>
-<span id="cb1255-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1255-2" aria-hidden="true" tabindex="-1"></a>pl</span></code></pre></div>
+<div class="sourceCode" id="cb1257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1257-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1257-1" tabindex="-1"></a>pl <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(txt, <span class="at">split =</span> <span class="st">&quot; &quot;</span>)</span>
+<span id="cb1257-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1257-2" tabindex="-1"></a>pl</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;Este&quot;     &quot;é&quot;        &quot;um&quot;       &quot;texto&quot;    &quot;com&quot;      &quot;várias&quot;   &quot;palavras&quot;</code></pre>
 <p>Para pegar o tamanho do objeto <code>pl</code>, usamos <code>length(pl)</code> que nos dá o resultado de <strong>1</strong>.
 Por isso, se desejamos reter essa ação como um vetor de texto, nosso <code>n</code> é 1, logo, <code>[[1]]</code>:</p>
-<div class="sourceCode" id="cb1257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1257-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1257-1" aria-hidden="true" tabindex="-1"></a>pl <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(txt, <span class="at">split =</span> <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb1257-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1257-2" aria-hidden="true" tabindex="-1"></a>pl</span></code></pre></div>
+<div class="sourceCode" id="cb1259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1259-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1259-1" tabindex="-1"></a>pl <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(txt, <span class="at">split =</span> <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb1259-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1259-2" tabindex="-1"></a>pl</span></code></pre></div>
 <pre><code>## [1] &quot;Este&quot;     &quot;é&quot;        &quot;um&quot;       &quot;texto&quot;    &quot;com&quot;      &quot;várias&quot;   &quot;palavras&quot;</code></pre>
 <p>Agora o objeto <code>pl</code> é um vetor de texto e de tamanho corresponde ao número de palavras contidas no vetor:</p>
-<div class="sourceCode" id="cb1259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1259-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(pl)</span></code></pre></div>
+<div class="sourceCode" id="cb1261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1261-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1261-1" tabindex="-1"></a><span class="fu">class</span>(pl)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb1261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1261-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(pl) <span class="co"># numero de palavras no texto</span></span></code></pre></div>
+<div class="sourceCode" id="cb1263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1263-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1263-1" tabindex="-1"></a><span class="fu">length</span>(pl) <span class="co"># numero de palavras no texto</span></span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
 <div id="um-exemplo-prático" class="section level4 hasAnchor" number="8.1.2.1">
 <h4><span class="header-section-number">8.1.2.1</span> Um exemplo prático<a href="funções-para-manipulação-e-busca-de-textos.html#um-exemplo-prático" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Suponha que você tenha uma tabela em que o nome da espécie esteja em uma única coluna e você queira separar o gênero do epíteto.
 Podemos usar a função <code>strsplit()</code> para resolver essa situação.
 Vejamos:</p>
-<div class="sourceCode" id="cb1263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1263-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># um dado qualquer</span></span>
-<span id="cb1263-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1263-2" aria-hidden="true" tabindex="-1"></a>spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ocotea guianensis&quot;</span>, <span class="st">&quot;Ocotea longifolia&quot;</span>, <span class="st">&quot;Licaria tenuicarpa&quot;</span>)</span>
-<span id="cb1263-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1263-3" aria-hidden="true" tabindex="-1"></a>dap <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
-<span id="cb1263-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1263-4" aria-hidden="true" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ESPECIE =</span> spp, <span class="at">DAP =</span> dap, <span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb1263-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1263-5" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
+<div class="sourceCode" id="cb1265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1265-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1265-1" tabindex="-1"></a><span class="co"># um dado qualquer</span></span>
+<span id="cb1265-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1265-2" tabindex="-1"></a>spp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Ocotea guianensis&quot;</span>, <span class="st">&quot;Ocotea longifolia&quot;</span>, <span class="st">&quot;Licaria tenuicarpa&quot;</span>)</span>
+<span id="cb1265-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1265-3" tabindex="-1"></a>dap <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb1265-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1265-4" tabindex="-1"></a>dd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ESPECIE =</span> spp, <span class="at">DAP =</span> dap, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb1265-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1265-5" tabindex="-1"></a>dd</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -659,16 +660,16 @@ Licaria tenuicarpa
 </tbody>
 </table>
 <p>Vamos criar uma função para receber um vetor de texto e quebrá-lo segundo o separador <code>sep = " "</code>, isto é, vai quebrar a palavra onde houver um espaço <code>" "</code>.</p>
-<div class="sourceCode" id="cb1264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1264-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1264-1" aria-hidden="true" tabindex="-1"></a><span class="co"># criamos um funcao</span></span>
-<span id="cb1264-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1264-2" aria-hidden="true" tabindex="-1"></a>peganome <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">qual =</span> <span class="dv">1</span>, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>) {</span>
-<span id="cb1264-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1264-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># pega o texto e quebra segundo o separador informado</span></span>
-<span id="cb1264-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1264-4" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="at">split =</span> sep)[[<span class="dv">1</span>]]</span>
-<span id="cb1264-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1264-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># retorna o valor</span></span>
-<span id="cb1264-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1264-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(xx[qual])</span>
-<span id="cb1264-7"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1264-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1266-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1266-1" tabindex="-1"></a><span class="co"># criamos um funcao</span></span>
+<span id="cb1266-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1266-2" tabindex="-1"></a>peganome <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">qual =</span> <span class="dv">1</span>, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>) {</span>
+<span id="cb1266-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1266-3" tabindex="-1"></a>  <span class="co"># pega o texto e quebra segundo o separador informado</span></span>
+<span id="cb1266-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1266-4" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="at">split =</span> sep)[[<span class="dv">1</span>]]</span>
+<span id="cb1266-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1266-5" tabindex="-1"></a>  <span class="co"># retorna o valor</span></span>
+<span id="cb1266-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1266-6" tabindex="-1"></a>  <span class="fu">return</span>(xx[qual])</span>
+<span id="cb1266-7"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1266-7" tabindex="-1"></a>}</span></code></pre></div>
 <p>Com a função criada acima, <code>peganome()</code>, vamos utilizar a função <code>lapply()</code> para aplicar esta função sobre cada elemento do vetor <code>dd$ESPECIE</code>:</p>
-<div class="sourceCode" id="cb1265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1265-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1265-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usamos essa funcao com o lapply para pegar o genero</span></span>
-<span id="cb1265-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(dd<span class="sc">$</span>ESPECIE, peganome, <span class="at">qual =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1267-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1267-1" tabindex="-1"></a><span class="co"># usamos essa funcao com o lapply para pegar o genero</span></span>
+<span id="cb1267-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1267-2" tabindex="-1"></a><span class="fu">lapply</span>(dd<span class="sc">$</span>ESPECIE, peganome, <span class="at">qual =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;Ocotea&quot;
 ## 
@@ -679,19 +680,19 @@ Licaria tenuicarpa
 ## [1] &quot;Licaria&quot;</code></pre>
 <p>Repare que o resultado da ação é uma lista, pois <code>lapply()</code> sempre retorna uma lista!
 Podemos converter esta lista em um vetor usando o procedimento abaixo:</p>
-<div class="sourceCode" id="cb1267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1267-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># como é uma lista transformamos num vetor</span></span>
-<span id="cb1267-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1267-2" aria-hidden="true" tabindex="-1"></a>gg <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">lapply</span>(<span class="at">X =</span> dd<span class="sc">$</span>ESPECIE, <span class="at">FUN =</span> peganome, <span class="at">qual =</span> <span class="dv">1</span>), <span class="at">mode =</span> <span class="st">&quot;character&quot;</span>)</span>
-<span id="cb1267-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1267-3" aria-hidden="true" tabindex="-1"></a>gg</span></code></pre></div>
+<div class="sourceCode" id="cb1269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1269-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1269-1" tabindex="-1"></a><span class="co"># como é uma lista transformamos num vetor</span></span>
+<span id="cb1269-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1269-2" tabindex="-1"></a>gg <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">lapply</span>(<span class="at">X =</span> dd<span class="sc">$</span>ESPECIE, <span class="at">FUN =</span> peganome, <span class="at">qual =</span> <span class="dv">1</span>), <span class="at">mode =</span> <span class="st">&quot;character&quot;</span>)</span>
+<span id="cb1269-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1269-3" tabindex="-1"></a>gg</span></code></pre></div>
 <pre><code>## [1] &quot;Ocotea&quot;  &quot;Ocotea&quot;  &quot;Licaria&quot;</code></pre>
 <p>Podemos também gerar um vetor de texto simplesmente utilizando a função <code>vapply()</code> para aplicar a função <code>peganome()</code> em cada elemento de <code>dd$ESPECIE</code>, informando à função <code>vapply()</code> que esperamos como retorno um vetor de texto de tamanho 1 (<code>FUN.VALUE = as.character(1)</code>).
 O resultado é o mesmo obtido no objeto <code>gg</code>:</p>
-<div class="sourceCode" id="cb1269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1269-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vapply</span>(<span class="at">X =</span> dd<span class="sc">$</span>ESPECIE, <span class="at">FUN =</span> peganome, <span class="at">FUN.VALUE =</span> <span class="fu">as.character</span>(<span class="dv">1</span>), <span class="at">qual =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1271-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1271-1" tabindex="-1"></a><span class="fu">vapply</span>(<span class="at">X =</span> dd<span class="sc">$</span>ESPECIE, <span class="at">FUN =</span> peganome, <span class="at">FUN.VALUE =</span> <span class="fu">as.character</span>(<span class="dv">1</span>), <span class="at">qual =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##  Ocotea guianensis  Ocotea longifolia Licaria tenuicarpa 
 ##           &quot;Ocotea&quot;           &quot;Ocotea&quot;          &quot;Licaria&quot;</code></pre>
 <p>Agora que temos o nome do gênero separado do epíteto, vamos guardar o nome do gênero estocado em <code>gg</code> no <code>data.frame</code> <code>dd</code>:</p>
-<div class="sourceCode" id="cb1271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1271-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1271-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ADICIONAMOS NO OBJETO ORIGINAL</span></span>
-<span id="cb1271-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1271-2" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>GENERO <span class="ot">&lt;-</span> gg</span>
-<span id="cb1271-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1271-3" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
+<div class="sourceCode" id="cb1273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1273-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1273-1" tabindex="-1"></a><span class="co"># ADICIONAMOS NO OBJETO ORIGINAL</span></span>
+<span id="cb1273-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1273-2" tabindex="-1"></a>dd<span class="sc">$</span>GENERO <span class="ot">&lt;-</span> gg</span>
+<span id="cb1273-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1273-3" tabindex="-1"></a>dd</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -743,15 +744,15 @@ Licaria
 </tbody>
 </table>
 <p>Agora vamos pegar o epíteto da espécie, mudando o argumento <code>qual</code> da função <code>peganome()</code>:</p>
-<div class="sourceCode" id="cb1272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1272-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1272-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usamos essa funcao com o lapply para pegar o epiteto</span></span>
-<span id="cb1272-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1272-2" aria-hidden="true" tabindex="-1"></a>spp <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">lapply</span>(dd<span class="sc">$</span>ESPECIE, peganome, <span class="at">qual =</span> <span class="dv">2</span>), <span class="at">mode =</span> <span class="st">&quot;character&quot;</span>)</span>
-<span id="cb1272-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1272-3" aria-hidden="true" tabindex="-1"></a>spp</span></code></pre></div>
+<div class="sourceCode" id="cb1274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1274-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1274-1" tabindex="-1"></a><span class="co"># usamos essa funcao com o lapply para pegar o epiteto</span></span>
+<span id="cb1274-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1274-2" tabindex="-1"></a>spp <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">lapply</span>(dd<span class="sc">$</span>ESPECIE, peganome, <span class="at">qual =</span> <span class="dv">2</span>), <span class="at">mode =</span> <span class="st">&quot;character&quot;</span>)</span>
+<span id="cb1274-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1274-3" tabindex="-1"></a>spp</span></code></pre></div>
 <pre><code>## [1] &quot;guianensis&quot; &quot;longifolia&quot; &quot;tenuicarpa&quot;</code></pre>
 <p>Repetimos então o procedimento de guardar o epíteto <code>spp</code> em nosso <code>data.frame</code> <code>dd</code>:</p>
-<div class="sourceCode" id="cb1274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1274-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1274-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adiciona</span></span>
-<span id="cb1274-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1274-2" aria-hidden="true" tabindex="-1"></a>dd<span class="sc">$</span>SPP <span class="ot">&lt;-</span> spp</span>
-<span id="cb1274-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1274-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mostra</span></span>
-<span id="cb1274-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1274-4" aria-hidden="true" tabindex="-1"></a>dd</span></code></pre></div>
+<div class="sourceCode" id="cb1276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1276-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1276-1" tabindex="-1"></a><span class="co"># adiciona</span></span>
+<span id="cb1276-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1276-2" tabindex="-1"></a>dd<span class="sc">$</span>SPP <span class="ot">&lt;-</span> spp</span>
+<span id="cb1276-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1276-3" tabindex="-1"></a><span class="co"># mostra</span></span>
+<span id="cb1276-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1276-4" tabindex="-1"></a>dd</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -814,7 +815,7 @@ tenuicarpa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1275-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1275-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dd)</span></code></pre></div>
+<div class="sourceCode" id="cb1277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1277-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1277-1" tabindex="-1"></a><span class="fu">str</span>(dd)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    3 obs. of  4 variables:
 ##  $ ESPECIE: chr  &quot;Ocotea guianensis&quot; &quot;Ocotea longifolia&quot; &quot;Licaria tenuicarpa&quot;
 ##  $ DAP    : num  10 20 30
@@ -825,42 +826,42 @@ tenuicarpa
 <div id="altera-caixa-do-texto" class="section level3 hasAnchor" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> Altera caixa do texto<a href="funções-para-manipulação-e-busca-de-textos.html#altera-caixa-do-texto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As funções <code>toupper()</code> e <code>tolower()</code> mudam a caixa do texto, isto é, convertem o texto para totalmente maiúsculas ou minúsculas, respectivamente.</p>
-<div class="sourceCode" id="cb1277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1277-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1277-1" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Um texto QUALQUER&quot;</span></span>
-<span id="cb1277-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1277-2" aria-hidden="true" tabindex="-1"></a><span class="co"># transforma para caixa baixa</span></span>
-<span id="cb1277-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1277-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tolower</span>(txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1279-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1279-1" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Um texto QUALQUER&quot;</span></span>
+<span id="cb1279-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1279-2" tabindex="-1"></a><span class="co"># transforma para caixa baixa</span></span>
+<span id="cb1279-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1279-3" tabindex="-1"></a><span class="fu">tolower</span>(txt)</span></code></pre></div>
 <pre><code>## [1] &quot;um texto qualquer&quot;</code></pre>
-<div class="sourceCode" id="cb1279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1279-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1279-1" aria-hidden="true" tabindex="-1"></a><span class="co"># caixa alta</span></span>
-<span id="cb1279-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1279-2" aria-hidden="true" tabindex="-1"></a><span class="fu">toupper</span>(txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1281-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-1" tabindex="-1"></a><span class="co"># caixa alta</span></span>
+<span id="cb1281-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-2" tabindex="-1"></a><span class="fu">toupper</span>(txt)</span></code></pre></div>
 <pre><code>## [1] &quot;UM TEXTO QUALQUER&quot;</code></pre>
-<div class="sourceCode" id="cb1281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1281-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-1" aria-hidden="true" tabindex="-1"></a><span class="co"># apenas a primeira letra em maiusculo</span></span>
-<span id="cb1281-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-2" aria-hidden="true" tabindex="-1"></a><span class="co"># temos que construir nossa funcao para isso</span></span>
-<span id="cb1281-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-3" aria-hidden="true" tabindex="-1"></a>mudatexto <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb1281-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-4" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="at">split =</span> <span class="st">&quot;&quot;</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb1281-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-5" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">tolower</span>(xx)</span>
-<span id="cb1281-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-6" aria-hidden="true" tabindex="-1"></a>  xx[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">toupper</span>(xx[<span class="dv">1</span>])</span>
-<span id="cb1281-7"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-7" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">paste</span>(xx, <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb1281-8"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(xx)</span>
-<span id="cb1281-9"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1281-10"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1281-10" aria-hidden="true" tabindex="-1"></a>txt</span></code></pre></div>
+<div class="sourceCode" id="cb1283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1283-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-1" tabindex="-1"></a><span class="co"># apenas a primeira letra em maiusculo</span></span>
+<span id="cb1283-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-2" tabindex="-1"></a><span class="co"># temos que construir nossa funcao para isso</span></span>
+<span id="cb1283-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-3" tabindex="-1"></a>mudatexto <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1283-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-4" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(x, <span class="at">split =</span> <span class="st">&quot;&quot;</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb1283-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-5" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">tolower</span>(xx)</span>
+<span id="cb1283-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-6" tabindex="-1"></a>  xx[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">toupper</span>(xx[<span class="dv">1</span>])</span>
+<span id="cb1283-7"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-7" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">paste</span>(xx, <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb1283-8"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-8" tabindex="-1"></a>  <span class="fu">return</span>(xx)</span>
+<span id="cb1283-9"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-9" tabindex="-1"></a>}</span>
+<span id="cb1283-10"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-10" tabindex="-1"></a>txt</span></code></pre></div>
 <pre><code>## [1] &quot;Um texto QUALQUER&quot;</code></pre>
-<div class="sourceCode" id="cb1283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1283-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mudatexto</span>(txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1285-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1285-1" tabindex="-1"></a><span class="fu">mudatexto</span>(txt)</span></code></pre></div>
 <pre><code>## [1] &quot;Um texto qualquer&quot;</code></pre>
 </div>
 <div id="remove-espaços-em-branco" class="section level3 hasAnchor" number="8.1.4">
 <h3><span class="header-section-number">8.1.4</span> Remove espaços em branco<a href="funções-para-manipulação-e-busca-de-textos.html#remove-espaços-em-branco" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>trimws()</code> remove espaços em branco no início e final do texto.<br />
 Repare que isso ocorre no objeto <code>txt2</code> criado abaixo:</p>
-<div class="sourceCode" id="cb1285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1285-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1285-1" aria-hidden="true" tabindex="-1"></a>txt2 <span class="ot">&lt;-</span> <span class="st">&quot;   Outro texto com espacos em branco no inicio e fim     &quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1287-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1287-1" tabindex="-1"></a>txt2 <span class="ot">&lt;-</span> <span class="st">&quot;   Outro texto com espacos em branco no inicio e fim     &quot;</span></span></code></pre></div>
 <p>Podemos removê-los usando a função <code>trimws()</code> e informando para o argumento <code>which</code> em qual(is) posição(ões) queremos remover os espaços em branco.
 Vejamos:</p>
-<div class="sourceCode" id="cb1286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1286-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove dos dois lados</span></span>
-<span id="cb1286-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1286-2" aria-hidden="true" tabindex="-1"></a><span class="fu">trimws</span>(txt2, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1288-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1288-1" tabindex="-1"></a><span class="co"># Remove dos dois lados</span></span>
+<span id="cb1288-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1288-2" tabindex="-1"></a><span class="fu">trimws</span>(txt2, <span class="at">which =</span> <span class="st">&quot;both&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Outro texto com espacos em branco no inicio e fim&quot;</code></pre>
-<div class="sourceCode" id="cb1288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1288-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1288-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove do lado direito</span></span>
-<span id="cb1288-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1288-2" aria-hidden="true" tabindex="-1"></a><span class="fu">trimws</span>(txt2, <span class="at">which =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1290-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1290-1" tabindex="-1"></a><span class="co"># remove do lado direito</span></span>
+<span id="cb1290-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1290-2" tabindex="-1"></a><span class="fu">trimws</span>(txt2, <span class="at">which =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;   Outro texto com espacos em branco no inicio e fim&quot;</code></pre>
-<div class="sourceCode" id="cb1290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1290-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1290-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove do lado esquerdo</span></span>
-<span id="cb1290-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1290-2" aria-hidden="true" tabindex="-1"></a><span class="fu">trimws</span>(txt2, <span class="at">which =</span> <span class="st">&quot;left&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1292-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1292-1" tabindex="-1"></a><span class="co"># Remove do lado esquerdo</span></span>
+<span id="cb1292-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1292-2" tabindex="-1"></a><span class="fu">trimws</span>(txt2, <span class="at">which =</span> <span class="st">&quot;left&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Outro texto com espacos em branco no inicio e fim     &quot;</code></pre>
 </div>
 <div id="substitui-ou-pega-parte-de-texto" class="section level3 hasAnchor" number="8.1.5">
@@ -868,21 +869,21 @@ Vejamos:</p>
 <p>A função <code>gsub()</code> busca padrões de um texto para substituí-los por outro em um vetor de caracteres.</p>
 <p>Já a função <code>substr()</code> extrai ou substitui pedaços de um texto em um vetor de caracteres.</p>
 <p>Por fim, a função <code>nchar()</code> conta o número de caracteres contidos em um vetor de caracteres.</p>
-<div class="sourceCode" id="cb1292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1292-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1292-1" aria-hidden="true" tabindex="-1"></a><span class="co"># substitui palavras ou parte de palavras</span></span>
-<span id="cb1292-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1292-2" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Um texto que contém muita COISA&quot;</span></span>
-<span id="cb1292-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1292-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;M&quot;</span>, txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1294-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1294-1" tabindex="-1"></a><span class="co"># substitui palavras ou parte de palavras</span></span>
+<span id="cb1294-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1294-2" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Um texto que contém muita COISA&quot;</span></span>
+<span id="cb1294-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1294-3" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;M&quot;</span>, txt)</span></code></pre></div>
 <pre><code>## [1] &quot;UM texto que contéM Muita COISA&quot;</code></pre>
-<div class="sourceCode" id="cb1294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1294-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;que&quot;</span>, <span class="st">&quot;o qual&quot;</span>, txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1296-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1296-1" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;que&quot;</span>, <span class="st">&quot;o qual&quot;</span>, txt)</span></code></pre></div>
 <pre><code>## [1] &quot;Um texto o qual contém muita COISA&quot;</code></pre>
-<div class="sourceCode" id="cb1296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1296-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1296-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pega uma parte do texto</span></span>
-<span id="cb1296-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1296-2" aria-hidden="true" tabindex="-1"></a><span class="fu">substr</span>(txt, <span class="dv">1</span>, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1298-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1298-1" tabindex="-1"></a><span class="co"># pega uma parte do texto</span></span>
+<span id="cb1298-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1298-2" tabindex="-1"></a><span class="fu">substr</span>(txt, <span class="dv">1</span>, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Um texto q&quot;</code></pre>
-<div class="sourceCode" id="cb1298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1298-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">substr</span>(txt, <span class="dv">11</span>, <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1300-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1300-1" tabindex="-1"></a><span class="fu">substr</span>(txt, <span class="dv">11</span>, <span class="dv">20</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;ue contém &quot;</code></pre>
-<div class="sourceCode" id="cb1300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1300-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1300-1" aria-hidden="true" tabindex="-1"></a><span class="co"># qual o numero de caracteres num texto</span></span>
-<span id="cb1300-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1300-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nchar</span>(txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1302-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1302-1" tabindex="-1"></a><span class="co"># qual o numero de caracteres num texto</span></span>
+<span id="cb1302-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1302-2" tabindex="-1"></a><span class="fu">nchar</span>(txt)</span></code></pre></div>
 <pre><code>## [1] 31</code></pre>
-<div class="sourceCode" id="cb1302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1302-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">substr</span>(txt, <span class="fu">nchar</span>(txt) <span class="sc">-</span> <span class="dv">10</span>, <span class="fu">nchar</span>(txt)) <span class="co"># dez ultimos caracteres</span></span></code></pre></div>
+<div class="sourceCode" id="cb1304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1304-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1304-1" tabindex="-1"></a><span class="fu">substr</span>(txt, <span class="fu">nchar</span>(txt) <span class="sc">-</span> <span class="dv">10</span>, <span class="fu">nchar</span>(txt)) <span class="co"># dez ultimos caracteres</span></span></code></pre></div>
 <pre><code>## [1] &quot;muita COISA&quot;</code></pre>
 </div>
 <div id="expressões-regulares" class="section level3 hasAnchor" number="8.1.6">
@@ -890,20 +891,20 @@ Vejamos:</p>
 <p><a href="https://pt.wikipedia.org/wiki/Express%C3%A3o_regular">Expressões regulares</a> são modelos lógicos para buscar caracteres em textos.
 É uma ferramenta muito poderosa usada em computação. Não é fácil entender e usar expressões regulares, mas é muito poderoso e importante conhecer os recursos.
 Aqui apresentamos apenas um exemplo muito simples do uso de expressões regulares.</p>
-<div class="sourceCode" id="cb1304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1304-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1304-1" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Um texto com varios numeros 1 2 9 no meio e 5 7 8 20 3456&quot;</span></span>
-<span id="cb1304-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1304-2" aria-hidden="true" tabindex="-1"></a>txt</span></code></pre></div>
+<div class="sourceCode" id="cb1306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1306-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1306-1" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Um texto com varios numeros 1 2 9 no meio e 5 7 8 20 3456&quot;</span></span>
+<span id="cb1306-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1306-2" tabindex="-1"></a>txt</span></code></pre></div>
 <pre><code>## [1] &quot;Um texto com varios numeros 1 2 9 no meio e 5 7 8 20 3456&quot;</code></pre>
-<div class="sourceCode" id="cb1306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1306-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1306-1" aria-hidden="true" tabindex="-1"></a><span class="co"># imagine que eu queira apagar todos os números desse texto</span></span>
-<span id="cb1306-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1306-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;[0-9]&quot;</span>, <span class="st">&quot;&quot;</span>, txt) <span class="co"># paga números de 0 a 9</span></span></code></pre></div>
+<div class="sourceCode" id="cb1308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1308-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1308-1" tabindex="-1"></a><span class="co"># imagine que eu queira apagar todos os números desse texto</span></span>
+<span id="cb1308-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1308-2" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;[0-9]&quot;</span>, <span class="st">&quot;&quot;</span>, txt) <span class="co"># paga números de 0 a 9</span></span></code></pre></div>
 <pre><code>## [1] &quot;Um texto com varios numeros    no meio e     &quot;</code></pre>
-<div class="sourceCode" id="cb1308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1308-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1308-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as letras minusculas</span></span>
-<span id="cb1308-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1308-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;[a-z]&quot;</span>, <span class="st">&quot;&quot;</span>, txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1310-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1310-1" tabindex="-1"></a><span class="co"># todas as letras minusculas</span></span>
+<span id="cb1310-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1310-2" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;[a-z]&quot;</span>, <span class="st">&quot;&quot;</span>, txt)</span></code></pre></div>
 <pre><code>## [1] &quot;U     1 2 9    5 7 8 20 3456&quot;</code></pre>
-<div class="sourceCode" id="cb1310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1310-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1310-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as letras</span></span>
-<span id="cb1310-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1310-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;[a-z|A-Z]&quot;</span>, <span class="st">&quot;&quot;</span>, txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1312-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1312-1" tabindex="-1"></a><span class="co"># todas as letras</span></span>
+<span id="cb1312-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1312-2" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;[a-z|A-Z]&quot;</span>, <span class="st">&quot;&quot;</span>, txt)</span></code></pre></div>
 <pre><code>## [1] &quot;     1 2 9    5 7 8 20 3456&quot;</code></pre>
-<div class="sourceCode" id="cb1312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1312-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1312-1" aria-hidden="true" tabindex="-1"></a><span class="co"># todas as minúculas e numeros</span></span>
-<span id="cb1312-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1312-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;[a-z|0-9]&quot;</span>, <span class="st">&quot;&quot;</span>, txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1314-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1314-1" tabindex="-1"></a><span class="co"># todas as minúculas e numeros</span></span>
+<span id="cb1314-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1314-2" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;[a-z|0-9]&quot;</span>, <span class="st">&quot;&quot;</span>, txt)</span></code></pre></div>
 <pre><code>## [1] &quot;U               &quot;</code></pre>
 <p>Entender expressões regulares (<em>regular expressions</em>) é muito importante porque é fonte frequente de erros quando escrevemos códigos.
 Algumas funções que buscam por padrões interpretam expressões regulares para buscar por padrões em objetos de texto.
@@ -917,27 +918,27 @@ Expressões regulares podem ser bem complexas e até existem sites que lhe permi
 <p>Remover acentos e padronizar textos podem ser importantes quando estamos comparando dados.
 Por exemplo, quando queremos verificar se os nomes que aparecem em uma coluna estão padronizados, devemos checar se há duplicidade de palavras devido à presença de um acento em uma palavra e ausência em outra (e.g., odores “cítrico” e “citrico” são computados como duas palavras diferentes).
 Não há uma função específica, mas como tudo pode ser feito no R, uma solução é mostrada aqui.</p>
-<div class="sourceCode" id="cb1314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1314-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1314-1" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Palavrão ou bobalhão têm acentos&quot;</span></span>
-<span id="cb1314-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1314-2" aria-hidden="true" tabindex="-1"></a><span class="co"># convertemos quebrando acentos</span></span>
-<span id="cb1314-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1314-3" aria-hidden="true" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">iconv</span>(txt, <span class="at">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)</span>
-<span id="cb1314-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1314-4" aria-hidden="true" tabindex="-1"></a>xx</span></code></pre></div>
+<div class="sourceCode" id="cb1316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1316-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1316-1" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Palavrão ou bobalhão têm acentos&quot;</span></span>
+<span id="cb1316-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1316-2" tabindex="-1"></a><span class="co"># convertemos quebrando acentos</span></span>
+<span id="cb1316-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1316-3" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">iconv</span>(txt, <span class="at">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)</span>
+<span id="cb1316-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1316-4" tabindex="-1"></a>xx</span></code></pre></div>
 <pre><code>## [1] &quot;Palavrao ou bobalhao tem acentos&quot;</code></pre>
-<div class="sourceCode" id="cb1316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1316-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1316-1" aria-hidden="true" tabindex="-1"></a><span class="co"># apagamos os acentos sozinhos</span></span>
-<span id="cb1316-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1316-2" aria-hidden="true" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[~|^|~|</span><span class="sc">\&quot;</span><span class="st">|&#39;|`]&quot;</span>, <span class="st">&quot;&quot;</span>, xx)</span>
-<span id="cb1316-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1316-3" aria-hidden="true" tabindex="-1"></a>xx</span></code></pre></div>
+<div class="sourceCode" id="cb1318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1318-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-1" tabindex="-1"></a><span class="co"># apagamos os acentos sozinhos</span></span>
+<span id="cb1318-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-2" tabindex="-1"></a>xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[~|^|~|</span><span class="sc">\&quot;</span><span class="st">|&#39;|`]&quot;</span>, <span class="st">&quot;&quot;</span>, xx)</span>
+<span id="cb1318-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-3" tabindex="-1"></a>xx</span></code></pre></div>
 <pre><code>## [1] &quot;Palavrao ou bobalhao tem acentos&quot;</code></pre>
-<div class="sourceCode" id="cb1318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1318-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos colocar isso numa funcao</span></span>
-<span id="cb1318-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-2" aria-hidden="true" tabindex="-1"></a>removeacentos <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb1318-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-3" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">iconv</span>(x, <span class="at">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)</span>
-<span id="cb1318-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-4" aria-hidden="true" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[~|^|~|</span><span class="sc">\&quot;</span><span class="st">|&#39;|`]&quot;</span>, <span class="st">&quot;&quot;</span>, xx)</span>
-<span id="cb1318-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(xx)</span>
-<span id="cb1318-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1318-7"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1318-8"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-8" aria-hidden="true" tabindex="-1"></a><span class="co"># usando a funcao criada</span></span>
-<span id="cb1318-9"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1318-9" aria-hidden="true" tabindex="-1"></a><span class="fu">removeacentos</span>(txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1320-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-1" tabindex="-1"></a><span class="co"># podemos colocar isso numa funcao</span></span>
+<span id="cb1320-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-2" tabindex="-1"></a>removeacentos <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1320-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-3" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">iconv</span>(x, <span class="at">to =</span> <span class="st">&quot;ASCII//TRANSLIT&quot;</span>)</span>
+<span id="cb1320-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-4" tabindex="-1"></a>  xx <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;[~|^|~|</span><span class="sc">\&quot;</span><span class="st">|&#39;|`]&quot;</span>, <span class="st">&quot;&quot;</span>, xx)</span>
+<span id="cb1320-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-5" tabindex="-1"></a>  <span class="fu">return</span>(xx)</span>
+<span id="cb1320-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-6" tabindex="-1"></a>}</span>
+<span id="cb1320-7"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-7" tabindex="-1"></a></span>
+<span id="cb1320-8"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-8" tabindex="-1"></a><span class="co"># usando a funcao criada</span></span>
+<span id="cb1320-9"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-9" tabindex="-1"></a><span class="fu">removeacentos</span>(txt)</span></code></pre></div>
 <pre><code>## [1] &quot;Palavrao ou bobalhao tem acentos&quot;</code></pre>
-<div class="sourceCode" id="cb1320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1320-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-1" aria-hidden="true" tabindex="-1"></a>txt2 <span class="ot">&lt;-</span> <span class="st">&quot;macarrão também tem acentos, né?&quot;</span></span>
-<span id="cb1320-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1320-2" aria-hidden="true" tabindex="-1"></a><span class="fu">removeacentos</span>(txt2)</span></code></pre></div>
+<div class="sourceCode" id="cb1322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1322-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1322-1" tabindex="-1"></a>txt2 <span class="ot">&lt;-</span> <span class="st">&quot;macarrão também tem acentos, né?&quot;</span></span>
+<span id="cb1322-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1322-2" tabindex="-1"></a><span class="fu">removeacentos</span>(txt2)</span></code></pre></div>
 <pre><code>## [1] &quot;macarrao tambem tem acentos, ne?&quot;</code></pre>
 </div>
 <div id="metacaracteres" class="section level3 hasAnchor" number="8.1.8">
@@ -957,62 +958,62 @@ Alguns metacaracteres são:</p>
 <p>Suponha que você importe ao R um conjunto de dados de uma planilha usando, por exemplo, a função <code>read.table()</code>, e que os nomes das colunas no original tinham muitos espaços em branco.
 Como o R não aceita espaços em branco, ele substitui espaços por pontos ao utilizar esta função, então os nomes das colunas do <code>data.frame</code> dos dados terão muitos pontos, algumas vezes em sequência.
 Suponha também que isso acontece toda vez que você importa dados ao R e já está cansado desse comportamento e você quer colocar no seu script um comando que elimina esses pontos, de forma a não se preocupar com isso no editor de planilhas onde estão os seus dados.</p>
-<div class="sourceCode" id="cb1322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1322-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1322-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vamos criar um data.frame que simule esta situação</span></span>
-<span id="cb1322-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1322-2" aria-hidden="true" tabindex="-1"></a>Número.....da.......árvore <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span>
-<span id="cb1322-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1322-3" aria-hidden="true" tabindex="-1"></a>Diâmetro..cm. <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>)</span>
-<span id="cb1322-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1322-4" aria-hidden="true" tabindex="-1"></a>Altura.....m.... <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">39</span>)</span>
-<span id="cb1322-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1322-5" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Número.....da.......árvore, Diâmetro..cm., Altura.....m....)</span>
-<span id="cb1322-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1322-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb1324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1324-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1324-1" tabindex="-1"></a><span class="co"># vamos criar um data.frame que simule esta situação</span></span>
+<span id="cb1324-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1324-2" tabindex="-1"></a>Número.....da.......árvore <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span>
+<span id="cb1324-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1324-3" tabindex="-1"></a>Diâmetro..cm. <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>)</span>
+<span id="cb1324-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1324-4" tabindex="-1"></a>Altura.....m.... <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">39</span>)</span>
+<span id="cb1324-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1324-5" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Número.....da.......árvore, Diâmetro..cm., Altura.....m....)</span>
+<span id="cb1324-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1324-6" tabindex="-1"></a><span class="fu">class</span>(dados)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb1324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1324-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1324-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb1326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1326-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1326-1" tabindex="-1"></a><span class="fu">dim</span>(dados)</span></code></pre></div>
 <pre><code>## [1] 3 3</code></pre>
-<div class="sourceCode" id="cb1326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1326-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1326-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb1328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1328-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1328-1" tabindex="-1"></a><span class="fu">colnames</span>(dados)</span></code></pre></div>
 <pre><code>## [1] &quot;Número.....da.......árvore&quot; &quot;Diâmetro..cm.&quot;             
 ## [3] &quot;Altura.....m....&quot;</code></pre>
-<div class="sourceCode" id="cb1328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1328-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1328-1" aria-hidden="true" tabindex="-1"></a><span class="co"># nome de colunas, que também neste caso pode ser obtido com</span></span>
-<span id="cb1328-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1328-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb1330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1330-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1330-1" tabindex="-1"></a><span class="co"># nome de colunas, que também neste caso pode ser obtido com</span></span>
+<span id="cb1330-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1330-2" tabindex="-1"></a><span class="fu">names</span>(dados)</span></code></pre></div>
 <pre><code>## [1] &quot;Número.....da.......árvore&quot; &quot;Diâmetro..cm.&quot;             
 ## [3] &quot;Altura.....m....&quot;</code></pre>
-<div class="sourceCode" id="cb1330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1330-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1330-1" aria-hidden="true" tabindex="-1"></a>nn <span class="ot">&lt;-</span> <span class="fu">names</span>(dados)</span>
-<span id="cb1330-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1330-2" aria-hidden="true" tabindex="-1"></a><span class="co"># então digamos que eu queira substituir pontos multiplos por apenas 1 ponto. como eu quero manter 1 ponto eu poderia repetir várias vezes um substituicao de dois pontos por um ponto:</span></span>
-<span id="cb1330-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1330-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;..&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn)</span></code></pre></div>
+<div class="sourceCode" id="cb1332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1332-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1332-1" tabindex="-1"></a>nn <span class="ot">&lt;-</span> <span class="fu">names</span>(dados)</span>
+<span id="cb1332-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1332-2" tabindex="-1"></a><span class="co"># então digamos que eu queira substituir pontos multiplos por apenas 1 ponto. como eu quero manter 1 ponto eu poderia repetir várias vezes um substituicao de dois pontos por um ponto:</span></span>
+<span id="cb1332-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1332-3" tabindex="-1"></a><span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;..&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn)</span></code></pre></div>
 <pre><code>## [1] &quot;.............&quot; &quot;.......&quot;       &quot;........&quot;</code></pre>
-<div class="sourceCode" id="cb1332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1332-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1332-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estranho né? tudo virou ponto</span></span>
-<span id="cb1332-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1332-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1332-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1332-3" aria-hidden="true" tabindex="-1"></a><span class="co"># isso é porque . é um metacaractere e o R não interpreta isso como ponto. Ponto significa pega &#39;pega qualquer caractere&#39; numa expressão regular</span></span>
-<span id="cb1332-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1332-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1332-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1332-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pelo fato de ponto ser um metacaractere, precisamos indicar que queremos o caractere ponto e não o metacaractere. Você faz isso usando uma ou duas barras invertidas (backslash)</span></span>
-<span id="cb1332-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1332-6" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn)</span></code></pre></div>
+<div class="sourceCode" id="cb1334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1334-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-1" tabindex="-1"></a><span class="co"># estranho né? tudo virou ponto</span></span>
+<span id="cb1334-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-2" tabindex="-1"></a></span>
+<span id="cb1334-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-3" tabindex="-1"></a><span class="co"># isso é porque . é um metacaractere e o R não interpreta isso como ponto. Ponto significa pega &#39;pega qualquer caractere&#39; numa expressão regular</span></span>
+<span id="cb1334-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-4" tabindex="-1"></a></span>
+<span id="cb1334-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-5" tabindex="-1"></a><span class="co"># pelo fato de ponto ser um metacaractere, precisamos indicar que queremos o caractere ponto e não o metacaractere. Você faz isso usando uma ou duas barras invertidas (backslash)</span></span>
+<span id="cb1334-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-6" tabindex="-1"></a><span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn)</span></code></pre></div>
 <pre><code>## [1] &quot;Número...da....árvore&quot; &quot;Diâmetro.cm.&quot;          &quot;Altura...m..&quot;</code></pre>
-<div class="sourceCode" id="cb1334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1334-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-1" aria-hidden="true" tabindex="-1"></a><span class="co"># diminuiu o número de pontos, mas preciso fazer isso várias vezes para ficar com um único ponto</span></span>
-<span id="cb1334-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-2" aria-hidden="true" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn)</span>
-<span id="cb1334-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-3" aria-hidden="true" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn2)</span>
-<span id="cb1334-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1334-4" aria-hidden="true" tabindex="-1"></a>nn2</span></code></pre></div>
+<div class="sourceCode" id="cb1336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1336-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1336-1" tabindex="-1"></a><span class="co"># diminuiu o número de pontos, mas preciso fazer isso várias vezes para ficar com um único ponto</span></span>
+<span id="cb1336-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1336-2" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn)</span>
+<span id="cb1336-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1336-3" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn2)</span>
+<span id="cb1336-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1336-4" tabindex="-1"></a>nn2</span></code></pre></div>
 <pre><code>## [1] &quot;Número..da..árvore&quot; &quot;Diâmetro.cm.&quot;       &quot;Altura..m.&quot;</code></pre>
-<div class="sourceCode" id="cb1336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1336-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1336-1" aria-hidden="true" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn2)</span>
-<span id="cb1336-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1336-2" aria-hidden="true" tabindex="-1"></a>nn2</span></code></pre></div>
+<div class="sourceCode" id="cb1338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1338-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1338-1" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">.&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn2)</span>
+<span id="cb1338-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1338-2" tabindex="-1"></a>nn2</span></code></pre></div>
 <pre><code>## [1] &quot;Número.da.árvore&quot; &quot;Diâmetro.cm.&quot;     &quot;Altura.m.&quot;</code></pre>
-<div class="sourceCode" id="cb1338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1338-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1338-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pronto consegui</span></span>
-<span id="cb1338-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1338-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1338-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1338-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note que isso fica restrito a quantos pontos tem nos meus dados, e portanto, não é um método genérico ou eficiente em termos de programação, por o número que vezes que isso deve ser feito irá variar dependendo do conjunto de dados.</span></span>
-<span id="cb1338-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1338-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1338-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1338-5" aria-hidden="true" tabindex="-1"></a><span class="co"># seria mais fácil adicionar um metacaractere (+) e fazer isso uma única vez, sem necessidade de repetição:</span></span>
-<span id="cb1338-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1338-6" aria-hidden="true" tabindex="-1"></a>nn</span></code></pre></div>
+<div class="sourceCode" id="cb1340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1340-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1340-1" tabindex="-1"></a><span class="co"># pronto consegui</span></span>
+<span id="cb1340-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1340-2" tabindex="-1"></a></span>
+<span id="cb1340-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1340-3" tabindex="-1"></a><span class="co"># note que isso fica restrito a quantos pontos tem nos meus dados, e portanto, não é um método genérico ou eficiente em termos de programação, por o número que vezes que isso deve ser feito irá variar dependendo do conjunto de dados.</span></span>
+<span id="cb1340-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1340-4" tabindex="-1"></a></span>
+<span id="cb1340-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1340-5" tabindex="-1"></a><span class="co"># seria mais fácil adicionar um metacaractere (+) e fazer isso uma única vez, sem necessidade de repetição:</span></span>
+<span id="cb1340-6"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1340-6" tabindex="-1"></a>nn</span></code></pre></div>
 <pre><code>## [1] &quot;Número.....da.......árvore&quot; &quot;Diâmetro..cm.&quot;             
 ## [3] &quot;Altura.....m....&quot;</code></pre>
-<div class="sourceCode" id="cb1340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1340-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1340-1" aria-hidden="true" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.+&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn)</span>
-<span id="cb1340-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1340-2" aria-hidden="true" tabindex="-1"></a>nn2</span></code></pre></div>
+<div class="sourceCode" id="cb1342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1342-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1342-1" tabindex="-1"></a>nn2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.+&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;.&quot;</span>, nn)</span>
+<span id="cb1342-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1342-2" tabindex="-1"></a>nn2</span></code></pre></div>
 <pre><code>## [1] &quot;Número.da.árvore&quot; &quot;Diâmetro.cm.&quot;     &quot;Altura.m.&quot;</code></pre>
-<div class="sourceCode" id="cb1342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1342-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># procurar por qualquer letra+</span></span>
-<span id="cb1342-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1342-2" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;qualqueeeeeer palavra&quot;</span></span>
-<span id="cb1342-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1342-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;e+&quot;</span>, <span class="st">&quot;E&quot;</span>, txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1344-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1344-1" tabindex="-1"></a><span class="co"># procurar por qualquer letra+</span></span>
+<span id="cb1344-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1344-2" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;qualqueeeeeer palavra&quot;</span></span>
+<span id="cb1344-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1344-3" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;e+&quot;</span>, <span class="st">&quot;E&quot;</span>, txt)</span></code></pre></div>
 <pre><code>## [1] &quot;qualquEr palavra&quot;</code></pre>
-<div class="sourceCode" id="cb1344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1344-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1344-1" aria-hidden="true" tabindex="-1"></a><span class="co"># da mesma forma se eu quiser buscar pelo caractere + ao invés de usar o metacaractere, preciso usar a barra invertida:</span></span>
-<span id="cb1344-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1344-2" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;um texto com simbolo +&quot;</span>, <span class="st">&quot;sem o simbolo&quot;</span>)</span>
-<span id="cb1344-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1344-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;+&quot;</span>, <span class="st">&quot;MAIS&quot;</span>, txt) <span class="co"># nao funciona</span></span></code></pre></div>
+<div class="sourceCode" id="cb1346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1346-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1346-1" tabindex="-1"></a><span class="co"># da mesma forma se eu quiser buscar pelo caractere + ao invés de usar o metacaractere, preciso usar a barra invertida:</span></span>
+<span id="cb1346-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1346-2" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;um texto com simbolo +&quot;</span>, <span class="st">&quot;sem o simbolo&quot;</span>)</span>
+<span id="cb1346-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1346-3" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;+&quot;</span>, <span class="st">&quot;MAIS&quot;</span>, txt) <span class="co"># nao funciona</span></span></code></pre></div>
 <pre><code>## [1] &quot;MAISuMAISmMAIS MAIStMAISeMAISxMAIStMAISoMAIS MAIScMAISoMAISmMAIS MAISsMAISiMAISmMAISbMAISoMAISlMAISoMAIS MAIS+MAIS&quot;
 ## [2] &quot;MAISsMAISeMAISmMAIS MAISoMAIS MAISsMAISiMAISmMAISbMAISoMAISlMAISoMAIS&quot;</code></pre>
-<div class="sourceCode" id="cb1346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1346-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">+&quot;</span>, <span class="st">&quot;MAIS&quot;</span>, txt) <span class="co"># funciona</span></span></code></pre></div>
+<div class="sourceCode" id="cb1348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1348-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1348-1" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">+&quot;</span>, <span class="st">&quot;MAIS&quot;</span>, txt) <span class="co"># funciona</span></span></code></pre></div>
 <pre><code>## [1] &quot;um texto com simbolo MAIS&quot; &quot;sem o simbolo&quot;</code></pre>
 </div>
 <div id="classes-caracteres" class="section level3 hasAnchor" number="8.1.9">
@@ -1030,10 +1031,10 @@ Suponha também que isso acontece toda vez que você importa dados ao R e já es
 </ul>
 <p>Perceb-se que estas classes permitem fazer buscas complexas.
 Suponha que você precisa substituir todos os valores que não contenham letras ou números por <code>NA</code>:</p>
-<div class="sourceCode" id="cb1348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1348-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1348-1" aria-hidden="true" tabindex="-1"></a><span class="co"># suponha um vetor de palavras (nomes de cores neste exemplo)</span></span>
-<span id="cb1348-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1348-2" aria-hidden="true" tabindex="-1"></a>vt <span class="ot">&lt;-</span> <span class="fu">colors</span>()</span>
-<span id="cb1348-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1348-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
-<span id="cb1348-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1348-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(vt, <span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1350-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1350-1" tabindex="-1"></a><span class="co"># suponha um vetor de palavras (nomes de cores neste exemplo)</span></span>
+<span id="cb1350-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1350-2" tabindex="-1"></a>vt <span class="ot">&lt;-</span> <span class="fu">colors</span>()</span>
+<span id="cb1350-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1350-3" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
+<span id="cb1350-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1350-4" tabindex="-1"></a><span class="fu">head</span>(vt, <span class="dv">30</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;white&quot;          &quot;aliceblue&quot;      &quot;antiquewhite&quot;   &quot;antiquewhite1&quot; 
 ##  [5] &quot;antiquewhite2&quot;  &quot;antiquewhite3&quot;  &quot;antiquewhite4&quot;  &quot;aquamarine&quot;    
 ##  [9] &quot;aquamarine1&quot;    &quot;aquamarine2&quot;    &quot;aquamarine3&quot;    &quot;aquamarine4&quot;   
@@ -1042,15 +1043,15 @@ Suponha que você precisa substituir todos os valores que não contenham letras 
 ## [21] &quot;bisque2&quot;        &quot;bisque3&quot;        &quot;bisque4&quot;        &quot;black&quot;         
 ## [25] &quot;blanchedalmond&quot; &quot;blue&quot;           &quot;blue1&quot;          &quot;blue2&quot;         
 ## [29] &quot;blue3&quot;          &quot;blue4&quot;</code></pre>
-<div class="sourceCode" id="cb1350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1350-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1350-1" aria-hidden="true" tabindex="-1"></a><span class="co"># podemos mostrar os valores que contém branco:</span></span>
-<span id="cb1350-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1350-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;white&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1352-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1352-1" tabindex="-1"></a><span class="co"># podemos mostrar os valores que contém branco:</span></span>
+<span id="cb1352-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1352-2" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;white&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;white&quot;         &quot;antiquewhite&quot;  &quot;antiquewhite1&quot; &quot;antiquewhite2&quot;
 ##  [5] &quot;antiquewhite3&quot; &quot;antiquewhite4&quot; &quot;floralwhite&quot;   &quot;ghostwhite&quot;   
 ##  [9] &quot;navajowhite&quot;   &quot;navajowhite1&quot;  &quot;navajowhite2&quot;  &quot;navajowhite3&quot; 
 ## [13] &quot;navajowhite4&quot;  &quot;whitesmoke&quot;</code></pre>
-<div class="sourceCode" id="cb1352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1352-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1352-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se eu coloco white numa expressao regular</span></span>
-<span id="cb1352-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1352-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
-<span id="cb1352-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1352-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[white]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1354-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1354-1" tabindex="-1"></a><span class="co"># se eu coloco white numa expressao regular</span></span>
+<span id="cb1354-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1354-2" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
+<span id="cb1354-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1354-3" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[white]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]</span></code></pre></div>
 <pre><code>##  [1] &quot;white&quot;          &quot;aliceblue&quot;      &quot;antiquewhite&quot;   &quot;antiquewhite1&quot; 
 ##  [5] &quot;antiquewhite2&quot;  &quot;antiquewhite3&quot;  &quot;antiquewhite4&quot;  &quot;aquamarine&quot;    
 ##  [9] &quot;aquamarine1&quot;    &quot;aquamarine2&quot;    &quot;aquamarine3&quot;    &quot;aquamarine4&quot;   
@@ -1059,10 +1060,10 @@ Suponha que você precisa substituir todos os valores que não contenham letras 
 ## [21] &quot;bisque2&quot;        &quot;bisque3&quot;        &quot;bisque4&quot;        &quot;blanchedalmond&quot;
 ## [25] &quot;blue&quot;           &quot;blue1&quot;          &quot;blue2&quot;          &quot;blue3&quot;         
 ## [29] &quot;blue4&quot;          &quot;blueviolet&quot;</code></pre>
-<div class="sourceCode" id="cb1354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1354-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1354-1" aria-hidden="true" tabindex="-1"></a><span class="co"># neste caso significa pegue qualquer elemento que contenha uma das letras indicadas: w, h, i, t ou e. Por isso a lista aumentou</span></span></code></pre></div>
-<div class="sourceCode" id="cb1355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1355-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1355-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pega só cores que tenham número</span></span>
-<span id="cb1355-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1355-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
-<span id="cb1355-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1355-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[0-9]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1356-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1356-1" tabindex="-1"></a><span class="co"># neste caso significa pegue qualquer elemento que contenha uma das letras indicadas: w, h, i, t ou e. Por isso a lista aumentou</span></span></code></pre></div>
+<div class="sourceCode" id="cb1357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1357-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1357-1" tabindex="-1"></a><span class="co"># pega só cores que tenham número</span></span>
+<span id="cb1357-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1357-2" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
+<span id="cb1357-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1357-3" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[0-9]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]</span></code></pre></div>
 <pre><code>##  [1] &quot;antiquewhite1&quot; &quot;antiquewhite2&quot; &quot;antiquewhite3&quot; &quot;antiquewhite4&quot;
 ##  [5] &quot;aquamarine1&quot;   &quot;aquamarine2&quot;   &quot;aquamarine3&quot;   &quot;aquamarine4&quot;  
 ##  [9] &quot;azure1&quot;        &quot;azure2&quot;        &quot;azure3&quot;        &quot;azure4&quot;       
@@ -1071,9 +1072,9 @@ Suponha que você precisa substituir todos os valores que não contenham letras 
 ## [21] &quot;brown1&quot;        &quot;brown2&quot;        &quot;brown3&quot;        &quot;brown4&quot;       
 ## [25] &quot;burlywood1&quot;    &quot;burlywood2&quot;    &quot;burlywood3&quot;    &quot;burlywood4&quot;   
 ## [29] &quot;cadetblue1&quot;    &quot;cadetblue2&quot;</code></pre>
-<div class="sourceCode" id="cb1357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1357-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1357-1" aria-hidden="true" tabindex="-1"></a><span class="co"># neste caso é o mesmo que nao-alfabeticos</span></span>
-<span id="cb1357-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1357-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
-<span id="cb1357-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1357-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[^a-zA-Z]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1359-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1359-1" tabindex="-1"></a><span class="co"># neste caso é o mesmo que nao-alfabeticos</span></span>
+<span id="cb1359-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1359-2" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
+<span id="cb1359-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1359-3" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[^a-zA-Z]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]</span></code></pre></div>
 <pre><code>##  [1] &quot;antiquewhite1&quot; &quot;antiquewhite2&quot; &quot;antiquewhite3&quot; &quot;antiquewhite4&quot;
 ##  [5] &quot;aquamarine1&quot;   &quot;aquamarine2&quot;   &quot;aquamarine3&quot;   &quot;aquamarine4&quot;  
 ##  [9] &quot;azure1&quot;        &quot;azure2&quot;        &quot;azure3&quot;        &quot;azure4&quot;       
@@ -1082,12 +1083,12 @@ Suponha que você precisa substituir todos os valores que não contenham letras 
 ## [21] &quot;brown1&quot;        &quot;brown2&quot;        &quot;brown3&quot;        &quot;brown4&quot;       
 ## [25] &quot;burlywood1&quot;    &quot;burlywood2&quot;    &quot;burlywood3&quot;    &quot;burlywood4&quot;   
 ## [29] &quot;cadetblue1&quot;    &quot;cadetblue2&quot;</code></pre>
-<div class="sourceCode" id="cb1359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1359-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1359-1" aria-hidden="true" tabindex="-1"></a><span class="co"># que tenham caracteres maiusculos</span></span>
-<span id="cb1359-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1359-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[A-Z]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>) <span class="co"># nao tem nenhum neste vetor</span></span></code></pre></div>
+<div class="sourceCode" id="cb1361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1361-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1361-1" tabindex="-1"></a><span class="co"># que tenham caracteres maiusculos</span></span>
+<span id="cb1361-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1361-2" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[A-Z]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>) <span class="co"># nao tem nenhum neste vetor</span></span></code></pre></div>
 <pre><code>## character(0)</code></pre>
-<div class="sourceCode" id="cb1361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1361-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1361-1" aria-hidden="true" tabindex="-1"></a><span class="co"># minusculos</span></span>
-<span id="cb1361-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1361-2" aria-hidden="true" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
-<span id="cb1361-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1361-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[a-z]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1363-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1363-1" tabindex="-1"></a><span class="co"># minusculos</span></span>
+<span id="cb1363-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1363-2" tabindex="-1"></a><span class="co"># vejamos os 30 primeiros valores</span></span>
+<span id="cb1363-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1363-3" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;[a-z]&quot;</span>, vt, <span class="at">value =</span> <span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>]</span></code></pre></div>
 <pre><code>##  [1] &quot;white&quot;          &quot;aliceblue&quot;      &quot;antiquewhite&quot;   &quot;antiquewhite1&quot; 
 ##  [5] &quot;antiquewhite2&quot;  &quot;antiquewhite3&quot;  &quot;antiquewhite4&quot;  &quot;aquamarine&quot;    
 ##  [9] &quot;aquamarine1&quot;    &quot;aquamarine2&quot;    &quot;aquamarine3&quot;    &quot;aquamarine4&quot;   
@@ -1101,38 +1102,38 @@ Suponha que você precisa substituir todos os valores que não contenham letras 
 <h3><span class="header-section-number">8.1.10</span> Barra invertida <code>\</code><a href="funções-para-manipulação-e-busca-de-textos.html#barra-invertida" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O uso da barra invertida <code>\</code> (em inglês, <em>backslash</em>) indica ao R que a expressão regular espera lidar com tabulações, quebra de linhas e outros símbolos especiais.
 Isso é fundamental se você quer incluir/buscar num texto por aspas, parênteses, colchetes, barras, metacaracteres, etc.</p>
-<div class="sourceCode" id="cb1363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1363-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1363-1" aria-hidden="true" tabindex="-1"></a>?Quotes <span class="co"># leia atentamente esse help</span></span>
-<span id="cb1363-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1363-2" aria-hidden="true" tabindex="-1"></a><span class="co"># criar um texto com aspas</span></span></code></pre></div>
+<div class="sourceCode" id="cb1365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1365-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1365-1" tabindex="-1"></a>?Quotes <span class="co"># leia atentamente esse help</span></span>
+<span id="cb1365-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1365-2" tabindex="-1"></a><span class="co"># criar um texto com aspas</span></span></code></pre></div>
 <p>Se você tentar executar o comando abaixo, perceberá que ele não funciona, porque as aspas são utilizadas para abrir e fechar textos.</p>
 <pre><code>txt = &quot;Um texto que tem &quot;aspas&quot; no meio&quot; </code></pre>
 <p>Porém, podemos combinar aspas simples e duplas para fazer isso:</p>
-<div class="sourceCode" id="cb1365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1365-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1365-1" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&#39;Um texto que tem &quot;aspas&quot; no meio&#39;</span></span>
-<span id="cb1365-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1365-2" aria-hidden="true" tabindex="-1"></a>txt</span></code></pre></div>
+<div class="sourceCode" id="cb1367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1367-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1367-1" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&#39;Um texto que tem &quot;aspas&quot; no meio&#39;</span></span>
+<span id="cb1367-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1367-2" tabindex="-1"></a>txt</span></code></pre></div>
 <pre><code>## [1] &quot;Um texto que tem \&quot;aspas\&quot; no meio&quot;</code></pre>
-<div class="sourceCode" id="cb1367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1367-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1367-1" aria-hidden="true" tabindex="-1"></a><span class="co"># veja que o R adicionou uma \ antes das aspas do texto, criando um escape character, que indica ao R que não interprete aquilo como abertura ou fechamento de textos</span></span>
-<span id="cb1367-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1367-2" aria-hidden="true" tabindex="-1"></a><span class="co"># entao eu posso fazer isso</span></span>
-<span id="cb1367-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1367-3" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Um texto que tem </span><span class="sc">\&quot;</span><span class="st">aspas</span><span class="sc">\&quot;</span><span class="st"> &quot;</span></span>
-<span id="cb1367-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1367-4" aria-hidden="true" tabindex="-1"></a>txt</span></code></pre></div>
+<div class="sourceCode" id="cb1369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1369-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1369-1" tabindex="-1"></a><span class="co"># veja que o R adicionou uma \ antes das aspas do texto, criando um escape character, que indica ao R que não interprete aquilo como abertura ou fechamento de textos</span></span>
+<span id="cb1369-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1369-2" tabindex="-1"></a><span class="co"># entao eu posso fazer isso</span></span>
+<span id="cb1369-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1369-3" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="st">&quot;Um texto que tem </span><span class="sc">\&quot;</span><span class="st">aspas</span><span class="sc">\&quot;</span><span class="st"> &quot;</span></span>
+<span id="cb1369-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1369-4" tabindex="-1"></a>txt</span></code></pre></div>
 <pre><code>## [1] &quot;Um texto que tem \&quot;aspas\&quot; &quot;</code></pre>
-<div class="sourceCode" id="cb1369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1369-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1369-1" aria-hidden="true" tabindex="-1"></a><span class="co"># também funciona</span></span>
-<span id="cb1369-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1369-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1369-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1369-3" aria-hidden="true" tabindex="-1"></a><span class="co"># isso é importante quando buscamos valores</span></span>
-<span id="cb1369-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1369-4" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;com </span><span class="sc">\&quot;</span><span class="st">aspas</span><span class="sc">\&quot;</span><span class="st">&quot;</span>, <span class="st">&quot;outro objeto&quot;</span>)</span>
-<span id="cb1369-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1369-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span>, txt) <span class="co"># qual elemento tem aspas</span></span></code></pre></div>
+<div class="sourceCode" id="cb1371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1371-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1371-1" tabindex="-1"></a><span class="co"># também funciona</span></span>
+<span id="cb1371-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1371-2" tabindex="-1"></a></span>
+<span id="cb1371-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1371-3" tabindex="-1"></a><span class="co"># isso é importante quando buscamos valores</span></span>
+<span id="cb1371-4"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1371-4" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;com </span><span class="sc">\&quot;</span><span class="st">aspas</span><span class="sc">\&quot;</span><span class="st">&quot;</span>, <span class="st">&quot;outro objeto&quot;</span>)</span>
+<span id="cb1371-5"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1371-5" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span>, txt) <span class="co"># qual elemento tem aspas</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb1371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1371-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1371-1" aria-hidden="true" tabindex="-1"></a>txt[<span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span>, txt)]</span></code></pre></div>
+<div class="sourceCode" id="cb1373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1373-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1373-1" tabindex="-1"></a>txt[<span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span>, txt)]</span></code></pre></div>
 <pre><code>## [1] &quot;com \&quot;aspas\&quot;&quot;</code></pre>
-<div class="sourceCode" id="cb1373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1373-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1373-1" aria-hidden="true" tabindex="-1"></a><span class="co"># barras</span></span>
-<span id="cb1373-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1373-2" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;com </span><span class="sc">\\</span><span class="st"> barras&quot;</span>, <span class="st">&quot;sem barras&quot;</span>)</span>
-<span id="cb1373-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1373-3" aria-hidden="true" tabindex="-1"></a>txt</span></code></pre></div>
+<div class="sourceCode" id="cb1375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1375-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1375-1" tabindex="-1"></a><span class="co"># barras</span></span>
+<span id="cb1375-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1375-2" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;com </span><span class="sc">\\</span><span class="st"> barras&quot;</span>, <span class="st">&quot;sem barras&quot;</span>)</span>
+<span id="cb1375-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1375-3" tabindex="-1"></a>txt</span></code></pre></div>
 <pre><code>## [1] &quot;com \\ barras&quot; &quot;sem barras&quot;</code></pre>
-<div class="sourceCode" id="cb1375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1375-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1375-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\\\</span><span class="st">&quot;</span>, txt) <span class="co"># isso é mais complicado, veja o número de barras que preciso para buscar por 1 barra num texto, porque barra desse jeito é o código que ele usa para buscar por códigos, então complica né?</span></span></code></pre></div>
+<div class="sourceCode" id="cb1377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1377-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1377-1" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\\\</span><span class="st">&quot;</span>, txt) <span class="co"># isso é mais complicado, veja o número de barras que preciso para buscar por 1 barra num texto, porque barra desse jeito é o código que ele usa para buscar por códigos, então complica né?</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb1377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1377-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1377-1" aria-hidden="true" tabindex="-1"></a><span class="co"># parentesis</span></span>
-<span id="cb1377-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1377-2" aria-hidden="true" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;sem parenteses&quot;</span>, <span class="st">&quot;com ()&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1378-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;(&quot;</span>, txt) <span class="co"># isso não funciona por parentesis é usado para abrir e fechar funcoes, o R se atrapalha</span></span>
-<span id="cb1378-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1378-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>, txt) <span class="co"># assim funciona</span></span>
-<span id="cb1378-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1378-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">)&quot;</span>, txt)</span></code></pre></div>
+<div class="sourceCode" id="cb1379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1379-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1379-1" tabindex="-1"></a><span class="co"># parentesis</span></span>
+<span id="cb1379-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1379-2" tabindex="-1"></a>txt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;sem parenteses&quot;</span>, <span class="st">&quot;com ()&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1380-1"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1380-1" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;(&quot;</span>, txt) <span class="co"># isso não funciona por parentesis é usado para abrir e fechar funcoes, o R se atrapalha</span></span>
+<span id="cb1380-2"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1380-2" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">(&quot;</span>, txt) <span class="co"># assim funciona</span></span>
+<span id="cb1380-3"><a href="funções-para-manipulação-e-busca-de-textos.html#cb1380-3" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">)&quot;</span>, txt)</span></code></pre></div>
 </div>
 </div>
             </section>
@@ -1155,43 +1156,43 @@ Isso é fundamental se você quer incluir/buscar num texto por aspas, parêntese
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/08-manip_txt_arqs_pasta.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/08-manip_txt_arqs_pasta.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/08-manip_txt_arqs_pasta.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/08-manip_txt_arqs_pasta.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

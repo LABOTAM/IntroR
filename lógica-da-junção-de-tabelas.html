@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.3 Lógica da junção de tabelas | Curso básico de introdução à linguagem R</title>
   <meta name="description" content="Este livro é um guia básico para conhecer a sintaxe básica da linguagem de programação R e o potencial de utilizá-la como ferramenta científica." />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42.1 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.3 Lógica da junção de tabelas | Curso básico de introdução à linguagem R" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -129,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -559,14 +560,14 @@ div.csl-indent {
 <p>É frequente também a necessidade de ter esses dados reunidos em uma só tabela.
 Para unir tabelas, é necessário que duas tabelas diferentes possuam uma coluna em comum, a quem vamos chamar de <strong>identificador</strong>.
 Vamos criar aqui uma situação artificial com os dados <code>iris</code>, mas imagine uma situação mais complexa com muitos dados.</p>
-<div class="sourceCode" id="cb1205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1205-1"><a href="lógica-da-junção-de-tabelas.html#cb1205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uma tabela com os nomes das especies</span></span>
-<span id="cb1205-2"><a href="lógica-da-junção-de-tabelas.html#cb1205-2" aria-hidden="true" tabindex="-1"></a>spp <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">data.frame</span>(</span>
-<span id="cb1205-3"><a href="lógica-da-junção-de-tabelas.html#cb1205-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">GENUS =</span> <span class="st">&quot;Iris&quot;</span>,</span>
-<span id="cb1205-4"><a href="lógica-da-junção-de-tabelas.html#cb1205-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">SPECIES =</span> iris<span class="sc">$</span>Species,</span>
-<span id="cb1205-5"><a href="lógica-da-junção-de-tabelas.html#cb1205-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> F</span>
-<span id="cb1205-6"><a href="lógica-da-junção-de-tabelas.html#cb1205-6" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb1205-7"><a href="lógica-da-junção-de-tabelas.html#cb1205-7" aria-hidden="true" tabindex="-1"></a>spp<span class="sc">$</span>fullname <span class="ot">&lt;-</span> <span class="fu">paste</span>(spp<span class="sc">$</span>GENUS, spp<span class="sc">$</span>SPECIES)</span>
-<span id="cb1205-8"><a href="lógica-da-junção-de-tabelas.html#cb1205-8" aria-hidden="true" tabindex="-1"></a>spp</span></code></pre></div>
+<div class="sourceCode" id="cb1207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1207-1"><a href="lógica-da-junção-de-tabelas.html#cb1207-1" tabindex="-1"></a><span class="co"># uma tabela com os nomes das especies</span></span>
+<span id="cb1207-2"><a href="lógica-da-junção-de-tabelas.html#cb1207-2" tabindex="-1"></a>spp <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">data.frame</span>(</span>
+<span id="cb1207-3"><a href="lógica-da-junção-de-tabelas.html#cb1207-3" tabindex="-1"></a>  <span class="at">GENUS =</span> <span class="st">&quot;Iris&quot;</span>,</span>
+<span id="cb1207-4"><a href="lógica-da-junção-de-tabelas.html#cb1207-4" tabindex="-1"></a>  <span class="at">SPECIES =</span> iris<span class="sc">$</span>Species,</span>
+<span id="cb1207-5"><a href="lógica-da-junção-de-tabelas.html#cb1207-5" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> F</span>
+<span id="cb1207-6"><a href="lógica-da-junção-de-tabelas.html#cb1207-6" tabindex="-1"></a>))</span>
+<span id="cb1207-7"><a href="lógica-da-junção-de-tabelas.html#cb1207-7" tabindex="-1"></a>spp<span class="sc">$</span>fullname <span class="ot">&lt;-</span> <span class="fu">paste</span>(spp<span class="sc">$</span>GENUS, spp<span class="sc">$</span>SPECIES)</span>
+<span id="cb1207-8"><a href="lógica-da-junção-de-tabelas.html#cb1207-8" tabindex="-1"></a>spp</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -629,29 +630,29 @@ Iris virginica
 </tbody>
 </table>
 <p>Vamos adicionar uns dados ao objeto <code>spp</code>.
-Para isso, utilizaremos o pacote <code>taxize</code> <span class="citation">(<a href="#ref-R-taxize" role="doc-biblioref">Chamberlain et al. 2020</a>)</span> para buscar nomes de espécies na rede.
+Para isso, utilizaremos o pacote <code>taxize</code> <span class="citation">(<a href="#ref-R-taxize">Chamberlain et al. 2020</a>)</span> para buscar nomes de espécies na rede.
 Para fazer uso da função <code>tp_search()</code>, é necessário ter uma <a href="https://en.wikipedia.org/wiki/Application_programming_interface_key">chave API</a>, que nada mais é que uma senha para que você possa acessar serviços na rede sem a necessidade de um navegador.
 Nós utilizamos uma chave obtida junto ao <a href="https://www.tropicos.org/">Tropicos.org</a>, base de dados do Jardim Botânico do Missouri (Missouri Botanical Garden).
 O pacote <code>taxize</code> oferece uma função chamada <code>use_tropicos()</code> que abre o navegador na página de solicitação da chave API.
 Você pode executar o comando, preencher o formulário e aguardar por sua chave:</p>
-<div class="sourceCode" id="cb1206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1206-1"><a href="lógica-da-junção-de-tabelas.html#cb1206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_tropicos</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1208-1"><a href="lógica-da-junção-de-tabelas.html#cb1208-1" tabindex="-1"></a><span class="fu">use_tropicos</span>()</span></code></pre></div>
 <p>Para este exemplo, guardamos nossa chave API em um objeto chamado <code>tropicos_key</code> que, por motivos óbvios, não mostraremos aqui o que ele guarda:</p>
-<div class="sourceCode" id="cb1207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1207-1"><a href="lógica-da-junção-de-tabelas.html#cb1207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;taxize&quot;)</span></span>
-<span id="cb1207-2"><a href="lógica-da-junção-de-tabelas.html#cb1207-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;taxize&quot;</span>) <span class="co"># instale se nao tiver</span></span>
-<span id="cb1207-3"><a href="lógica-da-junção-de-tabelas.html#cb1207-3" aria-hidden="true" tabindex="-1"></a>sppinfo <span class="ot">&lt;-</span> <span class="fu">sapply</span>(spp<span class="sc">$</span>fullname, tp_search, <span class="at">key =</span> tropicos_key, <span class="at">type =</span> <span class="st">&quot;exact&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1209-1"><a href="lógica-da-junção-de-tabelas.html#cb1209-1" tabindex="-1"></a><span class="co"># install.packages(&quot;taxize&quot;)</span></span>
+<span id="cb1209-2"><a href="lógica-da-junção-de-tabelas.html#cb1209-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;taxize&quot;</span>) <span class="co"># instale se nao tiver</span></span>
+<span id="cb1209-3"><a href="lógica-da-junção-de-tabelas.html#cb1209-3" tabindex="-1"></a>sppinfo <span class="ot">&lt;-</span> <span class="fu">sapply</span>(spp<span class="sc">$</span>fullname, tp_search, <span class="at">key =</span> tropicos_key, <span class="at">type =</span> <span class="st">&quot;exact&quot;</span>)</span></code></pre></div>
 <p>O resultado de nossa pesquisa foi estocado no objeto <code>sppinfo</code>.
 Vamos pegar as colunas obtidas para todos os nomes:</p>
-<div class="sourceCode" id="cb1208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1208-1"><a href="lógica-da-junção-de-tabelas.html#cb1208-1" aria-hidden="true" tabindex="-1"></a>keys <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">unlist</span>(<span class="fu">lapply</span>(sppinfo, names)))</span>
-<span id="cb1208-2"><a href="lógica-da-junção-de-tabelas.html#cb1208-2" aria-hidden="true" tabindex="-1"></a>keys <span class="ot">&lt;-</span> <span class="fu">names</span>(keys[keys <span class="sc">==</span> <span class="fu">length</span>(sppinfo)])</span>
-<span id="cb1208-3"><a href="lógica-da-junção-de-tabelas.html#cb1208-3" aria-hidden="true" tabindex="-1"></a>keys</span></code></pre></div>
+<div class="sourceCode" id="cb1210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1210-1"><a href="lógica-da-junção-de-tabelas.html#cb1210-1" tabindex="-1"></a>keys <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">unlist</span>(<span class="fu">lapply</span>(sppinfo, names)))</span>
+<span id="cb1210-2"><a href="lógica-da-junção-de-tabelas.html#cb1210-2" tabindex="-1"></a>keys <span class="ot">&lt;-</span> <span class="fu">names</span>(keys[keys <span class="sc">==</span> <span class="fu">length</span>(sppinfo)])</span>
+<span id="cb1210-3"><a href="lógica-da-junção-de-tabelas.html#cb1210-3" tabindex="-1"></a>keys</span></code></pre></div>
 <pre><code>##  [1] &quot;author&quot;                    &quot;displaydate&quot;              
 ##  [3] &quot;displayreference&quot;          &quot;family&quot;                   
 ##  [5] &quot;nameid&quot;                    &quot;nomenclaturestatusname&quot;   
 ##  [7] &quot;rankabbreviation&quot;          &quot;scientificname&quot;           
 ##  [9] &quot;scientificnamewithauthors&quot; &quot;totalrows&quot;</code></pre>
 <p>Juntemos agora tudo em um único <code>data.frame</code>:</p>
-<div class="sourceCode" id="cb1210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1210-1"><a href="lógica-da-junção-de-tabelas.html#cb1210-1" aria-hidden="true" tabindex="-1"></a>sppinfo <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(mapply, <span class="fu">c</span>(<span class="at">FUN =</span> c, <span class="fu">lapply</span>(sppinfo, <span class="st">`</span><span class="at">[</span><span class="st">`</span>, keys))), <span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb1210-2"><a href="lógica-da-junção-de-tabelas.html#cb1210-2" aria-hidden="true" tabindex="-1"></a>sppinfo</span></code></pre></div>
+<div class="sourceCode" id="cb1212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1212-1"><a href="lógica-da-junção-de-tabelas.html#cb1212-1" tabindex="-1"></a>sppinfo <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">do.call</span>(mapply, <span class="fu">c</span>(<span class="at">FUN =</span> c, <span class="fu">lapply</span>(sppinfo, <span class="st">`</span><span class="at">[</span><span class="st">`</span>, keys))), <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb1212-2"><a href="lógica-da-junção-de-tabelas.html#cb1212-2" tabindex="-1"></a>sppinfo</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -833,8 +834,8 @@ Iris virginica L.
 </tbody>
 </table>
 <p>Vamos excluir os nomes ilegítimos:</p>
-<div class="sourceCode" id="cb1211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1211-1"><a href="lógica-da-junção-de-tabelas.html#cb1211-1" aria-hidden="true" tabindex="-1"></a>sppinfo <span class="ot">&lt;-</span> sppinfo[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">&quot;illeg&quot;</span>, sppinfo<span class="sc">$</span>nomenclaturestatusname, <span class="at">ignore.case =</span> T), ]</span>
-<span id="cb1211-2"><a href="lógica-da-junção-de-tabelas.html#cb1211-2" aria-hidden="true" tabindex="-1"></a>sppinfo</span></code></pre></div>
+<div class="sourceCode" id="cb1213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1213-1"><a href="lógica-da-junção-de-tabelas.html#cb1213-1" tabindex="-1"></a>sppinfo <span class="ot">&lt;-</span> sppinfo[<span class="sc">-</span><span class="fu">grep</span>(<span class="st">&quot;illeg&quot;</span>, sppinfo<span class="sc">$</span>nomenclaturestatusname, <span class="at">ignore.case =</span> T), ]</span>
+<span id="cb1213-2"><a href="lógica-da-junção-de-tabelas.html#cb1213-2" tabindex="-1"></a>sppinfo</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -981,13 +982,13 @@ Iris virginica L.
 </tbody>
 </table>
 <p>Vamos agora criar um identificador compartilhado entre as tabelas:</p>
-<div class="sourceCode" id="cb1212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1212-1"><a href="lógica-da-junção-de-tabelas.html#cb1212-1" aria-hidden="true" tabindex="-1"></a>sppinfo<span class="sc">$</span>Species <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;Iris &quot;</span>, <span class="st">&quot;&quot;</span>, sppinfo<span class="sc">$</span>scientificname)</span></code></pre></div>
+<div class="sourceCode" id="cb1214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1214-1"><a href="lógica-da-junção-de-tabelas.html#cb1214-1" tabindex="-1"></a>sppinfo<span class="sc">$</span>Species <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">&quot;Iris &quot;</span>, <span class="st">&quot;&quot;</span>, sppinfo<span class="sc">$</span>scientificname)</span></code></pre></div>
 <p>Vamos bagunçar a ordem dos dados em <code>sppinfo</code> para mostrar como se procede a junção de tabelas:</p>
-<div class="sourceCode" id="cb1213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1213-1"><a href="lógica-da-junção-de-tabelas.html#cb1213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4857</span>)</span>
-<span id="cb1213-2"><a href="lógica-da-junção-de-tabelas.html#cb1213-2" aria-hidden="true" tabindex="-1"></a>sppinfo <span class="ot">&lt;-</span> sppinfo[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), ]</span>
-<span id="cb1213-3"><a href="lógica-da-junção-de-tabelas.html#cb1213-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(sppinfo) <span class="ot">&lt;-</span> sppinfo<span class="sc">$</span>Species</span></code></pre></div>
+<div class="sourceCode" id="cb1215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1215-1"><a href="lógica-da-junção-de-tabelas.html#cb1215-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4857</span>)</span>
+<span id="cb1215-2"><a href="lógica-da-junção-de-tabelas.html#cb1215-2" tabindex="-1"></a>sppinfo <span class="ot">&lt;-</span> sppinfo[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), ]</span>
+<span id="cb1215-3"><a href="lógica-da-junção-de-tabelas.html#cb1215-3" tabindex="-1"></a><span class="fu">rownames</span>(sppinfo) <span class="ot">&lt;-</span> sppinfo<span class="sc">$</span>Species</span></code></pre></div>
 <p>Agora temos dois conjuntos de dados que em comum possuem a coluna <code>Species</code>, mas apresentam linhas diferentes:</p>
-<div class="sourceCode" id="cb1214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1214-1"><a href="lógica-da-junção-de-tabelas.html#cb1214-1" aria-hidden="true" tabindex="-1"></a>sppinfo</span></code></pre></div>
+<div class="sourceCode" id="cb1216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1216-1"><a href="lógica-da-junção-de-tabelas.html#cb1216-1" tabindex="-1"></a>sppinfo</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1145,7 +1146,7 @@ setosa
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1215-1"><a href="lógica-da-junção-de-tabelas.html#cb1215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb1217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1217-1"><a href="lógica-da-junção-de-tabelas.html#cb1217-1" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1277,11 +1278,11 @@ Podemos pensar em duas maneiras de executar esta ação.</p>
 <h3><span class="header-section-number">7.3.1</span> Maneira 1 - função <code>match()</code><a href="lógica-da-junção-de-tabelas.html#juncao-tbl-maneira1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Pegaremos as linhas da tabela <code>sppinfo</code> com correspondência a cada linha da tabela <code>iris</code>.
 Para isso, devemos ter o <strong>índice</strong> da tabela <code>sppinfo</code> segundo o valor da coluna <code>Species</code>, que é o identificador em comum entre as duas tabelas:</p>
-<div class="sourceCode" id="cb1216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1216-1"><a href="lógica-da-junção-de-tabelas.html#cb1216-1" aria-hidden="true" tabindex="-1"></a>idxinfo <span class="ot">&lt;-</span> <span class="fu">match</span>(iris<span class="sc">$</span>Species, sppinfo<span class="sc">$</span>Species)</span></code></pre></div>
+<div class="sourceCode" id="cb1218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1218-1"><a href="lógica-da-junção-de-tabelas.html#cb1218-1" tabindex="-1"></a>idxinfo <span class="ot">&lt;-</span> <span class="fu">match</span>(iris<span class="sc">$</span>Species, sppinfo<span class="sc">$</span>Species)</span></code></pre></div>
 <p>Guardamos esta correspondência no vetor <code>idxinfo</code>, que possui o mesmo comprimento que o número de linhas que <code>iris</code> e contem o número das linhas (os <strong>índices</strong>!) da tabela <code>sppinfo</code>:</p>
-<div class="sourceCode" id="cb1217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1217-1"><a href="lógica-da-junção-de-tabelas.html#cb1217-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assim, seguindo indexacao numerica eu posso pegar informacoes da tabela sppinfo e colocar na tabela iris</span></span>
-<span id="cb1217-2"><a href="lógica-da-junção-de-tabelas.html#cb1217-2" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">$</span>speciesComAutor <span class="ot">&lt;-</span> sppinfo<span class="sc">$</span>scientificnamewithauthors[idxinfo]</span>
-<span id="cb1217-3"><a href="lógica-da-junção-de-tabelas.html#cb1217-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb1219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1219-1"><a href="lógica-da-junção-de-tabelas.html#cb1219-1" tabindex="-1"></a><span class="co"># assim, seguindo indexacao numerica eu posso pegar informacoes da tabela sppinfo e colocar na tabela iris</span></span>
+<span id="cb1219-2"><a href="lógica-da-junção-de-tabelas.html#cb1219-2" tabindex="-1"></a>iris<span class="sc">$</span>speciesComAutor <span class="ot">&lt;-</span> sppinfo<span class="sc">$</span>scientificnamewithauthors[idxinfo]</span>
+<span id="cb1219-3"><a href="lógica-da-junção-de-tabelas.html#cb1219-3" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1429,8 +1430,8 @@ Iris setosa Pall. ex Link
 </tbody>
 </table>
 <p>Agora, vamos unir as duas tabelas:</p>
-<div class="sourceCode" id="cb1218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1218-1"><a href="lógica-da-junção-de-tabelas.html#cb1218-1" aria-hidden="true" tabindex="-1"></a>novoiris <span class="ot">&lt;-</span> <span class="fu">cbind</span>(iris, sppinfo[idxinfo, ])</span>
-<span id="cb1218-2"><a href="lógica-da-junção-de-tabelas.html#cb1218-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(novoiris)</span></code></pre></div>
+<div class="sourceCode" id="cb1220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1220-1"><a href="lógica-da-junção-de-tabelas.html#cb1220-1" tabindex="-1"></a>novoiris <span class="ot">&lt;-</span> <span class="fu">cbind</span>(iris, sppinfo[idxinfo, ])</span>
+<span id="cb1220-2"><a href="lógica-da-junção-de-tabelas.html#cb1220-2" tabindex="-1"></a><span class="fu">head</span>(novoiris)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -1833,10 +1834,10 @@ setosa
 <h3><span class="header-section-number">7.3.2</span> Maneira 2 - índices nominais<a href="lógica-da-junção-de-tabelas.html#maneira-2---índices-nominais" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A tabela <code>sppinfo</code> contem nomes de linhas que correspondem aos valores que estão na coluna <code>iris$Species</code>.
 Portanto, para fazer a mesma coisa que fizemos na <a href="lógica-da-junção-de-tabelas.html#juncao-tbl-maneira1">maneira 1</a>, nós poderíamos simplesmente filtrar através dos nomes das linhas da tabela <code>sppinfo</code>:</p>
-<div class="sourceCode" id="cb1219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1219-1"><a href="lógica-da-junção-de-tabelas.html#cb1219-1" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">$</span>speciesComAutor <span class="ot">&lt;-</span> sppinfo[iris<span class="sc">$</span>Species, ]<span class="sc">$</span>scientificnamewithauthors</span>
-<span id="cb1219-2"><a href="lógica-da-junção-de-tabelas.html#cb1219-2" aria-hidden="true" tabindex="-1"></a><span class="co"># juntando as duas tabelas  completas</span></span>
-<span id="cb1219-3"><a href="lógica-da-junção-de-tabelas.html#cb1219-3" aria-hidden="true" tabindex="-1"></a>novoiris <span class="ot">&lt;-</span> <span class="fu">cbind</span>(iris, sppinfo[iris<span class="sc">$</span>Species, ])</span>
-<span id="cb1219-4"><a href="lógica-da-junção-de-tabelas.html#cb1219-4" aria-hidden="true" tabindex="-1"></a>novoiris</span></code></pre></div>
+<div class="sourceCode" id="cb1221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1221-1"><a href="lógica-da-junção-de-tabelas.html#cb1221-1" tabindex="-1"></a>iris<span class="sc">$</span>speciesComAutor <span class="ot">&lt;-</span> sppinfo[iris<span class="sc">$</span>Species, ]<span class="sc">$</span>scientificnamewithauthors</span>
+<span id="cb1221-2"><a href="lógica-da-junção-de-tabelas.html#cb1221-2" tabindex="-1"></a><span class="co"># juntando as duas tabelas  completas</span></span>
+<span id="cb1221-3"><a href="lógica-da-junção-de-tabelas.html#cb1221-3" tabindex="-1"></a>novoiris <span class="ot">&lt;-</span> <span class="fu">cbind</span>(iris, sppinfo[iris<span class="sc">$</span>Species, ])</span>
+<span id="cb1221-4"><a href="lógica-da-junção-de-tabelas.html#cb1221-4" tabindex="-1"></a>novoiris</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -10301,7 +10302,7 @@ setosa
 </div>
 </div>
 <h3>Referências<a href="referências.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-R-taxize" class="csl-entry">
 Chamberlain, Scott, Eduard Szoecs, Zachary Foster, e Zebulun Arendsee. 2020. <em>taxize: Taxonomic Information from Around the Web</em>. <a href="https://CRAN.R-project.org/package=taxize">https://CRAN.R-project.org/package=taxize</a>.
 </div>
@@ -10326,43 +10327,43 @@ Chamberlain, Scott, Eduard Szoecs, Zachary Foster, e Zebulun Arendsee. 2020. <em
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/07-sumarizacao_dados.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/LABOTAM/IntroR/edit/main/07-sumarizacao_dados.Rmd",
-"text": null
-},
-"download": ["bot89-introR.pdf", "bot89-introR.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-}
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/LABOTAM/LABOTAM.github.io/edit/main/07-sumarizacao_dados.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/LABOTAM/IntroR/edit/main/07-sumarizacao_dados.Rmd",
+    "text": null
+  },
+  "download": ["bot89-introR.pdf", "bot89-introR.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  }
 });
 });
 </script>

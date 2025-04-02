@@ -217,7 +217,7 @@
 <text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='43.21px' lengthAdjust='spacingAndGlyphs'>Petalas</text>
 </g>
 <g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
-<rect x='362.40' y='206.72' width='64.13' height='70.27' style='stroke-width: 0.00;' />
+<rect x='362.40' y='206.72' width='68.40' height='70.27' style='stroke-width: 0.00; fill: #FFFFFF;' />
 <circle cx='371.04' cy='222.27' r='4.05' style='stroke-width: 0.75; fill: #FF0000;' />
 <circle cx='371.04' cy='241.86' r='4.05' style='stroke-width: 0.75; fill: #0000FF;' />
 <circle cx='371.04' cy='261.44' r='4.05' style='stroke-width: 0.75; fill: #00FF00;' />

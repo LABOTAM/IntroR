@@ -217,12 +217,12 @@
 <text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='43.21px' lengthAdjust='spacingAndGlyphs'>Petalas</text>
 </g>
 <g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
-<rect x='395.72' y='228.96' width='78.04' height='57.60' style='stroke-width: 0.75;' />
-<circle cx='406.52' cy='243.36' r='2.70' style='stroke-width: 0.75; fill: #FF0000;' />
-<circle cx='406.52' cy='257.76' r='2.70' style='stroke-width: 0.75; fill: #0000FF;' />
-<circle cx='406.52' cy='272.16' r='2.70' style='stroke-width: 0.75; fill: #00FF00;' />
-<text x='417.32' y='247.73' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='39.31px' lengthAdjust='spacingAndGlyphs'>setosa</text>
-<text x='417.32' y='262.13' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='58.57px' lengthAdjust='spacingAndGlyphs'>versicolor</text>
-<text x='417.32' y='276.53' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='51.02px' lengthAdjust='spacingAndGlyphs'>virginica</text>
+<rect x='388.19' y='228.96' width='85.57' height='57.60' style='stroke-width: 0.75; fill: #FFFFFF;' />
+<circle cx='398.99' cy='243.36' r='2.70' style='stroke-width: 0.75; fill: #FF0000;' />
+<circle cx='398.99' cy='257.76' r='2.70' style='stroke-width: 0.75; fill: #0000FF;' />
+<circle cx='398.99' cy='272.16' r='2.70' style='stroke-width: 0.75; fill: #00FF00;' />
+<text x='409.79' y='247.73' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='39.31px' lengthAdjust='spacingAndGlyphs'>setosa</text>
+<text x='409.79' y='262.13' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='58.57px' lengthAdjust='spacingAndGlyphs'>versicolor</text>
+<text x='409.79' y='276.53' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='51.02px' lengthAdjust='spacingAndGlyphs'>virginica</text>
 </g>
 </svg>

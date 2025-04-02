@@ -40,7 +40,7 @@
 <polygon points='42.77,104.26 140.26,104.26 140.26,42.77 42.77,42.77 ' style='stroke-width: 0.75;' />
 </g>
 <g clip-path='url(#cpNDIuNzd8MTQwLjI2fDQyLjc3fDEwNC4yNg==)'>
-<text x='91.51' y='77.57' text-anchor='middle' style='font-size: 14.74px; font-family: "Liberation Sans";' textLength='96.39px' lengthAdjust='spacingAndGlyphs'>Sepal.Length</text>
+<text x='91.51' y='77.21' text-anchor='middle' style='font-size: 13.43px; font-family: "Liberation Sans";' textLength='87.80px' lengthAdjust='spacingAndGlyphs'>Sepal.Length</text>
 </g>
 <defs>
   <clipPath id='cpNDIuNzd8MTQwLjI2fDExMy43NnwxNzUuMjU='>
@@ -776,7 +776,7 @@
 <polygon points='149.76,175.25 247.25,175.25 247.25,113.76 149.76,113.76 ' style='stroke-width: 0.75;' />
 </g>
 <g clip-path='url(#cpMTQ5Ljc2fDI0Ny4yNXwxMTMuNzZ8MTc1LjI1)'>
-<text x='198.50' y='148.56' text-anchor='middle' style='font-size: 14.74px; font-family: "Liberation Sans";' textLength='88.37px' lengthAdjust='spacingAndGlyphs'>Sepal.Width</text>
+<text x='198.50' y='148.20' text-anchor='middle' style='font-size: 13.43px; font-family: "Liberation Sans";' textLength='80.50px' lengthAdjust='spacingAndGlyphs'>Sepal.Width</text>
 </g>
 <defs>
   <clipPath id='cpMTQ5Ljc2fDI0Ny4yNXwxODQuNzV8MjQ2LjI0'>
@@ -1472,7 +1472,7 @@
 <polygon points='256.75,246.24 354.24,246.24 354.24,184.75 256.75,184.75 ' style='stroke-width: 0.75;' />
 </g>
 <g clip-path='url(#cpMjU2Ljc1fDM1NC4yNHwxODQuNzV8MjQ2LjI0)'>
-<text x='305.50' y='219.56' text-anchor='middle' style='font-size: 14.74px; font-family: "Liberation Sans";' textLength='91.81px' lengthAdjust='spacingAndGlyphs'>Petal.Length</text>
+<text x='305.50' y='219.20' text-anchor='middle' style='font-size: 13.43px; font-family: "Liberation Sans";' textLength='83.64px' lengthAdjust='spacingAndGlyphs'>Petal.Length</text>
 </g>
 <defs>
   <clipPath id='cpMjU2Ljc1fDM1NC4yNHwyNTUuNzR8MzE3LjIz'>
@@ -2216,6 +2216,6 @@
 <polygon points='363.74,317.23 461.23,317.23 461.23,255.74 363.74,255.74 ' style='stroke-width: 0.75;' />
 </g>
 <g clip-path='url(#cpMzYzLjc0fDQ2MS4yM3wyNTUuNzR8MzE3LjIz)'>
-<text x='412.49' y='291.98' text-anchor='middle' style='font-size: 14.74px; font-family: "Liberation Sans";' textLength='83.79px' lengthAdjust='spacingAndGlyphs'>Petal.Width</text>
+<text x='412.49' y='291.49' text-anchor='middle' style='font-size: 13.43px; font-family: "Liberation Sans";' textLength='76.35px' lengthAdjust='spacingAndGlyphs'>Petal.Width</text>
 </g>
 </svg>

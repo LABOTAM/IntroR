@@ -217,9 +217,9 @@
 <text transform='translate(12.96,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Liberation Sans";' textLength='43.21px' lengthAdjust='spacingAndGlyphs'>Petalas</text>
 </g>
 <g clip-path='url(#cpNTkuMDR8NDczLjc2fDU5LjA0fDI4Ni41Ng==)'>
-<rect x='354.25' y='184.61' width='78.04' height='79.20' style='stroke-width: 0.00;' />
-<text x='375.85' y='206.98' style='font-size: 12.00px;fill: #FF0000; font-family: "Liberation Sans";' textLength='39.31px' lengthAdjust='spacingAndGlyphs'>setosa</text>
-<text x='375.85' y='228.58' style='font-size: 12.00px;fill: #0000FF; font-family: "Liberation Sans";' textLength='58.57px' lengthAdjust='spacingAndGlyphs'>versicolor</text>
-<text x='375.85' y='250.18' style='font-size: 12.00px;fill: #00FF00; font-family: "Liberation Sans";' textLength='51.02px' lengthAdjust='spacingAndGlyphs'>virginica</text>
+<rect x='346.72' y='184.61' width='85.57' height='79.20' style='stroke-width: 0.00; fill: #FFFFFF;' />
+<text x='368.32' y='206.98' style='font-size: 12.00px;fill: #FF0000; font-family: "Liberation Sans";' textLength='39.31px' lengthAdjust='spacingAndGlyphs'>setosa</text>
+<text x='368.32' y='228.58' style='font-size: 12.00px;fill: #0000FF; font-family: "Liberation Sans";' textLength='58.57px' lengthAdjust='spacingAndGlyphs'>versicolor</text>
+<text x='368.32' y='250.18' style='font-size: 12.00px;fill: #00FF00; font-family: "Liberation Sans";' textLength='51.02px' lengthAdjust='spacingAndGlyphs'>virginica</text>
 </g>
 </svg>
