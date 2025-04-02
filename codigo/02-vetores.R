@@ -47,7 +47,7 @@ v3 == v4
 #' Tente executar o comando abaixo para ver o que acontece quando utilizamos esses valores em letras minúsculas:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## v5 <- c(true, true, false, false)
+# v5 <- c(true, true, false, false)
 
 #' 
 #' O R retorna a mensagem de erro `Error: object 'true' not found` pois ele procura pelo primeiro objeto de nosso vetor ` c(true, true, false, false)` na área de trabalho e, ao não encontrar, ele retorna esta mensagem de erro, justamente por não compreender `true` como um vetor lógico, e sim como um objeto!
@@ -421,8 +421,8 @@ data2 <- "17/04/2016"
 #' 
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # eu nao posso simplesmente subtrair esses valores
-## data2 - data1
+# # eu nao posso simplesmente subtrair esses valores
+# data2 - data1
 
 #' 
 #' O R retorna uma mensagem de erro (`Error in data2 - data1 : non-numeric argument to binary operator`) porque esses objetos são de classe texto, e operações matemáticas só são permitidas com números ou datas.
@@ -436,9 +436,9 @@ class(data2)
 #' Porém, se convertermos esses objetos para a classe `Date`, então poderemos fazer operações matemáticas com eles:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # mas o R tem um classe para datas
-## # entao fazemos a conversao
-## ?as.Date # veja o help dessa função
+# # mas o R tem um classe para datas
+# # entao fazemos a conversao
+# ?as.Date # veja o help dessa função
 
 #' 
 #' 
@@ -738,8 +738,8 @@ v2
 #' 
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # isso também pode ser feito com na.omit()
-## ?na.omit # veja o help dessa função
+# # isso também pode ser feito com na.omit()
+# ?na.omit # veja o help dessa função
 
 #' 
 #' 

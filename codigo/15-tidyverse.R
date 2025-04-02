@@ -52,7 +52,7 @@ suppressMessages(library("tibble"))
 #' Primeiro vamos carregar o pacote para a sessão de trabalho:
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## library("dplyr")
+# library("dplyr")
 
 #' 
 ## ----dplyrtb, eval = TRUE, echo = FALSE---------------------------------------
@@ -279,7 +279,7 @@ head(
 #' Primeiramente, carreguemos o pacote `magrittr`:
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## library("magrittr")
+# library("magrittr")
 
 #' 
 #' Executando o conjunto de [comandos 1](#com1), temos:
@@ -334,18 +334,18 @@ res2
 #' Suponha que nós queiramos selecionar apenas as colunas `Species` e `Petal.Length` de `iris`. Podemos executar isso de duas maneiras, todas com o mesmo resultado:
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## # podemos representar iris de três maneiras utilizando o operador `%>%`
-## iris %>% select(Species, Petal.Length) # como temos feito ate aqui
-## iris %>% select(., Species, Petal.Length) # explicitamos que `iris` esta dentro de select por meio do `.`
+# # podemos representar iris de três maneiras utilizando o operador `%>%`
+# iris %>% select(Species, Petal.Length) # como temos feito ate aqui
+# iris %>% select(., Species, Petal.Length) # explicitamos que `iris` esta dentro de select por meio do `.`
 
 #' 
 #' Isso pode ficar mais fácil de entender com outro exemplo. Suponha que tenhamos o vetor `meuvetor <- c(1:20)` e queiramos obter o somatório deste vetor. Podemos executar isso de três maneiras utilizando o operador `%>%`:
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## meuvetor <- c(1:20)
-## meuvetor %>% sum(.) # representando o vetor na forma de um `.`
-## meuvetor %>% sum() # deixando a funcao vazia
-## meuvetor %>% sum() # sem parenteses e sem o `.`. O que?????
+# meuvetor <- c(1:20)
+# meuvetor %>% sum(.) # representando o vetor na forma de um `.`
+# meuvetor %>% sum() # deixando a funcao vazia
+# meuvetor %>% sum() # sem parenteses e sem o `.`. O que?????
 
 #' 
 #' Todas as maneiras acima executam e geram o mesmo resultado, `r sum(c(1:20))`. Essa multiplicidade de maneiras de expor o data.frame (ou o vetor no exemplo acima) é alvo de críticas por parte de alguns estudiosos, devido ao pacote `magrittr` não exigir que o argumento seja explícito quando usamos o operador `%>%` (vejam uma boa argumentação nesta postagem de [John Mount](http://www.win-vector.com/blog/2018/03/r-tip-make-arguments-explicit-in-magrittr-dplyr-pipelines/)).
@@ -353,18 +353,18 @@ res2
 #' Vale ressaltar que poderíamos muito bem encadear todas as ações executadas acima sem o operador `%>%`, porém perderíamos a chance de ler o código da esquerda para a direita, oportunidade ofertada pelo uso do operador. Vejamos, usando o conjunto de comandos 2:
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## summarise(
-##   mutate(
-##     filter(
-##       select(iris, Species, Petal.Length, Sepal.Length),
-##       Species == "virginica" & Sepal.Length > 7
-##     ),
-##     razaopetsep = Petal.Length / Sepal.Length
-##   ),
-##   N = n(),
-##   petala_l_media = mean(Petal.Length, na.rm = TRUE),
-##   sepala_l_media = mean(Sepal.Length, na.rm = TRUE)
-## )
+# summarise(
+#   mutate(
+#     filter(
+#       select(iris, Species, Petal.Length, Sepal.Length),
+#       Species == "virginica" & Sepal.Length > 7
+#     ),
+#     razaopetsep = Petal.Length / Sepal.Length
+#   ),
+#   N = n(),
+#   petala_l_media = mean(Petal.Length, na.rm = TRUE),
+#   sepala_l_media = mean(Sepal.Length, na.rm = TRUE)
+# )
 
 #' 
 #' Reparem que o código fica mais difícil de ser lido, pois temos de identificar primeiro quem é o `data.frame` que serve de entrada para a função `summarise`.

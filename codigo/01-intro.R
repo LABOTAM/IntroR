@@ -23,7 +23,7 @@ knitr::include_graphics("figuras/r_padrao.png")
 #' 
 #' Ao abrirem o R ou o RStudio você terão basicamente duas janelas principais:
 #' 
-#' * **Console** - corresponde`a interface que interpreta o código da linguagem. Os códigos digitados aqui serão interpretados pelo R (Texto destacado em **verde** nas figuras \@ref(fig:pad-r), \@ref(fig:studio-r));
+#' * **Console** - corresponde à interface que interpreta o código da linguagem. Os códigos digitados aqui serão interpretados pelo R (Texto destacado em **verde** nas figuras \@ref(fig:pad-r), \@ref(fig:studio-r));
 #' 
 #' * **Script** - digitar um código curto no console é simples, mas quando o código é longo, é importante guardá-lo em algum lugar para executá-lo em qualquer momento. Para isso utilizamos scripts, que são arquivos de textos simples que podem ser salvo (extensão `.R`) numa pasta no seu computador e reutilizado (Texto destacado em **amarelo** nas figuras \@ref(fig:pad-r), \@ref(fig:studio-r)). Como um arquivo `.R` é um texto simples, ele é editável por qualquer editor de texto, como o Bloco de Notas ou [Notepad++](https://notepad-plus-plus.org/) para usuários Windows, [TextWrangler](https://www.barebones.com/products/textwrangler/) ou [BBEdit](https://www.barebones.com/products/textwrangler/) para usuários macOS, ou [gedit](https://help.gnome.org/users/gedit/stable/index.html.pt_BR) para usuários Linux. O editor de scripts do RStudio é excelente.
 #' 
@@ -126,7 +126,7 @@ ls(sorted = FALSE) # ele mostra os objetos na ordem que foram criados
 #' Se você necessitar deste pacote, por exemplo, basta executar o seguinte comando no console do R:
 #' 
 ## ----eval = FALSE, echo = TRUE------------------------------------------------
-## install.packages("ape")
+# install.packages("ape")
 
 #' 
 #' Para trabalhar com pacotes você primeiro precisa definir um repositório, ou seja, um servidor, de vários disponíveis (espelhos do repositório oficial), de onde o R buscará o pacote desejado.
@@ -136,9 +136,9 @@ ls(sorted = FALSE) # ele mostra os objetos na ordem que foram criados
 #' Por exemplo, ao invés de usarmos o menu do R para definir um repositório e instalar um pacote, vamos executar estas ações por meio de um script:
 #' 
 ## ----eval = FALSE, echo = TRUE------------------------------------------------
-## # isso pode não funcionar se estiver no INPA por causa do Proxy.
-## chooseCRANmirror() # seleciona repositório
-## install.packages("ape", dependencies = TRUE) # instala o pacote Ape
+# # isso pode não funcionar se estiver no INPA por causa do Proxy.
+# chooseCRANmirror() # seleciona repositório
+# install.packages("ape", dependencies = TRUE) # instala o pacote Ape
 
 #' 
 #' ## Ajuda no R {#help}
@@ -191,14 +191,14 @@ getwd() # o nome desta função é abreviação de "get working directory" ou se
 #' Ou você pode usar uma função:
 #' 
 ## ----eval = FALSE, echo = TRUE------------------------------------------------
-## ?setwd # veja o help da função que iremos utilizar
-## minhapasta <- "/Users/BetoVicentini/Desktop/bot89-2016"
-## # se estiver usando windows:
-## # minhapasta = "c:/Users/BetoVicentini/Documents/bot89-2016"
-## # minhapasta = "c:\\/Users\\/BetoVicentini\\/Documents\\/bot89-2016"  #talvez precise usar barras invertidas
-## 
-## setwd(dir = minhapasta) # usa a funçao "set working directory" para especificar o diretório (pasta) de trabalho
-## # note que eu defini dir primeiramente como o objeto "minhapasta" usei esse objeto para especificar o objeto "dir", que é o único argumento da função setwd()
+# ?setwd # veja o help da função que iremos utilizar
+# minhapasta <- "/Users/BetoVicentini/Desktop/bot89-2016"
+# # se estiver usando windows:
+# # minhapasta = "c:/Users/BetoVicentini/Documents/bot89-2016"
+# # minhapasta = "c:\\/Users\\/BetoVicentini\\/Documents\\/bot89-2016"  #talvez precise usar barras invertidas
+# 
+# setwd(dir = minhapasta) # usa a funçao "set working directory" para especificar o diretório (pasta) de trabalho
+# # note que eu defini dir primeiramente como o objeto "minhapasta" usei esse objeto para especificar o objeto "dir", que é o único argumento da função setwd()
 
 #' 
 #' Objetos criados no R por você podem ser salvos como um arquivo no seu computador.
@@ -312,7 +312,7 @@ ls() # os objetos foram criados como especificado no script
 #' Você verá que o sinal de `>` voltará a aparecer no console.
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## erro <- c(1, 2, 3
+# erro <- c(1, 2, 3
 
 #' 
 #' Agora, execute o comando abaixo.
@@ -329,7 +329,9 @@ erro <- c(1, 2, 3)
 #' Tentem executar o código abaixo:
 #' 
 ## ----error = TRUE-------------------------------------------------------------
+try({
 numeros <- c(1, 5, 6 7, 8)
+})
 
 #' 
 #' O R dará o aviso `Error: unexpected numeric constant in "numeros <- c(1,5,6 7"` e encerrá a operação.
@@ -370,7 +372,9 @@ obj2 <- "18"
 #' Isso não vai funcionar porque `obj2` não é um número.
 #' 
 ## ----error = TRUE-------------------------------------------------------------
+try({
 obj2 + 1
+})
 
 #' 
 #' Caso você insista em rodar, receberá a seguinte mensagem: `Error in obj2 + 1 : non-numeric argument to binary operator`.
@@ -380,7 +384,9 @@ obj2 + 1
 #' Nomes de objetos não podem ter espaço em branco e aspas são ignoradas:
 #' 
 ## ----error = TRUE-------------------------------------------------------------
+try({
 obj 1 = "meutexto" #nao vai funcionar
+})
 
 #' 
 #' 
@@ -394,7 +400,9 @@ obj1
 #' 
 #' 
 ## ----error = TRUE-------------------------------------------------------------
+try({
 obj"1" = "meu texto" #nao vai funcionar
+})
 
 #' 
 #' 
@@ -436,7 +444,7 @@ str(iris) #veja a estrutura
 #' Agora, vamos obter um sumário estatístico de `iris`:
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## summary(iris) #veja o que é iris
+# summary(iris) #veja o que é iris
 
 #' 
 ## ----eval=TRUE, echo=FALSE----------------------------------------------------
@@ -600,16 +608,16 @@ o1 * o2^(o3 - 1) # =32
 #' Veja o `?` para qualquer uma das funções abaixo e siga os links relacionados para ver todas as possibilidades dessas funções genéricas de uso genérico.
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## ?srqt
-## ?abs
-## ?log
-## ?log10
-## ?sin
-## ?cos
-## ?asin
-## ?ceiling
-## ?floor
-## ?round
+# ?srqt
+# ?abs
+# ?log
+# ?log10
+# ?sin
+# ?cos
+# ?asin
+# ?ceiling
+# ?floor
+# ?round
 
 #' 
 #' Veremos adiante que essas funções e operações matemáticas são aplicáveis à vetores.

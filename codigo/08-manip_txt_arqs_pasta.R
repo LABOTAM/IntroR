@@ -7,7 +7,7 @@
 #' A função `paste()` concatena textos.
 #' 
 ## ----eval = FALSE, echo = TRUE------------------------------------------------
-## ?paste # veja o help dessa funcao
+# ?paste # veja o help dessa funcao
 
 #' 
 #' Vamos criar dois vetores de texto, `txt` e `txt2`, para, em seguida, concatená-los com esta função:
@@ -45,7 +45,7 @@ paste(txt, collapse = " mais ")
 #' A função `strsplit()` quebra um vetor de texto segundo um separador determinado pelo argumento `split`, e retorna uma lista como resultado.
 #' 
 ## ----eval = FALSE, echo = TRUE------------------------------------------------
-## ?strsplit
+# ?strsplit
 
 #' 
 #' 
@@ -435,8 +435,8 @@ grep("[a-z]", vt, value = TRUE)[1:30]
 #' Isso é fundamental se você quer incluir/buscar num texto por aspas, parênteses, colchetes, barras, metacaracteres, etc.
 #' 
 ## ----eval = FALSE, echo = TRUE------------------------------------------------
-## ?Quotes # leia atentamente esse help
-## # criar um texto com aspas
+# ?Quotes # leia atentamente esse help
+# # criar um texto com aspas
 
 #' 
 #' Se você tentar executar o comando abaixo, perceberá que ele não funciona, porque as aspas são utilizadas para abrir e fechar textos.  
@@ -492,41 +492,41 @@ txt <- c("sem parenteses", "com ()")
 #' Não esqueçam de checar o `?` de cada função (e.g., `?dir`) para auxiliar no entendimento do funcionamento de cada uma das funções.  
 #' 
 ## ----eval = FALSE, echo = TRUE------------------------------------------------
-## # meu caminho
-## caminho <- "~/Documents/DOC/PROJETO_DOC/R/pkgs/BOT89-introR/tutorial/"
-## # lista todos os arquivos no caminho que sejam pdfs
-## arqs <- dir(caminho, pattern = ".pdf")
-## 
-## # renomeia os arquivos adicionando a data no final do nome
-## # cria funcao para gerar novos nomes
-## novonome <- function(x) {
-##   # separa as palavras
-##   xx <- strsplit(x, ".pdf")[[1]]
-##   # cola a data
-##   xx1 <- paste(xx, Sys.Date(), sep = "_")
-##   # junta novamente tudo
-##   xx <- paste(xx1, ".pdf", sep = "")
-##   # retorna o novo nome
-##   return(xx)
-## }
-## 
-## # agora copia cada arquivo para uma subpasta em caminho
-## novapasta <- paste(caminho, "/pdfs", sep = "")
-## dir.create(novapasta)
-## 
-## # salva os arquivos com mesmo nome na nova pasta
-## # cria uma funcao para isso
-## salvaarq <- function(arq, origem, destino) {
-##   from <- paste(origem, "/", arq, sep = "")
-##   to <- paste(destino, "/", novonome(arq), sep = "")
-##   file.copy(from, to)
-## }
-## 
-## # aplica a funcao a todos os arquivos
-## sapply(arqs, salvaarq, origem = caminho, destino = novapasta)
-## 
-## # pronto os arquivos devem ter sido copiados
-## dir(novapasta)
+# # meu caminho
+# caminho <- "~/Documents/DOC/PROJETO_DOC/R/pkgs/BOT89-introR/tutorial/"
+# # lista todos os arquivos no caminho que sejam pdfs
+# arqs <- dir(caminho, pattern = ".pdf")
+# 
+# # renomeia os arquivos adicionando a data no final do nome
+# # cria funcao para gerar novos nomes
+# novonome <- function(x) {
+#   # separa as palavras
+#   xx <- strsplit(x, ".pdf")[[1]]
+#   # cola a data
+#   xx1 <- paste(xx, Sys.Date(), sep = "_")
+#   # junta novamente tudo
+#   xx <- paste(xx1, ".pdf", sep = "")
+#   # retorna o novo nome
+#   return(xx)
+# }
+# 
+# # agora copia cada arquivo para uma subpasta em caminho
+# novapasta <- paste(caminho, "/pdfs", sep = "")
+# dir.create(novapasta)
+# 
+# # salva os arquivos com mesmo nome na nova pasta
+# # cria uma funcao para isso
+# salvaarq <- function(arq, origem, destino) {
+#   from <- paste(origem, "/", arq, sep = "")
+#   to <- paste(destino, "/", novonome(arq), sep = "")
+#   file.copy(from, to)
+# }
+# 
+# # aplica a funcao a todos os arquivos
+# sapply(arqs, salvaarq, origem = caminho, destino = novapasta)
+# 
+# # pronto os arquivos devem ter sido copiados
+# dir(novapasta)
 
 #' 
 #' 

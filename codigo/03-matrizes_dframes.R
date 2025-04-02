@@ -21,17 +21,17 @@
 #' Para criar matrizes, a função básica se chama `matrix()`:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # veja o help da função
-## ?matrix
-## 
-## # a função se usa assim: matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
-## # onde:
-## # data = NA #um vetor de comprimento igual ao número de células desejadas que é nrow*ncol.
-## # byrow = FALSE #A forma de preenchimento da planilha pelos dados em data. Se byrow=TRUE, então ele preenche pelas linhas, senão pelas
-## # colunas
-## # nrow = número de linhas
-## # ncol = número de colunas
-## # dimnames = um objeto do tipo lista (que ainda não vimos), com dois vetores, um com os nomes das linhas, outro com os nomes das colunas.
+# # veja o help da função
+# ?matrix
+# 
+# # a função se usa assim: matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
+# # onde:
+# # data = NA #um vetor de comprimento igual ao número de células desejadas que é nrow*ncol.
+# # byrow = FALSE #A forma de preenchimento da planilha pelos dados em data. Se byrow=TRUE, então ele preenche pelas linhas, senão pelas
+# # colunas
+# # nrow = número de linhas
+# # ncol = número de colunas
+# # dimnames = um objeto do tipo lista (que ainda não vimos), com dois vetores, um com os nomes das linhas, outro com os nomes das colunas.
 
 #' 
 #' 
@@ -110,17 +110,17 @@ mmc
 #' Para criar ou converter dados em data.frames, podemos usar as funções `data.frame()` e `as.data.frame()`.
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## ?data.frame # veja o help das funções acima
+# ?data.frame # veja o help das funções acima
 
 #' 
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # a funcao que cria o objeto é
-## data.frame(..., row.names = NULL, check.rows = FALSE, check.names = TRUE, stringsAsFactors = default.stringsAsFactors())
-## 
-## # de todos os argumentos os mais importantes são:
-## # ...  #que pode ser vetores ou tag = vetor (os dados da tabela)
-## # stringsAsFactors #que especifica se queremos os textos como vetores ou fatores
+# # a funcao que cria o objeto é
+# data.frame(..., row.names = NULL, check.rows = FALSE, check.names = TRUE, stringsAsFactors = default.stringsAsFactors())
+# 
+# # de todos os argumentos os mais importantes são:
+# # ...  #que pode ser vetores ou tag = vetor (os dados da tabela)
+# # stringsAsFactors #que especifica se queremos os textos como vetores ou fatores
 
 #' 
 #' 
@@ -170,8 +170,8 @@ str(dz) # converte numeros para numerico e texto para character
 #' Vejam o `?` dessas duas funções:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## ?head
-## ?tail
+# ?head
+# ?tail
 
 #' 
 #' 
@@ -212,7 +212,7 @@ str(dd2) # mostra a estrutura do objeto, quais colunas, classes de colunas e tot
 #' 
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## summary(dd2) # mostra para cada coluna a variação encontrada: estatística descritiva de variáveis numéricas, contagem por categoria de fatores, etc. Veremos isso adiante.
+# summary(dd2) # mostra para cada coluna a variação encontrada: estatística descritiva de variáveis numéricas, contagem por categoria de fatores, etc. Veremos isso adiante.
 
 #' 
 ## ----eval=TRUE, echo=FALSE----------------------------------------------------
@@ -297,7 +297,7 @@ rownames(mm2)[1:2] <- "teste1" # coloque o nome teste1 para as linhas 1 e 2 FUNC
 #' Reparem que um mesmo nome de linha pode ser utilizado em mais de uma linha de uma matriz. Será que isso pode ser feito em um `data.frame`? Vejamos:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## rownames(dd)[1:2] <- "teste1" # nao funciona, porque ele não aceita nomes repetidos de linhas em DATA.FRAMES
+# rownames(dd)[1:2] <- "teste1" # nao funciona, porque ele não aceita nomes repetidos de linhas em DATA.FRAMES
 
 #' 
 #' 
@@ -369,7 +369,7 @@ dd$coluna1 # pego a coluna 1 (note que o nome da coluna vai sem "aspas")
 #' Veja que o uso do operador `$` não funciona em matrizes:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## mm$coluna1 # veja como não funciona para o objeto matrix
+# mm$coluna1 # veja como não funciona para o objeto matrix
 
 #' 
 #' 
@@ -389,8 +389,8 @@ dd # agora tenho uma nova coluna
 #' 
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # ou poderia usar outra forma
-## dd[, "nova2"] <- LETTERS # nao vai funcionar por estou atribuindo um vetor muito mais longo do que tenho linhas
+# # ou poderia usar outra forma
+# dd[, "nova2"] <- LETTERS # nao vai funcionar por estou atribuindo um vetor muito mais longo do que tenho linhas
 
 #' 
 #' 
@@ -411,9 +411,9 @@ dd
 #' Adicionar colunas em uma matriz é um pouco diferente do que se faz com um `data.frame`:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # primeiro nao posso usar $ porque matrix não entende isso
-## class(mm) # é uma matrix
-## mm$colun3 # isso nao funciona
+# # primeiro nao posso usar $ porque matrix não entende isso
+# class(mm) # é uma matrix
+# mm$colun3 # isso nao funciona
 
 #' 
 #' 
@@ -424,8 +424,8 @@ mm[, "coluna3"] # isso funciona
 #' 
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## mm[, 4] # isso nao existe
-## mm[, 4] <- log(mm[, "coluna3"]) # isso não funciona
+# mm[, 4] # isso nao existe
+# mm[, 4] <- log(mm[, "coluna3"]) # isso não funciona
 
 #' 
 #' 
@@ -444,7 +444,7 @@ mm <- cbind(mm, LOGCOLUNA3 = log(mm[, "coluna3"])) # assim eu posso
 #' Aqui vamos estender isso para objetos de classe `matrix` e `data.frame`, porque é através de vetores lógicos ou de matrizes lógicas que podemos filtrar dados de objetos bidimensionais.  
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## ?iris # veja o help do R sobre Edgar Anderson's Iris Data que explica esses dados que vem com o R
+# ?iris # veja o help do R sobre Edgar Anderson's Iris Data que explica esses dados que vem com o R
 
 #' 
 #' 
@@ -524,8 +524,8 @@ sum(is.na(dd2)) # nao tem mais nenhum
 #' * `order()` ordena um vetor e retorna os **índices dos valores ordenados**. É isso que deve ser utilizado para ordenar matrizes e `data.frames`.
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## ?sort
-## ?order
+# ?sort
+# ?order
 
 #' 
 #' 
@@ -533,6 +533,9 @@ sum(is.na(dd2)) # nao tem mais nenhum
 # ordenação
 str(iris)
 
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # funcao SORT()
 o1 <- sort(iris$Sepal.Length) # pega os valores ordenados da coluna comprimento de sépala
 o1 # sao valores de sepalas do menor para o maior
@@ -540,6 +543,9 @@ o1 # sao valores de sepalas do menor para o maior
 o2 <- sort(iris$Sepal.Length, decreasing = T)
 o2 # sao valores de sepalas do maior para o menor
 
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # FUNCAO order()
 # qual o indice dos valores ordenados em ordem crescente?
 o3 <- order(iris$Sepal.Length)
@@ -551,18 +557,30 @@ iris$Sepal.Length[o3] == sort(iris$Sepal.Length) # as comparações para a par s
 # então esta expressão também é verdadeira:
 sum(iris$Sepal.Length[o3] == sort(iris$Sepal.Length)) == nrow(iris)
 
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # portanto a função sort ordena os valores e funcao order mostra apenas os indices dos valores ordenados. Assim, posso usar a funcao order() para ordenar data.frames, matrizes e vetores
 idx <- order(iris$Sepal.Length) # indice das linhas ordenadas segundo o comprimento das sepalas
 # compara com o original:
 sum(iris$Sepal.Length[idx] == iris$Sepal.Length) == nrow(iris) # é FALSO porque em iris as linhas não estão originalmente ordenadas segundo o comprimento.
 
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # vamos mudar isso
 novo.iris <- iris[idx, ] # pego o vetor de indices dos valores ordenados e uso na indexacao para ordenar o objeto original segunda a coluna escolhida
 idx2 <- order(novo.iris$Sepal.Length) # indice das linhas ordenadas segundo o comprimento das sepalas
+
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # note que agora essa expressão é verdadeira, porque o original já está ordenado segundo essa coluna
-sum(novo.iris$Sepal.Length[idx2] == novo.iris$Sepal.Length) == nrow(novo.iris) # é FALSO
+sum(novo.iris$Sepal.Length[idx2] == novo.iris$Sepal.Length) == nrow(novo.iris) # é VERDADEIRO
 
-
+#' 
+#' 
+## -----------------------------------------------------------------------------
 # AGORA ORDENANDO POR MULTIPLAS COLUNAS
 idx <- order(iris$Species, iris$Sepal.Length, decreasing = TRUE) # por especie e por sepala em ordem decrescente
 
@@ -627,7 +645,7 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' 
 #' * Padronize como você dá nome às colunas;  nome de colunas e de linhas não devem ser muito longos, e deve-se **evitar acentos ou espaços em branco em nomes de colunas**. Isso é muito importante!
 #' 
-#' * Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, anto para ler como para salvar arquivos de planilhas.
+#' * Se você usa planilhas, recomendamos usar uma versão de software livre da família LibreOffice/OpenOffice pois eles permitem um maior controle da exportação dos dados, o que inclui controlar o tipo de codificação de caracter dos dados de saída e também separadores das colunas, tanto para ler como para salvar arquivos de planilhas.
 #' 
 #' ### Importando dados {#import-dados}
 #' 
@@ -659,99 +677,99 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' * Salve novamente como `*.csv` - veja como você tem controle na exportação quanto aos elementos acima.
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # se você colocou o arquivo na sua pasta de trabalho, ele deve estar visível por
-## dir(pattern = "csv")
+# # se você colocou o arquivo na sua pasta de trabalho, ele deve estar visível por
+# dir(pattern = "csv")
 
 #' 
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # então posso ler sem precisar especificar o caminho até o arquivo
-## # veja o help da função antes de começar
-## ?read.table
-## # os seguintes argumentos são mais importantes:
-## # sep = " " #o codigo que separa as colunas, o padrão é espaço
-## # quote = "\"'"  #o que define células de texto - o padrão é interpretar tanto aspa simples como dupla presentes
-## # dec = "." #ponto é a casa decimal padrão
-## # header = FALSE #a primeira linha não tem o nome de colunas
-## # as.is = FALSE #o padrão é converter texto em fatores, se usar T não fará isso
-## # na.strings #se definir, pode informar aqui que símbolos em células inteiras que sejam interpretados como valores ausentes (NA)
-## # encoding #codificação da acentuação. o padrão é 'unknown' (desconhecido), na qual ele reconhece segundo o sistema operacional. As opções mais usadas são 'latin1' ou 'utf8' e alterne com isso se você tem problemas com acentos.
+# # então posso ler sem precisar especificar o caminho até o arquivo
+# # veja o help da função antes de começar
+# ?read.table
+# # os seguintes argumentos são mais importantes:
+# # sep = " " #o codigo que separa as colunas, o padrão é espaço
+# # quote = "\"'"  #o que define células de texto - o padrão é interpretar tanto aspa simples como dupla presentes
+# # dec = "." #ponto é a casa decimal padrão
+# # header = FALSE #a primeira linha não tem o nome de colunas
+# # as.is = FALSE #o padrão é converter texto em fatores, se usar T não fará isso
+# # na.strings #se definir, pode informar aqui que símbolos em células inteiras que sejam interpretados como valores ausentes (NA)
+# # encoding #codificação da acentuação. o padrão é 'unknown' (desconhecido), na qual ele reconhece segundo o sistema operacional. As opções mais usadas são 'latin1' ou 'utf8' e alterne com isso se você tem problemas com acentos.
 
 #' 
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # o arquivo original tem os seguintes formatos:
-## # colunas separadas por tabulação (no R isso é definido pela expressão regular "\t")
-## # decimal com ponto
-## # não tem aspas definindo as colunas de texto.
-## # a primeira linha é o nome das colunas.
-## # Então, para ler posso usar:
-## dd <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T)
-## class(dd) # data.frame
-## dim(dd) # dimensão do objeto
-## head(dd) # cabeçalho do data.frame
-## 
-## # veja o que aconteceria se eu achasse que no meu arquivo as colunas são separadas por vírgula
-## dd2 <- read.table(file = "municipiosbrasil.csv", sep = ",", header = T)
-## head(dd2)
-## dim(dd2) # apenas 1 coluna, porque o separador informado não é o mesmo dos dados
-## 
-## # e se o encoding do meu arquivo estiver errado?
-## dd3 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, encoding = "latin1")
-## dd3[5562, ] # veja o que aconteceu com os acentos nessa linha
-## dd[5562, ] # no original o encoding não é "latin1"
-## 
-## # veja a estrutura do objeto correto
-## str(dd)
-## # Poxa, todas as colunas são fatores, mesmo as colunas Latitude e Longitude que são numéricas.
-## # Deve ter algum valor nessas colunas que não são numéricos.
-## # Quais são?
-## vl <- is.na(as.numeric(as.vector(dd$Latitude))) # quais são NA quando eu converto para numérico? Pois esses devem ser valores de texto e não numéricos. Note que converti o fator para vetor antes de converter para numérico. A função is.na pergunta o que é NA, pois os textos que não podem ser convertidos para número serão valores ausentes (NA)
-## sum(vl)
-## dd[vl, ] # essas linhas tem a palavra "NULL" para Latitude e Longitude no arquivo original (volte lá para confirmar), e o R não reconheceu isso como ausente NA. Como vetores devem ser da mesma classe, os números dessas colunas foram codificados como texto e as colunas convertidas a fatores de texto que é o padrão da função read.table()
+# # o arquivo original tem os seguintes formatos:
+# # colunas separadas por tabulação (no R isso é definido pela expressão regular "\t")
+# # decimal com ponto
+# # não tem aspas definindo as colunas de texto.
+# # a primeira linha é o nome das colunas.
+# # Então, para ler posso usar:
+# dd <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T)
+# class(dd) # data.frame
+# dim(dd) # dimensão do objeto
+# head(dd) # cabeçalho do data.frame
+# 
+# # veja o que aconteceria se eu achasse que no meu arquivo as colunas são separadas por vírgula
+# dd2 <- read.table(file = "municipiosbrasil.csv", sep = ",", header = T)
+# head(dd2)
+# dim(dd2) # apenas 1 coluna, porque o separador informado não é o mesmo dos dados
+# 
+# # e se o encoding do meu arquivo estiver errado?
+# dd3 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, encoding = "latin1")
+# dd3[5562, ] # veja o que aconteceu com os acentos nessa linha
+# dd[5562, ] # no original o encoding não é "latin1"
+# 
+# # veja a estrutura do objeto correto
+# str(dd)
+# # Poxa, todas as colunas são fatores, mesmo as colunas Latitude e Longitude que são numéricas.
+# # Deve ter algum valor nessas colunas que não são numéricos.
+# # Quais são?
+# vl <- is.na(as.numeric(as.vector(dd$Latitude))) # quais são NA quando eu converto para numérico? Pois esses devem ser valores de texto e não numéricos. Note que converti o fator para vetor antes de converter para numérico. A função is.na pergunta o que é NA, pois os textos que não podem ser convertidos para número serão valores ausentes (NA)
+# sum(vl)
+# dd[vl, ] # essas linhas tem a palavra "NULL" para Latitude e Longitude no arquivo original (volte lá para confirmar), e o R não reconheceu isso como ausente NA. Como vetores devem ser da mesma classe, os números dessas colunas foram codificados como texto e as colunas convertidas a fatores de texto que é o padrão da função read.table()
 
 #' 
 #' Podemos usar o argumento `na.strings` para corrigir isso durante a importação:  
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## dd4 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ".", na.strings = c("NULL", "NA", ""))
-## # qualquer CELULA INTEIRA que contenha NULL ou NA ou esteja vazia SERÁ INTERPRETADA COMO VALOR AUSENTE e codificada como NA no R.
-## str(dd4)
-## # note que agora as colunas Latitude e Longitude foram interpretadas como número
-## 
-## # mas o que acontece se informamos mal a casa decimal?
-## dd5 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ",", na.strings = c("NULL", "NA", ""))
-## str(dd5)
-## # como tem ponto como definição de casa decimal no arquivo de dados, as colunas numéricas foram novamente interpretadas como texto.
-## 
-## # Texto como vetores ou fatores?
-## dd4 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ".", na.strings = c("NULL", "NA", ""))
-## str(dd4) # todas as colunas de texto neste objeto foram interpretadas como fatores
-## # o argumento as.is permite corrigir isso. "as is" significa "como está" nos dados originais, então valores de texto são lidos como vetores de caracteres não codificados em fatores.
-## dd6 <- read.table(
-##   file = "municipiosbrasil.csv",
-##   sep = "\t",
-##   header = T,
-##   dec = ".",
-##   na.strings = c("NULL", "NA", ""),
-##   as.is = TRUE
-## )
-## str(dd6) # diferentemente do objeto anterior, não há mais fatores
+# dd4 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ".", na.strings = c("NULL", "NA", ""))
+# # qualquer CELULA INTEIRA que contenha NULL ou NA ou esteja vazia SERÁ INTERPRETADA COMO VALOR AUSENTE e codificada como NA no R.
+# str(dd4)
+# # note que agora as colunas Latitude e Longitude foram interpretadas como número
+# 
+# # mas o que acontece se informamos mal a casa decimal?
+# dd5 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ",", na.strings = c("NULL", "NA", ""))
+# str(dd5)
+# # como tem ponto como definição de casa decimal no arquivo de dados, as colunas numéricas foram novamente interpretadas como texto.
+# 
+# # Texto como vetores ou fatores?
+# dd4 <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ".", na.strings = c("NULL", "NA", ""))
+# str(dd4) # todas as colunas de texto neste objeto foram interpretadas como fatores
+# # o argumento as.is permite corrigir isso. "as is" significa "como está" nos dados originais, então valores de texto são lidos como vetores de caracteres não codificados em fatores.
+# dd6 <- read.table(
+#   file = "municipiosbrasil.csv",
+#   sep = "\t",
+#   header = T,
+#   dec = ".",
+#   na.strings = c("NULL", "NA", ""),
+#   as.is = TRUE
+# )
+# str(dd6) # diferentemente do objeto anterior, não há mais fatores
 
 #' 
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # Lembram que colocamos o endereco do arquivo mais acima?
-## # podemos usar um endereco da internet para baixar um arquivo
-## dd7 <-
-##   read.table(
-##     "https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv",
-##     sep = "\t",
-##     header = TRUE
-##   )
-## dd7
-## head(dd7)
-## # a função read.table tem vários outros argumentos. Veja o help e entenda isso bem.
+# # Lembram que colocamos o endereco do arquivo mais acima?
+# # podemos usar um endereco da internet para baixar um arquivo
+# dd7 <-
+#   read.table(
+#     "https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv",
+#     sep = "\t",
+#     header = TRUE
+#   )
+# dd7
+# head(dd7)
+# # a função read.table tem vários outros argumentos. Veja o help e entenda isso bem.
 
 #' 
 #' #### Pacote readr
@@ -762,21 +780,21 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' Os argumentos possuem nomes diferentes do que os utilizados em `read.table()` e, como este, importa arquivos em formato de texto simples (*.csv* , *.txt*).
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # pacote readr
-## # usando como exemplo o mesmo arquivo municipiosbrasil.csv
-## library("readr")
-## rr1 <- read_delim("municipiosbrasil.csv", delim = "\t")
-## rr1
-## dd7
-## dim(rr1)
-## dim(dd7)
+# # pacote readr
+# # usando como exemplo o mesmo arquivo municipiosbrasil.csv
+# library("readr")
+# rr1 <- read_delim("municipiosbrasil.csv", delim = "\t")
+# rr1
+# dd7
+# dim(rr1)
+# dim(dd7)
 
 #' 
 #' Como no pacote `base`, também podemos ler arquivos diretamente da rede:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## rr2 <- read_delim("https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv", delim = "\t")
-## rr2
+# rr2 <- read_delim("https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv", delim = "\t")
+# rr2
 
 #' 
 #' #### Pacote data.table
@@ -791,18 +809,18 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' Como os pacotes citados acima, esta função é capaz de importar arquivos em formato de texto simples (`.csv` , `.txt`).
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # pacote data.table
-## # usando como exemplo o mesmo arquivo municipiosbrasil.csv
-## library("data.table")
-## dt1 <- fread("municipiosbrasil.csv")
-## dt1
+# # pacote data.table
+# # usando como exemplo o mesmo arquivo municipiosbrasil.csv
+# library("data.table")
+# dt1 <- fread("municipiosbrasil.csv")
+# dt1
 
 #' 
 #' Também podemos ler arquivos diretamente da rede, providenciando um endereço que contenha um arquivo de texto simples:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## dt2 <- fread("https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv")
-## dt2
+# dt2 <- fread("https://github.com/LABOTAM/IntroR/blob/main/dados/municipiosbrasil.csv")
+# dt2
 
 #' 
 #' #### Importando do Excel diretamente
@@ -813,23 +831,23 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' Veja o `?` das funções usadas para conhecer parâmetros opcionais para resolver esses possíveis problemas.  
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # instale o pacote
-## library("readxl")
-## 
-## # se o arquivo for xls
-## # Salve o arquivo municipiosbrasil.csv como xlsx ou xls
-## meuxlsx <- "municipiosbrasil.xlsx"
-## dd <- read_excel(path = meuxlsx, sheet = 1)
-## dd
-## dd <- as.data.frame(dd)
-## dd
-## 
-## # se o arquivo for xls
-## meuxls <- "municipiosbrasil.xls"
-## dd <- read_excel(path = meuxls, sheet = 1)
-## dd
-## dd <- as.data.frame(dd)
-## dd
+# # instale o pacote
+# library("readxl")
+# 
+# # se o arquivo for xls
+# # Salve o arquivo municipiosbrasil.csv como xlsx ou xls
+# meuxlsx <- "municipiosbrasil.xlsx"
+# dd <- read_excel(path = meuxlsx, sheet = 1)
+# dd
+# dd <- as.data.frame(dd)
+# dd
+# 
+# # se o arquivo for xls
+# meuxls <- "municipiosbrasil.xls"
+# dd <- read_excel(path = meuxls, sheet = 1)
+# dd
+# dd <- as.data.frame(dd)
+# dd
 
 #' 
 #' ### Exportando dados
@@ -840,44 +858,44 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' Ela funciona para exportar arquivos em formato de texto simples (`.csv`, `.txt`) e usa basicamente os mesmos argumentos da função `read.table()`.  
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## ?write.table # veja o help - recomendo usar essa função genérica e evitar de usar atalhos tipo write.csv, que no fundo usam esta mesma função
+# ?write.table # veja o help - recomendo usar essa função genérica e evitar de usar atalhos tipo write.csv, que no fundo usam esta mesma função
 
 #' 
 #' 
 #' Por se tratar de uma função do pacote `base`, não é necessário recorrer a função `library()` para chamar nenhum pacote, pois a função encontra-se disponível a qualquer momento para ser utilizada no R:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # vamos usar o mesmo arquivo
-## dir(pattern = "csv")
-## # ler o arquivo para o R para ter algo a exportar
-## dd <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ".", na.strings = c("NULL", "NA", ""), as.is = TRUE)
-## str(dd) # diferentemente do objeto anterior, não há mais fatores
-## 
-## # filtrando apenas para municipios do Amazonas:
-## vl <- dd$Province %in% "Amazonas"
-## sum(vl) # quantos são?
-## # ou, desse jeito que é identico:
-## vl <- dd$Province == "Amazonas"
-## sum(vl)
-## dd.am <- dd[vl, ]
-## nrow(dd.am) == sum(vl) # deve ser verdadeiro, certo?
-## 
-## # salvando esses dados num novo arquivo com diferentes formatações:
-## # separado por tabulação e textos sem aspas e células NA sem nada
-## write.table(dd.am, file = "muni-am1.csv", sep = "\t", na = "", quote = FALSE)
-## # separado por tabulação e textos com aspas e células NA sem nada
-## write.table(dd.am, file = "muni-am2.csv", sep = "\t", na = "", quote = TRUE)
-## 
-## # separado por vírgula e textos com aspas e células NA com a palavra valor.ausente
-## write.table(dd.am, file = "muni-am3.csv", sep = ",", na = "valor.ausente", quote = TRUE)
-## 
-## # separado por vírgula e textos com aspas e células NA vazios e não adicona nomes das linhas como primeira coluna (row.names=FALSE). Pode deslocar a primeira linha na sua planilha SE você NAO USAR este argumento)
-## write.table(dd.am, file = "muni-am4.csv", sep = ",", na = "", quote = TRUE, row.names = FALSE)
-## 
-## # separado por tabulação e textos sem aspas e células NA vazias, sem nomes das linhas, e quebra de linha no formato do windows (eol = "\r\n")
-## write.table(dd.am, file = "muni-am5.csv", sep = ",", na = "", quote = TRUE, row.names = FALSE, eol = "\r\n")
-## 
-## # ABRA OS ARQUIVOS GERADOS NO SEU EDITOR DE TEXTO E COMPARE AS FORMATAÇÕES GERADAS
+# # vamos usar o mesmo arquivo
+# dir(pattern = "csv")
+# # ler o arquivo para o R para ter algo a exportar
+# dd <- read.table(file = "municipiosbrasil.csv", sep = "\t", header = T, dec = ".", na.strings = c("NULL", "NA", ""), as.is = TRUE)
+# str(dd) # diferentemente do objeto anterior, não há mais fatores
+# 
+# # filtrando apenas para municipios do Amazonas:
+# vl <- dd$Province %in% "Amazonas"
+# sum(vl) # quantos são?
+# # ou, desse jeito que é identico:
+# vl <- dd$Province == "Amazonas"
+# sum(vl)
+# dd.am <- dd[vl, ]
+# nrow(dd.am) == sum(vl) # deve ser verdadeiro, certo?
+# 
+# # salvando esses dados num novo arquivo com diferentes formatações:
+# # separado por tabulação e textos sem aspas e células NA sem nada
+# write.table(dd.am, file = "muni-am1.csv", sep = "\t", na = "", quote = FALSE)
+# # separado por tabulação e textos com aspas e células NA sem nada
+# write.table(dd.am, file = "muni-am2.csv", sep = "\t", na = "", quote = TRUE)
+# 
+# # separado por vírgula e textos com aspas e células NA com a palavra valor.ausente
+# write.table(dd.am, file = "muni-am3.csv", sep = ",", na = "valor.ausente", quote = TRUE)
+# 
+# # separado por vírgula e textos com aspas e células NA vazios e não adicona nomes das linhas como primeira coluna (row.names=FALSE). Pode deslocar a primeira linha na sua planilha SE você NAO USAR este argumento)
+# write.table(dd.am, file = "muni-am4.csv", sep = ",", na = "", quote = TRUE, row.names = FALSE)
+# 
+# # separado por tabulação e textos sem aspas e células NA vazias, sem nomes das linhas, e quebra de linha no formato do windows (eol = "\r\n")
+# write.table(dd.am, file = "muni-am5.csv", sep = ",", na = "", quote = TRUE, row.names = FALSE, eol = "\r\n")
+# 
+# # ABRA OS ARQUIVOS GERADOS NO SEU EDITOR DE TEXTO E COMPARE AS FORMATAÇÕES GERADAS
 
 #' 
 #' #### Pacote `readr`
@@ -886,10 +904,10 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' Ela exporta `data.frames` em formato de texto simples (`.csv`, `.txt`), utilizando basicamente os mesmos argumentos da função `read_delim()`, pertencente ao mesmo pacote.  
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # exportando dados com pacote readr
-## # utilizando mesmo objeto criado com pacote base
-## write_delim(dd.am, "muni-am6.csv", delim = "\t")
-## write_delim(dd.am, "muni-am7.csv", delim = ";")
+# # exportando dados com pacote readr
+# # utilizando mesmo objeto criado com pacote base
+# write_delim(dd.am, "muni-am6.csv", delim = "\t")
+# write_delim(dd.am, "muni-am7.csv", delim = ";")
 
 #' 
 #' #### Pacote `data.table`
@@ -897,9 +915,9 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' A principal função do pacote `data.table` para exportar `data.frames` em formato de texto simples (`.csv`, `.txt`) se chama `fwrite()` e usa basicamente os mesmos argumentos da função `read_delim()`, pertencente ao pacote `readr`.  
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # exportando dados com pacote data.table
-## # utilizando mesmo objeto criado com pacote base
-## fwrite(dd.am, "muni-am8.csv", sep = "\t")
+# # exportando dados com pacote data.table
+# # utilizando mesmo objeto criado com pacote base
+# fwrite(dd.am, "muni-am8.csv", sep = "\t")
 
 #' 
 #' ### Outras funções úteis
@@ -909,8 +927,8 @@ novo.iris[novo.iris$Species == "virginica", ]$Sepal.Length
 #' Vamos usar o mesmo arquivo `municipiosbrasil.csv` para demonstrar sua utilidade:
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # esta função é muito util para ler linha por linha um arquivo de texto que você quer explorar.
-## dd <- scan(file = "municipiosbrasil.csv", what = "complex", sep = "\n")
+# # esta função é muito util para ler linha por linha um arquivo de texto que você quer explorar.
+# dd <- scan(file = "municipiosbrasil.csv", what = "complex", sep = "\n")
 
 #' 
 ## ----include = FALSE, message = FALSE-----------------------------------------
@@ -927,8 +945,8 @@ dd[1]
 #' 
 #' 
 ## ----echo = TRUE, eval = FALSE------------------------------------------------
-## # usando tabulação
-## dd2 <- scan(file = "municipiosbrasil.csv", what = "complex", sep = "\t")
+# # usando tabulação
+# dd2 <- scan(file = "municipiosbrasil.csv", what = "complex", sep = "\t")
 
 #' 
 #' 

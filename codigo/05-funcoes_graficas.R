@@ -1452,8 +1452,8 @@ trees[ss, ]
 #' O conjunto de dados [alunos2018.txt](http://www.lage.ib.usp.br/notar/files/alunos2018.txt) será utilizado na maioria dos exercícios listados abaixo:
 #' 
 #' * Resolva o exercício [302.02 Histogramas (frequência)](http://notar.ib.usp.br/exercicio/66).
-#' * Resolva o exercício [302.07 Gráficos com trechos selecionados do data.frame/matriz](http://notar.ib.usp.br/exercicio/71).
 #' * Resolva o exercício [302.04 Box-plots](http://notar.ib.usp.br/exercicio/67).
 #' * Resolva o exercício [302.05 Gráficos de dispersão](http://notar.ib.usp.br/exercicio/69).
 #' * Resolva o exercício [302.06 Matriz de dispersão](http://notar.ib.usp.br/exercicio/70).
-#' * Resolva o exercício [Editando parâmetros gráficos](http://notar.ib.usp.br/exercicio/75).
+#' * Resolva o exercício [302.07 Gráficos com trechos selecionados do data.frame/matriz](http://notar.ib.usp.br/exercicio/71).
+#' * Resolva o exercício [105.01 Editando alguns parâmetros gráficos](http://notar.ib.usp.br/exercicio/78).

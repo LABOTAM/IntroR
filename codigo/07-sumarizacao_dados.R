@@ -54,7 +54,7 @@ class(ob1) # obtenho um data frame
 #' 
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## head(ob1)
+# head(ob1)
 
 #' 
 ## ----eval=TRUE, echo=FALSE----------------------------------------------------
@@ -72,7 +72,7 @@ caixeta.alt <- aggregate(caixeta$h, by = list(local = caixeta$local, especie = c
 
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## head(caixeta.alt)
+# head(caixeta.alt)
 
 #' 
 ## ----eval=TRUE, echo=FALSE----------------------------------------------------
@@ -108,8 +108,8 @@ names(caixeta)
 #' 
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## # podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)
-## table(caixeta$especie)
+# # podemos resumir quantos individuos tem de cada espécie (considerando que cada linha é um individuo)
+# table(caixeta$especie)
 
 #' 
 #' 
@@ -131,7 +131,7 @@ tb <- table(caixeta$especie, caixeta$local)
 #' 
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## head(tb, 3) # mostra as tres primeiras linhas
+# head(tb, 3) # mostra as tres primeiras linhas
 
 #' 
 ## ----eval=TRUE, echo=FALSE----------------------------------------------------
@@ -150,7 +150,7 @@ tb[tb > 0] <- 1
 #' 
 #' 
 ## ----eval=FALSE, echo=TRUE----------------------------------------------------
-## head(tb)
+# head(tb)
 
 #' 
 ## ----eval=TRUE, echo=FALSE----------------------------------------------------
@@ -193,7 +193,7 @@ spp
 #' Você pode executar o comando, preencher o formulário e aguardar por sua chave:
 #' 
 ## ----eval = FALSE-------------------------------------------------------------
-## use_tropicos()
+# use_tropicos()
 
 #' 
 #' Para este exemplo, guardamos nossa chave API em um objeto chamado `tropicos_key` que, por motivos óbvios, não mostraremos aqui o que ele guarda:
